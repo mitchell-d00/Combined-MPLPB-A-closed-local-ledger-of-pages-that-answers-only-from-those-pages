@@ -1,0 +1,91 @@
+{
+  "source_commit": "working-yeti-candidate-2",
+  "purpose": "Prior original and consumed-transfer preservation; no new transfer claim",
+  "rows": [
+    {
+      "cohort": "mothman-development",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/cryptid_trial.py",
+        "--registry",
+        "evaluation/cryptid/mothman/development/registry.json",
+        "--implementation",
+        "/workspace/cryptid-local",
+        "--source-commit",
+        "working-yeti-candidate-2",
+        "--output",
+        "evaluation/cryptid/yeti/prior-preservation/candidate-2/mothman-development"
+      ],
+      "returncode": 0,
+      "run_sha256": "680ce73320385f87435ade5eba946012691144913e3d93ab91ccfbf42396292d"
+    },
+    {
+      "cohort": "mothman-first",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/cryptid_replay_packet.py",
+        "--packet",
+        "evaluation/cryptid/mothman/consumed-transfer",
+        "--implementation",
+        "/workspace/cryptid-local",
+        "--source-commit",
+        "working-yeti-candidate-2",
+        "--output",
+        "evaluation/cryptid/yeti/prior-preservation/candidate-2/mothman-first"
+      ],
+      "returncode": 0,
+      "run_sha256": "17677ddab864157f2b0a3323445cddbb8e389e757d3bdf5a24a0880a7b69af9c"
+    },
+    {
+      "cohort": "mothman-fresh",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/cryptid_replay_packet.py",
+        "--packet",
+        "evaluation/cryptid/mothman/fresh/consumed-transfer",
+        "--implementation",
+        "/workspace/cryptid-local",
+        "--source-commit",
+        "working-yeti-candidate-2",
+        "--output",
+        "evaluation/cryptid/yeti/prior-preservation/candidate-2/mothman-fresh"
+      ],
+      "returncode": 0,
+      "run_sha256": "de90b7385c1f4a1715875d43b95e7c61a78f1172051ea3dbc5c00282c7bafc6d"
+    },
+    {
+      "cohort": "jackalope-development",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/cryptid_trial_v2.py",
+        "--registry",
+        "evaluation/cryptid/jackalope/development/registry.json",
+        "--implementation",
+        "/workspace/cryptid-local",
+        "--source-commit",
+        "working-yeti-candidate-2",
+        "--output",
+        "evaluation/cryptid/yeti/prior-preservation/candidate-2/jackalope-development"
+      ],
+      "returncode": 0,
+      "run_sha256": "ff13e81528bcde806353a5c8a42914cfe4c8f884868d503d9d53a6ccb6221e04"
+    },
+    {
+      "cohort": "jackalope-transfer",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/cryptid_replay_packet_v2.py",
+        "--packet",
+        "evaluation/cryptid/jackalope/consumed-transfer",
+        "--implementation",
+        "/workspace/cryptid-local",
+        "--source-commit",
+        "working-yeti-candidate-2",
+        "--output",
+        "evaluation/cryptid/yeti/prior-preservation/candidate-2/jackalope-transfer"
+      ],
+      "returncode": 0,
+      "run_sha256": "b1c3d185b4f2e22e943e3c1bb14ab730f3d896a5e2a666220a42bb32e1ddd69d"
+    }
+  ]
+}

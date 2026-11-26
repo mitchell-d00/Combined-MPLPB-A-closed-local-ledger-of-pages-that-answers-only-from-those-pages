@@ -35,6 +35,14 @@ _DECLARATION = re.compile(rf'(?P<label>{_FIELD}):[ \t]+(?P<value>{_PHRASE})')
 
 
 def parse(question):
+    forms = (rf'What is established and missing in the request, dispatch and reported receipt chain in {_TRIO}\?',
+             rf'For {_TRIO}, trace the checked request, dispatch and reported receipt and identify unresolved links\.')
+    suffix = ' Was the material read and the task completed?'
+    extra = question.endswith(suffix)
+    base = question[:-len(suffix)] if extra else question
+    for form in forms:
+        match = re.fullmatch(form,base,re.I)
+        if match:return 'documentary_partial_chain',tuple(match[n] for n in ('first','second','third')),extra
     for task, forms in (('documentary_chain', _CHAIN_FORMS), ('partial_correction', _CORRECTION_FORMS)):
         for form in forms:
             match = re.fullmatch(form, question, re.I)

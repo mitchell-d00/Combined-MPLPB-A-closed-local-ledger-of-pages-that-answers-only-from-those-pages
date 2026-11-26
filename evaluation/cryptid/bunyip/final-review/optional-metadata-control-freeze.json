@@ -1,0 +1,12 @@
+{
+  "baseline_source": "d0a790b0e331515f55cad8ea70d4c0a8e5e499c7",
+  "failing_original_test": "tests.test_answer_support.AnswerSupportTests.test_imported_heading_does_not_merge_with_answer",
+  "new_contrast": "tests.test_ordinary_questions.OrdinaryQuestionTests.test_missing_title_metadata_cannot_exempt_a_fictional_body_heading",
+  "expectations": "Ordinary body-only record remains usable; missing metadata cannot grant a fictional-heading exemption. These are helper API controls, zero answer-coverage gain.",
+  "files": {
+    "tests/test_answer_support.py": "4c311513d8f8129c2122dcccf7715a3e9322d85e1093e91dde476fcb09b41443",
+    "tests/test_ordinary_questions.py": "28316480fee4b71ea4c0bb744e74246f571cf17b4fc6a50a988fddd303359a0d",
+    "mplpb_answers/documentary_verify.py": "f7fdac203243fe5d0ffbf16a8dfada0b6f0fc3b28abb398b3c554ca372849602"
+  },
+  "frozen_before_native_change": true
+}

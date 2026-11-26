@@ -1,6 +1,8 @@
 # Test Index for humans and AI
 
-Last reviewed: 2026-11-25.
+Last reviewed: 2026-11-26.
+
+[Cryptid local programme](../evaluation/cryptid/README.md): sequential frozen shared-operation studies and retained failures; [current Bunyip report](../evaluation/cryptid/bunyip/README.md) records the current candidate; [earlier review](../evaluation/cryptid/revision3/REVIEW_PACKAGE.md) retains failed all-target acceptance. Current execution state is recorded separately from planned tests.
 
 This is the starting point for running, interpreting, and extending Combined
 MPLPB tests. Use the [test commands](TEST_TOOLS.md) to run a suite, the
@@ -197,3 +199,136 @@ Responsible department: [Testing and Evaluation](departments/testing-evaluation.
 **ST-GUARD:** [15native source-tag controls](../tests/test_source_tags.py), including stale/withdrawn/corrupt/missing sources, role/original containment, eligible conflict, budget stops, source mutation and host-policy withholds. [Schema and limits](../evaluation/source-tags/2026-11-25/SCHEMA.md).
 
 **ONBOARD-12:** [Frozen protocol/materials](../evaluation/onboarding/2026-11-25/README.md) and [null actual results](../evaluation/onboarding/2026-11-25/results.json). Responsible: Testing and Evaluation; protected Applications/Delivery. Software parity and scoring arithmetic tests are separate from12unrun human observations.
+
+
+## Local Cryptid ownership and frozen inputs
+
+All families are owned by Testing and Evaluation; native verification rules belong to Reader, with Ledger eligibility shared. Names are test-family labels and never runtime predicates. Historical and same-operator results remain separate from independent adjudication.
+
+| Family | Protected operation | Frozen development |
+|---|---|---|
+| Mothman | Explicit documentary date roles and original wording | [Registry](../evaluation/cryptid/mothman/development/registry.json) |
+| Jackalope | Whole-question intent, conditions and extra obligations | [Registry](../evaluation/cryptid/jackalope/development/registry.json) |
+| Yeti | Source voice, polarity, conditions and modality | [Registry](../evaluation/cryptid/yeti/development/registry.json) |
+| Sasquatch | Unique local identity declarations, no initials expansion | [Registry](../evaluation/cryptid/sasquatch/development/registry.json) |
+| Chupacabra | Correction scope and separately checked retained fields | [Registry](../evaluation/cryptid/chupacabra/development/registry.json) |
+| Kraken | Exact documentary bridges and checked partials | [Registry](../evaluation/cryptid/kraken/development/registry.json) |
+| Nessie | Verified source boundaries, proposed structure and scoped declarations | [Registry](../evaluation/cryptid/nessie/development/registry.json) |
+| Thunderbird | Fixed caps, visible proof limits and counterevidence | [Registry](../evaluation/cryptid/thunderbird/development/registry.json) |
+
+The [programme inventory](../evaluation/cryptid/programme.json), [rule map](../evaluation/cryptid/shared-rules.json) and append-only run ledgers under `evaluation/cryptid/ledger/` join IDs to source hashes, original PRs, exact candidate/harness/scorer pins, claims, withholding, raw outputs, budgets and custody. Proposal-fault repetitions share reader input pairs and are not independent answer evidence. Mitchell authorized publication in PR #105. Merge remains blocked by the final acceptance failure; source ZIPs and immutable outputs identify each tested revision.
+
+Final integration also retains [the rejected first full-ZIP attempt](../evaluation/cryptid/final/attempt-1/summary.json), [definition-list boundary controls CRYPT-NESSIE-0070–0081](../evaluation/cryptid/nessie/layout-wrap/registry.json), and [the second sealed cross-family protocol](../evaluation/cryptid/final/protocol-2.json). Initial final-transfer failures remain consumed development; they are never reported as fresh after a repair.
+
+## Reporting negation and prospective partial acceptance
+
+[Revision 3](../evaluation/cryptid/revision3/REPORT.md) preserves both failed final packets and their original keys. New reporting controls are CRYPT-YETI-0100–0123 and 0130–0137; cap controls are 0140–0141. CRYPT-JACKALOPE-0100–0111 compare two prospectively frozen acceptance policies on identical reader outputs. The original temporal strict-key failure and embedded-polarity disagreement remain explicit. Reader owns the shared parser; Testing and Evaluation owns the policy comparison.
+
+## Cryptid publication candidate — PR #105
+
+Testing and Evaluation owns [the final review package](../evaluation/cryptid/revision3/REVIEW_PACKAGE.md) and [case index](../evaluation/cryptid/revision3/final3/case-index.json). Reader owns reporting-layer compatibility and literal embedded polarity; Ledger retains current host eligibility. The source commit and full-ZIP checksum remain separate from the following publication/evidence head, whose CI explicitly verifies the submitted SHA.
+
+The once-only final packet is 19/24: five positive misses, zero false-support flags, two explicit budget stops. Original strict-key failures, original exact-comparison failures, all three final attempts, policy disagreements and rejected candidates remain linked. That original all-target semantic acceptance remains failed. Current incremental-release authorization and reader/gate status are recorded in Bunyip below; the earlier score is not relabelled. Human and independent evaluations remain NOT_RUN.
+
+## Bunyip ordinary-language variation — current candidate
+
+[Current protocol, matched baselines, failures and source audits](../evaluation/cryptid/bunyip/README.md).
+IDs `CRYPT-BUNYIP-0001`–`0102` cover seven mechanisms in paragraph/plain renderings.
+Scope/governor/quoted variants use BUNYIPW, BUNYIPG and BUNYIPQ prefixes;
+`CRYPT-BUNYIPH-0001`–`0016` protect display-title versus semantic scope.
+[Shared rules](../evaluation/cryptid/shared-rules.json) map every case to its operation.
+
+C5 development: **154/158 decisions**, primary **56/60 positives** versus16/60
+at PR105, all42 primary withholds, zero false-support flags. Forty recovered
+executions represent20unique primary question strings. Four proof misses remain.
+The16title controls pass after retained C3/C4a failures; C3 was rejected for
+public52regressions. C5 preserves all849contracts exactly; final full1885native and required exact-head CI remain pending.
+
+The first42transfer executions remain **36/42**,22/28positive versus0/28on both
+pinned baselines,14withholds and zero false flags. They are now consumed.
+[Six misses and policy disagreements](../evaluation/cryptid/bunyip/final-review/remaining-misses-and-policy.json)
+retain the original key failure. The24packet now remains20/24with eight positives and twelve withholds; it is consumed. A fresh16packet is sealed before C5 repair and remains unopened until its committed ZIP; same-operator limited composition, not independent
+preparation/blinding. The legacy1000 source-checked v2 policy passes C3 with
+1000complete/exact contracts; its old strict-key failure remains unchanged.
+
+Testing and Evaluation owns the frozen inputs/scoring; Reader owns the shared
+operation, Ledger eligibility, Delivery source archives. Incremental release
+requires audited gains, no lost valid support/new unsupported claims and required
+protected checks. Existing coverage misses alone do not prohibit release.
+Independent historical/semantic/preparation/blinding/outside-custodian/native
+OOCC and human execution remain NOT_RUN.
+
+## Newcomer documentation verification
+
+**NAV-QUICKSTART-0001**: exact README block, fresh environment and released wheel;
+**NAV-CITATIONS-0001**, **NAV-PARTIAL-0001**, **NAV-OWNER-0001**,
+**NAV-CONFLICT-0001**: extended source/citation and outcome checks.
+[Raw outputs, retained host-verifier failures and reproduction](../evaluation/newcomer-navigation/README.md).
+Owner: Delivery and Project Operations; protected Applications/Reader/Ledger.
+The three-area component map cross-links this authoritative inventory.
+Software verification is separate from the unchanged ONBOARD-12 human NOT_RUN.
+
+
+### Optional metadata compatibility controls
+
+`CRYPT-BUNYIPAPI-0001` protects the existing body-only imported-heading API test;
+`CRYPT-BUNYIPAPI-0002` protects conservative fictional-heading handling without
+metadata. [Frozen expectations/source hashes](../evaluation/cryptid/bunyip/final-review/optional-metadata-control-freeze.json).
+C4 full1884had one API error; original two-control baseline errored twice. C5's
+22affected tests pass. These are helper API controls, **zero answer-coverage gain**.
+Reader owns implementation; Testing owns preserved failures. Final full native
+verification is required on the submitted exact head before normal protected merge.
+
+
+### Primary language-generalization measure
+
+Broader ordinary language is the development goal; memory, provenance and admission
+are regression gates. The first two once-only fresh packets recover **11 distinct
+question strings /22paired executions** versus released main where the baseline
+already supports a source-matched canonical question. Versus PR105:14strings/28executions.
+Eight other successful executions versus main require source/proof operation reach
+and are counted separately. Tag, layout, API and infrastructure checks add zero
+to wording gains. [Raw canonical diagnostic and versioned tag assessment](../evaluation/cryptid/bunyip/final-review/wording-diagnostic-first-two.json).
+The78canonical executions are post-run mechanism diagnostics, not extra recovered
+questions or independent transfer. All original scores/misses remain unchanged.
+
+
+### Bunyip D% / Dice Bag / D20 extension
+
+[Current paired-question study](../evaluation/cryptid/bunyip/dpercent/README.md)
+uses the unchanged D% worker/runner, Dice Bag custody/replay, and D20 matched
+unique/competing/missing/retired conditions. Stable IDs CRYPT-BUNYIP-DP-D0001…
+are mapped to source hashes, original questions, keys and raw outputs in the
+sealed development packet and candidate source audit. Development positives
+4/32(main)→12/32(C5)→32/32(C6);108/108 controls withheld throughout. C6 adds
+10 unique original question strings/20 executions over C5; no lost support,
+unsupported additions or bad citations. Fresh packet is sealed until candidate
+freeze; custody is same-operator, separately written structures, not independence.
+Primary owner Testing and Evaluation; protected Reader and Ledger.
+
+### Bunyip BB — Ben Gelhaus external adversarial benchmark
+
+[Unchanged external package and matched regression](../evaluation/cryptid/bunyip/bb/README.md):
+150 canonical +750 paraphrase positives,200 negative controls. Released main
+and current candidate each preserve900 correct answers/900 checked eligible
+citations and200withholds. Ben authored benchmark/analysis; Mitchell authored
+MPLPB. Published consumed regression, not unseen transfer; never pooled with
+generated Bunyip results. Contract failure, coverage gap and feature request
+are classified against the exact tested revision without changing expectations.
+
+
+Bunyip D%fresh completion: [108 retained once-only executions](../evaluation/cryptid/bunyip/dpercent/fresh-summary.json),
+14/24positives versus8/24C5,84withholds,ten misses. Three newly answerable
+original ordinary question strings/six repeated executions/fourunique source-question
+inputs;69unique public inputs in108memberships. Zero unsupported additions,
+lost valid support or citation failures. Canonical/revealed diagnostics are separate.
+Full-head protected software verification is required before merge.
+
+
+**CRYPT-CI-OUTPUT-0001** ([retained execution evidence](../evaluation/cryptid/bunyip/ci-output-repair.json))
+protects prospective scoring output collection. First CIattempt timed out before
+1000workers;second completed all1000but could not write its score into a root-owned
+copy. Unchanged v2on those exact outputs passes1000contracts/65source checks.
+Workflow repair writes only the new score to runner-owned temp; raw files remain
+unchanged. Owner Delivery and Project Operations;zero answer-coverage gain.
+Required exact-head gates rerun before merge; original strict-key failure retained.

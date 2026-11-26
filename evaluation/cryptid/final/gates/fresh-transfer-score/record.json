@@ -1,0 +1,25 @@
+{
+  "schema": "cryptid-integration-gate-v1",
+  "name": "fresh-transfer-score",
+  "command": [
+    "/workspace/cryptid-gates-venv/bin/python",
+    "tools/cryptid_claim_score_v5.py",
+    "--registry",
+    "/workspace/cryptid-local/evaluation/cryptid/final/fresh2/consumed-transfer/registry.json",
+    "--key",
+    "/workspace/cryptid-local/evaluation/cryptid/final/fresh2/consumed-transfer/key.json",
+    "--run",
+    "/workspace/cryptid-final-gates/candidate-2/fresh-transfer",
+    "--output",
+    "/workspace/cryptid-final-gates/candidate-2/fresh-transfer-score.json"
+  ],
+  "cwd": "/dev/shm/cryptid-final-candidate-2",
+  "timeout_seconds": 120,
+  "started_utc": "2026-11-26T00:00:51.129897+00:00",
+  "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+  "status": "PASS",
+  "returncode": 0,
+  "error": null,
+  "wall_seconds": 0.1940005849901354,
+  "raw_log_sha256": "d0cbbc5eba3655424487a3ad47602c4511278408456384387ec596f28117a9bb"
+}

@@ -1,6 +1,10 @@
 # Results and their tests
 
-Last reviewed: 2026-11-25.
+Last reviewed: 2026-11-26.
+
+[Local reporting-negation revision](../evaluation/cryptid/revision3/REPORT.md): 32 development decisions improve 18→32, with two unsupported completion flags removed. The prospective partial-policy comparison is 11/12 on unchanged native outputs; one passive wording miss remains. Original final-packet failures and the 276/280 exact comparison failure remain retained. Candidate archive gates and fresh transfer are pending at this source freeze.
+
+[Cryptid local programme](../evaluation/cryptid/README.md): sequential frozen shared-operation studies, retained failures and local-only review package. Current execution state is recorded separately from planned tests.
 
 [Source-linked proposals and delivery](../evaluation/source-tags/2026-11-25/README.md) pass72/72development and24/24once-only same-operator proposal decisions, with0wrong assignments and **0recovered answers**. All280earlier contracts remain unchanged. A wrong-source browser failure is retained and corrected in the delivery ZIP;15software commands,58focused checks,WASM and actualChromium source-dialog checks pass. Native engine source2af8ba8ran1,834tests; delivery source065840d has identical native bytes. Exact publicationCI/merge/live verification pending. [Seven departments](departments/README.md) preserve existing paths. [Human onboarding](../evaluation/onboarding/2026-11-25/README.md) is prepared, **NOT_RUN**.
 
@@ -296,3 +300,12 @@ The [D% class-fix comparison](../evaluation/dpercent/2026-11-19-class-rules/FINA
 The first publication CI [bounded replay](../evaluation/bubble-wrap/2026-11-25/bounded-transition/README.md) retained580refusals and189old completions but flagged21new expected positives as unscored. All21complete source-role/citation readbacks pass. A versioned acceptance extension leaves original labels/scorer/failure intact; its exact-head full replay passed before merge. No reader edit followed that fresh transfer.
 
 [Source-linked proposals](../evaluation/source-tags/2026-11-25/README.md) are the next opt-in experiment:72already-supported raw development questions,zero answer recovery,15additional source-state/budget guards. Committed ZIP and fresh24transfer remain pending at this source snapshot. [Onboarding materials](../evaluation/onboarding/2026-11-25/README.md) are frozen and software-checked; twelve real users have NOT_RUN. [Seven departments](departments/README.md) organize existing paths without implementation moves.
+
+[Newcomer navigation](../evaluation/newcomer-navigation/README.md) retains the exact released-wheel quick start, citation/partial/ownership/ambiguity checks and two host-verifier failures. Human onboarding remains NOT_RUN. The [component map](COMPONENT_MAP.md) links the three entry areas and seven departments to the authoritative Test Index.
+
+
+[Bunyip original-question extension](../evaluation/cryptid/bunyip/dpercent/README.md)
+reuses D%, Dice Bag and D20; [Bunyip BB](../evaluation/cryptid/bunyip/bb/README.md)
+retains Ben Gelhaus’s separate external900positive/200negative benchmark.
+Source-checked wording gains, misses and preservation remain separate from tags,
+layout, infrastructure and exact-version contract classifications.

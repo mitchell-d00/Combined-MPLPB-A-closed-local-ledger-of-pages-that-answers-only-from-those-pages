@@ -1,0 +1,729 @@
+{
+  "archive": "c3-software-and-legacy.tar.xz",
+  "sha256": "6c760b78484cf0255d416b9e187b95baaa426b80303d182c4fc2e5ae7e3ac166",
+  "bytes": 4745688,
+  "source_commit": "bfb469e6444c5194e57fb1c18c76af9f17a0e630",
+  "source_zip_sha256": "463f34e2ce7867ca1aa07c17118a5b722f580ea54e9bc2c5593a5f3f443f4790",
+  "software_gate_records": [
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "handoff",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "tools/build_handoff.py",
+        "--check"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 300,
+      "started_utc": "2026-11-26T05:22:23.227093+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 23.925030993996188,
+      "raw_log_sha256": "158bfb5f6fbb5a5f3af62fb5179813d0ae5547173f943ff84c76602b4d19e2f0"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "required-isolation",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_study_sandbox",
+        "-v"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 300,
+      "started_utc": "2026-11-26T05:22:19.028328+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 4.1352814419951756,
+      "raw_log_sha256": "f1ce80a89ecc2101a0c6c9b925bb016f473f64824376fd2876783bacfa1bdbfd"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "chromium-offline-layout",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "-m",
+        "tools.browser_audit_20261021",
+        "--preview-dir",
+        "dist",
+        "--output",
+        "/dev/shm/bunyip-final-gates/browser-audit"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 900,
+      "started_utc": "2026-11-26T05:17:49.423912+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 55.8295058250078,
+      "raw_log_sha256": "78c43f5ab32b12c30a7ba1c2eff7ff43ef45bc0eed31a7f151c43c87b27b0a9f"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "chromium-free-helper",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "-m",
+        "tools.browser_free_helper",
+        "--preview-dir",
+        "dist",
+        "--browser-executable",
+        "/usr/bin/chromium",
+        "--output",
+        "/dev/shm/bunyip-final-gates/free-helper.json"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 600,
+      "started_utc": "2026-11-26T05:16:20.473312+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 88.86290374500095,
+      "raw_log_sha256": "ad7de6e87ade94399e518b03ea7dfbf521277bd3af4666f27b66bcd2f1005799"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "chromium-collection-policies",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "-m",
+        "tools.browser_collection_policies",
+        "--preview-dir",
+        "dist",
+        "--browser-executable",
+        "/usr/bin/chromium",
+        "--output",
+        "/dev/shm/bunyip-final-gates/collection-policies.json"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 600,
+      "started_utc": "2026-11-26T05:15:40.239294+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 40.178622061008355,
+      "raw_log_sha256": "5882d5140331829f73b6192cb1c1db4e68626819a4d8b7cb15d5d06e279d3e6c"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "chromium-live-and-candidate",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "tools/browser_release_smoke.py",
+        "--live-url",
+        "https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/",
+        "--preview-dir",
+        "dist",
+        "--npc-report",
+        "/dev/shm/bunyip-final-gates/npc-browser.json"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 900,
+      "started_utc": "2026-11-26T05:14:13.347761+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 86.82365207099065,
+      "raw_log_sha256": "f14bb8843a501b4ce86e51650afa0bf566479abc8675fd77bae5ed7a33681e34"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "installed-ordinary-question",
+      "command": [
+        "/dev/shm/bunyip-final-gates/installed/bin/python",
+        "-I",
+        "-c",
+        "from pathlib import Path;import tempfile,json;from mplpb_combined.ledger import write;from mplpb_combined.reader import PROFILES;from mplpb_answers.pipeline import answer_query;\nwith tempfile.TemporaryDirectory() as t:\n r=Path(t);write(r,doc_id='PAGE-1',title='Source',scope='documentary evidence',origin='machine',external='yes',body_html='<p>Cloud Finch Workshop is owned by Lira Snow.</p>');a=answer_query(r,'Who does Cloud Finch Workshop belong to?',PROFILES['internal']).contract;assert a['answer_supported'];assert a['claims'][0]['citations'][0]['quote']=='Cloud Finch Workshop is owned by Lira Snow.';print(json.dumps(a))"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 120,
+      "started_utc": "2026-11-26T05:12:34.667751+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 0.28642347898858134,
+      "raw_log_sha256": "d0b70df6c198633531e58e29fee0675acf11b2dd667e0bae680b1e5fd31375be"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "installed-workspace",
+      "command": [
+        "/dev/shm/bunyip-final-gates/installed/bin/python",
+        "-I",
+        "/dev/shm/bunyip-candidate-bfb469e6/tools/check_candidate_workspace_install.py",
+        "--output",
+        "/dev/shm/bunyip-final-gates/installed-workspace.json"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 120,
+      "started_utc": "2026-11-26T05:12:34.074247+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 0.4984578769945074,
+      "raw_log_sha256": "fa3073a555b08758580014c00055bb16ebf65cb88fb1f7d539fd722ca93b84a6"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "wheel-install",
+      "command": [
+        "/dev/shm/bunyip-final-gates/installed/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "/dev/shm/bunyip-final-gates/wheels/combined_mplpb-2.1.0rc1-py3-none-any.whl"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 120,
+      "started_utc": "2026-11-26T05:12:32.282915+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 1.5899332849949133,
+      "raw_log_sha256": "330262c6def395b0c0fdcff3e3a439961cafca4dcd88a66cd622a5d5210c7451"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "wheel-clean-venv",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "-m",
+        "venv",
+        "/dev/shm/bunyip-final-gates/installed"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 120,
+      "started_utc": "2026-11-26T05:12:27.101758+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 4.905377759001567,
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "wheel-build-2",
+      "command": [
+        "/dev/shm/bunyip-build-env/bin/python",
+        "-m",
+        "pip",
+        "wheel",
+        "--no-deps",
+        "--no-build-isolation",
+        "--wheel-dir",
+        "/dev/shm/bunyip-final-gates/wheels",
+        "/dev/shm/bunyip-candidate-bfb469e6"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 300,
+      "started_utc": "2026-11-26T05:12:23.996758+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 2.95833935799601,
+      "raw_log_sha256": "c10a1078e0212719ad4c20669702ffb86f2e8e7c6ab39caec6241303ba1b1248"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "human-score-software",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_onboarding_scoring",
+        "-q"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 450,
+      "started_utc": "2026-11-26T05:11:57.759073+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 0.16984517300443258,
+      "raw_log_sha256": "750cb16159f0715ae02e02448ca588d968c4b528e2b0c454e001be66d1ed0595"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "human-materials-audit",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "tools/audit_onboarding_pilot.py"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 450,
+      "started_utc": "2026-11-26T05:11:57.620631+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 0.06753087500692345,
+      "raw_log_sha256": "dda91ef93441a1348b0513afa50bbb24999bcd3eac4b03de6f43871422fe64db"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "official-mcp",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "tools/check_mcp_client.py",
+        "--output",
+        "/dev/shm/bunyip-final-gates/mcp-client.json"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 450,
+      "started_utc": "2026-11-26T05:11:53.427065+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 4.129660134000005,
+      "raw_log_sha256": "363e1d5d7d93cb2ef54abde7c39bac3e4467d3678ca2309724162483a88e22bb"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "synthetic-researcher-native",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "-m",
+        "tools.evaluate_researcher_pilot",
+        "--output",
+        "/dev/shm/bunyip-final-gates/npc-native.json"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 450,
+      "started_utc": "2026-11-26T05:11:30.165427+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 23.166122005000943,
+      "raw_log_sha256": "27b31e65a54b5bea1525e55aa4c519345f31717408f0846cdf2f1de5cfa07868"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "reference-corpus-build",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "-m",
+        "tools.build_reference_corpus",
+        "--output",
+        "/dev/shm/bunyip-final-gates/reference-corpus/release"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 450,
+      "started_utc": "2026-11-26T05:10:25.202949+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 64.80129208300787,
+      "raw_log_sha256": "b5b1554c9876a49c7ade6c1ad278d2c1578ceb0732741a9a84e3d59ec5c88b13"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "wheel-build",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "-m",
+        "pip",
+        "wheel",
+        "--no-deps",
+        "--no-build-isolation",
+        "--wheel-dir",
+        "/dev/shm/bunyip-final-gates/wheels",
+        "/dev/shm/bunyip-candidate-bfb469e6"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 300,
+      "started_utc": "2026-11-26T05:10:02.218251+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "FAIL",
+      "returncode": 2,
+      "error": null,
+      "wall_seconds": 4.189786399001605,
+      "raw_log_sha256": "2080e1bfcf28fcfe36b4240d565482c6df64350b9e63f4566a26bccf89aad2e9"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "bridge-help",
+      "command": [
+        "node",
+        "tools/mplpb_agent_bridge.mjs",
+        "--help"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 300,
+      "started_utc": "2026-11-26T05:09:25.917262+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 0.2843779280083254,
+      "raw_log_sha256": "cb8caa7ac142c9f8d94b625b16e47603d966bfdb17b1fe37598aa9a71f213e77"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "bridge-syntax",
+      "command": [
+        "node",
+        "--check",
+        "tools/mplpb_agent_bridge.mjs"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 300,
+      "started_utc": "2026-11-26T05:09:25.664130+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 0.08691335300682113,
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "crawler-historical",
+      "command": [
+        "node",
+        "crawler/test_historical.mjs"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 300,
+      "started_utc": "2026-11-26T05:09:25.397703+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 0.2062413740059128,
+      "raw_log_sha256": "bffdfba261150221311eee0209b25aa7b2ffe80c9f221eea96d71aeb10f86c05"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "crawler-worker",
+      "command": [
+        "node",
+        "crawler/test_worker.mjs"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 300,
+      "started_utc": "2026-11-26T05:09:24.959088+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 0.3656658959953347,
+      "raw_log_sha256": "fc1a38f0e824cdaa186dede6ae2c87035cb7e65875a6678e8254918f2544cd03"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "browser-webgpu-limits",
+      "command": [
+        "node",
+        "tests/browser-webgpu-limits.cjs"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 300,
+      "started_utc": "2026-11-26T05:09:23.337757+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 1.4792098089965293,
+      "raw_log_sha256": "e04e3449c5a70d17ba2ce77993ea260323ccbef35d46422b52a1f79f5778c368"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "actual-wasm",
+      "command": [
+        "node",
+        "tools/check_browser_wasm.mjs",
+        "/dev/shm/bunyip-final-pyodide/pyodide",
+        "dist/index.html"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 900,
+      "started_utc": "2026-11-26T05:09:18.627779+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 294.6307784179953,
+      "raw_log_sha256": "ef1c599b18a9c016dd6afdbb03167338ebee4e392934b9706302973fe4ab979e"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "browser-model-loader",
+      "command": [
+        "node",
+        "tests/browser-model-loader.cjs"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 300,
+      "started_utc": "2026-11-26T05:09:18.517245+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 4.638732557010371,
+      "raw_log_sha256": "4ee7c946bdac96133874bc15da2888153ebb6b569deb8304920dadabdee5fc7e"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "browser-ai-helper",
+      "command": [
+        "node",
+        "tests/browser-ai-helper.cjs"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 300,
+      "started_utc": "2026-11-26T05:09:16.701307+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 1.7225909999979194,
+      "raw_log_sha256": "1d016bf9f5cee06be17f331795dba3f8acdfcd7752d225ad36dc5c1a7a11d069"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "wasm-core-extract",
+      "command": [
+        "tar",
+        "-xjf",
+        "/workspace/pyodide-core.tar.bz2",
+        "-C",
+        "/dev/shm/bunyip-final-pyodide"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 300,
+      "started_utc": "2026-11-26T05:09:16.627977+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 1.8508104889915558,
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "documentary-render",
+      "command": [
+        "node",
+        "tests/documentary-render.cjs"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 300,
+      "started_utc": "2026-11-26T05:09:16.473315+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 0.13062324300699402,
+      "raw_log_sha256": "a319fed3f91cf6e8b267809a36d6ccb631be2d01a8d5ded04e9f3f7836db1b67"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "reference-evidence",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "-m",
+        "tools.verify_reference_evidence"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 450,
+      "started_utc": "2026-11-26T05:09:12.981780+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 72.09750656200049,
+      "raw_log_sha256": "0303a2c00a62b3e53aa3e6a8c59f7369842cf861fd8071998eb495d51ba2af3a"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "cryptid-index",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "tools/audit_cryptid_v5.py"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 450,
+      "started_utc": "2026-11-26T05:09:11.408119+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 1.4599208080035169,
+      "raw_log_sha256": "1efa4edc199c1b8233e86bea15d086392d763bde0b091a457c562aca2fa5b56e"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "departments",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "tools/audit_departments.py"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 450,
+      "started_utc": "2026-11-26T05:09:09.677606+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 1.6387397729995428,
+      "raw_log_sha256": "ab8df1273f2613efc1aa9278b9cb6584dff8e56a4d7086a35d421f8aaf3c4e45"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "javascript-api",
+      "command": [
+        "node",
+        "tests/javascript-api.cjs"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 300,
+      "started_utc": "2026-11-26T05:09:09.185544+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 7.123306869005319,
+      "raw_log_sha256": "2ec7e959ed7d461981bbbc39199b9497fe1e251b0910b95729e2240408e92539"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "browser-transport",
+      "command": [
+        "node",
+        "tools/check_browser_transport.cjs"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 300,
+      "started_utc": "2026-11-26T05:09:08.925568+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 0.186771990993293,
+      "raw_log_sha256": "91201614b643cc7a6851222c4f1e5684e34505c019a26e85a0afc8f3407b6343"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "documentation",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "-m",
+        "tools.audit_documentation"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 450,
+      "started_utc": "2026-11-26T05:09:07.579628+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 1.9789501000050223,
+      "raw_log_sha256": "4d1483a504d748c06c2eba1a5b18143efd932aa3b82868fc11eb3414882a0851"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "infrastructure",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "tools/check_repository_infrastructure.py"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 450,
+      "started_utc": "2026-11-26T05:09:06.985409+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 0.5174954960093601,
+      "raw_log_sha256": "d6f35d84aebfb4332d37b7cf4dae46288cd3cd1effa68d3057cf875dbbebd13a"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "ui-script",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "tools/check_ui_script.py"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 300,
+      "started_utc": "2026-11-26T05:09:06.984598+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 1.875422814002377,
+      "raw_log_sha256": "b8ecae0fe71214558bf3cf6ed1c280a32e09111b810ea76d49b89ef97ae72772"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "full-native",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-q"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 1800,
+      "started_utc": "2026-11-26T05:09:06.966277+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "FAIL",
+      "returncode": 1,
+      "error": null,
+      "wall_seconds": 791.9930903320055,
+      "raw_log_sha256": "e4898d922be8363974a85ff7c0363e94aef9da8766a090bc18924ca21446f1ef"
+    },
+    {
+      "schema": "cryptid-integration-gate-v1",
+      "name": "wasm-build",
+      "command": [
+        "/workspace/cryptid-gates-venv/bin/python",
+        "tools/build_browser_runtime.py",
+        "--core-archive",
+        "/workspace/pyodide-core.tar.bz2",
+        "--output",
+        "dist/index.html"
+      ],
+      "cwd": "/dev/shm/bunyip-candidate-bfb469e6",
+      "timeout_seconds": 450,
+      "started_utc": "2026-11-26T05:09:06.958319+00:00",
+      "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+      "status": "PASS",
+      "returncode": 0,
+      "error": null,
+      "wall_seconds": 9.54421000900038,
+      "raw_log_sha256": "88108cb20f40e21e2eeb6ec6c484e5816ea6001b48b5f7908de30f9203b19118"
+    }
+  ],
+  "native_failure": "1882 tests, one failed test; two public outcomes lost; C3 rejected",
+  "legacy_retry": "1000complete,1000contracts exact,source-checked-v2PASS; originalstrictkeyFAILunchanged",
+  "first_legacy_attempt": "retained-runs-2.tar.xz:390complete610diskexecutionfailures; sourceoutcomesNOT_RUN on failed workers",
+  "excluded_reproducible_dependencies": [
+    "installed virtualenv (wheel and integration outputs retained)",
+    "built reference corpus duplicate (build and evidence records retained)"
+  ],
+  "independent_historical_semantic": "NOT_RUN"
+}

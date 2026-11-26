@@ -1,0 +1,703 @@
+{
+  "schema": "cryptid-run-v1",
+  "reader_commit": "working-candidate-3",
+  "reader_files": {
+    "mplpb_answers/__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "mplpb_answers/__main__.py": "66e6c37f34cb95168466a82ec37e9384fc846c96db7cadcca51f2283e1e8cbc1",
+    "mplpb_answers/advanced.py": "bc56efcaa8135a6647afd8c5957917979c170c504b9e22913b600aa95096997d",
+    "mplpb_answers/assertions.py": "79de36e6b3e9b47ac58233f6def6ca4b6da3524947a9ecba740b956025e5c075",
+    "mplpb_answers/attributed_instruction.py": "56d016303090799a33f2d554f31655b517c351a27971fd37ef7e4abd278ab477",
+    "mplpb_answers/body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+    "mplpb_answers/bounded_records.py": "d3f2e150dcf66e6df6f5ad6f6ca71e906ed12621eea6c2ceb6568b1e7f5b38da",
+    "mplpb_answers/collection_fields.py": "db25700f1e67c3b8b057577c2570e8bae916b501564d15626387dd8a3678220c",
+    "mplpb_answers/compound_fields.py": "5bdabcbc85a90e9e9381fa255893194ae62a1b66957fc70776ca75726a627c28",
+    "mplpb_answers/corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+    "mplpb_answers/d6.py": "827b3bda13d2cc53d00a6aa25c3ba8e5cb50b2de0fd11d2378258a705319c96b",
+    "mplpb_answers/documentary.py": "6a5a4790024ea5d3ffb323b5b7d9ba4dea73e373e664ca2ce0f1c73931fd7f3e",
+    "mplpb_answers/documentary_advice.py": "3e1080d80ca9c6139fc71f908689a682bb912d171ba7d5896b49eb513f55cd52",
+    "mplpb_answers/documentary_errata.py": "4c5e92a916af7d53c90890fc5018c497508d40fbe1b67f9cf6a5277d66f1dd96",
+    "mplpb_answers/documentary_instruction.py": "6fb8c13847486f7210eb964017e04b872799eca67b40b342d6a3a877b7a0365c",
+    "mplpb_answers/documentary_lease.py": "e98159e9ad0d0d73df02b9d507160ba4ca8e2dd9d5128466e983c4bdc045dc1c",
+    "mplpb_answers/documentary_links.py": "5a3d60b7e0b30e3b5d8323f2a200e1eea1e996879e6d66e486a51784606dd59a",
+    "mplpb_answers/documentary_presentation.py": "35ef2dfb2db6b0e76f67ad80a821175a74296476df7b1ba45c2fc97834420827",
+    "mplpb_answers/documentary_verify.py": "2dbb69076c6bb7a122265a8bb599538051ae58df4bea4312fd3222655a9063c9",
+    "mplpb_answers/evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "mplpb_answers/evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "mplpb_answers/evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "mplpb_answers/experience_graph.py": "843ce8df142819e3178fb3630978c4ff18ca7b8a8d835fcc7576cfe306903548",
+    "mplpb_answers/field_aliases.py": "2a2b1e997d02f8fed534e5ec4d555b3cfa40b6c6684d6176d88d8762b94c002a",
+    "mplpb_answers/frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "mplpb_answers/library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "mplpb_answers/literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+    "mplpb_answers/local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+    "mplpb_answers/local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "mplpb_answers/operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+    "mplpb_answers/passage_admission.py": "8f9decd8addf3b14a6ba9258576226e9efd8cff43f5a51a0132b6298efd809fa",
+    "mplpb_answers/passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+    "mplpb_answers/pipeline.py": "baa723a9f935d65030ffd698f1bed157796fe0bb8d0e32ea6c4b00a6cb14bd44",
+    "mplpb_answers/policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+    "mplpb_answers/practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+    "mplpb_answers/presentation.py": "c68979748753f48cefaca0ea1eb5ac2ddc20b797ef5d3d8181726667c81cc0aa",
+    "mplpb_answers/procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+    "mplpb_answers/prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+    "mplpb_answers/publication_corrections.py": "6c72632858f4562d320cdcd8ed001eded095834e60c627175c8b0265e7f6d2e6",
+    "mplpb_answers/reference_identity.py": "0b789ec7580ecda718255acb6b313365c68ad85a201241bacda659eb8bf8ba97",
+    "mplpb_answers/relation_graph.py": "58003ad19f3a1f58a3ee3746cac3cb9017e3162e4146fd5004374bf32c730adc",
+    "mplpb_answers/report_sections.py": "6efaa14124e1a3079f798b07aba9c41fcf8a2fed182d589bcdfdcfb9baf3a5ea",
+    "mplpb_answers/reported_content.py": "5bdb8a86e88ed6957b410b97e5012444df4a0da22a333b30a5a54723d44e0d20",
+    "mplpb_answers/source_attribution.py": "98627c4b144d30b49ef1bd4f308c9e6cd0533b064f2a509144bdc73c0568e77d",
+    "mplpb_answers/source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+    "mplpb_answers/source_tags.py": "db10acddc57e53e094eb59266e024e9c46ab4ebced3410a1b79535c48ec99cc7",
+    "mplpb_answers/source_units.py": "09c0e6e43f278f07bb5bd0f36beade70c246ae01bf904b420c3c7d060133845c",
+    "mplpb_answers/support.py": "117d0c2040b43b95e8a2aafbe55b24a5ddae0f87cd28ba635ff8f8473b327756",
+    "mplpb_answers/synonym_graph.py": "4d339ae3307ee10d106b3eec49e038c5c9d50cc48417f8e01970d9b0373ceabb",
+    "mplpb_combined/__init__.py": "8ce7a60dc73b0229eb89f7cf3c4a3a47df70f410d0d957dc95b6e41281bb9672",
+    "mplpb_combined/__main__.py": "353ea5ef6cba220377dce05ac3c4eb0b2ecabe5a68188c591b69d9698862e356",
+    "mplpb_combined/baselines.py": "1b2426ccc12397c0525dcff875e1b922bc776c20174ed08aa89cd1f47891e4d3",
+    "mplpb_combined/delivery.py": "27400863c4007413ccd009efe19821a7963a014b47a01905455adb12b7b454ca",
+    "mplpb_combined/evaluate.py": "a537600f26c021040e54cc7badada45443c18af9dd2aa8e52b9f4e43081d79ff",
+    "mplpb_combined/killtest.py": "8b9b7c889626fe1bfe0f1aa87cb80698de2ae67db256e4355a6ce43508f88aa7",
+    "mplpb_combined/ledger.py": "a2c65367cabb1ff1c981ebac06cd3f8f998cd3d5e155aaf951d7a2fed9d02163",
+    "mplpb_combined/provenance_gate.py": "c85250cb1895e820159125a26a7b5cfa9bf5ca51e7cd918a78a99d8bcbdf2e25",
+    "mplpb_combined/reader.py": "e207dac173890540b5af36626e592c56cd293cb86a577c0c2a5d09cda441aea8",
+    "mplpb_combined/record.py": "e09ffb33930e7b705aaf5d93475908af7ac2927f1eb3219c594d637bd92a625c",
+    "mplpb_combined/retrieval.py": "35528e3645af096d957df51fdb39ca66decd1f5a0a98cf61061e4ff51408c1c4",
+    "mplpb_work/__init__.py": "5015f3af15da1efed8d2f32bfb0c42a3d24d7c4fec53865dc96b8361db34a393",
+    "mplpb_work/__main__.py": "afa5fa55c9767520ccde8386c5f7c68a77ee2b10c7bad5d017f19efb2edb93e4",
+    "mplpb_work/answer_router.py": "ba1b1f3fc00710424d5b3118ab08ca560478439cad316b2c9c61d87a05b594e0",
+    "mplpb_work/api.py": "9b4f33cc9fe4f2fb22210e22c5332896d358c1bf1e785f919e12187a00ad6b1f",
+    "mplpb_work/article.py": "141a301a0e3a6b7d076a14cc9639769fb90f25dc33aa01073e692bf5d9b033bb",
+    "mplpb_work/candidate_workspace.py": "74fd28037d4c10cfe1164a7fa04ee53de4c0e6be63401e675762a1a7a9249290",
+    "mplpb_work/classing.py": "18f1c39174ce93d5042755fd347ababeb03410540b100d2054d36cbea18ea283",
+    "mplpb_work/errors.py": "633c7042a803a259e33db177b303dfd1d6ad5bc038f1908a3f70e469a966615a",
+    "mplpb_work/event_candidates.py": "8f112257f0543c91962aaedf08d1eb50dea487c2c8240c9945ad648ee9d809ae",
+    "mplpb_work/historical_evidence.py": "6df11d05a2f147ae465d639b1f4ecd381436b4757f1ff7e0b6e8f56fbc05e39a",
+    "mplpb_work/historical_review.py": "d89c6be6128f252ce26991ab6770392af1e6e72d7212d4e40fb674e3f2dd6636",
+    "mplpb_work/historical_verifier.py": "db8837312f845476a18bc33d9492bdc737d1d8b18d2a5812698dd683d7088c1a",
+    "mplpb_work/investigation.py": "3cc779874ceec15ced80534faaad95b3929c026daffd462da24fa70f20ca8ed2",
+    "mplpb_work/ledger_generations.py": "941a5526eefbac033a4320c0375c01c795708ec45c63b3cb3047edef26b13854",
+    "mplpb_work/local_artifacts.py": "c7814c3fd68b7a80d48128a416c950240aaaf7e6adc363119a08fc471aa4dd16",
+    "mplpb_work/model.py": "5613a66d2b637b26ae900d5966d6680aa86f0eedf02bf80cbb794c42f8e51e74",
+    "mplpb_work/pinned_documentary_inspection.py": "487f8a7fa7712603351a37f553e3976e806f4cd1a840b69bd078217f19e021aa",
+    "mplpb_work/prose_evidence.py": "8a88fdd1586e7ef22d5e91edbe57c220979502d0a7e7f1060f738b431d811b24",
+    "mplpb_work/prose_relations.py": "d2ca7e6aad04adc4cd08dae8683e57af4630a1b9daea2b720e900ddaec722d52",
+    "mplpb_work/semantic_triage.py": "bb75ecd3c99f2e2b9aa3259cc0fe67d5d9831125ef3093e76f63f4598b9ecaee",
+    "mplpb_work/sorter.py": "0e8eb56604ba34f3eaf5be85f3c0787c3ce40bb2ecf68809c040ca2fff38834e",
+    "mplpb_work/sorter_explorer.py": "56269f976ad89860e123640cc38305ef056e39287e77b684015aca180fb74181",
+    "mplpb_work/sorter_suggestions.py": "91d3b618eaba949397caab57263d76b3aa20362e7446cff83c441e6cb0860f61",
+    "mplpb_work/sorter_v2.py": "130281428af23ac2790da9a0030f8e62918974ff65b4395c0de79f9094dbade4",
+    "mplpb_work/source_mapping.py": "5688b65b4cd392c0da298f2eda5d422a95248dadcbf55984e125f8b54a2c5612",
+    "mplpb_work/source_notes.py": "0337b560f4a545eb50570f8781a71dd11c857134a8a66e009a9444d683365ca5",
+    "mplpb_work/source_support.py": "a3460d71ca56141ac43f387f093854fc41f286369c7a9f5e6832e77fa38493b9",
+    "mplpb_work/store.py": "3a1472c3ce7b28e5e821944a9a03c1c2a3fdcbdddcf0cd532ca614d2617aa036",
+    "mplpb_work/thesaurus.py": "25a07a4bfa46c4cc5ef0d868ad3ee5a7e71e2c7daf485ec93ea0fe699afb454e",
+    "mplpb_work/training.py": "bd779f257e13669a3967c16f8c6ad451b55157cd71865f6ae8135f5f3e488085"
+  },
+  "registry_sha256": "6c9d0dd05bad27dce68bcb1cb3c6e974c0797636909aa1d9502e19ee1de42722",
+  "registry_path": "evaluation/cryptid/mothman/development/registry.json",
+  "harness": {
+    "tools/cryptid_trial.py": "750ebe85bb06d2db5c08bf9dff766dc4a9b640b032a3c715ab1ab8b5e1049e44",
+    "tools/cryptid_score.py": "6e6c8ac3bb7629472bc6e97c0beda91bd0d4776eec0fd83587baad49b4b3e949",
+    "tools/cryptid_mothman_packets.py": "2be6f4cbd88d862fed425146f90c30e9ad7daf1561c63644b301fc16f23adf69",
+    "tools/bubble_wrap_adapter.py": "2ccbddd95a6342d14051c5da27ba3408d38ae0d9e6f58a44892704ef84ee33b3",
+    "tools/bubble_wrap_worker.py": "a013aef22cb99d481ea1a7b32a902d3b0f4a61b125fdf52ab83d7118eba4d75a",
+    "tools/pole_worker.py": "f912f87b072fb3e78c0215882d2a10c82dd5df48009bb9a3a5eff8f229617ce8",
+    "tools/study_sandbox.py": "56f9561fc2bae5150a2de5c83bf8a0c68d7a7f002a93018e91d68e043ebe4daa"
+  },
+  "exposure": "development fully exposed; five original frozen cases unchanged",
+  "execution_counts": {
+    "completed": 28
+  },
+  "planned": 28,
+  "attempted": 28,
+  "cases": [
+    {
+      "id": "CRYPT-MOTHMAN-0001",
+      "input_hash": "a0d234418f8652990ea3eb224c1e68ac57145431bfee66a3281c3dd150798cb6",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "3380fdb238d47131bd2774e49722f1aa74b1ce5a0c57ee9c6fd22f5e160837ee",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.6054286110011162
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0002",
+      "input_hash": "37c2588d7bce006d2a4cec1aed8edb365277d087dad49e8dd6c2fa19c295e3c8",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "548f74fa72b0592401861f878fe811701a30c9c2248c0e85e8390f833950b70b",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.6466172560030827
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0003",
+      "input_hash": "e080e9cc2773e392fa86592332c3c69be34a66abc3457e9c1bc44948197918f9",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "a253c33ac39322b3cda1f226e8612f8c0d398f3bd816f6f5a7f4079446af01b4",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.7378856180002913
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0004",
+      "input_hash": "2cd5da369a3e864fbb30719c7f0f9223053d7ebdee28b102ec1d12e2089f48e9",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "2ebada0fbd1addc3f0ba0fd0f580c0ee048912e23a6c515083f83ad8c3060547",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.7110112770023989
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0005",
+      "input_hash": "f20b56a38a6d5c19a28d9a3da7df7ecbf2aacd2f8df99658cf6235f284b11d0e",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "fc66d932f85b87dcb36f5a968820258e0e6b2996de9f212489eb1cba3dff2e52",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.5031605640033376
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0006",
+      "input_hash": "c23bdd1b4cfdb1dd02d4f89598ff9504cd8f89d1c869182cc2a8b3e85e935ed1",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "bee99eac0e754f6af20db17a5eb754466e764ad10821c17c876a6aeb519957bc",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3452041700002155
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0007",
+      "input_hash": "3b90979644838f038b6a3c3a0d906e5a5d0f53310497c817c957bbcae6ae2309",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "fc54672cf3888fdbe236ac2cf92f90a4080b38983140431ac132f70b7763d798",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3507628469960764
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0008",
+      "input_hash": "24af95af1d326c3f842a096962fc3d53fb67783cf27d8f9eb11eb87086c18a3d",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "dfc3a6adc17d07be615bc44cc465ad721da085dea86fb41042bce81b3895d53d",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.34784978900279384
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0009",
+      "input_hash": "962bc2a0cbf0233dd8933d133e4d16688ba7c734f12c52cd80c9010cc2ab51f2",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "22484ab11a16bdb20ef4c5b826a75e745f3dcdb49db39c80bbccf075a1198c27",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.34314040100434795
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0010",
+      "input_hash": "5422e9e493c52c9e2fb4a2cbe8bf2b96c6372d347b1dc988b2cf6764186415df",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "b968795b01cb7e02288d26c3bdae9f53849b3b763dd71243e38cfc14c966d31b",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.34651683300035074
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0011",
+      "input_hash": "79a3ce5b664ad47f4c03e26c7ce9943a5dcba50966cceca4c60e9ebb1337d7ba",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "f4dff70381f6945f50f52f54b4969c66fdc9f018d18fb026f08babd907e1bd22",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.34722577199863736
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0012",
+      "input_hash": "3738fc19715a0f14317020c669b791c5bb7fcc55a94f3b6d71b911e6ecdf0558",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "44be33da31807e43a33ca6076532d7e2ee6dced74b2ea512068fe5675991117e",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.39647725300164893
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0013",
+      "input_hash": "6f944b8f4d54c7704c9dd24ff083c724798791198eb692fe0824e38db4cd5b2e",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "45c69c88a09763643ccdc082904b011b127857ff43ffd472bf07485b97914970",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3394222589995479
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0014",
+      "input_hash": "895e89c668200bcd255235d7726a23947c27eacd0951622a09b461f8d7645490",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "7a751395e818444283b650a7486c8fee666f04820d9c079552f6200aa330b431",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3420928450068459
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0015",
+      "input_hash": "352f67f0312788a299695aa35cf08c401800fe82731b5d08af3fa6dbe3cfe6a0",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "f34ee21310011981259aa0cefef17d9bb315c005e5c122cbbefa4ae9e240a5ac",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3412143629975617
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0016",
+      "input_hash": "d1ec8dfc14b32693e19f0c883049d0e4a79b8a69bbeb845419536d833032b5a1",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "d3ff3e1bd4eab867c7aa9e5a72e348dadb601cae08aa90b9f9cb833835984ae1",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.40103090099728433
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0017",
+      "input_hash": "bb778c62cb539d9c1a8d3e9ba973483d0fbf2013c863f944d2874ce49bce98fc",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "84f9abb866aace10ef99440b1a8db499a982eb4682c390d29a65fb3c28617feb",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3465206879991456
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0018",
+      "input_hash": "669928234d3e5773b5f89598d03fbe4fc82b8dd33161bdaa2db9140afceb3c51",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "be794451658d09ab2064b7dd79003d4b07c95d6ca7abf832df7953bb39196b15",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.394328148002387
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0019",
+      "input_hash": "e0c9832a5628e56d01dc2df3597e4f7f372f55ff2595563924e3bf27ba5260db",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "6f200b13a61744dd15aaf7b8df207a5228d8806737fea997b834b847cde8e973",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3463283559976844
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0020",
+      "input_hash": "64d7f25c7b04464f2984aa42f3a8a8e359807d2e3d6e56e1966825124d9fcd40",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "5cc35cbadf6abfecaf10a575b927d4750d0babad2dc133d3550d58295612c8a5",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.346450716999243
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0021",
+      "input_hash": "879cb8dcb692a96fab551b8e495a46b52e899d9dd0bc91ffd53aa448ce728b75",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "0a88a31b0dfdcf376490c31ad8d6633d90bf86410f7ce0cbbc9d9c39123500da",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.4144487140001729
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0022",
+      "input_hash": "1f883a4109c99f01e7a999cf7fb8b27f041aa5c0a26ed5563eb10a754608c40f",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "ddd144e933bd0e724e57b4f0c72f0705aacad8732ca198085e5f95d16a9be447",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3474589410034241
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0023",
+      "input_hash": "c7a9d75f16f6177eeacd7a7950342783e02dcc0fc469588ea9a9b9dfa9aed921",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "157c669a409a05e8abc534ce0839cfabaf6c914c7d1f5b42d576f96f1ffaabae",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3476075770013267
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0024",
+      "input_hash": "e971170335156e0be1c09377f5e37d2d8b72687600f81265bcff8d27fab8cfc0",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "066c37ee2a7573d2f4e34d4ff543b3c9a47870333c1707db7d75e313a0455044",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.34768068700213917
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0025",
+      "input_hash": "5d955a6db20dcdbc2c9e138a3bfc587f073db6628ed385fc7c16a222979663cc",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "ac50582adbd7f0633a5a3eb19d3edf7e781e8dc5db5eb5e24da108fb2188dbc3",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.2440866510005435
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0026",
+      "input_hash": "74946b28c483045f40e601b88e9c29fe8fcc9fb5ebc3447bed8830d728db34e7",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "2426c460885fa75940db97587210ee64ae29fa9e5f7f672b0e377f9d8b1f92f7",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3926798249958665
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0027",
+      "input_hash": "8076e315b0606cdc4950ee76e2b161758f9b8657f3494217e4e80743d23cab69",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "b5d218511d523c7f7bd703eeb1360cefe0f656e1212cb13516922202b15b00e6",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.399393173000135
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0028",
+      "input_hash": "ab277e9e47c99d27fb2e868ba1ec2fa101c7700f293fe96dc4829ff0a54f5cd4",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "338734a9168460f54e1500f7ade8d4f7b1dd9508d774fcae4d8337326b105bd8",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.34559777899994515
+    }
+  ]
+}

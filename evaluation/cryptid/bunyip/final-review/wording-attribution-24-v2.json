@@ -1,0 +1,1019 @@
+{
+  "policy": "source-matched-wording-attribution-v2",
+  "scope": "Post-run same-operator mechanism attribution, not new fresh cases, independent scoring or changed reader acceptance. Original fresh/strict scores and diagnostic v1 remain unchanged.",
+  "original_diagnostic_sha256": "76ed188544a44f39953e78f4ed8cde2fdcef506a63d233bd46ab0558c25c3e32",
+  "scorer_sha256": "0ab852b7cdc1aa6cdc61876676b026bc28815eebbe5ef475fdbd48b34b7a389b",
+  "original_variant_score_sha256": "a452629fb6293406b6be056d9f04568ee1b792d64be7ed8cb9c0ec0eb40d57e2",
+  "counts": {
+    "main": {
+      "new_question_wording_support": {
+        "executions": 6,
+        "unique_question_strings": 3
+      },
+      "new_source_language_or_proof_operation_not_question_only": {
+        "executions": 2,
+        "unique_question_strings": 1
+      },
+      "remaining_source_or_proof_operation_miss": {
+        "executions": 4,
+        "unique_question_strings": 2
+      }
+    },
+    "pr105": {
+      "new_question_wording_support": {
+        "executions": 8,
+        "unique_question_strings": 4
+      },
+      "remaining_question_wording_miss": {
+        "executions": 2,
+        "unique_question_strings": 1
+      },
+      "remaining_source_or_proof_operation_miss": {
+        "executions": 2,
+        "unique_question_strings": 1
+      }
+    }
+  },
+  "rows": [
+    {
+      "variant_id": "CRYPT-BUNYIPN-T0001",
+      "variant_question": "According to this record, to whom does Juniper Quay Atelier belong?",
+      "canonical_question": "Who owns Juniper Quay Atelier?",
+      "group": "ownership",
+      "probe_signature": "1ec3433fb329304ec45c19f2d3f82c35b11e928a0de0af3c6fb56e0523593907",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "1a7605cb11083ab0388224834458cc86b48293b9cdb086f356481b6512dcdfb6",
+          "raw": "runs/main/PROBE-0001/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "b44962cd5d08d22b1106f9aa40ccaef9e017350c1281f3411c98644bb789c745",
+          "raw": "runs/pr105/PROBE-0001/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "57e634ee077c7f6ff68c38e60ea216a6e8296842c67cb94a67148bfa39e52761",
+          "raw": "runs/candidate/PROBE-0001/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "1a7605cb11083ab0388224834458cc86b48293b9cdb086f356481b6512dcdfb6",
+          "raw": "runs/main/PROBE-0001/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "b44962cd5d08d22b1106f9aa40ccaef9e017350c1281f3411c98644bb789c745",
+          "raw": "runs/pr105/PROBE-0001/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "57e634ee077c7f6ff68c38e60ea216a6e8296842c67cb94a67148bfa39e52761",
+          "raw": "runs/candidate/PROBE-0001/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIPN-T0001",
+        "group": "composed_question_and_document_layers",
+        "rendering": "paragraphs",
+        "question": "According to this record, to whom does Juniper Quay Atelier belong?",
+        "question_source_signature": "c62772b059c4787d0e76c9bef9f8d976ab7b6b94d03af769bf6f5a069e77c86e",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "03c463b8361739a3c7c642fe0c77aaaa33358be040a6980d0258dd313f2be34a"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIPN-T0002",
+      "variant_question": "According to this record, to whom does Juniper Quay Atelier belong?",
+      "canonical_question": "Who owns Juniper Quay Atelier?",
+      "group": "ownership",
+      "probe_signature": "4b160d7f6bdf80425dc2533fd418a7d863e04b2d2e96fd7797c76d09be1515c3",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "bb8a0e698742fead3cb242e6c2b1b5d43e0edf54d0a0414b6a8d53399584508f",
+          "raw": "runs/main/PROBE-0002/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "67b172f68214afdcaef2a7620f3b19d6ff9cd443bc75c0387b79e2f245f08e1c",
+          "raw": "runs/pr105/PROBE-0002/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "f35d1d80468bd7d3f10a0fbd3020a57116b2ebac4929391e395e22449b9bad21",
+          "raw": "runs/candidate/PROBE-0002/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "bb8a0e698742fead3cb242e6c2b1b5d43e0edf54d0a0414b6a8d53399584508f",
+          "raw": "runs/main/PROBE-0002/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "67b172f68214afdcaef2a7620f3b19d6ff9cd443bc75c0387b79e2f245f08e1c",
+          "raw": "runs/pr105/PROBE-0002/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "f35d1d80468bd7d3f10a0fbd3020a57116b2ebac4929391e395e22449b9bad21",
+          "raw": "runs/candidate/PROBE-0002/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIPN-T0002",
+        "group": "composed_question_and_document_layers",
+        "rendering": "plain",
+        "question": "According to this record, to whom does Juniper Quay Atelier belong?",
+        "question_source_signature": "c62772b059c4787d0e76c9bef9f8d976ab7b6b94d03af769bf6f5a069e77c86e",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "237c440943ff186f95fd5567197f7ba05558692743101aeb2f62d9134526216f"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIPN-T0005",
+      "variant_question": "According to this source, what type of place is Meadow Rise?",
+      "canonical_question": "What is Meadow Rise?",
+      "group": "classification",
+      "probe_signature": "578f5c974ee1a7bb0071d1ecf1bb4f7c30cbb11fbc6e2cf7e86897c671edf75d",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "765476eef1f4f4abc09117cc4ff8a474939ec331a3e1308fb70a9a72e787c549",
+          "raw": "runs/main/PROBE-0003/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "2bd688fb2f12516611fd4a6e143225ea86bc16f295c45488a1547950251e3c1e",
+          "raw": "runs/pr105/PROBE-0003/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "821933fcbf3cc3b9c6d5a2676affd9d30893ab12395084098711c350bd499b94",
+          "raw": "runs/candidate/PROBE-0003/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "765476eef1f4f4abc09117cc4ff8a474939ec331a3e1308fb70a9a72e787c549",
+          "raw": "runs/main/PROBE-0003/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "2bd688fb2f12516611fd4a6e143225ea86bc16f295c45488a1547950251e3c1e",
+          "raw": "runs/pr105/PROBE-0003/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "821933fcbf3cc3b9c6d5a2676affd9d30893ab12395084098711c350bd499b94",
+          "raw": "runs/candidate/PROBE-0003/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIPN-T0005",
+        "group": "composed_question_and_document_layers",
+        "rendering": "paragraphs",
+        "question": "According to this source, what type of place is Meadow Rise?",
+        "question_source_signature": "d3daf2c66d89e1f8733b44606343cc98e811a64ee257a4b58bb595a94542c22d",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "5d8046a0cbb104ddec4909d3189c88d7fe269016d3d0c1c9037a0de892a5b6ec"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIPN-T0006",
+      "variant_question": "According to this source, what type of place is Meadow Rise?",
+      "canonical_question": "What is Meadow Rise?",
+      "group": "classification",
+      "probe_signature": "96a42fcbb71a7ce6eb588fa12e8b7cb0150fbb40374b967bf840a6b8c7899f47",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "965a8a4888bb3fc1489182cebb572da40100648e86845a55ed59548e368ba538",
+          "raw": "runs/main/PROBE-0004/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "44d9580bd1b0c5891006e1010e4e2c02305beb1c6a8e1a9edb490f2dbfc6f2bd",
+          "raw": "runs/pr105/PROBE-0004/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "1a451dad65e060dfd040721e0c3b44fd1b58a897469426b7e40057f2bde20d11",
+          "raw": "runs/candidate/PROBE-0004/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "965a8a4888bb3fc1489182cebb572da40100648e86845a55ed59548e368ba538",
+          "raw": "runs/main/PROBE-0004/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "44d9580bd1b0c5891006e1010e4e2c02305beb1c6a8e1a9edb490f2dbfc6f2bd",
+          "raw": "runs/pr105/PROBE-0004/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "1a451dad65e060dfd040721e0c3b44fd1b58a897469426b7e40057f2bde20d11",
+          "raw": "runs/candidate/PROBE-0004/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIPN-T0006",
+        "group": "composed_question_and_document_layers",
+        "rendering": "plain",
+        "question": "According to this source, what type of place is Meadow Rise?",
+        "question_source_signature": "d3daf2c66d89e1f8733b44606343cc98e811a64ee257a4b58bb595a94542c22d",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "3e69996022da59dc6563f0ad6b9f030ef911e38a62798889c22379175df25e30"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIPN-T0009",
+      "variant_question": "According to the record, at what time does Juniper Quay Office open?",
+      "canonical_question": "When does Juniper Quay Office open?",
+      "group": "opening_time",
+      "probe_signature": "9ee85053bb34d096f8872a6b986f49a3e8e49ea9483ae9fc1cf88eca9b45302f",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "1725cfd83927263604063da7919d290ae9de50479d304e6a0e840d03a8bc6d1d",
+          "raw": "runs/main/PROBE-0005/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "3d626d7dc3cbe921a4f4588c46f17f9a682db56def5ce69750c3ee13c12a75f7",
+          "raw": "runs/pr105/PROBE-0005/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "08e6827f897eec08bc817263ed41e178808f3cf02c7aad366e6c21b4ddbb1337",
+          "raw": "runs/candidate/PROBE-0005/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "1725cfd83927263604063da7919d290ae9de50479d304e6a0e840d03a8bc6d1d",
+          "raw": "runs/main/PROBE-0005/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "3d626d7dc3cbe921a4f4588c46f17f9a682db56def5ce69750c3ee13c12a75f7",
+          "raw": "runs/pr105/PROBE-0005/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "08e6827f897eec08bc817263ed41e178808f3cf02c7aad366e6c21b4ddbb1337",
+          "raw": "runs/candidate/PROBE-0005/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIPN-T0009",
+        "group": "composed_question_and_document_layers",
+        "rendering": "paragraphs",
+        "question": "According to the record, at what time does Juniper Quay Office open?",
+        "question_source_signature": "fa90e7f86ac74b7a6ed463a294093820bea381d236ea69e8c536a9dfc219813d",
+        "execution": "completed",
+        "scored": true,
+        "passed": false,
+        "kind": "abstain",
+        "complete": false,
+        "claims": 0,
+        "false_support": false,
+        "positive_miss": true,
+        "errors": [
+          "positive_completion_miss",
+          "complete_witness_missing",
+          "complete_witness_missing"
+        ],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": "proof",
+        "raw_sha256": "f0f7b15c5109017cecc2d2758c1e3437f9a526b50466153dcd65843419d9e1bc"
+      },
+      "classifications": {
+        "main": "remaining_source_or_proof_operation_miss",
+        "pr105": "remaining_source_or_proof_operation_miss"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIPN-T0010",
+      "variant_question": "According to the record, at what time does Juniper Quay Office open?",
+      "canonical_question": "When does Juniper Quay Office open?",
+      "group": "opening_time",
+      "probe_signature": "5a69a375e3f590e2367870385f85e7098971d6326661ccf05421099c48485515",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "84b2cb5b0ca27e0d0eb629f9c91171458013e0df13b411848685c8297c15a435",
+          "raw": "runs/main/PROBE-0006/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "7c51bf51f4d4d87c606a4aaff1bb161a07a9a2fd3b3387e7f790d9e43b3a851f",
+          "raw": "runs/pr105/PROBE-0006/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "d7bb869f1de112459bd20f8c3615c713e22311cd10885d7c49289bea2bc3b38f",
+          "raw": "runs/candidate/PROBE-0006/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "84b2cb5b0ca27e0d0eb629f9c91171458013e0df13b411848685c8297c15a435",
+          "raw": "runs/main/PROBE-0006/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "7c51bf51f4d4d87c606a4aaff1bb161a07a9a2fd3b3387e7f790d9e43b3a851f",
+          "raw": "runs/pr105/PROBE-0006/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "d7bb869f1de112459bd20f8c3615c713e22311cd10885d7c49289bea2bc3b38f",
+          "raw": "runs/candidate/PROBE-0006/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIPN-T0010",
+        "group": "composed_question_and_document_layers",
+        "rendering": "plain",
+        "question": "According to the record, at what time does Juniper Quay Office open?",
+        "question_source_signature": "fa90e7f86ac74b7a6ed463a294093820bea381d236ea69e8c536a9dfc219813d",
+        "execution": "completed",
+        "scored": true,
+        "passed": false,
+        "kind": "abstain",
+        "complete": false,
+        "claims": 0,
+        "false_support": false,
+        "positive_miss": true,
+        "errors": [
+          "positive_completion_miss",
+          "complete_witness_missing",
+          "complete_witness_missing"
+        ],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": "proof",
+        "raw_sha256": "fb9b2330bbc575f174275048710f3bf0f81972fea37f51c445a5bc2700941434"
+      },
+      "classifications": {
+        "main": "remaining_source_or_proof_operation_miss",
+        "pr105": "remaining_source_or_proof_operation_miss"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIPN-T0013",
+      "variant_question": "According to the source, what was the date of writing of the island memorandum?",
+      "canonical_question": "Distinguish the writing dates in The island memorandum record.",
+      "group": "writing_date",
+      "probe_signature": "3562e8b09ccbfd53a125de4322c32a556254a281531082487ae6a9cd4cf9f43b",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "3763de3d35e6a99cdb41cc64f8995f2d237f495131708fed5373fba9f2947250",
+          "raw": "runs/main/PROBE-0007/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "32320ec4c8b8622b43fb4fcc9522fa0c97c48353aca15bd9dd37443ac2ceb961",
+          "raw": "runs/pr105/PROBE-0007/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "0c6a7c23e03788310ce1af95c845af349505bc095a665100dbe274c5395b8f75",
+          "raw": "runs/candidate/PROBE-0007/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "3763de3d35e6a99cdb41cc64f8995f2d237f495131708fed5373fba9f2947250",
+          "raw": "runs/main/PROBE-0007/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "32320ec4c8b8622b43fb4fcc9522fa0c97c48353aca15bd9dd37443ac2ceb961",
+          "raw": "runs/pr105/PROBE-0007/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "0c6a7c23e03788310ce1af95c845af349505bc095a665100dbe274c5395b8f75",
+          "raw": "runs/candidate/PROBE-0007/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIPN-T0013",
+        "group": "composed_question_and_document_layers",
+        "rendering": "paragraphs",
+        "question": "According to the source, what was the date of writing of the island memorandum?",
+        "question_source_signature": "57f7435ada0cb781fda4a1a1df492f73d2e590fdf487420319f9fbf1e8902c5c",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "624ae4e016ebfdd830cf073e88458540276a570e17a574c85bc62422f56fc5d6"
+      },
+      "classifications": {
+        "main": "new_source_language_or_proof_operation_not_question_only",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIPN-T0014",
+      "variant_question": "According to the source, what was the date of writing of the island memorandum?",
+      "canonical_question": "Distinguish the writing dates in The island memorandum record.",
+      "group": "writing_date",
+      "probe_signature": "3f87dcdc15dfc9e081ef96a3456e1e6740d5dd6263f12f958002403f5109b29b",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "965e503e0498af7fa64557e7eced8a7905ba5ccd059c260219dd9bc25e4877c3",
+          "raw": "runs/main/PROBE-0008/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "07dd29b82e600e4e545616673f7b646d482138e7f4b77a03fc1829b2b48824d4",
+          "raw": "runs/pr105/PROBE-0008/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "644d994f4c8991303a50d3f59b00ecce476659640e7849e6303c17c08b363b8e",
+          "raw": "runs/candidate/PROBE-0008/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "965e503e0498af7fa64557e7eced8a7905ba5ccd059c260219dd9bc25e4877c3",
+          "raw": "runs/main/PROBE-0008/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "07dd29b82e600e4e545616673f7b646d482138e7f4b77a03fc1829b2b48824d4",
+          "raw": "runs/pr105/PROBE-0008/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "644d994f4c8991303a50d3f59b00ecce476659640e7849e6303c17c08b363b8e",
+          "raw": "runs/candidate/PROBE-0008/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIPN-T0014",
+        "group": "composed_question_and_document_layers",
+        "rendering": "plain",
+        "question": "According to the source, what was the date of writing of the island memorandum?",
+        "question_source_signature": "57f7435ada0cb781fda4a1a1df492f73d2e590fdf487420319f9fbf1e8902c5c",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "3ef78fcb51549de57b6eaa0be11656641341aa69dd58001f4b128a6f32587d1d"
+      },
+      "classifications": {
+        "main": "new_source_language_or_proof_operation_not_question_only",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIPN-T0017",
+      "variant_question": "According to the source, what did Cora Dale not state about whether Arun Lake wrote the harbor catalogue?",
+      "canonical_question": "What does Cora Dale report about whether Arun Lake wrote the harbor catalogue?",
+      "group": "reporting",
+      "probe_signature": "12ec461756ef1b6f9315a0a3428d8f2bcffd285f35dbf5796c4ea3b1ba081fdd",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "a831f010c7b48a2a73fd0ae537bc49747fa0ebdb0520e4301bb47dbd3602b52e",
+          "raw": "runs/main/PROBE-0009/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "bc50a8dcef9187452a9606f4d19214db149040c0a064e45e602b0dd0b1d5e8d9",
+          "raw": "runs/pr105/PROBE-0009/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "c38be5d92edffb55c9ec07ef0da20c0724842a8044c1719c5b2a32eeaeac05d1",
+          "raw": "runs/candidate/PROBE-0009/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "a831f010c7b48a2a73fd0ae537bc49747fa0ebdb0520e4301bb47dbd3602b52e",
+          "raw": "runs/main/PROBE-0009/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "bc50a8dcef9187452a9606f4d19214db149040c0a064e45e602b0dd0b1d5e8d9",
+          "raw": "runs/pr105/PROBE-0009/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "c38be5d92edffb55c9ec07ef0da20c0724842a8044c1719c5b2a32eeaeac05d1",
+          "raw": "runs/candidate/PROBE-0009/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIPN-T0017",
+        "group": "composed_question_and_document_layers",
+        "rendering": "paragraphs",
+        "question": "According to the source, what did Cora Dale not state about whether Arun Lake wrote the harbor catalogue?",
+        "question_source_signature": "059fdcd89ee469fc03941136afac477aac32491ddade21bbcac08ea9e51de331",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": false,
+        "miss_stage": "question_interpretation",
+        "raw_sha256": "7b1b4cf61fee5c5660246af15d30565f85b63bd1486dfffe5f1b16c6e4eeb165"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIPN-T0018",
+      "variant_question": "According to the source, what did Cora Dale not state about whether Arun Lake wrote the harbor catalogue?",
+      "canonical_question": "What does Cora Dale report about whether Arun Lake wrote the harbor catalogue?",
+      "group": "reporting",
+      "probe_signature": "e3b60a0322443b7a090878054e76928d8a5b7741f58a7a5e8f0abb582f1499fa",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "83de4ad2f798105b3217aa5486f87faca753031fd4b54232c954403d5b586188",
+          "raw": "runs/main/PROBE-0010/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "0cb6c48326d64ae99b78bec97e90a8257e9893ce893917f59d8965f7972d3e7a",
+          "raw": "runs/pr105/PROBE-0010/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "0930a87e7d9d4e7f6655656c7702125970d165055f9e98364c138ec4127881aa",
+          "raw": "runs/candidate/PROBE-0010/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "83de4ad2f798105b3217aa5486f87faca753031fd4b54232c954403d5b586188",
+          "raw": "runs/main/PROBE-0010/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "0cb6c48326d64ae99b78bec97e90a8257e9893ce893917f59d8965f7972d3e7a",
+          "raw": "runs/pr105/PROBE-0010/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "0930a87e7d9d4e7f6655656c7702125970d165055f9e98364c138ec4127881aa",
+          "raw": "runs/candidate/PROBE-0010/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIPN-T0018",
+        "group": "composed_question_and_document_layers",
+        "rendering": "plain",
+        "question": "According to the source, what did Cora Dale not state about whether Arun Lake wrote the harbor catalogue?",
+        "question_source_signature": "059fdcd89ee469fc03941136afac477aac32491ddade21bbcac08ea9e51de331",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": false,
+        "miss_stage": "question_interpretation",
+        "raw_sha256": "46fa8f196a30160b4f5c3be77216c96ea83cdb81b7804525f3779648f8dff6b7"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIPN-T0021",
+      "variant_question": "According to this record, what directions did Alin Quill give the shore team about the southern signal tower?",
+      "canonical_question": "What instruction does the record attribute to Alin Quill concerning the southern signal tower?",
+      "group": "instruction",
+      "probe_signature": "abcf8a42df8a00f2f7fcb292144cfba61fbaa87371aa5af18516677d212b6b32",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "79ce65a01b2dbdb60148bb4ab9788d34063e44c9f50d6e261c7f81ccf8c581e7",
+          "raw": "runs/main/PROBE-0011/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "cac697784ce91ed3bc6e19beba12760aaf18ac87f053198c4b44d6cf7de0833e",
+          "raw": "runs/pr105/PROBE-0011/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "7960297c55b1cc745fc7dabbf402e013bea54e95483e9261f813bcad8f327711",
+          "raw": "runs/candidate/PROBE-0011/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "79ce65a01b2dbdb60148bb4ab9788d34063e44c9f50d6e261c7f81ccf8c581e7",
+          "raw": "runs/main/PROBE-0011/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "cac697784ce91ed3bc6e19beba12760aaf18ac87f053198c4b44d6cf7de0833e",
+          "raw": "runs/pr105/PROBE-0011/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "7960297c55b1cc745fc7dabbf402e013bea54e95483e9261f813bcad8f327711",
+          "raw": "runs/candidate/PROBE-0011/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIPN-T0021",
+        "group": "composed_question_and_document_layers",
+        "rendering": "paragraphs",
+        "question": "According to this record, what directions did Alin Quill give the shore team about the southern signal tower?",
+        "question_source_signature": "d62b9829688e6cad2714e1a30bf14aafab8cbdbecc69aa2c2f04e7f8791967ec",
+        "execution": "completed",
+        "scored": true,
+        "passed": false,
+        "kind": "abstain",
+        "complete": false,
+        "claims": 0,
+        "false_support": false,
+        "positive_miss": true,
+        "errors": [
+          "positive_completion_miss",
+          "complete_witness_missing"
+        ],
+        "discovery_complete": true,
+        "interpretation_recognized": false,
+        "miss_stage": "question_interpretation",
+        "raw_sha256": "797ac38aa6ad521e7ab712d62de4b73a3524612aef786f5916650486409a186e"
+      },
+      "classifications": {
+        "main": "remaining_source_or_proof_operation_miss",
+        "pr105": "remaining_question_wording_miss"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIPN-T0022",
+      "variant_question": "According to this record, what directions did Alin Quill give the shore team about the southern signal tower?",
+      "canonical_question": "What instruction does the record attribute to Alin Quill concerning the southern signal tower?",
+      "group": "instruction",
+      "probe_signature": "384cceec3a8bc32009761f6883a23fb187b795e9a77da7cb2e4f98024c6189be",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "ff0a9c2386b240c19b63e8b20f2364b4286f02717119daa1e7094f97e36862b8",
+          "raw": "runs/main/PROBE-0012/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "5a25faa06bdf9dd2be788469dd550b2cbca1e600ba69438c6d612b07a5d043f4",
+          "raw": "runs/pr105/PROBE-0012/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "e354010632acd34e3227ff7ce523571910bc63c561fb83f7e6e1a01e5f43a1d2",
+          "raw": "runs/candidate/PROBE-0012/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "ff0a9c2386b240c19b63e8b20f2364b4286f02717119daa1e7094f97e36862b8",
+          "raw": "runs/main/PROBE-0012/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "5a25faa06bdf9dd2be788469dd550b2cbca1e600ba69438c6d612b07a5d043f4",
+          "raw": "runs/pr105/PROBE-0012/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "e354010632acd34e3227ff7ce523571910bc63c561fb83f7e6e1a01e5f43a1d2",
+          "raw": "runs/candidate/PROBE-0012/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIPN-T0022",
+        "group": "composed_question_and_document_layers",
+        "rendering": "plain",
+        "question": "According to this record, what directions did Alin Quill give the shore team about the southern signal tower?",
+        "question_source_signature": "d62b9829688e6cad2714e1a30bf14aafab8cbdbecc69aa2c2f04e7f8791967ec",
+        "execution": "completed",
+        "scored": true,
+        "passed": false,
+        "kind": "abstain",
+        "complete": false,
+        "claims": 0,
+        "false_support": false,
+        "positive_miss": true,
+        "errors": [
+          "positive_completion_miss",
+          "complete_witness_missing"
+        ],
+        "discovery_complete": true,
+        "interpretation_recognized": false,
+        "miss_stage": "question_interpretation",
+        "raw_sha256": "519908f93be02a6872ceff14481ae36b868e81598d945dd5deb393901566b73d"
+      },
+      "classifications": {
+        "main": "remaining_source_or_proof_operation_miss",
+        "pr105": "remaining_question_wording_miss"
+      }
+    }
+  ],
+  "tag_layout_infrastructure_counts_as_wording_gain": false,
+  "independent_semantic_adjudication": "NOT_RUN"
+}

@@ -1,0 +1,2669 @@
+{
+  "role": "Authored Chromium workflow on actual WebAssembly MPLPB; no live-model inference or independent human validation",
+  "checks_passed": [
+    "unsupported_gpu_is_explicit_and_no_model_download_is_started",
+    "load_failure_has_a_separate_visible_stage_and_diagnostic_report",
+    "model_report_download_matches_display_without_source_questions",
+    "unloaded_general_chat_is_availability_not_question_clarification",
+    "collection_proposal_does_not_write_before_review",
+    "cancelled_proposal_has_no_save",
+    "approved_creation_uses_real_native_collection_and_selects_it",
+    "reviewed_text_import_is_local_and_source_pinned",
+    "supported_reply_and_exact_citation_are_visible",
+    "added_denial_prevents_supported_positive",
+    "actual_events_distinguish_inputs_approvals_and_engine_results",
+    "saved_native_session_recovers_pending_step_after_real_page_reload"
+  ],
+  "outbound_requests": [],
+  "page_errors": [],
+  "corpus": "mind-238e6135113d42f290170640dd608697",
+  "model_downloaded": false,
+  "iPad_verified": false,
+  "trace": {
+    "schema": "browser-ai-helper-v1",
+    "notice": "Recorded inputs, proposals and actual calls; not a neural internal-reasoning transcript or authenticated source truth.",
+    "events": [
+      {
+        "index": 1,
+        "kind": "user_input",
+        "data": {
+          "original": "Private draft question is not a model-load diagnostic",
+          "mode": "general",
+          "corpus": "canned",
+          "profile": "internal"
+        }
+      },
+      {
+        "index": 2,
+        "kind": "native_fallback",
+        "data": {
+          "reason": "No AI model loaded; use the existing MPLPB engine or a manual reviewed draft."
+        }
+      },
+      {
+        "index": 3,
+        "kind": "rendered_output",
+        "data": {
+          "kind": "unavailable",
+          "authority": "capability_notice",
+          "text": "General AI chat needs the optional model. You can still use Ask sources, Chat with MPLPB, or Build without it."
+        }
+      },
+      {
+        "index": 4,
+        "kind": "user_input",
+        "data": {
+          "original": "Browser helper research",
+          "mode": "build",
+          "corpus": "canned",
+          "profile": "internal"
+        }
+      },
+      {
+        "index": 5,
+        "kind": "native_fallback",
+        "data": {
+          "reason": "No AI model loaded; use the existing MPLPB engine or a manual reviewed draft."
+        }
+      },
+      {
+        "index": 6,
+        "kind": "validated_plan",
+        "data": {
+          "plan": {
+            "action": "create_collection",
+            "summary": "Use the entered message as the proposed collection name.",
+            "name": "Browser helper research"
+          },
+          "original_preserved": true,
+          "scope": {
+            "corpus": "canned",
+            "profile": "internal"
+          }
+        }
+      },
+      {
+        "index": 7,
+        "kind": "approval_required",
+        "data": {
+          "draft": {
+            "method": "createCollection",
+            "args": [
+              "Browser helper research"
+            ],
+            "kind": "collection"
+          },
+          "notice": "No source was written. Saving does not authenticate truth, authorship or ratification."
+        }
+      },
+      {
+        "index": 8,
+        "kind": "rendered_output",
+        "data": {
+          "kind": "draft",
+          "authority": "requires_human_approval",
+          "text": "Review this proposed collection before saving.",
+          "draft": {
+            "method": "createCollection",
+            "args": [
+              "Browser helper research"
+            ],
+            "kind": "collection"
+          }
+        }
+      },
+      {
+        "index": 9,
+        "kind": "human_cancel",
+        "data": {
+          "had_pending_draft": true
+        }
+      },
+      {
+        "index": 10,
+        "kind": "user_input",
+        "data": {
+          "original": "Browser helper research",
+          "mode": "build",
+          "corpus": "canned",
+          "profile": "internal"
+        }
+      },
+      {
+        "index": 11,
+        "kind": "native_fallback",
+        "data": {
+          "reason": "No AI model loaded; use the existing MPLPB engine or a manual reviewed draft."
+        }
+      },
+      {
+        "index": 12,
+        "kind": "validated_plan",
+        "data": {
+          "plan": {
+            "action": "create_collection",
+            "summary": "Use the entered message as the proposed collection name.",
+            "name": "Browser helper research"
+          },
+          "original_preserved": true,
+          "scope": {
+            "corpus": "canned",
+            "profile": "internal"
+          }
+        }
+      },
+      {
+        "index": 13,
+        "kind": "approval_required",
+        "data": {
+          "draft": {
+            "method": "createCollection",
+            "args": [
+              "Browser helper research"
+            ],
+            "kind": "collection"
+          },
+          "notice": "No source was written. Saving does not authenticate truth, authorship or ratification."
+        }
+      },
+      {
+        "index": 14,
+        "kind": "rendered_output",
+        "data": {
+          "kind": "draft",
+          "authority": "requires_human_approval",
+          "text": "Review this proposed collection before saving.",
+          "draft": {
+            "method": "createCollection",
+            "args": [
+              "Browser helper research"
+            ],
+            "kind": "collection"
+          }
+        }
+      },
+      {
+        "index": 15,
+        "kind": "human_approval",
+        "data": {
+          "draft": {
+            "method": "createCollection",
+            "args": [
+              "Browser helper research"
+            ],
+            "kind": "collection"
+          },
+          "meaning": "Permission to save this draft, not verification or ratification."
+        }
+      },
+      {
+        "index": 16,
+        "kind": "tool_request",
+        "data": {
+          "method": "createCollection",
+          "args": [
+            "Browser helper research"
+          ]
+        }
+      },
+      {
+        "index": 17,
+        "kind": "tool_result",
+        "data": {
+          "method": "createCollection",
+          "response": {
+            "ok": true,
+            "data": {
+              "corpus": "mind-238e6135113d42f290170640dd608697",
+              "name": "Browser helper research",
+              "created_at": "2026-11-26T00:04:46.604999+00:00"
+            }
+          }
+        }
+      },
+      {
+        "index": 18,
+        "kind": "rendered_output",
+        "data": {
+          "kind": "saved",
+          "authority": "source_management_receipt",
+          "text": "Collection created. You can now review and add sources.",
+          "data": {
+            "corpus": "mind-238e6135113d42f290170640dd608697",
+            "name": "Browser helper research",
+            "created_at": "2026-11-26T00:04:46.604999+00:00"
+          }
+        }
+      },
+      {
+        "index": 19,
+        "kind": "user_input",
+        "data": {
+          "original": "Save the exact provided source",
+          "mode": "build",
+          "corpus": "mind-238e6135113d42f290170640dd608697",
+          "profile": "internal"
+        }
+      },
+      {
+        "index": 20,
+        "kind": "native_fallback",
+        "data": {
+          "reason": "No AI model loaded; use the existing MPLPB engine or a manual reviewed draft."
+        }
+      },
+      {
+        "index": 21,
+        "kind": "validated_plan",
+        "data": {
+          "plan": {
+            "action": "import_source",
+            "summary": "Save the exact provided text after review.",
+            "title": "Opaque source",
+            "body": "The Zorvex receiver channel is 8437."
+          },
+          "original_preserved": true,
+          "scope": {
+            "corpus": "mind-238e6135113d42f290170640dd608697",
+            "profile": "internal"
+          }
+        }
+      },
+      {
+        "index": 22,
+        "kind": "approval_required",
+        "data": {
+          "draft": {
+            "method": "importSource",
+            "args": [
+              {
+                "corpus": "mind-238e6135113d42f290170640dd608697",
+                "title": "Opaque source",
+                "url": "https://example.org/browser-source-a",
+                "text": "The Zorvex receiver channel is 8437."
+              }
+            ],
+            "kind": "provided_source"
+          },
+          "notice": "No source was written. Saving does not authenticate truth, authorship or ratification."
+        }
+      },
+      {
+        "index": 23,
+        "kind": "rendered_output",
+        "data": {
+          "kind": "draft",
+          "authority": "requires_human_approval",
+          "text": "Review this proposed provided_source before saving.",
+          "draft": {
+            "method": "importSource",
+            "args": [
+              {
+                "corpus": "mind-238e6135113d42f290170640dd608697",
+                "title": "Opaque source",
+                "url": "https://example.org/browser-source-a",
+                "text": "The Zorvex receiver channel is 8437."
+              }
+            ],
+            "kind": "provided_source"
+          }
+        }
+      },
+      {
+        "index": 24,
+        "kind": "human_approval",
+        "data": {
+          "draft": {
+            "method": "importSource",
+            "args": [
+              {
+                "corpus": "mind-238e6135113d42f290170640dd608697",
+                "title": "Opaque source",
+                "url": "https://example.org/browser-source-a",
+                "text": "The Zorvex receiver channel is 8437."
+              }
+            ],
+            "kind": "provided_source"
+          },
+          "meaning": "Permission to save this draft, not verification or ratification."
+        }
+      },
+      {
+        "index": 25,
+        "kind": "tool_request",
+        "data": {
+          "method": "importSource",
+          "args": [
+            {
+              "corpus": "mind-238e6135113d42f290170640dd608697",
+              "title": "Opaque source",
+              "url": "https://example.org/browser-source-a",
+              "text": "The Zorvex receiver channel is 8437."
+            }
+          ]
+        }
+      },
+      {
+        "index": 26,
+        "kind": "tool_result",
+        "data": {
+          "method": "importSource",
+          "response": {
+            "ok": true,
+            "data": {
+              "corpus": "mind-238e6135113d42f290170640dd608697",
+              "title": "Opaque source",
+              "id": "WEB-9225ad33d207956f-0001",
+              "path": "web-9225ad33d207956f-0001.html",
+              "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+              "capture": {
+                "source_url": "https://example.org/browser-source-a",
+                "title": "Opaque source",
+                "observed_at": "2026-11-26T00:04:47.004999+00:00",
+                "source_sha256": "0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2",
+                "text_sha256": "0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2",
+                "transport": "user-pasted-text",
+                "authorship": "unknown",
+                "notice": "Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.",
+                "projection_version": "body-text-no-headings-v1",
+                "body_text_sha256": "0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2"
+              },
+              "collection_build": {
+                "operation": "captured_sealed_and_collection_rebuilt",
+                "transport": "user-pasted-text",
+                "source_origin": "machine",
+                "source_authorship": "unknown",
+                "current_sources": 1,
+                "external_delivery": "withheld",
+                "eligibility": "rechecked per question and delivery profile",
+                "derived_representations": "readable collection rebuilt now; passages and ranking constructed per query",
+                "engine_changed": false,
+                "application_code_changed": false,
+                "notice": "The collection grew. Question interpretation and application rules did not change."
+              }
+            }
+          }
+        }
+      },
+      {
+        "index": 27,
+        "kind": "rendered_output",
+        "data": {
+          "kind": "saved",
+          "authority": "source_management_receipt",
+          "text": "Source saved. This does not verify its claims or who wrote it.",
+          "data": {
+            "corpus": "mind-238e6135113d42f290170640dd608697",
+            "title": "Opaque source",
+            "id": "WEB-9225ad33d207956f-0001",
+            "path": "web-9225ad33d207956f-0001.html",
+            "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+            "capture": {
+              "source_url": "https://example.org/browser-source-a",
+              "title": "Opaque source",
+              "observed_at": "2026-11-26T00:04:47.004999+00:00",
+              "source_sha256": "0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2",
+              "text_sha256": "0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2",
+              "transport": "user-pasted-text",
+              "authorship": "unknown",
+              "notice": "Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.",
+              "projection_version": "body-text-no-headings-v1",
+              "body_text_sha256": "0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2"
+            },
+            "collection_build": {
+              "operation": "captured_sealed_and_collection_rebuilt",
+              "transport": "user-pasted-text",
+              "source_origin": "machine",
+              "source_authorship": "unknown",
+              "current_sources": 1,
+              "external_delivery": "withheld",
+              "eligibility": "rechecked per question and delivery profile",
+              "derived_representations": "readable collection rebuilt now; passages and ranking constructed per query",
+              "engine_changed": false,
+              "application_code_changed": false,
+              "notice": "The collection grew. Question interpretation and application rules did not change."
+            }
+          }
+        }
+      },
+      {
+        "index": 28,
+        "kind": "user_input",
+        "data": {
+          "original": "What is the Zorvex receiver channel?",
+          "mode": "ask",
+          "corpus": "mind-238e6135113d42f290170640dd608697",
+          "profile": "internal"
+        }
+      },
+      {
+        "index": 29,
+        "kind": "native_fallback",
+        "data": {
+          "reason": "No AI model loaded; use the existing MPLPB engine or a manual reviewed draft."
+        }
+      },
+      {
+        "index": 30,
+        "kind": "validated_plan",
+        "data": {
+          "plan": {
+            "action": "ask",
+            "summary": "Forward the original message to MPLPB."
+          },
+          "original_preserved": true,
+          "scope": {
+            "corpus": "mind-238e6135113d42f290170640dd608697",
+            "profile": "internal"
+          }
+        }
+      },
+      {
+        "index": 31,
+        "kind": "tool_request",
+        "data": {
+          "method": "relay",
+          "args": [
+            "What is the Zorvex receiver channel?",
+            {
+              "corpus": "mind-238e6135113d42f290170640dd608697",
+              "profile": "internal",
+              "mode": "query"
+            }
+          ]
+        }
+      },
+      {
+        "index": 32,
+        "kind": "tool_result",
+        "data": {
+          "method": "relay",
+          "response": {
+            "ok": true,
+            "data": {
+              "mode": "query",
+              "kind": "return",
+              "reply": "The Zorvex receiver channel is 8437.",
+              "decision": {
+                "kind": "return",
+                "question": "What is the Zorvex receiver channel?",
+                "profile": "internal",
+                "root": "/mplpb-browser-save-v1/collections/mind-238e6135113d42f290170640dd608697/combined",
+                "reason": "Exact affirmative statement under a finite grammar; source truth is not verified.",
+                "id": "WEB-9225ad33d207956f-0001",
+                "path": "web-9225ad33d207956f-0001.html",
+                "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                "depth": 1,
+                "text": "The Zorvex receiver channel is 8437.",
+                "candidates": [],
+                "known": [
+                  "channel",
+                  "receiver",
+                  "zorvex"
+                ],
+                "unknown": [],
+                "matched_on": "body statement",
+                "withheld": [],
+                "set_aside": [],
+                "quarantined": 0,
+                "route": [],
+                "source_authorship": {
+                  "status": "unknown",
+                  "verified": false,
+                  "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+                },
+                "answer_support": {
+                  "status": "supported",
+                  "version": "statement-support-v4",
+                  "spans": [
+                    {
+                      "quote": "The Zorvex receiver channel is 8437.",
+                      "value": "8437"
+                    }
+                  ],
+                  "frame": {
+                    "relation": "description",
+                    "entity": "zorvex receiver channel",
+                    "canonical": "what is zorvex receiver channel",
+                    "statement": "(?:the )?zorvex\\ receiver\\ channel (?:is|are) (?P<value>.+)",
+                    "negative_statement": "(?:the )?zorvex\\ receiver\\ channel (?:is|are) not (?P<value>.+)",
+                    "time_constraint": "",
+                    "polarity": "affirmative",
+                    "version": "support-frames-v1",
+                    "normalization_is_evidence": false
+                  },
+                  "reason": "Exact affirmative statement under a finite grammar; source truth is not verified.",
+                  "candidate_checks": [
+                    {
+                      "id": "WEB-9225ad33d207956f-0001",
+                      "path": "web-9225ad33d207956f-0001.html",
+                      "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                      "status": "supported",
+                      "spans": [
+                        {
+                          "quote": "The Zorvex receiver channel is 8437.",
+                          "value": "8437"
+                        }
+                      ],
+                      "negative_spans": [],
+                      "unresolved_spans": [],
+                      "assertions": [
+                        {
+                          "subject": "zorvex receiver channel",
+                          "relation": "description",
+                          "value": "8437",
+                          "polarity": "positive",
+                          "qualification": "",
+                          "source_id": "WEB-9225ad33d207956f-0001",
+                          "source_hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                          "path": "web-9225ad33d207956f-0001.html",
+                          "quote": "The Zorvex receiver channel is 8437."
+                        }
+                      ]
+                    }
+                  ],
+                  "statement_conflict": false,
+                  "negative_spans": [],
+                  "assertions": [
+                    {
+                      "subject": "zorvex receiver channel",
+                      "relation": "description",
+                      "value": "8437",
+                      "polarity": "positive",
+                      "qualification": "",
+                      "source_id": "WEB-9225ad33d207956f-0001",
+                      "source_hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                      "path": "web-9225ad33d207956f-0001.html",
+                      "quote": "The Zorvex receiver channel is 8437."
+                    }
+                  ],
+                  "code_sha256": {
+                    "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+                    "__main__.py": "66e6c37f34cb95168466a82ec37e9384fc846c96db7cadcca51f2283e1e8cbc1",
+                    "advanced.py": "bc56efcaa8135a6647afd8c5957917979c170c504b9e22913b600aa95096997d",
+                    "assertions.py": "79de36e6b3e9b47ac58233f6def6ca4b6da3524947a9ecba740b956025e5c075",
+                    "attributed_instruction.py": "56d016303090799a33f2d554f31655b517c351a27971fd37ef7e4abd278ab477",
+                    "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+                    "bounded_records.py": "d3f2e150dcf66e6df6f5ad6f6ca71e906ed12621eea6c2ceb6568b1e7f5b38da",
+                    "claim_frame.py": "e7c1b359daac7623f866d78b892e26d80c88554414c3cdc3de49c8b42dc632e2",
+                    "collection_fields.py": "db25700f1e67c3b8b057577c2570e8bae916b501564d15626387dd8a3678220c",
+                    "compound_fields.py": "5bdabcbc85a90e9e9381fa255893194ae62a1b66957fc70776ca75726a627c28",
+                    "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+                    "d6.py": "827b3bda13d2cc53d00a6aa25c3ba8e5cb50b2de0fd11d2378258a705319c96b",
+                    "documentary.py": "1298b7c056713df568e558a1e5469d48051bb039fe66e15059a43afcb4a2923b",
+                    "documentary_advice.py": "3e1080d80ca9c6139fc71f908689a682bb912d171ba7d5896b49eb513f55cd52",
+                    "documentary_correction.py": "ff9b2b3c6679bf867ea28d77b65492bbabe326e7bb1cf318d56441cefff593db",
+                    "documentary_errata.py": "4c5e92a916af7d53c90890fc5018c497508d40fbe1b67f9cf6a5277d66f1dd96",
+                    "documentary_instruction.py": "6fb8c13847486f7210eb964017e04b872799eca67b40b342d6a3a877b7a0365c",
+                    "documentary_lease.py": "e98159e9ad0d0d73df02b9d507160ba4ca8e2dd9d5128466e983c4bdc045dc1c",
+                    "documentary_links.py": "a10511e64ccddfb93e81bd534ab093121073e8fb3db2b7b75978a5350a63355a",
+                    "documentary_presentation.py": "35ef2dfb2db6b0e76f67ad80a821175a74296476df7b1ba45c2fc97834420827",
+                    "documentary_verify.py": "17df92461ac7f026f0f15cb38b2b28f44c2d9f45b7e25016210d5a8c13cf36af",
+                    "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+                    "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+                    "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+                    "experience_graph.py": "843ce8df142819e3178fb3630978c4ff18ca7b8a8d835fcc7576cfe306903548",
+                    "field_aliases.py": "2a2b1e997d02f8fed534e5ec4d555b3cfa40b6c6684d6176d88d8762b94c002a",
+                    "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+                    "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+                    "linked_obligations.py": "3fe5b80c6a15163da31d285126893d0d837a3caa4040b11c95567c918568a19b",
+                    "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+                    "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+                    "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+                    "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+                    "passage_admission.py": "8f9decd8addf3b14a6ba9258576226e9efd8cff43f5a51a0132b6298efd809fa",
+                    "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+                    "pipeline.py": "109b7d2565882dfca23676eb76246362269b5f2a6b99c189f25102559be8caee",
+                    "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+                    "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+                    "presentation.py": "c68979748753f48cefaca0ea1eb5ac2ddc20b797ef5d3d8181726667c81cc0aa",
+                    "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+                    "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+                    "publication_corrections.py": "6c72632858f4562d320cdcd8ed001eded095834e60c627175c8b0265e7f6d2e6",
+                    "question_intent.py": "9baef407153bc69083ff52567da5cc84e69144920ec36b277b12e0314b67e711",
+                    "reference_identity.py": "0bdfcade2a91e5f363c9d6ba7b1175c3af9b55027e3d2b236dd33e8f1b3ba5c9",
+                    "relation_graph.py": "58003ad19f3a1f58a3ee3746cac3cb9017e3162e4146fd5004374bf32c730adc",
+                    "report_sections.py": "6efaa14124e1a3079f798b07aba9c41fcf8a2fed182d589bcdfdcfb9baf3a5ea",
+                    "reported_content.py": "5076b3505b4da962aa70c231415a276445250d372664059861fac286e2498ac0",
+                    "source_attribution.py": "b59ac55a777afef0a2b13a1cf36a9b6701c67c3428d9c1a726e93b7e29f48e6c",
+                    "source_claims.py": "54f624e13184997c0b8c92298ee1814eb0d81f09410787a7187b823f4810fadb",
+                    "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+                    "source_structure.py": "a1e639f0e36506c906301421e1c326618b9e4451b4f4c34b24f0ce8edddbb8ae",
+                    "source_tags.py": "db10acddc57e53e094eb59266e024e9c46ab4ebced3410a1b79535c48ec99cc7",
+                    "source_units.py": "09c0e6e43f278f07bb5bd0f36beade70c246ae01bf904b420c3c7d060133845c",
+                    "support.py": "117d0c2040b43b95e8a2aafbe55b24a5ddae0f87cd28ba635ff8f8473b327756",
+                    "synonym_graph.py": "4d339ae3307ee10d106b3eec49e038c5c9d50cc48417f8e01970d9b0373ceabb"
+                  }
+                },
+                "answer_contract": {
+                  "schema": "answer-contract-v1",
+                  "mode": "strict",
+                  "question": "What is the Zorvex receiver channel?",
+                  "kind": "supported_answer",
+                  "answer_supported": true,
+                  "text": "The Zorvex receiver channel is 8437.",
+                  "claims": [
+                    {
+                      "text": "The Zorvex receiver channel is 8437.",
+                      "qualifiers": [],
+                      "citations": [
+                        {
+                          "passage": "sha256:2e80b92a6901ca12c0375663363efbae62ab842dd9e45a02de4c8513898aeba5",
+                          "start": 0,
+                          "end": 36,
+                          "quote": "The Zorvex receiver channel is 8437.",
+                          "source_id": "WEB-9225ad33d207956f-0001",
+                          "path": "web-9225ad33d207956f-0001.html",
+                          "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                          "body_start": 0,
+                          "body_end": 36
+                        }
+                      ]
+                    }
+                  ],
+                  "missing": [],
+                  "clarification": "",
+                  "confidence": null,
+                  "confidence_calibrated": false,
+                  "sources": [
+                    {
+                      "id": "WEB-9225ad33d207956f-0001",
+                      "path": "web-9225ad33d207956f-0001.html",
+                      "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4"
+                    }
+                  ],
+                  "retrieval": {},
+                  "verification": {
+                    "structural": true,
+                    "semantic": "bounded_deterministic_grammar",
+                    "truth_verified": false,
+                    "independence_verified": false
+                  },
+                  "reader": null,
+                  "trace": [],
+                  "diagnostic": {
+                    "code": "supported",
+                    "stage": "strict",
+                    "message": "Explicit source statements satisfy the existing bounded grammar.",
+                    "category": "source_support_established",
+                    "corpus_answerability": "not_established",
+                    "next_steps": [
+                      "Open the cited source and check its conditions and revision."
+                    ]
+                  },
+                  "code_sha256": {
+                    "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+                    "__main__.py": "66e6c37f34cb95168466a82ec37e9384fc846c96db7cadcca51f2283e1e8cbc1",
+                    "advanced.py": "bc56efcaa8135a6647afd8c5957917979c170c504b9e22913b600aa95096997d",
+                    "assertions.py": "79de36e6b3e9b47ac58233f6def6ca4b6da3524947a9ecba740b956025e5c075",
+                    "attributed_instruction.py": "56d016303090799a33f2d554f31655b517c351a27971fd37ef7e4abd278ab477",
+                    "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+                    "bounded_records.py": "d3f2e150dcf66e6df6f5ad6f6ca71e906ed12621eea6c2ceb6568b1e7f5b38da",
+                    "claim_frame.py": "e7c1b359daac7623f866d78b892e26d80c88554414c3cdc3de49c8b42dc632e2",
+                    "collection_fields.py": "db25700f1e67c3b8b057577c2570e8bae916b501564d15626387dd8a3678220c",
+                    "compound_fields.py": "5bdabcbc85a90e9e9381fa255893194ae62a1b66957fc70776ca75726a627c28",
+                    "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+                    "d6.py": "827b3bda13d2cc53d00a6aa25c3ba8e5cb50b2de0fd11d2378258a705319c96b",
+                    "documentary.py": "1298b7c056713df568e558a1e5469d48051bb039fe66e15059a43afcb4a2923b",
+                    "documentary_advice.py": "3e1080d80ca9c6139fc71f908689a682bb912d171ba7d5896b49eb513f55cd52",
+                    "documentary_correction.py": "ff9b2b3c6679bf867ea28d77b65492bbabe326e7bb1cf318d56441cefff593db",
+                    "documentary_errata.py": "4c5e92a916af7d53c90890fc5018c497508d40fbe1b67f9cf6a5277d66f1dd96",
+                    "documentary_instruction.py": "6fb8c13847486f7210eb964017e04b872799eca67b40b342d6a3a877b7a0365c",
+                    "documentary_lease.py": "e98159e9ad0d0d73df02b9d507160ba4ca8e2dd9d5128466e983c4bdc045dc1c",
+                    "documentary_links.py": "a10511e64ccddfb93e81bd534ab093121073e8fb3db2b7b75978a5350a63355a",
+                    "documentary_presentation.py": "35ef2dfb2db6b0e76f67ad80a821175a74296476df7b1ba45c2fc97834420827",
+                    "documentary_verify.py": "17df92461ac7f026f0f15cb38b2b28f44c2d9f45b7e25016210d5a8c13cf36af",
+                    "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+                    "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+                    "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+                    "experience_graph.py": "843ce8df142819e3178fb3630978c4ff18ca7b8a8d835fcc7576cfe306903548",
+                    "field_aliases.py": "2a2b1e997d02f8fed534e5ec4d555b3cfa40b6c6684d6176d88d8762b94c002a",
+                    "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+                    "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+                    "linked_obligations.py": "3fe5b80c6a15163da31d285126893d0d837a3caa4040b11c95567c918568a19b",
+                    "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+                    "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+                    "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+                    "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+                    "passage_admission.py": "8f9decd8addf3b14a6ba9258576226e9efd8cff43f5a51a0132b6298efd809fa",
+                    "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+                    "pipeline.py": "109b7d2565882dfca23676eb76246362269b5f2a6b99c189f25102559be8caee",
+                    "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+                    "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+                    "presentation.py": "c68979748753f48cefaca0ea1eb5ac2ddc20b797ef5d3d8181726667c81cc0aa",
+                    "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+                    "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+                    "publication_corrections.py": "6c72632858f4562d320cdcd8ed001eded095834e60c627175c8b0265e7f6d2e6",
+                    "question_intent.py": "9baef407153bc69083ff52567da5cc84e69144920ec36b277b12e0314b67e711",
+                    "reference_identity.py": "0bdfcade2a91e5f363c9d6ba7b1175c3af9b55027e3d2b236dd33e8f1b3ba5c9",
+                    "relation_graph.py": "58003ad19f3a1f58a3ee3746cac3cb9017e3162e4146fd5004374bf32c730adc",
+                    "report_sections.py": "6efaa14124e1a3079f798b07aba9c41fcf8a2fed182d589bcdfdcfb9baf3a5ea",
+                    "reported_content.py": "5076b3505b4da962aa70c231415a276445250d372664059861fac286e2498ac0",
+                    "source_attribution.py": "b59ac55a777afef0a2b13a1cf36a9b6701c67c3428d9c1a726e93b7e29f48e6c",
+                    "source_claims.py": "54f624e13184997c0b8c92298ee1814eb0d81f09410787a7187b823f4810fadb",
+                    "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+                    "source_structure.py": "a1e639f0e36506c906301421e1c326618b9e4451b4f4c34b24f0ce8edddbb8ae",
+                    "source_tags.py": "db10acddc57e53e094eb59266e024e9c46ab4ebced3410a1b79535c48ec99cc7",
+                    "source_units.py": "09c0e6e43f278f07bb5bd0f36beade70c246ae01bf904b420c3c7d060133845c",
+                    "support.py": "117d0c2040b43b95e8a2aafbe55b24a5ddae0f87cd28ba635ff8f8473b327756",
+                    "synonym_graph.py": "4d339ae3307ee10d106b3eec49e038c5c9d50cc48417f8e01970d9b0373ceabb"
+                  },
+                  "passage_budget": {
+                    "max_passages": 12,
+                    "max_characters": 8000,
+                    "distinct_citation_spans": 1,
+                    "citation_characters": 36,
+                    "blocked_atomic_claims": 0,
+                    "deduplicated_before_charge": true
+                  },
+                  "source_assurance": {
+                    "basis": "source_attributed_only",
+                    "outside_world_confirmation_required": true,
+                    "outside_world_truth": "not_established",
+                    "authorship_authenticated": false,
+                    "independence_verified": false,
+                    "declared_evidence_root_count": 1,
+                    "single_declared_root": true,
+                    "notice": "Source support establishes what eligible ledger pages state. Outside-world confirmation is required before treating those statements as historical truth. MPLPB cannot detect a coherent false original without contrary evidence, authenticate arbitrary testimony, or establish general historical reconstruction from source integrity alone."
+                  }
+                },
+                "answer_diagnostics": {
+                  "code": "supported",
+                  "stage": "strict",
+                  "message": "Explicit source statements satisfy the existing bounded grammar.",
+                  "category": "source_support_established",
+                  "corpus_answerability": "not_established",
+                  "next_steps": [
+                    "Open the cited source and check its conditions and revision."
+                  ]
+                },
+                "answer_supported": true,
+                "citation": "[WEB-9225ad33d207956f-0001 \u00b7 web-9225ad33d207956f-0001.html \u00b7 current \u00b7 origin machine d1 \u00b7 sha256:91667d39f672 \u00b7 local]",
+                "title": "Opaque source"
+              },
+              "citation": "[WEB-9225ad33d207956f-0001 \u00b7 web-9225ad33d207956f-0001.html \u00b7 current \u00b7 origin machine d1 \u00b7 sha256:91667d39f672 \u00b7 local]",
+              "gate": {
+                "kind": "source_bundle",
+                "question": "What is the Zorvex receiver channel?",
+                "profile": "internal",
+                "query_terms": [
+                  "channel",
+                  "receiver",
+                  "zorvex"
+                ],
+                "sources": [
+                  {
+                    "id": "WEB-9225ad33d207956f-0001",
+                    "path": "web-9225ad33d207956f-0001.html",
+                    "title": "Opaque source",
+                    "origin": "machine",
+                    "origin_depth": 1,
+                    "owner": "unknown",
+                    "updated": "2026-11-26T00:04Z",
+                    "status": "current",
+                    "declared_status": "current",
+                    "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                    "derived_from": [],
+                    "supersedes": [],
+                    "ratified_by": "",
+                    "location": "local",
+                    "scope": "Opaque source",
+                    "when_to_use": "",
+                    "not_for": "",
+                    "text": "Opaque source\nThe Zorvex receiver channel is 8437.\nSource capture: {\"source_url\": \"https://example.org/browser-source-a\", \"title\": \"Opaque source\", \"observed_at\": \"2026-11-26T00:04:47.004999+00:00\", \"source_sha256\": \"0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2\", \"text_sha256\": \"0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2\", \"transport\": \"user-pasted-text\", \"authorship\": \"unknown\", \"notice\": \"Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.\", \"projection_version\": \"body-text-no-headings-v1\", \"body_text_sha256\": \"0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2\"}",
+                    "matched_terms": [
+                      "channel",
+                      "receiver",
+                      "zorvex"
+                    ],
+                    "scope_terms": [],
+                    "prose_only_terms": [
+                      "channel",
+                      "receiver",
+                      "zorvex"
+                    ],
+                    "unmatched_terms": [],
+                    "matches_every_query_term": true,
+                    "ancestry": [],
+                    "evidence_basis": {
+                      "delivery": "verbatim_page_text",
+                      "content_truth_verified": false,
+                      "original_claim_basis": "not_encoded_by_legacy_page_format"
+                    },
+                    "recheck_conditions": [
+                      "source changes",
+                      "dependency is superseded or retired",
+                      "serving policy changes"
+                    ],
+                    "verification": {
+                      "hash_intact": true,
+                      "lineage_pinned": true,
+                      "origin_explicit": true,
+                      "authorship_authenticated": false
+                    },
+                    "source_authorship": {
+                      "status": "unknown",
+                      "verified": false,
+                      "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+                    }
+                  }
+                ],
+                "term_sources": {
+                  "channel": [
+                    "WEB-9225ad33d207956f-0001"
+                  ],
+                  "receiver": [
+                    "WEB-9225ad33d207956f-0001"
+                  ],
+                  "zorvex": [
+                    "WEB-9225ad33d207956f-0001"
+                  ]
+                },
+                "unmatched_terms": [],
+                "lexical_coverage": "complete",
+                "excluded": [],
+                "query_flags": [],
+                "policy": {
+                  "gate_version": 2,
+                  "mode": "separate_lexical_sources",
+                  "max_depth": 1,
+                  "prose": true,
+                  "not_for": true,
+                  "enforce_sealed_external_policy": true,
+                  "synthesize": false,
+                  "follow_pointers": false,
+                  "require_current_dependencies": true,
+                  "settings_hash": "sha256:2b95571a707e2341b9dedc11b579a05bdd494cc4f4f2f13d1cac7e67a2beb03c"
+                },
+                "corpus_snapshot": "sha256:0a20e45ff468f36c89939d77edac1a2f673877085de2736ecb8605a1036c7322",
+                "shared_lineage": [],
+                "evidence_status": "retrieved_pages_not_truth_certification",
+                "relationship_status": "not_established_by_retrieval",
+                "answer_synthesized": false,
+                "authorship_authenticated": false,
+                "notice": "Each source is presented separately. Complete lexical coverage means the requested words occur across sources, not that a page answers the question or that separate facts are related. Origin and owner are page declarations, not authenticated identities."
+              },
+              "live_verified_by_this_query": false,
+              "suggestions": []
+            }
+          }
+        }
+      },
+      {
+        "index": 33,
+        "kind": "rendered_output",
+        "data": {
+          "kind": "return",
+          "authority": "mplpb_query",
+          "text": "The Zorvex receiver channel is 8437.",
+          "data": {
+            "mode": "query",
+            "kind": "return",
+            "reply": "The Zorvex receiver channel is 8437.",
+            "decision": {
+              "kind": "return",
+              "question": "What is the Zorvex receiver channel?",
+              "profile": "internal",
+              "root": "/mplpb-browser-save-v1/collections/mind-238e6135113d42f290170640dd608697/combined",
+              "reason": "Exact affirmative statement under a finite grammar; source truth is not verified.",
+              "id": "WEB-9225ad33d207956f-0001",
+              "path": "web-9225ad33d207956f-0001.html",
+              "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+              "depth": 1,
+              "text": "The Zorvex receiver channel is 8437.",
+              "candidates": [],
+              "known": [
+                "channel",
+                "receiver",
+                "zorvex"
+              ],
+              "unknown": [],
+              "matched_on": "body statement",
+              "withheld": [],
+              "set_aside": [],
+              "quarantined": 0,
+              "route": [],
+              "source_authorship": {
+                "status": "unknown",
+                "verified": false,
+                "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+              },
+              "answer_support": {
+                "status": "supported",
+                "version": "statement-support-v4",
+                "spans": [
+                  {
+                    "quote": "The Zorvex receiver channel is 8437.",
+                    "value": "8437"
+                  }
+                ],
+                "frame": {
+                  "relation": "description",
+                  "entity": "zorvex receiver channel",
+                  "canonical": "what is zorvex receiver channel",
+                  "statement": "(?:the )?zorvex\\ receiver\\ channel (?:is|are) (?P<value>.+)",
+                  "negative_statement": "(?:the )?zorvex\\ receiver\\ channel (?:is|are) not (?P<value>.+)",
+                  "time_constraint": "",
+                  "polarity": "affirmative",
+                  "version": "support-frames-v1",
+                  "normalization_is_evidence": false
+                },
+                "reason": "Exact affirmative statement under a finite grammar; source truth is not verified.",
+                "candidate_checks": [
+                  {
+                    "id": "WEB-9225ad33d207956f-0001",
+                    "path": "web-9225ad33d207956f-0001.html",
+                    "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                    "status": "supported",
+                    "spans": [
+                      {
+                        "quote": "The Zorvex receiver channel is 8437.",
+                        "value": "8437"
+                      }
+                    ],
+                    "negative_spans": [],
+                    "unresolved_spans": [],
+                    "assertions": [
+                      {
+                        "subject": "zorvex receiver channel",
+                        "relation": "description",
+                        "value": "8437",
+                        "polarity": "positive",
+                        "qualification": "",
+                        "source_id": "WEB-9225ad33d207956f-0001",
+                        "source_hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                        "path": "web-9225ad33d207956f-0001.html",
+                        "quote": "The Zorvex receiver channel is 8437."
+                      }
+                    ]
+                  }
+                ],
+                "statement_conflict": false,
+                "negative_spans": [],
+                "assertions": [
+                  {
+                    "subject": "zorvex receiver channel",
+                    "relation": "description",
+                    "value": "8437",
+                    "polarity": "positive",
+                    "qualification": "",
+                    "source_id": "WEB-9225ad33d207956f-0001",
+                    "source_hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                    "path": "web-9225ad33d207956f-0001.html",
+                    "quote": "The Zorvex receiver channel is 8437."
+                  }
+                ],
+                "code_sha256": {
+                  "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+                  "__main__.py": "66e6c37f34cb95168466a82ec37e9384fc846c96db7cadcca51f2283e1e8cbc1",
+                  "advanced.py": "bc56efcaa8135a6647afd8c5957917979c170c504b9e22913b600aa95096997d",
+                  "assertions.py": "79de36e6b3e9b47ac58233f6def6ca4b6da3524947a9ecba740b956025e5c075",
+                  "attributed_instruction.py": "56d016303090799a33f2d554f31655b517c351a27971fd37ef7e4abd278ab477",
+                  "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+                  "bounded_records.py": "d3f2e150dcf66e6df6f5ad6f6ca71e906ed12621eea6c2ceb6568b1e7f5b38da",
+                  "claim_frame.py": "e7c1b359daac7623f866d78b892e26d80c88554414c3cdc3de49c8b42dc632e2",
+                  "collection_fields.py": "db25700f1e67c3b8b057577c2570e8bae916b501564d15626387dd8a3678220c",
+                  "compound_fields.py": "5bdabcbc85a90e9e9381fa255893194ae62a1b66957fc70776ca75726a627c28",
+                  "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+                  "d6.py": "827b3bda13d2cc53d00a6aa25c3ba8e5cb50b2de0fd11d2378258a705319c96b",
+                  "documentary.py": "1298b7c056713df568e558a1e5469d48051bb039fe66e15059a43afcb4a2923b",
+                  "documentary_advice.py": "3e1080d80ca9c6139fc71f908689a682bb912d171ba7d5896b49eb513f55cd52",
+                  "documentary_correction.py": "ff9b2b3c6679bf867ea28d77b65492bbabe326e7bb1cf318d56441cefff593db",
+                  "documentary_errata.py": "4c5e92a916af7d53c90890fc5018c497508d40fbe1b67f9cf6a5277d66f1dd96",
+                  "documentary_instruction.py": "6fb8c13847486f7210eb964017e04b872799eca67b40b342d6a3a877b7a0365c",
+                  "documentary_lease.py": "e98159e9ad0d0d73df02b9d507160ba4ca8e2dd9d5128466e983c4bdc045dc1c",
+                  "documentary_links.py": "a10511e64ccddfb93e81bd534ab093121073e8fb3db2b7b75978a5350a63355a",
+                  "documentary_presentation.py": "35ef2dfb2db6b0e76f67ad80a821175a74296476df7b1ba45c2fc97834420827",
+                  "documentary_verify.py": "17df92461ac7f026f0f15cb38b2b28f44c2d9f45b7e25016210d5a8c13cf36af",
+                  "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+                  "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+                  "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+                  "experience_graph.py": "843ce8df142819e3178fb3630978c4ff18ca7b8a8d835fcc7576cfe306903548",
+                  "field_aliases.py": "2a2b1e997d02f8fed534e5ec4d555b3cfa40b6c6684d6176d88d8762b94c002a",
+                  "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+                  "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+                  "linked_obligations.py": "3fe5b80c6a15163da31d285126893d0d837a3caa4040b11c95567c918568a19b",
+                  "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+                  "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+                  "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+                  "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+                  "passage_admission.py": "8f9decd8addf3b14a6ba9258576226e9efd8cff43f5a51a0132b6298efd809fa",
+                  "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+                  "pipeline.py": "109b7d2565882dfca23676eb76246362269b5f2a6b99c189f25102559be8caee",
+                  "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+                  "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+                  "presentation.py": "c68979748753f48cefaca0ea1eb5ac2ddc20b797ef5d3d8181726667c81cc0aa",
+                  "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+                  "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+                  "publication_corrections.py": "6c72632858f4562d320cdcd8ed001eded095834e60c627175c8b0265e7f6d2e6",
+                  "question_intent.py": "9baef407153bc69083ff52567da5cc84e69144920ec36b277b12e0314b67e711",
+                  "reference_identity.py": "0bdfcade2a91e5f363c9d6ba7b1175c3af9b55027e3d2b236dd33e8f1b3ba5c9",
+                  "relation_graph.py": "58003ad19f3a1f58a3ee3746cac3cb9017e3162e4146fd5004374bf32c730adc",
+                  "report_sections.py": "6efaa14124e1a3079f798b07aba9c41fcf8a2fed182d589bcdfdcfb9baf3a5ea",
+                  "reported_content.py": "5076b3505b4da962aa70c231415a276445250d372664059861fac286e2498ac0",
+                  "source_attribution.py": "b59ac55a777afef0a2b13a1cf36a9b6701c67c3428d9c1a726e93b7e29f48e6c",
+                  "source_claims.py": "54f624e13184997c0b8c92298ee1814eb0d81f09410787a7187b823f4810fadb",
+                  "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+                  "source_structure.py": "a1e639f0e36506c906301421e1c326618b9e4451b4f4c34b24f0ce8edddbb8ae",
+                  "source_tags.py": "db10acddc57e53e094eb59266e024e9c46ab4ebced3410a1b79535c48ec99cc7",
+                  "source_units.py": "09c0e6e43f278f07bb5bd0f36beade70c246ae01bf904b420c3c7d060133845c",
+                  "support.py": "117d0c2040b43b95e8a2aafbe55b24a5ddae0f87cd28ba635ff8f8473b327756",
+                  "synonym_graph.py": "4d339ae3307ee10d106b3eec49e038c5c9d50cc48417f8e01970d9b0373ceabb"
+                }
+              },
+              "answer_contract": {
+                "schema": "answer-contract-v1",
+                "mode": "strict",
+                "question": "What is the Zorvex receiver channel?",
+                "kind": "supported_answer",
+                "answer_supported": true,
+                "text": "The Zorvex receiver channel is 8437.",
+                "claims": [
+                  {
+                    "text": "The Zorvex receiver channel is 8437.",
+                    "qualifiers": [],
+                    "citations": [
+                      {
+                        "passage": "sha256:2e80b92a6901ca12c0375663363efbae62ab842dd9e45a02de4c8513898aeba5",
+                        "start": 0,
+                        "end": 36,
+                        "quote": "The Zorvex receiver channel is 8437.",
+                        "source_id": "WEB-9225ad33d207956f-0001",
+                        "path": "web-9225ad33d207956f-0001.html",
+                        "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                        "body_start": 0,
+                        "body_end": 36
+                      }
+                    ]
+                  }
+                ],
+                "missing": [],
+                "clarification": "",
+                "confidence": null,
+                "confidence_calibrated": false,
+                "sources": [
+                  {
+                    "id": "WEB-9225ad33d207956f-0001",
+                    "path": "web-9225ad33d207956f-0001.html",
+                    "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4"
+                  }
+                ],
+                "retrieval": {},
+                "verification": {
+                  "structural": true,
+                  "semantic": "bounded_deterministic_grammar",
+                  "truth_verified": false,
+                  "independence_verified": false
+                },
+                "reader": null,
+                "trace": [],
+                "diagnostic": {
+                  "code": "supported",
+                  "stage": "strict",
+                  "message": "Explicit source statements satisfy the existing bounded grammar.",
+                  "category": "source_support_established",
+                  "corpus_answerability": "not_established",
+                  "next_steps": [
+                    "Open the cited source and check its conditions and revision."
+                  ]
+                },
+                "code_sha256": {
+                  "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+                  "__main__.py": "66e6c37f34cb95168466a82ec37e9384fc846c96db7cadcca51f2283e1e8cbc1",
+                  "advanced.py": "bc56efcaa8135a6647afd8c5957917979c170c504b9e22913b600aa95096997d",
+                  "assertions.py": "79de36e6b3e9b47ac58233f6def6ca4b6da3524947a9ecba740b956025e5c075",
+                  "attributed_instruction.py": "56d016303090799a33f2d554f31655b517c351a27971fd37ef7e4abd278ab477",
+                  "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+                  "bounded_records.py": "d3f2e150dcf66e6df6f5ad6f6ca71e906ed12621eea6c2ceb6568b1e7f5b38da",
+                  "claim_frame.py": "e7c1b359daac7623f866d78b892e26d80c88554414c3cdc3de49c8b42dc632e2",
+                  "collection_fields.py": "db25700f1e67c3b8b057577c2570e8bae916b501564d15626387dd8a3678220c",
+                  "compound_fields.py": "5bdabcbc85a90e9e9381fa255893194ae62a1b66957fc70776ca75726a627c28",
+                  "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+                  "d6.py": "827b3bda13d2cc53d00a6aa25c3ba8e5cb50b2de0fd11d2378258a705319c96b",
+                  "documentary.py": "1298b7c056713df568e558a1e5469d48051bb039fe66e15059a43afcb4a2923b",
+                  "documentary_advice.py": "3e1080d80ca9c6139fc71f908689a682bb912d171ba7d5896b49eb513f55cd52",
+                  "documentary_correction.py": "ff9b2b3c6679bf867ea28d77b65492bbabe326e7bb1cf318d56441cefff593db",
+                  "documentary_errata.py": "4c5e92a916af7d53c90890fc5018c497508d40fbe1b67f9cf6a5277d66f1dd96",
+                  "documentary_instruction.py": "6fb8c13847486f7210eb964017e04b872799eca67b40b342d6a3a877b7a0365c",
+                  "documentary_lease.py": "e98159e9ad0d0d73df02b9d507160ba4ca8e2dd9d5128466e983c4bdc045dc1c",
+                  "documentary_links.py": "a10511e64ccddfb93e81bd534ab093121073e8fb3db2b7b75978a5350a63355a",
+                  "documentary_presentation.py": "35ef2dfb2db6b0e76f67ad80a821175a74296476df7b1ba45c2fc97834420827",
+                  "documentary_verify.py": "17df92461ac7f026f0f15cb38b2b28f44c2d9f45b7e25016210d5a8c13cf36af",
+                  "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+                  "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+                  "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+                  "experience_graph.py": "843ce8df142819e3178fb3630978c4ff18ca7b8a8d835fcc7576cfe306903548",
+                  "field_aliases.py": "2a2b1e997d02f8fed534e5ec4d555b3cfa40b6c6684d6176d88d8762b94c002a",
+                  "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+                  "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+                  "linked_obligations.py": "3fe5b80c6a15163da31d285126893d0d837a3caa4040b11c95567c918568a19b",
+                  "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+                  "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+                  "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+                  "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+                  "passage_admission.py": "8f9decd8addf3b14a6ba9258576226e9efd8cff43f5a51a0132b6298efd809fa",
+                  "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+                  "pipeline.py": "109b7d2565882dfca23676eb76246362269b5f2a6b99c189f25102559be8caee",
+                  "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+                  "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+                  "presentation.py": "c68979748753f48cefaca0ea1eb5ac2ddc20b797ef5d3d8181726667c81cc0aa",
+                  "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+                  "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+                  "publication_corrections.py": "6c72632858f4562d320cdcd8ed001eded095834e60c627175c8b0265e7f6d2e6",
+                  "question_intent.py": "9baef407153bc69083ff52567da5cc84e69144920ec36b277b12e0314b67e711",
+                  "reference_identity.py": "0bdfcade2a91e5f363c9d6ba7b1175c3af9b55027e3d2b236dd33e8f1b3ba5c9",
+                  "relation_graph.py": "58003ad19f3a1f58a3ee3746cac3cb9017e3162e4146fd5004374bf32c730adc",
+                  "report_sections.py": "6efaa14124e1a3079f798b07aba9c41fcf8a2fed182d589bcdfdcfb9baf3a5ea",
+                  "reported_content.py": "5076b3505b4da962aa70c231415a276445250d372664059861fac286e2498ac0",
+                  "source_attribution.py": "b59ac55a777afef0a2b13a1cf36a9b6701c67c3428d9c1a726e93b7e29f48e6c",
+                  "source_claims.py": "54f624e13184997c0b8c92298ee1814eb0d81f09410787a7187b823f4810fadb",
+                  "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+                  "source_structure.py": "a1e639f0e36506c906301421e1c326618b9e4451b4f4c34b24f0ce8edddbb8ae",
+                  "source_tags.py": "db10acddc57e53e094eb59266e024e9c46ab4ebced3410a1b79535c48ec99cc7",
+                  "source_units.py": "09c0e6e43f278f07bb5bd0f36beade70c246ae01bf904b420c3c7d060133845c",
+                  "support.py": "117d0c2040b43b95e8a2aafbe55b24a5ddae0f87cd28ba635ff8f8473b327756",
+                  "synonym_graph.py": "4d339ae3307ee10d106b3eec49e038c5c9d50cc48417f8e01970d9b0373ceabb"
+                },
+                "passage_budget": {
+                  "max_passages": 12,
+                  "max_characters": 8000,
+                  "distinct_citation_spans": 1,
+                  "citation_characters": 36,
+                  "blocked_atomic_claims": 0,
+                  "deduplicated_before_charge": true
+                },
+                "source_assurance": {
+                  "basis": "source_attributed_only",
+                  "outside_world_confirmation_required": true,
+                  "outside_world_truth": "not_established",
+                  "authorship_authenticated": false,
+                  "independence_verified": false,
+                  "declared_evidence_root_count": 1,
+                  "single_declared_root": true,
+                  "notice": "Source support establishes what eligible ledger pages state. Outside-world confirmation is required before treating those statements as historical truth. MPLPB cannot detect a coherent false original without contrary evidence, authenticate arbitrary testimony, or establish general historical reconstruction from source integrity alone."
+                }
+              },
+              "answer_diagnostics": {
+                "code": "supported",
+                "stage": "strict",
+                "message": "Explicit source statements satisfy the existing bounded grammar.",
+                "category": "source_support_established",
+                "corpus_answerability": "not_established",
+                "next_steps": [
+                  "Open the cited source and check its conditions and revision."
+                ]
+              },
+              "answer_supported": true,
+              "citation": "[WEB-9225ad33d207956f-0001 \u00b7 web-9225ad33d207956f-0001.html \u00b7 current \u00b7 origin machine d1 \u00b7 sha256:91667d39f672 \u00b7 local]",
+              "title": "Opaque source"
+            },
+            "citation": "[WEB-9225ad33d207956f-0001 \u00b7 web-9225ad33d207956f-0001.html \u00b7 current \u00b7 origin machine d1 \u00b7 sha256:91667d39f672 \u00b7 local]",
+            "gate": {
+              "kind": "source_bundle",
+              "question": "What is the Zorvex receiver channel?",
+              "profile": "internal",
+              "query_terms": [
+                "channel",
+                "receiver",
+                "zorvex"
+              ],
+              "sources": [
+                {
+                  "id": "WEB-9225ad33d207956f-0001",
+                  "path": "web-9225ad33d207956f-0001.html",
+                  "title": "Opaque source",
+                  "origin": "machine",
+                  "origin_depth": 1,
+                  "owner": "unknown",
+                  "updated": "2026-11-26T00:04Z",
+                  "status": "current",
+                  "declared_status": "current",
+                  "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                  "derived_from": [],
+                  "supersedes": [],
+                  "ratified_by": "",
+                  "location": "local",
+                  "scope": "Opaque source",
+                  "when_to_use": "",
+                  "not_for": "",
+                  "text": "Opaque source\nThe Zorvex receiver channel is 8437.\nSource capture: {\"source_url\": \"https://example.org/browser-source-a\", \"title\": \"Opaque source\", \"observed_at\": \"2026-11-26T00:04:47.004999+00:00\", \"source_sha256\": \"0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2\", \"text_sha256\": \"0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2\", \"transport\": \"user-pasted-text\", \"authorship\": \"unknown\", \"notice\": \"Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.\", \"projection_version\": \"body-text-no-headings-v1\", \"body_text_sha256\": \"0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2\"}",
+                  "matched_terms": [
+                    "channel",
+                    "receiver",
+                    "zorvex"
+                  ],
+                  "scope_terms": [],
+                  "prose_only_terms": [
+                    "channel",
+                    "receiver",
+                    "zorvex"
+                  ],
+                  "unmatched_terms": [],
+                  "matches_every_query_term": true,
+                  "ancestry": [],
+                  "evidence_basis": {
+                    "delivery": "verbatim_page_text",
+                    "content_truth_verified": false,
+                    "original_claim_basis": "not_encoded_by_legacy_page_format"
+                  },
+                  "recheck_conditions": [
+                    "source changes",
+                    "dependency is superseded or retired",
+                    "serving policy changes"
+                  ],
+                  "verification": {
+                    "hash_intact": true,
+                    "lineage_pinned": true,
+                    "origin_explicit": true,
+                    "authorship_authenticated": false
+                  },
+                  "source_authorship": {
+                    "status": "unknown",
+                    "verified": false,
+                    "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+                  }
+                }
+              ],
+              "term_sources": {
+                "channel": [
+                  "WEB-9225ad33d207956f-0001"
+                ],
+                "receiver": [
+                  "WEB-9225ad33d207956f-0001"
+                ],
+                "zorvex": [
+                  "WEB-9225ad33d207956f-0001"
+                ]
+              },
+              "unmatched_terms": [],
+              "lexical_coverage": "complete",
+              "excluded": [],
+              "query_flags": [],
+              "policy": {
+                "gate_version": 2,
+                "mode": "separate_lexical_sources",
+                "max_depth": 1,
+                "prose": true,
+                "not_for": true,
+                "enforce_sealed_external_policy": true,
+                "synthesize": false,
+                "follow_pointers": false,
+                "require_current_dependencies": true,
+                "settings_hash": "sha256:2b95571a707e2341b9dedc11b579a05bdd494cc4f4f2f13d1cac7e67a2beb03c"
+              },
+              "corpus_snapshot": "sha256:0a20e45ff468f36c89939d77edac1a2f673877085de2736ecb8605a1036c7322",
+              "shared_lineage": [],
+              "evidence_status": "retrieved_pages_not_truth_certification",
+              "relationship_status": "not_established_by_retrieval",
+              "answer_synthesized": false,
+              "authorship_authenticated": false,
+              "notice": "Each source is presented separately. Complete lexical coverage means the requested words occur across sources, not that a page answers the question or that separate facts are related. Origin and owner are page declarations, not authenticated identities."
+            },
+            "live_verified_by_this_query": false,
+            "suggestions": []
+          }
+        }
+      },
+      {
+        "index": 34,
+        "kind": "user_input",
+        "data": {
+          "original": "Save the exact conflicting source",
+          "mode": "build",
+          "corpus": "mind-238e6135113d42f290170640dd608697",
+          "profile": "internal"
+        }
+      },
+      {
+        "index": 35,
+        "kind": "native_fallback",
+        "data": {
+          "reason": "No AI model loaded; use the existing MPLPB engine or a manual reviewed draft."
+        }
+      },
+      {
+        "index": 36,
+        "kind": "validated_plan",
+        "data": {
+          "plan": {
+            "action": "import_source",
+            "summary": "Save the exact provided text after review.",
+            "title": "Opaque source",
+            "body": "The Zorvex receiver channel is not 8437."
+          },
+          "original_preserved": true,
+          "scope": {
+            "corpus": "mind-238e6135113d42f290170640dd608697",
+            "profile": "internal"
+          }
+        }
+      },
+      {
+        "index": 37,
+        "kind": "approval_required",
+        "data": {
+          "draft": {
+            "method": "importSource",
+            "args": [
+              {
+                "corpus": "mind-238e6135113d42f290170640dd608697",
+                "title": "Opaque source",
+                "url": "https://example.org/browser-source-b",
+                "text": "The Zorvex receiver channel is not 8437."
+              }
+            ],
+            "kind": "provided_source"
+          },
+          "notice": "No source was written. Saving does not authenticate truth, authorship or ratification."
+        }
+      },
+      {
+        "index": 38,
+        "kind": "rendered_output",
+        "data": {
+          "kind": "draft",
+          "authority": "requires_human_approval",
+          "text": "Review this proposed provided_source before saving.",
+          "draft": {
+            "method": "importSource",
+            "args": [
+              {
+                "corpus": "mind-238e6135113d42f290170640dd608697",
+                "title": "Opaque source",
+                "url": "https://example.org/browser-source-b",
+                "text": "The Zorvex receiver channel is not 8437."
+              }
+            ],
+            "kind": "provided_source"
+          }
+        }
+      },
+      {
+        "index": 39,
+        "kind": "human_approval",
+        "data": {
+          "draft": {
+            "method": "importSource",
+            "args": [
+              {
+                "corpus": "mind-238e6135113d42f290170640dd608697",
+                "title": "Opaque source",
+                "url": "https://example.org/browser-source-b",
+                "text": "The Zorvex receiver channel is not 8437."
+              }
+            ],
+            "kind": "provided_source"
+          },
+          "meaning": "Permission to save this draft, not verification or ratification."
+        }
+      },
+      {
+        "index": 40,
+        "kind": "tool_request",
+        "data": {
+          "method": "importSource",
+          "args": [
+            {
+              "corpus": "mind-238e6135113d42f290170640dd608697",
+              "title": "Opaque source",
+              "url": "https://example.org/browser-source-b",
+              "text": "The Zorvex receiver channel is not 8437."
+            }
+          ]
+        }
+      },
+      {
+        "index": 41,
+        "kind": "tool_result",
+        "data": {
+          "method": "importSource",
+          "response": {
+            "ok": true,
+            "data": {
+              "corpus": "mind-238e6135113d42f290170640dd608697",
+              "title": "Opaque source",
+              "id": "WEB-1f22ee3f08e19ca5-0001",
+              "path": "web-1f22ee3f08e19ca5-0001.html",
+              "hash": "sha256:36477b30b9e7f25c8d05aa5533f88e6c8657ef3f03f669a0e516519d44c90476",
+              "capture": {
+                "source_url": "https://example.org/browser-source-b",
+                "title": "Opaque source",
+                "observed_at": "2026-11-26T00:04:47.788999+00:00",
+                "source_sha256": "5b0860120b2b265e0fb52f9c73b42390fa88d170d1a569765ac0a7226204a863",
+                "text_sha256": "5b0860120b2b265e0fb52f9c73b42390fa88d170d1a569765ac0a7226204a863",
+                "transport": "user-pasted-text",
+                "authorship": "unknown",
+                "notice": "Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.",
+                "projection_version": "body-text-no-headings-v1",
+                "body_text_sha256": "5b0860120b2b265e0fb52f9c73b42390fa88d170d1a569765ac0a7226204a863"
+              },
+              "collection_build": {
+                "operation": "captured_sealed_and_collection_rebuilt",
+                "transport": "user-pasted-text",
+                "source_origin": "machine",
+                "source_authorship": "unknown",
+                "current_sources": 2,
+                "external_delivery": "withheld",
+                "eligibility": "rechecked per question and delivery profile",
+                "derived_representations": "readable collection rebuilt now; passages and ranking constructed per query",
+                "engine_changed": false,
+                "application_code_changed": false,
+                "notice": "The collection grew. Question interpretation and application rules did not change."
+              }
+            }
+          }
+        }
+      },
+      {
+        "index": 42,
+        "kind": "rendered_output",
+        "data": {
+          "kind": "saved",
+          "authority": "source_management_receipt",
+          "text": "Source saved. This does not verify its claims or who wrote it.",
+          "data": {
+            "corpus": "mind-238e6135113d42f290170640dd608697",
+            "title": "Opaque source",
+            "id": "WEB-1f22ee3f08e19ca5-0001",
+            "path": "web-1f22ee3f08e19ca5-0001.html",
+            "hash": "sha256:36477b30b9e7f25c8d05aa5533f88e6c8657ef3f03f669a0e516519d44c90476",
+            "capture": {
+              "source_url": "https://example.org/browser-source-b",
+              "title": "Opaque source",
+              "observed_at": "2026-11-26T00:04:47.788999+00:00",
+              "source_sha256": "5b0860120b2b265e0fb52f9c73b42390fa88d170d1a569765ac0a7226204a863",
+              "text_sha256": "5b0860120b2b265e0fb52f9c73b42390fa88d170d1a569765ac0a7226204a863",
+              "transport": "user-pasted-text",
+              "authorship": "unknown",
+              "notice": "Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.",
+              "projection_version": "body-text-no-headings-v1",
+              "body_text_sha256": "5b0860120b2b265e0fb52f9c73b42390fa88d170d1a569765ac0a7226204a863"
+            },
+            "collection_build": {
+              "operation": "captured_sealed_and_collection_rebuilt",
+              "transport": "user-pasted-text",
+              "source_origin": "machine",
+              "source_authorship": "unknown",
+              "current_sources": 2,
+              "external_delivery": "withheld",
+              "eligibility": "rechecked per question and delivery profile",
+              "derived_representations": "readable collection rebuilt now; passages and ranking constructed per query",
+              "engine_changed": false,
+              "application_code_changed": false,
+              "notice": "The collection grew. Question interpretation and application rules did not change."
+            }
+          }
+        }
+      },
+      {
+        "index": 43,
+        "kind": "user_input",
+        "data": {
+          "original": "What is the Zorvex receiver channel?",
+          "mode": "ask",
+          "corpus": "mind-238e6135113d42f290170640dd608697",
+          "profile": "internal"
+        }
+      },
+      {
+        "index": 44,
+        "kind": "native_fallback",
+        "data": {
+          "reason": "No AI model loaded; use the existing MPLPB engine or a manual reviewed draft."
+        }
+      },
+      {
+        "index": 45,
+        "kind": "validated_plan",
+        "data": {
+          "plan": {
+            "action": "ask",
+            "summary": "Forward the original message to MPLPB."
+          },
+          "original_preserved": true,
+          "scope": {
+            "corpus": "mind-238e6135113d42f290170640dd608697",
+            "profile": "internal"
+          }
+        }
+      },
+      {
+        "index": 46,
+        "kind": "tool_request",
+        "data": {
+          "method": "relay",
+          "args": [
+            "What is the Zorvex receiver channel?",
+            {
+              "corpus": "mind-238e6135113d42f290170640dd608697",
+              "profile": "internal",
+              "mode": "query"
+            }
+          ]
+        }
+      },
+      {
+        "index": 47,
+        "kind": "tool_result",
+        "data": {
+          "method": "relay",
+          "response": {
+            "ok": true,
+            "data": {
+              "mode": "query",
+              "kind": "ambiguous",
+              "reply": "",
+              "decision": {
+                "kind": "ambiguous",
+                "question": "What is the Zorvex receiver channel?",
+                "profile": "internal",
+                "root": "/mplpb-browser-save-v1/collections/mind-238e6135113d42f290170640dd608697/combined",
+                "reason": "Multiple eligible supporting pages or conflicting statements; no winner chosen.",
+                "id": null,
+                "path": null,
+                "hash": null,
+                "depth": null,
+                "text": "",
+                "candidates": [],
+                "known": [
+                  "channel",
+                  "receiver",
+                  "zorvex"
+                ],
+                "unknown": [],
+                "matched_on": "prose",
+                "withheld": [],
+                "set_aside": [],
+                "quarantined": 0,
+                "route": [],
+                "answer_support": {
+                  "status": "conflict",
+                  "version": "statement-support-v4",
+                  "spans": [],
+                  "frame": {
+                    "relation": "description",
+                    "entity": "zorvex receiver channel",
+                    "canonical": "what is zorvex receiver channel",
+                    "statement": "(?:the )?zorvex\\ receiver\\ channel (?:is|are) (?P<value>.+)",
+                    "negative_statement": "(?:the )?zorvex\\ receiver\\ channel (?:is|are) not (?P<value>.+)",
+                    "time_constraint": "",
+                    "polarity": "affirmative",
+                    "version": "support-frames-v1",
+                    "normalization_is_evidence": false
+                  },
+                  "reason": "Multiple eligible supporting pages or conflicting statements; no winner chosen.",
+                  "candidate_checks": [
+                    {
+                      "id": "WEB-1f22ee3f08e19ca5-0001",
+                      "path": "web-1f22ee3f08e19ca5-0001.html",
+                      "hash": "sha256:36477b30b9e7f25c8d05aa5533f88e6c8657ef3f03f669a0e516519d44c90476",
+                      "status": "unsupported",
+                      "spans": [],
+                      "negative_spans": [
+                        {
+                          "quote": "The Zorvex receiver channel is not 8437.",
+                          "value": "8437"
+                        }
+                      ],
+                      "unresolved_spans": [],
+                      "assertions": [
+                        {
+                          "subject": "zorvex receiver channel",
+                          "relation": "description",
+                          "value": "8437",
+                          "polarity": "negative",
+                          "qualification": "",
+                          "source_id": "WEB-1f22ee3f08e19ca5-0001",
+                          "source_hash": "sha256:36477b30b9e7f25c8d05aa5533f88e6c8657ef3f03f669a0e516519d44c90476",
+                          "path": "web-1f22ee3f08e19ca5-0001.html",
+                          "quote": "The Zorvex receiver channel is not 8437."
+                        }
+                      ]
+                    },
+                    {
+                      "id": "WEB-9225ad33d207956f-0001",
+                      "path": "web-9225ad33d207956f-0001.html",
+                      "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                      "status": "supported",
+                      "spans": [
+                        {
+                          "quote": "The Zorvex receiver channel is 8437.",
+                          "value": "8437"
+                        }
+                      ],
+                      "negative_spans": [],
+                      "unresolved_spans": [],
+                      "assertions": [
+                        {
+                          "subject": "zorvex receiver channel",
+                          "relation": "description",
+                          "value": "8437",
+                          "polarity": "positive",
+                          "qualification": "",
+                          "source_id": "WEB-9225ad33d207956f-0001",
+                          "source_hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                          "path": "web-9225ad33d207956f-0001.html",
+                          "quote": "The Zorvex receiver channel is 8437."
+                        }
+                      ]
+                    }
+                  ],
+                  "statement_conflict": true,
+                  "code_sha256": {
+                    "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+                    "__main__.py": "66e6c37f34cb95168466a82ec37e9384fc846c96db7cadcca51f2283e1e8cbc1",
+                    "advanced.py": "bc56efcaa8135a6647afd8c5957917979c170c504b9e22913b600aa95096997d",
+                    "assertions.py": "79de36e6b3e9b47ac58233f6def6ca4b6da3524947a9ecba740b956025e5c075",
+                    "attributed_instruction.py": "56d016303090799a33f2d554f31655b517c351a27971fd37ef7e4abd278ab477",
+                    "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+                    "bounded_records.py": "d3f2e150dcf66e6df6f5ad6f6ca71e906ed12621eea6c2ceb6568b1e7f5b38da",
+                    "claim_frame.py": "e7c1b359daac7623f866d78b892e26d80c88554414c3cdc3de49c8b42dc632e2",
+                    "collection_fields.py": "db25700f1e67c3b8b057577c2570e8bae916b501564d15626387dd8a3678220c",
+                    "compound_fields.py": "5bdabcbc85a90e9e9381fa255893194ae62a1b66957fc70776ca75726a627c28",
+                    "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+                    "d6.py": "827b3bda13d2cc53d00a6aa25c3ba8e5cb50b2de0fd11d2378258a705319c96b",
+                    "documentary.py": "1298b7c056713df568e558a1e5469d48051bb039fe66e15059a43afcb4a2923b",
+                    "documentary_advice.py": "3e1080d80ca9c6139fc71f908689a682bb912d171ba7d5896b49eb513f55cd52",
+                    "documentary_correction.py": "ff9b2b3c6679bf867ea28d77b65492bbabe326e7bb1cf318d56441cefff593db",
+                    "documentary_errata.py": "4c5e92a916af7d53c90890fc5018c497508d40fbe1b67f9cf6a5277d66f1dd96",
+                    "documentary_instruction.py": "6fb8c13847486f7210eb964017e04b872799eca67b40b342d6a3a877b7a0365c",
+                    "documentary_lease.py": "e98159e9ad0d0d73df02b9d507160ba4ca8e2dd9d5128466e983c4bdc045dc1c",
+                    "documentary_links.py": "a10511e64ccddfb93e81bd534ab093121073e8fb3db2b7b75978a5350a63355a",
+                    "documentary_presentation.py": "35ef2dfb2db6b0e76f67ad80a821175a74296476df7b1ba45c2fc97834420827",
+                    "documentary_verify.py": "17df92461ac7f026f0f15cb38b2b28f44c2d9f45b7e25016210d5a8c13cf36af",
+                    "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+                    "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+                    "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+                    "experience_graph.py": "843ce8df142819e3178fb3630978c4ff18ca7b8a8d835fcc7576cfe306903548",
+                    "field_aliases.py": "2a2b1e997d02f8fed534e5ec4d555b3cfa40b6c6684d6176d88d8762b94c002a",
+                    "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+                    "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+                    "linked_obligations.py": "3fe5b80c6a15163da31d285126893d0d837a3caa4040b11c95567c918568a19b",
+                    "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+                    "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+                    "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+                    "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+                    "passage_admission.py": "8f9decd8addf3b14a6ba9258576226e9efd8cff43f5a51a0132b6298efd809fa",
+                    "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+                    "pipeline.py": "109b7d2565882dfca23676eb76246362269b5f2a6b99c189f25102559be8caee",
+                    "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+                    "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+                    "presentation.py": "c68979748753f48cefaca0ea1eb5ac2ddc20b797ef5d3d8181726667c81cc0aa",
+                    "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+                    "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+                    "publication_corrections.py": "6c72632858f4562d320cdcd8ed001eded095834e60c627175c8b0265e7f6d2e6",
+                    "question_intent.py": "9baef407153bc69083ff52567da5cc84e69144920ec36b277b12e0314b67e711",
+                    "reference_identity.py": "0bdfcade2a91e5f363c9d6ba7b1175c3af9b55027e3d2b236dd33e8f1b3ba5c9",
+                    "relation_graph.py": "58003ad19f3a1f58a3ee3746cac3cb9017e3162e4146fd5004374bf32c730adc",
+                    "report_sections.py": "6efaa14124e1a3079f798b07aba9c41fcf8a2fed182d589bcdfdcfb9baf3a5ea",
+                    "reported_content.py": "5076b3505b4da962aa70c231415a276445250d372664059861fac286e2498ac0",
+                    "source_attribution.py": "b59ac55a777afef0a2b13a1cf36a9b6701c67c3428d9c1a726e93b7e29f48e6c",
+                    "source_claims.py": "54f624e13184997c0b8c92298ee1814eb0d81f09410787a7187b823f4810fadb",
+                    "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+                    "source_structure.py": "a1e639f0e36506c906301421e1c326618b9e4451b4f4c34b24f0ce8edddbb8ae",
+                    "source_tags.py": "db10acddc57e53e094eb59266e024e9c46ab4ebced3410a1b79535c48ec99cc7",
+                    "source_units.py": "09c0e6e43f278f07bb5bd0f36beade70c246ae01bf904b420c3c7d060133845c",
+                    "support.py": "117d0c2040b43b95e8a2aafbe55b24a5ddae0f87cd28ba635ff8f8473b327756",
+                    "synonym_graph.py": "4d339ae3307ee10d106b3eec49e038c5c9d50cc48417f8e01970d9b0373ceabb"
+                  }
+                },
+                "answer_contract": {
+                  "schema": "answer-contract-v1",
+                  "mode": "strict",
+                  "question": "What is the Zorvex receiver channel?",
+                  "kind": "conflict",
+                  "answer_supported": false,
+                  "text": "WEB-1f22ee3f08e19ca5-0001: The Zorvex receiver channel is not 8437.\nWEB-9225ad33d207956f-0001: The Zorvex receiver channel is 8437.",
+                  "claims": [
+                    {
+                      "text": "WEB-1f22ee3f08e19ca5-0001: The Zorvex receiver channel is not 8437.\nWEB-9225ad33d207956f-0001: The Zorvex receiver channel is 8437.",
+                      "citations": [
+                        {
+                          "source_id": "WEB-1f22ee3f08e19ca5-0001",
+                          "path": "web-1f22ee3f08e19ca5-0001.html",
+                          "hash": "sha256:36477b30b9e7f25c8d05aa5533f88e6c8657ef3f03f669a0e516519d44c90476",
+                          "body_start": 0,
+                          "body_end": 40,
+                          "start": 0,
+                          "end": 40,
+                          "quote": "The Zorvex receiver channel is not 8437.",
+                          "body_projection": "body-text-no-headings-v1"
+                        },
+                        {
+                          "source_id": "WEB-9225ad33d207956f-0001",
+                          "path": "web-9225ad33d207956f-0001.html",
+                          "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                          "body_start": 0,
+                          "body_end": 36,
+                          "start": 0,
+                          "end": 36,
+                          "quote": "The Zorvex receiver channel is 8437.",
+                          "body_projection": "body-text-no-headings-v1"
+                        }
+                      ],
+                      "qualifiers": [
+                        "Source-attributed statements. No unique answer was selected."
+                      ]
+                    }
+                  ],
+                  "missing": [],
+                  "clarification": "",
+                  "confidence": null,
+                  "confidence_calibrated": false,
+                  "sources": [
+                    {
+                      "id": "WEB-1f22ee3f08e19ca5-0001",
+                      "path": "web-1f22ee3f08e19ca5-0001.html",
+                      "hash": "sha256:36477b30b9e7f25c8d05aa5533f88e6c8657ef3f03f669a0e516519d44c90476"
+                    },
+                    {
+                      "id": "WEB-9225ad33d207956f-0001",
+                      "path": "web-9225ad33d207956f-0001.html",
+                      "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4"
+                    }
+                  ],
+                  "retrieval": {},
+                  "verification": {
+                    "structural": true,
+                    "semantic": "bounded_competing_source_statements",
+                    "truth_verified": false,
+                    "independence_verified": false
+                  },
+                  "reader": null,
+                  "trace": [],
+                  "diagnostic": {
+                    "code": "conflicting_or_multiple_owners",
+                    "stage": "strict",
+                    "message": "Multiple eligible supporting pages or conflicting statements; no winner chosen.",
+                    "category": "known_source_conflict",
+                    "corpus_answerability": "not_established",
+                    "next_steps": [
+                      "Inspect the competing sources; specify the intended subject or resolve the disagreement by a source revision."
+                    ]
+                  },
+                  "code_sha256": {
+                    "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+                    "__main__.py": "66e6c37f34cb95168466a82ec37e9384fc846c96db7cadcca51f2283e1e8cbc1",
+                    "advanced.py": "bc56efcaa8135a6647afd8c5957917979c170c504b9e22913b600aa95096997d",
+                    "assertions.py": "79de36e6b3e9b47ac58233f6def6ca4b6da3524947a9ecba740b956025e5c075",
+                    "attributed_instruction.py": "56d016303090799a33f2d554f31655b517c351a27971fd37ef7e4abd278ab477",
+                    "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+                    "bounded_records.py": "d3f2e150dcf66e6df6f5ad6f6ca71e906ed12621eea6c2ceb6568b1e7f5b38da",
+                    "claim_frame.py": "e7c1b359daac7623f866d78b892e26d80c88554414c3cdc3de49c8b42dc632e2",
+                    "collection_fields.py": "db25700f1e67c3b8b057577c2570e8bae916b501564d15626387dd8a3678220c",
+                    "compound_fields.py": "5bdabcbc85a90e9e9381fa255893194ae62a1b66957fc70776ca75726a627c28",
+                    "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+                    "d6.py": "827b3bda13d2cc53d00a6aa25c3ba8e5cb50b2de0fd11d2378258a705319c96b",
+                    "documentary.py": "1298b7c056713df568e558a1e5469d48051bb039fe66e15059a43afcb4a2923b",
+                    "documentary_advice.py": "3e1080d80ca9c6139fc71f908689a682bb912d171ba7d5896b49eb513f55cd52",
+                    "documentary_correction.py": "ff9b2b3c6679bf867ea28d77b65492bbabe326e7bb1cf318d56441cefff593db",
+                    "documentary_errata.py": "4c5e92a916af7d53c90890fc5018c497508d40fbe1b67f9cf6a5277d66f1dd96",
+                    "documentary_instruction.py": "6fb8c13847486f7210eb964017e04b872799eca67b40b342d6a3a877b7a0365c",
+                    "documentary_lease.py": "e98159e9ad0d0d73df02b9d507160ba4ca8e2dd9d5128466e983c4bdc045dc1c",
+                    "documentary_links.py": "a10511e64ccddfb93e81bd534ab093121073e8fb3db2b7b75978a5350a63355a",
+                    "documentary_presentation.py": "35ef2dfb2db6b0e76f67ad80a821175a74296476df7b1ba45c2fc97834420827",
+                    "documentary_verify.py": "17df92461ac7f026f0f15cb38b2b28f44c2d9f45b7e25016210d5a8c13cf36af",
+                    "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+                    "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+                    "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+                    "experience_graph.py": "843ce8df142819e3178fb3630978c4ff18ca7b8a8d835fcc7576cfe306903548",
+                    "field_aliases.py": "2a2b1e997d02f8fed534e5ec4d555b3cfa40b6c6684d6176d88d8762b94c002a",
+                    "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+                    "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+                    "linked_obligations.py": "3fe5b80c6a15163da31d285126893d0d837a3caa4040b11c95567c918568a19b",
+                    "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+                    "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+                    "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+                    "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+                    "passage_admission.py": "8f9decd8addf3b14a6ba9258576226e9efd8cff43f5a51a0132b6298efd809fa",
+                    "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+                    "pipeline.py": "109b7d2565882dfca23676eb76246362269b5f2a6b99c189f25102559be8caee",
+                    "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+                    "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+                    "presentation.py": "c68979748753f48cefaca0ea1eb5ac2ddc20b797ef5d3d8181726667c81cc0aa",
+                    "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+                    "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+                    "publication_corrections.py": "6c72632858f4562d320cdcd8ed001eded095834e60c627175c8b0265e7f6d2e6",
+                    "question_intent.py": "9baef407153bc69083ff52567da5cc84e69144920ec36b277b12e0314b67e711",
+                    "reference_identity.py": "0bdfcade2a91e5f363c9d6ba7b1175c3af9b55027e3d2b236dd33e8f1b3ba5c9",
+                    "relation_graph.py": "58003ad19f3a1f58a3ee3746cac3cb9017e3162e4146fd5004374bf32c730adc",
+                    "report_sections.py": "6efaa14124e1a3079f798b07aba9c41fcf8a2fed182d589bcdfdcfb9baf3a5ea",
+                    "reported_content.py": "5076b3505b4da962aa70c231415a276445250d372664059861fac286e2498ac0",
+                    "source_attribution.py": "b59ac55a777afef0a2b13a1cf36a9b6701c67c3428d9c1a726e93b7e29f48e6c",
+                    "source_claims.py": "54f624e13184997c0b8c92298ee1814eb0d81f09410787a7187b823f4810fadb",
+                    "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+                    "source_structure.py": "a1e639f0e36506c906301421e1c326618b9e4451b4f4c34b24f0ce8edddbb8ae",
+                    "source_tags.py": "db10acddc57e53e094eb59266e024e9c46ab4ebced3410a1b79535c48ec99cc7",
+                    "source_units.py": "09c0e6e43f278f07bb5bd0f36beade70c246ae01bf904b420c3c7d060133845c",
+                    "support.py": "117d0c2040b43b95e8a2aafbe55b24a5ddae0f87cd28ba635ff8f8473b327756",
+                    "synonym_graph.py": "4d339ae3307ee10d106b3eec49e038c5c9d50cc48417f8e01970d9b0373ceabb"
+                  },
+                  "passage_budget": {
+                    "max_passages": 12,
+                    "max_characters": 8000,
+                    "distinct_citation_spans": 2,
+                    "citation_characters": 76,
+                    "blocked_atomic_claims": 0,
+                    "deduplicated_before_charge": true
+                  },
+                  "source_assurance": {
+                    "basis": "source_attributed_only",
+                    "outside_world_confirmation_required": true,
+                    "outside_world_truth": "not_established",
+                    "authorship_authenticated": false,
+                    "independence_verified": false,
+                    "declared_evidence_root_count": 2,
+                    "single_declared_root": false,
+                    "notice": "Source support establishes what eligible ledger pages state. Outside-world confirmation is required before treating those statements as historical truth. MPLPB cannot detect a coherent false original without contrary evidence, authenticate arbitrary testimony, or establish general historical reconstruction from source integrity alone."
+                  }
+                },
+                "answer_diagnostics": {
+                  "code": "conflicting_or_multiple_owners",
+                  "stage": "strict",
+                  "message": "Multiple eligible supporting pages or conflicting statements; no winner chosen.",
+                  "category": "known_source_conflict",
+                  "corpus_answerability": "not_established",
+                  "next_steps": [
+                    "Inspect the competing sources; specify the intended subject or resolve the disagreement by a source revision."
+                  ]
+                },
+                "answer_supported": false,
+                "citation": ""
+              },
+              "citation": null,
+              "gate": {
+                "kind": "source_bundle",
+                "question": "What is the Zorvex receiver channel?",
+                "profile": "internal",
+                "query_terms": [
+                  "channel",
+                  "receiver",
+                  "zorvex"
+                ],
+                "sources": [
+                  {
+                    "id": "WEB-1f22ee3f08e19ca5-0001",
+                    "path": "web-1f22ee3f08e19ca5-0001.html",
+                    "title": "Opaque source",
+                    "origin": "machine",
+                    "origin_depth": 1,
+                    "owner": "unknown",
+                    "updated": "2026-11-26T00:04Z",
+                    "status": "current",
+                    "declared_status": "current",
+                    "hash": "sha256:36477b30b9e7f25c8d05aa5533f88e6c8657ef3f03f669a0e516519d44c90476",
+                    "derived_from": [],
+                    "supersedes": [],
+                    "ratified_by": "",
+                    "location": "local",
+                    "scope": "Opaque source",
+                    "when_to_use": "",
+                    "not_for": "",
+                    "text": "Opaque source\nThe Zorvex receiver channel is not 8437.\nSource capture: {\"source_url\": \"https://example.org/browser-source-b\", \"title\": \"Opaque source\", \"observed_at\": \"2026-11-26T00:04:47.788999+00:00\", \"source_sha256\": \"5b0860120b2b265e0fb52f9c73b42390fa88d170d1a569765ac0a7226204a863\", \"text_sha256\": \"5b0860120b2b265e0fb52f9c73b42390fa88d170d1a569765ac0a7226204a863\", \"transport\": \"user-pasted-text\", \"authorship\": \"unknown\", \"notice\": \"Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.\", \"projection_version\": \"body-text-no-headings-v1\", \"body_text_sha256\": \"5b0860120b2b265e0fb52f9c73b42390fa88d170d1a569765ac0a7226204a863\"}",
+                    "matched_terms": [
+                      "channel",
+                      "receiver",
+                      "zorvex"
+                    ],
+                    "scope_terms": [],
+                    "prose_only_terms": [
+                      "channel",
+                      "receiver",
+                      "zorvex"
+                    ],
+                    "unmatched_terms": [],
+                    "matches_every_query_term": true,
+                    "ancestry": [],
+                    "evidence_basis": {
+                      "delivery": "verbatim_page_text",
+                      "content_truth_verified": false,
+                      "original_claim_basis": "not_encoded_by_legacy_page_format"
+                    },
+                    "recheck_conditions": [
+                      "source changes",
+                      "dependency is superseded or retired",
+                      "serving policy changes"
+                    ],
+                    "verification": {
+                      "hash_intact": true,
+                      "lineage_pinned": true,
+                      "origin_explicit": true,
+                      "authorship_authenticated": false
+                    },
+                    "source_authorship": {
+                      "status": "unknown",
+                      "verified": false,
+                      "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+                    }
+                  },
+                  {
+                    "id": "WEB-9225ad33d207956f-0001",
+                    "path": "web-9225ad33d207956f-0001.html",
+                    "title": "Opaque source",
+                    "origin": "machine",
+                    "origin_depth": 1,
+                    "owner": "unknown",
+                    "updated": "2026-11-26T00:04Z",
+                    "status": "current",
+                    "declared_status": "current",
+                    "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                    "derived_from": [],
+                    "supersedes": [],
+                    "ratified_by": "",
+                    "location": "local",
+                    "scope": "Opaque source",
+                    "when_to_use": "",
+                    "not_for": "",
+                    "text": "Opaque source\nThe Zorvex receiver channel is 8437.\nSource capture: {\"source_url\": \"https://example.org/browser-source-a\", \"title\": \"Opaque source\", \"observed_at\": \"2026-11-26T00:04:47.004999+00:00\", \"source_sha256\": \"0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2\", \"text_sha256\": \"0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2\", \"transport\": \"user-pasted-text\", \"authorship\": \"unknown\", \"notice\": \"Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.\", \"projection_version\": \"body-text-no-headings-v1\", \"body_text_sha256\": \"0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2\"}",
+                    "matched_terms": [
+                      "channel",
+                      "receiver",
+                      "zorvex"
+                    ],
+                    "scope_terms": [],
+                    "prose_only_terms": [
+                      "channel",
+                      "receiver",
+                      "zorvex"
+                    ],
+                    "unmatched_terms": [],
+                    "matches_every_query_term": true,
+                    "ancestry": [],
+                    "evidence_basis": {
+                      "delivery": "verbatim_page_text",
+                      "content_truth_verified": false,
+                      "original_claim_basis": "not_encoded_by_legacy_page_format"
+                    },
+                    "recheck_conditions": [
+                      "source changes",
+                      "dependency is superseded or retired",
+                      "serving policy changes"
+                    ],
+                    "verification": {
+                      "hash_intact": true,
+                      "lineage_pinned": true,
+                      "origin_explicit": true,
+                      "authorship_authenticated": false
+                    },
+                    "source_authorship": {
+                      "status": "unknown",
+                      "verified": false,
+                      "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+                    }
+                  }
+                ],
+                "term_sources": {
+                  "channel": [
+                    "WEB-1f22ee3f08e19ca5-0001",
+                    "WEB-9225ad33d207956f-0001"
+                  ],
+                  "receiver": [
+                    "WEB-1f22ee3f08e19ca5-0001",
+                    "WEB-9225ad33d207956f-0001"
+                  ],
+                  "zorvex": [
+                    "WEB-1f22ee3f08e19ca5-0001",
+                    "WEB-9225ad33d207956f-0001"
+                  ]
+                },
+                "unmatched_terms": [],
+                "lexical_coverage": "complete",
+                "excluded": [],
+                "query_flags": [],
+                "policy": {
+                  "gate_version": 2,
+                  "mode": "separate_lexical_sources",
+                  "max_depth": 1,
+                  "prose": true,
+                  "not_for": true,
+                  "enforce_sealed_external_policy": true,
+                  "synthesize": false,
+                  "follow_pointers": false,
+                  "require_current_dependencies": true,
+                  "settings_hash": "sha256:2b95571a707e2341b9dedc11b579a05bdd494cc4f4f2f13d1cac7e67a2beb03c"
+                },
+                "corpus_snapshot": "sha256:eea6075ccdfea1e562215bb73313fb5c098735dffef3ad2db8ffc240805a8212",
+                "shared_lineage": [],
+                "evidence_status": "retrieved_pages_not_truth_certification",
+                "relationship_status": "not_established_by_retrieval",
+                "answer_synthesized": false,
+                "authorship_authenticated": false,
+                "notice": "Each source is presented separately. Complete lexical coverage means the requested words occur across sources, not that a page answers the question or that separate facts are related. Origin and owner are page declarations, not authenticated identities."
+              },
+              "live_verified_by_this_query": false,
+              "suggestions": []
+            }
+          }
+        }
+      },
+      {
+        "index": 48,
+        "kind": "rendered_output",
+        "data": {
+          "kind": "ambiguous",
+          "authority": "mplpb_query",
+          "text": "Multiple eligible supporting pages or conflicting statements; no winner chosen.",
+          "data": {
+            "mode": "query",
+            "kind": "ambiguous",
+            "reply": "",
+            "decision": {
+              "kind": "ambiguous",
+              "question": "What is the Zorvex receiver channel?",
+              "profile": "internal",
+              "root": "/mplpb-browser-save-v1/collections/mind-238e6135113d42f290170640dd608697/combined",
+              "reason": "Multiple eligible supporting pages or conflicting statements; no winner chosen.",
+              "id": null,
+              "path": null,
+              "hash": null,
+              "depth": null,
+              "text": "",
+              "candidates": [],
+              "known": [
+                "channel",
+                "receiver",
+                "zorvex"
+              ],
+              "unknown": [],
+              "matched_on": "prose",
+              "withheld": [],
+              "set_aside": [],
+              "quarantined": 0,
+              "route": [],
+              "answer_support": {
+                "status": "conflict",
+                "version": "statement-support-v4",
+                "spans": [],
+                "frame": {
+                  "relation": "description",
+                  "entity": "zorvex receiver channel",
+                  "canonical": "what is zorvex receiver channel",
+                  "statement": "(?:the )?zorvex\\ receiver\\ channel (?:is|are) (?P<value>.+)",
+                  "negative_statement": "(?:the )?zorvex\\ receiver\\ channel (?:is|are) not (?P<value>.+)",
+                  "time_constraint": "",
+                  "polarity": "affirmative",
+                  "version": "support-frames-v1",
+                  "normalization_is_evidence": false
+                },
+                "reason": "Multiple eligible supporting pages or conflicting statements; no winner chosen.",
+                "candidate_checks": [
+                  {
+                    "id": "WEB-1f22ee3f08e19ca5-0001",
+                    "path": "web-1f22ee3f08e19ca5-0001.html",
+                    "hash": "sha256:36477b30b9e7f25c8d05aa5533f88e6c8657ef3f03f669a0e516519d44c90476",
+                    "status": "unsupported",
+                    "spans": [],
+                    "negative_spans": [
+                      {
+                        "quote": "The Zorvex receiver channel is not 8437.",
+                        "value": "8437"
+                      }
+                    ],
+                    "unresolved_spans": [],
+                    "assertions": [
+                      {
+                        "subject": "zorvex receiver channel",
+                        "relation": "description",
+                        "value": "8437",
+                        "polarity": "negative",
+                        "qualification": "",
+                        "source_id": "WEB-1f22ee3f08e19ca5-0001",
+                        "source_hash": "sha256:36477b30b9e7f25c8d05aa5533f88e6c8657ef3f03f669a0e516519d44c90476",
+                        "path": "web-1f22ee3f08e19ca5-0001.html",
+                        "quote": "The Zorvex receiver channel is not 8437."
+                      }
+                    ]
+                  },
+                  {
+                    "id": "WEB-9225ad33d207956f-0001",
+                    "path": "web-9225ad33d207956f-0001.html",
+                    "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                    "status": "supported",
+                    "spans": [
+                      {
+                        "quote": "The Zorvex receiver channel is 8437.",
+                        "value": "8437"
+                      }
+                    ],
+                    "negative_spans": [],
+                    "unresolved_spans": [],
+                    "assertions": [
+                      {
+                        "subject": "zorvex receiver channel",
+                        "relation": "description",
+                        "value": "8437",
+                        "polarity": "positive",
+                        "qualification": "",
+                        "source_id": "WEB-9225ad33d207956f-0001",
+                        "source_hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                        "path": "web-9225ad33d207956f-0001.html",
+                        "quote": "The Zorvex receiver channel is 8437."
+                      }
+                    ]
+                  }
+                ],
+                "statement_conflict": true,
+                "code_sha256": {
+                  "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+                  "__main__.py": "66e6c37f34cb95168466a82ec37e9384fc846c96db7cadcca51f2283e1e8cbc1",
+                  "advanced.py": "bc56efcaa8135a6647afd8c5957917979c170c504b9e22913b600aa95096997d",
+                  "assertions.py": "79de36e6b3e9b47ac58233f6def6ca4b6da3524947a9ecba740b956025e5c075",
+                  "attributed_instruction.py": "56d016303090799a33f2d554f31655b517c351a27971fd37ef7e4abd278ab477",
+                  "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+                  "bounded_records.py": "d3f2e150dcf66e6df6f5ad6f6ca71e906ed12621eea6c2ceb6568b1e7f5b38da",
+                  "claim_frame.py": "e7c1b359daac7623f866d78b892e26d80c88554414c3cdc3de49c8b42dc632e2",
+                  "collection_fields.py": "db25700f1e67c3b8b057577c2570e8bae916b501564d15626387dd8a3678220c",
+                  "compound_fields.py": "5bdabcbc85a90e9e9381fa255893194ae62a1b66957fc70776ca75726a627c28",
+                  "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+                  "d6.py": "827b3bda13d2cc53d00a6aa25c3ba8e5cb50b2de0fd11d2378258a705319c96b",
+                  "documentary.py": "1298b7c056713df568e558a1e5469d48051bb039fe66e15059a43afcb4a2923b",
+                  "documentary_advice.py": "3e1080d80ca9c6139fc71f908689a682bb912d171ba7d5896b49eb513f55cd52",
+                  "documentary_correction.py": "ff9b2b3c6679bf867ea28d77b65492bbabe326e7bb1cf318d56441cefff593db",
+                  "documentary_errata.py": "4c5e92a916af7d53c90890fc5018c497508d40fbe1b67f9cf6a5277d66f1dd96",
+                  "documentary_instruction.py": "6fb8c13847486f7210eb964017e04b872799eca67b40b342d6a3a877b7a0365c",
+                  "documentary_lease.py": "e98159e9ad0d0d73df02b9d507160ba4ca8e2dd9d5128466e983c4bdc045dc1c",
+                  "documentary_links.py": "a10511e64ccddfb93e81bd534ab093121073e8fb3db2b7b75978a5350a63355a",
+                  "documentary_presentation.py": "35ef2dfb2db6b0e76f67ad80a821175a74296476df7b1ba45c2fc97834420827",
+                  "documentary_verify.py": "17df92461ac7f026f0f15cb38b2b28f44c2d9f45b7e25016210d5a8c13cf36af",
+                  "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+                  "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+                  "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+                  "experience_graph.py": "843ce8df142819e3178fb3630978c4ff18ca7b8a8d835fcc7576cfe306903548",
+                  "field_aliases.py": "2a2b1e997d02f8fed534e5ec4d555b3cfa40b6c6684d6176d88d8762b94c002a",
+                  "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+                  "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+                  "linked_obligations.py": "3fe5b80c6a15163da31d285126893d0d837a3caa4040b11c95567c918568a19b",
+                  "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+                  "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+                  "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+                  "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+                  "passage_admission.py": "8f9decd8addf3b14a6ba9258576226e9efd8cff43f5a51a0132b6298efd809fa",
+                  "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+                  "pipeline.py": "109b7d2565882dfca23676eb76246362269b5f2a6b99c189f25102559be8caee",
+                  "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+                  "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+                  "presentation.py": "c68979748753f48cefaca0ea1eb5ac2ddc20b797ef5d3d8181726667c81cc0aa",
+                  "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+                  "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+                  "publication_corrections.py": "6c72632858f4562d320cdcd8ed001eded095834e60c627175c8b0265e7f6d2e6",
+                  "question_intent.py": "9baef407153bc69083ff52567da5cc84e69144920ec36b277b12e0314b67e711",
+                  "reference_identity.py": "0bdfcade2a91e5f363c9d6ba7b1175c3af9b55027e3d2b236dd33e8f1b3ba5c9",
+                  "relation_graph.py": "58003ad19f3a1f58a3ee3746cac3cb9017e3162e4146fd5004374bf32c730adc",
+                  "report_sections.py": "6efaa14124e1a3079f798b07aba9c41fcf8a2fed182d589bcdfdcfb9baf3a5ea",
+                  "reported_content.py": "5076b3505b4da962aa70c231415a276445250d372664059861fac286e2498ac0",
+                  "source_attribution.py": "b59ac55a777afef0a2b13a1cf36a9b6701c67c3428d9c1a726e93b7e29f48e6c",
+                  "source_claims.py": "54f624e13184997c0b8c92298ee1814eb0d81f09410787a7187b823f4810fadb",
+                  "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+                  "source_structure.py": "a1e639f0e36506c906301421e1c326618b9e4451b4f4c34b24f0ce8edddbb8ae",
+                  "source_tags.py": "db10acddc57e53e094eb59266e024e9c46ab4ebced3410a1b79535c48ec99cc7",
+                  "source_units.py": "09c0e6e43f278f07bb5bd0f36beade70c246ae01bf904b420c3c7d060133845c",
+                  "support.py": "117d0c2040b43b95e8a2aafbe55b24a5ddae0f87cd28ba635ff8f8473b327756",
+                  "synonym_graph.py": "4d339ae3307ee10d106b3eec49e038c5c9d50cc48417f8e01970d9b0373ceabb"
+                }
+              },
+              "answer_contract": {
+                "schema": "answer-contract-v1",
+                "mode": "strict",
+                "question": "What is the Zorvex receiver channel?",
+                "kind": "conflict",
+                "answer_supported": false,
+                "text": "WEB-1f22ee3f08e19ca5-0001: The Zorvex receiver channel is not 8437.\nWEB-9225ad33d207956f-0001: The Zorvex receiver channel is 8437.",
+                "claims": [
+                  {
+                    "text": "WEB-1f22ee3f08e19ca5-0001: The Zorvex receiver channel is not 8437.\nWEB-9225ad33d207956f-0001: The Zorvex receiver channel is 8437.",
+                    "citations": [
+                      {
+                        "source_id": "WEB-1f22ee3f08e19ca5-0001",
+                        "path": "web-1f22ee3f08e19ca5-0001.html",
+                        "hash": "sha256:36477b30b9e7f25c8d05aa5533f88e6c8657ef3f03f669a0e516519d44c90476",
+                        "body_start": 0,
+                        "body_end": 40,
+                        "start": 0,
+                        "end": 40,
+                        "quote": "The Zorvex receiver channel is not 8437.",
+                        "body_projection": "body-text-no-headings-v1"
+                      },
+                      {
+                        "source_id": "WEB-9225ad33d207956f-0001",
+                        "path": "web-9225ad33d207956f-0001.html",
+                        "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                        "body_start": 0,
+                        "body_end": 36,
+                        "start": 0,
+                        "end": 36,
+                        "quote": "The Zorvex receiver channel is 8437.",
+                        "body_projection": "body-text-no-headings-v1"
+                      }
+                    ],
+                    "qualifiers": [
+                      "Source-attributed statements. No unique answer was selected."
+                    ]
+                  }
+                ],
+                "missing": [],
+                "clarification": "",
+                "confidence": null,
+                "confidence_calibrated": false,
+                "sources": [
+                  {
+                    "id": "WEB-1f22ee3f08e19ca5-0001",
+                    "path": "web-1f22ee3f08e19ca5-0001.html",
+                    "hash": "sha256:36477b30b9e7f25c8d05aa5533f88e6c8657ef3f03f669a0e516519d44c90476"
+                  },
+                  {
+                    "id": "WEB-9225ad33d207956f-0001",
+                    "path": "web-9225ad33d207956f-0001.html",
+                    "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4"
+                  }
+                ],
+                "retrieval": {},
+                "verification": {
+                  "structural": true,
+                  "semantic": "bounded_competing_source_statements",
+                  "truth_verified": false,
+                  "independence_verified": false
+                },
+                "reader": null,
+                "trace": [],
+                "diagnostic": {
+                  "code": "conflicting_or_multiple_owners",
+                  "stage": "strict",
+                  "message": "Multiple eligible supporting pages or conflicting statements; no winner chosen.",
+                  "category": "known_source_conflict",
+                  "corpus_answerability": "not_established",
+                  "next_steps": [
+                    "Inspect the competing sources; specify the intended subject or resolve the disagreement by a source revision."
+                  ]
+                },
+                "code_sha256": {
+                  "__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+                  "__main__.py": "66e6c37f34cb95168466a82ec37e9384fc846c96db7cadcca51f2283e1e8cbc1",
+                  "advanced.py": "bc56efcaa8135a6647afd8c5957917979c170c504b9e22913b600aa95096997d",
+                  "assertions.py": "79de36e6b3e9b47ac58233f6def6ca4b6da3524947a9ecba740b956025e5c075",
+                  "attributed_instruction.py": "56d016303090799a33f2d554f31655b517c351a27971fd37ef7e4abd278ab477",
+                  "body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+                  "bounded_records.py": "d3f2e150dcf66e6df6f5ad6f6ca71e906ed12621eea6c2ceb6568b1e7f5b38da",
+                  "claim_frame.py": "e7c1b359daac7623f866d78b892e26d80c88554414c3cdc3de49c8b42dc632e2",
+                  "collection_fields.py": "db25700f1e67c3b8b057577c2570e8bae916b501564d15626387dd8a3678220c",
+                  "compound_fields.py": "5bdabcbc85a90e9e9381fa255893194ae62a1b66957fc70776ca75726a627c28",
+                  "corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+                  "d6.py": "827b3bda13d2cc53d00a6aa25c3ba8e5cb50b2de0fd11d2378258a705319c96b",
+                  "documentary.py": "1298b7c056713df568e558a1e5469d48051bb039fe66e15059a43afcb4a2923b",
+                  "documentary_advice.py": "3e1080d80ca9c6139fc71f908689a682bb912d171ba7d5896b49eb513f55cd52",
+                  "documentary_correction.py": "ff9b2b3c6679bf867ea28d77b65492bbabe326e7bb1cf318d56441cefff593db",
+                  "documentary_errata.py": "4c5e92a916af7d53c90890fc5018c497508d40fbe1b67f9cf6a5277d66f1dd96",
+                  "documentary_instruction.py": "6fb8c13847486f7210eb964017e04b872799eca67b40b342d6a3a877b7a0365c",
+                  "documentary_lease.py": "e98159e9ad0d0d73df02b9d507160ba4ca8e2dd9d5128466e983c4bdc045dc1c",
+                  "documentary_links.py": "a10511e64ccddfb93e81bd534ab093121073e8fb3db2b7b75978a5350a63355a",
+                  "documentary_presentation.py": "35ef2dfb2db6b0e76f67ad80a821175a74296476df7b1ba45c2fc97834420827",
+                  "documentary_verify.py": "17df92461ac7f026f0f15cb38b2b28f44c2d9f45b7e25016210d5a8c13cf36af",
+                  "evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+                  "evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+                  "evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+                  "experience_graph.py": "843ce8df142819e3178fb3630978c4ff18ca7b8a8d835fcc7576cfe306903548",
+                  "field_aliases.py": "2a2b1e997d02f8fed534e5ec4d555b3cfa40b6c6684d6176d88d8762b94c002a",
+                  "frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+                  "library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+                  "linked_obligations.py": "3fe5b80c6a15163da31d285126893d0d837a3caa4040b11c95567c918568a19b",
+                  "literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+                  "local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+                  "local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+                  "operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+                  "passage_admission.py": "8f9decd8addf3b14a6ba9258576226e9efd8cff43f5a51a0132b6298efd809fa",
+                  "passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+                  "pipeline.py": "109b7d2565882dfca23676eb76246362269b5f2a6b99c189f25102559be8caee",
+                  "policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+                  "practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+                  "presentation.py": "c68979748753f48cefaca0ea1eb5ac2ddc20b797ef5d3d8181726667c81cc0aa",
+                  "procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+                  "prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+                  "publication_corrections.py": "6c72632858f4562d320cdcd8ed001eded095834e60c627175c8b0265e7f6d2e6",
+                  "question_intent.py": "9baef407153bc69083ff52567da5cc84e69144920ec36b277b12e0314b67e711",
+                  "reference_identity.py": "0bdfcade2a91e5f363c9d6ba7b1175c3af9b55027e3d2b236dd33e8f1b3ba5c9",
+                  "relation_graph.py": "58003ad19f3a1f58a3ee3746cac3cb9017e3162e4146fd5004374bf32c730adc",
+                  "report_sections.py": "6efaa14124e1a3079f798b07aba9c41fcf8a2fed182d589bcdfdcfb9baf3a5ea",
+                  "reported_content.py": "5076b3505b4da962aa70c231415a276445250d372664059861fac286e2498ac0",
+                  "source_attribution.py": "b59ac55a777afef0a2b13a1cf36a9b6701c67c3428d9c1a726e93b7e29f48e6c",
+                  "source_claims.py": "54f624e13184997c0b8c92298ee1814eb0d81f09410787a7187b823f4810fadb",
+                  "source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+                  "source_structure.py": "a1e639f0e36506c906301421e1c326618b9e4451b4f4c34b24f0ce8edddbb8ae",
+                  "source_tags.py": "db10acddc57e53e094eb59266e024e9c46ab4ebced3410a1b79535c48ec99cc7",
+                  "source_units.py": "09c0e6e43f278f07bb5bd0f36beade70c246ae01bf904b420c3c7d060133845c",
+                  "support.py": "117d0c2040b43b95e8a2aafbe55b24a5ddae0f87cd28ba635ff8f8473b327756",
+                  "synonym_graph.py": "4d339ae3307ee10d106b3eec49e038c5c9d50cc48417f8e01970d9b0373ceabb"
+                },
+                "passage_budget": {
+                  "max_passages": 12,
+                  "max_characters": 8000,
+                  "distinct_citation_spans": 2,
+                  "citation_characters": 76,
+                  "blocked_atomic_claims": 0,
+                  "deduplicated_before_charge": true
+                },
+                "source_assurance": {
+                  "basis": "source_attributed_only",
+                  "outside_world_confirmation_required": true,
+                  "outside_world_truth": "not_established",
+                  "authorship_authenticated": false,
+                  "independence_verified": false,
+                  "declared_evidence_root_count": 2,
+                  "single_declared_root": false,
+                  "notice": "Source support establishes what eligible ledger pages state. Outside-world confirmation is required before treating those statements as historical truth. MPLPB cannot detect a coherent false original without contrary evidence, authenticate arbitrary testimony, or establish general historical reconstruction from source integrity alone."
+                }
+              },
+              "answer_diagnostics": {
+                "code": "conflicting_or_multiple_owners",
+                "stage": "strict",
+                "message": "Multiple eligible supporting pages or conflicting statements; no winner chosen.",
+                "category": "known_source_conflict",
+                "corpus_answerability": "not_established",
+                "next_steps": [
+                  "Inspect the competing sources; specify the intended subject or resolve the disagreement by a source revision."
+                ]
+              },
+              "answer_supported": false,
+              "citation": ""
+            },
+            "citation": null,
+            "gate": {
+              "kind": "source_bundle",
+              "question": "What is the Zorvex receiver channel?",
+              "profile": "internal",
+              "query_terms": [
+                "channel",
+                "receiver",
+                "zorvex"
+              ],
+              "sources": [
+                {
+                  "id": "WEB-1f22ee3f08e19ca5-0001",
+                  "path": "web-1f22ee3f08e19ca5-0001.html",
+                  "title": "Opaque source",
+                  "origin": "machine",
+                  "origin_depth": 1,
+                  "owner": "unknown",
+                  "updated": "2026-11-26T00:04Z",
+                  "status": "current",
+                  "declared_status": "current",
+                  "hash": "sha256:36477b30b9e7f25c8d05aa5533f88e6c8657ef3f03f669a0e516519d44c90476",
+                  "derived_from": [],
+                  "supersedes": [],
+                  "ratified_by": "",
+                  "location": "local",
+                  "scope": "Opaque source",
+                  "when_to_use": "",
+                  "not_for": "",
+                  "text": "Opaque source\nThe Zorvex receiver channel is not 8437.\nSource capture: {\"source_url\": \"https://example.org/browser-source-b\", \"title\": \"Opaque source\", \"observed_at\": \"2026-11-26T00:04:47.788999+00:00\", \"source_sha256\": \"5b0860120b2b265e0fb52f9c73b42390fa88d170d1a569765ac0a7226204a863\", \"text_sha256\": \"5b0860120b2b265e0fb52f9c73b42390fa88d170d1a569765ac0a7226204a863\", \"transport\": \"user-pasted-text\", \"authorship\": \"unknown\", \"notice\": \"Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.\", \"projection_version\": \"body-text-no-headings-v1\", \"body_text_sha256\": \"5b0860120b2b265e0fb52f9c73b42390fa88d170d1a569765ac0a7226204a863\"}",
+                  "matched_terms": [
+                    "channel",
+                    "receiver",
+                    "zorvex"
+                  ],
+                  "scope_terms": [],
+                  "prose_only_terms": [
+                    "channel",
+                    "receiver",
+                    "zorvex"
+                  ],
+                  "unmatched_terms": [],
+                  "matches_every_query_term": true,
+                  "ancestry": [],
+                  "evidence_basis": {
+                    "delivery": "verbatim_page_text",
+                    "content_truth_verified": false,
+                    "original_claim_basis": "not_encoded_by_legacy_page_format"
+                  },
+                  "recheck_conditions": [
+                    "source changes",
+                    "dependency is superseded or retired",
+                    "serving policy changes"
+                  ],
+                  "verification": {
+                    "hash_intact": true,
+                    "lineage_pinned": true,
+                    "origin_explicit": true,
+                    "authorship_authenticated": false
+                  },
+                  "source_authorship": {
+                    "status": "unknown",
+                    "verified": false,
+                    "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+                  }
+                },
+                {
+                  "id": "WEB-9225ad33d207956f-0001",
+                  "path": "web-9225ad33d207956f-0001.html",
+                  "title": "Opaque source",
+                  "origin": "machine",
+                  "origin_depth": 1,
+                  "owner": "unknown",
+                  "updated": "2026-11-26T00:04Z",
+                  "status": "current",
+                  "declared_status": "current",
+                  "hash": "sha256:91667d39f672098bb425734c285185ee55c9b4663d2c28c552e50aac922105b4",
+                  "derived_from": [],
+                  "supersedes": [],
+                  "ratified_by": "",
+                  "location": "local",
+                  "scope": "Opaque source",
+                  "when_to_use": "",
+                  "not_for": "",
+                  "text": "Opaque source\nThe Zorvex receiver channel is 8437.\nSource capture: {\"source_url\": \"https://example.org/browser-source-a\", \"title\": \"Opaque source\", \"observed_at\": \"2026-11-26T00:04:47.004999+00:00\", \"source_sha256\": \"0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2\", \"text_sha256\": \"0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2\", \"transport\": \"user-pasted-text\", \"authorship\": \"unknown\", \"notice\": \"Captured bytes, not verified truth or authorship. Pasted text is user-supplied, not a verified download.\", \"projection_version\": \"body-text-no-headings-v1\", \"body_text_sha256\": \"0674a46c0343e5000f1e5da082c98ca9b1473e439c64f10b6f1e344a5f7447e2\"}",
+                  "matched_terms": [
+                    "channel",
+                    "receiver",
+                    "zorvex"
+                  ],
+                  "scope_terms": [],
+                  "prose_only_terms": [
+                    "channel",
+                    "receiver",
+                    "zorvex"
+                  ],
+                  "unmatched_terms": [],
+                  "matches_every_query_term": true,
+                  "ancestry": [],
+                  "evidence_basis": {
+                    "delivery": "verbatim_page_text",
+                    "content_truth_verified": false,
+                    "original_claim_basis": "not_encoded_by_legacy_page_format"
+                  },
+                  "recheck_conditions": [
+                    "source changes",
+                    "dependency is superseded or retired",
+                    "serving policy changes"
+                  ],
+                  "verification": {
+                    "hash_intact": true,
+                    "lineage_pinned": true,
+                    "origin_explicit": true,
+                    "authorship_authenticated": false
+                  },
+                  "source_authorship": {
+                    "status": "unknown",
+                    "verified": false,
+                    "notice": "Who made this source is unknown. A person can supply a source attribution for review."
+                  }
+                }
+              ],
+              "term_sources": {
+                "channel": [
+                  "WEB-1f22ee3f08e19ca5-0001",
+                  "WEB-9225ad33d207956f-0001"
+                ],
+                "receiver": [
+                  "WEB-1f22ee3f08e19ca5-0001",
+                  "WEB-9225ad33d207956f-0001"
+                ],
+                "zorvex": [
+                  "WEB-1f22ee3f08e19ca5-0001",
+                  "WEB-9225ad33d207956f-0001"
+                ]
+              },
+              "unmatched_terms": [],
+              "lexical_coverage": "complete",
+              "excluded": [],
+              "query_flags": [],
+              "policy": {
+                "gate_version": 2,
+                "mode": "separate_lexical_sources",
+                "max_depth": 1,
+                "prose": true,
+                "not_for": true,
+                "enforce_sealed_external_policy": true,
+                "synthesize": false,
+                "follow_pointers": false,
+                "require_current_dependencies": true,
+                "settings_hash": "sha256:2b95571a707e2341b9dedc11b579a05bdd494cc4f4f2f13d1cac7e67a2beb03c"
+              },
+              "corpus_snapshot": "sha256:eea6075ccdfea1e562215bb73313fb5c098735dffef3ad2db8ffc240805a8212",
+              "shared_lineage": [],
+              "evidence_status": "retrieved_pages_not_truth_certification",
+              "relationship_status": "not_established_by_retrieval",
+              "answer_synthesized": false,
+              "authorship_authenticated": false,
+              "notice": "Each source is presented separately. Complete lexical coverage means the requested words occur across sources, not that a page answers the question or that separate facts are related. Origin and owner are page declarations, not authenticated identities."
+            },
+            "live_verified_by_this_query": false,
+            "suggestions": []
+          }
+        }
+      }
+    ],
+    "model_load": {
+      "schema": "mplpb-model-load-report-v1",
+      "notice": "Local runtime diagnostics, not model reasoning or source evidence. No upload or training is performed. Older events/attempts may be omitted; omissions are counted.",
+      "limits": {
+        "attempts": 3,
+        "events_per_attempt": 120,
+        "log_characters": 1500,
+        "error_stack_characters": 6000
+      },
+      "omitted_attempts": 0,
+      "attempts": [
+        {
+          "number": 1,
+          "started_at": "2026-11-26T00:04:45.720Z",
+          "selected_model_id": "phi-1_5-q4f16_1-MLC",
+          "status": "failed",
+          "phase": "preflight",
+          "events": [
+            {
+              "kind": "browser",
+              "at": "2026-11-26T00:04:45.720Z",
+              "data": {
+                "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+                "device_memory_GB_hint": 16,
+                "notice": "A browser hint is not measured available RAM."
+              }
+            },
+            {
+              "kind": "failure",
+              "at": "2026-11-26T00:04:45.721Z",
+              "data": {
+                "name": "Error",
+                "message": "This browser does not expose WebGPU. MPLPB remains available without the optional model.",
+                "stack": "Error: This browser does not expose WebGPU. MPLPB remains available without the optional model.\n    at Loader.load (http://127.0.0.1:46641/:669:22)\n    at HTMLButtonElement.<anonymous> (http://127.0.0.1:46641/:919:29)"
+              }
+            }
+          ],
+          "omitted_events": 0,
+          "browser": {
+            "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+            "device_memory_GB_hint": 16,
+            "notice": "A browser hint is not measured available RAM."
+          },
+          "failed_phase": "preflight",
+          "requires_page_reload": false,
+          "error": {
+            "name": "Error",
+            "message": "This browser does not expose WebGPU. MPLPB remains available without the optional model.",
+            "stack": "Error: This browser does not expose WebGPU. MPLPB remains available without the optional model.\n    at Loader.load (http://127.0.0.1:46641/:669:22)\n    at HTMLButtonElement.<anonymous> (http://127.0.0.1:46641/:919:29)"
+          }
+        }
+      ]
+    }
+  },
+  "initial_model_load_report": {
+    "schema": "mplpb-model-load-report-v1",
+    "notice": "Local runtime diagnostics, not model reasoning or source evidence. No upload or training is performed. Older events/attempts may be omitted; omissions are counted.",
+    "limits": {
+      "attempts": 3,
+      "events_per_attempt": 120,
+      "log_characters": 1500,
+      "error_stack_characters": 6000
+    },
+    "omitted_attempts": 0,
+    "attempts": [
+      {
+        "number": 1,
+        "started_at": "2026-11-26T00:04:45.720Z",
+        "selected_model_id": "phi-1_5-q4f16_1-MLC",
+        "status": "failed",
+        "phase": "preflight",
+        "events": [
+          {
+            "kind": "browser",
+            "at": "2026-11-26T00:04:45.720Z",
+            "data": {
+              "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+              "device_memory_GB_hint": 16,
+              "notice": "A browser hint is not measured available RAM."
+            }
+          },
+          {
+            "kind": "failure",
+            "at": "2026-11-26T00:04:45.721Z",
+            "data": {
+              "name": "Error",
+              "message": "This browser does not expose WebGPU. MPLPB remains available without the optional model.",
+              "stack": "Error: This browser does not expose WebGPU. MPLPB remains available without the optional model.\n    at Loader.load (http://127.0.0.1:46641/:669:22)\n    at HTMLButtonElement.<anonymous> (http://127.0.0.1:46641/:919:29)"
+            }
+          }
+        ],
+        "omitted_events": 0,
+        "browser": {
+          "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+          "device_memory_GB_hint": 16,
+          "notice": "A browser hint is not measured available RAM."
+        },
+        "failed_phase": "preflight",
+        "requires_page_reload": false,
+        "error": {
+          "name": "Error",
+          "message": "This browser does not expose WebGPU. MPLPB remains available without the optional model.",
+          "stack": "Error: This browser does not expose WebGPU. MPLPB remains available without the optional model.\n    at Loader.load (http://127.0.0.1:46641/:669:22)\n    at HTMLButtonElement.<anonymous> (http://127.0.0.1:46641/:919:29)"
+        }
+      }
+    ]
+  },
+  "model_selection": {
+    "scope": "Real Chromium and WebAssembly source engine with authored GPU, runtime and runtime-hash fixtures. No weights downloaded, neural inference or physical iPad validation.",
+    "checks_passed": [
+      "MIT choices show sizes and smallest default without loading weights",
+      "explicit selection reaches engine with its own pins and resource minimum; controls lock while loading",
+      "ready state and exported report identify the loaded model",
+      "iPad and narrow layouts keep prompt/Send directly below response window and above expanded source import",
+      "Send streams a plain-text reply, escapes transcript text and blocks duplicate sends",
+      "Enter sends the next message with prior chat context",
+      "AI Build proposes a collection and real MPLPB creates it only after review",
+      "disposed generation invalidates readiness, keeps original diagnostic and offers reload while source engine remains available",
+      "switch revokes old provider and reloads with persisted selection before another allocation",
+      "unavailable saved selection recovers to smallest default",
+      "non-MIT catalog disables AI loading while real source engine remains usable"
+    ],
+    "external_requests": [],
+    "page_errors": []
+  },
+  "target_kind": "candidate_preview",
+  "target": "dist",
+  "implementation_sha256": {
+    "browser/ai-helper.js": "4dce283638c14ce94753aa07802f3176431336eee2d6aa6e0b2423443472e288",
+    "browser/ai-model-loader.js": "fab69a50f13aa892ef6fcfb582c93c19e789cdab8063721885b5878cf8ebb10d",
+    "browser/ai-provider.js": "93a7402442fe8641dcbba7498645bdd6426cd92ddd13d1855500c5156f27e4d6",
+    "browser/ai-helper-ui.js": "43771a69a389c1da929fbf25fb7c8053a9b10a6c768065874ebebe469f74a35e",
+    "tools/browser_free_helper.py": "a355cc8d6999b51ed4c14df9bb6adf2d24d70a724855dbf172b4310994133e7d",
+    "tools/browser_model_selection.py": "3c8ead19737968eeab1f4a877ca0744106d36808ca86c8d755b1224f658d7051"
+  },
+  "preview_sha256": "064d39a433099fa5f06990b692658a3d239c8017561ca3ccc289ae1296fbb2f3"
+}

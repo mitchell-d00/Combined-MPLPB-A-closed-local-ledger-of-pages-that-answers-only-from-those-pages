@@ -1,0 +1,22 @@
+{
+  "schema": "cryptid-integration-gate-v1",
+  "name": "chromium-offline-layout",
+  "command": [
+    "/workspace/cryptid-gates-venv/bin/python",
+    "-m",
+    "tools.browser_audit_20261021",
+    "--preview-dir",
+    "dist",
+    "--output",
+    "/workspace/cryptid-final-gates/candidate-1/browser-audit"
+  ],
+  "cwd": "/dev/shm/cryptid-final-candidate-1",
+  "timeout_seconds": 900,
+  "started_utc": "2026-11-25T23:49:14.449257+00:00",
+  "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+  "status": "PASS",
+  "returncode": 0,
+  "error": null,
+  "wall_seconds": 46.93473382299999,
+  "raw_log_sha256": "c8e151d733910a768337d42d671130a0999f290b91a5067e554f349a033c84be"
+}

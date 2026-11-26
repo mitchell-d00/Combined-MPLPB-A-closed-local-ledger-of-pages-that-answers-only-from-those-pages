@@ -1,0 +1,17 @@
+{
+  "required_command": "MPLPB_REQUIRE_SANDBOX=1 python -m unittest tests.test_study_sandbox -v",
+  "default_nested_execution": {
+    "status": "BLOCKED",
+    "passed": 2,
+    "failed": 2,
+    "log_sha256": "695b00f5f2c541d177aca485172a987de1238fca94d69c99549d3feea3de9876"
+  },
+  "host_execution": {
+    "status": "PASS",
+    "passed": 4,
+    "failed": 0,
+    "log_sha256": "c1ca51ebd0333dffed0d2af1e93c630b78d0146e0122e6a91f9dd8beb8ca273e",
+    "reader_worker_isolation": "Real fail-closed Bubblewrap; readonly code/inputs, keys/generators/scorer/Git/credentials outside, no network, bounded outputs; no direct worker fallback"
+  },
+  "custody": "Host operator is trusted, not independently isolated."
+}

@@ -1,0 +1,20 @@
+test_scope_matches_do_not_authorize_prose_chain_synthesis (tests.test_chain_prefix_profile_scope.ScopedPrefixProfileGuard.test_scope_matches_do_not_authorize_prose_chain_synthesis) ... ERROR
+
+======================================================================
+ERROR: test_scope_matches_do_not_authorize_prose_chain_synthesis (tests.test_chain_prefix_profile_scope.ScopedPrefixProfileGuard.test_scope_matches_do_not_authorize_prose_chain_synthesis)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/cryptid-local/tests/test_chain_prefix_profile_scope.py", line 9, in test_scope_matches_do_not_authorize_prose_chain_synthesis
+    for i,t in zip(['REQUEST','DISPATCH','RECEIPT'],texts):ledger.write(self.root,doc_id=i,title='Record',scope=Q,body_html='<p>'+t+'</p>',external='yes',origin='human')
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cryptid-local/mplpb_combined/ledger.py", line 678, in write
+    return go()
+           ^^^^
+  File "/workspace/cryptid-local/mplpb_combined/ledger.py", line 628, in go
+    raise ValueError(f"id {new_id} is taken")
+ValueError: id REQUEST is taken
+
+----------------------------------------------------------------------
+Ran 1 test in 0.007s
+
+FAILED (errors=1)

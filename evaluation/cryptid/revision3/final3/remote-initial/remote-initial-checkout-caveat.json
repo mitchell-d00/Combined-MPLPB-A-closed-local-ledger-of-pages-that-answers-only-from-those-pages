@@ -1,0 +1,12 @@
+{
+  "source_sha": "d265881fec092afffdda56cd8781438e40ef1cf7",
+  "initial_statuses": "10success,1frozen-acceptancefailure; both required contextssuccess",
+  "caveat": "Initial watcher field required_exact_head_passed verifies only check-run head_sha association, not actual tested checkout. Original regression workflow checked out default synthetic merge ref. Preserve original watcher result but do not treat its misleading field as exact-checkout proof. Final publication patch explicitly checks out/asserts actual PRhead.",
+  "archive_first_actual_head_verified": true,
+  "archive_log": "remote-archive-first-d265.log",
+  "archive_sha256_matches_local": "c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282",
+  "remote_native_tests": 1871,
+  "remote_optional_skips": 1,
+  "local_native_tests": 1871,
+  "local_skips": 0
+}

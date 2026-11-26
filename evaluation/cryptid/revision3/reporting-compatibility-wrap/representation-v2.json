@@ -1,0 +1,9 @@
+{
+  "version": "source-report-content-polarity-v2",
+  "new_field": "embedded_content_negative: literal payload polarity, never an assertion that the payload is true",
+  "legacy_fields": "inner_negative remainsnull andinner_polarity remainsunasserted whenouterdenial/condition doesnotassertpayload; oldvaluesunchanged",
+  "compatibility": "Compare literal payload and outer reporting sign under the same conditions. Denying a different/opposite embedded report is compatible. Two affirmative opposed contents conflict at content layer. Different conditions are not silently unified.",
+  "migration": "An additive field must be source-checked against the complete eligible witness; stripping it for legacy semantic comparison does not permit any other claim/citation/qualification change. Original exact scores and incorrect conflict key remain unchanged.",
+  "baseline_scoring": "Full v2structured score can fail because C1 lacks the field. Report comparison decision accuracy separately; do not call every missing-field flag a false source fact.",
+  "independent_semantic_adjudication": "NOT_RUN"
+}

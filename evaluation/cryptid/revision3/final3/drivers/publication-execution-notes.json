@@ -1,0 +1,43 @@
+{
+  "schema": "cryptid-publication-execution-notes-v1",
+  "attempts": [
+    {
+      "command": "gh api repos/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/branches/main/protection",
+      "status": "FAILED_API_403",
+      "reason": "Resource not accessible by integration",
+      "resolution": "Effective rules for main and full Bear ruleset read successfully and retained; no bypass."
+    },
+    {
+      "command": "gh pr checks 105 --json name,state,link,bucket",
+      "status": "FAILED_CLI_UNSUPPORTED_OPTION",
+      "reason": "Installed gh2.46 does not support --json for pr checks",
+      "resolution": "Exact-SHA REST check-runs endpoint used; no check treated as passed because CLI failed."
+    },
+    {
+      "command": "gh pr view 105 --json headRefOid,baseRefOid,mergeStateStatus,isDraft,state",
+      "status": "FAILED_CLI_UNSUPPORTED_FIELD",
+      "reason": "Unknown JSON field baseRefOid",
+      "resolution": "REST pulls/105 response retained with actual head and base SHA."
+    },
+    {
+      "command": "gh api actions/artifacts/15080025347/zip",
+      "status": "FAILED_REDIRECT_403",
+      "reason": "GitHub CLI redirect to artifact blob was Forbidden",
+      "resolution": "GitHub connector download succeeded; returned file downloaded and SHA256 verified as5d57b9365d395bd77888852d95f58dcf572fcd8a69dcfff465b0c365edd74625. Failed zero-byte artifact kept separately."
+    },
+    {
+      "command": "python -m tools.verify_bounded_reported_content from clean ZIP",
+      "status": "FAILED_HOST_HARNESS_BEFORE_WORKER_LAUNCH",
+      "reason": "Legacy dpercent host harness invokes git rev-parse HEAD but clean ZIP intentionally contains no Git metadata",
+      "resolution": "Original failed attempt retained; separate retry supplies actual unchanged source commit via host-only GIT_DIR/GIT_WORK_TREE. Sandbox command clears environment and no Git metadata is mounted inside workers. No native/harness/scorer bytes modified."
+    },
+    {
+      "command": "package_publication_evidence.py attempt1",
+      "status": "FAILED_EVIDENCE_PACKAGING",
+      "reason": "copytree supplies str paths; hard-link helper expected Path",
+      "resolution": "Retained error log. No raw outputs or input bytes were changed; empty staging directory cleared. Helper now converts str to Path before copying."
+    }
+  ],
+  "classification": "Publication/status-inspection failures; not reader abstentions, not semantic scores. Required exact-head CI and semantic acceptance remain separate gates.",
+  "earlier_failures": "Retained in original family/final/revision3 evidence without rewriting packets, keys, outputs or classifications."
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "cryptid-integration-gate-v1",
+  "name": "chromium-live-and-candidate",
+  "command": [
+    "/workspace/cryptid-gates-venv/bin/python",
+    "tools/browser_release_smoke.py",
+    "--live-url",
+    "https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/",
+    "--preview-dir",
+    "dist",
+    "--npc-report",
+    "/workspace/cryptid-final-gates/candidate-2/npc-browser.json"
+  ],
+  "cwd": "/dev/shm/cryptid-final-candidate-2",
+  "timeout_seconds": 900,
+  "started_utc": "2026-11-26T00:02:49.129297+00:00",
+  "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+  "status": "PASS",
+  "returncode": 0,
+  "error": null,
+  "wall_seconds": 71.95124778900936,
+  "raw_log_sha256": "1e49222113bea2c5e443332d8b7ad61f067d0bd919fe1c1b16afa6f0f779eaad"
+}

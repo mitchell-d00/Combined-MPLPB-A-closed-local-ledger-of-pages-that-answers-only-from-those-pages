@@ -8,6 +8,7 @@ import re
 from .body_text import body_text
 from .evidence_contract import pin
 from . import documentary_verify as kernel
+from .question_intent import action_request
 from mplpb_combined.reader import terms
 
 VERSION='documentary-composition-v1'
@@ -70,6 +71,8 @@ def plan(question):
         who=re.fullmatch(r'Who ('+'|'.join(ACTIONS)+r') (.{1,240})',q,re.I)
         if who:
             goals.append({'question':clause,'kind':'who_action','action':ACTIONS[who[1].lower()],'object_text':who[2]})
+        elif (intent := action_request(q,kernel.PAST,{**kernel.PAST,**kernel.PASSIVE})):
+            goals.append({'question':clause,'kind':'who_action','action':intent['action'],'object_text':intent['object_text']})
         elif re.match(r'Who (?:arranged|asked|requested|instructed)\b',q,re.I):
             goals.append({'question':clause,'kind':'reported_instruction'})
         elif re.match(r'Which (?:dated )?letter\b',q,re.I):
@@ -90,6 +93,7 @@ def plan(question):
 
 def propose(index,passages):
     """Opaque exact-source proposals only; no authoritative actor/event fields."""
+    records={r.path:r for r in index.records}
     bodies={r.path:body_text(r.body_html) for r in index.records};result=[];seen=set()
     def add(p,a,b,kind):
         key=(p['path'],a,b,kind)
@@ -128,11 +132,11 @@ def propose(index,passages):
             if not opening:continue
             start=h+opening.start();first=next(_proposal_units(body[start:b]),None)
             if first:add(p,h,start+first[1],'letter_instruction')
-        for lo,hi,q in kernel.units(body):
+        for lo,hi,q in kernel.units(body,records[p['path']]):
             if lo<a or hi>b:continue
             if hi-lo<=2200 and re.search(r'\b(?:'+'|'.join(ACTIONS)+r'|did\s+not\s+(?:'+'|'.join(ACTIONS.values())+r'))\b',q):
                 add(p,lo,hi,'action_statement')
-        for lo,hi,q in kernel.units(body):
+        for lo,hi,q in kernel.units(body,records[p['path']]):
             if lo>=b or hi<=a or hi-lo>2200:continue
             if kernel.relationship_assertion(q):add(p,lo,hi,'relationship_statement')
     if any(g['kind']=='wording_comparison' for g in plan(index.question) or []):

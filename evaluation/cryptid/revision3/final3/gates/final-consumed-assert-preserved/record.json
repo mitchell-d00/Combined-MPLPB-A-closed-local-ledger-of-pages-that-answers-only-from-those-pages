@@ -1,0 +1,18 @@
+{
+  "schema": "cryptid-integration-gate-v1",
+  "name": "final-consumed-assert-preserved",
+  "command": [
+    "/workspace/cryptid-gates-venv/bin/python",
+    "-c",
+    "import json;assert json.load(open('/workspace/cryptid-final-gates/candidate-3/final-consumed-preservation.json'))['counts']['failed']==0"
+  ],
+  "cwd": "/dev/shm/cryptid-final-candidate-3",
+  "timeout_seconds": 300,
+  "started_utc": "2026-11-26T01:30:29.273869+00:00",
+  "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+  "status": "PASS",
+  "returncode": 0,
+  "error": null,
+  "wall_seconds": 0.07721505899098702,
+  "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "cryptid-integration-gate-v1",
+  "name": "thunderbird-development",
+  "command": [
+    "/workspace/cryptid-gates-venv/bin/python",
+    "tools/cryptid_trial_v4.py",
+    "--registry",
+    "evaluation/cryptid/thunderbird/development/registry.json",
+    "--implementation",
+    "/dev/shm/cryptid-final-candidate-2",
+    "--source-commit",
+    "1251cc471a24ba4be91949ffc0c4752d0c3bf202",
+    "--output",
+    "/workspace/cryptid-final-gates/candidate-2/thunderbird-development-run"
+  ],
+  "cwd": "/dev/shm/cryptid-final-candidate-2",
+  "timeout_seconds": 450,
+  "started_utc": "2026-11-26T00:02:50.404548+00:00",
+  "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+  "status": "PASS",
+  "returncode": 0,
+  "error": null,
+  "wall_seconds": 5.791183740002452,
+  "raw_log_sha256": "d5c504d7eb48b8c4c12e278de9046f6645a06405e8605675b4af95110d1225d3"
+}

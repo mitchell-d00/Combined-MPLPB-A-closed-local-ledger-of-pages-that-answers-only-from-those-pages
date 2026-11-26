@@ -1,0 +1,10 @@
+{
+  "type": "tool_approval_rejection",
+  "execution_status": "NOT_EXECUTED",
+  "reader_executions": 0,
+  "semantic_result": null,
+  "proposed_action": "Create a lossless archive of every directory under /workspace/bunyip-runs, verify hashes, then remove the original directories selected by a broad directory scan.",
+  "reviewer_reason": "The command deletes every directory under `/workspace/bunyip-runs` based on a broad glob, including potentially unrelated or unique evidence; the stated authorization does not cover this irreversible bulk deletion, even though an archive is attempted first.",
+  "response": "Command did not execute. Preserve original directories. Continue unaffected work; permitted Git repack -d recovered space without removing test evidence. No bypass or workaround deletion.",
+  "remaining_blocker": "No current software execution blocker; workspace storage remains limited."
+}

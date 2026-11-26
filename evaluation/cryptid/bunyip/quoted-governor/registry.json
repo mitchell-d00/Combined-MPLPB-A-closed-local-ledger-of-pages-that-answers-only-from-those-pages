@@ -1,0 +1,73 @@
+{
+  "schema": "cryptid-case-registry-v1",
+  "family": "BUNYIPQ",
+  "exposure": "development exposed",
+  "cases": [
+    {
+      "id": "CRYPT-BUNYIPQ-0001",
+      "family": "BUNYIPQ",
+      "packet": "evaluation/cryptid/bunyip/quoted-governor/inputs/CRYPT-BUNYIPQ-0001",
+      "files": {
+        "case.json": "d21216cda952929921b487eee1848ea2aa318e3a552d7b1860329762e8ccee2c"
+      },
+      "semantic_input_hash": "31a723624ccee15f845c9ad328a76152474acbaee873573701d0f3414540c35e",
+      "origin": {
+        "test": "quoted_governor",
+        "prs": [
+          104
+        ]
+      },
+      "mechanism": "quoted_governor",
+      "protected_operation": "Quoted unrelated material does not become an outer source condition; preserve explicit outer assertion",
+      "baseline_commit": "ab8f73e83538d8e33e8d13df14c2f47b88054608",
+      "budgets": {
+        "records": 8,
+        "scan_characters": 200000,
+        "units": 1000,
+        "passages": 12,
+        "characters": 8000,
+        "cpu_seconds": 30,
+        "wall_seconds": 45
+      },
+      "expectations": "key.json#CRYPT-BUNYIPQ-0001",
+      "candidate_version": "Append immutable run/ZIP receipts",
+      "custody": "same operator, deterministic visible templates; no independent preparation/blinding/scoring",
+      "raw_output_lookup": "runs/RUN/CRYPT-BUNYIPQ-0001/result.json",
+      "rendering": "paragraphs",
+      "question_group": "quoted_governor"
+    },
+    {
+      "id": "CRYPT-BUNYIPQ-0002",
+      "family": "BUNYIPQ",
+      "packet": "evaluation/cryptid/bunyip/quoted-governor/inputs/CRYPT-BUNYIPQ-0002",
+      "files": {
+        "case.json": "2a8f63bf456cae4864eacac084af076abce30c03eeb730a9f586c4f0c6d5e8cc"
+      },
+      "semantic_input_hash": "0f79d8aa47e86bc3314cbc04b80d0a28780ebbe043f4322c8b91b128c8d618bc",
+      "origin": {
+        "test": "quoted_governor",
+        "prs": [
+          104
+        ]
+      },
+      "mechanism": "quoted_governor",
+      "protected_operation": "Quoted unrelated material does not become an outer source condition; preserve explicit outer assertion",
+      "baseline_commit": "ab8f73e83538d8e33e8d13df14c2f47b88054608",
+      "budgets": {
+        "records": 8,
+        "scan_characters": 200000,
+        "units": 1000,
+        "passages": 12,
+        "characters": 8000,
+        "cpu_seconds": 30,
+        "wall_seconds": 45
+      },
+      "expectations": "key.json#CRYPT-BUNYIPQ-0002",
+      "candidate_version": "Append immutable run/ZIP receipts",
+      "custody": "same operator, deterministic visible templates; no independent preparation/blinding/scoring",
+      "raw_output_lookup": "runs/RUN/CRYPT-BUNYIPQ-0002/result.json",
+      "rendering": "plain",
+      "question_group": "quoted_governor"
+    }
+  ]
+}

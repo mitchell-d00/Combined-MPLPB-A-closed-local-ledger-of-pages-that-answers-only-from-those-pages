@@ -1,0 +1,2266 @@
+{
+  "schema": "cryptid-run-v1",
+  "reader_commit": "ab8f73e83538d8e33e8d13df14c2f47b88054608",
+  "reader_files": {
+    "mplpb_answers/__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "mplpb_answers/__main__.py": "66e6c37f34cb95168466a82ec37e9384fc846c96db7cadcca51f2283e1e8cbc1",
+    "mplpb_answers/advanced.py": "bc56efcaa8135a6647afd8c5957917979c170c504b9e22913b600aa95096997d",
+    "mplpb_answers/assertions.py": "79de36e6b3e9b47ac58233f6def6ca4b6da3524947a9ecba740b956025e5c075",
+    "mplpb_answers/attributed_instruction.py": "56d016303090799a33f2d554f31655b517c351a27971fd37ef7e4abd278ab477",
+    "mplpb_answers/body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+    "mplpb_answers/bounded_records.py": "d3f2e150dcf66e6df6f5ad6f6ca71e906ed12621eea6c2ceb6568b1e7f5b38da",
+    "mplpb_answers/claim_frame.py": "e7c1b359daac7623f866d78b892e26d80c88554414c3cdc3de49c8b42dc632e2",
+    "mplpb_answers/collection_fields.py": "db25700f1e67c3b8b057577c2570e8bae916b501564d15626387dd8a3678220c",
+    "mplpb_answers/compound_fields.py": "5bdabcbc85a90e9e9381fa255893194ae62a1b66957fc70776ca75726a627c28",
+    "mplpb_answers/corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+    "mplpb_answers/d6.py": "827b3bda13d2cc53d00a6aa25c3ba8e5cb50b2de0fd11d2378258a705319c96b",
+    "mplpb_answers/documentary.py": "1298b7c056713df568e558a1e5469d48051bb039fe66e15059a43afcb4a2923b",
+    "mplpb_answers/documentary_advice.py": "3e1080d80ca9c6139fc71f908689a682bb912d171ba7d5896b49eb513f55cd52",
+    "mplpb_answers/documentary_correction.py": "ff9b2b3c6679bf867ea28d77b65492bbabe326e7bb1cf318d56441cefff593db",
+    "mplpb_answers/documentary_errata.py": "4c5e92a916af7d53c90890fc5018c497508d40fbe1b67f9cf6a5277d66f1dd96",
+    "mplpb_answers/documentary_instruction.py": "6fb8c13847486f7210eb964017e04b872799eca67b40b342d6a3a877b7a0365c",
+    "mplpb_answers/documentary_lease.py": "e98159e9ad0d0d73df02b9d507160ba4ca8e2dd9d5128466e983c4bdc045dc1c",
+    "mplpb_answers/documentary_links.py": "a10511e64ccddfb93e81bd534ab093121073e8fb3db2b7b75978a5350a63355a",
+    "mplpb_answers/documentary_presentation.py": "35ef2dfb2db6b0e76f67ad80a821175a74296476df7b1ba45c2fc97834420827",
+    "mplpb_answers/documentary_verify.py": "17df92461ac7f026f0f15cb38b2b28f44c2d9f45b7e25016210d5a8c13cf36af",
+    "mplpb_answers/evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "mplpb_answers/evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "mplpb_answers/evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "mplpb_answers/experience_graph.py": "843ce8df142819e3178fb3630978c4ff18ca7b8a8d835fcc7576cfe306903548",
+    "mplpb_answers/field_aliases.py": "2a2b1e997d02f8fed534e5ec4d555b3cfa40b6c6684d6176d88d8762b94c002a",
+    "mplpb_answers/frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "mplpb_answers/library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "mplpb_answers/linked_obligations.py": "3fe5b80c6a15163da31d285126893d0d837a3caa4040b11c95567c918568a19b",
+    "mplpb_answers/literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+    "mplpb_answers/local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+    "mplpb_answers/local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "mplpb_answers/operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+    "mplpb_answers/passage_admission.py": "8f9decd8addf3b14a6ba9258576226e9efd8cff43f5a51a0132b6298efd809fa",
+    "mplpb_answers/passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+    "mplpb_answers/pipeline.py": "109b7d2565882dfca23676eb76246362269b5f2a6b99c189f25102559be8caee",
+    "mplpb_answers/policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+    "mplpb_answers/practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+    "mplpb_answers/presentation.py": "c68979748753f48cefaca0ea1eb5ac2ddc20b797ef5d3d8181726667c81cc0aa",
+    "mplpb_answers/procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+    "mplpb_answers/prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+    "mplpb_answers/publication_corrections.py": "6c72632858f4562d320cdcd8ed001eded095834e60c627175c8b0265e7f6d2e6",
+    "mplpb_answers/question_intent.py": "9baef407153bc69083ff52567da5cc84e69144920ec36b277b12e0314b67e711",
+    "mplpb_answers/reference_identity.py": "0bdfcade2a91e5f363c9d6ba7b1175c3af9b55027e3d2b236dd33e8f1b3ba5c9",
+    "mplpb_answers/relation_graph.py": "58003ad19f3a1f58a3ee3746cac3cb9017e3162e4146fd5004374bf32c730adc",
+    "mplpb_answers/report_sections.py": "6efaa14124e1a3079f798b07aba9c41fcf8a2fed182d589bcdfdcfb9baf3a5ea",
+    "mplpb_answers/reported_content.py": "e307adf700e16af85b40cddbde38a3897433255755abf0e295ae6343bd2e83e0",
+    "mplpb_answers/source_attribution.py": "b59ac55a777afef0a2b13a1cf36a9b6701c67c3428d9c1a726e93b7e29f48e6c",
+    "mplpb_answers/source_claims.py": "54f624e13184997c0b8c92298ee1814eb0d81f09410787a7187b823f4810fadb",
+    "mplpb_answers/source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+    "mplpb_answers/source_structure.py": "a1e639f0e36506c906301421e1c326618b9e4451b4f4c34b24f0ce8edddbb8ae",
+    "mplpb_answers/source_tags.py": "db10acddc57e53e094eb59266e024e9c46ab4ebced3410a1b79535c48ec99cc7",
+    "mplpb_answers/source_units.py": "d65cfd675e79186929396f1f912d617e0fb3b397b95334222f08ce99550b01b5",
+    "mplpb_answers/support.py": "117d0c2040b43b95e8a2aafbe55b24a5ddae0f87cd28ba635ff8f8473b327756",
+    "mplpb_answers/synonym_graph.py": "4d339ae3307ee10d106b3eec49e038c5c9d50cc48417f8e01970d9b0373ceabb",
+    "mplpb_combined/__init__.py": "8ce7a60dc73b0229eb89f7cf3c4a3a47df70f410d0d957dc95b6e41281bb9672",
+    "mplpb_combined/__main__.py": "353ea5ef6cba220377dce05ac3c4eb0b2ecabe5a68188c591b69d9698862e356",
+    "mplpb_combined/baselines.py": "1b2426ccc12397c0525dcff875e1b922bc776c20174ed08aa89cd1f47891e4d3",
+    "mplpb_combined/delivery.py": "27400863c4007413ccd009efe19821a7963a014b47a01905455adb12b7b454ca",
+    "mplpb_combined/evaluate.py": "a537600f26c021040e54cc7badada45443c18af9dd2aa8e52b9f4e43081d79ff",
+    "mplpb_combined/killtest.py": "8b9b7c889626fe1bfe0f1aa87cb80698de2ae67db256e4355a6ce43508f88aa7",
+    "mplpb_combined/ledger.py": "a2c65367cabb1ff1c981ebac06cd3f8f998cd3d5e155aaf951d7a2fed9d02163",
+    "mplpb_combined/provenance_gate.py": "c85250cb1895e820159125a26a7b5cfa9bf5ca51e7cd918a78a99d8bcbdf2e25",
+    "mplpb_combined/reader.py": "e207dac173890540b5af36626e592c56cd293cb86a577c0c2a5d09cda441aea8",
+    "mplpb_combined/record.py": "e09ffb33930e7b705aaf5d93475908af7ac2927f1eb3219c594d637bd92a625c",
+    "mplpb_combined/retrieval.py": "35528e3645af096d957df51fdb39ca66decd1f5a0a98cf61061e4ff51408c1c4",
+    "mplpb_work/__init__.py": "5015f3af15da1efed8d2f32bfb0c42a3d24d7c4fec53865dc96b8361db34a393",
+    "mplpb_work/__main__.py": "afa5fa55c9767520ccde8386c5f7c68a77ee2b10c7bad5d017f19efb2edb93e4",
+    "mplpb_work/answer_router.py": "ba1b1f3fc00710424d5b3118ab08ca560478439cad316b2c9c61d87a05b594e0",
+    "mplpb_work/api.py": "9b4f33cc9fe4f2fb22210e22c5332896d358c1bf1e785f919e12187a00ad6b1f",
+    "mplpb_work/article.py": "141a301a0e3a6b7d076a14cc9639769fb90f25dc33aa01073e692bf5d9b033bb",
+    "mplpb_work/candidate_workspace.py": "74fd28037d4c10cfe1164a7fa04ee53de4c0e6be63401e675762a1a7a9249290",
+    "mplpb_work/classing.py": "18f1c39174ce93d5042755fd347ababeb03410540b100d2054d36cbea18ea283",
+    "mplpb_work/errors.py": "633c7042a803a259e33db177b303dfd1d6ad5bc038f1908a3f70e469a966615a",
+    "mplpb_work/event_candidates.py": "8f112257f0543c91962aaedf08d1eb50dea487c2c8240c9945ad648ee9d809ae",
+    "mplpb_work/historical_evidence.py": "6df11d05a2f147ae465d639b1f4ecd381436b4757f1ff7e0b6e8f56fbc05e39a",
+    "mplpb_work/historical_review.py": "d89c6be6128f252ce26991ab6770392af1e6e72d7212d4e40fb674e3f2dd6636",
+    "mplpb_work/historical_verifier.py": "db8837312f845476a18bc33d9492bdc737d1d8b18d2a5812698dd683d7088c1a",
+    "mplpb_work/investigation.py": "3cc779874ceec15ced80534faaad95b3929c026daffd462da24fa70f20ca8ed2",
+    "mplpb_work/ledger_generations.py": "941a5526eefbac033a4320c0375c01c795708ec45c63b3cb3047edef26b13854",
+    "mplpb_work/local_artifacts.py": "c7814c3fd68b7a80d48128a416c950240aaaf7e6adc363119a08fc471aa4dd16",
+    "mplpb_work/model.py": "5613a66d2b637b26ae900d5966d6680aa86f0eedf02bf80cbb794c42f8e51e74",
+    "mplpb_work/pinned_documentary_inspection.py": "487f8a7fa7712603351a37f553e3976e806f4cd1a840b69bd078217f19e021aa",
+    "mplpb_work/prose_evidence.py": "8a88fdd1586e7ef22d5e91edbe57c220979502d0a7e7f1060f738b431d811b24",
+    "mplpb_work/prose_relations.py": "d2ca7e6aad04adc4cd08dae8683e57af4630a1b9daea2b720e900ddaec722d52",
+    "mplpb_work/semantic_triage.py": "bb75ecd3c99f2e2b9aa3259cc0fe67d5d9831125ef3093e76f63f4598b9ecaee",
+    "mplpb_work/sorter.py": "0e8eb56604ba34f3eaf5be85f3c0787c3ce40bb2ecf68809c040ca2fff38834e",
+    "mplpb_work/sorter_explorer.py": "56269f976ad89860e123640cc38305ef056e39287e77b684015aca180fb74181",
+    "mplpb_work/sorter_suggestions.py": "91d3b618eaba949397caab57263d76b3aa20362e7446cff83c441e6cb0860f61",
+    "mplpb_work/sorter_v2.py": "130281428af23ac2790da9a0030f8e62918974ff65b4395c0de79f9094dbade4",
+    "mplpb_work/source_mapping.py": "5688b65b4cd392c0da298f2eda5d422a95248dadcbf55984e125f8b54a2c5612",
+    "mplpb_work/source_notes.py": "0337b560f4a545eb50570f8781a71dd11c857134a8a66e009a9444d683365ca5",
+    "mplpb_work/source_support.py": "a3460d71ca56141ac43f387f093854fc41f286369c7a9f5e6832e77fa38493b9",
+    "mplpb_work/store.py": "3a1472c3ce7b28e5e821944a9a03c1c2a3fdcbdddcf0cd532ca614d2617aa036",
+    "mplpb_work/thesaurus.py": "25a07a4bfa46c4cc5ef0d868ad3ee5a7e71e2c7daf485ec93ea0fe699afb454e",
+    "mplpb_work/training.py": "bd779f257e13669a3967c16f8c6ad451b55157cd71865f6ae8135f5f3e488085"
+  },
+  "registry_sha256": "1cc2cbd0e025b661b23211504c1725e8c9a1fbc948870fb199a9146e81a5b4fd",
+  "registry_path": "evaluation/cryptid/bunyip/development/registry.json",
+  "harness": {
+    "tools/cryptid_trial_v5.py": "aec3e5650ae7d1755a8a9da7f8e944cb22dfa65b6e2a2580584c6fc7525c7fd8",
+    "tools/cryptid_adapter_v5.py": "1efe3c443a0fb34052121471428935e7ac8237e80fe6787115c07ae7460106c6",
+    "tools/cryptid_worker_v5.py": "1aadbe601fc1e9c2929ae98b9cbf5362b59abc8f0bb4b278a7fd422cf0df03b9",
+    "tools/cryptid_claim_score_v3.py": "fa9bf0eb25098e645552a43b56ad1bb67a4f89b6b023456ca4cdf4c1603c5a19",
+    "tools/pole_worker.py": "f912f87b072fb3e78c0215882d2a10c82dd5df48009bb9a3a5eff8f229617ce8",
+    "tools/study_sandbox.py": "56f9561fc2bae5150a2de5c83bf8a0c68d7a7f002a93018e91d68e043ebe4daa",
+    "tools/cryptid_packet_support_v4.py": "4596dae10247f164ccd7f99d46b99182d5b226d0edb475821e746b8f5b8b0e89",
+    "tools/cryptid_claim_score_v5.py": "d91f3855437fb55d4ec165edcf48bad6a375437bcdf8acc7c8a2ea4b4e7d6b60",
+    "tools/bunyip_packets.py": "9adce6cfe4825e956c2744d63ae5bd90ae916d76edecb1faf8afbdbb635572c8",
+    "tools/bunyip_score.py": "6bbf0181e11d719219ed3073aadd7a4806b4981f0fd1e4a44cfff1c48fa1c006"
+  },
+  "exposure": "development exposed",
+  "execution_counts": {
+    "completed": 102
+  },
+  "planned": 102,
+  "attempted": 102,
+  "cases": [
+    {
+      "id": "CRYPT-BUNYIP-0001",
+      "input_hash": "8bc7cbd237077a3b9a54fb5e051d3e7a3652bb62f0a41b38df66de7c40aba430",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "d0f9376d6dda26c18a067efbeb65fe6e377af27315edabb1de8f846804dd511c",
+      "diagnostic": {
+        "code": "supported",
+        "stage": "strict",
+        "message": "Explicit source statements satisfy the existing bounded grammar.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "host_wall_seconds": 0.5167355079902336
+    },
+    {
+      "id": "CRYPT-BUNYIP-0002",
+      "input_hash": "d0cc6ba4729f2002346a88e44dbaf53f1dc7f16d1945ab09596df3737eb6c0e8",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "30acdbeff7eee7faa7831f264fe823f7ab673925ba3752f14903aecf5ca4060a",
+      "diagnostic": {
+        "code": "supported",
+        "stage": "strict",
+        "message": "Explicit source statements satisfy the existing bounded grammar.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "host_wall_seconds": 0.5110671399888815
+    },
+    {
+      "id": "CRYPT-BUNYIP-0003",
+      "input_hash": "b9ec6a5a10b1b343f5814e2ee8c3c4da6ac1f41579f7b976978fe3932f3ac4f0",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "345a3c00ba244699e2cc2dd0d4fa6e074a0cc278a050859d2563c14bca3ba10f",
+      "diagnostic": {
+        "code": "supported",
+        "stage": "strict",
+        "message": "Explicit source statements satisfy the existing bounded grammar.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "host_wall_seconds": 0.40629480000643525
+    },
+    {
+      "id": "CRYPT-BUNYIP-0004",
+      "input_hash": "25ab0e8be1d8c1a2918ca429d12c1d81fe9c1477444763a38345767da115b9ed",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "bd2930842f0df2a6d68016face9f03542269ec0f44eeff7ce688ebf107397a8e",
+      "diagnostic": {
+        "code": "supported",
+        "stage": "strict",
+        "message": "Explicit source statements satisfy the existing bounded grammar.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "host_wall_seconds": 0.5232176419958705
+    },
+    {
+      "id": "CRYPT-BUNYIP-0005",
+      "input_hash": "53df06fcc21138444e6e116f2fb5ed08b0dccc7fb359349dec80fad40cdc7dd0",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "92ff17bbf9a9da54620452eade0c1b02fbeb7f665cf7426d6d170bbc73ed3044",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.5790980659949128
+    },
+    {
+      "id": "CRYPT-BUNYIP-0006",
+      "input_hash": "a42de18eb51ccdefdf38c6ead41329bd658d35fcdaafeaaffb231f6388c47889",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "e8841424a28dcfa4f7d3766132be4dd1b67dfb0385962c3e2c8d18fb54072a00",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.46768478100420907
+    },
+    {
+      "id": "CRYPT-BUNYIP-0007",
+      "input_hash": "b5b2478c08319964c2d2830edf58155ae7a22646ef8fee8ddf650d64d143d3fd",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "22794d37d88fd85176415d60ad8aba4afbf4849853a8f34717955fd11b5ea7e8",
+      "diagnostic": {
+        "code": "supported",
+        "stage": "strict",
+        "message": "Explicit source statements satisfy the existing bounded grammar.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "host_wall_seconds": 0.4001278240029933
+    },
+    {
+      "id": "CRYPT-BUNYIP-0008",
+      "input_hash": "a615855dc7ab5ff61ecc50db62b3638e2b4121915b63ac655a6e874432bf1efc",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "73ed8e5e06602a06b471d82347ec08f328ec5d22869ec422aa854fd5c0c585ad",
+      "diagnostic": {
+        "code": "supported",
+        "stage": "strict",
+        "message": "Explicit source statements satisfy the existing bounded grammar.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "host_wall_seconds": 0.3423083990055602
+    },
+    {
+      "id": "CRYPT-BUNYIP-0009",
+      "input_hash": "2dfb41ff99769d4dbae337fa502805803ea73c3913c6af9854db4463ce164034",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "52b7bd37795aac0c08ababc1f465fa5b0e2889518567d5a8e6ef685ec5c35bb9",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3991572160011856
+    },
+    {
+      "id": "CRYPT-BUNYIP-0010",
+      "input_hash": "1ce1a88fdd8ca492f8a3718a1e9b14a75e14c655170f08fbf0e8811bc1c9a8c6",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "f5b078a1bfb2eb6945c85909c911eb87c737996fa8cd8638d2128f00230e7248",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.39908145599474665
+    },
+    {
+      "id": "CRYPT-BUNYIP-0011",
+      "input_hash": "7e7196ff376e93de75dbd425a9a9baa586ae7d35868e3fb43d038d3fd8584149",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "01a0a7368572005c031062226750670dbcd1d052ce596f1576c61834a9531219",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3969681059970753
+    },
+    {
+      "id": "CRYPT-BUNYIP-0012",
+      "input_hash": "d4125b9df49b115211a366907d661a45885c69e594cb0320c55c62677081add9",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "b3bf56ca9fd63c9bb2bede6cb2f73fcde57447f4b6af621fa0b7ca239a506c3c",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.4048094640020281
+    },
+    {
+      "id": "CRYPT-BUNYIP-0013",
+      "input_hash": "c83e91944b0afe99547cdd7624501c1feaf2b01ea85044e65d5686746c8f427f",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "d9bc374a8eb2909b12f7ee833acd1073a0a06d51b9be0523212c5157e62af8d7",
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "host_wall_seconds": 0.3451697720010998
+    },
+    {
+      "id": "CRYPT-BUNYIP-0014",
+      "input_hash": "f06e49478285a8e40b6a1118e3fa7fa160d2b2328802a03e9eeffd0e11069bc9",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "404df5c7ca1182fd45369d424538793d2be01462553b6c8a39dae6c4d187175d",
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "host_wall_seconds": 0.3014932719961507
+    },
+    {
+      "id": "CRYPT-BUNYIP-0015",
+      "input_hash": "07ebe3936a1df622cb7e5dd913cc6d489d8a27c54c547c07e4c1fcf00fe8b8c4",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "139df3ecae75460ca4ef814cbb5bf8e42509c07c02083e91b76a10ae2139ecda",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.44002410299435724
+    },
+    {
+      "id": "CRYPT-BUNYIP-0016",
+      "input_hash": "c82abb033630f53062e10b8388249ff8bf200d4af8955042143a2b6e41d0c6c4",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "eca1d9c6ee8d1aae6d7059df6993dcf12ad4c760931d0149da05d85f8f76bd55",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3876413319958374
+    },
+    {
+      "id": "CRYPT-BUNYIP-0017",
+      "input_hash": "d5801fccb9857866becf14cc47eebfe0b80437b945d4d8fdda6f51edf7ce87a1",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "f3384387023b627de09d7af68730d853c57d35e9a5cfc374885ca1cf5ff61054",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.4142392649955582
+    },
+    {
+      "id": "CRYPT-BUNYIP-0018",
+      "input_hash": "bcf565410a36bce00646021f5ae6488bc2e1da03c79a9eca287a181058567e29",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "9c938ff6b1009675b355221b31597b414b8e97b5df4ab39b144b833893e1b730",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.4091065719985636
+    },
+    {
+      "id": "CRYPT-BUNYIP-0019",
+      "input_hash": "94427d5087b4aa4fdb0266e7c5a08696c4cf0ce28ad856e88b1299c6d39eec3f",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "89921da836604dbd06235775bb0eaa09544ec26dafc547cd1305768f2a01b96c",
+      "diagnostic": {
+        "code": "evidence_not_established",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.341966638006852
+    },
+    {
+      "id": "CRYPT-BUNYIP-0020",
+      "input_hash": "87dfa568865996ebc8c598095968621c626fb864084ee96e28a4738c3590f0f6",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "2980dc8c639cca3d9e197582fcd9c1598e867620782016e4da096ca5cd2aba2b",
+      "diagnostic": {
+        "code": "evidence_not_established",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3449244630028261
+    },
+    {
+      "id": "CRYPT-BUNYIP-0021",
+      "input_hash": "8ba29a1002ffc7a2dc3db487fe1a2aa78ce6599fa56baad359cc51c5954da7d0",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "a8f4ec5763020914493933334d82d4eb2581052f7187ee304cbf4e3f081251d5",
+      "diagnostic": {
+        "code": "evidence_not_established",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3403086660109693
+    },
+    {
+      "id": "CRYPT-BUNYIP-0022",
+      "input_hash": "64d9812bde1c059b4978de528ded1ff6d80e0ed1f9e38a49d89fc6a4266feb31",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "0f7cfaa38a4990d2a624b16b6cdd5731c5133447cb3dc638275706206a629262",
+      "diagnostic": {
+        "code": "evidence_not_established",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.33934141500503756
+    },
+    {
+      "id": "CRYPT-BUNYIP-0023",
+      "input_hash": "7a857451f2470c62582e26872d2bc263da5fdef10d2b87fa445e9ff13e4b4e53",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "d0ca95361950c14495228bb04c540ba1c254b7dd3b3b8146e595ac3ea821c389",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3981193310028175
+    },
+    {
+      "id": "CRYPT-BUNYIP-0024",
+      "input_hash": "0181ab5d2d111e05fc0125f3ed727579d2adeb65c50dc9a781377f0ced9594fd",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "6f8915c247e42d1f120fd8127803e32b0ba8fb3bace43d67b454b8f0cfb1c047",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.40529629700176883
+    },
+    {
+      "id": "CRYPT-BUNYIP-0025",
+      "input_hash": "f62754e275a984ecd41523ab71146bc1eef4c6a734ba7e4f04c07570e9b6eb85",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "31693c21daeb35c0b2ab15a44389d90c3da12324a411f696dbe8e74186e004f3",
+      "diagnostic": {
+        "code": "supported",
+        "stage": "strict",
+        "message": "Explicit source statements satisfy the existing bounded grammar.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "host_wall_seconds": 0.35043184099777136
+    },
+    {
+      "id": "CRYPT-BUNYIP-0026",
+      "input_hash": "712ab6408cb6e85895d58f9123f40d9fceedcd58237b8057229cced0e54ade7d",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "6805dd3cd50761939a10d097337b64ef0d880a2866b2d8fd9e812fab6a5dbe04",
+      "diagnostic": {
+        "code": "supported",
+        "stage": "strict",
+        "message": "Explicit source statements satisfy the existing bounded grammar.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "host_wall_seconds": 0.349927272007335
+    },
+    {
+      "id": "CRYPT-BUNYIP-0027",
+      "input_hash": "72f2013f7b1429332128a9fe4df77290f1ea759fdf0277ef829b16aa08901887",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "3aee0aaf57bd1d14f7ebdfbe5d3ff0397ba68cbce73557b5260d2b561f1ee42e",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.5117180270026438
+    },
+    {
+      "id": "CRYPT-BUNYIP-0028",
+      "input_hash": "c6428a57edbcb71b60959eb1b0092fd02834b5425fa5a0c4e711e01f79e1eb68",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "1895855202fe654cf0a415b532aa3f5cd66e68cbe37abc836bea6f887e5ecae6",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3999514269962674
+    },
+    {
+      "id": "CRYPT-BUNYIP-0029",
+      "input_hash": "8d58e1d38df912643a672300498ea8995492213264d35e469337403e5d02214e",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "66d4cbe40f9893f8d9a647ebdafa5c5f624dac65180f4e6f2d6c0ce1e4331b21",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.34696324900141917
+    },
+    {
+      "id": "CRYPT-BUNYIP-0030",
+      "input_hash": "84c26d9e4d3f55575c0921329718574db44498e2551bf0cd442c270d5348432a",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "67d5b2c7a01614180657dcf52d7a65e1eff52240365885623ffa3821ce44b49f",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.39845677399716806
+    },
+    {
+      "id": "CRYPT-BUNYIP-0031",
+      "input_hash": "6fe81bd88d4049e3f63084767e6b551f6f76941d41bc691013e6485cd4c9081f",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "ae298d70ce979b9846b03d136d16274ae5330145a0c194978ea84685d37df80f",
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "host_wall_seconds": 0.296207620005589
+    },
+    {
+      "id": "CRYPT-BUNYIP-0032",
+      "input_hash": "657e5dcd1398b0607a9ee275872e0b145ba5569208810490b26c6eba7ae25888",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "f476f743d056174c16846b9db6860911950c0553ccfcae348184c9f1090774c1",
+      "diagnostic": {
+        "code": "exact_field_missing",
+        "stage": "strict",
+        "message": "The exact route does not establish the requested field under a bounded grammar.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+        ]
+      },
+      "host_wall_seconds": 0.2885682909982279
+    },
+    {
+      "id": "CRYPT-BUNYIP-0033",
+      "input_hash": "035a1214e20b8141447094145e662b3f450f41a05a30f675dece6bf62bf2b452",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "3b00a7dfb608cf194a1ce2a3e601af29bc31e35cb7034bfcf8dfb699bf20c8a0",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.34013255599711556
+    },
+    {
+      "id": "CRYPT-BUNYIP-0034",
+      "input_hash": "a42a9332c7684cdf6c721fcf5784e7110e843883b28db22bba44c258ac76e64c",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "c8b184263f97871ea1e70b47af20a542acb15b723a458ea485e1c31cbaa82aa1",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3888473429979058
+    },
+    {
+      "id": "CRYPT-BUNYIP-0035",
+      "input_hash": "5bba8bdbf0a6b03296c4290d0a91c168912c2a9942615838bc31b67841ba12f0",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "81cd7b8ba328e0b9f51463434e0fa620ac4a66686fae8678dc1a4e2df2264a6c",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3425680660002399
+    },
+    {
+      "id": "CRYPT-BUNYIP-0036",
+      "input_hash": "3eb63efadc479baa344416ff35cf47a40a9660db8bc213dc831a49f9aeb51801",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "48a4d88b538170caac6af88eec2e841e2097e06812d8ed5ccd82ed6a8e160abd",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3385057490086183
+    },
+    {
+      "id": "CRYPT-BUNYIP-0037",
+      "input_hash": "230dd4f38f36542d49ae99a0ea554fcf880421f9f5a64cf16a41a284e8bffed7",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "eee940b24b7fc245714cfa76305737cb0cf7f6de93ef1dc7d25c5986842a05d7",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3942017139925156
+    },
+    {
+      "id": "CRYPT-BUNYIP-0038",
+      "input_hash": "fb5ba60d2633401b7aa96040c0b9fbee995f57afec83e3736ef87d342ea23d7d",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "403e89dc0e5cf5716a956c885c0b444c42601abf6056b85cf756a80fd7809d85",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.39792841199960094
+    },
+    {
+      "id": "CRYPT-BUNYIP-0039",
+      "input_hash": "624d6b8dddaad364d3c19bd69d7b2f53251342db6d16c6b75e06a1e9968a2b97",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "63f506553ec571ba59060d2fbff6b03a821c79db17bde51da4cc3d19c38fe65f",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.344888813997386
+    },
+    {
+      "id": "CRYPT-BUNYIP-0040",
+      "input_hash": "375d3cf34cf1bca652a5598137586ae4f3423944d8af828e3d412bfd6bcebc01",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "9163364d55ddff7cf935ad5a0f9ca2f8a5b4391d08f6422d7b633fde70926fa1",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.5150916209968273
+    },
+    {
+      "id": "CRYPT-BUNYIP-0041",
+      "input_hash": "826ccfd94e5328865e2a077b1b7607aeff918b01c3ed7070afa8032978d766cc",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "4ea78d0743784183dc5119c256d280f59ae651f069ba426a8ed7a06afb28e5ae",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.4423382910026703
+    },
+    {
+      "id": "CRYPT-BUNYIP-0042",
+      "input_hash": "e0d402f5d1486dace4d48245e737c4dc9af730c015299ccb5e953adca9483987",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "895eb8827e8f93adb2804edadf945308ba14a9a262188f1473f772fcc6b8cb36",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.4479946149949683
+    },
+    {
+      "id": "CRYPT-BUNYIP-0043",
+      "input_hash": "9611a87048371cf3fce2c146730242f0ed076497ae9f11113a376de656c1b916",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "c284c5c5f060587ed5305ca2e6f7569ea53d293bc60c798bd8735d3af8d1b341",
+      "diagnostic": {
+        "code": "supported",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "host_wall_seconds": 0.41119582900137175
+    },
+    {
+      "id": "CRYPT-BUNYIP-0044",
+      "input_hash": "497ccb7aa83f92bd807d68cbc0b67dbb14b4842c536475ff19bf0146d06190bb",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "d8b3c11466acb60622744a52db23ebe7a27a6e647677b55241cbf47955947b58",
+      "diagnostic": {
+        "code": "supported",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "host_wall_seconds": 0.45084294299886096
+    },
+    {
+      "id": "CRYPT-BUNYIP-0045",
+      "input_hash": "39766cb8d52cb10d4c4600867b56f71b2ad974f3d5c09c3588f3763d65c4852e",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "f565dd0293af2e1cf171c3fe4462b4cf98cbd21cb820f993fc78e5c355e3c4d2",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3946040259907022
+    },
+    {
+      "id": "CRYPT-BUNYIP-0046",
+      "input_hash": "cb808478625f73307f19f75aad20c0f4c92a5e4306769cebc785fd1e2776d630",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "521cf133a670f6e4f88b4f18a37be0592489a44c46764c0da911b8ed10396ff0",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.40196718099468853
+    },
+    {
+      "id": "CRYPT-BUNYIP-0047",
+      "input_hash": "5137d39cb41db913dc9c8a174878de620cadc3a6052cdafa6086f6f57d9c1bc0",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "3b0f03750fb18f6456a3cc6f9b0f259373e02d991cded8d93604e6a86846f2a3",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3431867559993407
+    },
+    {
+      "id": "CRYPT-BUNYIP-0048",
+      "input_hash": "092b503f5bc5b191ad9431c3ae345ec686432a23c0aee952aadcfaa08879f1e4",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "cec8aa1465af52a7ceddc21c60c3cc2d89af64e3c7c8dad06382c9d8944889f1",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.34536644200852606
+    },
+    {
+      "id": "CRYPT-BUNYIP-0049",
+      "input_hash": "c8cc1e55f247768b1e81c731c877264e14e5bcd138ef3029ef102b457ecbf4b6",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "fb5e948d0dcfd5a0bbff116daf3bcf1fdb9f1487e0ba6a224647f5236fc253a8",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3473678500013193
+    },
+    {
+      "id": "CRYPT-BUNYIP-0050",
+      "input_hash": "0a0c2a49c53e8955691d4b786764ed852164b6ab87763d11af0a08af05c1dd5a",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "071e4310227d39daca30919d0b1038de12ef881ce9558d7995a5976dfd06e722",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.4528898599965032
+    },
+    {
+      "id": "CRYPT-BUNYIP-0051",
+      "input_hash": "d1b28a04d6700d36801d438fa0c234555e077bf438c0d40d0cee9f2cc0d9906b",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "18330d8810a069d31be09bb2853a5a85fbe38d63b0f172278b4ae9cf2aca8fe6",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.39815389999421313
+    },
+    {
+      "id": "CRYPT-BUNYIP-0052",
+      "input_hash": "29b7b161e24d44e79e158d7251c2b23495968a0de9baa7728bbcff2a7f4be969",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "97bd31794296a981cc96ae6ec5b5eeee29aba0f66c9798e819cd3372c6333b27",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.39013226798851974
+    },
+    {
+      "id": "CRYPT-BUNYIP-0053",
+      "input_hash": "00c9f663397979958fbd6d8608effc0a838aec1782d6b6b5e69029116a6b1d62",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "a480e69b26bcbee14e9fe013deb1a30a9ae4c8fc8dc3cb985e49f253a3862b53",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.34010482000303455
+    },
+    {
+      "id": "CRYPT-BUNYIP-0054",
+      "input_hash": "f0b581cb62b4a112d0b6c5a2fde3b7e15486ba37d7ec3143544327bfb0700a83",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "db48af951d66ef8fc09dd17175247e26443101616712bbc6b10f7f31d4c25f54",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.4048957960039843
+    },
+    {
+      "id": "CRYPT-BUNYIP-0055",
+      "input_hash": "9e3fc68bc96ea6acdcfac8340ca3b2d58153d3d6606302ddb1294adb0b4e1c73",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "6f93df5cb34b4a49a1722531aa92aa3df4a2cf8b7ee6f39541ca1d1edf23ed2c",
+      "diagnostic": {
+        "code": "supported",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "host_wall_seconds": 0.4105994199926499
+    },
+    {
+      "id": "CRYPT-BUNYIP-0056",
+      "input_hash": "b4cc92389b8225f7623082c287cd339493e5bf777873c24cd4c0e7568d26e1c9",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "df4815c4c26ff96f701edd2e0c702299c31ec2bcb9550b26c86036a0518d899e",
+      "diagnostic": {
+        "code": "supported",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "host_wall_seconds": 0.3626997749961447
+    },
+    {
+      "id": "CRYPT-BUNYIP-0057",
+      "input_hash": "637a8b12a8057561474f10a11c3177ab43f1cf0191dbfd422e7f859838b2c8ef",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "f3646a935aa2adb9ed723653dc9b49474e917bd6bee9231b26d6d77497dd561f",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.342157959996257
+    },
+    {
+      "id": "CRYPT-BUNYIP-0058",
+      "input_hash": "04bff0cceb77a60ec90b6edfd9620f4cec7e55b7ff312c911e50bcff7c46e948",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "259cc98fe5559f4eed36458c28b422a3ecc94c5738c034c4862d734843ec462e",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3411719409923535
+    },
+    {
+      "id": "CRYPT-BUNYIP-0059",
+      "input_hash": "1be28fb1cad00658230c9e05cf512de84675ef24a54a04cf0278130c000c036e",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "6dc72e5c9271a02fc0146f9d8574cb49b3e6667bd03e2ae8c5eca91c28a68baa",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.35154590899765026
+    },
+    {
+      "id": "CRYPT-BUNYIP-0060",
+      "input_hash": "46f5578a64c091eadabd3b283fc9bf0c78a4abef2f3c3539c652f92d29019ccc",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "085228ef460e7a65e6ebaef20f575dc2b6bc05045b57beaba6187157244f2422",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.4078426359919831
+    },
+    {
+      "id": "CRYPT-BUNYIP-0061",
+      "input_hash": "00ad8946b6d273dec5c818534e44c010475a0d6a89f90a8c4f1cef2871677ab6",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "4efd806562c2b3e6a2d477a89a59fe42979a78702936f7b92d70a9dfdb76d26e",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3944497790071182
+    },
+    {
+      "id": "CRYPT-BUNYIP-0062",
+      "input_hash": "d4daad93444e6b7a3073aa64e2515cef842819f8c1ce01eb3df695a46104c6a4",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "d815ef130074c6b835dd8a04cda72d2db078fea8ac8a8f4a0b5d11d34e460fbc",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3473201080050785
+    },
+    {
+      "id": "CRYPT-BUNYIP-0063",
+      "input_hash": "79b4112c543d528ab1f8435978168ca3673a78bfe8d9b9704c86af4064ab7148",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "9a77c083ffbf53e71b006ec8c52af8b7e9d5a66a67609990cdc8cea59a921a60",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.33857670600991696
+    },
+    {
+      "id": "CRYPT-BUNYIP-0064",
+      "input_hash": "9eee560d78b36b9ba77ad3144e8b805acd436be7ca66d30e0acae9c460165fa1",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "a49a80e929b60351ad1ec8c1ac14a7f4fa0da50f4ffe63d553790583396c9ae1",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3954110380000202
+    },
+    {
+      "id": "CRYPT-BUNYIP-0065",
+      "input_hash": "2a31465747e881fc61faad82dd6ac708a55ce873f88860c58104b41dc1e7aff2",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "6b32cb7157987c7e65eacff19d6ac7aa27e133ee326e4d9c237f4e36f9392a69",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3993559239897877
+    },
+    {
+      "id": "CRYPT-BUNYIP-0066",
+      "input_hash": "9b4524631d1951a960f92191d51fcf8671675977c41f79129aec68fd0ba79698",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "bb8b33f32c353af04122a76547b7a90f7fcfa3a1dfe04873afb51f81c833ec68",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3914359509944916
+    },
+    {
+      "id": "CRYPT-BUNYIP-0067",
+      "input_hash": "52b009cd41db1d7bcfc32a328b029b003a71951b9df7807233faedc879ceea57",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "b1de31ce78ff939d116b79d59c984f52924e66cbd32c6d73fa0a74fdff672b28",
+      "diagnostic": {
+        "code": "supported_source_claim",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3450217560020974
+    },
+    {
+      "id": "CRYPT-BUNYIP-0068",
+      "input_hash": "c491796d7fe85bbce1e57e468edf9510dedd632f088724eafd9979ff47654669",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "0a193351419d753dfc52183d5aab7485a20eaa0801bc821c54fce46ba9857e7d",
+      "diagnostic": {
+        "code": "supported_source_claim",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.4019776009954512
+    },
+    {
+      "id": "CRYPT-BUNYIP-0069",
+      "input_hash": "541c4747cd810bf1787d2918513b22187f6da9f242aa22ed36c1b9845fba875f",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "35d161941eb4470240a24eaba6c9f25c13f74fd07f7e22c672da4c707a9e10da",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.34226699799182825
+    },
+    {
+      "id": "CRYPT-BUNYIP-0070",
+      "input_hash": "df194c19e02cf26a0da0d7896f05177bc0e14bf21241107dc52329c8c8a01802",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "2cfb682f42bfd8df8887ff0f150b28aeb6d05ff21545dda8bf1154789a13af34",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3923414039891213
+    },
+    {
+      "id": "CRYPT-BUNYIP-0071",
+      "input_hash": "8a3a31bdc041ff8dce10fbdb963f734d722d465ab8dc3be81a11eb8315d48ad1",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "e6ca5d0770d4db540643ed1bf1cc1d3ca1fe0adcba6fd0beb1a3180e5588d7a0",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.5107431460055523
+    },
+    {
+      "id": "CRYPT-BUNYIP-0072",
+      "input_hash": "88ce57eebd46531511eb2b044afe2bd37f6a63dcdaafcce75dbbb5731dc0be5b",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "a237153316085bc73509f218f0f87abcc9eec4d02d364061b902d7e14c2700e2",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.4030146100121783
+    },
+    {
+      "id": "CRYPT-BUNYIP-0073",
+      "input_hash": "a8746e6852cdd3f7ae4ce25023e288c1fd4db5d4ffa64c22e28edac36af52f9d",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "f87203b3ab7815c760e7f9d7c0ba68edd2babafc457191fd1bdd1e67453f41dd",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3930568779906025
+    },
+    {
+      "id": "CRYPT-BUNYIP-0074",
+      "input_hash": "a19f683487373f748144492265cfa85f9cb3047bb6caa6595bea6d4e9f292a1b",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "5a67148ab5659d341c1f4ff419289b876db31e9b1608262e121fae99c7c7ebb7",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3977653000038117
+    },
+    {
+      "id": "CRYPT-BUNYIP-0075",
+      "input_hash": "12ac976775713d9f945e390925cec5a1ffb9ba618c312a3238486b97e8616551",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "806830d80491e487aa64ba43fe6025b3f79a1a11e6b070e5412eab13a234fb00",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3917749630054459
+    },
+    {
+      "id": "CRYPT-BUNYIP-0076",
+      "input_hash": "8a157459aca433e71f32326c7ecca3d964bab9e849fdf488fb7299e46aae25e3",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "17fe1a1b90f3ca05bb4358d3b4317f3386f48f4d9c8780dfd64dd302758841a1",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.42008547799196094
+    },
+    {
+      "id": "CRYPT-BUNYIP-0077",
+      "input_hash": "b6e31c97df377251762e2ccd55f839bb735c835e42beb46898bf43a0611b807e",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "3915b9e5586d9e4020cdb66e6510cfc6a1f26716b462fd3b29231e7a651b1e71",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.3596925649908371
+    },
+    {
+      "id": "CRYPT-BUNYIP-0078",
+      "input_hash": "149b3a520bb685198ce68d385d8aea162eb118ba90236617d4a52d671cd89023",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "185537a09183ce46df1d9486162abb0c686732d9971dc3241c41d83585c1890e",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.30416900900308974
+    },
+    {
+      "id": "CRYPT-BUNYIP-0079",
+      "input_hash": "805d131cf04d0a1f4888064912a5b1af0f8c6f409a58982e4a3837e7917b2ea0",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "c53904ef2d4711696707e5f7d516cef3b8e6da794015f1e6f3d6dd3902a0478e",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.39423816799535416
+    },
+    {
+      "id": "CRYPT-BUNYIP-0080",
+      "input_hash": "1e47a6bed70bed4a6a4826a3ad54b0cfc6825740c9b57acadeca662e8bbac0f7",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "8205f3a45a4e4203f0b99182b7021cc18f8a9b1e64481997d2ec8e9383cdfafd",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.5133669600036228
+    },
+    {
+      "id": "CRYPT-BUNYIP-0081",
+      "input_hash": "334399bfd2c4b6054ea7bd0adb669b556fc4ba60a48dbdc2e36501f14d7a0238",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "c88428dd74fd4616dd34a3288d0757d176437394a200aa2f328e702ee7ce138d",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3569973370031221
+    },
+    {
+      "id": "CRYPT-BUNYIP-0082",
+      "input_hash": "de24e3ddb25e2f408ac16410281a0acecd58067e68a10333931ef119e9abcca2",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "32137a4967fdcc0075d4d25a033ccae79806b71c164517e76678a67dee2c9980",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.45332768399384804
+    },
+    {
+      "id": "CRYPT-BUNYIP-0083",
+      "input_hash": "093cabd5a514717e98876d98976e910ecc5a503062a6eac777c4e0331410dd49",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "d62338c6576f86e3be70f3b87d250d02bf5319fa2f6bf0b562b2bfd3785365a0",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.40061057200364303
+    },
+    {
+      "id": "CRYPT-BUNYIP-0084",
+      "input_hash": "cfe478cee1c2cc2987e1dcfbf494d367fd8270bb54f035e8c5054868cfa07649",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "4b991f63adf7906bc0009190e1ea23dc46ab5ec23b73a82509618fdf04e9a08b",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.39417776999471243
+    },
+    {
+      "id": "CRYPT-BUNYIP-0085",
+      "input_hash": "cdd23689b3a4b2335c4e6c0c273e3a4f396d8d2272cf31cbe01bbb44e8bdc351",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "580df3a86be26ef54efe44afefd0ec9055e6d23f64f0d947821f297553b312ab",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.4473296429932816
+    },
+    {
+      "id": "CRYPT-BUNYIP-0086",
+      "input_hash": "f5d2d3da88b0c45355c16f95117abf5110193833815585d09a97e7771adbcde4",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "39e2323fa8f7aae424e4f7ac72cb4dff734a6c43bcdca6d3a3746ccfcc0f87b6",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.34774751399527304
+    },
+    {
+      "id": "CRYPT-BUNYIP-0087",
+      "input_hash": "fc7a2b62d5cd2514a66b46e2f6768d23335e2dff060a71889f4d1cb5ce86e383",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "6f41a3512d1569dafef64262511d0387a46611d31051b6eb0e1df0120a5956ab",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3995972660050029
+    },
+    {
+      "id": "CRYPT-BUNYIP-0088",
+      "input_hash": "0cce0b56b0912fffe2f3790d85e135323abdb5022b4edda25b25aedd1f63973a",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "6ecc5c8a3e5d4b2bb9270800e5c20cf0157d46bda8827b067a85ee10d33ece4c",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3492490720091155
+    },
+    {
+      "id": "CRYPT-BUNYIP-0089",
+      "input_hash": "0d85b0942c6e7e6e2ea182b24e3a086466156e3d39d3750f456fef73c03ee46a",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "8fb133852c7abb0c89f53638862528fc08b544244021dda51046811475d71793",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3458600109879626
+    },
+    {
+      "id": "CRYPT-BUNYIP-0090",
+      "input_hash": "f6683663ecd9065b60fa6713ea5cf3c6c9d80a432b9da327ba428094e2c98fce",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "09b8d507a4e52f7b81ea096e232f6557614ef0b78b09110cf0ec6ce9cbab710f",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.34333470500132535
+    },
+    {
+      "id": "CRYPT-BUNYIP-0091",
+      "input_hash": "54d5e39890e2da9e8f24c77497d3933bb7dc5db4a8e2214d44c5b274d548851e",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "5039d2a1fa59881642d36e2eff237e0209ee29a50167f18cf9ac71c020b5ef6a",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.34789223498955835
+    },
+    {
+      "id": "CRYPT-BUNYIP-0092",
+      "input_hash": "59fdf7136324e6ef4d333e60089635c55fc740a7f8d9439ff136aa2220db13a0",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "3da38f07a2cea14e59d9862518df6a4790601a93032162fe9da791f1f7114ad6",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3947191449988168
+    },
+    {
+      "id": "CRYPT-BUNYIP-0093",
+      "input_hash": "1150323109a21459eeba5a86bbf237a68810562560bb8e25c723c3c0bffe8468",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "311efda8ad077dfa941e1fcad91033e72f65802d8b0c30e4cd72b610c1abc391",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.40949803400144447
+    },
+    {
+      "id": "CRYPT-BUNYIP-0094",
+      "input_hash": "47be6c96e4863d54148aaf4a9f71b74ec0e8d44589f3116a2921a6db691a7811",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "caef1974e442a33d10d8805ee4ecb5ed3cd9862f2491cf285114b3f29b752388",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3407799449923914
+    },
+    {
+      "id": "CRYPT-BUNYIP-0095",
+      "input_hash": "fa1de283955f6b0918923c4858fd07f38f367ac31582a4ff27518e1be20e7482",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "785a810c4889c63f33a6ae371e7713e6a981a67494dac875172c2dbed8e48942",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.39004340099927504
+    },
+    {
+      "id": "CRYPT-BUNYIP-0096",
+      "input_hash": "84dec4bf1c0309f65a3132080ee734ee95837ccce5185ce6f0d9ec762bc4f8c6",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "921018938d709cb45a79aebfd859ba41286c7f5f76f715ee7e6b8c0610251d21",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.39092163799796253
+    },
+    {
+      "id": "CRYPT-BUNYIP-0097",
+      "input_hash": "df7142f905311318b8e5bcf76cd74e4bdef008d500afc90558fa8050500faded",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "43f3d2ac87be266fcd9bc4749c3e13a7978e771d87f36e99ae8d541c101b582a",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3993809469975531
+    },
+    {
+      "id": "CRYPT-BUNYIP-0098",
+      "input_hash": "86c894605a47b1d2f63d9e24b7f0d97f6423b106eea70b37822805e76c9c3024",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "682f852df7c1a9d62db2492ae63ccf08876f51b3101335ff780ddf04434b1851",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.39555607800139114
+    },
+    {
+      "id": "CRYPT-BUNYIP-0099",
+      "input_hash": "ab57e187bf362881dbb670360ec3c2579552fd908039dfac0875625f8a53398e",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "f67173f08b4e64a243b2c0cc31143deb6b47a826aedfc64fa6f9b28914f813b2",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3415823690011166
+    },
+    {
+      "id": "CRYPT-BUNYIP-0100",
+      "input_hash": "8a36d0e139c14e506c072fc0fe56033cd2d07cb7459f6ece29ef22f909fde0a3",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "e6f4fbb74101f001206b644757b52f356cecfe52a41a08e8be8f594600eaa53b",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.33941922399390023
+    },
+    {
+      "id": "CRYPT-BUNYIP-0101",
+      "input_hash": "ea195cb0fc9ac83a0ba97da8704b4889dcdfd6e1bb6decd555a8fbb95280daae",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "2cde51ffd5713961580123ef666843301ff33e7c0ed2d240e215f89d338a7f68",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.33843093299947213
+    },
+    {
+      "id": "CRYPT-BUNYIP-0102",
+      "input_hash": "dfbeca28c44003c5558a090583a2a58ff971ffe019b73659773f0dca14a70f05",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "a5496b895abe778b3fb5e08004c412adbb1b7202ac6c42453f2bfd05f17dc96c",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3391456380049931
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Reader
 
-Last reviewed: 2026-11-25.
+Last reviewed: 2026-11-26.
 
 Questions, source verification, answers and partials. Finite question/evidence forms; a source citation does not establish historical truth.
 
@@ -18,8 +18,12 @@ Protecting checks:
 python -m unittest tests.test_reported_content tests.test_documentary_byline_units -v
 ```
 
-Measured status: 280/280 targeted/preservation decisions and24/24 fresh same-operator composition transfer on checked source7f6641d. This is not overall answer coverage.
+Measured status: Released comparisons are revision-specific. Current local changes and retained failures are in the [Cryptid programme](../../evaluation/cryptid/README.md) and [shared-rule-to-case map](../../evaluation/cryptid/shared-rules.json). Source support, useful partials, unproved execution and unresolved identity remain separate; these studies do not establish broad reading coverage or independent historical accuracy.
 
 Open work: Broader wording, modality, identity and multi-obligation coverage remain open.
 
 [Department directory](README.md) · [Test Index](../TEST_INDEX.md) · [Current evidence](../CURRENT_STATUS.md) · [Full package map](../PACKAGE_GUIDE.md)
+
+Local integration: leading definition-list metadata is reread as a layout boundary, with explicit subject/quotation checks. [Frozen contrasting cases](../../evaluation/cryptid/nessie/layout-wrap/registry.json) protect against header text becoming a person name. The first combined transfer failure is retained in the [local review](../../evaluation/cryptid/final/REVIEW.md).
+
+Current ordinary-language and optional-metadata work: [Bunyip source/evidence](../../evaluation/cryptid/bunyip/README.md). The shared helpers are `mplpb_answers/ordinary_questions.py` and `ordinary_evidence.py`; required proof remains in the existing native pipeline.

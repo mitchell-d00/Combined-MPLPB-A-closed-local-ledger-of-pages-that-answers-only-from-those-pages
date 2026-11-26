@@ -1,0 +1,1420 @@
+﻿2026-11-26T01:29:43.7868742Z Current runner version: '2.338.2'
+2026-11-26T01:29:43.7897677Z ##[group]Runner Image Provisioner
+2026-11-26T01:29:43.7898544Z Hosted Compute Agent
+2026-11-26T01:29:43.7899251Z Version: 20261111.635
+2026-11-26T01:29:43.7899916Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-26T01:29:43.7900663Z Build Date: 2026-11-11T01:49:01Z
+2026-11-26T01:29:43.7901488Z Worker ID: {864fe7ef-29f5-443a-8b8f-e2efadd88107}
+2026-11-26T01:29:43.7902239Z Region: northcentralus
+2026-11-26T01:29:43.7902881Z Cloud: Azure
+2026-11-26T01:29:43.7903470Z ##[endgroup]
+2026-11-26T01:29:43.7904839Z ##[group]Operating System
+2026-11-26T01:29:43.7905875Z Ubuntu
+2026-11-26T01:29:43.7906498Z 26.04.1
+2026-11-26T01:29:43.7907080Z LTS
+2026-11-26T01:29:43.7907638Z ##[endgroup]
+2026-11-26T01:29:43.7908221Z ##[group]Runner Image
+2026-11-26T01:29:43.7908914Z Image: ubuntu-26.04
+2026-11-26T01:29:43.7909508Z Version: 20261116.202.1
+2026-11-26T01:29:43.7910859Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.202/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-26T01:29:43.7912424Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.202
+2026-11-26T01:29:43.7913485Z ##[endgroup]
+2026-11-26T01:29:43.7914657Z ##[group]GITHUB_TOKEN Permissions
+2026-11-26T01:29:43.7917078Z Contents: read
+2026-11-26T01:29:43.7917712Z Metadata: read
+2026-11-26T01:29:43.7918326Z ##[endgroup]
+2026-11-26T01:29:43.7920541Z Secret source: Actions
+2026-11-26T01:29:43.7921461Z Cache mode: write
+2026-11-26T01:29:43.7922325Z Prepare workflow directory
+2026-11-26T01:29:43.8338891Z Prepare all required actions
+2026-11-26T01:29:43.8407765Z Getting action download info
+2026-11-26T01:29:44.0602535Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-26T01:29:44.1924866Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-26T01:29:44.2638512Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-11-26T01:29:44.3342087Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-26T01:29:44.5151945Z Complete job name: archive-first
+2026-11-26T01:29:44.6085051Z ##[group]Run actions/checkout@v4
+2026-11-26T01:29:44.6086100Z with:
+2026-11-26T01:29:44.6086604Z   ref: d265881fec092afffdda56cd8781438e40ef1cf7
+2026-11-26T01:29:44.6174759Z   repository: mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+2026-11-26T01:29:44.6179546Z   token: ***
+2026-11-26T01:29:44.6179995Z   ssh-strict: true
+2026-11-26T01:29:44.6180443Z   ssh-user: git
+2026-11-26T01:29:44.6180900Z   persist-credentials: true
+2026-11-26T01:29:44.6181390Z   clean: true
+2026-11-26T01:29:44.6181841Z   sparse-checkout-cone-mode: true
+2026-11-26T01:29:44.6182384Z   fetch-depth: 1
+2026-11-26T01:29:44.6182820Z   fetch-tags: false
+2026-11-26T01:29:44.6183276Z   show-progress: true
+2026-11-26T01:29:44.6183728Z   lfs: false
+2026-11-26T01:29:44.6184182Z   submodules: false
+2026-11-26T01:29:44.6184633Z   set-safe-directory: true
+2026-11-26T01:29:44.6185140Z   allow-unsafe-pr-checkout: false
+2026-11-26T01:29:44.6186595Z ##[endgroup]
+2026-11-26T01:29:44.8474913Z Syncing repository: mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+2026-11-26T01:29:44.8478635Z ##[group]Getting Git version info
+2026-11-26T01:29:44.8480719Z Working directory is '/home/runner/work/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages'
+2026-11-26T01:29:44.8482859Z [command]/usr/bin/git version
+2026-11-26T01:29:44.8525376Z git version 2.56.1
+2026-11-26T01:29:44.8569423Z ##[endgroup]
+2026-11-26T01:29:44.8579790Z Temporarily overriding HOME='/home/runner/work/_temp/a0f8dc2c-23e3-409a-a436-dd2978cf5d95' before making global git config changes
+2026-11-26T01:29:44.8582153Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T01:29:44.8589068Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+2026-11-26T01:29:44.8648534Z Deleting the contents of '/home/runner/work/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages'
+2026-11-26T01:29:44.8652221Z ##[group]Initializing the repository
+2026-11-26T01:29:44.8657874Z [command]/usr/bin/git init /home/runner/work/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+2026-11-26T01:29:44.8752691Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-26T01:29:44.8753886Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-26T01:29:44.8754996Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-26T01:29:44.8756131Z hint: call:
+2026-11-26T01:29:44.8756713Z hint:
+2026-11-26T01:29:44.8757251Z hint: 	git config --global init.defaultBranch <name>
+2026-11-26T01:29:44.8758220Z hint:
+2026-11-26T01:29:44.8759083Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-26T01:29:44.8760530Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-26T01:29:44.8761706Z hint:
+2026-11-26T01:29:44.8762315Z hint: 	git branch -m <name>
+2026-11-26T01:29:44.8763049Z hint:
+2026-11-26T01:29:44.8764022Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-26T01:29:44.8767595Z Initialized empty Git repository in /home/runner/work/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/.git/
+2026-11-26T01:29:44.8776907Z [command]/usr/bin/git remote add origin https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+2026-11-26T01:29:44.8827082Z ##[endgroup]
+2026-11-26T01:29:44.8828323Z ##[group]Disabling automatic garbage collection
+2026-11-26T01:29:44.8830394Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-26T01:29:44.8868291Z ##[endgroup]
+2026-11-26T01:29:44.8869371Z ##[group]Setting up auth
+2026-11-26T01:29:44.8875506Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T01:29:44.8914961Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T01:29:44.9367402Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T01:29:44.9421219Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T01:29:44.9738313Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-26T01:29:44.9777144Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-26T01:29:45.0072497Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-26T01:29:45.0113360Z ##[endgroup]
+2026-11-26T01:29:45.0114583Z ##[group]Fetching the repository
+2026-11-26T01:29:45.0123784Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin d265881fec092afffdda56cd8781438e40ef1cf7
+2026-11-26T01:29:55.5896366Z From https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+2026-11-26T01:29:55.5897812Z  * branch              d265881fec092afffdda56cd8781438e40ef1cf7 -> FETCH_HEAD
+2026-11-26T01:29:55.5900111Z ##[endgroup]
+2026-11-26T01:29:55.5900773Z ##[group]Determining the checkout info
+2026-11-26T01:29:55.5901449Z ##[endgroup]
+2026-11-26T01:29:55.5904308Z [command]/usr/bin/git sparse-checkout disable
+2026-11-26T01:29:55.5959074Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-26T01:29:55.5993419Z ##[group]Checking out the ref
+2026-11-26T01:29:55.5994070Z [command]/usr/bin/git checkout --progress --force d265881fec092afffdda56cd8781438e40ef1cf7
+2026-11-26T01:29:56.6639304Z Updating files:  19% (12696/64621)
+2026-11-26T01:29:56.6905058Z Updating files:  20% (12925/64621)
+2026-11-26T01:29:56.7140946Z Updating files:  21% (13571/64621)
+2026-11-26T01:29:56.7414798Z Updating files:  22% (14217/64621)
+2026-11-26T01:29:56.7745387Z Updating files:  23% (14863/64621)
+2026-11-26T01:29:56.8067529Z Updating files:  24% (15510/64621)
+2026-11-26T01:29:56.8466250Z Updating files:  25% (16156/64621)
+2026-11-26T01:29:57.0336842Z Updating files:  26% (16802/64621)
+2026-11-26T01:29:57.0733240Z Updating files:  27% (17448/64621)
+2026-11-26T01:29:57.1083565Z Updating files:  28% (18094/64621)
+2026-11-26T01:29:57.1385847Z Updating files:  29% (18741/64621)
+2026-11-26T01:29:57.1773192Z Updating files:  30% (19387/64621)
+2026-11-26T01:29:57.2061048Z Updating files:  31% (20033/64621)
+2026-11-26T01:29:57.2320882Z Updating files:  32% (20679/64621)
+2026-11-26T01:29:57.2570646Z Updating files:  33% (21325/64621)
+2026-11-26T01:29:57.2818443Z Updating files:  34% (21972/64621)
+2026-11-26T01:29:57.3061049Z Updating files:  35% (22618/64621)
+2026-11-26T01:29:57.3449709Z Updating files:  36% (23264/64621)
+2026-11-26T01:29:57.3727850Z Updating files:  37% (23910/64621)
+2026-11-26T01:29:57.4013620Z Updating files:  38% (24556/64621)
+2026-11-26T01:29:57.4285956Z Updating files:  39% (25203/64621)
+2026-11-26T01:29:57.4656345Z Updating files:  40% (25849/64621)
+2026-11-26T01:29:57.4968447Z Updating files:  41% (26495/64621)
+2026-11-26T01:29:57.5217922Z Updating files:  42% (27141/64621)
+2026-11-26T01:29:57.5520326Z Updating files:  43% (27788/64621)
+2026-11-26T01:29:57.5787687Z Updating files:  44% (28434/64621)
+2026-11-26T01:29:57.6071029Z Updating files:  45% (29080/64621)
+2026-11-26T01:29:57.6325171Z Updating files:  46% (29726/64621)
+2026-11-26T01:29:57.6535363Z Updating files:  47% (30372/64621)
+2026-11-26T01:29:57.6613089Z Updating files:  47% (30834/64621)
+2026-11-26T01:29:57.6958936Z Updating files:  48% (31019/64621)
+2026-11-26T01:29:57.7271517Z Updating files:  49% (31665/64621)
+2026-11-26T01:29:57.7510519Z Updating files:  50% (32311/64621)
+2026-11-26T01:29:57.7839000Z Updating files:  51% (32957/64621)
+2026-11-26T01:29:57.8092221Z Updating files:  52% (33603/64621)
+2026-11-26T01:29:57.8360089Z Updating files:  53% (34250/64621)
+2026-11-26T01:29:57.8648866Z Updating files:  54% (34896/64621)
+2026-11-26T01:29:57.8883118Z Updating files:  55% (35542/64621)
+2026-11-26T01:29:57.9194246Z Updating files:  56% (36188/64621)
+2026-11-26T01:29:57.9458803Z Updating files:  57% (36834/64621)
+2026-11-26T01:29:57.9991254Z Updating files:  58% (37481/64621)
+2026-11-26T01:29:58.0229168Z Updating files:  59% (38127/64621)
+2026-11-26T01:29:58.0512522Z Updating files:  60% (38773/64621)
+2026-11-26T01:29:58.0787488Z Updating files:  61% (39419/64621)
+2026-11-26T01:29:58.1143332Z Updating files:  62% (40066/64621)
+2026-11-26T01:29:58.1421085Z Updating files:  63% (40712/64621)
+2026-11-26T01:29:58.1660105Z Updating files:  64% (41358/64621)
+2026-11-26T01:29:58.1902384Z Updating files:  65% (42004/64621)
+2026-11-26T01:29:58.2206405Z Updating files:  66% (42650/64621)
+2026-11-26T01:29:58.2473413Z Updating files:  67% (43297/64621)
+2026-11-26T01:29:58.2944651Z Updating files:  68% (43943/64621)
+2026-11-26T01:29:58.3263835Z Updating files:  69% (44589/64621)
+2026-11-26T01:29:58.3598948Z Updating files:  70% (45235/64621)
+2026-11-26T01:29:58.3860804Z Updating files:  71% (45881/64621)
+2026-11-26T01:29:58.4125977Z Updating files:  72% (46528/64621)
+2026-11-26T01:29:58.4553891Z Updating files:  73% (47174/64621)
+2026-11-26T01:29:58.4846073Z Updating files:  74% (47820/64621)
+2026-11-26T01:29:58.5144426Z Updating files:  75% (48466/64621)
+2026-11-26T01:29:58.5518100Z Updating files:  76% (49112/64621)
+2026-11-26T01:29:58.5814282Z Updating files:  77% (49759/64621)
+2026-11-26T01:29:58.6071618Z Updating files:  78% (50405/64621)
+2026-11-26T01:29:58.6387624Z Updating files:  79% (51051/64621)
+2026-11-26T01:29:58.6535025Z Updating files:  80% (51697/64621)
+2026-11-26T01:29:58.6638112Z Updating files:  80% (52064/64621)
+2026-11-26T01:29:58.6892484Z Updating files:  81% (52344/64621)
+2026-11-26T01:29:58.7136260Z Updating files:  82% (52990/64621)
+2026-11-26T01:29:58.7376982Z Updating files:  83% (53636/64621)
+2026-11-26T01:29:58.7692196Z Updating files:  84% (54282/64621)
+2026-11-26T01:29:58.8210835Z Updating files:  85% (54928/64621)
+2026-11-26T01:29:58.9401637Z Updating files:  86% (55575/64621)
+2026-11-26T01:29:59.7479642Z Updating files:  87% (56221/64621)
+2026-11-26T01:30:00.5664526Z Updating files:  87% (56549/64621)
+2026-11-26T01:30:00.8091813Z Updating files:  88% (56867/64621)
+2026-11-26T01:30:00.8559663Z Updating files:  88% (57417/64621)
+2026-11-26T01:30:01.0337999Z Updating files:  89% (57513/64621)
+2026-11-26T01:30:01.4340333Z Updating files:  90% (58159/64621)
+2026-11-26T01:30:01.6567596Z Updating files:  91% (58806/64621)
+2026-11-26T01:30:01.9071975Z Updating files:  91% (59046/64621)
+2026-11-26T01:30:02.2784140Z Updating files:  92% (59452/64621)
+2026-11-26T01:30:02.3401443Z Updating files:  93% (60098/64621)
+2026-11-26T01:30:02.3742729Z Updating files:  94% (60744/64621)
+2026-11-26T01:30:02.4516962Z Updating files:  95% (61390/64621)
+2026-11-26T01:30:02.5483742Z Updating files:  96% (62037/64621)
+2026-11-26T01:30:02.6120135Z Updating files:  97% (62683/64621)
+2026-11-26T01:30:02.6542171Z Updating files:  98% (63329/64621)
+2026-11-26T01:30:02.6859155Z Updating files:  98% (63541/64621)
+2026-11-26T01:30:02.7424670Z Updating files:  99% (63975/64621)
+2026-11-26T01:30:02.7425157Z Updating files: 100% (64621/64621)
+2026-11-26T01:30:02.7425527Z Updating files: 100% (64621/64621), done.
+2026-11-26T01:30:02.8448185Z Note: switching to 'd265881fec092afffdda56cd8781438e40ef1cf7'.
+2026-11-26T01:30:02.8448625Z 
+2026-11-26T01:30:02.8448943Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-26T01:30:02.8449660Z changes and commit them, and you can discard any commits you make in this
+2026-11-26T01:30:02.8450131Z state without impacting any branches by switching back to a branch.
+2026-11-26T01:30:02.8450421Z 
+2026-11-26T01:30:02.8450721Z If you want to create a new branch to retain commits you create, you may
+2026-11-26T01:30:02.8451336Z do so (now or later) by using -c with the switch command. Example:
+2026-11-26T01:30:02.8451729Z 
+2026-11-26T01:30:02.8451873Z   git switch -c <new-branch-name>
+2026-11-26T01:30:02.8452045Z 
+2026-11-26T01:30:02.8452208Z Or undo this operation with:
+2026-11-26T01:30:02.8452435Z 
+2026-11-26T01:30:02.8452597Z   git switch -
+2026-11-26T01:30:02.8452787Z 
+2026-11-26T01:30:02.8453005Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-26T01:30:02.8453311Z 
+2026-11-26T01:30:02.8453661Z HEAD is now at d265881f Record publication authorization and conditional merge gates
+2026-11-26T01:30:02.8686156Z ##[endgroup]
+2026-11-26T01:30:02.8740450Z [command]/usr/bin/git log -1 --format=%H
+2026-11-26T01:30:02.8768798Z d265881fec092afffdda56cd8781438e40ef1cf7
+2026-11-26T01:30:02.9203686Z ##[group]Run actions/setup-python@v5
+2026-11-26T01:30:02.9203998Z with:
+2026-11-26T01:30:02.9204204Z   python-version: 3.12
+2026-11-26T01:30:02.9204447Z   check-latest: false
+2026-11-26T01:30:02.9206867Z   token: ***
+2026-11-26T01:30:02.9207092Z   update-environment: true
+2026-11-26T01:30:02.9207350Z   allow-prereleases: false
+2026-11-26T01:30:02.9207590Z   freethreaded: false
+2026-11-26T01:30:02.9207814Z ##[endgroup]
+2026-11-26T01:30:03.1533887Z ##[group]Installed versions
+2026-11-26T01:30:03.2466199Z (node:2411) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T01:30:03.2467354Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T01:30:03.2467914Z Successfully set up CPython (3.12.16)
+2026-11-26T01:30:03.2468638Z ##[endgroup]
+2026-11-26T01:30:03.3545361Z ##[group]Run actions/setup-node@v4
+2026-11-26T01:30:03.3545957Z with:
+2026-11-26T01:30:03.3546204Z   node-version: 24
+2026-11-26T01:30:03.3546434Z   always-auth: false
+2026-11-26T01:30:03.3546664Z   check-latest: false
+2026-11-26T01:30:03.3548909Z   token: ***
+2026-11-26T01:30:03.3549124Z env:
+2026-11-26T01:30:03.3549403Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:30:03.3549886Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T01:30:03.3550328Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:30:03.3550722Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:30:03.3551133Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:30:03.3551515Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T01:30:03.3551846Z ##[endgroup]
+2026-11-26T01:30:03.6053777Z (node:2419) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T01:30:03.6055197Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T01:30:03.6058611Z Found in cache @ /opt/hostedtoolcache/node/24.22.3/x64
+2026-11-26T01:30:03.6059473Z ##[group]Environment details
+2026-11-26T01:30:08.0712816Z node: v24.22.3
+2026-11-26T01:30:08.0713118Z npm: 11.19.1
+2026-11-26T01:30:08.0713412Z yarn: 1.22.22
+2026-11-26T01:30:08.0714754Z ##[endgroup]
+2026-11-26T01:30:08.0898849Z ##[group]Run set -euo pipefail
+2026-11-26T01:30:08.0899234Z [36;1mset -euo pipefail[0m
+2026-11-26T01:30:08.0899637Z [36;1mmkdir -p "$RUNNER_TEMP/mplpb-zipped" "$RUNNER_TEMP/mplpb-unpacked"[0m
+2026-11-26T01:30:08.0900139Z [36;1mgit rev-parse HEAD > "$RUNNER_TEMP/mplpb-zipped/commit.sha"[0m
+2026-11-26T01:30:08.0900612Z [36;1mgit rev-parse 'HEAD^{tree}' > "$RUNNER_TEMP/mplpb-zipped/tree.sha"[0m
+2026-11-26T01:30:08.0901158Z [36;1mgit archive --format=zip --output="$RUNNER_TEMP/mplpb-zipped/mplpb-repository.zip" HEAD[0m
+2026-11-26T01:30:08.0901639Z [36;1mcd "$RUNNER_TEMP/mplpb-zipped"[0m
+2026-11-26T01:30:08.0902030Z [36;1msha256sum mplpb-repository.zip > mplpb-repository.zip.sha256[0m
+2026-11-26T01:30:08.0902435Z [36;1munzip -tq mplpb-repository.zip[0m
+2026-11-26T01:30:08.0902800Z [36;1munzip -q mplpb-repository.zip -d "$RUNNER_TEMP/mplpb-unpacked"[0m
+2026-11-26T01:30:08.0903227Z [36;1mtest -f "$RUNNER_TEMP/mplpb-unpacked/index.html"[0m
+2026-11-26T01:30:08.0903700Z [36;1mtest -f "$RUNNER_TEMP/mplpb-unpacked/tools/browser_release_smoke.py"[0m
+2026-11-26T01:30:08.0904241Z [36;1mecho "ARCHIVE_SHA256=$(cut -d ' ' -f 1 mplpb-repository.zip.sha256)" >> "$GITHUB_ENV"[0m
+2026-11-26T01:30:08.0904749Z [36;1mecho "Archive SHA-256: $(cat mplpb-repository.zip.sha256)"[0m
+2026-11-26T01:30:08.0905186Z [36;1mecho "Everything below must run ONLY from the unpacked ZIP."[0m
+2026-11-26T01:30:08.0959101Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T01:30:08.0959464Z env:
+2026-11-26T01:30:08.0959750Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:30:08.0960186Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T01:30:08.0960622Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:30:08.0961002Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:30:08.0961372Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:30:08.0961764Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T01:30:08.0962089Z ##[endgroup]
+2026-11-26T01:31:09.1298738Z No errors detected in compressed data of mplpb-repository.zip.
+2026-11-26T01:31:28.4787007Z Archive SHA-256: c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282  mplpb-repository.zip
+2026-11-26T01:31:28.4788360Z Everything below must run ONLY from the unpacked ZIP.
+2026-11-26T01:31:28.4836181Z ##[group]Run set -euo pipefail
+2026-11-26T01:31:28.4836527Z [36;1mset -euo pipefail[0m
+2026-11-26T01:31:28.4836815Z [36;1mcd "$RUNNER_TEMP/mplpb-unpacked"[0m
+2026-11-26T01:31:28.4837561Z [36;1mpython -m unittest tests.test_integrity_hunt tests.test_record tests.test_ledger tests.test_literal_evidence tests.test_answer_reliability tests.test_answer_support -q[0m
+2026-11-26T01:31:28.4838316Z [36;1mpython tools/check_repository_infrastructure.py[0m
+2026-11-26T01:31:28.4838670Z [36;1mpython -m tools.audit_documentation[0m
+2026-11-26T01:31:28.4839017Z [36;1mpython -m unittest tests.test_reference_corpus -q[0m
+2026-11-26T01:31:28.4839576Z [36;1mpython -m tools.build_reference_corpus --output "$RUNNER_TEMP/mplpb-zipped/reference-corpus/release"[0m
+2026-11-26T01:31:28.4840103Z [36;1mpython -m unittest discover -s tests -q[0m
+2026-11-26T01:31:28.4878282Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T01:31:28.4878627Z env:
+2026-11-26T01:31:28.4878947Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:31:28.4879390Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T01:31:28.4879817Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:31:28.4880192Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:31:28.4880571Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:31:28.4880947Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T01:31:28.4881430Z   ARCHIVE_SHA256: c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282
+2026-11-26T01:31:28.4881850Z ##[endgroup]
+2026-11-26T01:31:33.8666831Z ----------------------------------------------------------------------
+2026-11-26T01:31:33.8667365Z Ran 78 tests in 4.880s
+2026-11-26T01:31:33.8667539Z 
+2026-11-26T01:31:33.8667678Z OK
+2026-11-26T01:31:34.0310812Z PASS infrastructure synchronization: desktop index.html, generated Pages runtime, JavaScript API, corpus staging, docs and workflows are linked
+2026-11-26T01:31:34.0312572Z NOTE static linkage is not runtime/deployment evidence; exact archive, Pyodide and real Chromium tests remain required
+2026-11-26T01:31:35.0595229Z {
+2026-11-26T01:31:35.0595879Z   "reviewed_on": "2026-11-26",
+2026-11-26T01:31:35.0596504Z   "inspected_revision": "851de6c093394060ce624eb63ba72400b047a7ce",
+2026-11-26T01:31:35.0597079Z   "documents": 1356,
+2026-11-26T01:31:35.0597529Z   "classifications": {
+2026-11-26T01:31:35.0597882Z     "current": 193,
+2026-11-26T01:31:35.0598204Z     "historical": 1150,
+2026-11-26T01:31:35.0598535Z     "vendor": 13
+2026-11-26T01:31:35.0598840Z   },
+2026-11-26T01:31:35.0599157Z   "evaluation_families": 65,
+2026-11-26T01:31:35.0600048Z   "meaning": "Inventory, preserved bytes and retained test/tool paths checked; historical metrics are not rerun by this check."
+2026-11-26T01:31:35.0600872Z }
+2026-11-26T01:32:02.3310416Z ----------------------------------------------------------------------
+2026-11-26T01:32:02.3310921Z Ran 7 tests in 27.185s
+2026-11-26T01:32:02.3311090Z 
+2026-11-26T01:32:30.1652157Z OK
+2026-11-26T01:32:30.1652602Z [
+2026-11-26T01:32:30.1652912Z   {
+2026-11-26T01:32:30.1653225Z     "version": "0.0.0",
+2026-11-26T01:32:30.1653637Z     "supported": 0,
+2026-11-26T01:32:30.1653993Z     "ambiguous": 0,
+2026-11-26T01:32:30.1654305Z     "wrong": 0,
+2026-11-26T01:32:30.1654654Z     "closed_refusals": 0
+2026-11-26T01:32:30.1655094Z   },
+2026-11-26T01:32:30.1655375Z   {
+2026-11-26T01:32:30.1655817Z     "version": "0.1.0",
+2026-11-26T01:32:30.1656159Z     "supported": 23,
+2026-11-26T01:32:30.1656400Z     "ambiguous": 0,
+2026-11-26T01:32:30.1656619Z     "wrong": 0,
+2026-11-26T01:32:30.1656842Z     "closed_refusals": 23
+2026-11-26T01:32:30.1657072Z   },
+2026-11-26T01:32:30.1657261Z   {
+2026-11-26T01:32:30.1657450Z     "version": "0.2.0",
+2026-11-26T01:32:30.1658059Z     "supported": 48,
+2026-11-26T01:32:30.1658280Z     "ambiguous": 0,
+2026-11-26T01:32:30.1658486Z     "wrong": 0,
+2026-11-26T01:32:30.1658908Z     "closed_refusals": 25
+2026-11-26T01:32:30.1659134Z   },
+2026-11-26T01:32:30.1659323Z   {
+2026-11-26T01:32:30.1659528Z     "version": "0.3.0",
+2026-11-26T01:32:30.1659758Z     "supported": 73,
+2026-11-26T01:32:30.1659973Z     "ambiguous": 0,
+2026-11-26T01:32:30.1660179Z     "wrong": 0,
+2026-11-26T01:32:30.1660390Z     "closed_refusals": 25
+2026-11-26T01:32:30.1660612Z   }
+2026-11-26T01:32:30.1660797Z ]
+2026-11-26T01:32:53.0413819Z Executing <Task finished name='Task-5' coro=<BrowserBridgeTests.test_automatic_lookup_can_be_disabled_and_failure_preserves_chain() done, defined at /home/runner/work/_temp/mplpb-unpacked/tests/test_browser_bridge.py:124> result=None created at /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/asyncio/runners.py:100> took 12.165 seconds
+2026-11-26T01:32:56.2911675Z Executing <Task finished name='Task-10' coro=<BrowserBridgeTests.test_automatic_topic_lookup_captures_wiki_and_preserves_mode() done, defined at /home/runner/work/_temp/mplpb-unpacked/tests/test_browser_bridge.py:102> result=None created at /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/asyncio/runners.py:100> took 3.247 seconds
+2026-11-26T01:32:56.9414709Z Executing <Task finished name='Task-30' coro=<BrowserBridgeTests.test_exhausted_local_text_expands_once_without_skipping_new_source() done, defined at /home/runner/work/_temp/mplpb-unpacked/tests/test_browser_bridge.py:136> result=None created at /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/asyncio/runners.py:100> took 0.637 seconds
+2026-11-26T01:32:57.5199986Z Executing <Task finished name='Task-85' coro=<BrowserBridgeTests.test_search_crawls_wiki_builds_and_preserves_previous_session() done, defined at /home/runner/work/_temp/mplpb-unpacked/tests/test_browser_bridge.py:78> result=None created at /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/asyncio/runners.py:100> took 0.214 seconds
+2026-11-26T01:34:14.8402036Z wrote /tmp/mplpb-ky7soaxa/corpus/output/index.html
+2026-11-26T01:34:30.3091612Z Who surveyed West Reach?
+2026-11-26T01:34:30.3095579Z supported_answer — supported_documentary_assertion
+2026-11-26T01:34:30.3097134Z Source assertion: Ada Rose surveyed West Reach. Source-attributed statement; event/person identity and historical truth are not independently verified.
+2026-11-26T01:34:30.3097936Z 
+2026-11-26T01:34:30.3098120Z Who wrote the berth ledger?
+2026-11-26T01:34:30.3098681Z clarify — documentary_scope_ambiguous
+2026-11-26T01:34:30.3099927Z Source assertion: Tomas Venn wrote the berth ledger. Source-attributed statement; event/person identity and historical truth are not independently verified.
+2026-11-26T01:34:30.3101764Z Source assertion: Elin Ward wrote the berth ledger. Source-attributed statement; event/person identity and historical truth are not independently verified.
+2026-11-26T01:34:30.3103645Z Unresolved: Who wrote the berth ledger: Exact requested argument, reference, qualification, or complete contrary-evidence search is not established.
+2026-11-26T01:34:30.3104550Z 
+2026-11-26T01:34:30.3104940Z Did surveying West Reach cause the bombardment of South Cove?
+2026-11-26T01:34:30.3105874Z abstain — interpretation_unsupported
+2026-11-26T01:34:30.3106738Z Eligible passages exist, but the strict reader cannot establish an answer to this question.
+2026-11-26T01:34:30.3107292Z 
+2026-11-26T01:34:30.3108337Z Distinguish the bombardment, surrender, evacuation and telegram dates in the South Cove record, without treating the webpage review date as an event date.
+2026-11-26T01:34:30.3109133Z supported_answer — supported_documentary_assertion
+2026-11-26T01:34:30.3116437Z The source states these separate date relationships. telegram: July 23, 1884 [source_catalogue_document_date; year 1884]. Source statement: “Citation: Telegram from Captain Vale announcing withdrawal from South Cove; July 23, 1884; Archive collection.”. bombardment: July 18 [source_reported_action_date; year unstated]. Source statement: “On July 18, the coastal artillery opened fire on the harbour.”. surrender: July 19 at 4:15 p.m. [source_reported_action_date; year unstated]. Source statement: “At 4:15 p.m., July 19, Captain Vale surrendered South Cove, evacuating the garrison on the following day.”. evacuation: the following day (calendar day: July 20) [explicit_same_clause_relative_date; year unstated]. Source statement: “At 4:15 p.m., July 19, Captain Vale surrendered South Cove, evacuating the garrison on the following day.”. Webpage review: March 2, 2021; not an event date. Only the complete cited wording is checked; historical truth and event/person identity are not independently verified. Date relationships are source-attributed; catalogue dates do not prove dispatch or receipt. Artillery firing is a literal action category, not resolved historical event identity. No year is inherited from another date role. Calendar display arithmetic uses the proleptic Gregorian convention; the source calendar is not authenticated.
+2026-11-26T01:34:30.3121188Z 
+2026-11-26T01:34:30.3121313Z DP00001 completed
+2026-11-26T01:36:44.3313779Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "GET / HTTP/1.1" 200 -
+2026-11-26T01:36:44.3322415Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "GET /index.html HTTP/1.1" 200 -
+2026-11-26T01:36:44.3333674Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "GET /api/experiment HTTP/1.1" 200 -
+2026-11-26T01:36:44.3341422Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "GET /missing HTTP/1.1" 404 -
+2026-11-26T01:36:44.3348954Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "GET / HTTP/1.1" 200 -
+2026-11-26T01:36:44.3495024Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/query HTTP/1.1" 200 -
+2026-11-26T01:36:44.3609661Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/query HTTP/1.1" 200 -
+2026-11-26T01:36:44.3724021Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/query HTTP/1.1" 200 -
+2026-11-26T01:36:44.4060905Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/chat HTTP/1.1" 200 -
+2026-11-26T01:36:44.4542445Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/chat HTTP/1.1" 200 -
+2026-11-26T01:36:44.4568540Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/chat/export HTTP/1.1" 200 -
+2026-11-26T01:36:44.4605479Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/chat/resume HTTP/1.1" 200 -
+2026-11-26T01:36:44.4622599Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/chat/reset HTTP/1.1" 200 -
+2026-11-26T01:36:44.4630277Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/chat/export HTTP/1.1" 400 -
+2026-11-26T01:36:44.4885777Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/chat HTTP/1.1" 200 -
+2026-11-26T01:36:44.5127943Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/chat HTTP/1.1" 200 -
+2026-11-26T01:36:44.5572048Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/chat HTTP/1.1" 200 -
+2026-11-26T01:36:44.5698252Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/query HTTP/1.1" 200 -
+2026-11-26T01:36:44.5723902Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "GET /api/page?corpus=canned&path=canned-0001.html&profile=external HTTP/1.1" 400 -
+2026-11-26T01:36:44.5748225Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "GET /api/page?corpus=canned&path=canned-0001.html&profile=internal HTTP/1.1" 200 -
+2026-11-26T01:36:44.5755618Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "GET /api/state HTTP/1.1" 403 -
+2026-11-26T01:36:44.5763349Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/query HTTP/1.1" 403 -
+2026-11-26T01:36:44.5927181Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "GET /api/history HTTP/1.1" 200 -
+2026-11-26T01:36:44.5939066Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/query HTTP/1.1" 400 -
+2026-11-26T01:36:44.5946264Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/query HTTP/1.1" 400 -
+2026-11-26T01:36:44.5955561Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/query HTTP/1.1" 400 -
+2026-11-26T01:36:44.5962954Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/query HTTP/1.1" 400 -
+2026-11-26T01:36:44.5970500Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/query HTTP/1.1" 415 -
+2026-11-26T01:36:44.6132407Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "GET /api/inventory?corpus=studio&profile=internal HTTP/1.1" 200 -
+2026-11-26T01:36:44.6289590Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "GET /api/page?corpus=studio&path=derived%2Fstudio-0024.html HTTP/1.1" 400 -
+2026-11-26T01:36:44.6321531Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "GET /api/inventory?corpus=canned&profile=external HTTP/1.1" 200 -
+2026-11-26T01:36:44.6382498Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "GET /api/page?corpus=canned&path=..%2F..%2FREADME.md HTTP/1.1" 400 -
+2026-11-26T01:36:44.6396269Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/query HTTP/1.1" 400 -
+2026-11-26T01:36:44.6407018Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "GET /api/team-building?role=betty HTTP/1.1" 200 -
+2026-11-26T01:36:44.6417754Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "GET /api/team-building?role=al HTTP/1.1" 200 -
+2026-11-26T01:36:44.6425238Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "GET /api/team-building?role=unknown HTTP/1.1" 400 -
+2026-11-26T01:36:44.6552113Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/query HTTP/1.1" 200 -
+2026-11-26T01:36:44.6706527Z 127.0.0.1 - - [26/Nov/2026 01:36:44] "POST /api/query HTTP/1.1" 200 -
+2026-11-26T01:36:51.9374191Z Executing <Task finished name='Task-126' coro=<LiveAcquisitionRegressionTests.test_dictionary_stays_local_with_enabled_wiki_for_prefixed_apple() done, defined at /home/runner/work/_temp/mplpb-unpacked/tests/test_live_acquisition.py:11> result=None created at /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/asyncio/runners.py:100> took 6.377 seconds
+2026-11-26T01:36:58.0548403Z Executing <Task finished name='Task-131' coro=<LiveAcquisitionRegressionTests.test_failed_automatic_lookup_backs_off_without_changing_evidence() done, defined at /home/runner/work/_temp/mplpb-unpacked/tests/test_live_acquisition.py:36> result=None created at /opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/asyncio/runners.py:100> took 6.116 seconds
+2026-11-26T01:40:49.3212771Z 127.0.0.1 - - [26/Nov/2026 01:40:49] "POST /api/work HTTP/1.1" 400 -
+2026-11-26T01:40:49.3219543Z 127.0.0.1 - - [26/Nov/2026 01:40:49] "POST /api/work HTTP/1.1" 400 -
+2026-11-26T01:40:49.3253356Z 127.0.0.1 - - [26/Nov/2026 01:40:49] "POST /api/work HTTP/1.1" 200 -
+2026-11-26T01:40:49.3262181Z 127.0.0.1 - - [26/Nov/2026 01:40:49] "GET /api/query HTTP/1.1" 404 -
+2026-11-26T01:40:49.3270312Z 127.0.0.1 - - [26/Nov/2026 01:40:49] "GET /api/page?corpus=studio&path=kiln/studio-0004.html HTTP/1.1" 404 -
+2026-11-26T01:40:49.3277966Z 127.0.0.1 - - [26/Nov/2026 01:40:49] "GET /api/state HTTP/1.1" 404 -
+2026-11-26T01:40:49.3285085Z 127.0.0.1 - - [26/Nov/2026 01:40:49] "GET / HTTP/1.1" 404 -
+2026-11-26T01:40:49.3293172Z 127.0.0.1 - - [26/Nov/2026 01:40:49] "POST /api/query HTTP/1.1" 404 -
+2026-11-26T01:41:51.1391610Z ----------------------------------------------------------------------
+2026-11-26T01:41:51.1392262Z Ran 1871 tests in 559.938s
+2026-11-26T01:41:51.1392516Z 
+2026-11-26T01:41:51.1392659Z OK (skipped=1)
+2026-11-26T01:41:51.8305259Z ##[group]Run set -euo pipefail
+2026-11-26T01:41:51.8305610Z [36;1mset -euo pipefail[0m
+2026-11-26T01:41:51.8306173Z [36;1mcd "$RUNNER_TEMP/mplpb-unpacked"[0m
+2026-11-26T01:41:51.8306524Z [36;1mpython -m venv "$RUNNER_TEMP/mcp-sdk"[0m
+2026-11-26T01:41:51.8306934Z [36;1m"$RUNNER_TEMP/mcp-sdk/bin/python" -m pip install "mcp==1.26.0"[0m
+2026-11-26T01:41:51.8307585Z [36;1m"$RUNNER_TEMP/mcp-sdk/bin/python" tools/check_mcp_client.py --output "$RUNNER_TEMP/mplpb-zipped/mcp-client.json"[0m
+2026-11-26T01:41:51.8344440Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T01:41:51.8344805Z env:
+2026-11-26T01:41:51.8345097Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:41:51.8345550Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T01:41:51.8346271Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:41:51.8346669Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:41:51.8347095Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:41:51.8347505Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T01:41:51.8348202Z   ARCHIVE_SHA256: c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282
+2026-11-26T01:41:51.8348630Z ##[endgroup]
+2026-11-26T01:41:54.9126199Z Collecting mcp==1.26.0
+2026-11-26T01:41:54.9336856Z   Downloading mcp-1.26.0-py3-none-any.whl.metadata (89 kB)
+2026-11-26T01:41:54.9629532Z Collecting anyio>=4.5 (from mcp==1.26.0)
+2026-11-26T01:41:54.9675051Z   Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
+2026-11-26T01:41:54.9774483Z Collecting httpx-sse>=0.4 (from mcp==1.26.0)
+2026-11-26T01:41:54.9808864Z   Downloading httpx_sse-0.4.3-py3-none-any.whl.metadata (9.7 kB)
+2026-11-26T01:41:54.9987949Z Collecting httpx>=0.27.1 (from mcp==1.26.0)
+2026-11-26T01:41:55.0020996Z   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+2026-11-26T01:41:55.0251223Z Collecting jsonschema>=4.20.0 (from mcp==1.26.0)
+2026-11-26T01:41:55.0285945Z   Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+2026-11-26T01:41:55.0453815Z Collecting pydantic-settings>=2.5.2 (from mcp==1.26.0)
+2026-11-26T01:41:55.0506071Z   Downloading pydantic_settings-2.16.3-py3-none-any.whl.metadata (4.0 kB)
+2026-11-26T01:41:55.1606572Z Collecting pydantic<3.0.0,>=2.11.0 (from mcp==1.26.0)
+2026-11-26T01:41:55.1643397Z   Downloading pydantic-2.14.4-py3-none-any.whl.metadata (143 kB)
+2026-11-26T01:41:55.1859031Z Collecting pyjwt>=2.10.1 (from pyjwt[crypto]>=2.10.1->mcp==1.26.0)
+2026-11-26T01:41:55.1892884Z   Downloading pyjwt-2.15.1-py3-none-any.whl.metadata (3.5 kB)
+2026-11-26T01:41:55.2029067Z Collecting python-multipart>=0.0.9 (from mcp==1.26.0)
+2026-11-26T01:41:55.2066514Z   Downloading python_multipart-0.0.34-py3-none-any.whl.metadata (6.3 kB)
+2026-11-26T01:41:55.2262317Z Collecting sse-starlette>=1.6.1 (from mcp==1.26.0)
+2026-11-26T01:41:55.2312571Z   Downloading sse_starlette-3.7.1-py3-none-any.whl.metadata (15 kB)
+2026-11-26T01:41:55.2645851Z Collecting starlette>=0.27 (from mcp==1.26.0)
+2026-11-26T01:41:55.2689589Z   Downloading starlette-1.10.0-py3-none-any.whl.metadata (6.6 kB)
+2026-11-26T01:41:55.2851256Z Collecting typing-extensions>=4.9.0 (from mcp==1.26.0)
+2026-11-26T01:41:55.2885197Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-11-26T01:41:55.2991493Z Collecting typing-inspection>=0.4.1 (from mcp==1.26.0)
+2026-11-26T01:41:55.3026220Z   Downloading typing_inspection-0.4.5-py3-none-any.whl.metadata (2.6 kB)
+2026-11-26T01:41:55.3293568Z Collecting uvicorn>=0.31.1 (from mcp==1.26.0)
+2026-11-26T01:41:55.3330523Z   Downloading uvicorn-0.54.0-py3-none-any.whl.metadata (6.6 kB)
+2026-11-26T01:41:55.3486714Z Collecting idna>=2.8 (from anyio>=4.5->mcp==1.26.0)
+2026-11-26T01:41:55.3520721Z   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+2026-11-26T01:41:55.3734485Z Collecting certifi (from httpx>=0.27.1->mcp==1.26.0)
+2026-11-26T01:41:55.3791053Z   Downloading certifi-2026.11.20-py3-none-any.whl.metadata (2.5 kB)
+2026-11-26T01:41:55.3959618Z Collecting httpcore==1.* (from httpx>=0.27.1->mcp==1.26.0)
+2026-11-26T01:41:55.3998201Z   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+2026-11-26T01:41:55.4120991Z Collecting h11>=0.16 (from httpcore==1.*->httpx>=0.27.1->mcp==1.26.0)
+2026-11-26T01:41:55.4154668Z   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+2026-11-26T01:41:55.4318999Z Collecting attrs>=22.2.0 (from jsonschema>=4.20.0->mcp==1.26.0)
+2026-11-26T01:41:55.4352994Z   Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+2026-11-26T01:41:55.4475253Z Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=4.20.0->mcp==1.26.0)
+2026-11-26T01:41:55.4509538Z   Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+2026-11-26T01:41:55.4725031Z Collecting referencing>=0.28.4 (from jsonschema>=4.20.0->mcp==1.26.0)
+2026-11-26T01:41:55.4758984Z   Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+2026-11-26T01:41:55.6831655Z Collecting rpds-py>=0.25.0 (from jsonschema>=4.20.0->mcp==1.26.0)
+2026-11-26T01:41:55.6868510Z   Downloading rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+2026-11-26T01:41:55.6986676Z Collecting annotated-types>=0.6.0 (from pydantic<3.0.0,>=2.11.0->mcp==1.26.0)
+2026-11-26T01:41:55.7019958Z   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+2026-11-26T01:41:56.2889081Z Collecting pydantic-core==2.50.5 (from pydantic<3.0.0,>=2.11.0->mcp==1.26.0)
+2026-11-26T01:41:56.2930677Z   Downloading pydantic_core-2.50.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.6 kB)
+2026-11-26T01:41:56.3287309Z Collecting python-dotenv>=1.2.2 (from pydantic-settings>=2.5.2->mcp==1.26.0)
+2026-11-26T01:41:56.3324020Z   Downloading python_dotenv-1.2.4-py3-none-any.whl.metadata (29 kB)
+2026-11-26T01:41:56.5159993Z Collecting cryptography>=3.4.0 (from pyjwt[crypto]>=2.10.1->mcp==1.26.0)
+2026-11-26T01:41:56.5203573Z   Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.4 kB)
+2026-11-26T01:41:56.5695251Z Collecting click>=7.0 (from uvicorn>=0.31.1->mcp==1.26.0)
+2026-11-26T01:41:56.5730268Z   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+2026-11-26T01:41:56.6549263Z Collecting cffi>=2.0.0 (from cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->mcp==1.26.0)
+2026-11-26T01:41:56.6584978Z   Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+2026-11-26T01:41:56.6926782Z Collecting pycparser (from cffi>=2.0.0->cryptography>=3.4.0->pyjwt[crypto]>=2.10.1->mcp==1.26.0)
+2026-11-26T01:41:56.6960203Z   Downloading pycparser-3.12-py3-none-any.whl.metadata (9.7 kB)
+2026-11-26T01:41:56.7044911Z Downloading mcp-1.26.0-py3-none-any.whl (233 kB)
+2026-11-26T01:41:56.7098322Z Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+2026-11-26T01:41:56.7147724Z Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+2026-11-26T01:41:56.7195547Z Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+2026-11-26T01:41:56.7248415Z Downloading httpx_sse-0.4.3-py3-none-any.whl (9.0 kB)
+2026-11-26T01:41:56.7299311Z Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)
+2026-11-26T01:41:56.7351315Z Downloading pydantic-2.14.4-py3-none-any.whl (494 kB)
+2026-11-26T01:41:56.7412310Z Downloading pydantic_core-2.50.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.3 MB)
+2026-11-26T01:41:56.7500091Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 339.0 MB/s eta 0:00:00
+2026-11-26T01:41:56.7540990Z Downloading pydantic_settings-2.16.3-py3-none-any.whl (82 kB)
+2026-11-26T01:41:56.7612298Z Downloading pyjwt-2.15.1-py3-none-any.whl (33 kB)
+2026-11-26T01:41:56.7668013Z Downloading python_multipart-0.0.34-py3-none-any.whl (32 kB)
+2026-11-26T01:41:56.7721401Z Downloading sse_starlette-3.7.1-py3-none-any.whl (18 kB)
+2026-11-26T01:41:56.7771848Z Downloading starlette-1.10.0-py3-none-any.whl (80 kB)
+2026-11-26T01:41:56.7826312Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-11-26T01:41:56.7878374Z Downloading typing_inspection-0.4.5-py3-none-any.whl (14 kB)
+2026-11-26T01:41:56.7926253Z Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)
+2026-11-26T01:41:56.7980192Z Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+2026-11-26T01:41:56.8029106Z Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+2026-11-26T01:41:56.8077938Z Downloading click-8.5.1-py3-none-any.whl (126 kB)
+2026-11-26T01:41:56.8129988Z Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl (4.8 MB)
+2026-11-26T01:41:56.8266873Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 398.4 MB/s eta 0:00:00
+2026-11-26T01:41:56.8310043Z Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+2026-11-26T01:41:56.8359527Z Downloading idna-3.20-py3-none-any.whl (69 kB)
+2026-11-26T01:41:56.8410969Z Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+2026-11-26T01:41:56.8468433Z Downloading python_dotenv-1.2.4-py3-none-any.whl (23 kB)
+2026-11-26T01:41:56.8517946Z Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
+2026-11-26T01:41:56.8572661Z Downloading rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (371 kB)
+2026-11-26T01:41:56.8632303Z Downloading certifi-2026.11.20-py3-none-any.whl (127 kB)
+2026-11-26T01:41:56.8683161Z Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+2026-11-26T01:41:56.8736680Z Downloading pycparser-3.12-py3-none-any.whl (62 kB)
+2026-11-26T01:41:56.9522379Z Installing collected packages: typing-extensions, rpds-py, python-multipart, python-dotenv, pyjwt, pycparser, idna, httpx-sse, h11, click, certifi, attrs, annotated-types, uvicorn, typing-inspection, referencing, pydantic-core, httpcore, cffi, anyio, starlette, pydantic, jsonschema-specifications, httpx, cryptography, sse-starlette, pydantic-settings, jsonschema, mcp
+2026-11-26T01:41:58.6344739Z Successfully installed annotated-types-0.8.0 anyio-4.16.0 attrs-26.1.0 certifi-2026.11.20 cffi-2.1.1 click-8.5.1 cryptography-50.0.2 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 httpx-sse-0.4.3 idna-3.20 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 mcp-1.26.0 pycparser-3.12 pydantic-2.14.4 pydantic-core-2.50.5 pydantic-settings-2.16.3 pyjwt-2.15.1 python-dotenv-1.2.4 python-multipart-0.0.34 referencing-0.37.0 rpds-py-2026.9.1 sse-starlette-3.7.1 starlette-1.10.0 typing-extensions-4.16.0 typing-inspection-0.4.5 uvicorn-0.54.0
+2026-11-26T01:41:58.6863586Z 
+2026-11-26T01:41:58.6864180Z [notice] A new release of pip is available: 25.0.1 -> 26.3
+2026-11-26T01:41:58.6864990Z [notice] To update, run: python -m pip install --upgrade pip
+2026-11-26T01:41:59.8785907Z {
+2026-11-26T01:41:59.8786894Z   "role": "Authored MCP protocol and workflow acceptance; no model/provider or independent human validation",
+2026-11-26T01:41:59.8787648Z   "sdk": {
+2026-11-26T01:41:59.8787947Z     "package": "mcp",
+2026-11-26T01:41:59.8788267Z     "version": "1.26.0"
+2026-11-26T01:41:59.8788576Z   },
+2026-11-26T01:41:59.8788856Z   "implementation": {
+2026-11-26T01:41:59.8789212Z     "python": "3.12.16",
+2026-11-26T01:41:59.8789878Z     "adapter_sha256": "2d374e84c3a8fa050e387eee885d8c0453f0d5ac8b0635859fa2fa553fba1065",
+2026-11-26T01:41:59.8790826Z     "client_sha256": "65f55a0d13550794aef9c26679e9c3e473227f7ba74f7373b7f0cdfa5de089eb"
+2026-11-26T01:41:59.8791439Z   },
+2026-11-26T01:41:59.8791704Z   "checks": [
+2026-11-26T01:41:59.8791981Z     {
+2026-11-26T01:41:59.8792301Z       "check": "protocol negotiated",
+2026-11-26T01:41:59.8792689Z       "passed": true
+2026-11-26T01:41:59.8792988Z     },
+2026-11-26T01:41:59.8793232Z     {
+2026-11-26T01:41:59.8793549Z       "check": "all tools discoverable",
+2026-11-26T01:41:59.8793945Z       "passed": true
+2026-11-26T01:41:59.8794222Z     },
+2026-11-26T01:41:59.8794457Z     {
+2026-11-26T01:41:59.8794829Z       "check": "tool result is successful: mplpb_status",
+2026-11-26T01:41:59.8795264Z       "passed": true
+2026-11-26T01:41:59.8795535Z     },
+2026-11-26T01:41:59.8796206Z     {
+2026-11-26T01:41:59.8797017Z       "check": "legacy text preserves complete structured result: mplpb_status",
+2026-11-26T01:41:59.8797596Z       "passed": true
+2026-11-26T01:41:59.8797880Z     },
+2026-11-26T01:41:59.8798124Z     {
+2026-11-26T01:41:59.8798503Z       "check": "host-fixed profile and offline boundary",
+2026-11-26T01:41:59.8798948Z       "passed": true
+2026-11-26T01:41:59.8799224Z     },
+2026-11-26T01:41:59.8799464Z     {
+2026-11-26T01:41:59.8799864Z       "check": "tool result is successful: mplpb_collections",
+2026-11-26T01:41:59.8800320Z       "passed": true
+2026-11-26T01:41:59.8800594Z     },
+2026-11-26T01:41:59.8800841Z     {
+2026-11-26T01:41:59.8801363Z       "check": "legacy text preserves complete structured result: mplpb_collections",
+2026-11-26T01:41:59.8801929Z       "passed": true
+2026-11-26T01:41:59.8802202Z     },
+2026-11-26T01:41:59.8802441Z     {
+2026-11-26T01:41:59.8802782Z       "check": "only authorized collection visible",
+2026-11-26T01:41:59.8803207Z       "passed": true
+2026-11-26T01:41:59.8803474Z     },
+2026-11-26T01:41:59.8803705Z     {
+2026-11-26T01:41:59.8804075Z       "check": "tool result is successful: mplpb_ask",
+2026-11-26T01:41:59.8804498Z       "passed": true
+2026-11-26T01:41:59.8804776Z     },
+2026-11-26T01:41:59.8805245Z     {
+2026-11-26T01:41:59.8805860Z       "check": "legacy text preserves complete structured result: mplpb_ask",
+2026-11-26T01:41:59.8806399Z       "passed": true
+2026-11-26T01:41:59.8806676Z     },
+2026-11-26T01:41:59.8806912Z     {
+2026-11-26T01:41:59.8807319Z       "check": "strict supported answer with exact source value",
+2026-11-26T01:41:59.8807787Z       "passed": true
+2026-11-26T01:41:59.8808057Z     },
+2026-11-26T01:41:59.8808294Z     {
+2026-11-26T01:41:59.8808666Z       "check": "tool result is successful: mplpb_pages",
+2026-11-26T01:41:59.8809087Z       "passed": true
+2026-11-26T01:41:59.8809353Z     },
+2026-11-26T01:41:59.8809592Z     {
+2026-11-26T01:41:59.8810068Z       "check": "legacy text preserves complete structured result: mplpb_pages",
+2026-11-26T01:41:59.8810605Z       "passed": true
+2026-11-26T01:41:59.8810883Z     },
+2026-11-26T01:41:59.8811124Z     {
+2026-11-26T01:41:59.8811549Z       "check": "tool result is successful: mplpb_read_page",
+2026-11-26T01:41:59.8812110Z       "passed": true
+2026-11-26T01:41:59.8812389Z     },
+2026-11-26T01:41:59.8812623Z     {
+2026-11-26T01:41:59.8813138Z       "check": "legacy text preserves complete structured result: mplpb_read_page",
+2026-11-26T01:41:59.8813711Z       "passed": true
+2026-11-26T01:41:59.8813978Z     },
+2026-11-26T01:41:59.8814219Z     {
+2026-11-26T01:41:59.8814577Z       "check": "citation hash matches inspected source",
+2026-11-26T01:41:59.8814989Z       "passed": true
+2026-11-26T01:41:59.8815262Z     },
+2026-11-26T01:41:59.8815502Z     {
+2026-11-26T01:41:59.8816002Z       "check": "inspection is not answer support",
+2026-11-26T01:41:59.8816411Z       "passed": true
+2026-11-26T01:41:59.8816685Z     },
+2026-11-26T01:41:59.8817031Z     {
+2026-11-26T01:41:59.8817385Z       "check": "tool result is successful: mplpb_chat",
+2026-11-26T01:41:59.8817812Z       "passed": true
+2026-11-26T01:41:59.8818092Z     },
+2026-11-26T01:41:59.8818325Z     {
+2026-11-26T01:41:59.8818801Z       "check": "legacy text preserves complete structured result: mplpb_chat",
+2026-11-26T01:41:59.8819340Z       "passed": true
+2026-11-26T01:41:59.8819618Z     },
+2026-11-26T01:41:59.8819859Z     {
+2026-11-26T01:41:59.8820317Z       "check": "procedure source conditions and exact quotation survive",
+2026-11-26T01:41:59.8820828Z       "passed": true
+2026-11-26T01:41:59.8821102Z     },
+2026-11-26T01:41:59.8821342Z     {
+2026-11-26T01:41:59.8821690Z       "check": "tool result is successful: mplpb_chat",
+2026-11-26T01:41:59.8822105Z       "passed": true
+2026-11-26T01:41:59.8822387Z     },
+2026-11-26T01:41:59.8822628Z     {
+2026-11-26T01:41:59.8823095Z       "check": "legacy text preserves complete structured result: mplpb_chat",
+2026-11-26T01:41:59.8823614Z       "passed": true
+2026-11-26T01:41:59.8823879Z     },
+2026-11-26T01:41:59.8824114Z     {
+2026-11-26T01:41:59.8824672Z       "check": "focused clarification asks for step",
+2026-11-26T01:41:59.8825093Z       "passed": true
+2026-11-26T01:41:59.8825362Z     },
+2026-11-26T01:41:59.8825605Z     {
+2026-11-26T01:41:59.8826129Z       "check": "tool result is successful: mplpb_session",
+2026-11-26T01:41:59.8826560Z       "passed": true
+2026-11-26T01:41:59.8826946Z     },
+2026-11-26T01:41:59.8827178Z     {
+2026-11-26T01:41:59.8827662Z       "check": "legacy text preserves complete structured result: mplpb_session",
+2026-11-26T01:41:59.8828197Z       "passed": true
+2026-11-26T01:41:59.8828467Z     },
+2026-11-26T01:41:59.8828702Z     {
+2026-11-26T01:41:59.8829102Z       "check": "session resumes after a real process restart",
+2026-11-26T01:41:59.8829568Z       "passed": true
+2026-11-26T01:41:59.8829855Z     },
+2026-11-26T01:41:59.8830096Z     {
+2026-11-26T01:41:59.8830455Z       "check": "tool result is successful: mplpb_chat",
+2026-11-26T01:41:59.8830913Z       "passed": true
+2026-11-26T01:41:59.8831194Z     },
+2026-11-26T01:41:59.8831438Z     {
+2026-11-26T01:41:59.8831933Z       "check": "legacy text preserves complete structured result: mplpb_chat",
+2026-11-26T01:41:59.8832471Z       "passed": true
+2026-11-26T01:41:59.8832755Z     },
+2026-11-26T01:41:59.8833187Z     {
+2026-11-26T01:41:59.8833534Z       "check": "pending warning selection recovers",
+2026-11-26T01:41:59.8833955Z       "passed": true
+2026-11-26T01:41:59.8834237Z     },
+2026-11-26T01:41:59.8834489Z     {
+2026-11-26T01:41:59.8834841Z       "check": "tool result is successful: mplpb_chat",
+2026-11-26T01:41:59.8835249Z       "passed": true
+2026-11-26T01:41:59.8835527Z     },
+2026-11-26T01:41:59.8835927Z     {
+2026-11-26T01:41:59.8836384Z       "check": "legacy text preserves complete structured result: mplpb_chat",
+2026-11-26T01:41:59.8836916Z       "passed": true
+2026-11-26T01:41:59.8837195Z     },
+2026-11-26T01:41:59.8837440Z     {
+2026-11-26T01:41:59.8837837Z       "check": "explicit correction recovers intended step",
+2026-11-26T01:41:59.8838285Z       "passed": true
+2026-11-26T01:41:59.8838586Z     },
+2026-11-26T01:41:59.8838839Z     {
+2026-11-26T01:41:59.8839201Z       "check": "tool result is successful: mplpb_chat",
+2026-11-26T01:41:59.8839620Z       "passed": true
+2026-11-26T01:41:59.8839899Z     },
+2026-11-26T01:41:59.8840144Z     {
+2026-11-26T01:41:59.8840611Z       "check": "legacy text preserves complete structured result: mplpb_chat",
+2026-11-26T01:41:59.8841139Z       "passed": true
+2026-11-26T01:41:59.8841407Z     },
+2026-11-26T01:41:59.8841646Z     {
+2026-11-26T01:41:59.8841964Z       "check": "execution is not inferred",
+2026-11-26T01:41:59.8842354Z       "passed": true
+2026-11-26T01:41:59.8842647Z     },
+2026-11-26T01:41:59.8842902Z     {
+2026-11-26T01:41:59.8843265Z       "check": "client cannot replace host profile",
+2026-11-26T01:41:59.8843676Z       "passed": true
+2026-11-26T01:41:59.8843963Z     },
+2026-11-26T01:41:59.8844215Z     {
+2026-11-26T01:41:59.8844581Z       "check": "tool result is successful: mplpb_ask",
+2026-11-26T01:41:59.8845017Z       "passed": true
+2026-11-26T01:41:59.8845303Z     },
+2026-11-26T01:41:59.8845546Z     {
+2026-11-26T01:41:59.8846179Z       "check": "legacy text preserves complete structured result: mplpb_ask",
+2026-11-26T01:41:59.8846730Z       "passed": true
+2026-11-26T01:41:59.8847013Z     },
+2026-11-26T01:41:59.8847271Z     {
+2026-11-26T01:41:59.8847631Z       "check": "changed source value changes answer",
+2026-11-26T01:41:59.8848059Z       "passed": true
+2026-11-26T01:41:59.8848342Z     },
+2026-11-26T01:41:59.8848588Z     {
+2026-11-26T01:41:59.8848952Z       "check": "tool result is successful: mplpb_ask",
+2026-11-26T01:41:59.8849381Z       "passed": true
+2026-11-26T01:41:59.8849662Z     },
+2026-11-26T01:41:59.8849905Z     {
+2026-11-26T01:41:59.8850381Z       "check": "legacy text preserves complete structured result: mplpb_ask",
+2026-11-26T01:41:59.8850919Z       "passed": true
+2026-11-26T01:41:59.8851205Z     },
+2026-11-26T01:41:59.8851462Z     {
+2026-11-26T01:41:59.8851852Z       "check": "contradiction prevents unqualified answer",
+2026-11-26T01:41:59.8852609Z       "passed": true
+2026-11-26T01:41:59.8852889Z     },
+2026-11-26T01:41:59.8853126Z     {
+2026-11-26T01:41:59.8853475Z       "check": "tool result is successful: mplpb_ask",
+2026-11-26T01:41:59.8853906Z       "passed": true
+2026-11-26T01:41:59.8854190Z     },
+2026-11-26T01:41:59.8854437Z     {
+2026-11-26T01:41:59.8854910Z       "check": "legacy text preserves complete structured result: mplpb_ask",
+2026-11-26T01:41:59.8855437Z       "passed": true
+2026-11-26T01:41:59.8855906Z     },
+2026-11-26T01:41:59.8856157Z     {
+2026-11-26T01:41:59.8856501Z       "check": "missing relationship refuses",
+2026-11-26T01:41:59.8856893Z       "passed": true
+2026-11-26T01:41:59.8857174Z     }
+2026-11-26T01:41:59.8857429Z   ],
+2026-11-26T01:41:59.8857727Z   "passed": 45,
+2026-11-26T01:41:59.8858018Z   "limitations": [
+2026-11-26T01:41:59.8858626Z     "Tests the SDK as a protocol client, not a third-party AI application or model obedience.",
+2026-11-26T01:41:59.8859486Z     "Existing finite reader and trusted local operator scope remain in force."
+2026-11-26T01:41:59.8860035Z   ]
+2026-11-26T01:41:59.8860280Z }
+2026-11-26T01:41:59.9438701Z ##[group]Run set -euo pipefail
+2026-11-26T01:41:59.9439232Z [36;1mset -euo pipefail[0m
+2026-11-26T01:41:59.9439514Z [36;1mcd "$RUNNER_TEMP/mplpb-unpacked"[0m
+2026-11-26T01:41:59.9440001Z [36;1mpython -m pip wheel . --no-deps --wheel-dir "$RUNNER_TEMP/mplpb-zipped/workspace-wheel"[0m
+2026-11-26T01:41:59.9440539Z [36;1mpython -m venv "$RUNNER_TEMP/mplpb-workspace-installed"[0m
+2026-11-26T01:41:59.9441204Z [36;1m"$RUNNER_TEMP/mplpb-workspace-installed/bin/python" -m pip install --no-index "$RUNNER_TEMP/mplpb-zipped/workspace-wheel/"*.whl[0m
+2026-11-26T01:41:59.9442201Z [36;1m"$RUNNER_TEMP/mplpb-workspace-installed/bin/python" -I tools/check_candidate_workspace_install.py --output "$RUNNER_TEMP/mplpb-zipped/workspace-wheel-smoke.json"[0m
+2026-11-26T01:41:59.9442926Z [36;1mmkdir "$RUNNER_TEMP/synonym-graph-smoke"[0m
+2026-11-26T01:41:59.9443264Z [36;1mcd "$RUNNER_TEMP/synonym-graph-smoke"[0m
+2026-11-26T01:41:59.9444109Z [36;1m"$RUNNER_TEMP/mplpb-workspace-installed/bin/mplpb-synonym-graph" build --catalog "$RUNNER_TEMP/mplpb-unpacked/evaluation/persona-corpus-transfer/synonyms.json" --db synonyms.sqlite[0m
+2026-11-26T01:41:59.9445542Z [36;1m"$RUNNER_TEMP/mplpb-workspace-installed/bin/mplpb-synonym-graph" query --db synonyms.sqlite --collection coelacanth 'What catalogue number belongs to the coelacanth display specimen?' > "$RUNNER_TEMP/mplpb-zipped/synonym-wheel-smoke.json"[0m
+2026-11-26T01:41:59.9447204Z [36;1mpython -c 'import json, sys; hit = json.load(open(sys.argv[1])); assert hit["status"] == "candidate" and set(hit["records"]) == {"LOT-88"} and set(hit["fields"]) == {"Catalog Number"}' "$RUNNER_TEMP/mplpb-zipped/synonym-wheel-smoke.json"[0m
+2026-11-26T01:41:59.9448837Z [36;1msha256sum "$RUNNER_TEMP/mplpb-zipped/workspace-wheel/"*.whl > "$RUNNER_TEMP/mplpb-zipped/workspace-wheel.sha256"[0m
+2026-11-26T01:41:59.9486202Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T01:41:59.9486556Z env:
+2026-11-26T01:41:59.9486844Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:41:59.9487286Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T01:41:59.9487717Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:41:59.9488104Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:41:59.9488495Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:41:59.9488870Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T01:41:59.9489351Z   ARCHIVE_SHA256: c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282
+2026-11-26T01:41:59.9489766Z ##[endgroup]
+2026-11-26T01:42:00.3793477Z Processing ./.
+2026-11-26T01:42:00.3809399Z   Installing build dependencies: started
+2026-11-26T01:42:00.9813183Z   Installing build dependencies: finished with status 'done'
+2026-11-26T01:42:00.9818883Z   Getting requirements to build wheel: started
+2026-11-26T01:42:01.5103191Z   Getting requirements to build wheel: finished with status 'done'
+2026-11-26T01:42:01.5112041Z   /tmp/pip-build-env-kbbzk5fb/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: BuildBackendWarning: `project.license` as a TOML table is deprecated
+2026-11-26T01:42:01.5112880Z   !!
+2026-11-26T01:42:01.5113119Z   
+2026-11-26T01:42:01.5113435Z           ********************************************************************************
+2026-11-26T01:42:01.5114309Z           Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+2026-11-26T01:42:01.5115012Z   
+2026-11-26T01:42:01.5115378Z           By 2027-Feb-18, you need to update your project and remove deprecated calls
+2026-11-26T01:42:01.5116039Z           or your builds will no longer be supported.
+2026-11-26T01:42:01.5116333Z   
+2026-11-26T01:42:01.5116809Z           See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-11-26T01:42:01.5117703Z           ********************************************************************************
+2026-11-26T01:42:01.5118176Z   
+2026-11-26T01:42:01.5118362Z   !!
+2026-11-26T01:42:01.5118600Z     corresp(dist, value, root_dir)
+2026-11-26T01:42:01.5119296Z   Preparing metadata (pyproject.toml): started
+2026-11-26T01:42:01.7123154Z   Preparing metadata (pyproject.toml): finished with status 'done'
+2026-11-26T01:42:01.7128431Z   /tmp/pip-build-env-kbbzk5fb/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: BuildBackendWarning: `project.license` as a TOML table is deprecated
+2026-11-26T01:42:01.7129328Z   !!
+2026-11-26T01:42:01.7129532Z   
+2026-11-26T01:42:01.7129860Z           ********************************************************************************
+2026-11-26T01:42:01.7130751Z           Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+2026-11-26T01:42:01.7131475Z   
+2026-11-26T01:42:01.7131859Z           By 2027-Feb-18, you need to update your project and remove deprecated calls
+2026-11-26T01:42:01.7132354Z           or your builds will no longer be supported.
+2026-11-26T01:42:01.7132660Z   
+2026-11-26T01:42:01.7133144Z           See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-11-26T01:42:01.7133728Z           ********************************************************************************
+2026-11-26T01:42:01.7134047Z   
+2026-11-26T01:42:01.7134239Z   !!
+2026-11-26T01:42:01.7134482Z     corresp(dist, value, root_dir)
+2026-11-26T01:42:01.7151315Z Building wheels for collected packages: combined-mplpb
+2026-11-26T01:42:01.7158579Z   Building wheel for combined-mplpb (pyproject.toml): started
+2026-11-26T01:42:02.0106417Z   Building wheel for combined-mplpb (pyproject.toml): finished with status 'done'
+2026-11-26T01:42:02.0111011Z   /tmp/pip-build-env-kbbzk5fb/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: BuildBackendWarning: `project.license` as a TOML table is deprecated
+2026-11-26T01:42:02.0112260Z   !!
+2026-11-26T01:42:02.0112557Z   
+2026-11-26T01:42:02.0113011Z           ********************************************************************************
+2026-11-26T01:42:02.0114239Z           Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+2026-11-26T01:42:02.0114923Z   
+2026-11-26T01:42:02.0115293Z           By 2027-Feb-18, you need to update your project and remove deprecated calls
+2026-11-26T01:42:02.0116024Z           or your builds will no longer be supported.
+2026-11-26T01:42:02.0116336Z   
+2026-11-26T01:42:02.0116812Z           See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+2026-11-26T01:42:02.0117386Z           ********************************************************************************
+2026-11-26T01:42:02.0117738Z   
+2026-11-26T01:42:02.0117944Z   !!
+2026-11-26T01:42:02.0118195Z     corresp(dist, value, root_dir)
+2026-11-26T01:42:02.0121590Z   Created wheel for combined-mplpb: filename=combined_mplpb-2.1.0rc1-py3-none-any.whl size=420036 sha256=b4925ec60785c3279153499eab041707c8486ae718e16333e91b95ffa1f4d981
+2026-11-26T01:42:02.0123307Z   Stored in directory: /tmp/pip-ephem-wheel-cache-6rxtiicd/wheels/09/fd/fd/3dd6548a836fcc4569e27ee59ffa9de4beddec43af23d36bf9
+2026-11-26T01:42:02.0154048Z Successfully built combined-mplpb
+2026-11-26T01:42:04.8957720Z Processing /home/runner/work/_temp/mplpb-zipped/workspace-wheel/combined_mplpb-2.1.0rc1-py3-none-any.whl
+2026-11-26T01:42:04.9064130Z Installing collected packages: combined-mplpb
+2026-11-26T01:42:05.2338082Z Successfully installed combined-mplpb-2.1.0rc1
+2026-11-26T01:42:05.4848163Z {
+2026-11-26T01:42:05.4848592Z   "status": "passed",
+2026-11-26T01:42:05.4849950Z   "installed_package": "/home/runner/work/_temp/mplpb-workspace-installed/lib/python3.12/site-packages/mplpb_work/sorter.py",
+2026-11-26T01:42:05.4850895Z   "isolated_python": true,
+2026-11-26T01:42:05.4851554Z   "exact_match_replayed": true,
+2026-11-26T01:42:05.4852013Z   "strict_original_support_preserved": true,
+2026-11-26T01:42:05.4852516Z   "processed_approval_transferred": false,
+2026-11-26T01:42:05.4853015Z   "checkout_tools_imported": false,
+2026-11-26T01:42:05.4853794Z   "scope": "Authored installed-wheel integration; not human or historical semantic validation."
+2026-11-26T01:42:05.4854470Z }
+2026-11-26T01:42:05.6775917Z ##[group]Run cd "$RUNNER_TEMP/mplpb-unpacked"
+2026-11-26T01:42:05.6776363Z [36;1mcd "$RUNNER_TEMP/mplpb-unpacked"[0m
+2026-11-26T01:42:05.6776718Z [36;1mpython -m tools.verify_reference_evidence[0m
+2026-11-26T01:42:05.6813207Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T01:42:05.6813554Z env:
+2026-11-26T01:42:05.6813831Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:05.6814261Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T01:42:05.6814686Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:05.6815090Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:05.6815467Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:05.6816072Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T01:42:05.6816548Z   ARCHIVE_SHA256: c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282
+2026-11-26T01:42:05.6817138Z ##[endgroup]
+2026-11-26T01:42:31.3586211Z {
+2026-11-26T01:42:31.3589849Z   "role": "Authored development replay; not independent validation or external fact certification",
+2026-11-26T01:42:31.3590849Z   "evaluated_source_revision": "1fc908bdead1eb326427a84d8a0d7175a89fb9dd",
+2026-11-26T01:42:31.3591430Z   "versions": [
+2026-11-26T01:42:31.3591715Z     {
+2026-11-26T01:42:31.3592012Z       "version": "0.0.0",
+2026-11-26T01:42:31.3592412Z       "positive_supported": 0,
+2026-11-26T01:42:31.3592777Z       "positive_total": 73,
+2026-11-26T01:42:31.3593163Z       "negative_refusals": 20,
+2026-11-26T01:42:31.3593552Z       "negative_total": 20,
+2026-11-26T01:42:31.3593888Z       "wrong_returns": 0,
+2026-11-26T01:42:31.3594213Z       "ambiguities": 0
+2026-11-26T01:42:31.3594540Z     },
+2026-11-26T01:42:31.3594802Z     {
+2026-11-26T01:42:31.3595071Z       "version": "0.1.0",
+2026-11-26T01:42:31.3595451Z       "positive_supported": 23,
+2026-11-26T01:42:31.3596049Z       "positive_total": 73,
+2026-11-26T01:42:31.3596445Z       "negative_refusals": 20,
+2026-11-26T01:42:31.3596815Z       "negative_total": 20,
+2026-11-26T01:42:31.3597142Z       "wrong_returns": 0,
+2026-11-26T01:42:31.3597465Z       "ambiguities": 0
+2026-11-26T01:42:31.3597764Z     },
+2026-11-26T01:42:31.3598032Z     {
+2026-11-26T01:42:31.3598309Z       "version": "0.2.0",
+2026-11-26T01:42:31.3598687Z       "positive_supported": 48,
+2026-11-26T01:42:31.3599053Z       "positive_total": 73,
+2026-11-26T01:42:31.3599435Z       "negative_refusals": 20,
+2026-11-26T01:42:31.3599795Z       "negative_total": 20,
+2026-11-26T01:42:31.3600145Z       "wrong_returns": 0,
+2026-11-26T01:42:31.3600478Z       "ambiguities": 0
+2026-11-26T01:42:31.3600792Z     },
+2026-11-26T01:42:31.3601049Z     {
+2026-11-26T01:42:31.3601313Z       "version": "0.3.0",
+2026-11-26T01:42:31.3601678Z       "positive_supported": 73,
+2026-11-26T01:42:31.3602082Z       "positive_total": 73,
+2026-11-26T01:42:31.3602505Z       "negative_refusals": 20,
+2026-11-26T01:42:31.3602916Z       "negative_total": 20,
+2026-11-26T01:42:31.3603288Z       "wrong_returns": 0,
+2026-11-26T01:42:31.3603657Z       "ambiguities": 0
+2026-11-26T01:42:31.3603991Z     }
+2026-11-26T01:42:31.3604275Z   ],
+2026-11-26T01:42:31.3604658Z   "current_engine_matches_recorded": false
+2026-11-26T01:42:31.3605111Z }
+2026-11-26T01:42:31.3728592Z ##[group]Run set -euo pipefail
+2026-11-26T01:42:31.3728909Z [36;1mset -euo pipefail[0m
+2026-11-26T01:42:31.3729202Z [36;1mcd "$RUNNER_TEMP/mplpb-unpacked"[0m
+2026-11-26T01:42:31.3729731Z [36;1mpython -m tools.evaluate_researcher_pilot --output "$RUNNER_TEMP/mplpb-zipped/npc-pilot/native.json"[0m
+2026-11-26T01:42:31.3766436Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T01:42:31.3766793Z env:
+2026-11-26T01:42:31.3767064Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:31.3767492Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T01:42:31.3767915Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:31.3768288Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:31.3768665Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:31.3769044Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T01:42:31.3769564Z   ARCHIVE_SHA256: c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282
+2026-11-26T01:42:31.3769980Z ##[endgroup]
+2026-11-26T01:42:40.0867376Z {"status": "synthetic_development_workflow_only", "summary": {"journeys": 6, "workflow_passes": 6, "checks": 109, "failed_checks": 0, "questions": 24, "answerable": 18, "returned": 13, "unexecuted_questions": 0, "literal_gold_supported": 13, "wrong_returns_under_literal_oracle": 0, "ungraded_model_returns": 0, "unnecessary_refusals": 5, "complete_answerable_coverage": 0.7222222222222222, "retrieval_gold_recall": 1.0, "valid_citations": 13, "citations": 13, "latency_ms_total": 417.486, "resume_ms_total": 1306.379, "semantic_accuracy_independently_measured": false, "human_usability_measured": false}, "report": "/home/runner/work/_temp/mplpb-zipped/npc-pilot/native.json"}
+2026-11-26T01:42:40.1120690Z ##[group]Run set -euo pipefail
+2026-11-26T01:42:40.1121218Z [36;1mset -euo pipefail[0m
+2026-11-26T01:42:40.1121641Z [36;1mcd "$RUNNER_TEMP/mplpb-unpacked"[0m
+2026-11-26T01:42:40.1122145Z [36;1mpython tools/check_ui_script.py[0m
+2026-11-26T01:42:40.1122656Z [36;1mnode tools/check_browser_transport.cjs[0m
+2026-11-26T01:42:40.1123161Z [36;1mnode tests/javascript-api.cjs[0m
+2026-11-26T01:42:40.1123641Z [36;1mnode tests/documentary-render.cjs[0m
+2026-11-26T01:42:40.1124153Z [36;1mnode tests/browser-ai-helper.cjs[0m
+2026-11-26T01:42:40.1124648Z [36;1mnode tests/browser-model-loader.cjs[0m
+2026-11-26T01:42:40.1125169Z [36;1mnode tests/browser-webgpu-limits.cjs[0m
+2026-11-26T01:42:40.1125888Z [36;1mnode crawler/test_worker.mjs[0m
+2026-11-26T01:42:40.1126355Z [36;1mnode crawler/test_historical.mjs[0m
+2026-11-26T01:42:40.1126904Z [36;1mnode --check tools/mplpb_agent_bridge.mjs[0m
+2026-11-26T01:42:40.1127464Z [36;1mnode tools/mplpb_agent_bridge.mjs --help[0m
+2026-11-26T01:42:40.1166820Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T01:42:40.1167354Z env:
+2026-11-26T01:42:40.1167774Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:40.1168463Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T01:42:40.1169148Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:40.1169679Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:40.1170127Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:40.1170546Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T01:42:40.1171052Z   ARCHIVE_SHA256: c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282
+2026-11-26T01:42:40.1171478Z ##[endgroup]
+2026-11-26T01:42:40.8358339Z PASS: script workflow, source controls, profile changes, clarification, history, experiment, chat/rule/creator rendering, escaping, preferences, stale responses and file-mode instructions. No browser rendering performed.
+2026-11-26T01:42:40.9041960Z PASS browser transport: serialized engine calls, save-before-success, conflict retention, quota stop, embedded hash rejection and client RPC. No browser layout/IndexedDB test.
+2026-11-26T01:42:42.6704990Z PASS JavaScript API: real engine parity, ambiguity/refusal, delivery profiles, offline default, opt-in Wikipedia fixtures, sessions, imports, validation, readiness and error recovery.
+2026-11-26T01:42:42.7286247Z PASS documentary rendering: checked/partial statements, missing scope, qualifiers, source inspection and escaping
+2026-11-26T01:42:42.7295597Z PASS exact-field source cards: cited owner, omitted lexical owner, pins and unchanged candidate inspection
+2026-11-26T01:42:43.1082087Z {
+2026-11-26T01:42:43.1083018Z   "role": "Authored browser-helper contract/real-engine checks; no live model inference or independent human validation",
+2026-11-26T01:42:43.1083612Z   "checks": 45,
+2026-11-26T01:42:43.1083848Z   "passed": true
+2026-11-26T01:42:43.1084096Z }
+2026-11-26T01:42:46.5135918Z {
+2026-11-26T01:42:46.5137004Z   "role": "Authored model-loader state/DOM tests with simulated runtime and GPU; not live neural inference or independent human validation",
+2026-11-26T01:42:46.5137917Z   "checks": 18,
+2026-11-26T01:42:46.5138257Z   "passed": true,
+2026-11-26T01:42:46.5138586Z   "cases": [
+2026-11-26T01:42:46.5139026Z     "no GPU reports preflight failure without fetching",
+2026-11-26T01:42:46.5139652Z     "missing f16 blocks before runtime download",
+2026-11-26T01:42:46.5140299Z     "unknown or inadequate buffer capacity is rejected",
+2026-11-26T01:42:46.5141069Z     "explicit choice uses its own identity, buffer minimum and runtime record",
+2026-11-26T01:42:46.5141926Z     "unknown selection never downloads the runtime or starts an engine",
+2026-11-26T01:42:46.5142981Z     "generation failure invalidates ready state and requires reload with retained initialization evidence",
+2026-11-26T01:42:46.5144327Z     "non-MIT model anywhere in catalog fails closed",
+2026-11-26T01:42:46.5145136Z     "duplicate identities and missing defaults fail before engine allocation",
+2026-11-26T01:42:46.5146154Z     "changed runtime bytes stop before import or initialization",
+2026-11-26T01:42:46.5147012Z     "100 percent followed by exit(1) retains runtime evidence and never becomes ready",
+2026-11-26T01:42:46.5147975Z     "100 percent remains loading until reload actually resolves; concurrency blocked",
+2026-11-26T01:42:46.5148876Z     "cleanup errors preserve original failure and recovery requirement",
+2026-11-26T01:42:46.5149646Z     "hanging cleanup is bounded without clearing source data",
+2026-11-26T01:42:46.5150387Z     "bounded events and snapshots cannot mutate the retained report",
+2026-11-26T01:42:46.5151155Z     "older preflight failures are bounded and omissions explicit",
+2026-11-26T01:42:46.5151853Z     "pinned runtime logger hook changes fail visibly",
+2026-11-26T01:42:46.5152591Z     "real helper UI exposes initialization failure without a ledger call",
+2026-11-26T01:42:46.5153471Z     "real pinned WebLLM constructor/logger/unload API works without loading weights"
+2026-11-26T01:42:46.5154102Z   ]
+2026-11-26T01:42:46.5154369Z }
+2026-11-26T01:42:46.8970417Z {
+2026-11-26T01:42:46.8971411Z   "role": "Actual pinned production functions, authored adapter/device values; not physical GPU or neural/human validation",
+2026-11-26T01:42:46.8972287Z   "checks": 12,
+2026-11-26T01:42:46.8972627Z   "passed": true,
+2026-11-26T01:42:46.8972990Z   "cases": [
+2026-11-26T01:42:46.8973564Z     "upstream reproduces insufficient negotiated capacity on 512 MiB adapter",
+2026-11-26T01:42:46.8974325Z     "bounded actual request for adapter 256/128 MiB",
+2026-11-26T01:42:46.8974920Z     "bounded actual request for adapter 384/384 MiB",
+2026-11-26T01:42:46.8975467Z     "bounded actual request for adapter 512/512 MiB",
+2026-11-26T01:42:46.8976236Z     "bounded actual request for adapter 768/512 MiB",
+2026-11-26T01:42:46.8976814Z     "bounded actual request for adapter 1024/1024 MiB",
+2026-11-26T01:42:46.8977400Z     "bounded actual request for adapter 2048/2048 MiB",
+2026-11-26T01:42:46.8978074Z     "actual negotiated 512 MiB device accepts declared tensor minimum",
+2026-11-26T01:42:46.8978887Z     "actual undersized device rejected even when adapter was sufficient",
+2026-11-26T01:42:46.8979691Z     "binding near miss rejected separately from buffer allocation",
+2026-11-26T01:42:46.8980390Z     "missing actual limits and invalid declared minimum fail closed",
+2026-11-26T01:42:46.8981603Z     "upstream callers without host minimum remain compatible"
+2026-11-26T01:42:46.8982088Z   ]
+2026-11-26T01:42:46.8982359Z }
+2026-11-26T01:42:46.9778206Z PASS general web crawler: bounded link following, robots, public URL guards, pins and secret isolation. Fixture network only.
+2026-11-26T01:42:47.0422342Z PASS direct historical crawl: unchanged bytes, pins, changed versions, identity scope, robots and restrictions
+2026-11-26T01:42:47.1021412Z Usage: node tools/mplpb_agent_bridge.mjs <GitHub-repo-or-PR-or-live-site-URL> (--handshake | --betty | --al | --question TEXT | --chat TEXT | --pages | --read PAGE) [--corpus KEY] [--session ID] [--profile-dir PATH] [--suggest] [--allow-network] [--auto-wiki]
+2026-11-26T01:42:47.1094435Z ##[group]Run curl --fail --location --retry 2 https://github.com/pyodide/pyodide/releases/download/314.0.7/pyodide-core-314.0.7.tar.bz2 --output "$RUNNER_TEMP/pyodide-core.tar.bz2"
+2026-11-26T01:42:47.1095961Z [36;1mcurl --fail --location --retry 2 https://github.com/pyodide/pyodide/releases/download/314.0.7/pyodide-core-314.0.7.tar.bz2 --output "$RUNNER_TEMP/pyodide-core.tar.bz2"[0m
+2026-11-26T01:42:47.1132352Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T01:42:47.1132777Z env:
+2026-11-26T01:42:47.1133050Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:47.1133479Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T01:42:47.1133909Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:47.1134282Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:47.1134663Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:47.1135083Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T01:42:47.1135562Z   ARCHIVE_SHA256: c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282
+2026-11-26T01:42:47.1136266Z ##[endgroup]
+2026-11-26T01:42:47.1274388Z   % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+2026-11-26T01:42:47.1275255Z                                  Dload  Upload  Total   Spent   Left   Speed
+2026-11-26T01:42:47.1280441Z 
+2026-11-26T01:42:47.2987258Z   0      0   0      0   0      0      0      0                              0
+2026-11-26T01:42:47.2987976Z   0      0   0      0   0      0      0      0                              0
+2026-11-26T01:42:47.2988570Z   0      0   0      0   0      0      0      0                              0
+2026-11-26T01:42:47.2990409Z 
+2026-11-26T01:42:47.3638862Z   0      0   0      0   0      0      0      0                              0
+2026-11-26T01:42:47.3639794Z 100  6.44M 100  6.44M   0      0 27.22M      0                              0
+2026-11-26T01:42:47.3640543Z 100  6.44M 100  6.44M   0      0 27.21M      0                              0
+2026-11-26T01:42:47.3641264Z 100  6.44M 100  6.44M   0      0 27.20M      0                              0
+2026-11-26T01:42:47.3707468Z ##[group]Run set -euo pipefail
+2026-11-26T01:42:47.3707812Z [36;1mset -euo pipefail[0m
+2026-11-26T01:42:47.3708087Z [36;1mcd "$RUNNER_TEMP/mplpb-unpacked"[0m
+2026-11-26T01:42:47.3708670Z [36;1mpython tools/build_browser_runtime.py --core-archive "$RUNNER_TEMP/pyodide-core.tar.bz2" --output dist/index.html[0m
+2026-11-26T01:42:47.3709322Z [36;1mtar -xjf "$RUNNER_TEMP/pyodide-core.tar.bz2" -C "$RUNNER_TEMP"[0m
+2026-11-26T01:42:47.3709811Z [36;1mnode tools/check_browser_wasm.mjs "$RUNNER_TEMP/pyodide" dist/index.html[0m
+2026-11-26T01:42:47.3745565Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T01:42:47.3746171Z env:
+2026-11-26T01:42:47.3746450Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:47.3746885Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T01:42:47.3747311Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:47.3747723Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:47.3748116Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:42:47.3748679Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T01:42:47.3749147Z   ARCHIVE_SHA256: c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282
+2026-11-26T01:42:47.3749557Z ##[endgroup]
+2026-11-26T01:42:51.0207419Z {
+2026-11-26T01:42:51.0207891Z   "output": "dist/index.html",
+2026-11-26T01:42:51.0208296Z   "bytes": 40412553,
+2026-11-26T01:42:51.0208720Z   "sha256": "24ad52ffd2710673534c3809719c2db81218eb95e8110eff63703d56b30c93ef",
+2026-11-26T01:42:51.0209330Z   "bundled_files": 645,
+2026-11-26T01:42:51.0209647Z   "pyodide": "314.0.7",
+2026-11-26T01:42:51.0210306Z   "core_release_sha256": "2abdcc2e35208af406e07724cffa85bc582ced97e9028383ecf5462541393f95"
+2026-11-26T01:42:51.0211010Z }
+2026-11-26T01:42:54.8811604Z PASS Betty and Al public roles in bundled WebAssembly
+2026-11-26T01:42:55.1716734Z PASS public JavaScript API on real WebAssembly
+2026-11-26T01:42:55.2442647Z corpora [
+2026-11-26T01:42:55.2443276Z   'canned',    'studio',
+2026-11-26T01:42:55.2443951Z   'gate',      'dogs',
+2026-11-26T01:42:55.2444644Z   'system',    'logic',
+2026-11-26T01:42:55.2445257Z   'reference', 'wiki'
+2026-11-26T01:42:55.2445932Z ]
+2026-11-26T01:42:55.8546845Z PASS WASM imported-source polarity conflict
+2026-11-26T01:42:55.9553607Z PASS WASM checked documentary assertions and partial composition
+2026-11-26T01:42:55.9996952Z PASS WASM collection conjunction distinguishes explicit no-cook
+2026-11-26T01:42:56.1764835Z PASS WASM source-framed complete comparison and unresolved motive
+2026-11-26T01:43:14.4750646Z PASS real WebAssembly: ownership, relation proof, summary, withholding, memory, saved relaunch, fixture imports, isolated collections, offline references, grounded follow-ups and social turn-taking.
+2026-11-26T01:43:30.9765420Z WASM dialogue scenarios passed
+2026-11-26T01:43:34.4667082Z WASM natural requests and adaptive guidance passed
+2026-11-26T01:43:34.4849753Z WASM off-record source and persistence boundaries passed
+2026-11-26T01:43:43.1206111Z WASM structured requests passed in Chat, Serious and free chat
+2026-11-26T01:43:43.6746938Z WASM library routing, scope clarification and return paths passed
+2026-11-26T01:43:46.2797440Z WASM deterministic generation and evidence boundaries passed in all three modes
+2026-11-26T01:44:38.7092395Z WASM natural self/content conversation, seed discussion and sense-specific nuance passed
+2026-11-26T01:44:38.7803648Z ##[group]Run python -m pip install "playwright==1.58.0"
+2026-11-26T01:44:38.7804089Z [36;1mpython -m pip install "playwright==1.58.0"[0m
+2026-11-26T01:44:38.7840341Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T01:44:38.7840699Z env:
+2026-11-26T01:44:38.7840977Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:44:38.7841403Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T01:44:38.7841826Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:44:38.7842203Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:44:38.7842597Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:44:38.7842972Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T01:44:38.7843448Z   ARCHIVE_SHA256: c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282
+2026-11-26T01:44:38.7843863Z ##[endgroup]
+2026-11-26T01:44:39.1639879Z Collecting playwright==1.58.0
+2026-11-26T01:44:39.1879930Z   Downloading playwright-1.58.0-py3-none-manylinux1_x86_64.whl.metadata (3.5 kB)
+2026-11-26T01:44:39.2012501Z Collecting pyee<14,>=13 (from playwright==1.58.0)
+2026-11-26T01:44:39.2045579Z   Downloading pyee-13.0.1-py3-none-any.whl.metadata (3.0 kB)
+2026-11-26T01:44:39.3562683Z Collecting greenlet<4.0.0,>=3.1.1 (from playwright==1.58.0)
+2026-11-26T01:44:39.3603799Z   Downloading greenlet-3.5.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+2026-11-26T01:44:39.3718070Z Collecting typing-extensions (from pyee<14,>=13->playwright==1.58.0)
+2026-11-26T01:44:39.3729644Z   Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-11-26T01:44:39.3778830Z Downloading playwright-1.58.0-py3-none-manylinux1_x86_64.whl (46.2 MB)
+2026-11-26T01:44:39.5195593Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.2/46.2 MB 349.9 MB/s  0:00:00
+2026-11-26T01:44:39.5231713Z Downloading greenlet-3.5.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (621 kB)
+2026-11-26T01:44:39.5286694Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 621.4/621.4 kB 138.5 MB/s  0:00:00
+2026-11-26T01:44:39.5310700Z Downloading pyee-13.0.1-py3-none-any.whl (15 kB)
+2026-11-26T01:44:39.5337989Z Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-11-26T01:44:39.6048266Z Installing collected packages: typing-extensions, greenlet, pyee, playwright
+2026-11-26T01:44:40.4892878Z 
+2026-11-26T01:44:40.4906098Z Successfully installed greenlet-3.5.6 playwright-1.58.0 pyee-13.0.1 typing-extensions-4.16.0
+2026-11-26T01:44:40.5476008Z ##[group]Run set -euo pipefail
+2026-11-26T01:44:40.5476520Z [36;1mset -euo pipefail[0m
+2026-11-26T01:44:40.5476943Z [36;1mcd "$RUNNER_TEMP/mplpb-unpacked"[0m
+2026-11-26T01:44:40.5477480Z [36;1mpython tools/browser_release_smoke.py \[0m
+2026-11-26T01:44:40.5478681Z [36;1m  --live-url "https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/" \[0m
+2026-11-26T01:44:40.5479812Z [36;1m  --preview-dir dist \[0m
+2026-11-26T01:44:40.5480403Z [36;1m  --npc-report "$RUNNER_TEMP/mplpb-zipped/npc-pilot/browser.json"[0m
+2026-11-26T01:44:40.5481153Z [36;1mpython -m tools.browser_collection_policies --preview-dir dist \[0m
+2026-11-26T01:44:40.5481885Z [36;1m  --browser-executable "$(command -v google-chrome)" \[0m
+2026-11-26T01:44:40.5482631Z [36;1m  --output "$RUNNER_TEMP/mplpb-zipped/npc-pilot/collection-policies.json"[0m
+2026-11-26T01:44:40.5526711Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T01:44:40.5527120Z env:
+2026-11-26T01:44:40.5527425Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:44:40.5527862Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T01:44:40.5528296Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:44:40.5528675Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:44:40.5529048Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:44:40.5529414Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T01:44:40.5529885Z   ARCHIVE_SHA256: c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282
+2026-11-26T01:44:40.5530303Z ##[endgroup]
+2026-11-26T01:44:41.8302213Z BROWSER LOAD published-live https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/
+2026-11-26T01:44:52.6113037Z BROWSER STRICT: NO SUPPORTED ANSWER
+2026-11-26T01:44:52.6717665Z BROWSER PASS published-live
+2026-11-26T01:44:52.8286315Z BROWSER LOAD candidate-preview http://127.0.0.1:43277/
+2026-11-26T01:44:52.8437332Z 127.0.0.1 - - [26/Nov/2026 01:44:52] "GET / HTTP/1.1" 200 -
+2026-11-26T01:44:53.3491047Z 127.0.0.1 - - [26/Nov/2026 01:44:53] "GET /ai/models.json HTTP/1.1" 200 -
+2026-11-26T01:45:02.0589396Z BROWSER STRICT: NO SUPPORTED ANSWER
+2026-11-26T01:45:02.2117609Z BROWSER INSPECT: AMBIGUOUS
+2026-11-26T01:45:02.3316947Z BROWSER SAMPLE: candidate inspection selected
+2026-11-26T01:45:02.6559789Z BROWSER CAPTIONS: supported and inspection notices separated
+2026-11-26T01:45:04.1778050Z 127.0.0.1 - - [26/Nov/2026 01:45:04] "GET / HTTP/1.1" 200 -
+2026-11-26T01:45:04.6256157Z 127.0.0.1 - - [26/Nov/2026 01:45:04] "GET /ai/models.json HTTP/1.1" 304 -
+2026-11-26T01:45:12.6049252Z NPC_BROWSER {"schema": "mplpb-researcher-browser-pilot-v1", "suite_sha256": "38b29eb6599f4484b5d7e7e654251aee54e6e25d9dd5d388b195c32c70e5d6d5", "persona": "mara", "actual_browser": "Chromium with running application engine", "checks_passed": ["create_collection_through_ui", "paste_import_through_ui", "ask_and_click_cited_source", "known_reader_limit_is_not_an_answer", "conflicting_bulletins_do_not_choose_a_winner", "save_multisentence_investigation_note", "indexeddb_reload_preserves_note_and_exact_transcript", "resume_rechecks_sources"], "status": "synthetic_ui_workflow_passed", "known_answerable_refusals": 1, "human_usability_measured": false, "product_backup_or_upgrade_tested": false, "notice": "One scripted persona, developer-inspected controls; not six browser users or a human pilot."}
+2026-11-26T01:45:15.1499257Z BROWSER DOCUMENT: pasted source and local file, cited answers, partial, and inspection passed
+2026-11-26T01:45:15.1906805Z 127.0.0.1 - - [26/Nov/2026 01:45:15] "GET / HTTP/1.1" 200 -
+2026-11-26T01:45:15.6604339Z 127.0.0.1 - - [26/Nov/2026 01:45:15] "GET /ai/models.json HTTP/1.1" 304 -
+2026-11-26T01:45:23.2681249Z 127.0.0.1 - - [26/Nov/2026 01:45:23] "GET / HTTP/1.1" 200 -
+2026-11-26T01:45:23.7233162Z 127.0.0.1 - - [26/Nov/2026 01:45:23] "GET /ai/models.json HTTP/1.1" 304 -
+2026-11-26T01:45:31.3586087Z BROWSER PREFERENCES: automatic lookup off/on survives reload
+2026-11-26T01:45:31.4128973Z BROWSER PASS candidate-preview
+2026-11-26T01:45:32.6327504Z 127.0.0.1 - - [26/Nov/2026 01:45:32] "GET / HTTP/1.1" 200 -
+2026-11-26T01:45:33.1456422Z 127.0.0.1 - - [26/Nov/2026 01:45:33] "GET /ai/models.json HTTP/1.1" 200 -
+2026-11-26T01:45:40.7833905Z 127.0.0.1 - - [26/Nov/2026 01:45:40] "GET / HTTP/1.1" 200 -
+2026-11-26T01:45:41.2277453Z 127.0.0.1 - - [26/Nov/2026 01:45:41] "GET /ai/models.json HTTP/1.1" 200 -
+2026-11-26T01:45:49.5773453Z 127.0.0.1 - - [26/Nov/2026 01:45:49] "GET / HTTP/1.1" 200 -
+2026-11-26T01:45:50.0379328Z 127.0.0.1 - - [26/Nov/2026 01:45:50] "GET /ai/models.json HTTP/1.1" 200 -
+2026-11-26T01:45:58.5994303Z {"schema": "mplpb-browser-collection-policy-check-v1", "checks_passed": ["import_grows_collection_not_engine", "ui_policy_answer_and_citation_inspection", "revision_changes_answer_and_invalidates_old_citation", "indexeddb_resume_and_offline_current_answer", "acquisition_requires_permission", "permitted_fixture_acquisition_builds_answerable_source", "competing_policy_is_not_ranked_away"], "runtime": "actual Chromium and embedded Pyodide", "network": "Wikipedia HTTP fixture, not a live acquisition claim", "fixture_source_requests": 1, "unexpected_browser_errors": [], "browser_version": "157.0.8103.78", "human_validation": false, "full_portable_backup_supported": false, "runtime_html_sha256": "24ad52ffd2710673534c3809719c2db81218eb95e8110eff63703d56b30c93ef", "runner_sha256": "4e531920255e8d71f27ec2af79390fdb0ea8fe29480af5a6d5802b644e803c4a"}
+2026-11-26T01:45:58.6302699Z ##[group]Run cd "$RUNNER_TEMP/mplpb-unpacked"
+2026-11-26T01:45:58.6303091Z [36;1mcd "$RUNNER_TEMP/mplpb-unpacked"[0m
+2026-11-26T01:45:58.6303810Z [36;1mpython -m tools.browser_free_helper --preview-dir dist --browser-executable "$(command -v google-chrome)" --output "$RUNNER_TEMP/mplpb-zipped/free-helper.json"[0m
+2026-11-26T01:45:58.6340766Z shell: /usr/bin/bash -e {0}
+2026-11-26T01:45:58.6341063Z env:
+2026-11-26T01:45:58.6341342Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:45:58.6341784Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T01:45:58.6342206Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:45:58.6342588Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:45:58.6342966Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:45:58.6343447Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T01:45:58.6343991Z   ARCHIVE_SHA256: c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282
+2026-11-26T01:45:58.6344422Z ##[endgroup]
+2026-11-26T01:45:59.5134050Z 127.0.0.1 - - [26/Nov/2026 01:45:59] "GET / HTTP/1.1" 200 -
+2026-11-26T01:46:00.0524465Z 127.0.0.1 - - [26/Nov/2026 01:46:00] "GET /ai/models.json HTTP/1.1" 200 -
+2026-11-26T01:46:10.3978964Z 127.0.0.1 - - [26/Nov/2026 01:46:10] "GET / HTTP/1.1" 200 -
+2026-11-26T01:46:10.8385213Z 127.0.0.1 - - [26/Nov/2026 01:46:10] "GET /ai/models.json HTTP/1.1" 200 -
+2026-11-26T01:46:18.9861563Z 127.0.0.1 - - [26/Nov/2026 01:46:18] "GET / HTTP/1.1" 200 -
+2026-11-26T01:46:19.5000750Z 127.0.0.1 - - [26/Nov/2026 01:46:19] "GET /ai/models.json HTTP/1.1" 200 -
+2026-11-26T01:46:27.2481821Z 127.0.0.1 - - [26/Nov/2026 01:46:27] "GET /ai/models.json HTTP/1.1" 200 -
+2026-11-26T01:46:28.0807274Z 127.0.0.1 - - [26/Nov/2026 01:46:28] "GET / HTTP/1.1" 200 -
+2026-11-26T01:46:28.5436387Z 127.0.0.1 - - [26/Nov/2026 01:46:28] "GET /ai/models.json HTTP/1.1" 200 -
+2026-11-26T01:46:36.1432547Z 127.0.0.1 - - [26/Nov/2026 01:46:36] "GET / HTTP/1.1" 200 -
+2026-11-26T01:46:36.6094138Z 127.0.0.1 - - [26/Nov/2026 01:46:36] "GET /ai/models.json HTTP/1.1" 200 -
+2026-11-26T01:46:44.2032082Z 127.0.0.1 - - [26/Nov/2026 01:46:44] "GET / HTTP/1.1" 200 -
+2026-11-26T01:46:44.6817880Z 127.0.0.1 - - [26/Nov/2026 01:46:44] "GET /ai/models.json HTTP/1.1" 200 -
+2026-11-26T01:46:52.6937893Z {
+2026-11-26T01:46:52.6938197Z   "checks": 12,
+2026-11-26T01:46:52.6938487Z   "passed": true
+2026-11-26T01:46:52.6938714Z }
+2026-11-26T01:46:52.7229383Z ##[group]Run cd "$RUNNER_TEMP/mplpb-unpacked"
+2026-11-26T01:46:52.7229972Z [36;1mcd "$RUNNER_TEMP/mplpb-unpacked"[0m
+2026-11-26T01:46:52.7230809Z [36;1mpython -m tools.browser_audit_20261021 --preview-dir dist --output "$RUNNER_TEMP/mplpb-zipped/browser-audit"[0m
+2026-11-26T01:46:52.7282871Z shell: /usr/bin/bash -e {0}
+2026-11-26T01:46:52.7283274Z env:
+2026-11-26T01:46:52.7283692Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:46:52.7284385Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T01:46:52.7285053Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:46:52.7285904Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:46:52.7286577Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:46:52.7287197Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T01:46:52.7288056Z   ARCHIVE_SHA256: c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282
+2026-11-26T01:46:52.7288719Z ##[endgroup]
+2026-11-26T01:46:53.5444957Z 127.0.0.1 - - [26/Nov/2026 01:46:53] "GET / HTTP/1.1" 200 -
+2026-11-26T01:46:54.0540161Z 127.0.0.1 - - [26/Nov/2026 01:46:54] "GET /ai/models.json HTTP/1.1" 200 -
+2026-11-26T01:47:02.3177746Z 127.0.0.1 - - [26/Nov/2026 01:47:02] "GET / HTTP/1.1" 200 -
+2026-11-26T01:47:02.8208387Z 127.0.0.1 - - [26/Nov/2026 01:47:02] "GET /ai/models.json HTTP/1.1" 304 -
+2026-11-26T01:47:10.6892293Z 127.0.0.1 - - [26/Nov/2026 01:47:10] "GET / HTTP/1.1" 200 -
+2026-11-26T01:47:11.1732179Z 127.0.0.1 - - [26/Nov/2026 01:47:11] "GET /ai/models.json HTTP/1.1" 304 -
+2026-11-26T01:47:19.8934073Z 127.0.0.1 - - [26/Nov/2026 01:47:19] "GET / HTTP/1.1" 200 -
+2026-11-26T01:47:20.3425013Z 127.0.0.1 - - [26/Nov/2026 01:47:20] "GET /ai/models.json HTTP/1.1" 304 -
+2026-11-26T01:47:27.8602078Z AUDIT BROWSER PASS candidate
+2026-11-26T01:47:28.4434864Z ##[group]Run set -euo pipefail
+2026-11-26T01:47:28.4435239Z [36;1mset -euo pipefail[0m
+2026-11-26T01:47:28.4435482Z [36;1m{[0m
+2026-11-26T01:47:28.4436118Z [36;1m  echo "Git commit packaged: $(cat "$RUNNER_TEMP/mplpb-zipped/commit.sha")"[0m
+2026-11-26T01:47:28.4436673Z [36;1m  echo "Git tree packaged: $(cat "$RUNNER_TEMP/mplpb-zipped/tree.sha")"[0m
+2026-11-26T01:47:28.4437094Z [36;1m  echo "ZIP SHA-256: $ARCHIVE_SHA256"[0m
+2026-11-26T01:47:28.4437456Z [36;1m  echo "Test source: extracted ZIP, not git working tree"[0m
+2026-11-26T01:47:28.4437867Z [36;1m  echo "Python attack and full regression: PASS"[0m
+2026-11-26T01:47:28.4438296Z [36;1m  echo "Installed candidate workspace without checkout tools: PASS"[0m
+2026-11-26T01:47:28.4438713Z [36;1m  echo "JavaScript/API/crawler/bridge: PASS"[0m
+2026-11-26T01:47:28.4439065Z [36;1m  echo "Pinned Python WebAssembly engine: PASS"[0m
+2026-11-26T01:47:28.4439410Z [36;1m  echo "Chromium published-live baseline: PASS"[0m
+2026-11-26T01:47:28.4439778Z [36;1m  echo "Chromium ZIP-built candidate: PASS"[0m
+2026-11-26T01:47:28.4440469Z [36;1m  echo "Synthetic researcher native and browser journeys: PASS (not human validation)"[0m
+2026-11-26T01:47:28.4441031Z [36;1m  echo "Post-merge deployed-live Chromium: separate Pages deployment gate"[0m
+2026-11-26T01:47:28.4441495Z [36;1m} > "$RUNNER_TEMP/mplpb-zipped/validation-report.txt"[0m
+2026-11-26T01:47:28.4441884Z [36;1mcat "$RUNNER_TEMP/mplpb-zipped/validation-report.txt"[0m
+2026-11-26T01:47:28.4442329Z [36;1m# Copy the exact preview tested in Chromium, then bind all successful[0m
+2026-11-26T01:47:28.4442809Z [36;1m# gates to this candidate SHA and to content digests. This manifest[0m
+2026-11-26T01:47:28.4443293Z [36;1m# describes a candidate; post-deployment smoke stays a separate gate.[0m
+2026-11-26T01:47:28.4443968Z [36;1mcp "$RUNNER_TEMP/mplpb-unpacked/dist/index.html" "$RUNNER_TEMP/mplpb-zipped/mplpb-candidate-preview.html"[0m
+2026-11-26T01:47:28.4444501Z [36;1mcd "$RUNNER_TEMP/mplpb-unpacked"[0m
+2026-11-26T01:47:28.4444830Z [36;1mpython tools/release_evidence.py create \[0m
+2026-11-26T01:47:28.4445190Z [36;1m  --archive-dir "$RUNNER_TEMP/mplpb-zipped" \[0m
+2026-11-26T01:47:28.4445598Z [36;1m  --expected-commit "d265881fec092afffdda56cd8781438e40ef1cf7"[0m
+2026-11-26T01:47:28.4446148Z [36;1mpython tools/release_evidence.py verify \[0m
+2026-11-26T01:47:28.4446488Z [36;1m  --archive-dir "$RUNNER_TEMP/mplpb-zipped" \[0m
+2026-11-26T01:47:28.4446884Z [36;1m  --expected-commit "d265881fec092afffdda56cd8781438e40ef1cf7"[0m
+2026-11-26T01:47:28.4482542Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-26T01:47:28.4482882Z env:
+2026-11-26T01:47:28.4483149Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:47:28.4483576Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T01:47:28.4484001Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:47:28.4484390Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:47:28.4484780Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:47:28.4485166Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T01:47:28.4485753Z   ARCHIVE_SHA256: c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282
+2026-11-26T01:47:28.4486177Z ##[endgroup]
+2026-11-26T01:47:28.4648774Z Git commit packaged: d265881fec092afffdda56cd8781438e40ef1cf7
+2026-11-26T01:47:28.4649475Z Git tree packaged: 4069344550a8ec855ce16d42ecba209750540f02
+2026-11-26T01:47:28.4650394Z ZIP SHA-256: c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282
+2026-11-26T01:47:28.4651066Z Test source: extracted ZIP, not git working tree
+2026-11-26T01:47:28.4651595Z Python attack and full regression: PASS
+2026-11-26T01:47:28.4652242Z Installed candidate workspace without checkout tools: PASS
+2026-11-26T01:47:28.4652852Z JavaScript/API/crawler/bridge: PASS
+2026-11-26T01:47:28.4653691Z Pinned Python WebAssembly engine: PASS
+2026-11-26T01:47:28.4654246Z Chromium published-live baseline: PASS
+2026-11-26T01:47:28.4654746Z Chromium ZIP-built candidate: PASS
+2026-11-26T01:47:28.4655240Z Synthetic researcher native and browser journeys: PASS (not human validation)
+2026-11-26T01:47:28.4656065Z Post-merge deployed-live Chromium: separate Pages deployment gate
+2026-11-26T01:47:29.1846807Z {
+2026-11-26T01:47:29.1847215Z   "browser_preview": {
+2026-11-26T01:47:29.1847609Z     "bytes": 40412553,
+2026-11-26T01:47:29.1847979Z     "file": "mplpb-candidate-preview.html",
+2026-11-26T01:47:29.1848480Z     "sha256": "24ad52ffd2710673534c3809719c2db81218eb95e8110eff63703d56b30c93ef"
+2026-11-26T01:47:29.1848878Z   },
+2026-11-26T01:47:29.1849174Z   "commit_sha": "d265881fec092afffdda56cd8781438e40ef1cf7",
+2026-11-26T01:47:29.1849792Z   "limitations": "CI candidate evidence only; deployment and post-deployment browser verification are separate.",
+2026-11-26T01:47:29.1850326Z   "passed_gate_labels": [
+2026-11-26T01:47:29.1850671Z     "Python attack and full regression: PASS",
+2026-11-26T01:47:29.1851013Z     "JavaScript/API/crawler/bridge: PASS",
+2026-11-26T01:47:29.1851666Z     "Pinned Python WebAssembly engine: PASS",
+2026-11-26T01:47:29.1851992Z     "Chromium published-live baseline: PASS",
+2026-11-26T01:47:29.1852303Z     "Chromium ZIP-built candidate: PASS"
+2026-11-26T01:47:29.1852578Z   ],
+2026-11-26T01:47:29.1852843Z   "schema": "mplpb-candidate-release-evidence-v1",
+2026-11-26T01:47:29.1853149Z   "source_zip": {
+2026-11-26T01:47:29.1853364Z     "bytes": 818141652,
+2026-11-26T01:47:29.1853628Z     "file": "mplpb-repository.zip",
+2026-11-26T01:47:29.1854062Z     "sha256": "c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282"
+2026-11-26T01:47:29.1854451Z   },
+2026-11-26T01:47:29.1854710Z   "status": "candidate_checks_passed_not_deployed",
+2026-11-26T01:47:29.1855094Z   "tree_sha": "4069344550a8ec855ce16d42ecba209750540f02",
+2026-11-26T01:47:29.1855841Z   "validation_report_sha256": "9bc7ea7e98ebbf4ace91bf54071d8ba965278cfda52965fa3116e16996602a55"
+2026-11-26T01:47:29.1856528Z }
+2026-11-26T01:47:29.8946921Z {
+2026-11-26T01:47:29.8947327Z   "browser_preview": {
+2026-11-26T01:47:29.8947723Z     "bytes": 40412553,
+2026-11-26T01:47:29.8948154Z     "file": "mplpb-candidate-preview.html",
+2026-11-26T01:47:29.8948714Z     "sha256": "24ad52ffd2710673534c3809719c2db81218eb95e8110eff63703d56b30c93ef"
+2026-11-26T01:47:29.8949511Z   },
+2026-11-26T01:47:29.8950240Z   "commit_sha": "d265881fec092afffdda56cd8781438e40ef1cf7",
+2026-11-26T01:47:29.8951273Z   "limitations": "CI candidate evidence only; deployment and post-deployment browser verification are separate.",
+2026-11-26T01:47:29.8952086Z   "passed_gate_labels": [
+2026-11-26T01:47:29.8952545Z     "Python attack and full regression: PASS",
+2026-11-26T01:47:29.8953067Z     "JavaScript/API/crawler/bridge: PASS",
+2026-11-26T01:47:29.8953580Z     "Pinned Python WebAssembly engine: PASS",
+2026-11-26T01:47:29.8954107Z     "Chromium published-live baseline: PASS",
+2026-11-26T01:47:29.8954635Z     "Chromium ZIP-built candidate: PASS"
+2026-11-26T01:47:29.8955031Z   ],
+2026-11-26T01:47:29.8955457Z   "schema": "mplpb-candidate-release-evidence-v1",
+2026-11-26T01:47:29.8956124Z   "source_zip": {
+2026-11-26T01:47:29.8956446Z     "bytes": 818141652,
+2026-11-26T01:47:29.8956855Z     "file": "mplpb-repository.zip",
+2026-11-26T01:47:29.8957537Z     "sha256": "c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282"
+2026-11-26T01:47:29.8958106Z   },
+2026-11-26T01:47:29.8958365Z   "status": "candidate_checks_passed_not_deployed",
+2026-11-26T01:47:29.8958757Z   "tree_sha": "4069344550a8ec855ce16d42ecba209750540f02",
+2026-11-26T01:47:29.8959317Z   "validation_report_sha256": "9bc7ea7e98ebbf4ace91bf54071d8ba965278cfda52965fa3116e16996602a55"
+2026-11-26T01:47:29.8959768Z }
+2026-11-26T01:47:29.9066104Z ##[group]Run actions/upload-artifact@v4
+2026-11-26T01:47:29.9066409Z with:
+2026-11-26T01:47:29.9066659Z   name: mplpb-tested-repository-zip-45736125582
+2026-11-26T01:47:29.9066999Z   path: /home/runner/work/_temp/mplpb-zipped/
+2026-11-26T01:47:29.9067307Z   if-no-files-found: error
+2026-11-26T01:47:29.9067554Z   retention-days: 30
+2026-11-26T01:47:29.9067772Z   compression-level: 6
+2026-11-26T01:47:29.9067992Z   overwrite: false
+2026-11-26T01:47:29.9068210Z   include-hidden-files: false
+2026-11-26T01:47:29.9068443Z env:
+2026-11-26T01:47:29.9068696Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:47:29.9069121Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-26T01:47:29.9069541Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:47:29.9069928Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:47:29.9070302Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-26T01:47:29.9070731Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-26T01:47:29.9071221Z   ARCHIVE_SHA256: c3ea1c2db6dfa13462c5a300fe060a1e3908cf2f0cc374850fdae9705e9dd282
+2026-11-26T01:47:29.9071652Z ##[endgroup]
+2026-11-26T01:47:30.0743901Z (node:4613) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T01:47:30.0745070Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T01:47:30.1284497Z With the provided path, there will be 196 files uploaded
+2026-11-26T01:47:30.1285606Z Artifact name is valid!
+2026-11-26T01:47:30.1286288Z Root directory input is valid!
+2026-11-26T01:47:30.3846202Z Beginning upload of artifact content to blob storage
+2026-11-26T01:47:31.0215931Z (node:4613) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-26T01:47:31.3601012Z Uploaded bytes 8388608
+2026-11-26T01:47:31.5507209Z Uploaded bytes 16777216
+2026-11-26T01:47:31.8920108Z Uploaded bytes 25165824
+2026-11-26T01:47:32.1480106Z Uploaded bytes 33554432
+2026-11-26T01:47:32.3969472Z Uploaded bytes 41943040
+2026-11-26T01:47:32.7326972Z Uploaded bytes 50331648
+2026-11-26T01:47:32.9173426Z Uploaded bytes 58720256
+2026-11-26T01:47:33.2098212Z Uploaded bytes 67108864
+2026-11-26T01:47:33.4318143Z Uploaded bytes 75497472
+2026-11-26T01:47:33.7048331Z Uploaded bytes 83886080
+2026-11-26T01:47:33.9268807Z Uploaded bytes 92274688
+2026-11-26T01:47:34.1870557Z Uploaded bytes 100663296
+2026-11-26T01:47:34.4874906Z Uploaded bytes 109051904
+2026-11-26T01:47:34.7755450Z Uploaded bytes 117440512
+2026-11-26T01:47:35.0388145Z Uploaded bytes 125829120
+2026-11-26T01:47:35.3504810Z Uploaded bytes 134217728
+2026-11-26T01:47:35.6298605Z Uploaded bytes 142606336
+2026-11-26T01:47:35.8818195Z Uploaded bytes 150994944
+2026-11-26T01:47:36.1739829Z Uploaded bytes 159383552
+2026-11-26T01:47:36.4770963Z Uploaded bytes 167772160
+2026-11-26T01:47:36.7622009Z Uploaded bytes 176160768
+2026-11-26T01:47:37.0586860Z Uploaded bytes 184549376
+2026-11-26T01:47:37.3253697Z Uploaded bytes 192937984
+2026-11-26T01:47:37.6180080Z Uploaded bytes 201326592
+2026-11-26T01:47:37.9795885Z Uploaded bytes 209715200
+2026-11-26T01:47:38.2895430Z Uploaded bytes 218103808
+2026-11-26T01:47:38.5845958Z Uploaded bytes 226492416
+2026-11-26T01:47:38.8880519Z Uploaded bytes 234881024
+2026-11-26T01:47:39.2032321Z Uploaded bytes 243269632
+2026-11-26T01:47:39.4745417Z Uploaded bytes 251658240
+2026-11-26T01:47:39.7275515Z Uploaded bytes 260046848
+2026-11-26T01:47:40.0185231Z Uploaded bytes 268435456
+2026-11-26T01:47:40.2990822Z Uploaded bytes 276824064
+2026-11-26T01:47:40.5690585Z Uploaded bytes 285212672
+2026-11-26T01:47:40.8445190Z Uploaded bytes 293601280
+2026-11-26T01:47:41.1417317Z Uploaded bytes 301989888
+2026-11-26T01:47:41.3853356Z Uploaded bytes 310378496
+2026-11-26T01:47:41.6609040Z Uploaded bytes 318767104
+2026-11-26T01:47:41.9386585Z Uploaded bytes 327155712
+2026-11-26T01:47:42.1696042Z Uploaded bytes 335544320
+2026-11-26T01:47:42.4547243Z Uploaded bytes 343932928
+2026-11-26T01:47:42.6708985Z Uploaded bytes 352321536
+2026-11-26T01:47:42.9625533Z Uploaded bytes 360710144
+2026-11-26T01:47:43.1790682Z Uploaded bytes 369098752
+2026-11-26T01:47:43.4223340Z Uploaded bytes 377487360
+2026-11-26T01:47:43.7315299Z Uploaded bytes 385875968
+2026-11-26T01:47:43.9270465Z Uploaded bytes 394264576
+2026-11-26T01:47:44.2142855Z Uploaded bytes 402653184
+2026-11-26T01:47:44.4186452Z Uploaded bytes 411041792
+2026-11-26T01:47:44.6992824Z Uploaded bytes 419430400
+2026-11-26T01:47:44.9344437Z Uploaded bytes 427819008
+2026-11-26T01:47:45.1495896Z Uploaded bytes 436207616
+2026-11-26T01:47:45.3930972Z Uploaded bytes 444596224
+2026-11-26T01:47:45.6540245Z Uploaded bytes 452984832
+2026-11-26T01:47:45.9036583Z Uploaded bytes 461373440
+2026-11-26T01:47:46.1411866Z Uploaded bytes 469762048
+2026-11-26T01:47:46.3922361Z Uploaded bytes 478150656
+2026-11-26T01:47:46.6467336Z Uploaded bytes 486539264
+2026-11-26T01:47:46.8799141Z Uploaded bytes 494927872
+2026-11-26T01:47:47.1521634Z Uploaded bytes 503316480
+2026-11-26T01:47:47.3857279Z Uploaded bytes 511705088
+2026-11-26T01:47:47.6489630Z Uploaded bytes 520093696
+2026-11-26T01:47:47.8862877Z Uploaded bytes 528482304
+2026-11-26T01:47:48.1269582Z Uploaded bytes 536870912
+2026-11-26T01:47:48.3777508Z Uploaded bytes 545259520
+2026-11-26T01:47:48.6594405Z Uploaded bytes 553648128
+2026-11-26T01:47:48.8741915Z Uploaded bytes 562036736
+2026-11-26T01:47:49.1366854Z Uploaded bytes 570425344
+2026-11-26T01:47:49.3803934Z Uploaded bytes 578813952
+2026-11-26T01:47:49.6475899Z Uploaded bytes 587202560
+2026-11-26T01:47:49.8937634Z Uploaded bytes 595591168
+2026-11-26T01:47:50.1328078Z Uploaded bytes 603979776
+2026-11-26T01:47:50.4098417Z Uploaded bytes 612368384
+2026-11-26T01:47:50.6585351Z Uploaded bytes 620756992
+2026-11-26T01:47:50.9195142Z Uploaded bytes 629145600
+2026-11-26T01:47:51.1904257Z Uploaded bytes 637534208
+2026-11-26T01:47:51.4627449Z Uploaded bytes 645922816
+2026-11-26T01:47:51.7154909Z Uploaded bytes 654311424
+2026-11-26T01:47:51.9848467Z Uploaded bytes 662700032
+2026-11-26T01:47:52.2637241Z Uploaded bytes 671088640
+2026-11-26T01:47:52.5543756Z Uploaded bytes 679477248
+2026-11-26T01:47:52.7871701Z Uploaded bytes 687865856
+2026-11-26T01:47:53.1344440Z Uploaded bytes 696254464
+2026-11-26T01:47:53.3431840Z Uploaded bytes 704643072
+2026-11-26T01:47:53.6537946Z Uploaded bytes 713031680
+2026-11-26T01:47:53.9318032Z Uploaded bytes 721420288
+2026-11-26T01:47:54.1621281Z Uploaded bytes 729808896
+2026-11-26T01:47:54.4223575Z Uploaded bytes 738197504
+2026-11-26T01:47:54.7646798Z Uploaded bytes 746586112
+2026-11-26T01:47:54.9621688Z Uploaded bytes 754974720
+2026-11-26T01:47:55.2306602Z Uploaded bytes 763363328
+2026-11-26T01:47:55.5227006Z Uploaded bytes 771751936
+2026-11-26T01:47:55.7789270Z Uploaded bytes 780140544
+2026-11-26T01:47:56.0700605Z Uploaded bytes 788529152
+2026-11-26T01:47:56.3042393Z Uploaded bytes 796917760
+2026-11-26T01:47:56.7243571Z Uploaded bytes 804374647
+2026-11-26T01:47:56.7616093Z Finished uploading artifact content to blob storage!
+2026-11-26T01:47:56.7619286Z SHA256 digest of uploaded artifact zip is cd3523efe8181c3c1210630ce27f75bb7edcd0827944243324ac5f1fe748e1de
+2026-11-26T01:47:56.7621437Z Finalizing artifact upload
+2026-11-26T01:47:57.1515278Z Artifact mplpb-tested-repository-zip-45736125582.zip successfully finalized. Artifact ID 15079542941
+2026-11-26T01:47:57.1519288Z Artifact mplpb-tested-repository-zip-45736125582 has been successfully uploaded! Final size is 804374647 bytes. Artifact ID is 15079542941
+2026-11-26T01:47:57.1523895Z Artifact download URL: https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/45736125582/artifacts/15079542941
+2026-11-26T01:47:57.1782938Z Post job cleanup.
+2026-11-26T01:47:57.3031553Z (node:4629) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T01:47:57.3032419Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T01:47:57.3220952Z Post job cleanup.
+2026-11-26T01:47:57.4499323Z (node:4638) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-26T01:47:57.4500243Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T01:47:57.4709081Z Post job cleanup.
+2026-11-26T01:47:57.5634300Z [command]/usr/bin/git version
+2026-11-26T01:47:57.5688312Z git version 2.56.1
+2026-11-26T01:47:57.5734484Z Temporarily overriding HOME='/home/runner/work/_temp/5e2cdaf3-4f09-4412-9227-3914a1fa3945' before making global git config changes
+2026-11-26T01:47:57.5738470Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-26T01:47:57.5742296Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages
+2026-11-26T01:47:57.5816406Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-26T01:47:57.5870826Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-26T01:47:57.6334574Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-26T01:47:57.6374155Z http.https://github.com/.extraheader
+2026-11-26T01:47:57.6386478Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-26T01:47:57.6431935Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-26T01:47:57.6869544Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-26T01:47:57.6909124Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-26T01:47:57.7487700Z Cleaning up orphan processes
+2026-11-26T01:47:57.7863769Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

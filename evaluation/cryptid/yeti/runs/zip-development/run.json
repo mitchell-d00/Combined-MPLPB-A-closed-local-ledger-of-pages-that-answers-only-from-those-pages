@@ -1,0 +1,1210 @@
+{
+  "schema": "cryptid-run-v1",
+  "reader_commit": "3231231c4e53525bf56197bb573babf5885922ad",
+  "reader_files": {
+    "mplpb_answers/__init__.py": "d57d776eaaea962867814b5af3f0ac836fdd0c70ffbde910a801e6240697a095",
+    "mplpb_answers/__main__.py": "66e6c37f34cb95168466a82ec37e9384fc846c96db7cadcca51f2283e1e8cbc1",
+    "mplpb_answers/advanced.py": "bc56efcaa8135a6647afd8c5957917979c170c504b9e22913b600aa95096997d",
+    "mplpb_answers/assertions.py": "79de36e6b3e9b47ac58233f6def6ca4b6da3524947a9ecba740b956025e5c075",
+    "mplpb_answers/attributed_instruction.py": "56d016303090799a33f2d554f31655b517c351a27971fd37ef7e4abd278ab477",
+    "mplpb_answers/body_text.py": "f09d330007cd0cf396c1b1cec1d257eef58862247abde9205390b919b13bdbbc",
+    "mplpb_answers/bounded_records.py": "d3f2e150dcf66e6df6f5ad6f6ca71e906ed12621eea6c2ceb6568b1e7f5b38da",
+    "mplpb_answers/claim_frame.py": "e7c1b359daac7623f866d78b892e26d80c88554414c3cdc3de49c8b42dc632e2",
+    "mplpb_answers/collection_fields.py": "db25700f1e67c3b8b057577c2570e8bae916b501564d15626387dd8a3678220c",
+    "mplpb_answers/compound_fields.py": "5bdabcbc85a90e9e9381fa255893194ae62a1b66957fc70776ca75726a627c28",
+    "mplpb_answers/corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
+    "mplpb_answers/d6.py": "827b3bda13d2cc53d00a6aa25c3ba8e5cb50b2de0fd11d2378258a705319c96b",
+    "mplpb_answers/documentary.py": "67c1293f7df3452d31d7e358396ea1859469dea8144c1b19153cda48cf0321f8",
+    "mplpb_answers/documentary_advice.py": "3e1080d80ca9c6139fc71f908689a682bb912d171ba7d5896b49eb513f55cd52",
+    "mplpb_answers/documentary_errata.py": "4c5e92a916af7d53c90890fc5018c497508d40fbe1b67f9cf6a5277d66f1dd96",
+    "mplpb_answers/documentary_instruction.py": "6fb8c13847486f7210eb964017e04b872799eca67b40b342d6a3a877b7a0365c",
+    "mplpb_answers/documentary_lease.py": "e98159e9ad0d0d73df02b9d507160ba4ca8e2dd9d5128466e983c4bdc045dc1c",
+    "mplpb_answers/documentary_links.py": "5a3d60b7e0b30e3b5d8323f2a200e1eea1e996879e6d66e486a51784606dd59a",
+    "mplpb_answers/documentary_presentation.py": "35ef2dfb2db6b0e76f67ad80a821175a74296476df7b1ba45c2fc97834420827",
+    "mplpb_answers/documentary_verify.py": "441b9c5da056e0a4e36e69dba9e7f4a26f18785ce39586fd0e6d1f7cb02d4a07",
+    "mplpb_answers/evaluate.py": "8c6e4444d661f5a2982338a45673ff594ae4cc4a86d3ec6e0bce6b7f77c90969",
+    "mplpb_answers/evaluation.py": "4d58e13a85f6edb1443bf156baaa48b1cdf72ce38e5e16a0ce53d195ac395715",
+    "mplpb_answers/evidence_contract.py": "5fb4226e9407d3432cdbaa518b10af9a5d5dc7bef0036e204848fbda3a3ffbe5",
+    "mplpb_answers/experience_graph.py": "843ce8df142819e3178fb3630978c4ff18ca7b8a8d835fcc7576cfe306903548",
+    "mplpb_answers/field_aliases.py": "2a2b1e997d02f8fed534e5ec4d555b3cfa40b6c6684d6176d88d8762b94c002a",
+    "mplpb_answers/frames.py": "82c23f7382f862d3b95960b017dda278022ccee1f1bc4e9b339bf7c45ba8dede",
+    "mplpb_answers/library.py": "7d1613c28f01453270c8a53bf0e3f015bf197dff25b43edc764802e1e1306e5b",
+    "mplpb_answers/literal_evidence.py": "4dff854bea0a7ae453be35ee016be2533d9ed0b08b98b7ee4a28d2f10b5983fa",
+    "mplpb_answers/local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
+    "mplpb_answers/local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
+    "mplpb_answers/operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
+    "mplpb_answers/passage_admission.py": "8f9decd8addf3b14a6ba9258576226e9efd8cff43f5a51a0132b6298efd809fa",
+    "mplpb_answers/passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
+    "mplpb_answers/pipeline.py": "59f9843dd4c9841f0c8c389a51e2d0069655590432e4b1c8f8c116043ef6a0d2",
+    "mplpb_answers/policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
+    "mplpb_answers/practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
+    "mplpb_answers/presentation.py": "c68979748753f48cefaca0ea1eb5ac2ddc20b797ef5d3d8181726667c81cc0aa",
+    "mplpb_answers/procedures.py": "90cc6108617b3e56e578039f793581687bb2862e448421d5e5c7f088d2dfac37",
+    "mplpb_answers/prose_retrieval.py": "7ae56c9cb4dfb5a59c6df85243bdc2018dfd544b900be615ba973a62256a6096",
+    "mplpb_answers/publication_corrections.py": "6c72632858f4562d320cdcd8ed001eded095834e60c627175c8b0265e7f6d2e6",
+    "mplpb_answers/question_intent.py": "9baef407153bc69083ff52567da5cc84e69144920ec36b277b12e0314b67e711",
+    "mplpb_answers/reference_identity.py": "0b789ec7580ecda718255acb6b313365c68ad85a201241bacda659eb8bf8ba97",
+    "mplpb_answers/relation_graph.py": "58003ad19f3a1f58a3ee3746cac3cb9017e3162e4146fd5004374bf32c730adc",
+    "mplpb_answers/report_sections.py": "6efaa14124e1a3079f798b07aba9c41fcf8a2fed182d589bcdfdcfb9baf3a5ea",
+    "mplpb_answers/reported_content.py": "b3f1207df53b6e183effd85301158eb8d0d7ea67486a0e6e6fb66a4ab95440c1",
+    "mplpb_answers/source_attribution.py": "98627c4b144d30b49ef1bd4f308c9e6cd0533b064f2a509144bdc73c0568e77d",
+    "mplpb_answers/source_claims.py": "90442eb44beed5a7ee418a9f3d13a1a8b7ddae01f2c82f527bb805fbdc6dad93",
+    "mplpb_answers/source_projection.py": "bf5d84912616e75c3fe3deb038325348f2f2ccb2ae210315cd8605798cf48c16",
+    "mplpb_answers/source_tags.py": "db10acddc57e53e094eb59266e024e9c46ab4ebced3410a1b79535c48ec99cc7",
+    "mplpb_answers/source_units.py": "09c0e6e43f278f07bb5bd0f36beade70c246ae01bf904b420c3c7d060133845c",
+    "mplpb_answers/support.py": "117d0c2040b43b95e8a2aafbe55b24a5ddae0f87cd28ba635ff8f8473b327756",
+    "mplpb_answers/synonym_graph.py": "4d339ae3307ee10d106b3eec49e038c5c9d50cc48417f8e01970d9b0373ceabb",
+    "mplpb_combined/__init__.py": "8ce7a60dc73b0229eb89f7cf3c4a3a47df70f410d0d957dc95b6e41281bb9672",
+    "mplpb_combined/__main__.py": "353ea5ef6cba220377dce05ac3c4eb0b2ecabe5a68188c591b69d9698862e356",
+    "mplpb_combined/baselines.py": "1b2426ccc12397c0525dcff875e1b922bc776c20174ed08aa89cd1f47891e4d3",
+    "mplpb_combined/delivery.py": "27400863c4007413ccd009efe19821a7963a014b47a01905455adb12b7b454ca",
+    "mplpb_combined/evaluate.py": "a537600f26c021040e54cc7badada45443c18af9dd2aa8e52b9f4e43081d79ff",
+    "mplpb_combined/killtest.py": "8b9b7c889626fe1bfe0f1aa87cb80698de2ae67db256e4355a6ce43508f88aa7",
+    "mplpb_combined/ledger.py": "a2c65367cabb1ff1c981ebac06cd3f8f998cd3d5e155aaf951d7a2fed9d02163",
+    "mplpb_combined/provenance_gate.py": "c85250cb1895e820159125a26a7b5cfa9bf5ca51e7cd918a78a99d8bcbdf2e25",
+    "mplpb_combined/reader.py": "e207dac173890540b5af36626e592c56cd293cb86a577c0c2a5d09cda441aea8",
+    "mplpb_combined/record.py": "e09ffb33930e7b705aaf5d93475908af7ac2927f1eb3219c594d637bd92a625c",
+    "mplpb_combined/retrieval.py": "35528e3645af096d957df51fdb39ca66decd1f5a0a98cf61061e4ff51408c1c4",
+    "mplpb_work/__init__.py": "5015f3af15da1efed8d2f32bfb0c42a3d24d7c4fec53865dc96b8361db34a393",
+    "mplpb_work/__main__.py": "afa5fa55c9767520ccde8386c5f7c68a77ee2b10c7bad5d017f19efb2edb93e4",
+    "mplpb_work/answer_router.py": "ba1b1f3fc00710424d5b3118ab08ca560478439cad316b2c9c61d87a05b594e0",
+    "mplpb_work/api.py": "9b4f33cc9fe4f2fb22210e22c5332896d358c1bf1e785f919e12187a00ad6b1f",
+    "mplpb_work/article.py": "141a301a0e3a6b7d076a14cc9639769fb90f25dc33aa01073e692bf5d9b033bb",
+    "mplpb_work/candidate_workspace.py": "74fd28037d4c10cfe1164a7fa04ee53de4c0e6be63401e675762a1a7a9249290",
+    "mplpb_work/classing.py": "18f1c39174ce93d5042755fd347ababeb03410540b100d2054d36cbea18ea283",
+    "mplpb_work/errors.py": "633c7042a803a259e33db177b303dfd1d6ad5bc038f1908a3f70e469a966615a",
+    "mplpb_work/event_candidates.py": "8f112257f0543c91962aaedf08d1eb50dea487c2c8240c9945ad648ee9d809ae",
+    "mplpb_work/historical_evidence.py": "6df11d05a2f147ae465d639b1f4ecd381436b4757f1ff7e0b6e8f56fbc05e39a",
+    "mplpb_work/historical_review.py": "d89c6be6128f252ce26991ab6770392af1e6e72d7212d4e40fb674e3f2dd6636",
+    "mplpb_work/historical_verifier.py": "db8837312f845476a18bc33d9492bdc737d1d8b18d2a5812698dd683d7088c1a",
+    "mplpb_work/investigation.py": "3cc779874ceec15ced80534faaad95b3929c026daffd462da24fa70f20ca8ed2",
+    "mplpb_work/ledger_generations.py": "941a5526eefbac033a4320c0375c01c795708ec45c63b3cb3047edef26b13854",
+    "mplpb_work/local_artifacts.py": "c7814c3fd68b7a80d48128a416c950240aaaf7e6adc363119a08fc471aa4dd16",
+    "mplpb_work/model.py": "5613a66d2b637b26ae900d5966d6680aa86f0eedf02bf80cbb794c42f8e51e74",
+    "mplpb_work/pinned_documentary_inspection.py": "487f8a7fa7712603351a37f553e3976e806f4cd1a840b69bd078217f19e021aa",
+    "mplpb_work/prose_evidence.py": "8a88fdd1586e7ef22d5e91edbe57c220979502d0a7e7f1060f738b431d811b24",
+    "mplpb_work/prose_relations.py": "d2ca7e6aad04adc4cd08dae8683e57af4630a1b9daea2b720e900ddaec722d52",
+    "mplpb_work/semantic_triage.py": "bb75ecd3c99f2e2b9aa3259cc0fe67d5d9831125ef3093e76f63f4598b9ecaee",
+    "mplpb_work/sorter.py": "0e8eb56604ba34f3eaf5be85f3c0787c3ce40bb2ecf68809c040ca2fff38834e",
+    "mplpb_work/sorter_explorer.py": "56269f976ad89860e123640cc38305ef056e39287e77b684015aca180fb74181",
+    "mplpb_work/sorter_suggestions.py": "91d3b618eaba949397caab57263d76b3aa20362e7446cff83c441e6cb0860f61",
+    "mplpb_work/sorter_v2.py": "130281428af23ac2790da9a0030f8e62918974ff65b4395c0de79f9094dbade4",
+    "mplpb_work/source_mapping.py": "5688b65b4cd392c0da298f2eda5d422a95248dadcbf55984e125f8b54a2c5612",
+    "mplpb_work/source_notes.py": "0337b560f4a545eb50570f8781a71dd11c857134a8a66e009a9444d683365ca5",
+    "mplpb_work/source_support.py": "a3460d71ca56141ac43f387f093854fc41f286369c7a9f5e6832e77fa38493b9",
+    "mplpb_work/store.py": "3a1472c3ce7b28e5e821944a9a03c1c2a3fdcbdddcf0cd532ca614d2617aa036",
+    "mplpb_work/thesaurus.py": "25a07a4bfa46c4cc5ef0d868ad3ee5a7e71e2c7daf485ec93ea0fe699afb454e",
+    "mplpb_work/training.py": "bd779f257e13669a3967c16f8c6ad451b55157cd71865f6ae8135f5f3e488085"
+  },
+  "registry_sha256": "99829ae6a07a8ff4eb804a140f7aa0fcb9da770ccc85d8a2e17d12efb055a0e2",
+  "registry_path": "evaluation/cryptid/yeti/development/registry.json",
+  "harness": {
+    "tools/cryptid_trial_v3.py": "a217a7ba64888df45fc9e771a32607118e18804ce6a8c055ad0d566c666ee23e",
+    "tools/cryptid_adapter_v3.py": "38dc1e251c078984e9c2803b026407ce0f73ff3a374e0b4ce26b57c98c7d9980",
+    "tools/cryptid_worker_v3.py": "ef2afa0449086652bbdf8fc3c9f7cb2d9cd65907ff5f10923cb3e6e836c05ddb",
+    "tools/cryptid_claim_score_v3.py": "fa9bf0eb25098e645552a43b56ad1bb67a4f89b6b023456ca4cdf4c1603c5a19",
+    "tools/cryptid_yeti_packets.py": "c918e9380d998e72da72c7b3fd27d96f8defcd06933a8ae7bd9cad73c1332666",
+    "tools/pole_worker.py": "f912f87b072fb3e78c0215882d2a10c82dd5df48009bb9a3a5eff8f229617ce8",
+    "tools/study_sandbox.py": "56f9561fc2bae5150a2de5c83bf8a0c68d7a7f002a93018e91d68e043ebe4daa"
+  },
+  "exposure": "development exposed; old source hashes unchanged; two first-person arrangement leads diagnostic only",
+  "execution_counts": {
+    "completed": 52
+  },
+  "planned": 52,
+  "attempted": 52,
+  "cases": [
+    {
+      "id": "CRYPT-YETI-0001",
+      "input_hash": "471b233df6b38371a85bd5ee8a453a285e95536c5850d8bd02d6ae59dd1f6124",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "2af46961d48c2763d17f436fef8337171b0beb0b032b5affc17170f4de58d4f0",
+      "diagnostic": {
+        "code": "supported_source_claim",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.5646095280026202
+    },
+    {
+      "id": "CRYPT-YETI-0002",
+      "input_hash": "a918534afb05f42dd973b15381027d7e390b06cf8aa4f1c881599c421fcd30a7",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "885175034c89b74e45b9810bf13f0769e62715d404747167811d5bce78482951",
+      "diagnostic": {
+        "code": "supported_source_claim",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.6288708759966539
+    },
+    {
+      "id": "CRYPT-YETI-0003",
+      "input_hash": "2116348fd280fe14971b423a47a7ac992aeb9c99d41e704694bb9ec522833b48",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "34565e4509a859b97c9f6c8207391f4f29aa245d96de8d062571a4b623963479",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.5780011999959243
+    },
+    {
+      "id": "CRYPT-YETI-0004",
+      "input_hash": "70bc113e48d9757a500f9faeec43a654f7fc6d5fc3363fa71f6194f7b0bc9266",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "77289ba535ad74a47e4b2fad52a57a5d418febc0dd6d12df0a8ecfbd9250b1c2",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.5791697400054545
+    },
+    {
+      "id": "CRYPT-YETI-0005",
+      "input_hash": "ba2a5eb1146db26debcc0f92c26a1db863bf4e89ac8b2965e300a15fede5b406",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "67890ebd082f8a87126bc1dfbd493c8027faa31c4bf422f7839d901b54346d79",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.30601396199926967
+    },
+    {
+      "id": "CRYPT-YETI-0006",
+      "input_hash": "166796dc914509becafd1440db8bb1ede948eb8ecff38827e01ba95570a23970",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "d05657a0324242645e864580e6b923d879181b1604307c220a64dd50e5b37da2",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3075241949991323
+    },
+    {
+      "id": "CRYPT-YETI-0007",
+      "input_hash": "3606f93730f35aef6b38c497d267b0d815028fafec09f2d8d83346960da1339d",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "896099c7cf73edcdb488ef2f3b8d80079aba0eb8aefa7b18bb0afa52eab8fac5",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.41492595100135077
+    },
+    {
+      "id": "CRYPT-YETI-0008",
+      "input_hash": "e35e25d3bf3c4fe6259d1e959afef55d57016150a0ccd3cf93c1a24c5c78617d",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "b64e748d4e797a00c30c94869ab2acce7bb7560150b330c5ad09543c69645593",
+      "diagnostic": {
+        "code": "supported_source_claim",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3999931060025119
+    },
+    {
+      "id": "CRYPT-YETI-0009",
+      "input_hash": "b2c5acb2ee63a36c5eb9777d9247b0da7e8327a25d656080534c3db8f533ffd1",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "b5b4f78d260fe248f6811cfe21079b4c1defd5b2b1f5d6e829c0002cf268175d",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3040951500006486
+    },
+    {
+      "id": "CRYPT-YETI-0010",
+      "input_hash": "2a3b65b6399441af97b3a1c0797dafdc1bf5e58c4497a05bcfaefe8c4143bd72",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "e143500165a5831bd4685be33bf5c80afc1e7d1f544388141d4d0a9dc60ca7c9",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3080858619941864
+    },
+    {
+      "id": "CRYPT-YETI-0011",
+      "input_hash": "4becd0e288999f7f9f26355cea32c0ad57d2a6e504a3c9e1a0d3a12f0eaaec01",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "793e9e7b06616b43fc26b1630ab425fdf1963d6166a0ca1212c7b0a178da92d1",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.35518838000280084
+    },
+    {
+      "id": "CRYPT-YETI-0012",
+      "input_hash": "04cbed1f68c37a0a1c79be78fdb6b113ed8ad88e65d2373888ca76529cfdee3a",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "78c014b6cb92124b8755ed5c0bd6653461b4211b2c7a493c8327b3e8574db7e7",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.35844562300189864
+    },
+    {
+      "id": "CRYPT-YETI-0013",
+      "input_hash": "78414289360c8395320215f6f71b7a9ad865fda83e26be675efa863787df31ee",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "b36091e41bfbfdbd20a4bf62cc3d0a58dbf5db0052509b106c95c84c30f438d5",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.4669634700039751
+    },
+    {
+      "id": "CRYPT-YETI-0014",
+      "input_hash": "601d9ecf3173c1915ae3f7a5c6debad0ee733fe8d58655da2d1a32505bcf0f62",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "a11103a12de26435ae058ddba70ec4b52bbd9f2294eb069fdcfa8d92cdbfea84",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3656296620029025
+    },
+    {
+      "id": "CRYPT-YETI-0015",
+      "input_hash": "3e207f905312cc7acd43db9111d38c4261625392cf3d58b5f0c02cd9742cdf5f",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "a5251c2ffee0e1de4d0ee8ba5dcfcdc9cef0b6ee8d18d50b708bcd6ef1dc0eee",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.35336855899367947
+    },
+    {
+      "id": "CRYPT-YETI-0016",
+      "input_hash": "45939b63c0debe5cfef91aad033fa5e68062bae825581661703291abfd2ac852",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "19462fc3d55e7719966bbbdbdf4228b75db5b42d9eb843f498ed744beb12ea5a",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3622256050002761
+    },
+    {
+      "id": "CRYPT-YETI-0017",
+      "input_hash": "5d083718a6068f11002d5d2bd2d4639653e08cc3d39124b4bcc91a50d02c12b7",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "b11cedb245c8277f021f937ae11c19a947a532f55b2a37ee66c7ac9b18780cd1",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3646828830023878
+    },
+    {
+      "id": "CRYPT-YETI-0018",
+      "input_hash": "b2a002785f5f52a5eaad323881a1b7c465afa8e4a1005370ae94c5021bebb165",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "73cc6997500808ea72688769bb02688cddd3a1f1f206f3eb705f7e38872b6e70",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.36128908099635737
+    },
+    {
+      "id": "CRYPT-YETI-0019",
+      "input_hash": "54f33327bed1f00f8f66c633c21b1e8e3badddcb7bbae93597450afc74a8edd0",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "97c55d9c2ce6a8bfbb72056369330084c97dacf69462501211b23ca4907c11e8",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3095862429981935
+    },
+    {
+      "id": "CRYPT-YETI-0020",
+      "input_hash": "8284c729887329e2f593a5f0f3292368f9012a1f9ac37e1144fa4cd1c818a437",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "2da0e8cc48c41a084283e1578313b37e13bc7799f7925104fd48767065def6d8",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.35463188299763715
+    },
+    {
+      "id": "CRYPT-YETI-0021",
+      "input_hash": "7537a0ac8bc1c37c672e440bab89061e8fc36f3c7eb45d11b0c43b9768ba6e9f",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "66b8bd23b04c1cd5664bd21db4a47ca759cbc73f45e599cad1531f8ad1793818",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.35492810999858193
+    },
+    {
+      "id": "CRYPT-YETI-0022",
+      "input_hash": "05e6a80ccdd68c0595646aa885eaf048332b682713c06e5c3ded6687ff741fef",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "86e442995b1b8b53d80bda6bfff4091061c2ff74eebea609a6fef4188ca9ac9e",
+      "diagnostic": {
+        "code": "documentary_assertion_not_established",
+        "stage": "documentary_verification",
+        "message": "Checked source-attributed assertions only; unresolved question obligations remain explicit and historical truth is unverified.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3035844019977958
+    },
+    {
+      "id": "CRYPT-YETI-0023",
+      "input_hash": "a8b9c6429fe03464420e8074fb4c44f1972f3a2d12ce3672fce8fa9a10b332d5",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "a39317cca79967b5526f12270555004ac5a7a011f33ef84c629981db317833d0",
+      "diagnostic": {
+        "code": "supported",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Open the cited source and check its conditions and revision."
+        ]
+      },
+      "host_wall_seconds": 0.3584687339971424
+    },
+    {
+      "id": "CRYPT-YETI-0024",
+      "input_hash": "d059f0ec4d30e83e4164a924f900c403f83e9b0b57da3e7c99b26eab004d4da2",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "534e1fbe30ea9077f4d5466049b75b58a8dbe36acd587201e8c5d4e467867ab2",
+      "diagnostic": {
+        "code": "instruction_attribution_unresolved",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3616252940046252
+    },
+    {
+      "id": "CRYPT-YETI-0025",
+      "input_hash": "e3d7bcac2b4348e5db3848abd2ef6eee78256e420b55013756525515d4303a73",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "d1e82b67c8b60928a8ce95f9c5ed183024483b19e66134822a1d80194fabedc2",
+      "diagnostic": {
+        "code": "instruction_does_not_establish_completion",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3091877429978922
+    },
+    {
+      "id": "CRYPT-YETI-0026",
+      "input_hash": "ba7814ce07715bba55284f35ca11690b2a2307e2910d063ae8f8dcf417761fdc",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "d7727a2b98af0002d548507203099909f85b4d5266bf381f29061b7947e77dc7",
+      "diagnostic": {
+        "code": "supported_source_claim",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.36123753499850864
+    },
+    {
+      "id": "CRYPT-YETI-0027",
+      "input_hash": "c5fafacc794315bcf96e8935c9bf66d23ceeb90df5b8715c1006e89651c7e08e",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "e9964f1e3d88117014d63b449d8fde9243e34e6b0804d7ba239c1f390024c264",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.37925656299921684
+    },
+    {
+      "id": "CRYPT-YETI-0028",
+      "input_hash": "0a6f25aecbcaf30fb801af2b8e89a70a66b204f0c60b4cd4118973147d502daf",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "d897ae89fec6e56d3d36f1406a96d1693e758f3972f15a178b9eb3d6d58ea657",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.31579630600026576
+    },
+    {
+      "id": "CRYPT-YETI-0029",
+      "input_hash": "7179865a7569cd3aa3f5668a8a1c8a1ec50899282f7c24fd4c3f17a7284312b9",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "1f6077367a2cc08ee104f389c6d9109587bfc24bf4060c54c6b4aa8065940841",
+      "diagnostic": {
+        "code": "supported_source_claim",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3546338369997102
+    },
+    {
+      "id": "CRYPT-YETI-0030",
+      "input_hash": "2724e33323bfad8dc92f988dd9c85e21de1b9ecb50deb7ff4d98a9c82b0c7c1e",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "0966c0138cdfcab7f1e86aa657695749aa0c87fc2edd81e32aa6e2a96bc8a4d2",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.46198056399589404
+    },
+    {
+      "id": "CRYPT-YETI-0031",
+      "input_hash": "65ff084f84b21edff8fd471543f3d3d060f5dd1a3edd8286a3295a070efd74f1",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "2c9159d3359f54f5425ef118cd4ce579bde90a727ff7d3aba094f907179742b3",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3620026760036126
+    },
+    {
+      "id": "CRYPT-YETI-0032",
+      "input_hash": "367971e4ee1a98352d702c7324e7a85633c2a603647e723b76e7b08eb1e04b1f",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "7afa9b1557eeffdda0d2b695f343445b29ae21f324e75008882709edc66a41c0",
+      "diagnostic": {
+        "code": "supported_source_claim",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3566969129969948
+    },
+    {
+      "id": "CRYPT-YETI-0033",
+      "input_hash": "21637cdf50aa8048f2fcc5bfe206aaec99fea75817888e551f8cf2e0fd6f02c0",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "4c53c6222a7bd820ad6e6ac6c2cefa7cd0f7573361bb948888614ef4bb7f5bb0",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3590796499993303
+    },
+    {
+      "id": "CRYPT-YETI-0034",
+      "input_hash": "b9cf92efee2157166353b5789840e5c00dfe5ac3d6946a124c17df7d8e12bc89",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "88f35371a7d0cb2f8c979756c28bec4b6b346ff5cd71e43a97e0ee22f28ac545",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3619513049998204
+    },
+    {
+      "id": "CRYPT-YETI-0035",
+      "input_hash": "453c5588db7892906b0516cba846e799a8f3616eba5b8a00f24b52b20b6eb15d",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "b5bec3ffa3adc15d32086a98da6807f7fdf6c0a5354fa32dba8d887a77ff23f3",
+      "diagnostic": {
+        "code": "supported_source_claim",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.37485363599989796
+    },
+    {
+      "id": "CRYPT-YETI-0036",
+      "input_hash": "bcc235dcb20feec67159d1cc78682150bfb3078930ba2332b0368d3584d06551",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "ca4e4c96db7c9320edac4912d430523fe2cb87621988793c1a813eab5c1527f5",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.4120602940020035
+    },
+    {
+      "id": "CRYPT-YETI-0037",
+      "input_hash": "084383d4c35857ced26f51f6b47bea28aca6f2c9be6d9efc773201470085c2b8",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "e2df8534b2417ce14c4aac76b9a318b59af12045b565357134b2b48ca18f7a9b",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3700964820018271
+    },
+    {
+      "id": "CRYPT-YETI-0038",
+      "input_hash": "50e9d1739bdf85c17cf254fa419e228f5893a5f6a33ed7299987205b20d21d19",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "13960b1a7eac17829e0679a10e39a7335ecb2f4a972d0e95403a6e137467eb59",
+      "diagnostic": {
+        "code": "supported_source_claim",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.30923106300178915
+    },
+    {
+      "id": "CRYPT-YETI-0039",
+      "input_hash": "10de181595cdbef1f7fc50ebaeca2574d819e5b59b8954d1f2d8ede089eb257d",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "cecb404e7c5e44b828b850427f0d4b37883264f2a86099d6a7359fda655cfa5d",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3078696629963815
+    },
+    {
+      "id": "CRYPT-YETI-0040",
+      "input_hash": "6ee86cca0495d2bd03e888539615e979b1e10d3ac4b551907081ba8d06cfdd29",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "aeeff3c7020e9b23b1c2748552c7e7a4c91ad9bc89f122240bb956d713f4600f",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3110449379964848
+    },
+    {
+      "id": "CRYPT-YETI-0041",
+      "input_hash": "a56cf3cf098f792d935e5213829a8d0b0d99e18bd27f319200a3ba0847ceff1a",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "d7f3e829ea186560df227db5df9a0e7414b7683b42db4564522a45e16d444fdf",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.26348358299583197
+    },
+    {
+      "id": "CRYPT-YETI-0042",
+      "input_hash": "9749ebecefd77fcf677a2cfc859226900d9c67fd9c987a50175cb8debce6faff",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "083c3a632da2e4d5dcec06471523554ccf42b88198a991e19a06d159009ac834",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.41282181999849854
+    },
+    {
+      "id": "CRYPT-YETI-0043",
+      "input_hash": "ab0d6d457633f67c420e6cf530f2c909ce607ac4252bd34a2df5c49e8d39bffe",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "c2fc51aa3c0255ea3d3c5ea46729caa2308d9379e5c711c52e5134d6f27c1fb9",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.31810322999808704
+    },
+    {
+      "id": "CRYPT-YETI-0044",
+      "input_hash": "31d0694c5e5e183494e28b1ad6c33e75934ba0c3324153c391bf297882097e77",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "03de76a58ef563203710c1a6757d5787a2f85547d7c7ddc1916b0ad07fa69a50",
+      "diagnostic": {
+        "code": "restricted_or_unavailable",
+        "stage": "eligibility",
+        "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+        "category": "absent_eligible_source",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+        ]
+      },
+      "host_wall_seconds": 0.259633303998271
+    },
+    {
+      "id": "CRYPT-YETI-0045",
+      "input_hash": "8f790b12b4c59927f95e2011880cf3032c8c4c0a83cefe8be9bdbbae197946ac",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "52fde06e4230c3e199f6a49deb18c4435871d521512087ef2879f3693e49bc20",
+      "diagnostic": {
+        "code": "supported_source_claim",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3582553630039911
+    },
+    {
+      "id": "CRYPT-YETI-0046",
+      "input_hash": "d9596935a4d395f52d53a72b4f0d8fd055eae1ba9826c930bb8f6f9e79e4ca3e",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "54a75f11e1bf588f7122de52ac2f3c3f0e59e7bea01fde51c9eac61accc4b9d4",
+      "diagnostic": {
+        "code": "supported_source_claim",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.3589137950039003
+    },
+    {
+      "id": "CRYPT-YETI-0047",
+      "input_hash": "a0675821bae067a5243e6bde180299a8dc7548c4ae55928d9d143146767c59f6",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "33e1a6f9abf81fd0abfebac9ef073d48dabe1df67f7442ab7cb7d83c4226c4a7",
+      "diagnostic": {
+        "code": "supported_source_claim",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.30727997399662854
+    },
+    {
+      "id": "CRYPT-YETI-0048",
+      "input_hash": "ed2f24477a542167689ef9bd7aaf43597bfa75932574a91c777b4434b2965628",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "9f898ec064c493f7db8a146c0d14f4f50d89718de74ff6a327dfc3f4db40f116",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3582849080048618
+    },
+    {
+      "id": "CRYPT-YETI-0049",
+      "input_hash": "eeb7851ab8e61707db5d7ce3bd92686a379d76dd79db0a7f4058e44440ac84d7",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "supported_answer",
+      "answer_supported": true,
+      "claims": 1,
+      "raw_sha256": "e1be37cc441e800e3a6f3b61b577d0b9bffb173a6645ab31ea0d0ca864eaeaeb",
+      "diagnostic": {
+        "code": "supported_source_claim",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "host_wall_seconds": 0.35934162700141314
+    },
+    {
+      "id": "CRYPT-YETI-0050",
+      "input_hash": "b3c501969e0a74e4efe2c9cc714c7fd3409c4607f2cf5ff55c051a40966960bc",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "abstain",
+      "answer_supported": false,
+      "claims": 0,
+      "raw_sha256": "5694ebd4fecbec8bed0391250b909224f48be2dfaa039a7d2e81f79bf38b8513",
+      "diagnostic": {
+        "code": "interpretation_unsupported",
+        "stage": "strict",
+        "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+        "category": "unsupported_question_grammar",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+        ]
+      },
+      "host_wall_seconds": 0.3734187040026882
+    },
+    {
+      "id": "CRYPT-YETI-0051",
+      "input_hash": "d35948e11828fb33368676908a44820d0378220c7fa40e12e8f070da021e8903",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "conflict",
+      "answer_supported": false,
+      "claims": 2,
+      "raw_sha256": "c8236b03013dd48d7fec836a7c4142db0bdabe17b62888adcbec5735b21eb636",
+      "diagnostic": {
+        "code": "source_claim_conflict",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the competing sources; specify the intended subject or resolve the disagreement by a source revision."
+        ]
+      },
+      "host_wall_seconds": 0.3615823959989939
+    },
+    {
+      "id": "CRYPT-YETI-0052",
+      "input_hash": "f7f395e691a53f8b0fec7c30dc139a0cf814f35b19bb0863e5b9166baa7648b5",
+      "execution_status": "completed",
+      "score_status": "UNSCORED",
+      "semantic_outcome": "conflict",
+      "answer_supported": false,
+      "claims": 2,
+      "raw_sha256": "c31073670e758a68f4ff2c0394fe75b1d08df8764d0524363dccbc7bc502e2f7",
+      "diagnostic": {
+        "code": "source_claim_conflict",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "insufficient_evidence",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Inspect the competing sources; specify the intended subject or resolve the disagreement by a source revision."
+        ]
+      },
+      "host_wall_seconds": 0.3621082160025253
+    }
+  ]
+}

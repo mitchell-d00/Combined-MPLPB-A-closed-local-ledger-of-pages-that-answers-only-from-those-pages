@@ -1,0 +1,28 @@
+{
+  "schema": "cryptid-integration-gate-v1",
+  "name": "release-280-run",
+  "command": [
+    "/workspace/cryptid-gates-venv/bin/python",
+    "tools/bubble_wrap_trial.py",
+    "run",
+    "--implementation",
+    "/dev/shm/cryptid-final-candidate-2",
+    "--output",
+    "/workspace/cryptid-final-gates/candidate-2/release-280",
+    "--source-commit",
+    "1251cc471a24ba4be91949ffc0c4752d0c3bf202",
+    "--phase",
+    "candidate",
+    "--transfer-manifest",
+    "evaluation/bubble-wrap/2026-11-25/continuation/development.json"
+  ],
+  "cwd": "/dev/shm/cryptid-final-candidate-2",
+  "timeout_seconds": 1800,
+  "started_utc": "2026-11-25T23:59:36.572794+00:00",
+  "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+  "status": "PASS",
+  "returncode": 0,
+  "error": null,
+  "wall_seconds": 159.44079356099246,
+  "raw_log_sha256": "1d926f6b1a457e7559d26c14720d9ca54a6c95f74d41bee233e5211c66ffa664"
+}

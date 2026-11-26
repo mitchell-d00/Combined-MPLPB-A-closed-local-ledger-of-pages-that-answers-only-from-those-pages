@@ -9,13 +9,26 @@ import html
 import re
 
 from . import documentary_verify as kernel
-from .source_attribution import unqualified_span
+from .claim_frame import ClaimFrame
+from .source_attribution import unqualified_span, printed_writer_label
 
 _PERSON = r'[^,;:!?“”"\n]{2,120}?'
 _OBJECT = r'the [\w -]{2,180}?'
+_REPORT_FORMS = {
+    **{word:(False,False) for word in ('reported','stated','reports','states','said','says')},
+    **{prefix+word:(True,False) for prefix in ('did not ','does not ') for word in ('report','state','say')},
+    'would report':(False,True), 'would not report':(True,True),
+}
+_REPORT_VERBS = '|'.join(re.escape(word) for word in sorted(_REPORT_FORMS,key=len,reverse=True))
+_PASSIVE_FORMS = {'was reported':(False,False),'was not reported':(True,False),
+                  'would be reported':(False,True),'would not be reported':(True,True)}
 
 
 def request(question):
+    from .ordinary_questions import request as ordinary_request
+    ordinary=ordinary_request(question)
+    if ordinary and ordinary['kind']=='reported':
+        return {k:ordinary[k] for k in ('reporter','author','object','required_outer_negative')} | {'conditional':False,'form':None}
     q = kernel.source_question(question)
     patterns = [
         (rf'What does (?P<reporter>{_PERSON}) report about the writer of (?P<object>{_OBJECT}), without independently verifying the event\?', False),
@@ -49,24 +62,26 @@ def report_roles(statement):
         conditions, clean = [conditional[1]], conditional[2]
     reporter = payload = None
     outer_negative = hypothetical = False
-    active = re.fullmatch(r'(.{2,120}?) (reported|stated|reports|states|said|says|did not report|did not state|did not say|would report) that (.+)', clean)
-    quote = re.fullmatch(r'(.{2,120}?) (?:reported|stated|said|says|reports|states),? [“"](.+)[”"]', clean)
+    active = re.fullmatch(r'(.{2,120}?) ('+_REPORT_VERBS+r') that (.+)', clean)
+    quote = re.fullmatch(r'(.{2,120}?) ('+_REPORT_VERBS+r'),? [“"](.+)[”"]', clean)
     according = re.fullmatch(r'According to (.{2,120}?), (.+)', clean)
-    postposed = re.fullmatch(r'[“"](.+?)[”"],? (.{2,120}?) (?:reported|stated|said)\.', clean)
-    passive = re.fullmatch(r'The statement that (.+?) was reported by (.{2,120}?)\.', clean)
+    postposed = re.fullmatch(r'[“"](.+?)[”"],? (.{2,120}?) ('+_REPORT_VERBS+r')\.', clean)
+    passive = re.fullmatch(r'The statement that (.+?) ('+'|'.join(_PASSIVE_FORMS)+r') by (.{2,120}?)\.', clean)
     if active:
         reporter, verb, payload = active.groups()
-        outer_negative = verb.startswith('did not ')
-        hypothetical = verb == 'would report'
+        outer_negative,hypothetical = _REPORT_FORMS[verb]
     elif quote:
-        reporter, payload = quote.groups()
+        reporter, verb, payload = quote.groups()
+        outer_negative,hypothetical = _REPORT_FORMS[verb]
     elif according:
         reporter, payload = according.groups()
     elif postposed:
-        payload, reporter = postposed.groups()
+        payload, reporter, verb = postposed.groups()
+        outer_negative,hypothetical = _REPORT_FORMS[verb]
         payload = payload.rstrip(',') + '.'
     elif passive:
-        payload, reporter = passive.groups(); payload += '.'
+        payload, verb, reporter = passive.groups(); payload += '.'
+        outer_negative,hypothetical = _PASSIVE_FORMS[verb]
     if not reporter or not payload or not kernel.named_actor(reporter):
         return None
     if hypothetical and not conditions:
@@ -75,27 +90,38 @@ def report_roles(statement):
     if (not action or action.get('action') != 'write' or action.get('unresolved_reference')
             or action.get('temporal_qualification_text')):
         return None
+    content = ClaimFrame.from_action(action)
     asserted = not outer_negative and not conditions and not hypothetical
-    return {'reporter': reporter, 'author': action['actor_text'], 'inner_action': action['action'],
-            'object': action['object_text'], 'inner_negative': action['negative'] if asserted else None,
+    return {'reporter': reporter, 'author': content.actor, 'inner_action': content.action,
+            'object': content.object_text, 'inner_negative': content.negative if asserted else None,
+            'embedded_content_negative': content.negative,
             'outer_negative': outer_negative, 'content_asserted_by_reporter': asserted,
             'outer_polarity': 'conditional_unestablished' if conditions else 'negative' if outer_negative else 'affirmative',
-            'inner_polarity': ('negative' if action['negative'] else 'affirmative') if asserted else 'unasserted',
-            'conditional_content_negative': action['negative'] if conditions else None,
+            'inner_polarity': ('negative' if content.negative else 'affirmative') if asserted else 'unasserted',
+            'conditional_content_negative': content.negative if conditions else None,
             'conditions': conditions, 'actual_authorship_established': False}
+
+
+def _reporting_appearances_conflict(left, right):
+    """Compare reporting and embedded polarity without asserting the payload.
+
+    Different named candidates retain the existing ambiguity outcome. Distinct
+    explicit conditions are not unified. Denying a report of not-C is compatible
+    with reporting C; denying a report of C opposes reporting that same C.
+    """
+    if any(left[k] != right[k] for k in ('reporter','author','object')):
+        return True
+    if left['conditions'] != right['conditions']:
+        return False
+    same_content = left['embedded_content_negative'] == right['embedded_content_negative']
+    if left['outer_negative'] != right['outer_negative']:
+        return same_content
+    return not left['outer_negative'] and not same_content
 
 
 def _writer(body):
     """Printed body label only; never authenticate a writer or resolve initials."""
-    patterns = [r'^From: (?P<writer>[^\n]+)(?=\n|$)',
-                r'^(?P<writer>[^\n]{2,100}?) TO [^\n]{2,120}?\. [^\n]+',
-                r'^(?:Report\.\n)?Written by (?P<writer>[^.\n]+)\.?',
-                r'^Meeting minutes\.\s*(?:Recorder:|Recorded by) (?P<writer>[^.\n]+)\.?']
-    for pattern in patterns:
-        match = re.match(pattern, body)
-        if match and kernel.named_actor(match['writer']):
-            return match['writer'], match.span()
-    return None, None
+    return printed_writer_label(body, require_person=True)
 
 
 def _citation(record, body, start, end):
@@ -117,9 +143,12 @@ def _proof(record, body, start, end, roles, goal):
     if (record.kind != 'page' or record.derived_from or record.fields.get('corrects-field')
             or not unqualified_span(record, body, start, end)):
         return None
+    if goal.get('required_outer_negative') is not None and roles['outer_negative']!=goal['required_outer_negative']:
+        return None
     # A separate governing paragraph cannot disappear at a sentence boundary.
     prior = body[:start]
-    if re.search(r'\b(?:If|Unless)\b[^.!?]{0,180}[.:]\s*$', prior):
+    governor = re.search(r'\b(?:If|Unless)\b[^.!?]{0,180}[.:]\s*$', prior, re.I)
+    if governor and unqualified_span(record, body, *governor.span()):
         return None
     if bool(roles['conditions']) != goal['conditional']:
         return None
@@ -128,7 +157,19 @@ def _proof(record, body, start, end, roles, goal):
     if writer_span:
         if not unqualified_span(record, body, *writer_span):
             return None
-        witnesses.append(_citation(record, body, *writer_span))
+        direct = _citation(record, body, *writer_span)
+        if direct is not None:
+            witnesses.append(direct)
+        else:
+            # Separate printed heading/byline paragraphs need separate exact
+            # original witnesses, rather than an invented cross-tag substring.
+            segment = body[writer_span[0]:writer_span[1]]
+            lines = list(re.finditer(r'[^\n]+', segment))
+            if len(lines) != 2 or lines[0][0] not in {'Report.', 'Meeting minutes.'}:return None
+            for line in lines:
+                lo, hi = writer_span[0]+line.start(), writer_span[0]+line.end()
+                if not unqualified_span(record, body, lo, hi):return None
+                witnesses.append(_citation(record, body, lo, hi))
     if goal['form']:
         label = re.search(r'\bMeeting minutes\.', body)
         if not label or not unqualified_span(record, body, *label.span()):
@@ -172,7 +213,7 @@ def verify(index, max_passages, max_chars):
             roles = report_roles(statement)
             relevant = (kernel.normalized(goal['reporter']) in kernel.normalized(statement)
                         and kernel.normalized(goal['object']) in kernel.normalized(statement)
-                        and re.search(r'\b(?:report\w*|said|says|stated|states|according)\b', statement, re.I))
+                        and re.search(r'\b(?:report\w*|said|say|says|state|stated|states|according)\b', statement, re.I))
             if not roles:
                 unresolved |= bool(relevant)
                 continue
@@ -189,10 +230,11 @@ def verify(index, max_passages, max_chars):
         return None
     if len(proofs) == 2:
         identity = lambda p: tuple(str(p['proposition'][k]) for k in
-                                   ('reporter','author','object','inner_negative','outer_negative','conditions','conditional_content_negative'))
+                                   ('reporter','author','object','inner_negative','outer_negative','conditions','conditional_content_negative','embedded_content_negative'))
         if identity(proofs[0]) == identity(proofs[1]):
             return None
-        kind, code = 'conflict', 'conflicting_reported_content'
+        conflicting = _reporting_appearances_conflict(proofs[0]['proposition'], proofs[1]['proposition'])
+        kind, code = ('conflict', 'conflicting_reported_content') if conflicting else ('supported_answer', 'supported')
     else:
         kind, code = 'supported_answer', 'supported'
     witnesses = [c for p in proofs for c in p['citations']]

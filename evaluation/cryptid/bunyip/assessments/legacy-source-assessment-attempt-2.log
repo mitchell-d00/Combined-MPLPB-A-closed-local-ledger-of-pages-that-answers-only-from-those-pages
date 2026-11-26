@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/cryptid-local/tools/bunyip_legacy_assessment.py", line 90, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--run',type=Path);p.add_argument('--output',type=Path,required=True);raise SystemExit(main(p.parse_args()))
+                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cryptid-local/tools/bunyip_legacy_assessment.py", line 81, in main
+    assessment=source_assessment();result={'policy':'bunyip-source-checked-retention-v2','original_gate_unchanged':True,'source_checked_prior_additional_outputs':44,'source_checked_reported_metadata_cases':21,'source_assessment':assessment,'independent_historical_semantic_adjudication':'NOT_RUN'}
+               ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/cryptid-local/tools/bunyip_legacy_assessment.py", line 41, in source_assessment
+    require(original.strip()==canonical,'canonical body differs from original text')
+  File "/workspace/cryptid-local/tools/bunyip_legacy_assessment.py", line 18, in require
+    if not value:raise ValueError(message)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: canonical body differs from original text

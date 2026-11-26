@@ -1,0 +1,98 @@
+{
+  "caps_changed": false,
+  "proof_limits": {
+    "records": 8,
+    "source_html_characters": 200000,
+    "units": 1000,
+    "statement_characters": 2200,
+    "passages": 12,
+    "answer_characters": 8000
+  },
+  "cases": [
+    {
+      "id": "CRYPT-THUNDERBIRD-0001",
+      "records": 1,
+      "body_html_characters": 93,
+      "expected_limiter": null,
+      "source_answerable_without_caps": true
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0002",
+      "records": 8,
+      "body_html_characters": 296,
+      "expected_limiter": null,
+      "source_answerable_without_caps": true
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0003",
+      "records": 9,
+      "body_html_characters": 325,
+      "expected_limiter": "record_limit",
+      "source_answerable_without_caps": true
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0004",
+      "records": 1,
+      "body_html_characters": 6075,
+      "expected_limiter": null,
+      "source_answerable_without_caps": true
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0005",
+      "records": 1,
+      "body_html_characters": 6081,
+      "expected_limiter": "unit_limit",
+      "source_answerable_without_caps": true
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0006",
+      "records": 1,
+      "body_html_characters": 185095,
+      "expected_limiter": null,
+      "source_answerable_without_caps": true
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0007",
+      "records": 1,
+      "body_html_characters": 201095,
+      "expected_limiter": "scan_limit",
+      "source_answerable_without_caps": true
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0008",
+      "records": 8,
+      "body_html_characters": 366,
+      "expected_limiter": null,
+      "source_answerable_without_caps": false
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0009",
+      "records": 9,
+      "body_html_characters": 395,
+      "expected_limiter": "record_limit",
+      "source_answerable_without_caps": false
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0010",
+      "records": 1,
+      "body_html_characters": 3648,
+      "expected_limiter": "phrase_limit",
+      "source_answerable_without_caps": false
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0011",
+      "records": 1,
+      "body_html_characters": 10095,
+      "expected_limiter": null,
+      "source_answerable_without_caps": true
+    },
+    {
+      "id": "CRYPT-THUNDERBIRD-0012",
+      "records": 2,
+      "body_html_characters": 186,
+      "expected_limiter": "ambiguous_multiple_assertions",
+      "source_answerable_without_caps": false
+    }
+  ],
+  "scope": "Source-modality operation limits; other existing reader operations can have distinct limits. This does not raise any cap."
+}

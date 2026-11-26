@@ -1,0 +1,53 @@
+{
+  "schema": "cryptid-contract-preservation-v1",
+  "before_run_sha256": "ffb74bbbbca11c9b093a0668827fb8e7da1c02870ec51dc45ecd1f0adba2e765",
+  "after_run_sha256": "5f6e941e14e8fa899a2f105c28aa0993749ff96ed920ff04ceeaaf7ebcc3c7ed",
+  "counts": {
+    "planned": 6,
+    "passed": 4,
+    "failed": 2
+  },
+  "rows": [
+    {
+      "id": "CRYPT-NESSIE-0030",
+      "passed": true,
+      "errors": [],
+      "input_hash": "ca50f754e58b87a8369097e44cce70c148bb9ba551a26e3e774502ef9da8a46c"
+    },
+    {
+      "id": "CRYPT-NESSIE-0031",
+      "passed": true,
+      "errors": [],
+      "input_hash": "4126ff93e8dfef037ecd9a59f295de83270c0b4a3ac445f91d0770821af600e7"
+    },
+    {
+      "id": "CRYPT-NESSIE-0032",
+      "passed": true,
+      "errors": [],
+      "input_hash": "e0ac36479c96f0efcf35aa0d46033925e70e6a84c729d3f44922714b22f1edbd"
+    },
+    {
+      "id": "CRYPT-NESSIE-0033",
+      "passed": true,
+      "errors": [],
+      "input_hash": "498a0fdc80385fecec1937f7ef49ac9c2149438a7b62e63733a0f7130b13bc54"
+    },
+    {
+      "id": "CRYPT-NESSIE-0034",
+      "passed": false,
+      "errors": [
+        "claim_qualification_citation_or_outcome_changed"
+      ],
+      "input_hash": "69208014ae697162ae0df32b7f2a85efa20abb3c878e60e49eae24c382c12118"
+    },
+    {
+      "id": "CRYPT-NESSIE-0035",
+      "passed": false,
+      "errors": [
+        "claim_qualification_citation_or_outcome_changed"
+      ],
+      "input_hash": "81325bd113b0f7fb1f00556d4e0fa9cca46d4df12d19284ce97d4115a80b6283"
+    }
+  ],
+  "meaning": "Exact contracts except recursive code_sha256 maps; no semantic target transitions are silently accepted."
+}

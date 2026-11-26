@@ -13,9 +13,12 @@ class QuestionFrame:
     negative_statement: str = ''
     time_constraint: str = ''
     polarity: str = 'affirmative'
+    requested_value: str = ''
 
     def to_dict(self):
-        return dict(asdict(self), version=VERSION, normalization_is_evidence=False)
+        value=asdict(self)
+        if not value['requested_value']:value.pop('requested_value')
+        return dict(value, version=VERSION, normalization_is_evidence=False)
 
 
 def normalize(text):
@@ -23,6 +26,14 @@ def normalize(text):
 
 
 def parse(question):
+    from .ordinary_questions import request
+    proposal=request(question)
+    # A complete opening-time request is more specific than generic "what is".
+    # Retain the original question on the index; this only proposes a relation.
+    if proposal and proposal['kind']=='opening_time':
+        entity=normalize(proposal['entity']);e=re.escape(entity)
+        return QuestionFrame('opening_time',entity,'when does '+entity+' open',
+                             rf'(?:the )?{e} opens at (?P<value>.+)',rf'(?:the )?{e} does not open at (?P<value>.+)')
     q = normalize(question)
     q = re.sub(r'^(?:please |can you |could you )', '', q)
     # These modifiers are not licensed by this finite grammar. Do not remove them.
@@ -55,4 +66,11 @@ def parse(question):
         if re.search(r'[;?!."“”]', entity): return None
         return QuestionFrame(relation, entity, canonical.format(e=entity),
                              statement.format(e=re.escape(entity)), negative.format(e=re.escape(entity)))
+    if proposal and proposal['kind'] in {'owner','description','opening_time'}:
+        relation=proposal['kind'];entity=normalize(proposal['entity']);e=re.escape(entity)
+        if relation=='owner':
+            return QuestionFrame(relation,entity,'who owns '+entity,rf'(?P<value>.+) owns {e}',rf'(?P<value>.+) does not own {e}')
+        if relation=='description':
+            return QuestionFrame(relation,entity,'what is '+entity,rf'(?:the )?{e} (?:is|are) (?P<value>.+)',rf'(?:the )?{e} (?:is|are) not (?P<value>.+)',requested_value=normalize(proposal.get('requested_value','')))
+        return QuestionFrame(relation,entity,'when does '+entity+' open',rf'(?:the )?{e} opens at (?P<value>.+)',rf'(?:the )?{e} does not open at (?P<value>.+)')
     return None

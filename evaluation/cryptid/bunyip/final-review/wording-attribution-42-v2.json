@@ -1,0 +1,2289 @@
+{
+  "policy": "source-matched-wording-attribution-v2",
+  "scope": "Post-run same-operator mechanism attribution, not new fresh cases, independent scoring or changed reader acceptance. Original fresh/strict scores and diagnostic v1 remain unchanged.",
+  "original_diagnostic_sha256": "6a6d485e1467c0d1f5fb09d65928e7277fb398c8837e46a7119402843ee86c1b",
+  "scorer_sha256": "0ab852b7cdc1aa6cdc61876676b026bc28815eebbe5ef475fdbd48b34b7a389b",
+  "original_variant_score_sha256": "8955f71d5095eaf298a70effacd72fc0f66478e33b962410536a2f10191b9b5c",
+  "counts": {
+    "main": {
+      "new_question_wording_support": {
+        "executions": 16,
+        "unique_question_strings": 8
+      },
+      "new_source_language_or_proof_operation_not_question_only": {
+        "executions": 6,
+        "unique_question_strings": 3
+      },
+      "remaining_source_or_proof_operation_miss": {
+        "executions": 4,
+        "unique_question_strings": 2
+      },
+      "retained_policy_disagreement": {
+        "executions": 2,
+        "unique_question_strings": 1
+      }
+    },
+    "pr105": {
+      "new_question_wording_support": {
+        "executions": 20,
+        "unique_question_strings": 10
+      },
+      "new_source_language_or_proof_operation_not_question_only": {
+        "executions": 2,
+        "unique_question_strings": 1
+      },
+      "remaining_question_wording_miss": {
+        "executions": 4,
+        "unique_question_strings": 2
+      },
+      "retained_policy_disagreement": {
+        "executions": 2,
+        "unique_question_strings": 1
+      }
+    }
+  },
+  "rows": [
+    {
+      "variant_id": "CRYPT-BUNYIP-T0001",
+      "variant_question": "To whom does Larkspur Atelier belong?",
+      "canonical_question": "Who owns Larkspur Atelier?",
+      "group": "ownership",
+      "probe_signature": "28b66e8687f357933d4ef99d044122706a759a3f5a7d287a57a495738d07bc71",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "525ee747d1b17e544e1dbd0e7a2dcdb5f6dff1af45dcae6630b0696199fe2de7",
+          "raw": "runs/main/PROBE-0001/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "5ca7666cdea0927a71b8129ed0c05c086c949833a4f9a50ded07bb7b775c543e",
+          "raw": "runs/pr105/PROBE-0001/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "fe0c6138d5259ff7a65153f982a0c4a916fb192a3346038ef7bf32a713cdcf53",
+          "raw": "runs/candidate/PROBE-0001/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "525ee747d1b17e544e1dbd0e7a2dcdb5f6dff1af45dcae6630b0696199fe2de7",
+          "raw": "runs/main/PROBE-0001/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "5ca7666cdea0927a71b8129ed0c05c086c949833a4f9a50ded07bb7b775c543e",
+          "raw": "runs/pr105/PROBE-0001/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "fe0c6138d5259ff7a65153f982a0c4a916fb192a3346038ef7bf32a713cdcf53",
+          "raw": "runs/candidate/PROBE-0001/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0001",
+        "group": "owner",
+        "rendering": "paragraphs",
+        "question": "To whom does Larkspur Atelier belong?",
+        "question_source_signature": "50c32d4a80526dbdf8d97c2fcb3081fc18299640fa5af68742b17f4c93f395a8",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "6eddcc07b8701dbac199e8b8f64c5b16cc1fac4973a43612d3b836422181c92c"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0002",
+      "variant_question": "To whom does Larkspur Atelier belong?",
+      "canonical_question": "Who owns Larkspur Atelier?",
+      "group": "ownership",
+      "probe_signature": "47206c693d0537d7c0a7f2fc71edf7018fe9530cddd6278da8993859ab5e0033",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "0497a3d00bc64d8bab9db749f503194bf3d9da203891fa6be94129e100ccb943",
+          "raw": "runs/main/PROBE-0002/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "822e260ef59e3e91d6a6a614ac8674519c9d430fe01745e028e8dc7f7e090e1b",
+          "raw": "runs/pr105/PROBE-0002/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "246879ab0b41ccdfa6d09d3dbdef11314d2db3eb61c516e3e6b427ae2cbba65a",
+          "raw": "runs/candidate/PROBE-0002/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "0497a3d00bc64d8bab9db749f503194bf3d9da203891fa6be94129e100ccb943",
+          "raw": "runs/main/PROBE-0002/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "822e260ef59e3e91d6a6a614ac8674519c9d430fe01745e028e8dc7f7e090e1b",
+          "raw": "runs/pr105/PROBE-0002/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "246879ab0b41ccdfa6d09d3dbdef11314d2db3eb61c516e3e6b427ae2cbba65a",
+          "raw": "runs/candidate/PROBE-0002/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0002",
+        "group": "owner",
+        "rendering": "plain",
+        "question": "To whom does Larkspur Atelier belong?",
+        "question_source_signature": "50c32d4a80526dbdf8d97c2fcb3081fc18299640fa5af68742b17f4c93f395a8",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "b09546be5e252a12477dd672bce85e10acfda79e1d9a9ab971a95e2e6d6108cd"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0003",
+      "variant_question": "Which person owns Larkspur Atelier?",
+      "canonical_question": "Who owns Larkspur Atelier?",
+      "group": "ownership",
+      "probe_signature": "28b66e8687f357933d4ef99d044122706a759a3f5a7d287a57a495738d07bc71",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "525ee747d1b17e544e1dbd0e7a2dcdb5f6dff1af45dcae6630b0696199fe2de7",
+          "raw": "runs/main/PROBE-0001/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "5ca7666cdea0927a71b8129ed0c05c086c949833a4f9a50ded07bb7b775c543e",
+          "raw": "runs/pr105/PROBE-0001/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "fe0c6138d5259ff7a65153f982a0c4a916fb192a3346038ef7bf32a713cdcf53",
+          "raw": "runs/candidate/PROBE-0001/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "525ee747d1b17e544e1dbd0e7a2dcdb5f6dff1af45dcae6630b0696199fe2de7",
+          "raw": "runs/main/PROBE-0001/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "5ca7666cdea0927a71b8129ed0c05c086c949833a4f9a50ded07bb7b775c543e",
+          "raw": "runs/pr105/PROBE-0001/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "fe0c6138d5259ff7a65153f982a0c4a916fb192a3346038ef7bf32a713cdcf53",
+          "raw": "runs/candidate/PROBE-0001/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0003",
+        "group": "owner",
+        "rendering": "paragraphs",
+        "question": "Which person owns Larkspur Atelier?",
+        "question_source_signature": "aff1d8b7450bc3dd41ec265108c3ed3a7ccbd521218da611bcd67efe9a333035",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "1298aeb1a9058ad4923c5f22ca5054b63e9909d9e0e197bf9aed2cf02a1bf30a"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0004",
+      "variant_question": "Which person owns Larkspur Atelier?",
+      "canonical_question": "Who owns Larkspur Atelier?",
+      "group": "ownership",
+      "probe_signature": "47206c693d0537d7c0a7f2fc71edf7018fe9530cddd6278da8993859ab5e0033",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "0497a3d00bc64d8bab9db749f503194bf3d9da203891fa6be94129e100ccb943",
+          "raw": "runs/main/PROBE-0002/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "822e260ef59e3e91d6a6a614ac8674519c9d430fe01745e028e8dc7f7e090e1b",
+          "raw": "runs/pr105/PROBE-0002/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "246879ab0b41ccdfa6d09d3dbdef11314d2db3eb61c516e3e6b427ae2cbba65a",
+          "raw": "runs/candidate/PROBE-0002/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "0497a3d00bc64d8bab9db749f503194bf3d9da203891fa6be94129e100ccb943",
+          "raw": "runs/main/PROBE-0002/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "822e260ef59e3e91d6a6a614ac8674519c9d430fe01745e028e8dc7f7e090e1b",
+          "raw": "runs/pr105/PROBE-0002/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "246879ab0b41ccdfa6d09d3dbdef11314d2db3eb61c516e3e6b427ae2cbba65a",
+          "raw": "runs/candidate/PROBE-0002/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0004",
+        "group": "owner",
+        "rendering": "plain",
+        "question": "Which person owns Larkspur Atelier?",
+        "question_source_signature": "aff1d8b7450bc3dd41ec265108c3ed3a7ccbd521218da611bcd67efe9a333035",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "c3cc077850ed61aac4ee069cb333a42000ab73dc729f4eaf4b34e139f01433af"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0005",
+      "variant_question": "What type of place is Willow Reach?",
+      "canonical_question": "What is Willow Reach?",
+      "group": "classification",
+      "probe_signature": "4b70062675270f48f669f46f7b0829ea39b9a6f11ec8232639f855c9fba406b4",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "bc89981fe7d6829a2c9b4d95e65eeaaaf3d6784ab3e5bb86209160c5e4925546",
+          "raw": "runs/main/PROBE-0003/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "e364d4ebf143f20fc5cbb84eeed58862ee29082052e1dca1c060e9439d7c2b8c",
+          "raw": "runs/pr105/PROBE-0003/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "cdda0af8ce84b317bfcc5f4fe59053d960a88843ea8382bf55a85e3a035cc9e5",
+          "raw": "runs/candidate/PROBE-0003/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "bc89981fe7d6829a2c9b4d95e65eeaaaf3d6784ab3e5bb86209160c5e4925546",
+          "raw": "runs/main/PROBE-0003/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "e364d4ebf143f20fc5cbb84eeed58862ee29082052e1dca1c060e9439d7c2b8c",
+          "raw": "runs/pr105/PROBE-0003/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "cdda0af8ce84b317bfcc5f4fe59053d960a88843ea8382bf55a85e3a035cc9e5",
+          "raw": "runs/candidate/PROBE-0003/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0005",
+        "group": "classification",
+        "rendering": "paragraphs",
+        "question": "What type of place is Willow Reach?",
+        "question_source_signature": "9819b6f5cba91714c3e83925c6a6888ba5b668f120bae0425120bc7a35748dc0",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "a98b46d626a73d375b828e3bd161138c4c2c7835c19126469a705d8d9d4fe40c"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0006",
+      "variant_question": "What type of place is Willow Reach?",
+      "canonical_question": "What is Willow Reach?",
+      "group": "classification",
+      "probe_signature": "dd5d93c14875f2fb50fd111f840e80e80aa536d51d12343c847af00c5e74fff5",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "39df1423a31a04554505c183d2f85cecb4949efbb35c7a3107234cebfb0f1a5a",
+          "raw": "runs/main/PROBE-0004/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "302a6a14f3554f313bc7e2a64fe2b255618eeb474f87a72ca7aac18d6d8a14bf",
+          "raw": "runs/pr105/PROBE-0004/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "e2a3d18f8d653f7a3a5974f1477104da4db5a04c7de89c3c1cffa77f6971b319",
+          "raw": "runs/candidate/PROBE-0004/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "39df1423a31a04554505c183d2f85cecb4949efbb35c7a3107234cebfb0f1a5a",
+          "raw": "runs/main/PROBE-0004/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "302a6a14f3554f313bc7e2a64fe2b255618eeb474f87a72ca7aac18d6d8a14bf",
+          "raw": "runs/pr105/PROBE-0004/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "e2a3d18f8d653f7a3a5974f1477104da4db5a04c7de89c3c1cffa77f6971b319",
+          "raw": "runs/candidate/PROBE-0004/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0006",
+        "group": "classification",
+        "rendering": "plain",
+        "question": "What type of place is Willow Reach?",
+        "question_source_signature": "9819b6f5cba91714c3e83925c6a6888ba5b668f120bae0425120bc7a35748dc0",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "3e7b96a620c3baa7abe4c14ab98ca3a84051196e1693d63f6dd7381b24e41101"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0007",
+      "variant_question": "How is Willow Reach described?",
+      "canonical_question": "What is Willow Reach?",
+      "group": "classification",
+      "probe_signature": "4b70062675270f48f669f46f7b0829ea39b9a6f11ec8232639f855c9fba406b4",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "bc89981fe7d6829a2c9b4d95e65eeaaaf3d6784ab3e5bb86209160c5e4925546",
+          "raw": "runs/main/PROBE-0003/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "e364d4ebf143f20fc5cbb84eeed58862ee29082052e1dca1c060e9439d7c2b8c",
+          "raw": "runs/pr105/PROBE-0003/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "cdda0af8ce84b317bfcc5f4fe59053d960a88843ea8382bf55a85e3a035cc9e5",
+          "raw": "runs/candidate/PROBE-0003/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "bc89981fe7d6829a2c9b4d95e65eeaaaf3d6784ab3e5bb86209160c5e4925546",
+          "raw": "runs/main/PROBE-0003/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "e364d4ebf143f20fc5cbb84eeed58862ee29082052e1dca1c060e9439d7c2b8c",
+          "raw": "runs/pr105/PROBE-0003/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "cdda0af8ce84b317bfcc5f4fe59053d960a88843ea8382bf55a85e3a035cc9e5",
+          "raw": "runs/candidate/PROBE-0003/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0007",
+        "group": "classification",
+        "rendering": "paragraphs",
+        "question": "How is Willow Reach described?",
+        "question_source_signature": "bc33222fe900cf33a59b3e03520800e8376a127fb78ada0a1fc2ae68080520af",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "0dd9472ced3c925ff15658f4cc0b1118ea4f02dbcf889f05a38721ac5409cfe5"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0008",
+      "variant_question": "How is Willow Reach described?",
+      "canonical_question": "What is Willow Reach?",
+      "group": "classification",
+      "probe_signature": "dd5d93c14875f2fb50fd111f840e80e80aa536d51d12343c847af00c5e74fff5",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "39df1423a31a04554505c183d2f85cecb4949efbb35c7a3107234cebfb0f1a5a",
+          "raw": "runs/main/PROBE-0004/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "302a6a14f3554f313bc7e2a64fe2b255618eeb474f87a72ca7aac18d6d8a14bf",
+          "raw": "runs/pr105/PROBE-0004/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "e2a3d18f8d653f7a3a5974f1477104da4db5a04c7de89c3c1cffa77f6971b319",
+          "raw": "runs/candidate/PROBE-0004/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "39df1423a31a04554505c183d2f85cecb4949efbb35c7a3107234cebfb0f1a5a",
+          "raw": "runs/main/PROBE-0004/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "302a6a14f3554f313bc7e2a64fe2b255618eeb474f87a72ca7aac18d6d8a14bf",
+          "raw": "runs/pr105/PROBE-0004/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "e2a3d18f8d653f7a3a5974f1477104da4db5a04c7de89c3c1cffa77f6971b319",
+          "raw": "runs/candidate/PROBE-0004/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0008",
+        "group": "classification",
+        "rendering": "plain",
+        "question": "How is Willow Reach described?",
+        "question_source_signature": "bc33222fe900cf33a59b3e03520800e8376a127fb78ada0a1fc2ae68080520af",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "32c72889c0dd22ca1f9539f80798a8db04d3cfe01925569b8bf77f070a2e9b45"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0009",
+      "variant_question": "At what time does Larkspur Office open?",
+      "canonical_question": "When does Larkspur Office open?",
+      "group": "opening_time",
+      "probe_signature": "eb04bc44974d02edda15e5560e3e0a619207e4a0fd9cc3e6c2d531b3df3e6220",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "2a461c212bde31e39d745bf2532e464113d8c4dc3b94097e4f8fe2fe558876c5",
+          "raw": "runs/main/PROBE-0005/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "505154ef9eba6fabfaeb74abbbcb1065f2be249e6e98637f1620f017e2a5ca33",
+          "raw": "runs/pr105/PROBE-0005/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "00d4c9052d46f77d5a8660534ee71b8b52cc15c760ccddf557fb3c9a42bdccbf",
+          "raw": "runs/candidate/PROBE-0005/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "2a461c212bde31e39d745bf2532e464113d8c4dc3b94097e4f8fe2fe558876c5",
+          "raw": "runs/main/PROBE-0005/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "505154ef9eba6fabfaeb74abbbcb1065f2be249e6e98637f1620f017e2a5ca33",
+          "raw": "runs/pr105/PROBE-0005/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "00d4c9052d46f77d5a8660534ee71b8b52cc15c760ccddf557fb3c9a42bdccbf",
+          "raw": "runs/candidate/PROBE-0005/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0009",
+        "group": "opening_time",
+        "rendering": "paragraphs",
+        "question": "At what time does Larkspur Office open?",
+        "question_source_signature": "4625f4a3d0d0392d5fe29d5a4a4589cfcc8dd24449b3b9b4a716136ad0695d02",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "e740f5bc7e6ace73f1c5ebd9da73b45fc9b99a321b5c4deeda1965a191a1e577"
+      },
+      "classifications": {
+        "main": "new_source_language_or_proof_operation_not_question_only",
+        "pr105": "new_source_language_or_proof_operation_not_question_only"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0010",
+      "variant_question": "At what time does Larkspur Office open?",
+      "canonical_question": "When does Larkspur Office open?",
+      "group": "opening_time",
+      "probe_signature": "e92158a949c186d1b30009d0de97d2318cd6f3ff100f6c7862cfa170421e1e9c",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "f0a1903aca4f6eb3f03049c2555bae640836db4b259a2d8805fe0c502eb4d773",
+          "raw": "runs/main/PROBE-0006/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "4c28fc4711f5ec45461e36a14529866ff565cb239420f77875741361eb62ed08",
+          "raw": "runs/pr105/PROBE-0006/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "1519403d5eb35d01f1d6d8ee50f27ca82dbccae9038b47126f0092855bebd73f",
+          "raw": "runs/candidate/PROBE-0006/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "f0a1903aca4f6eb3f03049c2555bae640836db4b259a2d8805fe0c502eb4d773",
+          "raw": "runs/main/PROBE-0006/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "4c28fc4711f5ec45461e36a14529866ff565cb239420f77875741361eb62ed08",
+          "raw": "runs/pr105/PROBE-0006/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "1519403d5eb35d01f1d6d8ee50f27ca82dbccae9038b47126f0092855bebd73f",
+          "raw": "runs/candidate/PROBE-0006/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0010",
+        "group": "opening_time",
+        "rendering": "plain",
+        "question": "At what time does Larkspur Office open?",
+        "question_source_signature": "4625f4a3d0d0392d5fe29d5a4a4589cfcc8dd24449b3b9b4a716136ad0695d02",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "8633727a27448167b06029cf18e9d187d27a934fee095077b52321c9f0379bc5"
+      },
+      "classifications": {
+        "main": "new_source_language_or_proof_operation_not_question_only",
+        "pr105": "new_source_language_or_proof_operation_not_question_only"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0011",
+      "variant_question": "What are the opening hours of Larkspur Office?",
+      "canonical_question": "When does Larkspur Office open?",
+      "group": "opening_time",
+      "probe_signature": "eb04bc44974d02edda15e5560e3e0a619207e4a0fd9cc3e6c2d531b3df3e6220",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "2a461c212bde31e39d745bf2532e464113d8c4dc3b94097e4f8fe2fe558876c5",
+          "raw": "runs/main/PROBE-0005/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "505154ef9eba6fabfaeb74abbbcb1065f2be249e6e98637f1620f017e2a5ca33",
+          "raw": "runs/pr105/PROBE-0005/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "00d4c9052d46f77d5a8660534ee71b8b52cc15c760ccddf557fb3c9a42bdccbf",
+          "raw": "runs/candidate/PROBE-0005/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "2a461c212bde31e39d745bf2532e464113d8c4dc3b94097e4f8fe2fe558876c5",
+          "raw": "runs/main/PROBE-0005/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "505154ef9eba6fabfaeb74abbbcb1065f2be249e6e98637f1620f017e2a5ca33",
+          "raw": "runs/pr105/PROBE-0005/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "00d4c9052d46f77d5a8660534ee71b8b52cc15c760ccddf557fb3c9a42bdccbf",
+          "raw": "runs/candidate/PROBE-0005/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0011",
+        "group": "opening_time",
+        "rendering": "paragraphs",
+        "question": "What are the opening hours of Larkspur Office?",
+        "question_source_signature": "94019c8fd2fbec7708c67da8066865d432e24ae1baae64fd06036af421dd1cf1",
+        "execution": "completed",
+        "scored": true,
+        "passed": false,
+        "kind": "abstain",
+        "complete": false,
+        "claims": 0,
+        "false_support": false,
+        "positive_miss": true,
+        "errors": [
+          "positive_completion_miss",
+          "complete_witness_missing",
+          "complete_witness_missing"
+        ],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": "proof",
+        "raw_sha256": "5836da9d28993c07cf05e287c61a37a7ba5d0eadb0a53a00a42198565c05c4a0"
+      },
+      "classifications": {
+        "main": "retained_policy_disagreement",
+        "pr105": "retained_policy_disagreement"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0012",
+      "variant_question": "What are the opening hours of Larkspur Office?",
+      "canonical_question": "When does Larkspur Office open?",
+      "group": "opening_time",
+      "probe_signature": "e92158a949c186d1b30009d0de97d2318cd6f3ff100f6c7862cfa170421e1e9c",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "f0a1903aca4f6eb3f03049c2555bae640836db4b259a2d8805fe0c502eb4d773",
+          "raw": "runs/main/PROBE-0006/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "4c28fc4711f5ec45461e36a14529866ff565cb239420f77875741361eb62ed08",
+          "raw": "runs/pr105/PROBE-0006/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": false,
+          "errors": [
+            "support_status"
+          ],
+          "raw_sha256": "1519403d5eb35d01f1d6d8ee50f27ca82dbccae9038b47126f0092855bebd73f",
+          "raw": "runs/candidate/PROBE-0006/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "f0a1903aca4f6eb3f03049c2555bae640836db4b259a2d8805fe0c502eb4d773",
+          "raw": "runs/main/PROBE-0006/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "4c28fc4711f5ec45461e36a14529866ff565cb239420f77875741361eb62ed08",
+          "raw": "runs/pr105/PROBE-0006/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "1519403d5eb35d01f1d6d8ee50f27ca82dbccae9038b47126f0092855bebd73f",
+          "raw": "runs/candidate/PROBE-0006/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": true
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0012",
+        "group": "opening_time",
+        "rendering": "plain",
+        "question": "What are the opening hours of Larkspur Office?",
+        "question_source_signature": "94019c8fd2fbec7708c67da8066865d432e24ae1baae64fd06036af421dd1cf1",
+        "execution": "completed",
+        "scored": true,
+        "passed": false,
+        "kind": "abstain",
+        "complete": false,
+        "claims": 0,
+        "false_support": false,
+        "positive_miss": true,
+        "errors": [
+          "positive_completion_miss",
+          "complete_witness_missing",
+          "complete_witness_missing"
+        ],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": "proof",
+        "raw_sha256": "f5d7b8222031873b85771dc7443002b080cf3e4ce1c9eeb45bf0c775e729585b"
+      },
+      "classifications": {
+        "main": "retained_policy_disagreement",
+        "pr105": "retained_policy_disagreement"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0013",
+      "variant_question": "What was the date of writing of the highland dispatch?",
+      "canonical_question": "Distinguish the writing dates in The highland dispatch record.",
+      "group": "writing_date",
+      "probe_signature": "9d86d62abb285e464a260962655adf6ad340ead3980c4b80b29034008b17c5de",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "f90d116a29dad2cc8ea4c45fcd3b3eb0528ca55756508b85a58ebb66cb44f6ea",
+          "raw": "runs/main/PROBE-0007/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "e1dcf557293658d6b4ff865263c2e1c14af188c8ca02c1ed0f6643d0f0a8e70d",
+          "raw": "runs/pr105/PROBE-0007/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "7fbdc0479feffa171f7221deb69856edd3ee724efb65c8ab313b708ac24e5f59",
+          "raw": "runs/candidate/PROBE-0007/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "f90d116a29dad2cc8ea4c45fcd3b3eb0528ca55756508b85a58ebb66cb44f6ea",
+          "raw": "runs/main/PROBE-0007/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "e1dcf557293658d6b4ff865263c2e1c14af188c8ca02c1ed0f6643d0f0a8e70d",
+          "raw": "runs/pr105/PROBE-0007/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "7fbdc0479feffa171f7221deb69856edd3ee724efb65c8ab313b708ac24e5f59",
+          "raw": "runs/candidate/PROBE-0007/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0013",
+        "group": "writing_date",
+        "rendering": "paragraphs",
+        "question": "What was the date of writing of the highland dispatch?",
+        "question_source_signature": "c35d9c6c42e0e66feced89bcfd6f28949bf7f91a87c850023f7a473488a9d5b2",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "7e60c966f1d0f3e135ae285e119f66a47d86acfc1443c793b177d1769bc1c71a"
+      },
+      "classifications": {
+        "main": "new_source_language_or_proof_operation_not_question_only",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0014",
+      "variant_question": "What was the date of writing of the highland dispatch?",
+      "canonical_question": "Distinguish the writing dates in The highland dispatch record.",
+      "group": "writing_date",
+      "probe_signature": "47a4f8793f5eb0aae39393df85f61717301cd826f6566a4b6cac0a58ba8b830a",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "629e208c5104bc90edba501954388e4e1ced4a756d8b69484a0f487e17364ede",
+          "raw": "runs/main/PROBE-0008/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "9c48c2f8c8d86f7e1362ae4ebcee9c5c1892f2cda741f79c54232b7785a00fc6",
+          "raw": "runs/pr105/PROBE-0008/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "97d708fce276462128a1bcef6197070435adfb65aa2b86535831bb449d031b36",
+          "raw": "runs/candidate/PROBE-0008/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "629e208c5104bc90edba501954388e4e1ced4a756d8b69484a0f487e17364ede",
+          "raw": "runs/main/PROBE-0008/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "9c48c2f8c8d86f7e1362ae4ebcee9c5c1892f2cda741f79c54232b7785a00fc6",
+          "raw": "runs/pr105/PROBE-0008/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "97d708fce276462128a1bcef6197070435adfb65aa2b86535831bb449d031b36",
+          "raw": "runs/candidate/PROBE-0008/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0014",
+        "group": "writing_date",
+        "rendering": "plain",
+        "question": "What was the date of writing of the highland dispatch?",
+        "question_source_signature": "c35d9c6c42e0e66feced89bcfd6f28949bf7f91a87c850023f7a473488a9d5b2",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "d081aa6a8a3772f0a383f2c642ee27f1f3122dc0e792620e5d35a6db8afbe0fc"
+      },
+      "classifications": {
+        "main": "new_source_language_or_proof_operation_not_question_only",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0015",
+      "variant_question": "Give the date on which the highland dispatch was written.",
+      "canonical_question": "Distinguish the writing dates in The highland dispatch record.",
+      "group": "writing_date",
+      "probe_signature": "9d86d62abb285e464a260962655adf6ad340ead3980c4b80b29034008b17c5de",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "f90d116a29dad2cc8ea4c45fcd3b3eb0528ca55756508b85a58ebb66cb44f6ea",
+          "raw": "runs/main/PROBE-0007/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "e1dcf557293658d6b4ff865263c2e1c14af188c8ca02c1ed0f6643d0f0a8e70d",
+          "raw": "runs/pr105/PROBE-0007/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "7fbdc0479feffa171f7221deb69856edd3ee724efb65c8ab313b708ac24e5f59",
+          "raw": "runs/candidate/PROBE-0007/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "f90d116a29dad2cc8ea4c45fcd3b3eb0528ca55756508b85a58ebb66cb44f6ea",
+          "raw": "runs/main/PROBE-0007/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "e1dcf557293658d6b4ff865263c2e1c14af188c8ca02c1ed0f6643d0f0a8e70d",
+          "raw": "runs/pr105/PROBE-0007/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "7fbdc0479feffa171f7221deb69856edd3ee724efb65c8ab313b708ac24e5f59",
+          "raw": "runs/candidate/PROBE-0007/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0015",
+        "group": "writing_date",
+        "rendering": "paragraphs",
+        "question": "Give the date on which the highland dispatch was written.",
+        "question_source_signature": "604de344b8c4841c6431835237d8049ec60219e593b9edf4b82fb69beabd19de",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "acfd7bda8582d9da356e575c81a2e7f1d19b36f10b739596de9cc361652c63a6"
+      },
+      "classifications": {
+        "main": "new_source_language_or_proof_operation_not_question_only",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0016",
+      "variant_question": "Give the date on which the highland dispatch was written.",
+      "canonical_question": "Distinguish the writing dates in The highland dispatch record.",
+      "group": "writing_date",
+      "probe_signature": "47a4f8793f5eb0aae39393df85f61717301cd826f6566a4b6cac0a58ba8b830a",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "629e208c5104bc90edba501954388e4e1ced4a756d8b69484a0f487e17364ede",
+          "raw": "runs/main/PROBE-0008/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "9c48c2f8c8d86f7e1362ae4ebcee9c5c1892f2cda741f79c54232b7785a00fc6",
+          "raw": "runs/pr105/PROBE-0008/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "97d708fce276462128a1bcef6197070435adfb65aa2b86535831bb449d031b36",
+          "raw": "runs/candidate/PROBE-0008/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "629e208c5104bc90edba501954388e4e1ced4a756d8b69484a0f487e17364ede",
+          "raw": "runs/main/PROBE-0008/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "9c48c2f8c8d86f7e1362ae4ebcee9c5c1892f2cda741f79c54232b7785a00fc6",
+          "raw": "runs/pr105/PROBE-0008/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "97d708fce276462128a1bcef6197070435adfb65aa2b86535831bb449d031b36",
+          "raw": "runs/candidate/PROBE-0008/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0016",
+        "group": "writing_date",
+        "rendering": "plain",
+        "question": "Give the date on which the highland dispatch was written.",
+        "question_source_signature": "604de344b8c4841c6431835237d8049ec60219e593b9edf4b82fb69beabd19de",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": true,
+        "miss_stage": null,
+        "raw_sha256": "ca4da7d4101d1da181a76c3869da54e25e448e63e62310b58658e5318713d577"
+      },
+      "classifications": {
+        "main": "new_source_language_or_proof_operation_not_question_only",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0017",
+      "variant_question": "What did Nela Frost state about whether Dara Elm wrote the lantern index?",
+      "canonical_question": "What does Nela Frost report about whether Dara Elm wrote the lantern index?",
+      "group": "reporting",
+      "probe_signature": "8937f480434c143d947b2f872cf6bb1aed5c29fedd4c0ecb5c98d558463fa5b6",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "7f2b10cbce70a6e940353f19b4fffa0bd1d963d1066a01b5840282f6aece291e",
+          "raw": "runs/main/PROBE-0009/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "3ee10a6eec182d48b26ac67751b2cf1b16e6d5817d8621454a23cc99a98f8b72",
+          "raw": "runs/pr105/PROBE-0009/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "884aafdbc2d148ed055cf2f95d0efc846750445f6c0f37bbe5cef9aa1d37b517",
+          "raw": "runs/candidate/PROBE-0009/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "7f2b10cbce70a6e940353f19b4fffa0bd1d963d1066a01b5840282f6aece291e",
+          "raw": "runs/main/PROBE-0009/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "3ee10a6eec182d48b26ac67751b2cf1b16e6d5817d8621454a23cc99a98f8b72",
+          "raw": "runs/pr105/PROBE-0009/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "884aafdbc2d148ed055cf2f95d0efc846750445f6c0f37bbe5cef9aa1d37b517",
+          "raw": "runs/candidate/PROBE-0009/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0017",
+        "group": "reported",
+        "rendering": "paragraphs",
+        "question": "What did Nela Frost state about whether Dara Elm wrote the lantern index?",
+        "question_source_signature": "911795ef45d02375191cc878f6ffea0ed2a3d488dbaa50690ab74869197822ee",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": false,
+        "miss_stage": "question_interpretation",
+        "raw_sha256": "55d85be4c5dbd4bec3a9cefacc0fded0308be4dccc975897b56bd3780fc18119"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0018",
+      "variant_question": "What did Nela Frost state about whether Dara Elm wrote the lantern index?",
+      "canonical_question": "What does Nela Frost report about whether Dara Elm wrote the lantern index?",
+      "group": "reporting",
+      "probe_signature": "36576c655eb97e23fc410e511d1cc6984367f5db171b9a92fdae19be332fc745",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "9b7327f87ca677b5682110e29b59fef2dc5a639a8857b03fdb6974fccbb80c74",
+          "raw": "runs/main/PROBE-0010/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "43673f2a864d3823eef00a55bb2c4f9b70cd2ea6ea5c77f0d9e3fa5601727cef",
+          "raw": "runs/pr105/PROBE-0010/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "57427581b4c0f710616b4921fcd1686cfdeb362faec098e3a2704b01d999d8e0",
+          "raw": "runs/candidate/PROBE-0010/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "9b7327f87ca677b5682110e29b59fef2dc5a639a8857b03fdb6974fccbb80c74",
+          "raw": "runs/main/PROBE-0010/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "43673f2a864d3823eef00a55bb2c4f9b70cd2ea6ea5c77f0d9e3fa5601727cef",
+          "raw": "runs/pr105/PROBE-0010/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "57427581b4c0f710616b4921fcd1686cfdeb362faec098e3a2704b01d999d8e0",
+          "raw": "runs/candidate/PROBE-0010/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0018",
+        "group": "reported",
+        "rendering": "plain",
+        "question": "What did Nela Frost state about whether Dara Elm wrote the lantern index?",
+        "question_source_signature": "911795ef45d02375191cc878f6ffea0ed2a3d488dbaa50690ab74869197822ee",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": false,
+        "miss_stage": "question_interpretation",
+        "raw_sha256": "84b5f4d476a6a8e30caa064401a2ad66913705f9d1bf38d2694bccf894697434"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0019",
+      "variant_question": "According to this source, what did Nela Frost report about Dara Elm writing the lantern index?",
+      "canonical_question": "What does Nela Frost report about whether Dara Elm wrote the lantern index?",
+      "group": "reporting",
+      "probe_signature": "8937f480434c143d947b2f872cf6bb1aed5c29fedd4c0ecb5c98d558463fa5b6",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "7f2b10cbce70a6e940353f19b4fffa0bd1d963d1066a01b5840282f6aece291e",
+          "raw": "runs/main/PROBE-0009/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "3ee10a6eec182d48b26ac67751b2cf1b16e6d5817d8621454a23cc99a98f8b72",
+          "raw": "runs/pr105/PROBE-0009/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "884aafdbc2d148ed055cf2f95d0efc846750445f6c0f37bbe5cef9aa1d37b517",
+          "raw": "runs/candidate/PROBE-0009/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "7f2b10cbce70a6e940353f19b4fffa0bd1d963d1066a01b5840282f6aece291e",
+          "raw": "runs/main/PROBE-0009/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "3ee10a6eec182d48b26ac67751b2cf1b16e6d5817d8621454a23cc99a98f8b72",
+          "raw": "runs/pr105/PROBE-0009/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "884aafdbc2d148ed055cf2f95d0efc846750445f6c0f37bbe5cef9aa1d37b517",
+          "raw": "runs/candidate/PROBE-0009/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0019",
+        "group": "reported",
+        "rendering": "paragraphs",
+        "question": "According to this source, what did Nela Frost report about Dara Elm writing the lantern index?",
+        "question_source_signature": "b67344a9395bc4e5d4f00bf48ae56cd0477dd094589710b8f870344a9ed0e421",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": false,
+        "miss_stage": "question_interpretation",
+        "raw_sha256": "f15d212b874ab03183b86e072c8c634414e6232596030844a8bbde296b3b1e95"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0020",
+      "variant_question": "According to this source, what did Nela Frost report about Dara Elm writing the lantern index?",
+      "canonical_question": "What does Nela Frost report about whether Dara Elm wrote the lantern index?",
+      "group": "reporting",
+      "probe_signature": "36576c655eb97e23fc410e511d1cc6984367f5db171b9a92fdae19be332fc745",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "9b7327f87ca677b5682110e29b59fef2dc5a639a8857b03fdb6974fccbb80c74",
+          "raw": "runs/main/PROBE-0010/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "43673f2a864d3823eef00a55bb2c4f9b70cd2ea6ea5c77f0d9e3fa5601727cef",
+          "raw": "runs/pr105/PROBE-0010/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "57427581b4c0f710616b4921fcd1686cfdeb362faec098e3a2704b01d999d8e0",
+          "raw": "runs/candidate/PROBE-0010/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "9b7327f87ca677b5682110e29b59fef2dc5a639a8857b03fdb6974fccbb80c74",
+          "raw": "runs/main/PROBE-0010/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "43673f2a864d3823eef00a55bb2c4f9b70cd2ea6ea5c77f0d9e3fa5601727cef",
+          "raw": "runs/pr105/PROBE-0010/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "57427581b4c0f710616b4921fcd1686cfdeb362faec098e3a2704b01d999d8e0",
+          "raw": "runs/candidate/PROBE-0010/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0020",
+        "group": "reported",
+        "rendering": "plain",
+        "question": "According to this source, what did Nela Frost report about Dara Elm writing the lantern index?",
+        "question_source_signature": "b67344a9395bc4e5d4f00bf48ae56cd0477dd094589710b8f870344a9ed0e421",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": false,
+        "miss_stage": "question_interpretation",
+        "raw_sha256": "507deb3e7a1810f96bea06e92dd48b11c8286607a9b1511820a1f56efaa29d0c"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0023",
+      "variant_question": "What did Nela Frost not state about whether Iven Clay wrote the lantern index?",
+      "canonical_question": "What does Nela Frost report about whether Iven Clay wrote the lantern index?",
+      "group": "reporting",
+      "probe_signature": "439601cffb465390bfa0e56a6aed06a82e65344b3bf77f705e7e7a00f56f1f4a",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "a1ffee757c15ad745d043a91e3caf56a2e2514c381723e7ef695cd6df88034fd",
+          "raw": "runs/main/PROBE-0011/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "193aae37c595e2be9e8b0500de96691c7d5068b454e467dc5ae2429574e2879d",
+          "raw": "runs/pr105/PROBE-0011/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "0bfe3050909eea120d16460dc7be880a47bee297517d3df5a68ce659e0dc4dba",
+          "raw": "runs/candidate/PROBE-0011/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "a1ffee757c15ad745d043a91e3caf56a2e2514c381723e7ef695cd6df88034fd",
+          "raw": "runs/main/PROBE-0011/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "193aae37c595e2be9e8b0500de96691c7d5068b454e467dc5ae2429574e2879d",
+          "raw": "runs/pr105/PROBE-0011/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "0bfe3050909eea120d16460dc7be880a47bee297517d3df5a68ce659e0dc4dba",
+          "raw": "runs/candidate/PROBE-0011/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0023",
+        "group": "report_negation",
+        "rendering": "paragraphs",
+        "question": "What did Nela Frost not state about whether Iven Clay wrote the lantern index?",
+        "question_source_signature": "b9c87680f210dc804c54f177c163fb9243c6674ef2e3a98c02040b5ac83bfc8e",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": false,
+        "miss_stage": "question_interpretation",
+        "raw_sha256": "54d65d45b9718a639dcd3ade01ac64081d655bf2c7dec57ce8b7bba030ebcf05"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0024",
+      "variant_question": "What did Nela Frost not state about whether Iven Clay wrote the lantern index?",
+      "canonical_question": "What does Nela Frost report about whether Iven Clay wrote the lantern index?",
+      "group": "reporting",
+      "probe_signature": "5be4036e4c62ba0f3ac0489027bea20ffb26318c71657d397a78a4354c05dd54",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "9f0d4875136761b422e13e829bfa57fcc94b254499d361cd66b69c613932e93f",
+          "raw": "runs/main/PROBE-0012/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "24569b51759aa80e36f5f14a184c09edf16347005d2ee5e0bbe807249efe9d7b",
+          "raw": "runs/pr105/PROBE-0012/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "d70987f80979b7f287b7c3cbe17158830937947893fa64fd2162524bfbd043e1",
+          "raw": "runs/candidate/PROBE-0012/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "9f0d4875136761b422e13e829bfa57fcc94b254499d361cd66b69c613932e93f",
+          "raw": "runs/main/PROBE-0012/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "24569b51759aa80e36f5f14a184c09edf16347005d2ee5e0bbe807249efe9d7b",
+          "raw": "runs/pr105/PROBE-0012/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "d70987f80979b7f287b7c3cbe17158830937947893fa64fd2162524bfbd043e1",
+          "raw": "runs/candidate/PROBE-0012/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0024",
+        "group": "report_negation",
+        "rendering": "plain",
+        "question": "What did Nela Frost not state about whether Iven Clay wrote the lantern index?",
+        "question_source_signature": "b9c87680f210dc804c54f177c163fb9243c6674ef2e3a98c02040b5ac83bfc8e",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": false,
+        "miss_stage": "question_interpretation",
+        "raw_sha256": "1ed41b91a03c62bedff64ad789ff8e6b8efd4e17eda72d15d6ba0d5f367a77e8"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0025",
+      "variant_question": "According to this source, what did Nela Frost not report about Iven Clay writing the lantern index?",
+      "canonical_question": "What does Nela Frost report about whether Iven Clay wrote the lantern index?",
+      "group": "reporting",
+      "probe_signature": "439601cffb465390bfa0e56a6aed06a82e65344b3bf77f705e7e7a00f56f1f4a",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "a1ffee757c15ad745d043a91e3caf56a2e2514c381723e7ef695cd6df88034fd",
+          "raw": "runs/main/PROBE-0011/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "193aae37c595e2be9e8b0500de96691c7d5068b454e467dc5ae2429574e2879d",
+          "raw": "runs/pr105/PROBE-0011/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "0bfe3050909eea120d16460dc7be880a47bee297517d3df5a68ce659e0dc4dba",
+          "raw": "runs/candidate/PROBE-0011/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "a1ffee757c15ad745d043a91e3caf56a2e2514c381723e7ef695cd6df88034fd",
+          "raw": "runs/main/PROBE-0011/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "193aae37c595e2be9e8b0500de96691c7d5068b454e467dc5ae2429574e2879d",
+          "raw": "runs/pr105/PROBE-0011/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "0bfe3050909eea120d16460dc7be880a47bee297517d3df5a68ce659e0dc4dba",
+          "raw": "runs/candidate/PROBE-0011/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0025",
+        "group": "report_negation",
+        "rendering": "paragraphs",
+        "question": "According to this source, what did Nela Frost not report about Iven Clay writing the lantern index?",
+        "question_source_signature": "7c6134e955bd0661e9972197951693d5607ddde9cb87794c7af9ea7c593f613b",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": false,
+        "miss_stage": "question_interpretation",
+        "raw_sha256": "b4ab3b4d32e5ad8fb0f1445d7bf7fe23c9ab6bad4f75344b903522294b700bd7"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0026",
+      "variant_question": "According to this source, what did Nela Frost not report about Iven Clay writing the lantern index?",
+      "canonical_question": "What does Nela Frost report about whether Iven Clay wrote the lantern index?",
+      "group": "reporting",
+      "probe_signature": "5be4036e4c62ba0f3ac0489027bea20ffb26318c71657d397a78a4354c05dd54",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "9f0d4875136761b422e13e829bfa57fcc94b254499d361cd66b69c613932e93f",
+          "raw": "runs/main/PROBE-0012/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "24569b51759aa80e36f5f14a184c09edf16347005d2ee5e0bbe807249efe9d7b",
+          "raw": "runs/pr105/PROBE-0012/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "d70987f80979b7f287b7c3cbe17158830937947893fa64fd2162524bfbd043e1",
+          "raw": "runs/candidate/PROBE-0012/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "9f0d4875136761b422e13e829bfa57fcc94b254499d361cd66b69c613932e93f",
+          "raw": "runs/main/PROBE-0012/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "24569b51759aa80e36f5f14a184c09edf16347005d2ee5e0bbe807249efe9d7b",
+          "raw": "runs/pr105/PROBE-0012/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "d70987f80979b7f287b7c3cbe17158830937947893fa64fd2162524bfbd043e1",
+          "raw": "runs/candidate/PROBE-0012/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0026",
+        "group": "report_negation",
+        "rendering": "plain",
+        "question": "According to this source, what did Nela Frost not report about Iven Clay writing the lantern index?",
+        "question_source_signature": "7c6134e955bd0661e9972197951693d5607ddde9cb87794c7af9ea7c593f613b",
+        "execution": "completed",
+        "scored": true,
+        "passed": true,
+        "kind": "supported_answer",
+        "complete": true,
+        "claims": 1,
+        "false_support": false,
+        "positive_miss": false,
+        "errors": [],
+        "discovery_complete": true,
+        "interpretation_recognized": false,
+        "miss_stage": "question_interpretation",
+        "raw_sha256": "d7fbf967915c621fcb624558ed1d5d4a181aceff03b798f28cc78a96aeec295d"
+      },
+      "classifications": {
+        "main": "new_question_wording_support",
+        "pr105": "new_question_wording_support"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0029",
+      "variant_question": "What directions did Nora Field give the field team about the western beacon?",
+      "canonical_question": "What instruction does the record attribute to Nora Field concerning the western beacon?",
+      "group": "instruction",
+      "probe_signature": "48b4661e76ff7686a5904f067485a2e071d98b85d8e1f011b83712ba7b5ed50a",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "82caba506c61de3363d9f20b57bf9069b9dcf3156adcbb0dfe3de45819e4db43",
+          "raw": "runs/main/PROBE-0013/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "4958fc3fc7d83e74900552cf92f1f93c0ad14c078433f87548fc064b26250563",
+          "raw": "runs/pr105/PROBE-0013/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "e6984fab98c5c054bd737c0fab4919a990b57fc64f2c9248e4356e46a494cdd4",
+          "raw": "runs/candidate/PROBE-0013/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "82caba506c61de3363d9f20b57bf9069b9dcf3156adcbb0dfe3de45819e4db43",
+          "raw": "runs/main/PROBE-0013/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "4958fc3fc7d83e74900552cf92f1f93c0ad14c078433f87548fc064b26250563",
+          "raw": "runs/pr105/PROBE-0013/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "e6984fab98c5c054bd737c0fab4919a990b57fc64f2c9248e4356e46a494cdd4",
+          "raw": "runs/candidate/PROBE-0013/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0029",
+        "group": "instruction",
+        "rendering": "paragraphs",
+        "question": "What directions did Nora Field give the field team about the western beacon?",
+        "question_source_signature": "5f1213d0a21a153427aa77c6039352054d7eb0e1e5105a72966fb329b38b50d4",
+        "execution": "completed",
+        "scored": true,
+        "passed": false,
+        "kind": "abstain",
+        "complete": false,
+        "claims": 0,
+        "false_support": false,
+        "positive_miss": true,
+        "errors": [
+          "positive_completion_miss",
+          "complete_witness_missing"
+        ],
+        "discovery_complete": true,
+        "interpretation_recognized": false,
+        "miss_stage": "question_interpretation",
+        "raw_sha256": "c7e6c2ce5c022b3948028cc3cedc85d81148519b9a2037d1513b569ab48f69df"
+      },
+      "classifications": {
+        "main": "remaining_source_or_proof_operation_miss",
+        "pr105": "remaining_question_wording_miss"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0030",
+      "variant_question": "What directions did Nora Field give the field team about the western beacon?",
+      "canonical_question": "What instruction does the record attribute to Nora Field concerning the western beacon?",
+      "group": "instruction",
+      "probe_signature": "b71cd43564736eeb83dda492e6a0b64a650afd8c8cca1757705073c7cb7fc846",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "9ad81f03bcc3d70026dd5ac62462d40416e737cd5552bccace26137d42506f58",
+          "raw": "runs/main/PROBE-0014/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "4eba949b1d0645435a2dfabcd818f5508eb704548d693e7ed33d7e0489aefdee",
+          "raw": "runs/pr105/PROBE-0014/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "2ae2bd365286847fb5a7bce29fe1838cc0e7fff07de83675971652ded7d86200",
+          "raw": "runs/candidate/PROBE-0014/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "9ad81f03bcc3d70026dd5ac62462d40416e737cd5552bccace26137d42506f58",
+          "raw": "runs/main/PROBE-0014/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "4eba949b1d0645435a2dfabcd818f5508eb704548d693e7ed33d7e0489aefdee",
+          "raw": "runs/pr105/PROBE-0014/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "2ae2bd365286847fb5a7bce29fe1838cc0e7fff07de83675971652ded7d86200",
+          "raw": "runs/candidate/PROBE-0014/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0030",
+        "group": "instruction",
+        "rendering": "plain",
+        "question": "What directions did Nora Field give the field team about the western beacon?",
+        "question_source_signature": "5f1213d0a21a153427aa77c6039352054d7eb0e1e5105a72966fb329b38b50d4",
+        "execution": "completed",
+        "scored": true,
+        "passed": false,
+        "kind": "abstain",
+        "complete": false,
+        "claims": 0,
+        "false_support": false,
+        "positive_miss": true,
+        "errors": [
+          "positive_completion_miss",
+          "complete_witness_missing"
+        ],
+        "discovery_complete": true,
+        "interpretation_recognized": false,
+        "miss_stage": "question_interpretation",
+        "raw_sha256": "908face31fb1b112d17d8d6d693774109309bc9971ffdf4e3c9a3758aa0fc01f"
+      },
+      "classifications": {
+        "main": "remaining_source_or_proof_operation_miss",
+        "pr105": "remaining_question_wording_miss"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0031",
+      "variant_question": "What did Nora Field tell the field team to do about the western beacon?",
+      "canonical_question": "What instruction does the record attribute to Nora Field concerning the western beacon?",
+      "group": "instruction",
+      "probe_signature": "48b4661e76ff7686a5904f067485a2e071d98b85d8e1f011b83712ba7b5ed50a",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "82caba506c61de3363d9f20b57bf9069b9dcf3156adcbb0dfe3de45819e4db43",
+          "raw": "runs/main/PROBE-0013/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "4958fc3fc7d83e74900552cf92f1f93c0ad14c078433f87548fc064b26250563",
+          "raw": "runs/pr105/PROBE-0013/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "e6984fab98c5c054bd737c0fab4919a990b57fc64f2c9248e4356e46a494cdd4",
+          "raw": "runs/candidate/PROBE-0013/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "82caba506c61de3363d9f20b57bf9069b9dcf3156adcbb0dfe3de45819e4db43",
+          "raw": "runs/main/PROBE-0013/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "4958fc3fc7d83e74900552cf92f1f93c0ad14c078433f87548fc064b26250563",
+          "raw": "runs/pr105/PROBE-0013/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "e6984fab98c5c054bd737c0fab4919a990b57fc64f2c9248e4356e46a494cdd4",
+          "raw": "runs/candidate/PROBE-0013/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0031",
+        "group": "instruction",
+        "rendering": "paragraphs",
+        "question": "What did Nora Field tell the field team to do about the western beacon?",
+        "question_source_signature": "47566e5291ee6bda9179c20e35a19da6b2847f9001bee81c1ca4e96dd106f851",
+        "execution": "completed",
+        "scored": true,
+        "passed": false,
+        "kind": "abstain",
+        "complete": false,
+        "claims": 0,
+        "false_support": false,
+        "positive_miss": true,
+        "errors": [
+          "positive_completion_miss",
+          "complete_witness_missing"
+        ],
+        "discovery_complete": true,
+        "interpretation_recognized": false,
+        "miss_stage": "question_interpretation",
+        "raw_sha256": "c933b54af5294e6faff82a65ffe9dff0e9bdaa492215afb835b4466bb111d07c"
+      },
+      "classifications": {
+        "main": "remaining_source_or_proof_operation_miss",
+        "pr105": "remaining_question_wording_miss"
+      }
+    },
+    {
+      "variant_id": "CRYPT-BUNYIP-T0032",
+      "variant_question": "What did Nora Field tell the field team to do about the western beacon?",
+      "canonical_question": "What instruction does the record attribute to Nora Field concerning the western beacon?",
+      "group": "instruction",
+      "probe_signature": "b71cd43564736eeb83dda492e6a0b64a650afd8c8cca1757705073c7cb7fc846",
+      "source_bytes_unchanged": true,
+      "canonical_source_checks": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "9ad81f03bcc3d70026dd5ac62462d40416e737cd5552bccace26137d42506f58",
+          "raw": "runs/main/PROBE-0014/result.json"
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "4eba949b1d0645435a2dfabcd818f5508eb704548d693e7ed33d7e0489aefdee",
+          "raw": "runs/pr105/PROBE-0014/result.json"
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "2ae2bd365286847fb5a7bce29fe1838cc0e7fff07de83675971652ded7d86200",
+          "raw": "runs/candidate/PROBE-0014/result.json"
+        }
+      },
+      "canonical_source_checks_v2": {
+        "main": {
+          "complete_source_checked": false,
+          "errors": [
+            "canonical_not_complete"
+          ],
+          "raw_sha256": "9ad81f03bcc3d70026dd5ac62462d40416e737cd5552bccace26137d42506f58",
+          "raw": "runs/main/PROBE-0014/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "pr105": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "4eba949b1d0645435a2dfabcd818f5508eb704548d693e7ed33d7e0489aefdee",
+          "raw": "runs/pr105/PROBE-0014/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        },
+        "candidate": {
+          "complete_source_checked": true,
+          "errors": [],
+          "raw_sha256": "2ae2bd365286847fb5a7bce29fe1838cc0e7fff07de83675971652ded7d86200",
+          "raw": "runs/candidate/PROBE-0014/result.json",
+          "v1_support_tag_requirement_removed_after_exact_literal_check": false
+        }
+      },
+      "variant": {
+        "id": "CRYPT-BUNYIP-T0032",
+        "group": "instruction",
+        "rendering": "plain",
+        "question": "What did Nora Field tell the field team to do about the western beacon?",
+        "question_source_signature": "47566e5291ee6bda9179c20e35a19da6b2847f9001bee81c1ca4e96dd106f851",
+        "execution": "completed",
+        "scored": true,
+        "passed": false,
+        "kind": "abstain",
+        "complete": false,
+        "claims": 0,
+        "false_support": false,
+        "positive_miss": true,
+        "errors": [
+          "positive_completion_miss",
+          "complete_witness_missing"
+        ],
+        "discovery_complete": true,
+        "interpretation_recognized": false,
+        "miss_stage": "question_interpretation",
+        "raw_sha256": "ae034994559613fe6b03b03610d078a10cd088bcb885dd278c5441a0ad4d83f0"
+      },
+      "classifications": {
+        "main": "remaining_source_or_proof_operation_miss",
+        "pr105": "remaining_question_wording_miss"
+      }
+    }
+  ],
+  "tag_layout_infrastructure_counts_as_wording_gain": false,
+  "independent_semantic_adjudication": "NOT_RUN"
+}

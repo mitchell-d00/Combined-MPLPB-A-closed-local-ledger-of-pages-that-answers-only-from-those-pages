@@ -105,7 +105,7 @@ def statement_units(body):
         if re.fullmatch(r'[A-Z][A-Z0-9 /—–:\-]{2,79}\n?', section):
             continue
         start = lo
-        for m in re.finditer(r'[.!?]["”\)\]]?\s+(?=[A-Z"\[])', section):
+        for m in re.finditer(r'[.!?]["”\)\]]?\s+(?=[A-Z"“\[])', section):
             pos = lo + m.start()
             # Inspect a bounded lexical tail. Searching an unbounded prefix
             # ending in OCR punctuation causes quadratic regex backtracking.

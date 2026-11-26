@@ -1,0 +1,25 @@
+{
+  "schema": "cryptid-integration-gate-v1",
+  "name": "final-consumed-execution",
+  "command": [
+    "/workspace/cryptid-gates-venv/bin/python",
+    "tools/cryptid_replay_packet_v5.py",
+    "--packet",
+    "evaluation/cryptid/final/consumed-transfer",
+    "--implementation",
+    "/dev/shm/cryptid-final-candidate-2",
+    "--source-commit",
+    "1251cc471a24ba4be91949ffc0c4752d0c3bf202",
+    "--output",
+    "/workspace/cryptid-final-gates/candidate-2/final-consumed-run"
+  ],
+  "cwd": "/dev/shm/cryptid-final-candidate-2",
+  "timeout_seconds": 300,
+  "started_utc": "2026-11-26T00:00:52.494368+00:00",
+  "source": "Clean committed source ZIP extraction; no checkout tests substituted.",
+  "status": "PASS",
+  "returncode": 0,
+  "error": null,
+  "wall_seconds": 15.366806625999743,
+  "raw_log_sha256": "96b9c657677e9734af07a410abca13d523dc571d0a55a2f35abd3c58f12667ce"
+}

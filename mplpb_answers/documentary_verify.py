@@ -25,13 +25,27 @@ DATE_DOCUMENT_CHARS = 16000
 MONTHS = ('January February March April May June July August September October November December').split()
 DATE_EXPRESSION = r'(?:'+'|'.join(MONTHS)+r')\s+\d{1,2}(?:st|nd|rd|th)?(?:,?\s+\d{4})?'
 SITE_KINDS = ('fort', 'harbour', 'harbor', 'city', 'town', 'port')
-DATE_ROLES = {'bombardment','surrender','evacuation','departure','arrival','publication','revision','sending','receipt',
+DATE_ROLES = {'bombardment','surrender','evacuation','departure','arrival','publication','revision','sending','receipt','writing','catalogue','review',
               'telegram','letter','report','memorandum','dispatch'}
 
 
 def date_inventory_request(question):
     """A complete, source-bounded date question; factual additions never vanish."""
+    from .ordinary_questions import request as ordinary_request
+    ordinary=ordinary_request(question)
+    if ordinary and ordinary['kind']=='writing_date':
+        return {'roles':['writing'],'subject_text':ordinary['entity'], 'scope':'explicit statements in one eligible source record'}
     q=source_question(question).strip().rstrip('? .')
+    # Documentary role labels are an inspection plan. Keep the full original
+    # question on the index for policy, proof and final current-state checks.
+    q=re.sub(r'\.\s+Keep unknown matters unresolved$', '', q, flags=re.I)
+    paired=re.fullmatch(r'Distinguish the (reported sending date) and the (writing date) for (.{2,120})',q,re.I)
+    if paired:
+        subject=re.sub(r'^the\s+', '', paired[3], flags=re.I)
+        if re.search(r'\b(?:and|or|if|unless|because|prove|establish|not)\b|[;:?!]',subject,re.I):return None
+        return {'roles':['sending','writing'],'subject_text':subject,
+                'require_unique_requested_roles':True,
+                'scope':'explicit statements in one eligible source record'}
     m=re.fullmatch(r'Distinguish (?:the )?([a-z, ]{3,160}) dates in (?:the )?(.{2,120}) record'
                   r'(?:, without treating (?:the )?webpage review date as an event date)?',q,re.I)
     if m:
@@ -152,9 +166,31 @@ def dated_statements(quote):
     if catalogue and not META.search(quote[:catalogue.start()]):
         add(catalogue[1].lower(),catalogue[2],'source_catalogue_document_date',catalogue[0],
             dispatch_verified=False,receipt_verified=False,field_span=[catalogue.start(),catalogue.end()])
+        add('catalogue',catalogue[2],'source_catalogue_document_date',catalogue[0],
+            dispatch_verified=False,receipt_verified=False,field_span=[catalogue.start(),catalogue.end()])
+    # The document, rather than a named actor, may be the grammatical subject.
+    # This establishes only the explicitly stated date role, never its writer,
+    # sender, recipient, historical occurrence or any unstated adjacent role.
+    document_subject=r'(?:[Tt]his\s+record|[Tt]he\s+[^.!?;:"“”]{2,120}?)'
+    document=re.fullmatch('('+document_subject+r')\s+was\s+(written|sent|received|published)\s+on\s+('+DATE_EXPRESSION+r')\.',quote,re.I)
+    if document:
+        subject,verb,date_text=document.groups()
+    else:
+        document=re.fullmatch(r'On\s+('+DATE_EXPRESSION+r'),\s*('+document_subject+r')\s+was\s+(written|sent|received|published)\.',quote,re.I)
+        if document:date_text,subject,verb=document.groups()
+    if document:
+        role={'written':'writing','sent':'sending','received':'receipt','published':'publication'}[verb.lower()]
+        if role=='writing' and normalized(subject)=='this record':
+            add(role,date_text,'explicit_record_writing_date',quote,
+                sending_established=False,receipt_established=False,event_occurrence_established=False)
+        else:
+            add(role,date_text,'source_reported_document_date',quote,document_text=subject,
+                unstated_date_roles_established=False,actor_identity_established=False)
     review=re.fullmatch(r'This page was last reviewed on ('+DATE_EXPRESSION+r')\.',quote,re.I)
-    if review:add('webpage_review',review[1],'webpage_review',quote,support_scope='textual_occurrence')
-    m=re.fullmatch(r'(?:On |At (\d{1,2}:\d{2}\s*[ap]\.m\.),\s*)('+DATE_EXPRESSION+r'),\s*(.{2,500})\.',quote,re.I)
+    if review:
+        add('webpage_review',review[1],'webpage_review',quote,support_scope='textual_occurrence')
+        add('review',review[1],'webpage_review',quote,support_scope='textual_occurrence')
+    m=re.fullmatch(r'(?:On |At (\d{1,2}:\d{2}\s*[ap]\.m\.),\s*)('+DATE_EXPRESSION+r'),\s*(.{2,500})\.',quote,re.I|re.S)
     if not m:return links
     time_text,date_text,predicate=m.groups(); tail=predicate
     if (re.search(r'[:;!?“”"]',predicate) or
@@ -167,7 +203,7 @@ def dated_statements(quote):
     # Additional coordinated predicates cannot hide behind the object slot.
     if re.search(r'\b(?:and|or|then|before|after|because)\b',tail,re.I):return links
     for role,verb in predicates.items():
-        parsed=re.fullmatch(r'(.{2,120}?) ('+verb+r') (.{2,250})',tail,re.I)
+        parsed=re.fullmatch(r'(.{2,120}?)\s+('+verb+r')\s+(.{2,250})',tail,re.I|re.S)
         if not parsed:continue
         actor,action,obj=parsed.groups()
         # An actor is a literal name or one small declared collective-noun
@@ -264,17 +300,23 @@ def date_inventory(index,record):
     for a,b,q in units(body):
         correction=bool(re.search(r'\b(?:correction|corrected|erratum|retracted|withdrawn|superseded|amended|rescinded)\b',q,re.I))
         if (a,b) in accepted and not possible_refutation(q) and not correction:continue
-        if possible_refutation(q) or correction or (re.search(DATE_EXPRESSION,q,re.I) and
+        writing_counter=('writing' in request['roles'] and re.search(r'\b(?:written|writing)\b',q,re.I)
+                         and (re.search(DATE_EXPRESSION,q,re.I) or re.search(r'\b(?:not|never|denied)\b',q,re.I)))
+        if possible_refutation(q) or correction or writing_counter or (re.search(DATE_EXPRESSION,q,re.I) and
             re.search(r'\b(?:surrender(?:ed)?|evacuat\w*|bombard\w*|open(?:ed)? fire|depart\w*|arriv\w*|publish\w*|revis\w*|sent|send|receiv\w*)\b',q,re.I)):
             # A demanded surrender is a different source assertion; it does
             # not certify actual surrender and is not an opposing event date.
             if re.search(r'\b(?:demanded|requested) the surrender\b',q,re.I):continue
-            if possible_refutation(q) or correction or re.search(r'\b(?:surrender\w*|evacuat\w*|bombard\w*|fire|depart\w*|arriv\w*|publish\w*|revis\w*|sent|send|receiv\w*)\b',q,re.I):
+            if possible_refutation(q) or correction or writing_counter or re.search(r'\b(?:surrender\w*|evacuat\w*|bombard\w*|fire|depart\w*|arriv\w*|publish\w*|revis\w*|sent|send|receiv\w*)\b',q,re.I):
                 for role in request['roles']:
                     if role not in unresolved:unresolved.append(role)
                 cite=citation(r,body,a,b)
                 if cite not in citations:citations.append(cite)
     if not links:return None
+    # A paired role-disambiguation question needs both uniquely witnessed
+    # dates. Do not emit a convenient subset as the requested comparison.
+    # Existing inventory forms retain their checked-partial behavior.
+    if unresolved and request.get('require_unique_requested_roles'):return None
     complete=not unresolved
     value={'relation':'source_event_date_inventory','date_links':links,'review_dates':reviews,
            'subject_text':request['subject_text'],'unresolved_roles':unresolved,
@@ -289,7 +331,7 @@ def date_inventory(index,record):
     return {'proposition':value,'citations':citations}
 
 
-def context_ranges(record, *, document_draft=False):
+def context_ranges(record, *, document_draft=False, literal_source=False):
     """Conservatively exclude quotation/chrome and qualified heading scopes.
 
     Position through the unchanged canonical projection. A page containing a
@@ -327,6 +369,15 @@ def context_ranges(record, *, document_draft=False):
             if self.pre_depth and not self.pre_finished:self.pre_prefix+=value[:max(0,2001-len(self.pre_prefix))]
     parser=Context();parser.feed(record.body_html);parser.close();full=body_text(record.body_html)
     if body_text(''.join(parser.parts))!=full:return [(0,len(full)+1)]
+    from .source_structure import definition_header
+    definition=definition_header(record)
+    if definition:
+        if definition['status']!='closed':parser.ranges.append((0,len(full)+1))
+        else:
+            # Metadata remains inspection context, never an action assertion.
+            parser.ranges.append((0,definition['end']))
+            if any(META.search(value) or re.search(r'\b(?:'+qualifiers+r'|reported|quoted|forwarded|alleged|denied|instructions?|orders?)\b',value,re.I) for label,value in definition['fields'] if label=='subject'):
+                parser.ranges.append((0,len(full)+1))
     opened=None
     for m in re.finditer(r'(?m)^\ufeff?[ \t]*(?:>[ \t]*)*(`{3,}|~{3,})([^\r\n]*)',full):
         if opened is None:opened=(m.start(),m[1])
@@ -372,7 +423,9 @@ def context_ranges(record, *, document_draft=False):
                     if re.match(r'[^:\n]{1,80}:',line):header_uncertain=True
                     else:transition=True
                     break
-            if not transition:header_uncertain=True
+            if not transition:
+                from .source_structure import closed_header
+                if not closed_header(record):header_uncertain=True
     elif lines:
         h=re.fullmatch(r'([^\n]{2,70}) TO ([^\n]{2,70})\. ([^\n]{4,120})',lines[0])
         if h and h[1].isupper() and h[2].isupper():labels=[h[3]]
@@ -380,6 +433,14 @@ def context_ranges(record, *, document_draft=False):
         parser.ranges.append((0,len(full)+1))
     for _,start in parser.stack:parser.ranges.append((start,len(full)+1))
     for i,(start,level,heading) in enumerate(parser.headings):
+        # Literal source correspondence can describe a fictional collection.
+        # A generated display title is not an assertion of real-world truth.
+        # Keep every other qualifier and every body/quotation heading scoped;
+        # documentary action verification retains the conservative default.
+        record_title=getattr(record,'title',None)
+        if (literal_source and level==1 and start==0 and isinstance(record_title,str)
+                and heading.strip().casefold()==record_title.strip().casefold()):
+            heading=re.sub(r'\bfictional\b','',heading,flags=re.I)
         if META.search(heading) or re.search(r'\b(?:'+qualifiers+r')\b',heading,re.I):
             end=next((a for a,l,_ in parser.headings[i+1:] if l<=level),len(full)+1)
             parser.ranges.append((start,end))
@@ -470,9 +531,17 @@ def quoted_context(prefix):
     return single or double or uncertain
 
 
-def units(body):
+def units(body,record=None):
     """Re-derive complete boundaries from native canonical source text."""
     from .source_units import statement_units
+    if record is not None:
+        from .source_structure import definition_header
+        header=definition_header(record)
+        if header and header['status']=='closed' and header['end']<=len(body):
+            end=header['end']
+            yield from statement_units(body[:end])
+            for a,b,q in statement_units(body[end:]):yield a+end,b+end,q
+            return
     yield from statement_units(body)
 
 
@@ -655,7 +724,7 @@ def check(index,proposals,*,max_scan_chars=200000):
         if limit<len(body):complete=False;limits_reached.add('source_characters')
         prefix=body[:limit]
         # A cut unit is never inspected as a complete contradictory statement.
-        for a,b,q in units(prefix):
+        for a,b,q in units(prefix,record):
             if limit<len(body) and b==limit:continue
             if len(contexts)>=1000:complete=False;limits_reached.add('source_units');break
             value=action_assertion(q)
@@ -699,7 +768,7 @@ def check(index,proposals,*,max_scan_chars=200000):
             # Re-read complete native units; an exact substring alone cannot
             # hide a leading negation, attribution or conditional governor.
             from .source_units import comparison_units
-            native=comparison_units(record) if kind in {'wording_comparison','comparison_completion'} else units(body)
+            native=comparison_units(record) if kind in {'wording_comparison','comparison_completion'} else units(body,record)
             unit=next(((lo,hi,q) for lo,hi,q in native if (lo,hi)==(a,b)),None)
             def safe_unit(record,a,b,body):
                 prior=body[:a]

@@ -1,0 +1,3996 @@
+{
+  "schema": "dpercent-v1-score",
+  "run_sha256": "5e683665e94f2f09a96b3fcce6485928977f380c39018eabd8b935eeb2d348fd",
+  "scorer_sha256": "c00a306599583aef07de9fbdfb904e1f882b938a3f1ba2b2eba758d3938aaed6",
+  "metrics": {
+    "answer_cases": 24,
+    "refuse_cases": 84,
+    "correct_complete_answers": 2,
+    "false_alarms": 0,
+    "E": 0.08333333333333333,
+    "F": 0.0,
+    "E_lower_bound": 0.08333333333333333,
+    "E_output": 0.3333333333333333,
+    "false_alarm_observed_on_completed": 0.0,
+    "over_refusals": 16,
+    "appropriate_refusals": 84,
+    "execution_failures": 0,
+    "unscored_supported": 6,
+    "complete_decision_match": false,
+    "historical_accuracy": null,
+    "independent_semantic_review": "NOT RUN",
+    "caution": "E counts independently matched typed source propositions,not merely positive support flags;unsupported matcher shapes remain unscored.",
+    "outcomes": {
+      "supported_semantics_unscored": 6,
+      "appropriate_refusal": 84,
+      "over_refusal": 16,
+      "detected_answer": 2
+    },
+    "by_family": {
+      "classification": {
+        "supported_semantics_unscored": 2,
+        "appropriate_refusal": 21,
+        "over_refusal": 4
+      },
+      "instruction": {
+        "detected_answer": 2,
+        "appropriate_refusal": 21,
+        "over_refusal": 4
+      },
+      "opening": {
+        "supported_semantics_unscored": 2,
+        "appropriate_refusal": 21,
+        "over_refusal": 4
+      },
+      "ownership": {
+        "supported_semantics_unscored": 2,
+        "appropriate_refusal": 21,
+        "over_refusal": 4
+      }
+    },
+    "retrieval": {
+      "native_facets": {
+        "recall_at_1": {
+          "mean": 1.0,
+          "cases": 24
+        },
+        "recall_at_5": {
+          "mean": 1.0,
+          "cases": 24
+        },
+        "recall_at_10": {
+          "mean": 1.0,
+          "cases": 24
+        },
+        "complete_statement_coverage": {
+          "mean": 1.0,
+          "cases": 24
+        }
+      },
+      "simple_bm25": {
+        "recall_at_1": {
+          "mean": 1.0,
+          "cases": 24
+        },
+        "recall_at_5": {
+          "mean": 1.0,
+          "cases": 24
+        },
+        "recall_at_10": {
+          "mean": 1.0,
+          "cases": 24
+        },
+        "complete_statement_coverage": {
+          "mean": 1.0,
+          "cases": 24
+        }
+      }
+    },
+    "resources": {
+      "cpu_seconds": 17.269693579,
+      "wall_seconds": 17.300690449090325,
+      "explicit_original_read_calls": 132,
+      "explicit_original_bytes_read": 5760,
+      "peak_worker_rss_bytes": 24354816,
+      "measured_cases": 108,
+      "total_pipeline_source_bytes_read": null,
+      "human_review_seconds": null
+    }
+  },
+  "cases": [
+    {
+      "id": "DP00001",
+      "family": "ownership",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "supported_semantics_unscored",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.09999910800000003,
+        "wall_seconds": 0.10152780600765254,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 36,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00002",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "conflict",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.103949934,
+        "wall_seconds": 0.10409097099909559,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 74,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00003",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.13187019000000003,
+        "wall_seconds": 0.13261481099470984,
+        "peak_rss_bytes": 24223744,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00004",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.10090641399999997,
+        "wall_seconds": 0.10346346801088657,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 36,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00005",
+      "family": "ownership",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.144000919,
+        "wall_seconds": 0.14165866999246646,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 36,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00006",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.13599503000000002,
+        "wall_seconds": 0.13701339600083884,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 74,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00007",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.13197493599999996,
+        "wall_seconds": 0.13170740100031253,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00008",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.099994259,
+        "wall_seconds": 0.09976948999974411,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 36,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00009",
+      "family": "ownership",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.144008271,
+        "wall_seconds": 0.14367064699763432,
+        "peak_rss_bytes": 24113152,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 36,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00010",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.15192327899999997,
+        "wall_seconds": 0.15115138699184172,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 74,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00011",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.14793908,
+        "wall_seconds": 0.1456983540119836,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00012",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.09997273800000003,
+        "wall_seconds": 0.09891921900270972,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 36,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00013",
+      "family": "ownership",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "supported_semantics_unscored",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.135678406,
+        "wall_seconds": 0.13571125399903394,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 36,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00014",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "conflict",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.119987503,
+        "wall_seconds": 0.12087799700384494,
+        "peak_rss_bytes": 24215552,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 74,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00015",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.15583241,
+        "wall_seconds": 0.15553232900856528,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00016",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.11913826699999999,
+        "wall_seconds": 0.11887548600498121,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 36,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00017",
+      "family": "ownership",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.15999039000000004,
+        "wall_seconds": 0.1617739600042114,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 36,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00018",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.14803888699999998,
+        "wall_seconds": 0.1471432959951926,
+        "peak_rss_bytes": 24223744,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 74,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00019",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.170333248,
+        "wall_seconds": 0.17011511599412188,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00020",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.09200324900000004,
+        "wall_seconds": 0.09306633300730027,
+        "peak_rss_bytes": 24223744,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 36,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00021",
+      "family": "ownership",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.19597002099999997,
+        "wall_seconds": 0.19601505099853966,
+        "peak_rss_bytes": 24244224,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 36,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00022",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.19599155799999995,
+        "wall_seconds": 0.19917322200490162,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 74,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00023",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.1839969,
+        "wall_seconds": 0.1833364280028036,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00024",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.11199450099999997,
+        "wall_seconds": 0.10815478798758704,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 36,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00025",
+      "family": "classification",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "supported_semantics_unscored",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.153618343,
+        "wall_seconds": 0.15429149799456354,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 37,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00026",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "conflict",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.09998823700000001,
+        "wall_seconds": 0.10090146400034428,
+        "peak_rss_bytes": 24215552,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 73,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00027",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.15588965500000002,
+        "wall_seconds": 0.15548081300221384,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00028",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.10783901699999998,
+        "wall_seconds": 0.10890930099412799,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 37,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00029",
+      "family": "classification",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.13599843799999997,
+        "wall_seconds": 0.1361351579980692,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 37,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00030",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.16797952100000002,
+        "wall_seconds": 0.16567796499293763,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 73,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00031",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.15552939200000002,
+        "wall_seconds": 0.15443466400029138,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00032",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.09742443699999997,
+        "wall_seconds": 0.09815396300109569,
+        "peak_rss_bytes": 24215552,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 37,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00033",
+      "family": "classification",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.18399973699999997,
+        "wall_seconds": 0.18456943999626674,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 37,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00034",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.16792523299999998,
+        "wall_seconds": 0.16490947900456376,
+        "peak_rss_bytes": 24088576,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 73,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00035",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.160000319,
+        "wall_seconds": 0.15884464600821957,
+        "peak_rss_bytes": 24088576,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00036",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.11188873299999996,
+        "wall_seconds": 0.11281448999943677,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 37,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00037",
+      "family": "classification",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "supported_semantics_unscored",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.10399862500000001,
+        "wall_seconds": 0.1077678739966359,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 37,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00038",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "conflict",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.14279003899999998,
+        "wall_seconds": 0.14121544899535365,
+        "peak_rss_bytes": 24223744,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 73,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00039",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.148004503,
+        "wall_seconds": 0.15051858399237972,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00040",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.127639061,
+        "wall_seconds": 0.12765269800729584,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 37,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00041",
+      "family": "classification",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.191934712,
+        "wall_seconds": 0.19376649799232837,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 37,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00042",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.20169037200000003,
+        "wall_seconds": 0.20390988599683624,
+        "peak_rss_bytes": 24195072,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 73,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00043",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.16739746300000002,
+        "wall_seconds": 0.16628489400318358,
+        "peak_rss_bytes": 24354816,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00044",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.10399157199999998,
+        "wall_seconds": 0.10430887401162181,
+        "peak_rss_bytes": 24215552,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 37,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00045",
+      "family": "classification",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.167992204,
+        "wall_seconds": 0.1680196539964527,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 37,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00046",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.20794327799999995,
+        "wall_seconds": 0.20633022199035622,
+        "peak_rss_bytes": 24223744,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 73,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00047",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.155959423,
+        "wall_seconds": 0.15819260699208826,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00048",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.12769694599999998,
+        "wall_seconds": 0.12506199000927154,
+        "peak_rss_bytes": 24215552,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 37,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00049",
+      "family": "opening",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "supported_semantics_unscored",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.10792918899999998,
+        "wall_seconds": 0.10831265299930237,
+        "peak_rss_bytes": 24346624,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 40,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00050",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "conflict",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.115974925,
+        "wall_seconds": 0.11574947999906726,
+        "peak_rss_bytes": 24158208,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 80,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00051",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.160001858,
+        "wall_seconds": 0.1614769590087235,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00052",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.10000210300000001,
+        "wall_seconds": 0.10184294100326952,
+        "peak_rss_bytes": 24354816,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 40,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00053",
+      "family": "opening",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.151819926,
+        "wall_seconds": 0.15295220399275422,
+        "peak_rss_bytes": 24354816,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 40,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00054",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.328872922,
+        "wall_seconds": 0.33856079100223724,
+        "peak_rss_bytes": 24223744,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 80,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00055",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.16397001600000002,
+        "wall_seconds": 0.16144128498854116,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00056",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.11982147600000001,
+        "wall_seconds": 0.12135945299814921,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 40,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00057",
+      "family": "opening",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.163977883,
+        "wall_seconds": 0.16662277201248799,
+        "peak_rss_bytes": 24346624,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 40,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00058",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "conflict",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.147945934,
+        "wall_seconds": 0.14777704500011168,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 80,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00059",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.179794991,
+        "wall_seconds": 0.17784103500889614,
+        "peak_rss_bytes": 24215552,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00060",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.09598820900000002,
+        "wall_seconds": 0.09810857199772727,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 40,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00061",
+      "family": "opening",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "supported_semantics_unscored",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.10003996299999998,
+        "wall_seconds": 0.10238607600331306,
+        "peak_rss_bytes": 24354816,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 41,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00062",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "conflict",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.103959321,
+        "wall_seconds": 0.10709831499843858,
+        "peak_rss_bytes": 24215552,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 82,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00063",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.160024484,
+        "wall_seconds": 0.15940170901012607,
+        "peak_rss_bytes": 24223744,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00064",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.10398331599999999,
+        "wall_seconds": 0.10018637399480212,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 41,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00065",
+      "family": "opening",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.147918481,
+        "wall_seconds": 0.14726939899264835,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 41,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00066",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.16000031000000003,
+        "wall_seconds": 0.16042840099544264,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 82,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00067",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.15188132,
+        "wall_seconds": 0.15081934200134128,
+        "peak_rss_bytes": 24104960,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00068",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.09985006700000001,
+        "wall_seconds": 0.1006825570075307,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 41,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00069",
+      "family": "opening",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.15599546899999997,
+        "wall_seconds": 0.1565248499973677,
+        "peak_rss_bytes": 24346624,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 41,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00070",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "conflict",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.36601382699999996,
+        "wall_seconds": 0.369238312006928,
+        "peak_rss_bytes": 24088576,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 82,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00071",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.22397189299999992,
+        "wall_seconds": 0.22398192599939648,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00072",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.21600289199999995,
+        "wall_seconds": 0.2152421220089309,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 41,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00073",
+      "family": "instruction",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "typed_proposition_match": true,
+      "quotation_fidelity": true,
+      "outcome": "detected_answer",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.29193891,
+        "wall_seconds": 0.29062297800555825,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 69,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00074",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "conflict",
+      "answer_supported": false,
+      "typed_proposition_match": true,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.2239838,
+        "wall_seconds": 0.2263324750092579,
+        "peak_rss_bytes": 24252416,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 144,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00075",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.19977159499999997,
+        "wall_seconds": 0.20079435799561907,
+        "peak_rss_bytes": 24354816,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00076",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.247988516,
+        "wall_seconds": 0.24908186499669682,
+        "peak_rss_bytes": 24342528,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 69,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00077",
+      "family": "instruction",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.266502153,
+        "wall_seconds": 0.2677726050023921,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 69,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00078",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.31495959400000006,
+        "wall_seconds": 0.3157680110016372,
+        "peak_rss_bytes": 24276992,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 144,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00079",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.23599291800000005,
+        "wall_seconds": 0.237791608000407,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00080",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.108122033,
+        "wall_seconds": 0.11036502500064671,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 69,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00081",
+      "family": "instruction",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.21598621399999995,
+        "wall_seconds": 0.21386913899914362,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 69,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00082",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.207994246,
+        "wall_seconds": 0.20678272600343917,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 144,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00083",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.160006921,
+        "wall_seconds": 0.1596327779989224,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00084",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.103983144,
+        "wall_seconds": 0.10233647699351422,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 69,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00085",
+      "family": "instruction",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "supported_answer",
+      "answer_supported": true,
+      "typed_proposition_match": true,
+      "quotation_fidelity": true,
+      "outcome": "detected_answer",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.172020551,
+        "wall_seconds": 0.17026065499521792,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 69,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00086",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "conflict",
+      "answer_supported": false,
+      "typed_proposition_match": true,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.17596105699999998,
+        "wall_seconds": 0.17437869499553926,
+        "peak_rss_bytes": 24346624,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 144,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00087",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.17970841499999998,
+        "wall_seconds": 0.17961237400595564,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00088",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.09599274699999999,
+        "wall_seconds": 0.09432605199981481,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 69,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00089",
+      "family": "instruction",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.17205170799999997,
+        "wall_seconds": 0.16939593800634611,
+        "peak_rss_bytes": 24154112,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 69,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00090",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.19893981900000002,
+        "wall_seconds": 0.20048198000586126,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 144,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00091",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.15197768900000003,
+        "wall_seconds": 0.154033190003247,
+        "peak_rss_bytes": 24346624,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00092",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.08799743000000002,
+        "wall_seconds": 0.09066761600843165,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 69,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00093",
+      "family": "instruction",
+      "expected": "answer",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "over_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        },
+        "simple_bm25": {
+          "rank_one": true,
+          "complete_statement_coverage": 1.0,
+          "recall_at_1": 1.0,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.15491136,
+        "wall_seconds": 0.15684846999647561,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 69,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00094",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.151991908,
+        "wall_seconds": 0.1528022919956129,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 2,
+        "explicit_original_bytes_read": 144,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00095",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.14799680899999998,
+        "wall_seconds": 0.1505466910020914,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 33,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00096",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.10335304099999998,
+        "wall_seconds": 0.10664323299715761,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 69,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00097",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.155834656,
+        "wall_seconds": 0.15657749099773355,
+        "peak_rss_bytes": 24248320,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 36,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00098",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.15594145599999998,
+        "wall_seconds": 0.15435238400823437,
+        "peak_rss_bytes": 24215552,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 36,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00099",
+      "family": "ownership",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.159970372,
+        "wall_seconds": 0.15831080400676,
+        "peak_rss_bytes": 24223744,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 36,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00100",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.15199959100000002,
+        "wall_seconds": 0.15249721899454016,
+        "peak_rss_bytes": 24215552,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 37,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00101",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.32746242700000006,
+        "wall_seconds": 0.32810096500907093,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 37,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00102",
+      "family": "classification",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.163833711,
+        "wall_seconds": 0.16427361000387464,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 37,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00103",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.17197740800000003,
+        "wall_seconds": 0.17170991400780622,
+        "peak_rss_bytes": 24350720,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 40,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00104",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.275998157,
+        "wall_seconds": 0.27637529800995253,
+        "peak_rss_bytes": 24354816,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 40,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00105",
+      "family": "opening",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.16811419799999996,
+        "wall_seconds": 0.16836882500501815,
+        "peak_rss_bytes": 24293376,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 40,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00106",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.18017904199999996,
+        "wall_seconds": 0.1790797349967761,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 69,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00107",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.15997926,
+        "wall_seconds": 0.16037421600776725,
+        "peak_rss_bytes": 24215552,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 69,
+        "total_pipeline_source_bytes_read": null
+      }
+    },
+    {
+      "id": "DP00108",
+      "family": "instruction",
+      "expected": "refuse",
+      "execution": "completed",
+      "kind": "abstain",
+      "answer_supported": false,
+      "typed_proposition_match": false,
+      "quotation_fidelity": true,
+      "outcome": "appropriate_refusal",
+      "checked_partial": false,
+      "retrieval": {
+        "native_facets": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        },
+        "simple_bm25": {
+          "rank_one": null,
+          "complete_statement_coverage": null,
+          "recall_at_1": null,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "measurements": {
+        "cpu_seconds": 0.17592119,
+        "wall_seconds": 0.17500519299937878,
+        "peak_rss_bytes": 24219648,
+        "explicit_original_read_calls": 1,
+        "explicit_original_bytes_read": 69,
+        "total_pipeline_source_bytes_read": null
+      }
+    }
+  ],
+  "definitions": {
+    "E": "Correct complete supported answers / all expected-answer cases executed or attempted.",
+    "F": "Any supported answer / expected-refuse cases;execution failures are retained and separately counted.",
+    "failure_policy": "Do not interpret F as safety certification when execution failures exist."
+  },
+  "scope": "Developer-generated synthetic documentary assertions;not real historical truth or independent human evaluation."
+}

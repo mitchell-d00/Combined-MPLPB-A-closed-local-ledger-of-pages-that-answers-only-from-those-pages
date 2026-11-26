@@ -1,0 +1,78 @@
+{
+  "schema": "cryptid-wrap-cases-v1",
+  "test_sha256": "7c87bfd0fc5ab7e1531e4484a8c227b5f46762cf306bc4e83358edb14fdfa42d",
+  "cases": [
+    {
+      "id": "CRYPT-MOTHMAN-0029",
+      "test": "tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_roles_do_not_become_event_or_transmission_from_writing",
+      "protected_operation": "roles_do_not_become_event_or_transmission_from_writing",
+      "expectations": "Frozen assertions in byte-pinned test file; no post-repair label changes",
+      "custody": "same-operator",
+      "baseline": "candidate-2.log",
+      "candidate": "candidate-3.log"
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0030",
+      "test": "tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_year_is_not_borrowed",
+      "protected_operation": "year_is_not_borrowed",
+      "expectations": "Frozen assertions in byte-pinned test file; no post-repair label changes",
+      "custody": "same-operator",
+      "baseline": "candidate-2.log",
+      "candidate": "candidate-3.log"
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0031",
+      "test": "tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_missing_writing_does_not_turn_review_into_writing",
+      "protected_operation": "missing_writing_does_not_turn_review_into_writing",
+      "expectations": "Frozen assertions in byte-pinned test file; no post-repair label changes",
+      "custody": "same-operator",
+      "baseline": "candidate-2.log",
+      "candidate": "candidate-3.log"
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0032",
+      "test": "tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_conflicting_writing_dates_do_not_complete",
+      "protected_operation": "conflicting_writing_dates_do_not_complete",
+      "expectations": "Frozen assertions in byte-pinned test file; no post-repair label changes",
+      "custody": "same-operator",
+      "baseline": "candidate-2.log",
+      "candidate": "candidate-3.log"
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0033",
+      "test": "tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_explicit_denial_is_counterevidence",
+      "protected_operation": "explicit_denial_is_counterevidence",
+      "expectations": "Frozen assertions in byte-pinned test file; no post-repair label changes",
+      "custody": "same-operator",
+      "baseline": "candidate-2.log",
+      "candidate": "candidate-3.log"
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0034",
+      "test": "tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_extra_obligations_survive",
+      "protected_operation": "extra_obligations_survive",
+      "expectations": "Frozen assertions in byte-pinned test file; no post-repair label changes",
+      "custody": "same-operator",
+      "baseline": "candidate-2.log",
+      "candidate": "candidate-3.log"
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0035",
+      "test": "tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_withdrawal_changes_current_eligibility",
+      "protected_operation": "withdrawal_changes_current_eligibility",
+      "expectations": "Frozen assertions in byte-pinned test file; no post-repair label changes",
+      "custody": "same-operator",
+      "baseline": "candidate-2.log",
+      "candidate": "candidate-3.log"
+    },
+    {
+      "id": "CRYPT-MOTHMAN-0036",
+      "test": "tests.test_documentary_date_roles.DocumentaryDateRoleTests.test_wrapping_preserves_witness_bytes",
+      "protected_operation": "wrapping_preserves_witness_bytes",
+      "expectations": "Frozen assertions in byte-pinned test file; no post-repair label changes",
+      "custody": "same-operator",
+      "baseline": "candidate-2.log",
+      "candidate": "candidate-3.log"
+    }
+  ]
+}

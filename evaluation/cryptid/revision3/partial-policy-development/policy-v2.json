@@ -1,0 +1,15 @@
+{
+  "schema": "checked-partial-acceptance-policy-v2",
+  "effective_scope": "Only these newly frozen fixtures and later explicitly frozen packets; no old key/score changed",
+  "reader_change_required": false,
+  "requirements": [
+    "Original complete question retained",
+    "Every partial atomic claim matches exact eligible source evidence and qualifications",
+    "answer_supported=false and kind=partial_answer",
+    "Each unproved requested obligation remains explicitly missing",
+    "No inferred temporal bound, identity, execution or agreement",
+    "Unsupported actors, conditional bare assertions and unavailable sources withhold"
+  ],
+  "original_failure": "CRYPT-FINAL2-T0004 remains FAIL under its unchanged original all-claims-withhold key",
+  "policy_disagreement": "A source-supported partial is not an unsupported completion. Strict all-claims-withhold can reject a valid partial; report both criteria."
+}

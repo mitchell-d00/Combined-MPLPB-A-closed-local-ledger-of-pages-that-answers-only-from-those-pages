@@ -1,6 +1,6 @@
 # Documentation index
 
-Last reviewed: 2026-11-22.
+Last reviewed: 2026-11-26.
 
 Start with the [browser or terminal example](../README.md#try-it-in-30-seconds).
 Use [MPLPB tools](TOOL_DIRECTORY.md) for application tasks or the [Test Index for humans and AI](TEST_INDEX.md)
@@ -15,6 +15,12 @@ material. Strict source support still requires body evidence under finite proof
 rules. Candidates, gated retrieval, source bundles and model-assisted output
 retain separate authority labels. Combined MPLPB is a technical case study, still
 being tested, not proven world-first.
+
+## Three entry areas
+
+Start with [MPLPB](MPLPB.md), [Experimental Lab](EXPERIMENTAL_LAB.md), or
+[Testing and Training Apparatus](TESTING_APPARATUS.md). The [component map](COMPONENT_MAP.md)
+connects the seven departments without moving their files.
 
 ## Choose a starting point
 
