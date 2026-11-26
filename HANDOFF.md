@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `3bf9657c7b956623f07ed4b94765e0edd5cd3f02` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `dadfb8ada2dc47aeb1ee5d3885ba4b421f1ca59cd6ccbfbb3955638c67a8922b`.
+Base commit: `e36d571490beae1ea2b36ee49dba63496fae0152` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `946a6bd042c1aa28ec1377560d6a2124d47f58cc9caa7a51ac2b55ecdec4b746`.
 
 ## Betty report for Al
 
@@ -52,6 +52,7 @@ Clarification: The next milestone is getting those actual code files into a remo
 - Existing optional source-metadata/read-only diagnostic worker adapter and public routing/polarity development packets are published unchanged. Remote workflow reuses D.run, sealed worker hashes, current limits and required Bubblewrap; it executes only public development on baseline/current source. Held keys remain local, so semantic scoring stays separate.
 - Remote raw baseline/candidate ZIPs and unchanged strict/source-score files are durably versioned under round2. Candidate source-key development comparison572/572 passes; this is not unseen transfer, independent semantic adjudication or historical accuracy.
 - Three existing entry areas now lead to product use, experimental development and evidence inspection. Existing Test Index/results.json connects66families/69family+subfamily IDs to responsibility, protected scope, implementation, tests, per-run pins/checksums, results/misses, execution/custody and preservation. Older multi-revision metadata explicitly refers to retained per-run receipts rather than inventing a single pin. Root README131lines. No physical paths moved.
+- Current Bunyip report, Test Index and status distinguish832public preservation from17private blocked cases, and record the custody incident. Main is unchanged; both held packets remain unopened.
 
 ### Validation recorded
 
@@ -63,6 +64,8 @@ Clarification: The next milestone is getting those actual code files into a remo
 - Navigation stage: stable IDs unique; Outside definition byte-unchanged; original documents preserved in reviewed versioned history snapshots. No frozen input/key/score or historical measurement was modified or rerun by navigation. Native1904(1skip) source test and572case comparison remain distinct from metadata/transport work.
 - All849 retained released-reader contract outputs recovered directly; all recorded reader-code maps match the released main baseline. Reference archive SHA25671bd781c5a10041652a6b83d7d4b29ff30042f79006c00c7f5301b75fc1ae7a2; this validates reference identity, not C3 preservation. Interrupted C3 preservation retained separately.
 - Remote preservation attempt45870399223:321completed exact,528execution failures; artifact retention failedEACCES. Not a full preservation pass. Private local probe failed isolation closed; remaining16private cases NOT_RUN.
+- Consumed public preservation at3bf9657 completed832/832 with exact contracts and no execution failures; artifact15143422219 checksum43f479483f65578e097c8e8916fe9d9322b5c9fb137e0eaa0d4d5d5eab39fc73 verified before retention.17private cases remain blocked separately.
+- Bunyip BB matched-source audit:900positive contracts exact and200negative controls withheld on baseline and C3; original package checksumunchanged,900eligible citations checked. Failed different-generated-hash archival comparison retained; no new language gain credited.
 
 ### Limitations and blocked checks
 
@@ -71,13 +74,13 @@ Clarification: The next milestone is getting those actual code files into a remo
 - Local Git working branch still has baseline ancestry2622813 and original uncommitted files; remote API commits are the current published state. Do not force-push/reset or deliver a local archive as current without reconciling. The key-bearing frozen-development-inputs.tar.xz was removed from the local index without changing its bytes, privately copied/verified, and explicitly ignored for publication. All held transfer/key material remains excluded.
 - Local process exhaustion persists; actual source/evidence/navigation are published. Remote recovery workflow generated and checked the handoff; current exact-head gates and849C3 preservation are pending. Development passes do not erase22strict-key failures or rejected candidates. Both held packets remain unopened.
 - Publication custody incident:17descriptor-marked-private PE02 outputs were mistakenly included in9b4bdf9 preservation-reference archive; removed from current tree atbfd41a5. Earlier Git objects may remain retrievable. Original local files/held keys/transfer untouched; release paused. See custody-incident-v1.json. Public replacement filters original descriptor flags, not filename assumptions.
+- Private probe error: bwrap Can't fork for pid1:Resource temporarily unavailable. Whole849gate remains BLOCKED, despite832public exact. Publication incident current-tree containment does not erase earlier Git objects; no merge/deployment while unresolved.
 
 ### Next steps
 
-- Finish832public preservation using existing frozen adapters; keep17private preservation cases BLOCKED until original custody execution works. Resolve/report prior-Git-object exposure; no merge or transfer opening while required gates remain pending.
-- Complete exact-head navigation/handoff/docs checks and the released quickstart software walkthrough; finish849contract preservation and unchanged BB accounting, then freeze the committed source ZIP before opening36+64held transfer once. Keep current PR report/source pins synchronized. Publication authorization persists.
-- Inspect/replay C3 execution failures and preservation including unchanged Bunyip BB; audit source support/polarity/citations/conflicts separately. Update authoritative Test Index/department map with actual outcomes. Freeze committed ZIP before either designated transfer packet is opened once.
-- Run all required exact-head checks and acceptance/protection gates, then merge and verify deployment/live fingerprints under existing authorization. Existing coverage gaps may remain backlog; missing implementation or blocked gates are not passes.
+- Resolve remaining prior-Git-object custody exposure; execute17private preservation cases with working required isolation in original custody. Do not publish private originals or raw outputs.
+- Complete current-head required software/docs/quickstart checks; archive receipt and continuation must name exact tested commit. Only after preservation and designated ZIP freeze, open36+64held cases once; retain failures.
+- After acceptance/protection gates pass, use existing authorization to merge and verify live fingerprints. No new publication confirmation needed; blocked gates are not passes.
 
 ## Use this ZIP in your repository
 
