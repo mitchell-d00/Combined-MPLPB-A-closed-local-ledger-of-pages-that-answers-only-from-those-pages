@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `1ca8a1a0be648de660c928da879c8c86788c10a0` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `2aee600d5e8e41645b5ca7f69112208f214dd66079a3e1d9e56a9b097159224a`.
+Base commit: `ddcf09e066ef1b479e47a36656a5836fb0f70794` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `df3d8726f98563a19672f163c340e3b2e6d06da7bc5e14c9df54a06e4c5d9bad`.
 
 ## Betty report for Al
 
@@ -22,6 +22,7 @@ Close and preserve Bunyip C3, then complete the bounded Wampus Cat sprint in the
 ### Validation recorded
 
 - 28 focused compound-field and Bunyip regressions passed. Candidate commit and runtime ZIP will be pinned before the fresh packet opens.
+- BB replay on Wampus retained 900 exact positive contracts, 900 eligible citation readbacks and 200 withholds. Start unchanged public 832 preservation replay for the changed runtime.
 
 ### Limitations and blocked checks
 

@@ -1,0 +1,47 @@
+{
+  "wampus": {
+    "commit": "1ca8a1a0be648de660c928da879c8c86788c10a0",
+    "runtime_zip_sha256": "9ff59768cacfcdfe1498c210b93f7de74c4918b60a25bda7e5e239e56aed308f"
+  },
+  "preservation_plan": "Replay only existing public 832 cases using the unchanged runner. Retain the original private exclusions.",
+  "bb": {
+    "same_retained_fixture_files": 100,
+    "exact_positive_matches": 900,
+    "negative_withholds": 200,
+    "report": {
+      "schema": "field-question-csv-evaluation-v1",
+      "counts": {
+        "tested": 900,
+        "supported": 900,
+        "exact_field_value_matches": 900,
+        "incorrect_supported": 0,
+        "errors": 0,
+        "unscored": 0
+      },
+      "input_sha256": {
+        "fixtures.csv": "a46831a1581bcf7fa4528f67029d96e2cb21aed4198a2716d0914c54c848510b",
+        "test_questions.csv": "77e21fc704062dbbbe67d37154db813f6c6aec8f3cc8652eb91ec74317c0d335"
+      },
+      "wall_seconds": 4.214550263999627,
+      "cpu_seconds": 4.210470547,
+      "peak_process_rss_bytes": 97628160,
+      "environment": {
+        "python": "3.12.14",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41"
+      },
+      "source_bytes_read": null,
+      "human_review_seconds": null,
+      "independent_review": "NOT RUN",
+      "scope": "Exact synthetic field/value scoring only; no historical accuracy or semantic synonym validation."
+    },
+    "citations": {
+      "accepted_questions_checked": 900,
+      "exact_eligible_citations_checked": 900,
+      "observed_at": "2026-11-26T23:34:31.556303+00:00",
+      "profile": "internal",
+      "historical_truth_verified": false,
+      "scope": "Exact canonical quotation and fresh native eligibility at check time; not independent semantic judgment."
+    },
+    "individual_positive_outputs_sha256": "be6ac501c36ad471d1e8ffa5c4fc86a5ab0c6e71b5e1d4a3a56265ddf1d47322"
+  }
+}
