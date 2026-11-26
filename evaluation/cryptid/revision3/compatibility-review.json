@@ -1,0 +1,13 @@
+{
+  "schema": "reporting-compatibility-review-v1",
+  "candidate": "LOCAL-REV3-C1",
+  "status": "REJECTED_FALSE_CONFLICT",
+  "case": "CRYPT-YETI-0121",
+  "original_frozen_key": "conflict; retained unchanged",
+  "original_c1_score": "24/24reporting plus8/8shell; frozen-key scores retained, not semantic certification",
+  "logical_issue": "R reported C and R did not say not-C are compatible. C1 compares inner_negative=null for unasserted content without retaining its literal polarity, so it falsely calls these reporting appearances conflicting.",
+  "necessary_shared_rule": "Compare outer reporting polarity and the exact embedded literal polarity separately. Opposed outer reporting acts conflict only for the same embedded proposition under the same conditions. Opposed asserted contents conflict at content layer. Two denials of different report contents or different conditions can coexist.",
+  "next_step": "Freeze new same-operator development controls before C2native changes. Retain original key, outputs and failure classifications. Fresh24packet remains unopened.",
+  "independent_semantic_adjudication": "NOT_RUN",
+  "documentation_failure": "Pre-C1documentation audit found HANDOFFreview marker26 withcatalogentry25. Update matching reviewed catalogue; failure retained, no engine outcome inferred."
+}

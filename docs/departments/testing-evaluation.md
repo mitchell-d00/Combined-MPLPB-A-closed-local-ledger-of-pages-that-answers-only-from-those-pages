@@ -1,6 +1,6 @@
 # Testing and Evaluation
 
-Last reviewed: 2026-11-25.
+Last reviewed: 2026-11-26.
 
 Stable Test Index, frozen studies, baseline outputs, failures and transfer. Same-operator synthetic tests do not establish independent historical or semantic accuracy.
 
@@ -23,3 +23,5 @@ Measured status: The earlier release evidence remains pinned to its tested sourc
 Open work: Keep failed attempts, execution accounting, scoring amendments, source pins and custody limits visible.
 
 [Department directory](README.md) · [Test Index](../TEST_INDEX.md) · [Current evidence](../CURRENT_STATUS.md) · [Full package map](../PACKAGE_GUIDE.md)
+
+Current local work: [reporting negation and prospective partial policy](../../evaluation/cryptid/revision3/REPORT.md). Keep reader gains, evaluation-policy decisions, unit-accounting changes and original strict-key failures separate. Publication is pending explicit authorization.

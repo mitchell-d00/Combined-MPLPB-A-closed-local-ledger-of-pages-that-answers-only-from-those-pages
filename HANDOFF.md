@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `c177c6453469d3fc4fa1531f1f5b5baa27afd7ef` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `eea5994a73b1cbd047f2bd08fb8ddaa5d4771c0fda43c3d05aed09801b07aab3`.
+Base commit: `427de81f47f2623158aad521e15ff3993e25c8a1` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `1293001e050b43b7e5d4cc249b6adb0e128814b9b916a629a6e171cc8866669d`.
 
 ## Betty report for Al
 
@@ -17,10 +17,11 @@ Preserve both packets, keys, outputs, and original failure classifications. Add 
 
 ### Implemented scope
 
-- Retain the exact tested local1251cc471a24ba4be91949ffc0c4752d0c3bf202 source, ZIP7d0fe327956a1d66b33659613a80dade8c00ac51d61a32c166d4aa35c540f749, both final packets and all original keys/classifications/outputs.
-- Source1251completed57softwarecommands,1863native tests with0skips,771caseexecutions,599exactcitations checked with0errors; no publication.
-- Acceptance remains pending: original fresh16score14/16,1report-negation interpretation miss,1strict-withholding policy failure on a checked temporal partial; original initial24packet remainsconsumed19/24with5misses afterDLrepair.
-- Next authorized local revision: freeze reporting-negation controls and new temporal-policy fixtures on1251before native changes; smallest shared quotation-shell fix; prospective partial acceptance policy; all preservation, revised committed ZIP, fresh once-only final packet.
+- Local revision3 from retained1251source and both failed final packets; no publication authorized.
+- Shared native reporting-negation repair: quoted/postposed/present/passive shells, relevant say/state competitor scan and curly quotation source-unit boundary. Existing embedded assertion remains unasserted under outer denial.
+- Prospective checked-partial acceptance policy on12newfixtures; no native temporal-partial behavior change. Both original final packet keys, outputs and failure classifications remain unchanged.
+- Full source ZIP will be frozen and tested cleanly; lossless base+delta storage preserves both existing full ZIPs intact and reconstructs the next exact archive hash.
+- Current C1 is retained as rejected after semantic compatibility review. Next repair compares reporting-layer negation and embedded literal polarity separately; no original keys will be rewritten.
 
 ### Validation recorded
 
@@ -64,20 +65,23 @@ Preserve both packets, keys, outputs, and original failure classifications. Add 
 - Before second candidate freeze:419prior Cryptid contracts exactly unchanged under boundary repair; keys and inputs unchanged. All family source budgets unchanged. Full repaired ZIP gates pending.
 - Retained final1251evidence:57commandcheckscompleted,1863native tests0failures0errors0skips;280release+439earlierCryptid+12boundary+24consumed+16fresh=771executionscomplete;491CryptidcaseIDs+280release memberships=747uniqueinputpairs;346claims599citations0citationissues. Fresh16original14/16FAIL retained. Supplemental same-operator claim review is not a relabel or independent adjudication.
 - Before native revision3:32reporting fixtures baseline18pass,2unsupported completion flags,13positive miss flags; quoted-shell negation, say/state competitor relevance and curly-opening boundary reproduced on1251. New12policy fixtures strict7/12 vs prospective11/12 on identical unchanged native outputs:5checkedpartials rejected by strict policy,1passive-wording miss remains. Allinputs/keys/scorers/baselines frozen.
+- Revision3development32reporting controls18/32→32/32, unsupportedcompletionflags2→0;65focused native checks pass. Newpolicy12native contracts exactlyunchanged:strict7/12 vschecked-partial11/12,5validpartials and1passive-question miss. Additionalpost-analysis1000/1001unit controls2/2, no capincrease.
+- Preservationbeforefreeze:419prior+20Thund+12boundary+24initialfinal exact. Second16:15exact+1verified source-scoped negated-report recovery, old keyfielddisagreementretained. Releaseexact276/280FAIL retained;4differences are examined_units2→3only, withallclaims/qualifications/citationsidentical. No lostvalidsupport. Fresh24sealedunopened.
+- C1 semantic review rejects its false conflict on compatible reporting appearances. The original32/32frozen-key score and conflict key remain unchanged; this exposes a key error, not independent semantic certification. New compatibility controls must be frozen before the next native repair; fresh24remainsunopened.
 
 ### Limitations and blocked checks
 
-- Same-operator preparation/implementation/scoring; independent historical/semantic/preparation/blinding/outside-custodian/OOCC NOT_RUN.
-- Human execution NOT_RUN; Mitchell recruits12first-time participants and returns uncoached observations.
-- All per-family misses, budget stops,2diagnostic-onlyunscored leads and frozen ineligible positive remain explicit failures.
-- Default nested namespace gate BLOCKED; host real Bubblewrap4/4. Second full-source integration and fresh16pending at freeze.
-- Publication forbidden until Mitchell explicitly authorizes it.
+- Original firstpacketfailed18/24with1actualwrongactor; consumed19/24retains5misses. Originalsecondpacket14/16FAIL unchanged; temporalpartialstrict-keyandembedded-polarity disagreements remainseparate fromreader gains.
+- New12policyfixtures stillhave1passivewordingmiss. Fourunit-measurementdifferences are retainedexact-comparisonfailures, notsemanticgains.
+- Same-operator preparation/implementation/scoring; independenthistorical/semantic/preparation/blinding/outsidecustodian/OOCC NOT_RUN. Humanexecution NOT_RUN.
+- DefaultnestednamespacesBLOCKED;hostrealBubblewrap4/4. RequiredfinalfullZIPgatesandfresh24pendingatfreeze.
+- Localonly; no push, PR mutation, merge, deploy orremote-mainchange until Mitchell explicitlyauthorizes.
 
 ### Next steps
 
-- Freeze revised development expectations and1251baselines before reporting-negation native edits. Preserve old keys and original failed scores exactly.
-- Version useful-partial acceptance prospectively on new fixtures, separating evaluation policy changes from native behavior. Record embedded-polarity representation disagreement.
-- Rerun all preservation, freeze another committed full source ZIP, run genuinely fresh final packet once, prepare local review package. STOP: no remote publication.
+- FreezecommittedfullsourceZIP and losslessstorageencoding; validate reconstruction and cleanextraction.
+- Run all applicable native/JSHTTP/package/WASM/Chromium/handoff/docs/index/preservation gates andfresh24once. Retainallresults, remainingmisses andpolicydisagreements.
+- Preparelocalreviewpackage with proposedPR/release summary and exacttestedcommit/ZIPchecksum; STOPatpublicationboundary.
 
 ## Use this ZIP in your repository
 

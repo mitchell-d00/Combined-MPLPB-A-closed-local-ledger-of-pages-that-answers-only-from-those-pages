@@ -1,6 +1,6 @@
 # Test Index for humans and AI
 
-Last reviewed: 2026-11-25.
+Last reviewed: 2026-11-26.
 
 [Cryptid local programme](../evaluation/cryptid/README.md): sequential frozen shared-operation studies, retained failures and local-only review package. Current execution state is recorded separately from planned tests.
 
@@ -219,3 +219,7 @@ All families are owned by Testing and Evaluation; native verification rules belo
 The [programme inventory](../evaluation/cryptid/programme.json), [rule map](../evaluation/cryptid/shared-rules.json) and append-only run ledgers under `evaluation/cryptid/ledger/` join IDs to source hashes, original PRs, exact candidate/harness/scorer pins, claims, withholding, raw outputs, budgets and custody. Proposal-fault repetitions share reader input pairs and are not independent answer evidence. Local source ZIPs and final review evidence remain unpublished until Mitchell authorizes publication.
 
 Final integration also retains [the rejected first full-ZIP attempt](../evaluation/cryptid/final/attempt-1/summary.json), [definition-list boundary controls CRYPT-NESSIE-0070–0081](../evaluation/cryptid/nessie/layout-wrap/registry.json), and [the second sealed cross-family protocol](../evaluation/cryptid/final/protocol-2.json). Initial final-transfer failures remain consumed development; they are never reported as fresh after a repair.
+
+## Reporting negation and prospective partial acceptance
+
+[Revision 3](../evaluation/cryptid/revision3/REPORT.md) preserves both failed final packets and their original keys. New reporting controls are CRYPT-YETI-0100–0123 and 0130–0137; cap controls are 0140–0141. CRYPT-JACKALOPE-0100–0111 compare two prospectively frozen acceptance policies on identical reader outputs. The original temporal strict-key failure and embedded-polarity disagreement remain explicit. Reader owns the shared parser; Testing and Evaluation owns the policy comparison.

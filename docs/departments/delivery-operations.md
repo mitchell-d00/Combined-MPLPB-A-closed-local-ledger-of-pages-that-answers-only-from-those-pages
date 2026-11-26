@@ -1,6 +1,6 @@
 # Delivery and Project Operations
 
-Last reviewed: 2026-11-25.
+Last reviewed: 2026-11-26.
 
 Installation, releases, documentation, handoffs and the manual Al/Betty/Outside loop. Packaging or deployment alone does not establish runtime or semantic correctness.
 
@@ -23,3 +23,5 @@ Measured status: Exact-head release gates and postdeployment checks must be read
 Open work: Freeze/test extracted artifacts, verify deployed bytes, and retain every NOT_RUN label.
 
 [Department directory](README.md) · [Test Index](../TEST_INDEX.md) · [Current evidence](../CURRENT_STATUS.md) · [Full package map](../PACKAGE_GUIDE.md)
+
+Current local source archives use [lossless ZIP storage](../../tools/cryptid_zip_delta.py) when space requires it: the unchanged base plus delta must reconstruct the exact tested full-ZIP SHA-256. This changes archive storage, not source content or publication permission.

@@ -1,6 +1,6 @@
 # Reader
 
-Last reviewed: 2026-11-25.
+Last reviewed: 2026-11-26.
 
 Questions, source verification, answers and partials. Finite question/evidence forms; a source citation does not establish historical truth.
 

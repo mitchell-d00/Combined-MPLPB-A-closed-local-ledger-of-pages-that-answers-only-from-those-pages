@@ -14,6 +14,14 @@ from .source_attribution import unqualified_span, printed_writer_label
 
 _PERSON = r'[^,;:!?“”"\n]{2,120}?'
 _OBJECT = r'the [\w -]{2,180}?'
+_REPORT_FORMS = {
+    **{word:(False,False) for word in ('reported','stated','reports','states','said','says')},
+    **{prefix+word:(True,False) for prefix in ('did not ','does not ') for word in ('report','state','say')},
+    'would report':(False,True), 'would not report':(True,True),
+}
+_REPORT_VERBS = '|'.join(re.escape(word) for word in sorted(_REPORT_FORMS,key=len,reverse=True))
+_PASSIVE_FORMS = {'was reported':(False,False),'was not reported':(True,False),
+                  'would be reported':(False,True),'would not be reported':(True,True)}
 
 
 def request(question):
@@ -50,26 +58,26 @@ def report_roles(statement):
         conditions, clean = [conditional[1]], conditional[2]
     reporter = payload = None
     outer_negative = hypothetical = False
-    active = re.fullmatch(r'(.{2,120}?) (reported|stated|reports|states|said|says|did not report|did not state|did not say|would report|would not report) that (.+)', clean)
-    quote = re.fullmatch(r'(.{2,120}?) (?:reported|stated|said|says|reports|states),? [“"](.+)[”"]', clean)
+    active = re.fullmatch(r'(.{2,120}?) ('+_REPORT_VERBS+r') that (.+)', clean)
+    quote = re.fullmatch(r'(.{2,120}?) ('+_REPORT_VERBS+r'),? [“"](.+)[”"]', clean)
     according = re.fullmatch(r'According to (.{2,120}?), (.+)', clean)
-    postposed = re.fullmatch(r'[“"](.+?)[”"],? (.{2,120}?) (?:reported|stated|said)\.', clean)
-    passive = re.fullmatch(r'The statement that (.+?) (was reported|would be reported|would not be reported) by (.{2,120}?)\.', clean)
+    postposed = re.fullmatch(r'[“"](.+?)[”"],? (.{2,120}?) ('+_REPORT_VERBS+r')\.', clean)
+    passive = re.fullmatch(r'The statement that (.+?) ('+'|'.join(_PASSIVE_FORMS)+r') by (.{2,120}?)\.', clean)
     if active:
         reporter, verb, payload = active.groups()
-        outer_negative = verb.startswith(('did not ','would not '))
-        hypothetical = verb.startswith('would ')
+        outer_negative,hypothetical = _REPORT_FORMS[verb]
     elif quote:
-        reporter, payload = quote.groups()
+        reporter, verb, payload = quote.groups()
+        outer_negative,hypothetical = _REPORT_FORMS[verb]
     elif according:
         reporter, payload = according.groups()
     elif postposed:
-        payload, reporter = postposed.groups()
+        payload, reporter, verb = postposed.groups()
+        outer_negative,hypothetical = _REPORT_FORMS[verb]
         payload = payload.rstrip(',') + '.'
     elif passive:
         payload, verb, reporter = passive.groups(); payload += '.'
-        outer_negative = verb.startswith('would not ')
-        hypothetical = verb.startswith('would ')
+        outer_negative,hypothetical = _PASSIVE_FORMS[verb]
     if not reporter or not payload or not kernel.named_actor(reporter):
         return None
     if hypothetical and not conditions:
@@ -181,7 +189,7 @@ def verify(index, max_passages, max_chars):
             roles = report_roles(statement)
             relevant = (kernel.normalized(goal['reporter']) in kernel.normalized(statement)
                         and kernel.normalized(goal['object']) in kernel.normalized(statement)
-                        and re.search(r'\b(?:report\w*|said|says|stated|states|according)\b', statement, re.I))
+                        and re.search(r'\b(?:report\w*|said|say|says|state|stated|states|according)\b', statement, re.I))
             if not roles:
                 unresolved |= bool(relevant)
                 continue
