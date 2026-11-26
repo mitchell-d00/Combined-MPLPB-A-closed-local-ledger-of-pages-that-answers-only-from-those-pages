@@ -94,7 +94,7 @@ supporting passages with its answer. [Adding documents and inspecting citations]
 |---|---|
 | **[MPLPB — the usable artifact](docs/MPLPB.md)** | Installing, adding documents, asking questions and checking answers |
 | **[Experimental Lab](docs/EXPERIMENTAL_LAB.md)** | Proposed features, reader experiments, candidate repairs and research |
-| **[Testing and Training Apparatus](docs/TESTING_APPARATUS.md)** | Cryptid, regressions, evaluation archives, TeamBuilding, Thespian and onboarding |
+| **[Testing apparatus and evidence](docs/TESTING_APPARATUS.md)** | Cryptid, regressions, evaluation archives, TeamBuilding, Thespian and onboarding |
 
 [Component and department map](docs/COMPONENT_MAP.md) · [All guides](docs/README.md)
 

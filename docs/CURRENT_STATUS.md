@@ -1,6 +1,40 @@
 # Current implementation and evidence status
 
-Last reviewed: 2026-11-25.
+Last reviewed: 2026-11-26.
+
+This documentation-only integration keeps the reader, applications, tests,
+workflows and frozen evidence from main `2622813aba9ee1f1880693eeb71ae015cb3da999`.
+[MPLPB](MPLPB.md) · [Experimental Lab](EXPERIMENTAL_LAB.md) ·
+[Testing apparatus and evidence](TESTING_APPARATUS.md) · [Test Index](TEST_INDEX.md).
+
+C3 remains **unmerged in [PR #106](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/106)** at
+`cc54c4276bb4895c33df46cc782e758f4c8e5a0b`. Its reported572/572development source-key decisions and832unchanged
+public contracts belong to that candidate, not newly released main behavior.
+The original22strict-key failures remain retained. Seventeen private preservation
+cases are incomplete;100held transfer cases remain unopened.
+[Candidate report](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/cc54c4276bb4895c33df46cc782e758f4c8e5a0b/evaluation/cryptid/bunyip/round2/README.md).
+
+The incident archives are absent from that candidate's current tree but remain
+reachable through its older Git history. This documentation branch starts from
+main and imports no affected ancestry, archive, source payload, key or reader fix.
+[Incident record](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/cc54c4276bb4895c33df46cc782e758f4c8e5a0b/evaluation/cryptid/bunyip/round2/custody-containment-v2.json).
+[Clean scope and continuation](recovery/SAFE_DOCUMENTATION_MERGE.md).
+
+Mitchell relayed Al's read-only review:156focused Python checks onmain and175
+on#106passed, together with JavaScript/rendering/handoff/docs checks and12listed
+CI instances; no new software regression was found in that review.
+Those are reviewer-reported measurements, not fresh executions by this update.
+Al's browser attempt stopped at certificate trust before app load and is not a
+pass. New exact-head checks and deployment receipts belong to this documentation PR.
+
+Human onboarding, independent historical/semantic/preparation/blinding,
+outside-custodian scoring and native OOCC remain NOT_RUN.
+The following entries retain their original dates, pins and measurement scope;
+their earlier pending-status language does not replace current continuation.
+
+# Retained earlier status entries
+
+Original entry review date: 2026-11-25.
 
 [Source-linked proposals and delivery](../evaluation/source-tags/2026-11-25/README.md) pass72/72development and24/24once-only same-operator proposal decisions, with0wrong assignments and **0recovered answers**. All280earlier contracts remain unchanged. A wrong-source browser failure is retained and corrected in the delivery ZIP;15software commands,58focused checks,WASM and actualChromium source-dialog checks pass. Native engine source2af8ba8ran1,834tests; delivery source065840d has identical native bytes. Exact publicationCI/merge/live verification pending. [Seven departments](departments/README.md) preserve existing paths. [Human onboarding](../evaluation/onboarding/2026-11-25/README.md) is prepared, **NOT_RUN**.
 
