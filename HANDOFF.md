@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `ddcf09e066ef1b479e47a36656a5836fb0f70794` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `df3d8726f98563a19672f163c340e3b2e6d06da7bc5e14c9df54a06e4c5d9bad`.
+Base commit: `0ce0ff8377baae641314ca919d7040b91b4c2873` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `af837e999178361a29c4f6f0c1d0035672337e4ce5ef0732bd1f0b7af3230692`.
 
 ## Betty report for Al
 
@@ -23,6 +23,7 @@ Close and preserve Bunyip C3, then complete the bounded Wampus Cat sprint in the
 
 - 28 focused compound-field and Bunyip regressions passed. Candidate commit and runtime ZIP will be pinned before the fresh packet opens.
 - BB replay on Wampus retained 900 exact positive contracts, 900 eligible citation readbacks and 200 withholds. Start unchanged public 832 preservation replay for the changed runtime.
+- Wampus development hits 4/6 versus both prior readers at 0/6, with zero unsupported claims and 5/6 keyed contrasts. All three C3 routing gains are retained; three consumed Bunyip cross-family complete answers and three checked partials recover. Fresh inputs match the original seal and opened after the runtime ZIP pin. Both scoring keys remain private.
 
 ### Limitations and blocked checks
 
@@ -30,7 +31,7 @@ Close and preserve Bunyip C3, then complete the bounded Wampus Cat sprint in the
 
 ### Next steps
 
-- Run Wampus development on all three readers and replay consumed Bunyip with the candidate.
+- Run the sealed fresh cases once on the pinned three readers, retain raw evidence, and close after preservation checks.
 
 ## Use this ZIP in your repository
 
