@@ -1,0 +1,94 @@
+name: Bunyip Round 2 frozen replacement comparison
+on:
+  push:
+    branches: ['local/bunyip-round2']
+    paths: ['evaluation/cryptid/bunyip/round2/replacement/phase.txt']
+permissions:
+  contents: read
+jobs:
+  isolated-comparison:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify frozen synthetic publication scope
+        id: custody
+        run: |
+          mkdir -p "$RUNNER_TEMP/bunyip-replacement"
+          python -m json.tool --help >/dev/null
+          python - <<'PY'
+          import hashlib, json, re
+          from pathlib import Path
+          root = Path('evaluation/cryptid/bunyip/round2/replacement')
+          phase = (root/'phase.txt').read_text().strip()
+          assert phase in {'development', 'fresh'}
+          for name in ('development',) if phase == 'development' else ('R', 'X'):
+              p = root/name
+              seal = json.loads((p/'freeze.json').read_text())
+              sha = lambda file: hashlib.sha256(file.read_bytes()).hexdigest()
+              assert seal['public_raw_output'] is True and seal['status'] == 'FROZEN_BEFORE_EXECUTION'
+              assert sha(p/'registry.json') == seal['registry_sha256']
+              assert sha(p/'custodian-key.json') == seal['key_sha256']
+              rows = json.loads((p/'registry.json').read_text())['cases']
+              assert len(rows) == (10 if name == 'development' else 20)
+              for row in rows:
+                  assert re.fullmatch(r'C3-REPL-[PRX][0-9]{2}-[AB]', row['id'])
+                  packet = p/'inputs'/row['id']
+                  assert Path(row['packet']) == packet
+                  assert {f.name for f in packet.iterdir()} == {'case.json'}
+                  case = json.loads((packet/'case.json').read_text())
+                  assert sha(packet/'case.json') == row['files']['case.json']
+                  assert case['id'] == row['id'] and case['adapter_mode'] == 'documentary'
+                  assert all(s['id'] in {'SYN-A', 'SYN-B'} and s['origin'] == 'machine' for s in case['sources'])
+          PY
+          echo "approved=yes" >> "$GITHUB_OUTPUT"
+      - name: Install existing isolator
+        run: |
+          set -o pipefail
+          { sudo apt-get update && sudo apt-get install --yes --no-install-recommends bubblewrap; } 2>&1 | tee "$RUNNER_TEMP/bunyip-replacement/install.log"
+      - name: Require isolation and replay both pinned readers once
+        run: |
+          set -euo pipefail
+          OUT="$RUNNER_TEMP/bunyip-replacement"
+          ROOT="evaluation/cryptid/bunyip/round2/replacement"
+          PYTHON="$(command -v python)"
+          RELEASED=2622813aba9ee1f1880693eeb71ae015cb3da999
+          CANDIDATE=3bf9657c7b956623f07ed4b94765e0edd5cd3f02
+          git fetch --depth=1 origin "$RELEASED" "$CANDIDATE"
+          PHASE="$(cat "$ROOT/phase.txt")"
+          case "$PHASE" in development) arms=(development);; fresh) arms=(R X);; *) exit 2;; esac
+          for role in released candidate; do
+            if test "$role" = released; then PIN="$RELEASED"; else PIN="$CANDIDATE"; fi
+            git archive --format=zip -0 --output="$OUT/$role-runtime.zip" "$PIN" mplpb_answers mplpb_combined mplpb_work
+            EXPECTED="$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))[sys.argv[2]+"_runtime_zip"])' "$ROOT/${arms[0]}/freeze.json" "$role")"
+            echo "$EXPECTED  $OUT/$role-runtime.zip" | sha256sum --check | tee -a "$OUT/runtime-hashes.log"
+            unzip -q "$OUT/$role-runtime.zip" -d "$RUNNER_TEMP/bunyip-$role"
+          done
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$PYTHON" -m unittest tests.test_study_sandbox -v 2>&1 | tee "$OUT/preflight.log"
+          failed=0
+          for arm in "${arms[@]}"; do
+            for role in released candidate; do
+              if test "$role" = released; then PIN="$RELEASED"; else PIN="$CANDIDATE"; fi
+              if ! sudo env PYTHONPATH="$PWD" "$PYTHON" tools/cryptid_trial_v5.py --registry "$ROOT/$arm/registry.json" --implementation "$RUNNER_TEMP/bunyip-$role" --source-commit "$PIN" --output "$OUT/$arm-$role" 2>&1 | tee "$OUT/$arm-$role.log"; then
+                failed=1
+              fi
+            done
+          done
+          exit "$failed"
+      - name: Retain public run data and initialization logs
+        if: always() && steps.custody.outputs.approved == 'yes'
+        run: sudo chown -R "$(id -u):$(id -g)" "$RUNNER_TEMP/bunyip-replacement"
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.custody.outputs.approved == 'yes'
+        with:
+          name: bunyip-round2-replacement-${{ github.sha }}
+          path: ${{ runner.temp }}/bunyip-replacement/
+          if-no-files-found: error
+          retention-days: 90
