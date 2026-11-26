@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `e36d571490beae1ea2b36ee49dba63496fae0152` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `946a6bd042c1aa28ec1377560d6a2124d47f58cc9caa7a51ac2b55ecdec4b746`.
+Base commit: `82282b21932ad531e7b94083d29cb58f4f546aea` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `b786eb79a839609b49a0086833b0ce08381293beda7b5292c435d410d6b5a1e4`.
 
 ## Betty report for Al
 
@@ -66,6 +66,8 @@ Clarification: The next milestone is getting those actual code files into a remo
 - Remote preservation attempt45870399223:321completed exact,528execution failures; artifact retention failedEACCES. Not a full preservation pass. Private local probe failed isolation closed; remaining16private cases NOT_RUN.
 - Consumed public preservation at3bf9657 completed832/832 with exact contracts and no execution failures; artifact15143422219 checksum43f479483f65578e097c8e8916fe9d9322b5c9fb137e0eaa0d4d5d5eab39fc73 verified before retention.17private cases remain blocked separately.
 - Bunyip BB matched-source audit:900positive contracts exact and200negative controls withheld on baseline and C3; original package checksumunchanged,900eligible citations checked. Failed different-generated-hash archival comparison retained; no new language gain credited.
+- Exact README quick-start run from empty setup against released downloaded wheel passed all11software checks at e36d571; expected supported/refusal outputs, partial/conflict/ownership and exact citation verified. Retained actual commands/stdout; human trial NOT_RUN.
+- Four new durable public artifact URLs fetched at e36d571 and SHA256-verified. Superseded source-ZIP run45870407049 force-cancelled for custody containment before artifact publication; observed artifact list empty. Cancellation is not a passed gate.
 
 ### Limitations and blocked checks
 
@@ -75,6 +77,7 @@ Clarification: The next milestone is getting those actual code files into a remo
 - Local process exhaustion persists; actual source/evidence/navigation are published. Remote recovery workflow generated and checked the handoff; current exact-head gates and849C3 preservation are pending. Development passes do not erase22strict-key failures or rejected candidates. Both held packets remain unopened.
 - Publication custody incident:17descriptor-marked-private PE02 outputs were mistakenly included in9b4bdf9 preservation-reference archive; removed from current tree atbfd41a5. Earlier Git objects may remain retrievable. Original local files/held keys/transfer untouched; release paused. See custody-incident-v1.json. Public replacement filters original descriptor flags, not filename assumptions.
 - Private probe error: bwrap Can't fork for pid1:Resource temporarily unavailable. Whole849gate remains BLOCKED, despite832public exact. Publication incident current-tree containment does not erase earlier Git objects; no merge/deployment while unresolved.
+- New current-status documentation initially had duplicate review markers; infrastructure-sync failed at e36d571. The historical marker is prospectively labelled Original entry review date without changing its date; original failed CI log retained.
 
 ### Next steps
 
