@@ -1,0 +1,29 @@
+name: Verify Bunyip newcomer navigation
+on:
+  push:
+    branches: ['local/bunyip-round2']
+    paths: ['.github/workflows/bunyip-navigation.yml', 'README.md', 'tools/verify_readme_quickstart.py']
+permissions:
+  contents: read
+jobs:
+  released-quickstart:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run exact README commands against downloaded released artifact
+        run: python tools/verify_readme_quickstart.py --work "$RUNNER_TEMP/empty-quickstart" --output "$RUNNER_TEMP/quickstart-results"
+      - name: Retain actual commands and output; no human observations
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bunyip-released-quickstart-${{ github.sha }}
+          path: ${{ runner.temp }}/quickstart-results
+          if-no-files-found: warn
+          retention-days: 90

@@ -146,7 +146,7 @@
             "evaluation/field-question-normalization/2026-11-20/verify_citations.py"
           ],
           "scope": "Ben Gelhaus external adversarial benchmark, Mitchell implementation. Unchanged released package900answerable150canonical750paraphrase+200negative. Already consumed regression, not unseen transfer.",
-          "measurement_status": "Main and candidate900/900correct,200/200withholds,900/900exact eligible citations each. Original historical results unchanged. No new language gain or pooled accuracy.",
+          "measurement_status": "Released main2622813 and recovered C3 native source900/900correct positives,200/200withholds on matched source bytes; all900positive contracts unchanged and exact eligible citations checked. Original900different-generated-hash archival comparison FAIL retained separately. Consumed regression; no new language gain.",
           "responsible_department": "testing-evaluation",
           "implementation_departments": [
             "reader",
@@ -192,7 +192,8 @@
             "preservation_checks": [
               "tests/test_field_question_forms.py"
             ]
-          }
+          },
+          "current_round2_receipt": "evaluation/cryptid/bunyip/round2/bb-c3-receipt-v2.json"
         },
         {
           "family": "bunyip-round2",
@@ -211,7 +212,7 @@
             "evaluation/cryptid/bunyip/round2/metadata-adapter/tools/dpercent_worker.py"
           ],
           "scope": "Whole-question relation/arguments under medial attribution, category/time wording and omitted task objects. Original questions, exact witnesses and same-operator custody. Existing failures retained.",
-          "measurement_status": "Actual recovered C3 source/evidence published.572/572 exposed source-key decisions:128positives444withholds;71 recovered positive executions/34original strings,40wording-only diagnostic executions/19strings.12 unsupported baseline answers corrected;zero lost valid support/citation changes.22original strict-key failures retained;prospective polarity contract passes.36+64held transfer NOT_RUN;preservation/latest gates pending.",
+          "measurement_status": "572/572 exposed source-key decisions; 71 recovered positive executions/34 original question strings, 40 wording-only diagnostic executions/19 strings.22original strict-key failures retained.832/832public consumed contracts exact;17private BLOCKED.36+64held transfer UNOPENED_NOT_RUN. Release blocked by remaining custody-history exposure and private isolation. No merge/deployment.",
           "responsible_department": "testing-evaluation",
           "implementation_departments": [
             "reader",
@@ -246,7 +247,10 @@
                 "evaluation/cryptid/bunyip/round2/recovered-source-v1.json",
                 "evaluation/cryptid/bunyip/round2/public-artifacts-v1.json",
                 "evaluation/cryptid/bunyip/round2/public-input-supplement-v1.json",
-                "evaluation/cryptid/bunyip/round2/remote-development-v1.json"
+                "evaluation/cryptid/bunyip/round2/remote-development-v1.json",
+                "evaluation/cryptid/bunyip/round2/public-preservation-remote-v2.json",
+                "evaluation/cryptid/bunyip/round2/bb-c3-receipt-v2.json",
+                "evaluation/cryptid/bunyip/round2/custody-incident-v1.json"
               ]
             },
             "retrievable_evidence": "evaluation/cryptid/bunyip/round2",
@@ -255,7 +259,7 @@
               "case_records": "evaluation/cryptid/bunyip/round2",
               "no_new_measurement": true
             },
-            "execution_status": "572baseline+572candidate COMPLETED; original local failures retained",
+            "execution_status": "572per revision development COMPLETED;832public preservation COMPLETED;17private BLOCKED. Original failures retained separately.",
             "phase_status": {
               "development": "EXPOSED",
               "prior_transfer": "CONSUMED_PRESERVATION",
@@ -296,9 +300,34 @@
               "tests/test_bunyip_round2.py",
               "tests/refusal-copy.cjs",
               "tests/test_study_sandbox.py"
+            ],
+            "remaining_blockers": [
+              "17 private preservation cases require working required isolation in original custody",
+              "Earlier Git objects may retain mistakenly published private PE02 outputs; current tree removed them",
+              "Both held packets unopened until preservation/candidate freeze",
+              "Final exact-head acceptance/protection and deployment"
             ]
           },
-          "retained_pre_recovery_measurement_status": "444 completed/scored on main:21/78positives,360/366withholds;57misses,6falsecontrolflags,0workerfailures;one separate prelaunch failure. Candidate/preservation/fresh transfer NOT_RUN; storage BLOCKED."
+          "retained_pre_recovery_measurement_status": "444 completed/scored on main:21/78positives,360/366withholds;57misses,6falsecontrolflags,0workerfailures;one separate prelaunch failure. Candidate/preservation/fresh transfer NOT_RUN; storage BLOCKED.",
+          "run_records": [
+            {
+              "id": "BUNYIP-R02-PRESERVATION-ATTEMPT-1",
+              "phase": "CONSUMED_PRESERVATION",
+              "revision": "9b4bdf98453b017187256904af8f7bec9a54c80c",
+              "status": "FAILED_EXECUTION_AND_RETENTION",
+              "completed": 321,
+              "execution_failures": 528,
+              "raw_retention": "FAILED_EACCES",
+              "log": "evaluation/cryptid/bunyip/round2/ci/9b4bdf9-preservation-failed.log"
+            },
+            {
+              "id": "BUNYIP-R02-PUBLIC-PRESERVATION-V2",
+              "phase": "CONSUMED_PRESERVATION",
+              "revision": "3bf9657c7b956623f07ed4b94765e0edd5cd3f02",
+              "status": "PUBLIC_832_COMPLETE_PRIVATE_17_BLOCKED",
+              "receipt": "evaluation/cryptid/bunyip/round2/public-preservation-remote-v2.json"
+            }
+          ]
         }
       ],
       "navigation": {

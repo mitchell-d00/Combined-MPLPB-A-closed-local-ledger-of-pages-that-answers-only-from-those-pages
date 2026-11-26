@@ -2,6 +2,8 @@
 
 Last reviewed: 2026-11-26.
 
+> **Later recovery:** actual C3 source and public evidence are now on PR #106. See the [current round report](../../evaluation/cryptid/bunyip/round2/README.md) for completed measurements, the custody incident, blocked private preservation and next actions. The outage-era checkpoint below is retained as history.
+
 **Documentation and working-state checkpoint only. The local C3 implementation and raw evidence have NOT been uploaded in this checkpoint.** The managed environment became offline/unavailable before a source commit or push. This file records the retained session state so recovery can continue without assuming acceptance.
 
 ## Verified repository state and publication boundary

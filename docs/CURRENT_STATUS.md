@@ -1,5 +1,40 @@
 # Current implementation and evidence status
 
+Last reviewed: 2026-11-26.
+
+## Current Bunyip round 2 checkpoint
+
+Actual C3 source and reviewed public evidence are on [PR #106](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/106).
+Main remains `2622813aba9ee1f1880693eeb71ae015cb3da999`.
+Development improves from 489/572 to 572/572 source-key decisions: 71 recovered
+positive executions / 34 original question strings, zero new unsupported
+admissions or lost valid support in that set. The original 22 strict-key output
+failures remain recorded separately.
+
+Public consumed preservation is 832/832 exact; 17 private cases remain BLOCKED
+by local isolation failure. Unchanged Bunyip BB retains 900 positive contracts
+and 200 withholding controls on matched source bytes. These suites remain
+separate; they do not establish independent historical accuracy.
+
+**Release remains blocked.** A mixed-custody reference archive containing
+17 descriptor-marked-private PE-02 outputs was removed from the current tree,
+but earlier Git objects may remain retrievable. Held transfer inputs and keys
+were not included; both packets remain unopened. No merge/new deployment.
+[Current results, failures, custody incident and continuation](../evaluation/cryptid/bunyip/round2/README.md).
+
+The three entry areas are [MPLPB](MPLPB.md), [Experimental Lab](EXPERIMENTAL_LAB.md)
+and [testing apparatus and evidence](TESTING_APPARATUS.md).
+[Authoritative Test Index](TEST_INDEX.md) · [Component map](COMPONENT_MAP.md).
+Human onboarding and unperformed independent evaluations remain NOT_RUN.
+
+## Retained earlier status entries
+
+The following entries retain their original pins, dates and measurement scopes.
+Their earlier pending-status statements are historical, not the current release
+state.
+
+# Current implementation and evidence status
+
 Last reviewed: 2026-11-25.
 
 [Source-linked proposals and delivery](../evaluation/source-tags/2026-11-25/README.md) pass72/72development and24/24once-only same-operator proposal decisions, with0wrong assignments and **0recovered answers**. All280earlier contracts remain unchanged. A wrong-source browser failure is retained and corrected in the delivery ZIP;15software commands,58focused checks,WASM and actualChromium source-dialog checks pass. Native engine source2af8ba8ran1,834tests; delivery source065840d has identical native bytes. Exact publicationCI/merge/live verification pending. [Seven departments](departments/README.md) preserve existing paths. [Human onboarding](../evaluation/onboarding/2026-11-25/README.md) is prepared, **NOT_RUN**.

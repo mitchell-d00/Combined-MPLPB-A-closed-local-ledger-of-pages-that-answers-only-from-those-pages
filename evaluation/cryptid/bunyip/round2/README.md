@@ -1,3 +1,123 @@
+# Bunyip round 2: recovered C3 review checkpoint
+
+Last reviewed: 2026-11-26.
+
+**Source and public evidence are published on PR #106. Release is BLOCKED.**
+The 572-case development comparison passes its source-key assessment, and all
+832 public preservation contracts are unchanged. The remaining 17 private
+preservation cases cannot currently execute under required local isolation.
+A publication custody incident also remains unresolved in earlier Git history.
+Neither held transfer packet has been opened. No merge or deployment occurred.
+
+## Measured software results
+
+| Set | Released main | C3 | Scope |
+|---|---:|---:|---|
+| Exposed development source-key decisions | 489/572 | 572/572 | Same original inputs and questions |
+| Positive targets | 57/128 | 128/128 | 71 recovered positive executions |
+| Contrasting decisions | 432/444 | 444/444 | 12 prior unsupported admissions corrected |
+| Public consumed preservation | 832 reference contracts | 832/832 exact | No changed contract or execution failure |
+| Private consumed preservation | 17 reference contracts | BLOCKED | One failed isolation probe; 16 not run |
+| Bunyip BB positives | 900/900 | 900/900 | 150 canonical + 750 paraphrases, unchanged |
+| Bunyip BB negative controls | 200/200 withheld | 200/200 withheld | Original benchmark expectations |
+
+Development candidate: `483f35a97a32be4cadb4eb224e976e045124901d`.
+Preservation candidate: `3bf9657c7b956623f07ed4b94765e0edd5cd3f02`.
+Both contain the same recovered C3 native bytes first published at
+`baa19f5b9d6d733735b4c570c74d7a643cd06e6e`.
+Released baseline: `2622813aba9ee1f1880693eeb71ae015cb3da999`.
+
+The 71 recovered positive executions represent **34 original question strings
+and 71 unique source–question inputs**. The matched-source wording diagnostic
+accounts for 40 executions / 19 strings; the other 31 source/proof recoveries
+remain separate. The 572 memberships contain 524 unique inputs and 89 question
+strings. Repeated executions, tags and rewritten-question diagnostics are not
+additional newly answerable original questions. Already-working title decoys
+are preservation evidence. Ownership policy and native caps are unchanged.
+
+[Development outputs and original scores](remote-development-v1.json) ·
+[Public preservation receipt](public-preservation-remote-v2.json) ·
+[BB matched-source receipt](bb-c3-receipt-v2.json).
+
+## Original failures and qualifications
+
+The original strict key still fails **22/572** candidate outputs. A separate
+source audit finds all 22 correct under the polarity/readable-output contract
+frozen before implementation, with exact quotation fidelity. Original keys,
+scorers and failed scores were not changed. Source support and output-contract
+compliance are reported separately.
+
+Rejected C1 and C2 remain rejected for two and four unsupported contrasting
+cases. The local C3 primary attempt completed 75/444 and had 369 execution
+failures; its guards completed 0/44. Remote preservation attempt 45870399223
+completed 321/849 with exact contracts, left 528 execution failures and then
+failed artifact retention on file permissions. Its complete job log is retained;
+its first-attempt raw outputs were not successfully retained by Actions.
+The subsequent public-only run completes 832/832 and does not turn the 17
+private cases into passes.
+
+An initial BB archival comparison failed because separately generated ledger
+timestamps produced different source hashes. Those original runs and the failed
+assertion remain recorded. A new matched-source audit uses the exact same 100
+source-file hashes for both readers: 900 unchanged positive contracts and 200
+unchanged withholding decisions. Ben Gelhaus authored the external benchmark and
+analysis; Mitchell authored the implementation. This consumed benchmark is
+regression evidence, not unseen transfer or historical accuracy.
+
+## Custody incident and release blocker
+
+The new archive introduced at `9b4bdf98453b017187256904af8f7bec9a54c80c`
+mistakenly included 17 PE-02 outputs whose original manifest marks
+`public_raw_output=false`. Its interrupted companion included 34 log files
+from those cases. Both archives were removed from the current tree at
+`bfd41a5a1392ccd5579b0e789be98690cffb6a1b`.
+**Earlier Git objects may remain retrievable. This is not history erasure.**
+
+[Incident record](custody-incident-v1.json) and
+[public-only replacement receipt](public-preservation-v2.json) retain what
+happened. The replacement uses the original disclosure flags for every member;
+no private case payloads are in it. Original local archives remain unchanged.
+The full original reference is also retained privately at
+`/workspace/cryptid-custody/released-849-reference-private-retained-v1.tar.xz`
+with SHA-256
+`71bd781c5a10041652a6b83d7d4b29ff30042f79006c00c7f5301b75fc1ae7a2`.
+
+No held transfer inputs, held keys or private correspondence were included.
+The **36 routing + 64 cross-family cases remain UNOPENED / NOT_RUN**.
+Preparation, implementation and scoring remain same-operator work.
+Independent preparation/blinding, semantic/historical adjudication,
+outside-custodian scoring and native OOCC remain NOT_RUN.
+Human onboarding remains NOT_RUN until Mitchell supplies observations.
+
+The private probe failed closed with
+`bwrap: Can't fork for pid 1: Resource temporarily unavailable`.
+No unsandboxed fallback was used. The denied PID1 diagnostic was not executed.
+A failed tool approval is infrastructure evidence, not a reader test failure.
+
+## Continuation and navigation
+
+1. Resolve the publication incident's remaining history exposure.
+2. Run the 17 unchanged private cases in their original custody with working
+   required isolation; compare their complete contracts.
+3. Freeze a committed source ZIP and its checksum after preservation; open each
+   held packet only at its designated freeze, once. Retain every result.
+4. Complete exact-head checks, then protected merge and deployed fingerprints
+   under Mitchell's existing authorization. Do not bypass a required gate.
+
+The [product guide](../../../../docs/MPLPB.md),
+[Experimental Lab](../../../../docs/EXPERIMENTAL_LAB.md) and
+[testing apparatus](../../../../docs/TESTING_APPARATUS.md) are the three entry
+areas. The [Test Index](../../../../docs/TEST_INDEX.md) remains authoritative;
+the [component map](../../../../docs/COMPONENT_MAP.md) connects all seven
+departments without moving implementation or frozen evidence.
+[Working-state handoff](../../../../HANDOFF.md#betty-report-for-al).
+
+## Retained earlier round report
+
+The following dated report preserves its original baseline and earlier
+checkpoint statements; the current state above supersedes its pending-status
+language without changing its measurements.
+
 # Bunyip round 2: whole-question relation and argument binding
 
 Last reviewed: 2026-11-26.
