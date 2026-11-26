@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `c7de580937f7e3b95144cf8bec114947ee67b16b` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `98a932c4ddf0ae7378474fc498787301588d828ff460216ef4683bbb7ca7e1dd`.
+Base commit: `d1363642cdf40b8b02ce2687886c2a8e54a9bf3c` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `f21c0db43d7d31fe48f66424c25d79e37f80c46f7922c2b8aa28bfa05e709bd1`.
 
 ## Betty report for Al
 
@@ -24,6 +24,7 @@ Devise and run Thoth, a bounded ordinary-question interpretation sprint. Group r
 - 28 existing Bunyip/compound tests passed. Matched parser controls cover negation, attribution, conditions and terminal punctuation.
 - BB replay on Thoth retains 900 positive contracts and exact eligible citation checks plus 200 withholds. Start the existing public-only 832 replay.
 - First hosted development execution completed, but incorrect upload path retained only the old public runtime directory. The original artifact and console receipt are retained separately as an unscored infrastructure failure.
+- Fresh inputs opened after the pinned candidate ZIP; their bytes match the pre-implementation registry and seal. The development transport retry and fresh once-only comparison use unchanged reader code. The two keys stay in separate custody.
 
 ### Limitations and blocked checks
 
@@ -31,7 +32,7 @@ Devise and run Thoth, a bounded ordinary-question interpretation sprint. Group r
 
 ### Next steps
 
-- Repeat development with corrected public-output transport on the same pinned readers, then open the original sealed fresh packet.
+- Verify hosted development retry, fresh first results, and public preservation. Close the bounded sprint without repairing from the fresh results.
 
 ## Use this ZIP in your repository
 
