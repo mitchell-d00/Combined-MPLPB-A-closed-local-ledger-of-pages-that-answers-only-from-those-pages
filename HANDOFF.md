@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `84ff6bdd0060fc3432ea0a6e734a23526a908d1f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `a3c99c75a75131877a125fa0f7c3775209827c22f36fd7f40bb727785d31ed4b`.
+Base commit: `c177c6453469d3fc4fa1531f1f5b5baa27afd7ef` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `eea5994a73b1cbd047f2bd08fb8ddaa5d4771c0fda43c3d05aed09801b07aab3`.
 
 ## Betty report for Al
 
@@ -63,6 +63,7 @@ Preserve both packets, keys, outputs, and original failure classifications. Add 
 - Native boundary repair from frozen12control baseline:5/12→12/12, falseclaims5→0. Unchanged consumed final24:18→19correct decisions, false1→0,5misses retained. No labels or source bytes changed. Optionalreportlab installed for next full-native run. New16cross-family packet sealed, not opened.
 - Before second candidate freeze:419prior Cryptid contracts exactly unchanged under boundary repair; keys and inputs unchanged. All family source budgets unchanged. Full repaired ZIP gates pending.
 - Retained final1251evidence:57commandcheckscompleted,1863native tests0failures0errors0skips;280release+439earlierCryptid+12boundary+24consumed+16fresh=771executionscomplete;491CryptidcaseIDs+280release memberships=747uniqueinputpairs;346claims599citations0citationissues. Fresh16original14/16FAIL retained. Supplemental same-operator claim review is not a relabel or independent adjudication.
+- Before native revision3:32reporting fixtures baseline18pass,2unsupported completion flags,13positive miss flags; quoted-shell negation, say/state competitor relevance and curly-opening boundary reproduced on1251. New12policy fixtures strict7/12 vs prospective11/12 on identical unchanged native outputs:5checkedpartials rejected by strict policy,1passive-wording miss remains. Allinputs/keys/scorers/baselines frozen.
 
 ### Limitations and blocked checks
 
