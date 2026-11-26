@@ -21,6 +21,8 @@ all ten cross-family targets and four expected checked partials. The
 [Round 2 results](replacement/RESULTS.md) register both freezes and archives.
 The evidence supports a narrow routing claim. C3 remains held.
 
+[Evaluation closure](CLOSURE.md) records the final C3 checkpoint and unresolved gates.
+
 ## Measured software results
 
 | Set | Released main | C3 | Scope |

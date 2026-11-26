@@ -46,6 +46,8 @@ registers the frozen C3-REPL-P, R and X packets and receipts. Both readers
 completed all 50 cases. C3 gained three fresh routing targets; cross-family
 targets stayed 0/10. Original private and held statuses are unchanged.
 
+[Wampus Cat](../evaluation/cryptid/wampus-cat/SCOPE.md) is the bounded next Cryptid sprint. Its frozen development and fresh seals keep compound-field evaluation separate from the [closed Bunyip study](../evaluation/cryptid/bunyip/round2/CLOSURE.md).
+
 ### Stable family lookup
 
 - **TEST-FAMILY-CRYPTID** — [cryptid](../evaluation/cryptid); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
