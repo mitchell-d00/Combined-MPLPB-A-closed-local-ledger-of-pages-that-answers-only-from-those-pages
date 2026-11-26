@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `0ce0ff8377baae641314ca919d7040b91b4c2873` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `af837e999178361a29c4f6f0c1d0035672337e4ce5ef0732bd1f0b7af3230692`.
+Base commit: `8e5402a2ecf3fff73586e0d7f64a74f3ca0f6238` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `5f9890d2f75770b3a80c2f3ea6109d5fe25aea9e8a64160cf170b73b9b7bd31f`.
 
 ## Betty report for Al
 
@@ -17,21 +17,20 @@ Close and preserve Bunyip C3, then complete the bounded Wampus Cat sprint in the
 
 ### Implemented scope
 
-- Implement shared named-field checking and combine independently checked opening time and location with one source identity and the original eligibility gate. Add a scoped hosted invocation of the existing isolated Cryptid runner.
+- Closed Bunyip Round 2 as a narrow measured result and completed the bounded Wampus Cat sprint. Implemented a shared literal named-field check and one bounded compound composition path. No consolidation claim.
 
 ### Validation recorded
 
-- 28 focused compound-field and Bunyip regressions passed. Candidate commit and runtime ZIP will be pinned before the fresh packet opens.
-- BB replay on Wampus retained 900 exact positive contracts, 900 eligible citation readbacks and 200 withholds. Start unchanged public 832 preservation replay for the changed runtime.
-- Wampus development hits 4/6 versus both prior readers at 0/6, with zero unsupported claims and 5/6 keyed contrasts. All three C3 routing gains are retained; three consumed Bunyip cross-family complete answers and three checked partials recover. Fresh inputs match the original seal and opened after the runtime ZIP pin. Both scoring keys remain private.
+- Scope and both case sets froze at d5848641b. Wampus code 1ca8a1a0be648de660c928da879c8c86788c10a0, scoped runtime ZIP SHA-256 9ff59768cacfcdfe1498c210b93f7de74c4918b60a25bda7e5e239e56aed308f. Fresh opened at 8e5402a2e after candidate pin. Three-way development: 4/6 versus both earlier 0/6. Three-way fresh: 3/5 versus both earlier 0/5; one useful contrast partial, no unsupported claims or execution failures.
+- All three C3 routing gains retained. Consumed Bunyip 50 completes: released 1, C3 4, Wampus 7 plus 3 checked partials. Wampus retained the 832 public contracts, BB 900 exact positives and eligible citations with 200 withholds, and 28 focused tests. Artifacts and exact hashes in the Wampus result.
 
 ### Limitations and blocked checks
 
-- Original private checks incomplete, original held transfers NOT_RUN, publication incident open. C3 unmerged.
+- Terminal-period imperative questions still miss. Same-operator keys remain separate; no independent blinding. Original 17 private and 100 held cases unchanged. Retired recovery closed, Git-history incident open, no release, merge or deployment. All independent and human NOT_RUN labels retained.
 
 ### Next steps
 
-- Run the sealed fresh cases once on the pinned three readers, retain raw evidence, and close after preservation checks.
+- Bounded sprint closed. Next executable diagnostic is the terminal-period whole-question contrast under the existing guards. If the first fresh outcomes inform a repair, classify that packet as consumed development and freeze fresh transfer again. Keep custody/history remediation separate from the language evidence.
 
 ## Use this ZIP in your repository
 

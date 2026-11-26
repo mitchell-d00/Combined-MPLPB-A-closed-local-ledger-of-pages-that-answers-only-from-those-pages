@@ -10,6 +10,8 @@ For each series: freeze inputs, controls, expected claims and withholds, generat
 
 All preparation, implementation and scoring are same-operator. Sealing is custody control, not independent blinding. Historical/semantic adjudication, independent preparation/blinding, outside-custodian scoring and native OOCC remain **NOT_RUN**. Human onboarding remains **NOT_RUN** until Mitchell returns real observations.
 
+[Wampus Cat](wampus-cat/RESULTS.md) closes the next bounded sprint with frozen compound-field evidence. [Bunyip Round 2](bunyip/round2/CLOSURE.md) remains a closed evaluation with release gates open.
+
 ## Preservation and accounting
 
 Preserve the unchanged [280-case release comparison](../bubble-wrap/2026-11-25/continuation/development.json), its keys, original source hashes, 17 restricted PE-02 cases, earlier integrity, attribution, reported-content, citation, UI and budget controls. Inventory overlapping content by semantic input hash; cohort membership is not independent evidence. Restricted originals and their raw output remain in existing private custody.
