@@ -1,0 +1,621 @@
+{
+  "comparison_format": "bunyip-round2-replacement-readout-v1",
+  "packet_arms": [
+    "development"
+  ],
+  "artifact_sha256": "1420fc5a9c68ea48a27f8df2082ed7b5c01896aeefbde6202edf5ee5383c6a48",
+  "summary": {
+    "cases": 10,
+    "released_executed": 10,
+    "released_unsupported_completions": 0,
+    "released_unsupported_claim_cases": 0,
+    "released_correct_controls": 5,
+    "candidate_executed": 10,
+    "candidate_unsupported_completions": 0,
+    "candidate_unsupported_claim_cases": 0,
+    "candidate_correct_controls": 5,
+    "neither": 4,
+    "both": 1
+  },
+  "by_family": {
+    "signed instruction": {
+      "cases": 2,
+      "released_executed": 2,
+      "released_unsupported_completions": 0,
+      "released_unsupported_claim_cases": 0,
+      "released_correct_controls": 1,
+      "candidate_executed": 2,
+      "candidate_unsupported_completions": 0,
+      "candidate_unsupported_claim_cases": 0,
+      "candidate_correct_controls": 1,
+      "neither": 1
+    },
+    "reported speaker": {
+      "cases": 2,
+      "released_executed": 2,
+      "released_unsupported_completions": 0,
+      "released_unsupported_claim_cases": 0,
+      "released_correct_controls": 1,
+      "candidate_executed": 2,
+      "candidate_unsupported_completions": 0,
+      "candidate_unsupported_claim_cases": 0,
+      "candidate_correct_controls": 1,
+      "neither": 1
+    },
+    "conditional instruction": {
+      "cases": 2,
+      "released_executed": 2,
+      "released_unsupported_completions": 0,
+      "released_unsupported_claim_cases": 0,
+      "released_correct_controls": 1,
+      "candidate_executed": 2,
+      "candidate_unsupported_completions": 0,
+      "candidate_unsupported_claim_cases": 0,
+      "candidate_correct_controls": 1,
+      "neither": 1
+    },
+    "checked partial": {
+      "cases": 2,
+      "released_executed": 2,
+      "released_unsupported_completions": 0,
+      "released_unsupported_claim_cases": 0,
+      "released_correct_controls": 1,
+      "candidate_executed": 2,
+      "candidate_unsupported_completions": 0,
+      "candidate_unsupported_claim_cases": 0,
+      "candidate_correct_controls": 1,
+      "neither": 1
+    },
+    "competing owners": {
+      "cases": 2,
+      "released_executed": 2,
+      "released_unsupported_completions": 0,
+      "released_unsupported_claim_cases": 0,
+      "released_correct_controls": 1,
+      "candidate_executed": 2,
+      "candidate_unsupported_completions": 0,
+      "candidate_unsupported_claim_cases": 0,
+      "candidate_correct_controls": 1,
+      "both": 1
+    }
+  },
+  "distinct_original_questions": 7,
+  "question_memberships": {
+    "What task did Mira Loden give the harbor survey delegation in the letter to Rusk?": [
+      "C3-REPL-P01-A",
+      "C3-REPL-P01-B"
+    ],
+    "What did Juno Meir report that Tessa Vale wrote?": [
+      "C3-REPL-P02-A"
+    ],
+    "What did Rian Holt report that Tessa Vale wrote?": [
+      "C3-REPL-P02-B"
+    ],
+    "What did Ana Rell instruct the supply crew to do if the east lock opens?": [
+      "C3-REPL-P03-A"
+    ],
+    "Did the supply crew move the sealed barrels if the east lock opens?": [
+      "C3-REPL-P03-B"
+    ],
+    "What transition did Mira Loden intend her approach in the letter to Kline to guide, and what task did she give the harbor survey delegation in the letter to Rusk?": [
+      "C3-REPL-P04-A",
+      "C3-REPL-P04-B"
+    ],
+    "When does Maple Quay open?": [
+      "C3-REPL-P05-A",
+      "C3-REPL-P05-B"
+    ]
+  },
+  "rows": [
+    {
+      "packet": "development",
+      "id": "C3-REPL-P01-A",
+      "family": "signed instruction",
+      "question": "What task did Mira Loden give the harbor survey delegation in the letter to Rusk?",
+      "expected": "complete",
+      "membership": "target",
+      "released": {
+        "execution": "completed",
+        "status": "abstain",
+        "claim_count": 0,
+        "support": false,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": false,
+          "attribution": false,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": null,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [],
+        "citation_errors": [],
+        "diagnostic": "signed_instruction_unresolved",
+        "raw_output_sha256": "7c01aabab8687d804238b3420b5c097e3042a0683e419c9343e9e623131fdbcc"
+      },
+      "candidate": {
+        "execution": "completed",
+        "status": "abstain",
+        "claim_count": 0,
+        "support": false,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": false,
+          "attribution": false,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": null,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [],
+        "citation_errors": [],
+        "diagnostic": "signed_instruction_unresolved",
+        "raw_output_sha256": "1c10829277c05da01ac164c0e705cb1db6d914518401880f4166e97ef615d0bf"
+      }
+    },
+    {
+      "packet": "development",
+      "id": "C3-REPL-P01-B",
+      "family": "signed instruction",
+      "question": "What task did Mira Loden give the harbor survey delegation in the letter to Rusk?",
+      "expected": "withhold",
+      "membership": "control",
+      "released": {
+        "execution": "completed",
+        "status": "abstain",
+        "claim_count": 0,
+        "support": true,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": false,
+          "attribution": null,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": null,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [],
+        "citation_errors": [],
+        "diagnostic": "signed_instruction_unresolved",
+        "raw_output_sha256": "8e4240c3f871a7167a769155dae1f7d669fe11eaff0091e7010a2c9292e99bab"
+      },
+      "candidate": {
+        "execution": "completed",
+        "status": "abstain",
+        "claim_count": 0,
+        "support": true,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": false,
+          "attribution": null,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": null,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [],
+        "citation_errors": [],
+        "diagnostic": "signed_instruction_unresolved",
+        "raw_output_sha256": "43a293e6f062485db182f5c7d07aadab294ec2c4e7ea0e7a0e0b696c0d6a4fe4"
+      }
+    },
+    {
+      "packet": "development",
+      "id": "C3-REPL-P02-A",
+      "family": "reported speaker",
+      "question": "What did Juno Meir report that Tessa Vale wrote?",
+      "expected": "complete",
+      "membership": "target",
+      "released": {
+        "execution": "completed",
+        "status": "abstain",
+        "claim_count": 0,
+        "support": false,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": false,
+          "attribution": false,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": null,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [],
+        "citation_errors": [],
+        "diagnostic": "interpretation_unsupported",
+        "raw_output_sha256": "7767a249a28b740496f36a682f67d8a8cc59e05845b8e4e86b30e061c9172b22"
+      },
+      "candidate": {
+        "execution": "completed",
+        "status": "abstain",
+        "claim_count": 0,
+        "support": false,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": false,
+          "attribution": false,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": null,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [],
+        "citation_errors": [],
+        "diagnostic": "interpretation_unsupported",
+        "raw_output_sha256": "ef03cc1eae6697e39630becd917796ed064bd8c103b4b5b7afab7274fc8e9228"
+      }
+    },
+    {
+      "packet": "development",
+      "id": "C3-REPL-P02-B",
+      "family": "reported speaker",
+      "question": "What did Rian Holt report that Tessa Vale wrote?",
+      "expected": "withhold",
+      "membership": "control",
+      "released": {
+        "execution": "completed",
+        "status": "abstain",
+        "claim_count": 0,
+        "support": true,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": false,
+          "attribution": null,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": null,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [],
+        "citation_errors": [],
+        "diagnostic": "interpretation_unsupported",
+        "raw_output_sha256": "bbb958334146a79e3bc45221b200ea6c8123fd371ea129cb882ec55df9bb4380"
+      },
+      "candidate": {
+        "execution": "completed",
+        "status": "abstain",
+        "claim_count": 0,
+        "support": true,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": false,
+          "attribution": null,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": null,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [],
+        "citation_errors": [],
+        "diagnostic": "interpretation_unsupported",
+        "raw_output_sha256": "5ea947f1f87ffef4fe343ea8431e0c94b4a0e06cd77aa24ed70e6ccfd18b0a59"
+      }
+    },
+    {
+      "packet": "development",
+      "id": "C3-REPL-P03-A",
+      "family": "conditional instruction",
+      "question": "What did Ana Rell instruct the supply crew to do if the east lock opens?",
+      "expected": "complete",
+      "membership": "target",
+      "released": {
+        "execution": "completed",
+        "status": "abstain",
+        "claim_count": 0,
+        "support": false,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": false,
+          "attribution": false,
+          "polarity": null,
+          "conditions": false,
+          "citation_correctness": null,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [],
+        "citation_errors": [],
+        "diagnostic": "interpretation_unsupported",
+        "raw_output_sha256": "47976c19e00486f490a93a6b981dca590cb7614a69975f8f3d0f10dd35c54c01"
+      },
+      "candidate": {
+        "execution": "completed",
+        "status": "abstain",
+        "claim_count": 0,
+        "support": false,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": false,
+          "attribution": false,
+          "polarity": null,
+          "conditions": false,
+          "citation_correctness": null,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [],
+        "citation_errors": [],
+        "diagnostic": "interpretation_unsupported",
+        "raw_output_sha256": "85a1f22b7f44e992f34f9fc84d5ac3eb57cab1bfbd6809add6f2e2a2d8f9f790"
+      }
+    },
+    {
+      "packet": "development",
+      "id": "C3-REPL-P03-B",
+      "family": "conditional instruction",
+      "question": "Did the supply crew move the sealed barrels if the east lock opens?",
+      "expected": "withhold",
+      "membership": "control",
+      "released": {
+        "execution": "completed",
+        "status": "abstain",
+        "claim_count": 0,
+        "support": true,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": false,
+          "attribution": null,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": null,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [],
+        "citation_errors": [],
+        "diagnostic": "interpretation_unsupported",
+        "raw_output_sha256": "caa0c7f9ea653c45cffa2ec2b93a5eb41be68bfb8573e88afae557616728de5e"
+      },
+      "candidate": {
+        "execution": "completed",
+        "status": "abstain",
+        "claim_count": 0,
+        "support": true,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": false,
+          "attribution": null,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": null,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [],
+        "citation_errors": [],
+        "diagnostic": "interpretation_unsupported",
+        "raw_output_sha256": "9412bc33b1c2867a9ae433dfb96d77fc06ada5c10005b4b1145545ab6925488d"
+      }
+    },
+    {
+      "packet": "development",
+      "id": "C3-REPL-P04-A",
+      "family": "checked partial",
+      "question": "What transition did Mira Loden intend her approach in the letter to Kline to guide, and what task did she give the harbor survey delegation in the letter to Rusk?",
+      "expected": "partial",
+      "membership": "target",
+      "released": {
+        "execution": "completed",
+        "status": "abstain",
+        "claim_count": 0,
+        "support": false,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": false,
+          "attribution": false,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": null,
+          "readable_yes_no": null,
+          "missing_obligation": false
+        },
+        "required_witnesses_covered": [],
+        "citation_errors": [],
+        "diagnostic": "signed_instruction_unresolved",
+        "raw_output_sha256": "c94e94ed175e116041da4b496346eba568c961b502177d3a04723d36bda8cf02"
+      },
+      "candidate": {
+        "execution": "completed",
+        "status": "abstain",
+        "claim_count": 0,
+        "support": false,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": false,
+          "attribution": false,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": null,
+          "readable_yes_no": null,
+          "missing_obligation": false
+        },
+        "required_witnesses_covered": [],
+        "citation_errors": [],
+        "diagnostic": "signed_instruction_unresolved",
+        "raw_output_sha256": "0f89cb0e8881c23a27302a477eadbdc9d2e745f7e8087e45e38f242c2575e825"
+      }
+    },
+    {
+      "packet": "development",
+      "id": "C3-REPL-P04-B",
+      "family": "checked partial",
+      "question": "What transition did Mira Loden intend her approach in the letter to Kline to guide, and what task did she give the harbor survey delegation in the letter to Rusk?",
+      "expected": "withhold",
+      "membership": "control",
+      "released": {
+        "execution": "completed",
+        "status": "abstain",
+        "claim_count": 0,
+        "support": true,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": false,
+          "attribution": null,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": null,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [],
+        "citation_errors": [],
+        "diagnostic": "restricted_or_unavailable",
+        "raw_output_sha256": "8b291bf75a569c7e769acf1e8e634bce89a3b5f203969c1b0361a3aa34215852"
+      },
+      "candidate": {
+        "execution": "completed",
+        "status": "abstain",
+        "claim_count": 0,
+        "support": true,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": false,
+          "attribution": null,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": null,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [],
+        "citation_errors": [],
+        "diagnostic": "restricted_or_unavailable",
+        "raw_output_sha256": "bada8a30dfde601ce86c3b85147f1e795a9f424b3bc97b1cbbe22f60535e8c5c"
+      }
+    },
+    {
+      "packet": "development",
+      "id": "C3-REPL-P05-A",
+      "family": "competing owners",
+      "question": "When does Maple Quay open?",
+      "expected": "complete",
+      "membership": "target",
+      "released": {
+        "execution": "completed",
+        "status": "supported_answer",
+        "claim_count": 1,
+        "support": true,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": true,
+          "attribution": null,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": true,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [
+          "Opening time: 08:40"
+        ],
+        "citation_errors": [],
+        "diagnostic": "supported",
+        "raw_output_sha256": "39ab5f2bdb1a50d6e193bfd28079f69cef2447fe377d4a139ec6852198fba20b"
+      },
+      "candidate": {
+        "execution": "completed",
+        "status": "supported_answer",
+        "claim_count": 1,
+        "support": true,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": true,
+          "attribution": null,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": true,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [
+          "Opening time: 08:40"
+        ],
+        "citation_errors": [],
+        "diagnostic": "supported",
+        "raw_output_sha256": "36e44903ee5f4be021cee7b130f50d11a0136bfa9adca68bfb2210ae783ebcce"
+      }
+    },
+    {
+      "packet": "development",
+      "id": "C3-REPL-P05-B",
+      "family": "competing owners",
+      "question": "When does Maple Quay open?",
+      "expected": "withhold",
+      "membership": "control",
+      "released": {
+        "execution": "completed",
+        "status": "conflict",
+        "claim_count": 1,
+        "support": true,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": true,
+          "attribution": null,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": true,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [
+          "Opening time: 08:40",
+          "Opening time: 10:20"
+        ],
+        "citation_errors": [],
+        "diagnostic": "conflicting_or_multiple_owners",
+        "raw_output_sha256": "4dfd496ab9c4263817e91221bf82706106f22a31376b7cfd80fa9abc3964dd46"
+      },
+      "candidate": {
+        "execution": "completed",
+        "status": "conflict",
+        "claim_count": 1,
+        "support": true,
+        "unsupported_completion": false,
+        "unsupported_claim_case": false,
+        "dimensions": {
+          "source_support": true,
+          "attribution": null,
+          "polarity": null,
+          "conditions": null,
+          "citation_correctness": true,
+          "readable_yes_no": null,
+          "missing_obligation": null
+        },
+        "required_witnesses_covered": [
+          "Opening time: 08:40",
+          "Opening time: 10:20"
+        ],
+        "citation_errors": [],
+        "diagnostic": "conflicting_or_multiple_owners",
+        "raw_output_sha256": "46c3ce422334d5d9fae5722f024a00ae7784d4857c34a6e007a877c4e6487deb"
+      }
+    }
+  ]
+}

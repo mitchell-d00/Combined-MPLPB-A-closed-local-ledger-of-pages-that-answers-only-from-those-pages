@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `eeda87e03567482302f6fdd011a7d51f27bec9f4` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `1deb5c36bd8a839542c7d7b1759a553861346ff8de9f6af923bf6947a7c277e5`.
+Base commit: `dcbf222605898d887d21a9ceb72ba63b83a838b9` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `e09355e164d81dfd56828b44b2dcf3e30d63032d518d5ca8eaaf26ea40a2ba61`.
 
 ## Betty report for Al
 
@@ -17,11 +17,11 @@ Run the bounded C3 comparison within existing Cryptid → Bunyip → Round 2. Fr
 
 ### Implemented scope
 
-- Freeze 10 synthetic development replacements and examiner rules. Use the existing Cryptid isolated runner on the released and C3 runtime ZIPs. Retain raw public-eligible outcomes and startup logs separately.
+- Retain the isolated 10-case replacement development comparison and freeze the two new 20-case replacement packets before fresh execution. Reader source remains unchanged.
 
 ### Validation recorded
 
-- Development registry, key, inputs, scorer policy and both scoped runtime ZIP hashes are frozen before reader execution. No development or transfer result exists at this checkpoint.
+- Both readers ran all ten development cases, retained five of five controls, supported one overlapping target and missed four. Zero unsupported completions or lost protected answers. Exact artifact SHA-256 1420fc5a9c68ea48a27f8df2082ed7b5c01896aeefbde6202edf5ee5383c6a48. Fresh keys and inputs are frozen in this checkpoint; no fresh execution result at freeze.
 
 ### Limitations and blocked checks
 
@@ -29,7 +29,7 @@ Run the bounded C3 comparison within existing Cryptid → Bunyip → Round 2. Fr
 
 ### Next steps
 
-- Execute the 10-case development comparison in the existing hosted isolated runner. Then freeze the fresh paired R/X draws with unchanged runtime and evaluate without repairs.
+- Run the same released and C3 runtime ZIPs once on both fresh packets without changes. Verify artifacts, score by family and unique original question, and retain any failed result.
 
 ## Use this ZIP in your repository
 
