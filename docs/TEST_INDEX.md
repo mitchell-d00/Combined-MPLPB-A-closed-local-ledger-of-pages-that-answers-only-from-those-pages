@@ -32,11 +32,14 @@ tag/layout check or artifact transport is credited as an original-question gain.
 All22strict-key failures and rejected candidates remain visible.36+64held transfer
 is unopened. Human/independent evaluation stays NOT_RUN.
 
-[C3 recovery closure](../evaluation/cryptid/bunyip/round2/recovery-checkpoint.md)
-records INTERRUPTED / UNRECOVERED. The 17 original private checks are incomplete.
-The original 36 routing and 64 cross-family cases are unavailable and NOT_RUN.
-The plan distinguishes exact public replay from new frozen verification cases.
-The separate Git-history incident remains open. C3 is unmerged.
+[C3 public replay inventory](../evaluation/cryptid/bunyip/round2/public-replay-inventory.csv)
+records 832 exact preservation replays and 1,100 exact BB replays. The 572
+exposed development cases are receipt-only for their original score. The 17
+original private checks remain incomplete, and the original 36 routing and
+64 cross-family cases are unavailable and NOT_RUN. [Replacement plan and
+recovery closure](../evaluation/cryptid/bunyip/round2/recovery-checkpoint.md)
+keep the incident separate and identify the next frozen preservation pairs.
+C3 is unmerged.
 
 ### Stable family lookup
 

@@ -74,40 +74,76 @@ and original source spans. Keep the source text and inventory private.
    and unreferenced Git objects. Recheck reachability after cleanup. Report
    separately any forks, clones or caches outside repository control.
 
+## Public replay inventory and executed checks
+
+| Original arm | Availability | Executed at this checkpoint |
+|---|---|---|
+| C3 public consumed preservation | **832 exactly replayable** across 35 cohorts. All 832 authorized packet file maps match the frozen registries and execution receipts. | **832/832** unchanged normalized contracts, zero failures, on the original hosted isolated runner and C3 pin `3bf9657`. |
+| Bunyip BB consumed external regression | **1,100 exactly replayable** against the same 100 retained fixture-file hashes. | **900/900** exact positive contracts, **900/900** citation readbacks, and **200/200** unchanged negative withholds. |
+| C3 exposed D% development | **572 receipts/outputs only** for the original score. Published inputs and seal hashes exist. The original custody key/dice bytes are absent. | Published packet/member hashes checked. Original scores, including the 22 strict-key failures, are retained. No new scored reader run for these cases. |
+| Original private preservation | **17 unavailable**, with one historical startup failure and 16 NOT_RUN. | No private reader execution. |
+| Original held transfer | **100 unavailable**, 36 routing plus 64 cross-family. | NOT_RUN. |
+
+[Case inventory](public-replay-inventory.csv) carries original case IDs or BB CSV
+composite keys, cohort scope, input fingerprints and available output digests.
+Original held cases without a verified complete ID roster are recorded as cohort
+rows. Routing's published seal and ID pattern remain in
+[routing-freeze.json](routing-freeze.json). Counts are memberships within each arm.
+
+[Pin map](public-replay-inventory-pins.json) records registry and harness digests,
+worker profiles, baseline and C3 commit. Each preservation case's registry and
+packet retain its budget and input state. The frozen scorer compares the full
+answer contract except its existing `code_sha256` exclusion. Retained output
+hashes and normalized contracts were checked against the original comparison
+archive and the new run. The hosted job passed all four isolation checks before
+replaying public packets. Private rows stayed blocked by the original route.
+[Rerun receipt](public-replay-rerun-receipt.json) ·
+[Hosted run](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/45871569757/attempts/2).
+
+The BB replay used the exported fixture bytes whose 100 hashes match the
+matched-source receipt, the unchanged public package and evaluator, and the
+recorded profile on each negative. Its initial host-side fixture check stopped
+before execution when it included the older unmatched export. That first
+comparison remains an original recorded failure. The verified matched inputs
+were then used for the replay. A CLI artifact redirect failed with HTTP 403;
+the GitHub connector retrieved the same public rerun ZIP and its SHA-256 matched.
+
+The publication incident remains open. Neither known restricted archive blob
+is in the current tree. The introducing commit still survives on the PR branch
+and GitHub PR refs. This checkpoint does not copy any restricted payload or
+execute the proposed destructive cleanup above.
+
 ## Replacement verification plan
 
-The 17 original private checks stay incomplete: one recorded startup failure
-and 16 NOT_RUN. The 36 original routing and 64 original cross-family cases
-remain unavailable and NOT_RUN. Missing data supplies no reader outcome.
-The separate publication incident remains open.
+The original 17 and 100 cases keep their missing statuses. Use distinct
+replacement IDs and fresh authorized synthetic fixture bytes. Where materially
+relevant, use the same source roles and failure conditions with different
+wording; preserve all declared proof and custody boundaries.
 
-| Track | Admissible inputs | What the result can establish |
+| Proposed IDs | Freeze these contrasts before execution | Frozen acceptance |
 |---|---|---|
-| Exact public replay | Permitted public 832 reference bundle, original authorized inputs, frozen harness and pinned reader. Require original source bytes, questions, keys or complete expected contracts, and budgets to match retained pins. | Same-case preservation for the verified subset. Retained outputs alone support receipt verification. |
-| Replacement preservation | Newly authored, explicitly synthetic examples covering signed instructions, reported speech, quotation and polarity, conditions, partials, citations, and competing or ineligible sources. Pair positives with nearby withholds. | A separate comparison between released reader `2622813` and the published C3 native source. The original 17 checks remain incomplete. |
-| Replacement transfer | New routing and cross-family packets, with proposed sizes 36 and 64. Vary wording, layout and obligations. Include attribution, modality, references and multi-record evidence plus wrong-owner, missing-witness, withdrawn-source and fixed-budget controls. | Once-only transfer on new cases. The original 100-case packet and its NOT_RUN status remain intact. |
+| `C3-REPL-P01+/-` | Signed letter contains a complete instruction; a matched version omits the full-name witness. | Exact instructor, recipient and instruction span on the positive; withhold full attribution on the contrast. Do not admit execution. |
+| `C3-REPL-P02+/-` | A named reporter quotes another person's statement; the matched request assigns it to the recorder. | Attribute the claim to the quoted speaker at the reporting layer; withhold the wrong actor. |
+| `C3-REPL-P03+/-` | A conditional instruction with its full governor; a matched question asks whether the action happened. | Cite the complete governor and preserve modality. Withhold the completed-event claim. |
+| `C3-REPL-P04+/-` | A two-obligation question has one eligible witness; a matched packet withdraws that witness. | Checked partial identifies the unmet obligation; withdrawn source supplies no claim or citation. |
+| `C3-REPL-P05+/-` | Same public field in a unique eligible record; a matched packet adds a competing owner. | Exact field/value and source revision on the positive; ambiguity stops a complete answer on the contrast. |
+| `C3-REPL-R` and `C3-REPL-X` | Scope later new routing and cross-family contrasts to observed gaps from the replacement preservation run. Vary title/body competition, temporal roles, attribution, conditions and multi-record obligations. | Keep routing and cross-family results separate. Run each frozen packet once, score its original questions, and preserve all negatives and exact citations. |
 
-1. Inventory each authorized public case as byte-exact replayable, receipt-only
-   or unavailable. Record source IDs and original byte hashes, question hash,
-   expected contract or key hash, harness and budget pins. Refetched sources
-   qualify only if permitted and byte-identical. Keep exposed incident
-   material out of the replacement inputs.
-2. Prove required isolation using synthetic controls. Freeze new case IDs,
-   source bytes, witness spans, questions, budgets, rule, expectations,
-   scorer and separate custody before the first reader run. Give the worker
-   only the authorized operator packet. Record who prepared, saw and scored it.
-3. Score statuses, claim meanings, qualifications, eligible exact citations and
-   preservation of prior valid support. Keep coverage gains, consolidation,
-   boundary correctness, and runner outcomes separate. Record execution
-   failures without reader labels. Require zero false support and no lost
-   valid support under the frozen checks.
-4. Freeze the committed candidate ZIP and its SHA-256 before opening either
-   new transfer packet. Run each once and retain every outcome. If a packet
-   informs a repair, retain it as development material. Replacement results
-   cannot satisfy the original missing checks or revise the release gate.
+Before any replacement runs, commit and hash the case IDs, exact questions,
+synthetic initial sources, path/hash/span identities, states, eligibility
+profiles, expected claims and withholds, runner, scorer and unchanged budgets.
+Use the existing operator/custodian split and record actual preparation and
+exposure. Require the existing isolation preflight to pass and retain all
+initialization failures separately from reader decisions. For previously valid
+answers require the full supported contract or its predeclared equivalent.
+Require zero false support and zero lost valid support on protected cases.
+Check attribution, polarity, modality and missing obligations independently of
+coverage. Pin and hash the candidate ZIP before any new transfer is opened.
+Any transfer that informs a repair becomes development material.
 
-**Next achievable step:** inventory authorized public inputs against the retained
-contracts, then freeze independently identified replacement preservation cases
-and expectations before a reader run. Human onboarding, independent historical
-accuracy, independent preparation and blinding, independent semantic
-adjudication, outside-custodian scoring and native OOCC remain NOT_RUN.
+**Next executable step:** author and freeze the five matched synthetic
+preservation pairs above, then use the existing isolated runner to compare
+released `2622813` and C3 `3bf9657`. New results will be replacement evidence
+and cannot satisfy the missing original gate. No independent blinding is
+claimed. Human onboarding, independent historical accuracy, independent
+semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN.

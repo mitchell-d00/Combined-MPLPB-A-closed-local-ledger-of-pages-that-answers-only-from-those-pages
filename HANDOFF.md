@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `a1021cc3403bd395049359e6d311993ebc25c16a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `3a94233da22378f4d9e7a7271dbc6966f8d591d661b1b758896f06d5850bcdd0`.
+Base commit: `dbf7e10efa0d1d2037186cb8848b312d0d179b1f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `c4d97e861ccc50b9caa184e03f5bcb5205592d47d494bc4013d02372ebb23496`.
 
 ## Betty report for Al
 
@@ -13,44 +13,43 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Close the recovery attempt as INTERRUPTED / UNRECOVERED. Stop waiting for the retired session.
+Betty: Finish the public replay inventory and prepare the next achievable verification plan for C3 on PR #106. The original recovery attempt is closed as INTERRUPTED / UNRECOVERED; do not wait for the retired session.
 
-Preserve all published code, evidence, hashes and failure records. Mark the 17 private preservation checks incomplete and the 100 unavailable transfer cases NOT_RUN. Do not infer reader passes or failures from missing data.
+Classify each relevant case as:
+- Exactly replayable from available inputs, initial state, runner, budgets and scoring contract.
+- Receipts or outputs only.
+- Unavailable.
 
-Prepare a replacement verification plan using available, authorized sources. Distinguish exact reconstructions supported by retained bytes from newly authored replacement cases. Freeze new inputs and expectations before testing, and preserve the original missing checks as missing.
+Preserve original IDs, hashes, results and failures. Keep the original 17 preservation checks incomplete and the 100 original transfer cases NOT_RUN unless their exact required materials are recovered.
 
-Record the interruption as a workflow/data-availability failure, with context-compaction involvement suspected but unconfirmed.
+For missing coverage, propose separately identified replacement cases with explicit acceptance criteria. Freeze their inputs and expectations before execution. Do not count replacements as completion of the original missing tests or claim independent blinding.
 
-Continue public cleanup and organization. Keep the archive-publication incident separate; retiring the old session does not resolve its Git-history exposure.
+Continue unaffected public replay and cleanup work. Keep the restricted-text publication incident separate; prepare precise remediation before any destructive history changes.
 
-Update HANDOFF with the next achievable step. Do not convert unavailable verification into a pass.
+Update the Test Index, HANDOFF and PR report with what is available, what ran, what remains missing and the next executable step. Push recoverable checkpoints.
+
+Existing publication, merge and deployment authorization remains in force when applicable requirements pass. No new language-test series or additional scope is needed.
 
 ### Implemented scope
 
-- Recovery checkpoint only. Verify live pins, public custody receipts, affected Git ancestry and Actions artifact metadata. Record the proposed cleanup in evaluation/cryptid/bunyip/round2/recovery-checkpoint.md and link it from the Test Index.
-- Close the original recovery attempt as INTERRUPTED / UNRECOVERED. Document exact replay and new-case replacement criteria in the Round 2 recovery closure and link from the Test Index.
+- Complete the C3 per-case public replay inventory, retain a separate public rerun receipt, and record replacement preservation contrasts and acceptance before any new cases are authored or run. No reader change.
 
 ### Validation recorded
 
-- Verified main 515a919df40996e9d1d521dd50474b832a1a599c and starting PR #106 head cc54c4276bb4895c33df46cc782e758f4c8e5a0b. Release follows the existing #107 deployment receipt. C3 reader, keys, acceptance and previous evidence remain unchanged.
-- Both permitted replacement archives match their SHA-256 digests, lengths and recorded file-member counts. The cancelled source-ZIP run lists zero artifacts. Ancestry and Actions metadata checks are recorded separately from private payload review.
-- Synthetic no-input Bubblewrap probes failed at namespace startup, before any reader invocation. No private or held case ran. PID 1, the supervisor and the original workspace were untouched.
-- Reviewed the last three Betty reports (#105–#107) and recorded the interruption. Of 122 inspected heads, tags and #106 refs, only the Bunyip branch and #106 head and test-merge refs descend from the introducing commit.
-- The a1021cc recovery and repository handoff workflows passed. This closure changes public coordination text only. No replacement, private or held reader case was run.
+- Verified all 832 frozen authorized packet and retained result hashes, 65 frozen harness files and 104 distinct staged worker files across 35 cohorts. Hosted rerun at the existing C3 pin 3bf9657 passed four isolation controls and 832/832 full normalized contracts with zero execution failures.
+- BB consumed regression reproduced 900/900 exact positives, 900/900 eligible citation readbacks and 200/200 negative withholds on 100 hash-matched fixture files. The 572 exposed D% cases have verified public inputs; their original scores stay receipt-only because the sealed custody key/dice bytes are unavailable.
+- Current tree contains neither known restricted archive blob. Introducing ancestry remains reachable. The earlier publication incident and interrupted raw-output retention failure remain separately recorded.
 
 ### Limitations and blocked checks
 
-- The attached workspace does not contain the original Bunyip custody files or local publication-session receipt. Their availability elsewhere and integrity are unverified. Access and isolation are blocked; file loss is unverified.
-- 832 public comparisons remain exact, one previous private probe failed execution and sixteen private cases remain NOT_RUN. Both held transfer packets remain unopened. No candidate transfer ZIP was frozen and no C3 release occurred.
-- The incident archive paths are absent from the current tree and the prior history remains reachable. Private source-span inventory, artifact payload clearance and destructive history changes are pending. All independent and human NOT_RUN labels remain.
-- First remote preservation run 45870399223 did not retain its raw outputs in Actions after EACCES. The full job log exists. Original private custody is unavailable to this session; permanent loss is unverified.
-- Workflow and data-availability failure. Context-compaction involvement is suspected but unconfirmed. Permanent loss of original custody is unverified; no reader outcome is inferred.
+- Original attempt remains INTERRUPTED / UNRECOVERED. The 17 original private checks remain incomplete and the 100 original held cases unavailable and NOT_RUN. No inferred reader decisions or replacement scores.
+- No independent blinding or adjudication. No C3 merge, deployment, or gate substitution. Human onboarding, independent historical/semantic evaluation, outside-custodian scoring, and native OOCC stay NOT_RUN.
 
 ### Next steps
 
-- Inventory authorized public replay material against retained original source, question, expected contract or key, harness and budget pins. Mark receipt-only and unavailable cases explicitly.
-- Prove required isolation on synthetic controls. Freeze newly authored replacement inputs and expectations separately. Keep the original 17 checks incomplete and original 100 transfer cases NOT_RUN. Freeze a committed candidate before opening newly authored transfer.
-- Track the publication incident independently. Preserve evidence, present destructive changes concretely before executing them, and keep history exposure open until verified cleanup.
+- Freeze the five named replacement preservation pairs and expectations in the recovery closure before executing any. Use the existing isolated runner and compare released 2622813 and C3 3bf9657 with unchanged budgets.
+- Retain the original misses, withholds and incomplete checks. Any future separate replacement transfer requires its own frozen candidate ZIP and the documented preparation and exposure record.
+- Handle publication remediation independently; preserve evidence and present exact destructive ref or artifact operations before execution.
 
 ## Use this ZIP in your repository
 

@@ -13,7 +13,7 @@ Neither held transfer packet has been opened. No merge or deployment occurred.
 private checks are incomplete and the 100 original held transfer cases remain
 unavailable and NOT_RUN. The [recovery closure](recovery-checkpoint.md) gives the
 replacement verification plan and tracks the separate Git-history incident.
-Prior results and their dated continuation remain below.
+Prior results and their dated continuation remain below. The public inventory now verifies and replays the 832 consumed contracts and 1,100 BB cases. [Per-case inventory](public-replay-inventory.csv) · [Rerun receipt](public-replay-rerun-receipt.json).
 
 ## Measured software results
 
