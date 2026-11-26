@@ -1,4 +1,6 @@
-# Testing and Training Apparatus
+# Testing apparatus and evidence
+
+<a id="testing-and-training-apparatus"></a>
 
 Last reviewed: 2026-11-26.
 
@@ -11,6 +13,10 @@ that running Cryptid, TeamBuilding, Thespian or onboarding trains model weights.
 The optional browser models are pretrained elsewhere; loading them is inference.
 The [owner-corpus preparation tool](../tools/prepare_owner_corpus.py) separately
 records that its preparation is not a completed fine-tuning run.
+
+Scope: development/evaluation records. A test's pin, execution date and status
+belong to its own receipt; [the handoff](../HANDOFF.md) gives continuation,
+and [history](DEVELOPMENT_HISTORY.md) preserves older scope and revisions.
 
 ## Find the apparatus
 

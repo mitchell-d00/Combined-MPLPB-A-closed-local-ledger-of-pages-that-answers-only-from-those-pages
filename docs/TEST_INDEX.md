@@ -2,6 +2,106 @@
 
 Last reviewed: 2026-11-26.
 
+## Capability-to-evidence map
+
+Use [MPLPB product](MPLPB.md), develop in [Experimental Lab](EXPERIMENTAL_LAB.md),
+and inspect [Testing apparatus and evidence](TESTING_APPARATUS.md). These are
+linked homes, not physical moves.
+
+| Capability/boundary | Implementation | Protecting test | Result → retained evidence |
+|---|---|---|---|
+| Ordinary entity/relation/task wording | [Interpretation](../mplpb_answers/ordinary_questions.py), [task binding](../mplpb_answers/source_claims.py) | [Round2 contrasts](../tests/test_bunyip_round2.py) | [Round2 state](../evaluation/cryptid/bunyip/round2/README.md), [source hashes](../evaluation/cryptid/bunyip/round2/recovered-source-v1.json) |
+| Eligibility/provenance/recoverable records | [Ledger](../mplpb_combined/), [Reader](../mplpb_answers/) | [Integrity](../tests/test_integrity_hunt.py), [support](../tests/test_answer_support.py) | [Family inventory](results.json); old reports retain tested pins |
+| Polarity/scope/unresolved evidence | [Shared admission](../mplpb_answers/assertions.py), [source checks](../mplpb_answers/support.py), [fields](../mplpb_answers/ordinary_evidence.py) | [Round2 controls](../tests/test_bunyip_round2.py) | [Original raw scores/failures](../evaluation/cryptid/bunyip/round2/public-evidence-v1.tar.xz) |
+| Diagnostic UI wording | [Application](../index.html) | [Refusal copy](../tests/refusal-copy.cjs), [rendering](../tests/documentary-render.cjs) | Same public archive; synthetic reconstruction, not exact Outside live case |
+| Isolation/budgets | [D%](../tools/dpercent.py), [Bubblewrap](../tools/study_sandbox.py) | [Required isolation](../tests/test_study_sandbox.py) | [Input/adapter receipt](../evaluation/cryptid/bunyip/round2/public-input-supplement-v1.json); execution separate from scoring |
+| First use/citations | [Product](MPLPB.md), [installation](INSTALLATION.md) | [Software walkthrough](../evaluation/newcomer-navigation/README.md) | [Human onboarding](../evaluation/onboarding/2026-11-25/README.md) NOT_RUN |
+
+The existing [machine inventory](results.json) now gives every family/subfamily
+a stable family ID, responsible area/department, protected scope, implementation
+map, per-run baseline/candidate references, checksum manifest, evidence root,
+results/misses, execution/custody phase and preservation checks. Original case IDs,
+keys and labels are unchanged. PER_RETAINED_RUN explicitly means a family spans
+several experiments; the linked immutable receipts carry exact pins. It is not a
+new execution or a fabricated single baseline.
+
+Round2's actual source/public evidence is published;572 exposed development
+source-key decisions pass.71new positive executions represent34original strings;
+40wording-only diagnostic executions represent19strings. No canonical rewrite,
+tag/layout check or artifact transport is credited as an original-question gain.
+All22strict-key failures and rejected candidates remain visible.36+64held transfer
+is unopened. Human/independent evaluation stays NOT_RUN.
+
+### Stable family lookup
+
+- **TEST-FAMILY-CRYPTID** — [cryptid](../evaluation/cryptid); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-ONBOARDING** — [onboarding](../evaluation/onboarding); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-SOURCE-TAGS** — [source-tags](../evaluation/source-tags); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-BUBBLE-WRAP** — [bubble-wrap](../evaluation/bubble-wrap); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-CURRENT-FAILURE-INVENTORY** — [current-failure-inventory](../evaluation/current-failure-inventory); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-ATTRIBUTION** — [attribution](../evaluation/attribution); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-REPORT-PINS** — [report-pins](../evaluation/report-pins); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-POLE** — [pole](../evaluation/pole); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-D8** — [d8](../evaluation/d8); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-D10** — [d10](../evaluation/d10); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-D12** — [d12](../evaluation/d12); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-D6** — [d6](../evaluation/d6); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-DOCUMENTARY-DATE-PATTERN** — [documentary-date-pattern](../evaluation/documentary-date-pattern); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-HISTORICAL-SYNONYM-GRAPH** — [historical-synonym-graph](../evaluation/historical-synonym-graph); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-HISTORICAL-PATTERNS** — [historical-patterns](../evaluation/historical-patterns); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-DICE-BAG** — [dice-bag](../evaluation/dice-bag); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-PERSONA-CORPUS-TRANSFER** — [persona-corpus-transfer](../evaluation/persona-corpus-transfer); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-D20** — [d20](../evaluation/d20); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-COMPARATIVE-TESTS** — [comparative-tests](../evaluation/comparative-tests); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-D4** — [d4](../evaluation/d4); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-LANGUAGE-AUDIT** — [language-audit](../evaluation/language-audit); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-PROCEDURE-RECOVERY** — [procedure-recovery](../evaluation/procedure-recovery); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-REFERENCE-CORPUS-REPRODUCTION** — [reference-corpus-reproduction](../evaluation/reference-corpus-reproduction); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-RELATION-GRAPH** — [relation-graph](../evaluation/relation-graph); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-PRACTICAL-COVERAGE** — [practical-coverage](../evaluation/practical-coverage); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-RELIABILITY** — [reliability](../evaluation/reliability); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-OWNERSHIP** — [ownership](../evaluation/ownership); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-RESEARCHER-PILOT** — [researcher-pilot](../evaluation/researcher-pilot); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-GENERAL-READER** — [general-reader](../evaluation/general-reader); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-CONTEXTUAL** — [contextual](../evaluation/contextual); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-CONVERSATION** — [conversation](../evaluation/conversation); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-CONVERSATION-REPAIRS** — [conversation-repairs](../evaluation/conversation-repairs); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-LIVE-CONVERSATION** — [live-conversation](../evaluation/live-conversation); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-RESPONSE-1000** — [response-1000](../evaluation/response-1000); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-SPECIALIST-CONTINUITY** — [specialist-continuity](../evaluation/specialist-continuity); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-USER-COLLECTIONS** — [user-collections](../evaluation/user-collections); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-WIKI** — [wiki](../evaluation/wiki); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-TOPICS** — [topics](../evaluation/topics); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-AUDIT-2026-10-21** — [audit-2026-10-21](../evaluation/audit-2026-10-21); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-DOCUMENTATION-AUDIT** — [documentation-audit](../evaluation/documentation-audit); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-ROOT** — [root](../evaluation); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-KILLTEST** — [killtest](../killtest); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-MCP-AGENT** — [mcp-agent](../evaluation/mcp-agent); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-FREE-BROWSER-HELPER** — [free-browser-helper](../evaluation/free-browser-helper); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-MODEL-SELECTION** — [model-selection](../evaluation/model-selection); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-NO-UNVERIFIED-PROMOTION** — [no-unverified-promotion](../evaluation/no-unverified-promotion); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-HISTORICAL-EXPERTS** — [historical-experts](../evaluation/historical-experts); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-UNPREPARED-ORIGINALS** — [unprepared-originals](../evaluation/unprepared-originals); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-DOCUMENTARY-SCOPE** — [documentary-scope](../evaluation/documentary-scope); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-DOCUMENTARY-ASSERTIONS** — [documentary-assertions](../evaluation/documentary-assertions); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-RECONSTRUCTION-ENGINE** — [reconstruction-engine](../evaluation/reconstruction-engine); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-CLOSED-LEDGER-BOUNDARIES** — [closed-ledger-boundaries](../evaluation/closed-ledger-boundaries); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-SOLO-MILESTONE** — [solo-milestone](../evaluation/solo-milestone); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-PREPROCESSING-SORTER** — [preprocessing-sorter](../evaluation/preprocessing-sorter); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-SORTER-FIRST-ORIGINALS** — [sorter-first-originals](../evaluation/sorter-first-originals); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-CANDIDATE-REVIEW-WORKSPACE** — [candidate-review-workspace](../evaluation/candidate-review-workspace); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-FIXPACK** — [fixpack](../evaluation/fixpack); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-SORTER-EXPLORATION** — [sorter-exploration](../evaluation/sorter-exploration); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-DPERCENT** — [dpercent](../evaluation/dpercent); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-DOCUMENTARY-ARTICLES** — [documentary-articles](../evaluation/documentary-articles); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-ARCHIVAL-INSPECTION** — [archival-inspection](../evaluation/archival-inspection); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-FIELD-QUESTION-NORMALIZATION** — [field-question-normalization](../evaluation/field-question-normalization); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-DPERCENT-EXPANDED** — [dpercent-expanded](../evaluation/dpercent-expanded); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-FIELD-ALIASES** — [field-aliases](../evaluation/field-aliases); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-DPERCENT-KNOWN-WEAKNESSES** — [dpercent-known-weaknesses](../evaluation/dpercent-known-weaknesses); testing-evaluation; exact run pins, checksums, execution and phase in its machine row.
+- **TEST-FAMILY-NEWCOMER-NAVIGATION** — [newcomer-navigation](../evaluation/newcomer-navigation); delivery-operations; exact run pins, checksums, execution and phase in its machine row.
+
+
 [Cryptid local programme](../evaluation/cryptid/README.md): sequential frozen shared-operation studies and retained failures; [current Bunyip report](../evaluation/cryptid/bunyip/README.md) records the current candidate; [earlier review](../evaluation/cryptid/revision3/REVIEW_PACKAGE.md) retains failed all-target acceptance. Current execution state is recorded separately from planned tests.
 
 This is the starting point for running, interpreting, and extending Combined
@@ -64,6 +164,12 @@ links and omitted attempts. Frozen audit v1 remains retained; delivery v2 correc
 its misclassification of score rows as execution rows without changing worker,
 adapter, scorer or frozen expectations. Every denied launch and publication/audit
 failure stays visible in the ledger.
+
+## Bunyip round 2
+
+[CRYPT-BUNYIP-R02-0001…0444](../evaluation/cryptid/bunyip/round2/README.md): frozen whole-question relation/argument development; unchanged D%, Dice Bag and D20. Reader/ledger protect meaning, eligibility and citations; Testing and Evaluation owns packets, keys and execution. Main baseline444completed/scored:21/78positives,360/366withholds,57misses,six competing-time control failures. Candidate, preservation and fresh transfer NOT_RUN. Infrastructure blockers are separate from reader decisions.
+
+[Appended routing/polarity receipts](../evaluation/cryptid/bunyip/round2/routing-freeze.json): CRYPT-BUNYIP-R02-ROUTE-D0001…0054, four adapter parity repeats,CRYPT-BUNYIP-R02-POLAR-0001…0018 polarity controls,CRYPT-BUNYIP-R02-ROUTE-T0001…0036 sealed transfer cases NOT_RUN; [prospective yes/no contract](../evaluation/cryptid/bunyip/round2/routing-yes-no-contract-v1.json) and four separate museum UI-copy states. Ownership and native policy unchanged.
 
 ## How I train a deterministic AI
 
@@ -230,7 +336,7 @@ Testing and Evaluation owns [the final review package](../evaluation/cryptid/rev
 
 The once-only final packet is 19/24: five positive misses, zero false-support flags, two explicit budget stops. Original strict-key failures, original exact-comparison failures, all three final attempts, policy disagreements and rejected candidates remain linked. That original all-target semantic acceptance remains failed. Current incremental-release authorization and reader/gate status are recorded in Bunyip below; the earlier score is not relabelled. Human and independent evaluations remain NOT_RUN.
 
-## Bunyip ordinary-language variation — current candidate
+## Bunyip ordinary-language variation — retained PR105 development
 
 [Current protocol, matched baselines, failures and source audits](../evaluation/cryptid/bunyip/README.md).
 IDs `CRYPT-BUNYIP-0001`–`0102` cover seven mechanisms in paragraph/plain renderings.

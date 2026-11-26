@@ -6,15 +6,19 @@ Package role: [how this part fits Combined MPLPB](docs/PACKAGE_GUIDE.md#delivery
 
 Read `HANDOFF.md`, `handoff/update.json`, README release requirements, and the applicable source contracts before changing this repository. Preserve frozen sources, questions, labels, reports, delivery restrictions and provenance. User instructions in the current session take precedence over this file.
 
+Betty, Al and Outside share the [shared-rule criterion](docs/TEAMBUILDING.md#shared-rule-criterion-for-betty-al-and-outside): claim simplification only when duplication is reduced, valid outcomes survive and fresh contrasts hold; report coverage separately. Specialized proof still requires exact eligible evidence.
+Use the canonical [broader-coverage criterion](docs/TEAMBUILDING.md#broader-coverage-with-preserved-constraints), version coverage-with-preserved-constraints-v1, through the checked pin/manual relay; software counts alone are not numerical ΦUP measurements.
+
 ## TeamBuilding role selection
 
 The maintainer starts the **Al review step** with **“Run Al”** or the
 **Betty implementation step** with **“Run Betty.”** The names select work in the
 [TeamBuilding pipeline](docs/TEAMBUILDING.md) using your usual tools and
-permissions. Use the canonical [Al](docs/TEAMBUILDING.md#al--review-evidence-and-propose-the-next-test),
-[Betty](docs/TEAMBUILDING.md#betty--implement-test-and-retain-the-result) and unchanged
-[Outside](docs/TEAMBUILDING.md#outside) definitions. Recover both
-[artifact and working state](docs/TEAMBUILDING.md#recover-artifact-state-and-working-state)
+permissions. The canonical [Al](docs/TEAMBUILDING.md#al--review-evidence-and-propose-the-next-test)
+and [Betty](docs/TEAMBUILDING.md#betty--implement-test-and-retain-the-result)
+definitions specify their responsibilities; the unchanged
+[Outside definition](docs/TEAMBUILDING.md#outside) governs the sounding board.
+Recover both [artifact and working state](docs/TEAMBUILDING.md#recover-artifact-state-and-working-state)
 before continuing. Each push carries a current **Betty report for
 Al** in the generated `HANDOFF.md`. Betty also posts the report on each PR
 she opens or updates. The maintainer starts Betty first and opens a separate

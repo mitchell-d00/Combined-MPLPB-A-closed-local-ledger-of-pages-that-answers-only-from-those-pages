@@ -61,7 +61,7 @@
         "tools/bunyip_language_assessment_v2.py"
       ],
       "scope": "Sequential shared-operation programme with frozen baselines, consumed and fresh transfer; published review candidate, not a released coverage claim.",
-      "measurement_status": "Versioned same-operator source-gain/preservation studies; C5 final exact-head CI pending. Original failed scores/candidates and execution errors retained; human/independent/OOCC NOT_RUN.",
+      "measurement_status": "Released PR105 state retained; current Bunyip round2 recovered source/evidence published,572 exposed source-key decisions pass; preservation/transfer/latest-head verification unfinished. Read round2 child; historical failures and human/independent NOT_RUN retained.",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",
@@ -85,12 +85,55 @@
             "tools/bunyip_dpercent_packets.py"
           ],
           "scope": "Original paired questions; same source and matched budgets. D% worker, Dice Bag custody, D20 matched conditions. No parallel harness.",
-          "measurement_status": "Development12/32\u219232/32positives,108withholds;fresh8/24\u219214/24positive,84withholds,ten misses;3new original ordinary strings/6repeated executions/4unique source-question inputs.849prior contracts exact;no unsupported additions/lost valid support/citation failures. Same-operator not independent. No tag/layout/diagnostic gain credited.",
+          "measurement_status": "Development12/32→32/32positives,108withholds;fresh8/24→14/24positive,84withholds,ten misses;3new original ordinary strings/6repeated executions/4unique source-question inputs.849prior contracts exact;no unsupported additions/lost valid support/citation failures. Same-operator not independent. No tag/layout/diagnostic gain credited.",
           "responsible_department": "testing-evaluation",
           "implementation_departments": [
             "reader",
             "ledger"
-          ]
+          ],
+          "navigation": {
+            "schema": "test-family-navigation-v1",
+            "stable_id": "TEST-FAMILY-CRYPTID-BUNYIP-DPERCENT",
+            "responsible_area": "testing-training",
+            "entry_page": "docs/TESTING_APPARATUS.md",
+            "implementation_map": "docs/COMPONENT_MAP.md",
+            "capability_or_boundary_field": "scope",
+            "baseline_revision": {
+              "status": "PER_RETAINED_RUN",
+              "reference": "evaluation/cryptid/bunyip/dpercent"
+            },
+            "candidate_revision": {
+              "status": "PER_RETAINED_RUN",
+              "reference": "evaluation/cryptid/bunyip/dpercent"
+            },
+            "checksums": {
+              "algorithm": "sha256",
+              "manifest": "handoff/manifest.json",
+              "path_prefix": "evaluation/cryptid/bunyip/dpercent",
+              "original_receipts": "evaluation/cryptid/bunyip/dpercent"
+            },
+            "retrievable_evidence": "evaluation/cryptid/bunyip/dpercent",
+            "results_and_remaining_misses": {
+              "status_field": "measurement_status",
+              "case_records": "evaluation/cryptid/bunyip/dpercent",
+              "no_new_measurement": true
+            },
+            "execution_status": "PER_RETAINED_RUN; links are not executions",
+            "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+            "related_fixes": {
+              "status": "PER_RETAINED_RUN",
+              "reports": "evaluation/cryptid/bunyip/dpercent",
+              "implementation_departments": [
+                "reader",
+                "ledger"
+              ]
+            },
+            "preservation_checks": [
+              "tests/test_ordinary_questions.py",
+              "tests/test_dpercent.py",
+              "tests/test_study_sandbox.py"
+            ]
+          }
         },
         {
           "family": "bunyip-bb",
@@ -108,9 +151,205 @@
           "implementation_departments": [
             "reader",
             "ledger"
-          ]
+          ],
+          "navigation": {
+            "schema": "test-family-navigation-v1",
+            "stable_id": "TEST-FAMILY-BUNYIP-BB",
+            "responsible_area": "testing-training",
+            "entry_page": "docs/TESTING_APPARATUS.md",
+            "implementation_map": "docs/COMPONENT_MAP.md",
+            "capability_or_boundary_field": "scope",
+            "baseline_revision": {
+              "status": "PER_RETAINED_RUN",
+              "reference": "evaluation/cryptid/bunyip/bb"
+            },
+            "candidate_revision": {
+              "status": "PER_RETAINED_RUN",
+              "reference": "evaluation/cryptid/bunyip/bb"
+            },
+            "checksums": {
+              "algorithm": "sha256",
+              "manifest": "handoff/manifest.json",
+              "path_prefix": "evaluation/cryptid/bunyip/bb",
+              "original_receipts": "evaluation/cryptid/bunyip/bb"
+            },
+            "retrievable_evidence": "evaluation/cryptid/bunyip/bb",
+            "results_and_remaining_misses": {
+              "status_field": "measurement_status",
+              "case_records": "evaluation/cryptid/bunyip/bb",
+              "no_new_measurement": true
+            },
+            "execution_status": "PER_RETAINED_RUN; links are not executions",
+            "phase_status": "CONSUMED_EXTERNAL_REGRESSION; not unseen transfer",
+            "related_fixes": {
+              "status": "PER_RETAINED_RUN",
+              "reports": "evaluation/cryptid/bunyip/bb",
+              "implementation_departments": [
+                "reader",
+                "ledger"
+              ]
+            },
+            "preservation_checks": [
+              "tests/test_field_question_forms.py"
+            ]
+          }
+        },
+        {
+          "family": "bunyip-round2",
+          "artifacts": "evaluation/cryptid/bunyip/round2",
+          "tests": [
+            "tests/test_ordinary_questions.py",
+            "tests/test_bunyip_round2.py",
+            "tests/refusal-copy.cjs",
+            "tests/test_study_sandbox.py"
+          ],
+          "runners": [
+            "tools/bunyip_round2_packets.py",
+            "tools/dpercent.py",
+            "tools/dpercent_expanded.py",
+            "tools/bunyip_round2_assess.py",
+            "evaluation/cryptid/bunyip/round2/metadata-adapter/tools/dpercent_worker.py"
+          ],
+          "scope": "Whole-question relation/arguments under medial attribution, category/time wording and omitted task objects. Original questions, exact witnesses and same-operator custody. Existing failures retained.",
+          "measurement_status": "Actual recovered C3 source/evidence published.572/572 exposed source-key decisions:128positives444withholds;71 recovered positive executions/34original strings,40wording-only diagnostic executions/19strings.12 unsupported baseline answers corrected;zero lost valid support/citation changes.22original strict-key failures retained;prospective polarity contract passes.36+64held transfer NOT_RUN;preservation/latest gates pending.",
+          "responsible_department": "testing-evaluation",
+          "implementation_departments": [
+            "reader",
+            "ledger"
+          ],
+          "routing_addendum": {
+            "receipt": "evaluation/cryptid/bunyip/round2/routing-freeze.json",
+            "development": "54executed:10/16positive,38/38withholds,6interpretation misses,0unsupported; zero new routing gains",
+            "polarity_controls": "18executed:4/6positive,12/12withholds; prospective explicit polarity contract12/18,6fail retained",
+            "parity": "4repeated contracts exact",
+            "fresh_transfer": "36sealed NOT_RUN; same operator",
+            "museum_copy": "Separate frozen protocol; UI execution NOT_RUN"
+          },
+          "navigation": {
+            "schema": "test-family-navigation-v1",
+            "stable_id": "TEST-FAMILY-BUNYIP-ROUND2",
+            "responsible_area": "testing-training",
+            "entry_page": "docs/TESTING_APPARATUS.md",
+            "implementation_map": "docs/COMPONENT_MAP.md",
+            "capability_or_boundary_field": "scope",
+            "baseline_revision": {
+              "revision": "2622813aba9ee1f1880693eeb71ae015cb3da999",
+              "status": "MATCHED_RELEASED_BASELINE"
+            },
+            "candidate_revision": {
+              "revision": "483f35a97a32be4cadb4eb224e976e045124901d",
+              "source_checksums": "evaluation/cryptid/bunyip/round2/recovered-source-v1.json"
+            },
+            "checksums": {
+              "algorithm": "sha256",
+              "receipts": [
+                "evaluation/cryptid/bunyip/round2/recovered-source-v1.json",
+                "evaluation/cryptid/bunyip/round2/public-artifacts-v1.json",
+                "evaluation/cryptid/bunyip/round2/public-input-supplement-v1.json",
+                "evaluation/cryptid/bunyip/round2/remote-development-v1.json"
+              ]
+            },
+            "retrievable_evidence": "evaluation/cryptid/bunyip/round2",
+            "results_and_remaining_misses": {
+              "status_field": "measurement_status",
+              "case_records": "evaluation/cryptid/bunyip/round2",
+              "no_new_measurement": true
+            },
+            "execution_status": "572baseline+572candidate COMPLETED; original local failures retained",
+            "phase_status": {
+              "development": "EXPOSED",
+              "prior_transfer": "CONSUMED_PRESERVATION",
+              "routing_transfer": "36 UNOPENED_NOT_RUN",
+              "cross_family_transfer": "64 UNOPENED_NOT_RUN",
+              "custody": "SAME_OPERATOR"
+            },
+            "related_fixes": [
+              {
+                "revision": "baa19f5b9d6d733735b4c570c74d7a643cd06e6e",
+                "operation": "ordinary relation and argument binding",
+                "implementation": [
+                  "mplpb_answers/ordinary_questions.py",
+                  "mplpb_answers/frames.py",
+                  "mplpb_answers/source_claims.py"
+                ]
+              },
+              {
+                "revision": "baa19f5b9d6d733735b4c570c74d7a643cd06e6e",
+                "operation": "shared unresolved-evidence admission and source scope",
+                "implementation": [
+                  "mplpb_answers/assertions.py",
+                  "mplpb_answers/support.py",
+                  "mplpb_answers/ordinary_evidence.py"
+                ]
+              },
+              {
+                "revision": "baa19f5b9d6d733735b4c570c74d7a643cd06e6e",
+                "operation": "separate polarity output and evidence admission",
+                "implementation": [
+                  "mplpb_answers/pipeline.py",
+                  "mplpb_answers/support.py"
+                ]
+              }
+            ],
+            "preservation_checks": [
+              "tests/test_ordinary_questions.py",
+              "tests/test_bunyip_round2.py",
+              "tests/refusal-copy.cjs",
+              "tests/test_study_sandbox.py"
+            ]
+          },
+          "retained_pre_recovery_measurement_status": "444 completed/scored on main:21/78positives,360/366withholds;57misses,6falsecontrolflags,0workerfailures;one separate prelaunch failure. Candidate/preservation/fresh transfer NOT_RUN; storage BLOCKED."
         }
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-CRYPTID",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/cryptid"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/cryptid"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/cryptid",
+          "original_receipts": "evaluation/cryptid"
+        },
+        "retrievable_evidence": "evaluation/cryptid",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/cryptid",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/cryptid",
+          "implementation_departments": [
+            "reader",
+            "ledger",
+            "applications",
+            "delivery-operations"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_documentary_date_roles.py",
+          "tests/test_event_date_inventory.py",
+          "tests/test_study_sandbox.py",
+          "tests/test_source_claims.py",
+          "tests/test_source_claim_authority.py",
+          "tests/test_ordinary_questions.py"
+        ]
+      },
+      "retained_pre_recovery_measurement_status": "Versioned same-operator source-gain/preservation studies; C5 final exact-head CI pending. Original failed scores/candidates and execution errors retained; human/independent/OOCC NOT_RUN."
     },
     {
       "family": "onboarding",
@@ -131,7 +370,49 @@
       "implementation_departments": [
         "applications",
         "delivery-operations"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-ONBOARDING",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/onboarding"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/onboarding"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/onboarding",
+          "original_receipts": "evaluation/onboarding"
+        },
+        "retrievable_evidence": "evaluation/onboarding",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/onboarding",
+          "no_new_measurement": true
+        },
+        "execution_status": "HUMAN_NOT_RUN; software verification separate",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/onboarding",
+          "implementation_departments": [
+            "applications",
+            "delivery-operations"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_onboarding_scoring.py",
+          "tests/test_department_navigation.py"
+        ]
+      }
     },
     {
       "family": "source-tags",
@@ -147,13 +428,56 @@
         "tools/audit_source_tags.py"
       ],
       "scope": "Frozen raw-vs-source-linked proposal comparison,72development/24sealed same-operator transfer; tree containment and complete native role/witness checks, no new answer coverage preclaimed.",
-      "measurement_status": "Raw72/72\u219272/72. Native2af8ba8proposal72/72(6valid66tamper),freshonce24/24(6valid18tamper),0wrongassignments,0answer recovery.280prior contracts preserved;1834native tests pass. First browserdeliveryFAILretained. UI-only065840dZIPafe52d43e335f5963b765d00c7ad373a6ec0fd6a5bb560c86a93d7d3a6bffb98hasidenticalnativebytes andpasses15software,58focused,WASM,bothChromiumwithactualsource-dialogwait. No transfer rerun. ExactpublicationCI/merge/livepending. Independent labels andnativeOOCC NOT_RUN.",
+      "measurement_status": "Raw72/72→72/72. Native2af8ba8proposal72/72(6valid66tamper),freshonce24/24(6valid18tamper),0wrongassignments,0answer recovery.280prior contracts preserved;1834native tests pass. First browserdeliveryFAILretained. UI-only065840dZIPafe52d43e335f5963b765d00c7ad373a6ec0fd6a5bb560c86a93d7d3a6bffb98hasidenticalnativebytes andpasses15software,58focused,WASM,bothChromiumwithactualsource-dialogwait. No transfer rerun. ExactpublicationCI/merge/livepending. Independent labels andnativeOOCC NOT_RUN.",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader",
         "intake-research",
         "applications"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-SOURCE-TAGS",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/source-tags"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/source-tags"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/source-tags",
+          "original_receipts": "evaluation/source-tags"
+        },
+        "retrievable_evidence": "evaluation/source-tags",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/source-tags",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/source-tags",
+          "implementation_departments": [
+            "reader",
+            "intake-research",
+            "applications"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_source_tags.py",
+          "tests/test_reported_content.py"
+        ]
+      }
     },
     {
       "family": "bubble-wrap",
@@ -177,11 +501,55 @@
         "tools/bubble_wrap_fresh_packet.py"
       ],
       "scope": "Fail-closed isolated reported-content trial, separately frozen 32-case Wrap matrix and explicit preservation/accounting links. Original 20 inputs and 24 sealed transfer cases retained.",
-      "measurement_status": "Original development230/256\u2192256/256 with disclosed v3 scorer amendment; first transferFAIL16/24 retained and consumed. Continuation272/280\u2192280/280; nine guards6/9\u21929/9, one exposed false support removed; rejected wider candidate retained. Committed7f6641d ZIP f5be70718a1454171005493eba452e8fbd0602f3195e5325f57dd268840f8162 passes280/280,1810 native tests,52public controls,15software commands,WASM and Chromium. Fresh same-operator composition transfer16/24\u219224/24,12positives12withholds0false support; host preparation failure with0reader executions retained, same-source resume executed each candidate once.28non-target positive questions remain incomplete. Exact publication CI/merge/deployment pending. Independent evaluations and OOCC NOT_RUN. Source-tag experiment and12human onboarding are next authorized work, human observations NOT_RUN. Final2ab4b01 exact-headCI all10checks passed;1811native tests. Full bounded1000replay231/420complete580refusals retained189misses; old v1 unscored-support failure retained and21original positive witnesses checked by versioned host audit. Merged16948d5 with93/95/97 ancestry; allfourPRs merged,zeroopenaftercatchup. Pages45670095889 and six-module liveChromium observer passed.",
+      "measurement_status": "Original development230/256→256/256 with disclosed v3 scorer amendment; first transferFAIL16/24 retained and consumed. Continuation272/280→280/280; nine guards6/9→9/9, one exposed false support removed; rejected wider candidate retained. Committed7f6641d ZIP f5be70718a1454171005493eba452e8fbd0602f3195e5325f57dd268840f8162 passes280/280,1810 native tests,52public controls,15software commands,WASM and Chromium. Fresh same-operator composition transfer16/24→24/24,12positives12withholds0false support; host preparation failure with0reader executions retained, same-source resume executed each candidate once.28non-target positive questions remain incomplete. Exact publication CI/merge/deployment pending. Independent evaluations and OOCC NOT_RUN. Source-tag experiment and12human onboarding are next authorized work, human observations NOT_RUN. Final2ab4b01 exact-headCI all10checks passed;1811native tests. Full bounded1000replay231/420complete580refusals retained189misses; old v1 unscored-support failure retained and21original positive witnesses checked by versioned host audit. Merged16948d5 with93/95/97 ancestry; allfourPRs merged,zeroopenaftercatchup. Pages45670095889 and six-module liveChromium observer passed.",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-BUBBLE-WRAP",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/bubble-wrap"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/bubble-wrap"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/bubble-wrap",
+          "original_receipts": "evaluation/bubble-wrap"
+        },
+        "retrievable_evidence": "evaluation/bubble-wrap",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/bubble-wrap",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/bubble-wrap",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_study_sandbox.py",
+          "tests/test_reported_content.py",
+          "tests/test_bubble_wrap_accounting.py",
+          "tests/test_status_authority.py",
+          "tests/test_documentary_byline_units.py"
+        ]
+      }
     },
     {
       "family": "current-failure-inventory",
@@ -200,7 +568,48 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-CURRENT-FAILURE-INVENTORY",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/current-failure-inventory"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/current-failure-inventory"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/current-failure-inventory",
+          "original_receipts": "evaluation/current-failure-inventory"
+        },
+        "retrievable_evidence": "evaluation/current-failure-inventory",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/current-failure-inventory",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/current-failure-inventory",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_source_attributed_instructions.py",
+          "tests/test_signed_instructions.py"
+        ]
+      }
     },
     {
       "family": "attribution",
@@ -221,7 +630,48 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-ATTRIBUTION",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/attribution"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/attribution"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/attribution",
+          "original_receipts": "evaluation/attribution"
+        },
+        "retrievable_evidence": "evaluation/attribution",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/attribution",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/attribution",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_signed_instructions.py",
+          "tests/test_source_attributed_instructions.py"
+        ]
+      }
     },
     {
       "family": "report-pins",
@@ -238,7 +688,48 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "delivery-operations"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-REPORT-PINS",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/report-pins"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/report-pins"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/report-pins",
+          "original_receipts": "evaluation/report-pins"
+        },
+        "retrievable_evidence": "evaluation/report-pins",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/report-pins",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/report-pins",
+          "implementation_departments": [
+            "delivery-operations"
+          ]
+        },
+        "preservation_checks": [
+          "tests/javascript-api.cjs",
+          "tests/test_ledger_ui.py"
+        ]
+      }
     },
     {
       "family": "pole",
@@ -279,7 +770,57 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-POLE",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/pole"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/pole"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/pole",
+          "original_receipts": "evaluation/pole"
+        },
+        "retrievable_evidence": "evaluation/pole",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/pole",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/pole",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_pole.py",
+          "tests/test_field_question_forms.py",
+          "tests/test_documentary_link_proofs.py",
+          "tests/test_publication_corrections.py",
+          "tests/test_successive_publication_corrections.py",
+          "tests/test_sorter_v2.py",
+          "tests/test_documentary_errata.py",
+          "tests/test_pole_focus_extend.py",
+          "tests/test_documentary_named_advice.py",
+          "tests/test_documentary_presentation.py",
+          "tests/test_signed_instructions.py"
+        ]
+      }
     },
     {
       "family": "d8",
@@ -296,7 +837,48 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-D8",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/d8"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/d8"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/d8",
+          "original_receipts": "evaluation/d8"
+        },
+        "retrievable_evidence": "evaluation/d8",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/d8",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/d8",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_d8_owner_boundaries.py",
+          "tests/test_comparison_completion.py"
+        ]
+      }
     },
     {
       "family": "d10",
@@ -315,7 +897,48 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-D10",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/d10"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/d10"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/d10",
+          "original_receipts": "evaluation/d10"
+        },
+        "retrievable_evidence": "evaluation/d10",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/d10",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/d10",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_d10.py",
+          "tests/test_dpercent_weaknesses.py"
+        ]
+      }
     },
     {
       "family": "d12",
@@ -360,7 +983,55 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-D12",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/d12"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/d12"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/d12",
+          "original_receipts": "evaluation/d12"
+        },
+        "retrievable_evidence": "evaluation/d12",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/d12",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/d12",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_d12.py",
+          "tests/test_training_coordinator.py",
+          "tests/test_advanced.py",
+          "tests/test_d12_pattern_sprints.py",
+          "tests/test_historical_seams.py",
+          "tests/test_j_opass.py",
+          "tests/test_experience_graph.py",
+          "tests/test_release_language_coverage.py",
+          "tests/test_d6.py"
+        ]
+      }
     },
     {
       "family": "d6",
@@ -381,7 +1052,50 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-D6",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/d6"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/d6"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/d6",
+          "original_receipts": "evaluation/d6"
+        },
+        "retrievable_evidence": "evaluation/d6",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/d6",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/d6",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_d6.py",
+          "tests/test_d6_calendar.py",
+          "tests/test_source_notes.py",
+          "tests/test_thesaurus_graph.py"
+        ]
+      }
     },
     {
       "family": "documentary-date-pattern",
@@ -400,7 +1114,48 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-DOCUMENTARY-DATE-PATTERN",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/documentary-date-pattern"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/documentary-date-pattern"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/documentary-date-pattern",
+          "original_receipts": "evaluation/documentary-date-pattern"
+        },
+        "retrievable_evidence": "evaluation/documentary-date-pattern",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/documentary-date-pattern",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/documentary-date-pattern",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_event_date_inventory.py",
+          "tests/test_report_section_probe.py"
+        ]
+      }
     },
     {
       "family": "historical-synonym-graph",
@@ -418,7 +1173,48 @@
       "implementation_departments": [
         "intake-research",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-HISTORICAL-SYNONYM-GRAPH",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/historical-synonym-graph"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/historical-synonym-graph"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/historical-synonym-graph",
+          "original_receipts": "evaluation/historical-synonym-graph"
+        },
+        "retrievable_evidence": "evaluation/historical-synonym-graph",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/historical-synonym-graph",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/historical-synonym-graph",
+          "implementation_departments": [
+            "intake-research",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_historical_graph_study.py"
+        ]
+      }
     },
     {
       "family": "historical-patterns",
@@ -434,7 +1230,47 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-HISTORICAL-PATTERNS",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/historical-patterns"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/historical-patterns"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/historical-patterns",
+          "original_receipts": "evaluation/historical-patterns"
+        },
+        "retrievable_evidence": "evaluation/historical-patterns",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/historical-patterns",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/historical-patterns",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_historical_patterns.py"
+        ]
+      }
     },
     {
       "family": "dice-bag",
@@ -453,7 +1289,48 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-DICE-BAG",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/dice-bag"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/dice-bag"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/dice-bag",
+          "original_receipts": "evaluation/dice-bag"
+        },
+        "retrievable_evidence": "evaluation/dice-bag",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/dice-bag",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/dice-bag",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_dice_bag.py",
+          "tests/test_graph_synonym_index.py"
+        ]
+      }
     },
     {
       "family": "persona-corpus-transfer",
@@ -473,7 +1350,49 @@
       "implementation_departments": [
         "intake-research",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-PERSONA-CORPUS-TRANSFER",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/persona-corpus-transfer"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/persona-corpus-transfer"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/persona-corpus-transfer",
+          "original_receipts": "evaluation/persona-corpus-transfer"
+        },
+        "retrievable_evidence": "evaluation/persona-corpus-transfer",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/persona-corpus-transfer",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/persona-corpus-transfer",
+          "implementation_departments": [
+            "intake-research",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_persona_corpus_transfer.py",
+          "tests/test_synonym_index.py"
+        ]
+      }
     },
     {
       "family": "d20",
@@ -490,7 +1409,48 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-D20",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/d20"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/d20"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/d20",
+          "original_receipts": "evaluation/d20"
+        },
+        "retrievable_evidence": "evaluation/d20",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/d20",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/d20",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_d20.py",
+          "tests/test_field_question_forms.py"
+        ]
+      }
     },
     {
       "family": "comparative-tests",
@@ -512,7 +1472,49 @@
       "implementation_departments": [
         "work-coordination",
         "ledger"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-COMPARATIVE-TESTS",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/comparative-tests"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/comparative-tests"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/comparative-tests",
+          "original_receipts": "evaluation/comparative-tests"
+        },
+        "retrievable_evidence": "evaluation/comparative-tests",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/comparative-tests",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/comparative-tests",
+          "implementation_departments": [
+            "work-coordination",
+            "ledger"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_governance_demo.py",
+          "tests/test_specialist_continuity.py"
+        ]
+      }
     },
     {
       "family": "d4",
@@ -532,7 +1534,49 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-D4",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/d4"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/d4"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/d4",
+          "original_receipts": "evaluation/d4"
+        },
+        "retrievable_evidence": "evaluation/d4",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/d4",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/d4",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_reference_identity.py",
+          "tests/test_d4.py",
+          "tests/test_bounded_records.py"
+        ]
+      }
     },
     {
       "family": "language-audit",
@@ -553,7 +1597,50 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-LANGUAGE-AUDIT",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/language-audit"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/language-audit"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/language-audit",
+          "original_receipts": "evaluation/language-audit"
+        },
+        "retrievable_evidence": "evaluation/language-audit",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/language-audit",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/language-audit",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_assertion_polarity.py",
+          "tests/test_relation_graph.py",
+          "tests/test_literal_evidence.py",
+          "tests/test_answer_support.py"
+        ]
+      }
     },
     {
       "family": "procedure-recovery",
@@ -572,7 +1659,49 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-PROCEDURE-RECOVERY",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/procedure-recovery"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/procedure-recovery"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/procedure-recovery",
+          "original_receipts": "evaluation/procedure-recovery"
+        },
+        "retrievable_evidence": "evaluation/procedure-recovery",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/procedure-recovery",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/procedure-recovery",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_procedure_recovery.py",
+          "tests/test_procedure_constraints.py",
+          "tests/test_exploration_store.py"
+        ]
+      }
     },
     {
       "family": "reference-corpus-reproduction",
@@ -591,7 +1720,49 @@
       "implementation_departments": [
         "intake-research",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-REFERENCE-CORPUS-REPRODUCTION",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/reference-corpus-reproduction"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/reference-corpus-reproduction"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/reference-corpus-reproduction",
+          "original_receipts": "evaluation/reference-corpus-reproduction"
+        },
+        "retrievable_evidence": "evaluation/reference-corpus-reproduction",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/reference-corpus-reproduction",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/reference-corpus-reproduction",
+          "implementation_departments": [
+            "intake-research",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_reference_corpus.py",
+          "tests/test_reference_evidence.py"
+        ]
+      }
     },
     {
       "family": "relation-graph",
@@ -612,7 +1783,50 @@
       "implementation_departments": [
         "intake-research",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-RELATION-GRAPH",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/relation-graph"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/relation-graph"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/relation-graph",
+          "original_receipts": "evaluation/relation-graph"
+        },
+        "retrievable_evidence": "evaluation/relation-graph",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/relation-graph",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/relation-graph",
+          "implementation_departments": [
+            "intake-research",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_relation_graph.py",
+          "tests/test_relation_graph_generated.py",
+          "tests/test_relation_graph_synthetic_users.py"
+        ]
+      }
     },
     {
       "family": "practical-coverage",
@@ -629,7 +1843,48 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-PRACTICAL-COVERAGE",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/practical-coverage"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/practical-coverage"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/practical-coverage",
+          "original_receipts": "evaluation/practical-coverage"
+        },
+        "retrievable_evidence": "evaluation/practical-coverage",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/practical-coverage",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/practical-coverage",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_practical_evidence.py",
+          "tests/test_operational_evidence.py"
+        ]
+      }
     },
     {
       "family": "reliability",
@@ -650,7 +1905,51 @@
       "implementation_departments": [
         "ledger",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-RELIABILITY",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/reliability"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/reliability"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/reliability",
+          "original_receipts": "evaluation/reliability"
+        },
+        "retrievable_evidence": "evaluation/reliability",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/reliability",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/reliability",
+          "implementation_departments": [
+            "ledger",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_answer_reliability.py",
+          "tests/test_literal_evidence.py",
+          "tests/test_answer_support.py",
+          "tests/test_procedure_constraints.py"
+        ]
+      }
     },
     {
       "family": "ownership",
@@ -668,7 +1967,48 @@
       "implementation_departments": [
         "ledger",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-OWNERSHIP",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/ownership"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/ownership"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/ownership",
+          "original_receipts": "evaluation/ownership"
+        },
+        "retrievable_evidence": "evaluation/ownership",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/ownership",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/ownership",
+          "implementation_departments": [
+            "ledger",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_ownership_adversarial.py"
+        ]
+      }
     },
     {
       "family": "researcher-pilot",
@@ -686,7 +2026,48 @@
       "implementation_departments": [
         "applications",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-RESEARCHER-PILOT",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/researcher-pilot"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/researcher-pilot"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/researcher-pilot",
+          "original_receipts": "evaluation/researcher-pilot"
+        },
+        "retrievable_evidence": "evaluation/researcher-pilot",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/researcher-pilot",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/researcher-pilot",
+          "implementation_departments": [
+            "applications",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_researcher_pilot.py"
+        ]
+      }
     },
     {
       "family": "general-reader",
@@ -706,7 +2087,51 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-GENERAL-READER",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/general-reader"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/general-reader"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/general-reader",
+          "original_receipts": "evaluation/general-reader"
+        },
+        "retrievable_evidence": "evaluation/general-reader",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/general-reader",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/general-reader",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_general_answers.py",
+          "tests/test_general_evaluation.py",
+          "tests/test_local_reader.py",
+          "tests/test_release_answer_contract.py",
+          "tests/test_local_narrator.py"
+        ]
+      }
     },
     {
       "family": "contextual",
@@ -724,7 +2149,48 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-CONTEXTUAL",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/contextual"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/contextual"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/contextual",
+          "original_receipts": "evaluation/contextual"
+        },
+        "retrievable_evidence": "evaluation/contextual",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/contextual",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/contextual",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_context_evaluation.py",
+          "tests/test_grounded_chat.py"
+        ]
+      }
     },
     {
       "family": "conversation",
@@ -744,7 +2210,49 @@
       "implementation_departments": [
         "applications",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-CONVERSATION",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/conversation"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/conversation"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/conversation",
+          "original_receipts": "evaluation/conversation"
+        },
+        "retrievable_evidence": "evaluation/conversation",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/conversation",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/conversation",
+          "implementation_departments": [
+            "applications",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_conversation_router.py",
+          "tests/test_chat_matrix.py"
+        ]
+      }
     },
     {
       "family": "conversation-repairs",
@@ -761,7 +2269,48 @@
       "implementation_departments": [
         "applications",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-CONVERSATION-REPAIRS",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/conversation-repairs"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/conversation-repairs"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/conversation-repairs",
+          "original_receipts": "evaluation/conversation-repairs"
+        },
+        "retrievable_evidence": "evaluation/conversation-repairs",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/conversation-repairs",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/conversation-repairs",
+          "implementation_departments": [
+            "applications",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_conversation_repairs.py"
+        ]
+      }
     },
     {
       "family": "live-conversation",
@@ -780,7 +2329,49 @@
       "implementation_departments": [
         "applications",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-LIVE-CONVERSATION",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/live-conversation"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/live-conversation"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/live-conversation",
+          "original_receipts": "evaluation/live-conversation"
+        },
+        "retrievable_evidence": "evaluation/live-conversation",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/live-conversation",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/live-conversation",
+          "implementation_departments": [
+            "applications",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_browser_bridge.py",
+          "tests/test_live_acquisition.py"
+        ]
+      }
     },
     {
       "family": "response-1000",
@@ -796,7 +2387,47 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-RESPONSE-1000",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/response-1000"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/response-1000"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/response-1000",
+          "original_receipts": "evaluation/response-1000"
+        },
+        "retrievable_evidence": "evaluation/response-1000",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/response-1000",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/response-1000",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_response_edge_smoke.py"
+        ]
+      }
     },
     {
       "family": "specialist-continuity",
@@ -813,7 +2444,48 @@
       "implementation_departments": [
         "work-coordination",
         "ledger"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-SPECIALIST-CONTINUITY",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/specialist-continuity"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/specialist-continuity"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/specialist-continuity",
+          "original_receipts": "evaluation/specialist-continuity"
+        },
+        "retrievable_evidence": "evaluation/specialist-continuity",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/specialist-continuity",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/specialist-continuity",
+          "implementation_departments": [
+            "work-coordination",
+            "ledger"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_specialist_continuity.py"
+        ]
+      }
     },
     {
       "family": "user-collections",
@@ -832,7 +2504,49 @@
       "implementation_departments": [
         "applications",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-USER-COLLECTIONS",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/user-collections"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/user-collections"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/user-collections",
+          "original_receipts": "evaluation/user-collections"
+        },
+        "retrievable_evidence": "evaluation/user-collections",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/user-collections",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/user-collections",
+          "implementation_departments": [
+            "applications",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_policy_evidence.py",
+          "tests/test_exploration_store.py"
+        ]
+      }
     },
     {
       "family": "wiki",
@@ -849,7 +2563,48 @@
       "implementation_departments": [
         "applications",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-WIKI",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/wiki"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/wiki"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/wiki",
+          "original_receipts": "evaluation/wiki"
+        },
+        "retrievable_evidence": "evaluation/wiki",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/wiki",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/wiki",
+          "implementation_departments": [
+            "applications",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_wiki_capture.py"
+        ]
+      }
     },
     {
       "family": "topics",
@@ -866,7 +2621,47 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-TOPICS",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/topics"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/topics"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/topics",
+          "original_receipts": "evaluation/topics"
+        },
+        "retrievable_evidence": "evaluation/topics",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/topics",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/topics",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_answer.py"
+        ]
+      }
     },
     {
       "family": "audit-2026-10-21",
@@ -884,7 +2679,48 @@
       "implementation_departments": [
         "applications",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-AUDIT-2026-10-21",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/audit-2026-10-21"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/audit-2026-10-21"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/audit-2026-10-21",
+          "original_receipts": "evaluation/audit-2026-10-21"
+        },
+        "retrievable_evidence": "evaluation/audit-2026-10-21",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/audit-2026-10-21",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/audit-2026-10-21",
+          "implementation_departments": [
+            "applications",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_audit_20261021.py"
+        ]
+      }
     },
     {
       "family": "documentation-audit",
@@ -904,7 +2740,50 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "delivery-operations"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-DOCUMENTATION-AUDIT",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/documentation-audit"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/documentation-audit"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/documentation-audit",
+          "original_receipts": "evaluation/documentation-audit"
+        },
+        "retrievable_evidence": "evaluation/documentation-audit",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/documentation-audit",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/documentation-audit",
+          "implementation_departments": [
+            "delivery-operations"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_documentation_audit.py",
+          "tests/test_handoff.py",
+          "tests/test_self_knowledge.py",
+          "tests/test_department_navigation.py"
+        ]
+      }
     },
     {
       "family": "root",
@@ -922,7 +2801,48 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "delivery-operations"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-ROOT",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation",
+          "original_receipts": "evaluation"
+        },
+        "retrievable_evidence": "evaluation",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation",
+          "implementation_departments": [
+            "delivery-operations"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_evaluation.py",
+          "tests/test_primary_book_test.py"
+        ]
+      }
     },
     {
       "family": "killtest",
@@ -940,7 +2860,49 @@
       "implementation_departments": [
         "ledger",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-KILLTEST",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "killtest"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "killtest"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "killtest",
+          "original_receipts": "killtest"
+        },
+        "retrievable_evidence": "killtest",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "killtest",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "killtest",
+          "implementation_departments": [
+            "ledger",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_answer.py",
+          "tests/test_canned_guard.py"
+        ]
+      }
     },
     {
       "family": "mcp-agent",
@@ -957,7 +2919,48 @@
       "implementation_departments": [
         "applications",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-MCP-AGENT",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/mcp-agent"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/mcp-agent"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/mcp-agent",
+          "original_receipts": "evaluation/mcp-agent"
+        },
+        "retrievable_evidence": "evaluation/mcp-agent",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/mcp-agent",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/mcp-agent",
+          "implementation_departments": [
+            "applications",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_mcp_agent.py"
+        ]
+      }
     },
     {
       "family": "free-browser-helper",
@@ -981,7 +2984,52 @@
       "implementation_departments": [
         "applications",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-FREE-BROWSER-HELPER",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/free-browser-helper"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/free-browser-helper"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/free-browser-helper",
+          "original_receipts": "evaluation/free-browser-helper"
+        },
+        "retrievable_evidence": "evaluation/free-browser-helper",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/free-browser-helper",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/free-browser-helper",
+          "implementation_departments": [
+            "applications",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_browser_ai_assets.py",
+          "tests/test_owner_corpus.py",
+          "tests/browser-ai-helper.cjs",
+          "tests/browser-model-loader.cjs",
+          "tests/browser-webgpu-limits.cjs"
+        ]
+      }
     },
     {
       "family": "model-selection",
@@ -1001,7 +3049,49 @@
       "implementation_departments": [
         "applications",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-MODEL-SELECTION",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/model-selection"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/model-selection"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/model-selection",
+          "original_receipts": "evaluation/model-selection"
+        },
+        "retrievable_evidence": "evaluation/model-selection",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/model-selection",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/model-selection",
+          "implementation_departments": [
+            "applications",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_browser_ai_assets.py",
+          "tests/browser-model-loader.cjs"
+        ]
+      }
     },
     {
       "family": "no-unverified-promotion",
@@ -1024,7 +3114,54 @@
       "implementation_departments": [
         "ledger",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-NO-UNVERIFIED-PROMOTION",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/no-unverified-promotion"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/no-unverified-promotion"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/no-unverified-promotion",
+          "original_receipts": "evaluation/no-unverified-promotion"
+        },
+        "retrievable_evidence": "evaluation/no-unverified-promotion",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/no-unverified-promotion",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/no-unverified-promotion",
+          "implementation_departments": [
+            "ledger",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_answer_reliability.py",
+          "tests/test_answer_support.py",
+          "tests/test_page_retrieval.py",
+          "tests/test_release_answer_contract.py",
+          "tests/test_release_evidence.py",
+          "tests/test_handoff.py",
+          "tests/test_specialist_continuity.py"
+        ]
+      }
     },
     {
       "family": "historical-experts",
@@ -1051,7 +3188,55 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-HISTORICAL-EXPERTS",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/historical-experts"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/historical-experts"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/historical-experts",
+          "original_receipts": "evaluation/historical-experts"
+        },
+        "retrievable_evidence": "evaluation/historical-experts",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/historical-experts",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/historical-experts",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_historical_evidence.py",
+          "tests/test_historical_verifier.py",
+          "tests/test_historical_investigation.py",
+          "tests/test_collection_predicates.py",
+          "tests/test_historical_passages.py",
+          "tests/test_public_evidence_challenge.py",
+          "tests/test_historical_study.py",
+          "tests/test_study_sandbox.py",
+          "tests/test_scoped_extensions.py"
+        ]
+      }
     },
     {
       "family": "unprepared-originals",
@@ -1079,7 +3264,50 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-UNPREPARED-ORIGINALS",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/unprepared-originals"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/unprepared-originals"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/unprepared-originals",
+          "original_receipts": "evaluation/unprepared-originals"
+        },
+        "retrievable_evidence": "evaluation/unprepared-originals",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/unprepared-originals",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/unprepared-originals",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_unprepared_challenge.py",
+          "tests/test_unprepared_prose.py",
+          "tests/test_source_mapping.py",
+          "tests/test_prose_reconstruction.py"
+        ]
+      }
     },
     {
       "family": "documentary-scope",
@@ -1098,7 +3326,49 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-DOCUMENTARY-SCOPE",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/documentary-scope"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/documentary-scope"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/documentary-scope",
+          "original_receipts": "evaluation/documentary-scope"
+        },
+        "retrievable_evidence": "evaluation/documentary-scope",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/documentary-scope",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/documentary-scope",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_documentary_scope.py",
+          "tests/test_prose_reconstruction.py",
+          "tests/test_source_mapping.py"
+        ]
+      }
     },
     {
       "family": "documentary-assertions",
@@ -1114,11 +3384,53 @@
         "tools/check_browser_wasm.mjs"
       ],
       "scope": "Finite source-attributed assertion certificates, independent question obligations and checked partial composition; no historical truth or independent human accuracy claim.",
-      "measurement_status": "Executed on extracted 6acf45a: 1068 Python tests, public 52/52, actual WebAssembly and Chromium. Unchanged original/government questions: checked partial answers 0\u21922/22, full supported answers 0\u21920/22; independent semantic review and unseen evaluation NOT RUN.",
+      "measurement_status": "Executed on extracted 6acf45a: 1068 Python tests, public 52/52, actual WebAssembly and Chromium. Unchanged original/government questions: checked partial answers 0→2/22, full supported answers 0→0/22; independent semantic review and unseen evaluation NOT RUN.",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-DOCUMENTARY-ASSERTIONS",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/documentary-assertions"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/documentary-assertions"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/documentary-assertions",
+          "original_receipts": "evaluation/documentary-assertions"
+        },
+        "retrievable_evidence": "evaluation/documentary-assertions",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/documentary-assertions",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/documentary-assertions",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_documentary_assertions.py",
+          "tests/test_documentary_originals.py",
+          "tests/documentary-render.cjs"
+        ]
+      }
     },
     {
       "family": "reconstruction-engine",
@@ -1137,11 +3449,55 @@
         "tools/historical_targets.py"
       ],
       "scope": "Finite independent documentary checks and unchanged original-record development replay; graph candidates and synthetic truth fixtures never establish real historical truth.",
-      "measurement_status": "Executed: final extracted63cea98 passed1124 tests/public52/52/WASM/nine Chromium checks/MCP45. All22 unchanged cases completed; full0\u21921/22, checked partial2\u21922/22. Seven accepted citations rechecked and reverse-mapped. Independent review and >=200 unseen evaluation NOT RUN.",
+      "measurement_status": "Executed: final extracted63cea98 passed1124 tests/public52/52/WASM/nine Chromium checks/MCP45. All22 unchanged cases completed; full0→1/22, checked partial2→2/22. Seven accepted citations rechecked and reverse-mapped. Independent review and >=200 unseen evaluation NOT RUN.",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-RECONSTRUCTION-ENGINE",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/reconstruction-engine"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/reconstruction-engine"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/reconstruction-engine",
+          "original_receipts": "evaluation/reconstruction-engine"
+        },
+        "retrievable_evidence": "evaluation/reconstruction-engine",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/reconstruction-engine",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/reconstruction-engine",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_reconstruction_engine.py",
+          "tests/test_historical_review_rules.py",
+          "tests/test_historical_targets.py",
+          "crawler/test_historical.mjs",
+          "tests/test_comparison_completion.py"
+        ]
+      }
     },
     {
       "family": "closed-ledger-boundaries",
@@ -1162,7 +3518,50 @@
       "implementation_departments": [
         "ledger",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-CLOSED-LEDGER-BOUNDARIES",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/closed-ledger-boundaries"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/closed-ledger-boundaries"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/closed-ledger-boundaries",
+          "original_receipts": "evaluation/closed-ledger-boundaries"
+        },
+        "retrievable_evidence": "evaluation/closed-ledger-boundaries",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/closed-ledger-boundaries",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/closed-ledger-boundaries",
+          "implementation_departments": [
+            "ledger",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_answer_boundaries.py",
+          "tests/test_scoped_extensions.py",
+          "tests/test_supersession_policy.py"
+        ]
+      }
     },
     {
       "family": "solo-milestone",
@@ -1180,11 +3579,53 @@
         "evaluation/solo-milestone/2026-11-17/certificate_audit.py"
       ],
       "scope": "22 unchanged original-record development questions, source-only recorded-arrangement completion, fresh-context blinded AI assessment and separately measured cache/inspection/storage improvements; no independent human/unseen validation.",
-      "measurement_status": "2026-11-17 before/after runs completed; AI-assessed complete1\u21922, correct refusal4\u21924, error/over-refusal17\u219216; code and quote-fidelity outcomes retained with failed intermediates.",
+      "measurement_status": "2026-11-17 before/after runs completed; AI-assessed complete1→2, correct refusal4→4, error/over-refusal17→16; code and quote-fidelity outcomes retained with failed intermediates.",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-SOLO-MILESTONE",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/solo-milestone"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/solo-milestone"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/solo-milestone",
+          "original_receipts": "evaluation/solo-milestone"
+        },
+        "retrievable_evidence": "evaluation/solo-milestone",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/solo-milestone",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/solo-milestone",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_arrangement_completion.py",
+          "tests/test_solo_research.py",
+          "tests/test_documentary_originals.py"
+        ]
+      }
     },
     {
       "family": "preprocessing-sorter",
@@ -1206,7 +3647,51 @@
       "implementation_departments": [
         "intake-research",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-PREPROCESSING-SORTER",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/preprocessing-sorter"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/preprocessing-sorter"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/preprocessing-sorter",
+          "original_receipts": "evaluation/preprocessing-sorter"
+        },
+        "retrievable_evidence": "evaluation/preprocessing-sorter",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/preprocessing-sorter",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/preprocessing-sorter",
+          "implementation_departments": [
+            "intake-research",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_sorter.py",
+          "tests/test_sorter_suggestions.py",
+          "tests/test_sorter_first_study.py",
+          "tests/test_sorter_options_study.py"
+        ]
+      }
     },
     {
       "family": "sorter-first-originals",
@@ -1229,7 +3714,51 @@
       "implementation_departments": [
         "intake-research",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-SORTER-FIRST-ORIGINALS",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/sorter-first-originals"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/sorter-first-originals"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/sorter-first-originals",
+          "original_receipts": "evaluation/sorter-first-originals"
+        },
+        "retrievable_evidence": "evaluation/sorter-first-originals",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/sorter-first-originals",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/sorter-first-originals",
+          "implementation_departments": [
+            "intake-research",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_sorter_first_study.py",
+          "tests/test_sorter_options_study.py",
+          "tests/test_sorter_suggestions.py",
+          "tests/test_witness_admission.py"
+        ]
+      }
     },
     {
       "family": "candidate-review-workspace",
@@ -1249,7 +3778,48 @@
       "implementation_departments": [
         "intake-research",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-CANDIDATE-REVIEW-WORKSPACE",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/candidate-review-workspace"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/candidate-review-workspace"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/candidate-review-workspace",
+          "original_receipts": "evaluation/candidate-review-workspace"
+        },
+        "retrievable_evidence": "evaluation/candidate-review-workspace",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/candidate-review-workspace",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/candidate-review-workspace",
+          "implementation_departments": [
+            "intake-research",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_candidate_workspace.py"
+        ]
+      }
     },
     {
       "family": "fixpack",
@@ -1269,11 +3839,56 @@
         "tools/evaluate_semantic_triage.py"
       ],
       "scope": "Supplied patch hardening, unchanged22 development replay, separate discovery, fictional process-interruption and optional live-model flag probes. No independent historical accuracy.",
-      "measurement_status": "Final runtime7c92db5:1364 unittest passed,52 public controls;unchanged22 complete2\u21922,partial1\u21922;draft anchors27/32 unchanged;fresh blinded AI assessment only;live tiny model no utility gain.",
+      "measurement_status": "Final runtime7c92db5:1364 unittest passed,52 public controls;unchanged22 complete2→2,partial1→2;draft anchors27/32 unchanged;fresh blinded AI assessment only;live tiny model no utility gain.",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "delivery-operations"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-FIXPACK",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/fixpack"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/fixpack"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/fixpack",
+          "original_receipts": "evaluation/fixpack"
+        },
+        "retrievable_evidence": "evaluation/fixpack",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/fixpack",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/fixpack",
+          "implementation_departments": [
+            "delivery-operations"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_stacked_field_safety.py",
+          "tests/test_classing_boundaries.py",
+          "tests/test_exploration_budget.py",
+          "tests/test_documentary_local_context.py",
+          "tests/test_semantic_triage.py",
+          "tests/test_ledger_generations.py"
+        ]
+      }
     },
     {
       "family": "sorter-exploration",
@@ -1295,7 +3910,51 @@
       "implementation_departments": [
         "intake-research",
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-SORTER-EXPLORATION",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/sorter-exploration"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/sorter-exploration"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/sorter-exploration",
+          "original_receipts": "evaluation/sorter-exploration"
+        },
+        "retrievable_evidence": "evaluation/sorter-exploration",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/sorter-exploration",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/sorter-exploration",
+          "implementation_departments": [
+            "intake-research",
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_sorter_explorer.py",
+          "tests/test_sorter_v2.py",
+          "tests/test_answer_router_boundaries.py",
+          "tests/test_local_narrator.py"
+        ]
+      }
     },
     {
       "family": "dpercent",
@@ -1315,11 +3974,57 @@
         "tools/dpercent_features.py"
       ],
       "scope": "Original fictional structurally randomized prose;binary source-assertion answerability and refusal,bounded retrieval comparison;not historical accuracy.",
-      "measurement_status": "Frozen6e0de9e:1240/1240 executed;20\u2192200/600 complete checked(160 source assertions,40 word locations),640/640 expected refusals,F0%,400 incomplete answerable cases.Historical complete2/22 unchanged.1431 archived tests,52 public controls,actualWASM and headlessChromium passed.All failed/interrupted attempts retained.Independent semantic review NOT RUN.",
+      "measurement_status": "Frozen6e0de9e:1240/1240 executed;20→200/600 complete checked(160 source assertions,40 word locations),640/640 expected refusals,F0%,400 incomplete answerable cases.Historical complete2/22 unchanged.1431 archived tests,52 public controls,actualWASM and headlessChromium passed.All failed/interrupted attempts retained.Independent semantic review NOT RUN.",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-DPERCENT",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/dpercent"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/dpercent"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/dpercent",
+          "original_receipts": "evaluation/dpercent"
+        },
+        "retrievable_evidence": "evaluation/dpercent",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/dpercent",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/dpercent",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_dpercent.py",
+          "tests/test_dpercent_features.py",
+          "tests/test_prose_rule_classes.py",
+          "tests/test_prose_qualification_mutations.py",
+          "tests/test_documentary_text_location.py",
+          "tests/test_literal_boundary_guards.py",
+          "tests/test_documentary_header_scope.py"
+        ]
+      }
     },
     {
       "family": "documentary-articles",
@@ -1335,7 +4040,47 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-DOCUMENTARY-ARTICLES",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/documentary-articles"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/documentary-articles"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/documentary-articles",
+          "original_receipts": "evaluation/documentary-articles"
+        },
+        "retrievable_evidence": "evaluation/documentary-articles",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/documentary-articles",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/documentary-articles",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_documentary_article.py"
+        ]
+      }
     },
     {
       "family": "archival-inspection",
@@ -1356,7 +4101,48 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-ARCHIVAL-INSPECTION",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/archival-inspection"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/archival-inspection"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/archival-inspection",
+          "original_receipts": "evaluation/archival-inspection"
+        },
+        "retrievable_evidence": "evaluation/archival-inspection",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/archival-inspection",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/archival-inspection",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_event_date_inventory.py",
+          "tests/test_archival_onboarding.py"
+        ]
+      }
     },
     {
       "family": "field-question-normalization",
@@ -1373,7 +4159,47 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-FIELD-QUESTION-NORMALIZATION",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/field-question-normalization"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/field-question-normalization"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/field-question-normalization",
+          "original_receipts": "evaluation/field-question-normalization"
+        },
+        "retrievable_evidence": "evaluation/field-question-normalization",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/field-question-normalization",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/field-question-normalization",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_field_question_forms.py"
+        ]
+      }
     },
     {
       "family": "dpercent-expanded",
@@ -1393,7 +4219,49 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-DPERCENT-EXPANDED",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/dpercent-expanded"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/dpercent-expanded"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/dpercent-expanded",
+          "original_receipts": "evaluation/dpercent-expanded"
+        },
+        "retrievable_evidence": "evaluation/dpercent-expanded",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/dpercent-expanded",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/dpercent-expanded",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_compound_fields.py",
+          "tests/test_pinned_documentary_inspection.py",
+          "tests/test_dpercent_expanded.py"
+        ]
+      }
     },
     {
       "family": "field-aliases",
@@ -1412,7 +4280,47 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-FIELD-ALIASES",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/field-aliases"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/field-aliases"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/field-aliases",
+          "original_receipts": "evaluation/field-aliases"
+        },
+        "retrievable_evidence": "evaluation/field-aliases",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/field-aliases",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/field-aliases",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_field_aliases.py"
+        ]
+      }
     },
     {
       "family": "dpercent-known-weaknesses",
@@ -1430,7 +4338,47 @@
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"
-      ]
+      ],
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-DPERCENT-KNOWN-WEAKNESSES",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/dpercent-known-weaknesses"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/dpercent-known-weaknesses"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/dpercent-known-weaknesses",
+          "original_receipts": "evaluation/dpercent-known-weaknesses"
+        },
+        "retrievable_evidence": "evaluation/dpercent-known-weaknesses",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/dpercent-known-weaknesses",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/dpercent-known-weaknesses",
+          "implementation_departments": [
+            "reader"
+          ]
+        },
+        "preservation_checks": [
+          "tests/test_dpercent_weaknesses.py"
+        ]
+      }
     },
     {
       "family": "newcomer-navigation",
@@ -1445,7 +4393,51 @@
       "responsible_department": "delivery-operations",
       "meaning": "Exact released-wheel quick start and citation/outcome verification; human usability NOT_RUN; original host-check failures retained.",
       "scope": "Released-wheel quick-start, exact citations, documentation examples and component navigation; no human results.",
-      "measurement_status": "Software PASS; two corrected host-verifier failures retained; human onboarding NOT_RUN"
+      "measurement_status": "Software PASS; two corrected host-verifier failures retained; human onboarding NOT_RUN",
+      "navigation": {
+        "schema": "test-family-navigation-v1",
+        "stable_id": "TEST-FAMILY-NEWCOMER-NAVIGATION",
+        "responsible_area": "testing-training",
+        "entry_page": "docs/TESTING_APPARATUS.md",
+        "implementation_map": "docs/COMPONENT_MAP.md",
+        "capability_or_boundary_field": "scope",
+        "baseline_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/newcomer-navigation"
+        },
+        "candidate_revision": {
+          "status": "PER_RETAINED_RUN",
+          "reference": "evaluation/newcomer-navigation"
+        },
+        "checksums": {
+          "algorithm": "sha256",
+          "manifest": "handoff/manifest.json",
+          "path_prefix": "evaluation/newcomer-navigation",
+          "original_receipts": "evaluation/newcomer-navigation"
+        },
+        "retrievable_evidence": "evaluation/newcomer-navigation",
+        "results_and_remaining_misses": {
+          "status_field": "measurement_status",
+          "case_records": "evaluation/newcomer-navigation",
+          "no_new_measurement": true
+        },
+        "execution_status": "PER_RETAINED_RUN; links are not executions",
+        "phase_status": "PER_RETAINED_RUN; freshness/independence not inferred",
+        "related_fixes": {
+          "status": "PER_RETAINED_RUN",
+          "reports": "evaluation/newcomer-navigation",
+          "implementation_departments": []
+        },
+        "preservation_checks": [
+          "tests/test_department_navigation.py"
+        ]
+      }
     }
+  ],
+  "navigation_schema": "test-family-navigation-v1",
+  "navigation_limits": [
+    "Families spanning many revisions retain exact baseline/candidate pins per run. PER_RETAINED_RUN is a reference, not an invented pin/pass.",
+    "Current per-file hashes live in handoff/manifest.json; original seals/archive receipts keep their own checksums. Repeated/overlapping cases are not independent evidence.",
+    "Historical custody metadata is not uniformly normalized; independent preparation/blinding/semantic adjudication is never inferred."
   ]
 }

@@ -2,10 +2,10 @@
 
 Last reviewed: 2026-11-26.
 
-**Current local reader: C5; final exact-head protected CI is pending.**
-Publication is authorized after audited incremental gains, preserved valid support,
-and required protected checks. Coverage misses remain failures but do not alone
-prohibit release. The live PR report records later publication/deployment status.
+**Released reader: main `2622813` (PR105). Required exact-head checks, protected
+merge and deployed verification passed.** See the [release receipt](round2/released-state.json).
+[Round2](round2/README.md) has published actual C3 source and reviewed public evidence;572 exposed development source-key decisions pass. Preservation/fresh transfer/latest-head checks remain pending; no round-two release or historical-accuracy claim.
+Earlier candidate snapshots below retain their original measurement scope.
 
 ## Primary goal and separate measures
 

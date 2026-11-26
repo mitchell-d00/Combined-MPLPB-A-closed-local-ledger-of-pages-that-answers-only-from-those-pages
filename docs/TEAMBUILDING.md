@@ -10,7 +10,8 @@ operates with the tools and permissions available to that session.
 
 ## Shared purpose
 
-Improve MPLPB’s handling of broader language through shared rules that preserve valid behavior and enforce declared boundaries.
+Improve MPLPB’s handling of broader language through shared rules that preserve
+valid behavior and enforce declared boundaries.
 
 Keep three questions separate:
 
@@ -18,11 +19,17 @@ Keep three questions separate:
 2. What may the system admit under its declared rules?
 3. Is the assertion true?
 
-MPLPB enforces its admission boundaries. Truth adjudication requires a separately defined evaluation. Connections can suggest an investigation; they do not automatically transfer evidence, permission or authority.
+MPLPB enforces its admission boundaries. Truth adjudication requires a separately
+defined evaluation. Connections can suggest an investigation; they do not
+automatically transfer evidence, permission or authority.
 
 ## Shared-rule criterion for Betty, Al and Outside
 
-Build fewer shared rules that cover more classes of errors while preserving valid behavior. Ask whether one maintained rule can replace several special handlers, preserve their valid outcomes and handle fresh contrasting cases.
+Build fewer shared rules that cover more classes of errors while preserving valid
+behavior. Ask whether one maintained rule can replace several special handlers,
+preserve their valid outcomes and handle fresh contrasting cases. Coverage gains
+and consolidation are separate measurements; more passing cases alone do not
+establish simplification.
 
 1. Identify the common cause across affected paths.
 2. Put the common boundary rule in one maintained place.
@@ -31,14 +38,27 @@ Build fewer shared rules that cover more classes of errors while preserving vali
 5. Remove redundant checks only after their responsibilities are covered.
 6. Freeze the candidate, then measure fresh transfer.
 
-Claim simplification when duplicated logic is reduced, valid outcomes survive and fresh contrasts hold. Report coverage separately from consolidation. Shared interpretation of entities, relations, negation and qualifications still requires exact eligible source evidence. Retain rejected candidates and unsupported completions even when older contracts pass.
+Claim simplification when duplicated logic is reduced, valid outcomes survive and
+fresh contrasts hold. Shared interpretation of entities, relations, negation and
+qualifications still requires unchanged source evidence, eligibility, provenance
+and admission boundaries. Literal claims and opening-time fields, for example,
+must respect the same quotation/reporting-layer boundary. Preserve rejected
+candidates and newly unsupported completions even when older contracts pass.
+
+All three roles use this criterion through the existing manual handoff. Outside
+remains Mitchell's sounding board; implementation direction comes from Mitchell.
+This standing criterion adds no separate assignment or automatic test run.
 
 ## Broader coverage with preserved constraints
 
 Canonical definition: **coverage-with-preserved-constraints-v1**.
-Source: Mitchell D. McPhetridge, *Φ Under Pressure (PhiUP)*, §§2, 8 and 18.1; *Executable Supplement for The Recursive Machinery*, §2.
+Source: Mitchell D. McPhetridge, *Φ Under Pressure (PhiUP)*, §§2,8,18.1;
+*Executable Supplement for The Recursive Machinery*, §2.
 
-ΦUP distinguishes the objective (what improves) from the invariant (what must survive). Its proposed persistence condition is `ΔH_gen(t) ≤ ΔC_stab(t)`: generative expansion must be compensated by observable constraint work. Producing more output alone does not demonstrate progress.
+ΦUP distinguishes the objective (what improves) from the invariant (what must
+survive). Its proposed persistence condition is `ΔH_gen(t) ≤ ΔC_stab(t)`:
+generative expansion must be compensated by observable constraint work.
+Producing more output alone does not demonstrate progress.
 
 For current MPLPB engineering:
 
@@ -48,13 +68,35 @@ For current MPLPB engineering:
 4. Consolidate handlers only where declared tests and contrasting controls demonstrate equivalent responsibilities.
 5. Retain replaced implementations, rejected candidates and original results as traceable history.
 
-Report coverage, consolidation, boundary correctness and execution status separately. This is an **engineering application** of the criterion. Code size, test counts and passing percentages are not its entropy or stabilization quantities. A numerical ΦUP claim requires an explicitly defined candidate distribution, measurements and calibration.
+Report coverage, consolidation, boundary correctness and execution status
+separately. This is an **engineering application** of the criterion. Code size,
+test counts and passing percentages are not its entropy or stabilization
+quantities. A numerical ΦUP claim requires an explicitly defined candidate
+distribution, measurements and calibration; none is supplied by those software
+counts alone.
 
-Recover this one versioned definition from the checked repository pin through Mitchell's manual relay. This does not establish automatic synchronization between chats, independent adjudication, a new harness, changed frozen keys or retrospective scoring.
+Betty implements and records the comparison. Al checks whether the evidence
+supports the claimed improvement. Outside challenges assumptions and proposes
+falsifiers. Each session recovers this one versioned definition from its checked
+repository pin through Mitchell's existing manual relay. This does not claim
+automatic synchronization between chats, add a harness, change frozen keys or
+retroactively rescore historical results.
 
-Scale note: Mitchell describes **iNotes → repository → hub → platform → linked platforms → web** as increasing scales of recording, connecting, revisiting and preserving. Wider linked records support continuity and discovery; MPLPB makes a bounded portion executable under specific local constraints. Local guarantees do not thereby hold across the whole web.
+Scale note: Mitchell describes the same record/connect/revisit/preserve practice
+across **iNotes → repository → hub → platform → linked platforms → web**. The
+Al/Betty/Outside manual relay is one current example. The wider linked record
+supports continuity and discovery; MPLPB makes a bounded portion executable and
+checkable through specific local constraints. Identify the responsibility that
+survives across scales, then make the next small piece computable and test it.
+This analogy does not establish that local guarantees hold across the whole web.
 
-Boundary note: Mitchell builds the pipes and enforces what may pass through them under declared rules. Their contents may be true, false, fictional or disputed. Source assertion, rule-governed admission and truth remain distinct. Connections guide exploration; boundaries govern admission.
+Boundary note: Mitchell builds the pipes and enforces what may pass through them
+under declared rules. Their contents may be true, false, fictional or disputed.
+**A source asserting something, a claim meeting an admission rule, and that
+claim being true are separate questions.** MPLPB can retain those distinctions
+and enforce its local boundaries without adjudicating reality. This clarifies
+the engineering responsibility; it does not change frozen keys or admission
+rules or turn citation correspondence into independent truth verification.
 
 ## Start with the repository link
 
@@ -80,7 +122,11 @@ work steps. Use the task-based starters above for fresh chats.
 
 ## Al and Betty work steps
 
-Canonical role definitions: **teambuilding-roles-v1**. Use [Al](#al--review-evidence-and-propose-the-next-test), [Betty](#betty--implement-test-and-retain-the-result), and the unchanged [Outside definition](#outside). Startup and cycle instructions apply these definitions; they grant no additional permission.
+Canonical role definitions: **teambuilding-roles-v1**. Use
+[Al](#al--review-evidence-and-propose-the-next-test),
+[Betty](#betty--implement-test-and-retain-the-result), and the unchanged
+[Outside definition](#outside). The startup and cycle instructions below apply
+these definitions; they do not create additional roles or grant permissions.
 
 ### Al — Review evidence and propose the next test
 
@@ -117,28 +163,42 @@ Passing old tests alone does not establish broader coverage. More refusals alone
 
 ### Separation and acceptance
 
-Mitchell sets direction and authorization and relays between sessions. Al reviews; Betty implements and records; Outside remains the private sounding board under its existing definition.
+Mitchell sets direction and authorization and relays between sessions. Al reviews;
+Betty implements and records; Outside remains the private sounding board under
+its [existing definition](#outside).
 
-Roles, test preparation, answering, scoring, permissions and evidence custody must remain distinguishable. Record who performed each function and what separation actually existed. Role names or separate sessions alone do not establish independent blinding or semantic adjudication.
+Roles, test preparation, answering, scoring, permissions and evidence custody must
+remain distinguishable. Record who performed each function and what separation
+actually existed. Role names or separate sessions alone do not establish
+independent blinding or semantic adjudication.
 
-A failed candidate must lose its standing under the applicable rule. Explanation cannot convert its recorded failure into a pass. Repairs may proceed while the original failure remains visible.
+A failed candidate must lose its standing under the applicable rule. Explanation
+cannot convert its recorded failure into a pass. Repairs may proceed while the
+original failure remains visible.
 
-Claim consolidation when duplicated responsibilities are reduced, valid outcomes survive and fresh contrasting cases hold. Report consolidation separately from answer-coverage gains. Keep the main README focused on using MPLPB; workflow details belong here.
+Claim consolidation when duplicated responsibilities are reduced, valid outcomes
+survive and fresh contrasting cases hold. Report consolidation separately from
+answer-coverage gains. Keep the main README focused on using MPLPB; workflow
+details belong here.
 
 ### Recover artifact state and working state
 
-**The archive preserves the work; Al’s and Betty’s recorded state preserves how to continue it.**
-
-HANDOFF must recover both states with references the next session can verify:
+**The archive preserves the work; Al’s and Betty’s recorded state preserves how
+to continue it.** HANDOFF must recover both states with references the next
+session can verify:
 
 - Current revision, branch, source inventory and archive checksum.
 - Active task, applicable criteria and acceptance requirements.
-- Decisions and reasons, unresolved objections and rejected candidates.
-- Test custody and exposure: packet/key versions, who prepared, saw and scored them, and which transfer material remains unopened or has become development.
+- Decisions and reasons, including unresolved objections and rejected candidates.
+- Test custody and exposure: packet/key versions, who prepared, saw and scored
+  them, and which transfer material remains unopened or has become development.
 - Actual execution status, retained outputs, blockers and unperformed evaluations.
-- Authorized next action, publication boundaries and evidence needed to proceed.
+- Authorized next action, publication boundaries and the evidence needed to proceed.
 
-File recovery alone is insufficient. Verify working assumptions against the checked revision, update record and retained receipts. Preserve dated prior states. Manual recovery does not synchronize chats or transfer authority.
+File recovery alone is insufficient: a fresh session must verify the working
+assumptions against the checked revision, update record and retained receipts.
+Keep dated prior states intact. This is a manual recovery procedure, not automatic
+synchronization or a transfer of authority between chats.
 
 With only the starter message, both roles follow the
 [full-package inspection directions](../README.md#directions-for-an-ai-to-inspect-the-full-combined-mplpb-package)
