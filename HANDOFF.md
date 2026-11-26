@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `d3d34c4e95e79f38e9da524af60c4ae95600d485` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `4943e7f83c5c9969441236ea85d01de583aa396fd8d7ad3fcae3e6891f53a8c6`.
+Base commit: `d5848641bcaf46410576e7dd04202a506b7dab94` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `881d5d9559b5f59ecd87db567b6e85eae08af55eb0cdb474aab79809c739ba12`.
 
 ## Betty report for Al
 
@@ -17,11 +17,11 @@ Close and preserve Bunyip C3, then complete the bounded Wampus Cat sprint in the
 
 ### Implemented scope
 
-- Close Bunyip with unchanged retained evidence. Freeze Wampus Cat, 12 development and 10 fresh synthetic cases, before implementation.
+- Implement shared named-field checking and combine independently checked opening time and location with one source identity and the original eligibility gate. Add a scoped hosted invocation of the existing isolated Cryptid runner.
 
 ### Validation recorded
 
-- Frozen registry and key hashes prepared before implementation. Fresh materials remain outside public artifacts.
+- 28 focused compound-field and Bunyip regressions passed. Candidate commit and runtime ZIP will be pinned before the fresh packet opens.
 
 ### Limitations and blocked checks
 
@@ -29,7 +29,7 @@ Close and preserve Bunyip C3, then complete the bounded Wampus Cat sprint in the
 
 ### Next steps
 
-- Implement the shared named-field compound admission and compare the released reader, C3 and Wampus Cat on the same frozen cases.
+- Run Wampus development on all three readers and replay consumed Bunyip with the candidate.
 
 ## Use this ZIP in your repository
 

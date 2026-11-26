@@ -387,6 +387,14 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
         return finish(kind, 'supported' if kind == 'supported_answer' else 'compound_field_incomplete',
                       'Both source fields were verified.' if kind == 'supported_answer'
                       else 'See the decision for each requested field.', 'strict', compound_views=views)
+    if (mode == 'strict' and profile.prose and relation_hops is None and as_of is None
+            and not any(exact.get(k) for k in ('record_id', 'field', 'exact_value'))):
+        from .compound_fields import answer_named_fields, parse_named_fields
+        entity = parse_named_fields(question)
+        if entity:
+            kind, code, fields = answer_named_fields(root, initial_gate, entity, max_passages, max_chars)
+            contract.update(fields)
+            return finish(kind, code, 'See the decision for each requested named source field.', 'strict')
     if exact.get('alias_resolution',{}).get('status') in {'blocked','ambiguous'}:
         resolution = exact['alias_resolution']
         code = resolution['code']

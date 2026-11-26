@@ -1,5 +1,5 @@
 {
-  "base_revision": "d3d34c4e95e79f38e9da524af60c4ae95600d485",
+  "base_revision": "d5848641bcaf46410576e7dd04202a506b7dab94",
   "files": {
     ".gitattributes": "2e7eea36014410eae72f6f6a896086381df7dabd52d0893bd411812985a680a3",
     ".github/workflows/bounded-documentary-acceptance.yml": "7f931af1c4835817a5b1d31dc464bbdabb0fed96c14265d3e4db019d5b09f212",
@@ -17,6 +17,7 @@
     ".github/workflows/recovery-checkpoint-handoff.yml": "fa247e06825c88e0d1e7281f4c83445063cf0b1c83d4aa905f18368015fbcdbc",
     ".github/workflows/source-tags.yml": "90bfb96733ba5297000e9db5b2a1c87be89b094904f949cdfc79679d2cca4e38",
     ".github/workflows/study-sandbox.yml": "73835c7eb3d243f0e5eea01c026c8374d36c963b794661305ed2efdcf65169e2",
+    ".github/workflows/wampus-cat.yml": "0b604a50958e1b7fd72df48a3418e6754a56d8b21a132fbe0c7b868272175467",
     ".github/workflows/zip-release-validation.yml": "8cf240454b98e5a030469f3b274fcecce44211a84a4f3677bab83274ba3d112d",
     ".gitignore": "4f1ba2f71d8bb36b5de9e742ec7003c7a80c86156bc5c4dbfe78c0f4236849ad",
     ".well-known/mplpb.json": "65bc08d7e7ac1aeda21aaa8ebe93fee8ddd57f1e236dc5da68b2f837d4308eeb",
@@ -75852,7 +75853,7 @@
     "handoff/history/pr105-update-before-round2.json": "665c3969dcd275335e6ebb6bb7d2773e44ec1463ff3d3dde92179f8a8fc8cdf3",
     "handoff/history/round2-remote-checkpoint-attempt-v1.json": "6d3861c5a28bc20045366786efa51a0b11314465e44ce8ff57db72ea9878f381",
     "handoff/history/round2-remote-checkpoint-attempt-v2.json": "3ed4ff8418c2ed72a147167f8ac31bfbd88c14563546045dafaf6afe07d50408",
-    "handoff/update.json": "5fa461cec2fa62e71addb26e9706a789dc0ebf689ab6efc6b475552c81c9e401",
+    "handoff/update.json": "e53af266c1be5b9a63b4aff71b89d4ffcc2c594a8372b839fc7d717e61033b10",
     "index.html": "df4f7a08eaefad7ef584e19674ede735595d704198f678f7f1c8f6ad3a0b52a8",
     "killtest/probes.json": "fd0f8b1d61a206dcbb612fdc7503ab339a09ec02aebf576b27554c1fb4cb9076",
     "killtest/probes.sha256": "1c4556f219981adb7902c593d3c2204a66327bbb3f6f3d578b4f2308aa2c3b3d",
@@ -75885,7 +75886,7 @@
     "mplpb_answers/bounded_records.py": "d3f2e150dcf66e6df6f5ad6f6ca71e906ed12621eea6c2ceb6568b1e7f5b38da",
     "mplpb_answers/claim_frame.py": "e7c1b359daac7623f866d78b892e26d80c88554414c3cdc3de49c8b42dc632e2",
     "mplpb_answers/collection_fields.py": "db25700f1e67c3b8b057577c2570e8bae916b501564d15626387dd8a3678220c",
-    "mplpb_answers/compound_fields.py": "5bdabcbc85a90e9e9381fa255893194ae62a1b66957fc70776ca75726a627c28",
+    "mplpb_answers/compound_fields.py": "a5b2ce135ca84f3b169470f206505ecaac09adaa210fc4ed411054a892351145",
     "mplpb_answers/corrections.py": "4f9cccee9fdc8d0b8c6eb37caf66cac34da8d9aa21a4a66e04b268eb122e0b6a",
     "mplpb_answers/d6.py": "827b3bda13d2cc53d00a6aa25c3ba8e5cb50b2de0fd11d2378258a705319c96b",
     "mplpb_answers/documentary.py": "1298b7c056713df568e558a1e5469d48051bb039fe66e15059a43afcb4a2923b",
@@ -75909,11 +75910,11 @@
     "mplpb_answers/local_narrator.py": "198880340d70f29a8818588e30d5bdd2eee86336dba3c032f378d8928b084f3e",
     "mplpb_answers/local_reader.py": "6e7a6702f8296b63dd8a2be292ef620c9e67ed6170770e1222cfee58e23ea815",
     "mplpb_answers/operational_evidence.py": "ac4ac4c1b9df9f412323674083dbc1bdb83a6570b8576fde9969eddafd791580",
-    "mplpb_answers/ordinary_evidence.py": "7b462f549ddbf91ce8cb62f61038da69f8296ea38a73bf3c958191e2e9d1d025",
+    "mplpb_answers/ordinary_evidence.py": "41c6af9f65ef4b128ba7a831ec1ee6192791c18a2afd7b518a33f4c625fc728f",
     "mplpb_answers/ordinary_questions.py": "2137edab7acb1620d47b8fb74422a77204dc42c63543a22fc4bec07dcba123a6",
     "mplpb_answers/passage_admission.py": "8f9decd8addf3b14a6ba9258576226e9efd8cff43f5a51a0132b6298efd809fa",
     "mplpb_answers/passages.py": "953da46f391003cdb4ea4f8c8f759d117dde38d0bd38e1c26a1ddc6bb0610dcb",
-    "mplpb_answers/pipeline.py": "f148d6a509e2801189757cbb7a628f5ea0b0b92754152de499fd461deda0a57a",
+    "mplpb_answers/pipeline.py": "64880c37347c55cc7795a7faac7302f5faa08c24499e31e7b64b6f1c4d572bb4",
     "mplpb_answers/policy_evidence.py": "90ae363e5b2b92c52ef24a9ff4d820821a76729f012831c51e27f3ad54492c35",
     "mplpb_answers/practical_evidence.py": "0ad115570d1a5c1f756f2931e331a083d6f9ca6f7512223b5160278f5cda33af",
     "mplpb_answers/presentation.py": "c68979748753f48cefaca0ea1eb5ac2ddc20b797ef5d3d8181726667c81cc0aa",
@@ -77025,6 +77026,6 @@
     "training/owner-work/inventory.json": "d0c1b326bbf191e4514a747fd09ad6532e9882dde175a4b13b6012997afc82b5",
     "training/owner-work/public-dataset-candidate.json": "42207d153f3e325b7435caa53bc70d75e64eca346b023b4ac733dc92ff9d6091"
   },
-  "inventory_sha256": "4943e7f83c5c9969441236ea85d01de583aa396fd8d7ad3fcae3e6891f53a8c6",
+  "inventory_sha256": "881d5d9559b5f59ecd87db567b6e85eae08af55eb0cdb474aab79809c739ba12",
   "schema": "repository-handoff-v1"
 }

@@ -39,6 +39,92 @@ def parse_question(question):
     return None
 
 
+def parse_named_fields(question):
+    """Parse both requested labels and a single entity without dropping clauses."""
+    from .ordinary_questions import slot
+
+    text = ' '.join(question.strip().removesuffix('?').split())
+    for form in (
+        r'(?:When|What time|At which time|At what time) does (.+?) open,? and where is it located',
+        r'For (.+?), (?:give|report|show|list) its opening time and location',
+        r'What is the opening time and location (?:of|for|at) (.+)',
+    ):
+        match = re.fullmatch(form, text, re.I)
+        if match and slot(match[1]) and not re.search(r'[.,]', match[1]):
+            return match[1]
+    return None
+
+
+def answer_named_fields(root, gate, entity, max_passages, max_chars):
+    """Admit each field from the original question's eligible source set."""
+    from mplpb_combined.ledger import Ledger
+    from .body_text import body_text
+    from .documentary_verify import units
+    from .frames import QuestionFrame, normalize
+    from .ordinary_evidence import named_fields
+
+    fields = ('opening time', 'location')
+    if any(s['reason'] == 'correction scope unclear' for s in gate.excluded):
+        return 'abstain', 'correction_scope_unclear', {'missing': list(fields)}
+    allowed = {(s['id'], s['path'], s['hash']) for s in gate.sources}
+    records = [r for r in Ledger(root).servable() if (r.id, r.path, r.hash_actual) in allowed]
+    if len(records) != len(allowed):
+        return 'abstain', 'source_changed', {}
+    if (len(records) > 8 or sum(len(r.body_html) for r in records) > 200000
+            or sum(sum(1 for _ in units(body_text(r.body_html))) for r in records) > 1000):
+        return 'abstain', 'reference_scan_budget', {'missing': list(fields)}
+    frame = QuestionFrame('named_fields', normalize(entity), entity, '')
+    parts = []
+    admitted = []
+    proved_pins = set()
+    conflict = False
+    for label in fields:
+        checks = [(r, v) for r in records
+                  if r.kind == 'page' and not r.derived_from
+                  and (v := named_fields(frame, r, label, exact_offsets=True))]
+        supported = [(r, check) for r, check in checks if check['status'] == 'supported']
+        competing = len(supported) > 1 or any(v['status'] == 'conflict' for _, v in checks)
+        unresolved = any(v.get('unresolved') for _, v in checks)
+        conflict |= competing
+        part = {'field': label, 'status': 'conflict' if competing else 'unresolved'}
+        parts.append(part)
+        if competing or unresolved or len(supported) != 1:
+            continue
+        record, proof = supported[0]
+        pin = (record.id, record.path, record.hash_actual)
+        proved_pins.add(pin)
+        citations = [{'source_id': pin[0], 'path': pin[1], 'hash': pin[2],
+                      'quote': span['quote'], 'body_start': span['body_start'],
+                      'body_end': span['body_end'], 'start': span['body_start'],
+                      'end': span['body_end']} for span in proof['spans']]
+        statement = next(c['quote'] for span, c in zip(proof['spans'], citations)
+                         if span['field'] == label)
+        claim = {'text': statement, 'citations': citations,
+                 'qualifiers': ['Source-declared field; source truth is unverified.']}
+        if output_budget({'claims': [c for _, c in admitted] + [claim], 'missing': []},
+                         max_passages, max_chars):
+            part['status'] = 'budget'
+            continue
+        admitted.append((pin, claim))
+        part['status'] = 'verified'
+    pins = dict.fromkeys(pin for pin, _ in admitted)
+    if len(proved_pins) > 1:
+        return 'conflict', 'compound_field_incomplete', {'missing': list(fields),
+                    'question_parts': [dict(p, status='unresolved') for p in parts]}
+    claims = [claim for _, claim in admitted]
+    missing = [p['field'] for p in parts if p['status'] != 'verified']
+    kind = ('supported_answer' if not missing else 'partial_answer' if claims
+            else 'conflict' if conflict else 'abstain')
+    code = ('supported' if not missing else 'compound_field_budget' if any(
+        p['status'] == 'budget' for p in parts) else 'compound_field_incomplete')
+    return kind, code, {'answer_supported': not missing,
+                        'question_parts': parts, 'missing': missing, 'claims': claims,
+                        'sources': [{'id': source_id, 'path': path, 'hash': hash_} for source_id, path, hash_ in pins],
+                        'text': '\n'.join(c['text'] for c in claims),
+                        'verification': {'structural': bool(claims), 'semantic': 'bounded_named_compound_fields',
+                                         'truth_verified': False, 'independence_verified': False}}
+
+
 def _diagnostic(code, category, message, next_step):
     return {'code': code, 'category': category, 'stage': 'compound_field_verification',
             'message': message, 'next_steps': [next_step], 'corpus_answerability': 'not_established'}
