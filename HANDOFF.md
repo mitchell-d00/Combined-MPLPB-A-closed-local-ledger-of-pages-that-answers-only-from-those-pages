@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `483f35a97a32be4cadb4eb224e976e045124901d` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `5b305dabac81bafabb623260c7a30e472b6e7367b3aa7276d88e60b8fc346d91`.
+Base commit: `5b5ddbe22831d5d5c9d33c4e9bc8297b2ffda0c4` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `b4484ba723b4a42273118b53bfa131600141ff19700c1553e4bca79847287cce`.
 
 ## Betty report for Al
 
@@ -28,6 +28,7 @@ Then organize the existing repository around its three entry areas: MPLPB produc
 - Complete recovery record: [Bunyip round2 checkpoint](docs/recovery/BUNYIP_ROUND2_CHECKPOINT.md). It records revision, task, criteria, decisions/reasons, rejected candidates, unresolved objections, custody, local archive hashes, infrastructure failures and authorized next actions. Prior released handoff/update retained under handoff/history/.
 - Original museum diagnostic-copy implementation, JavaScript tests/fixture and four workflow integrations now included. This UI work is separate from reader-language gains. Public evidence bundle, unchanged baseline archive and exact rejected C1/C2 source archives are included; see evaluation/cryptid/bunyip/round2/public-artifacts-v1.json.
 - Existing optional source-metadata/read-only diagnostic worker adapter and public routing/polarity development packets are published unchanged. Remote workflow reuses D.run, sealed worker hashes, current limits and required Bubblewrap; it executes only public development on baseline/current source. Held keys remain local, so semantic scoring stays separate.
+- Remote raw baseline/candidate ZIPs and unchanged strict/source-score files are durably versioned under round2. Candidate source-key development comparison572/572 passes; this is not unseen transfer, independent semantic adjudication or historical accuracy.
 
 ### Validation recorded
 
@@ -37,6 +38,8 @@ Then organize the existing repository around its three entry areas: MPLPB produc
 - Original workspace became reachable through a surviving shell despite process exhaustion. Actual source bytes were exported directly; nine files match the retained C3 archive exactly, and the development generator was retrieved directly with hash. No source reconstructed from summaries. Public evidence filtering/upload remains next.
 - Public evidence selection includes4597 original files/27800118 uncompressed bytes; every bundled payload byte hash reverified. Keys, held transfer inputs and private material excluded. Rejected source snapshots retained byte-identically. Packaging first attempt failed a narrow allowlist before upload; inspected the public regression-test member and retained that attempt without changing reader or scoring.
 - Recovered local C3 primary record:75/444 completed;75 source-key decisions correct, including14 positives;369 execution failures. Guards0/44 completed and44 execution failures. These are not369+44 reader refusals. At exact source commit baa19f5 remote regression passed1904tests with1skip plus JS/API/WASM/Chromium; later-head checks remain required.
+- Matched remote development at483f35a:572 executions per revision, zero execution failures. Candidate128/128 supported positives+444/444 correct withholds;71 recovered positive executions across34 original question strings/71unique inputs.40executions/19strings are the matched-source wording diagnostic;31other source/proof recoveries separate.89question strings,524unique inputs,48repeated memberships per572.
+- Source/citation audit:12 corrected baseline unsupported cases, zero lost valid support, no citation change to preserved support. Original main contract replay is exact for all560 earlier frozen baseline cases. All22 original strict-key output failures retained; all22 satisfy the prospective pre-implementation polarity contract and exact quotations.
 
 ### Limitations and blocked checks
 
@@ -44,6 +47,7 @@ Then organize the existing repository around its three entry areas: MPLPB produc
 - 36 routing and64 cross-family transfer cases remain unopened/unrun under same-operator custody. Human onboarding, independent historical/semantic adjudication/preparation/blinding/outside-custodian scoring and native OOCC remain NOT_RUN.
 - PID1 diagnostic was denied by automatic approval due supervisor disruption risk and was not executed. No sandbox/protection gate may be bypassed. No new round2 deployment verification has occurred.
 - Core C3 source, original UI/workflow changes and reviewed new public evidence are published; remaining local documentation/index/history updates and complete software validation are pending. Original C3 local test state was uncommitted: source hashes identify those bytes, not a fabricated pre-existing tested commit.
+- New current source-key development pass does not erase C1/C2 rejection, original strict-key failures or local execution failures. Full preservation, committed ZIP freeze, both once-only held packets and latest-head required gates remain necessary before merge. Navigation metadata work is in progress; no paths/frozen bytes moved.
 
 ### Next steps
 
