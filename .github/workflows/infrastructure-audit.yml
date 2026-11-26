@@ -33,6 +33,7 @@ jobs:
         run: |
           python tools/check_ui_script.py
           node tests/javascript-api.cjs
+          node tests/refusal-copy.cjs
           node tools/check_browser_transport.cjs
       - name: Audit the deployed Pages WebAssembly app with Chromium weekly
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'

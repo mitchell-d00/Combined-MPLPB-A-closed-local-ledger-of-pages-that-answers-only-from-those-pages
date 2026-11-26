@@ -2,7 +2,8 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const html=fs.readFileSync('index.html','utf8');
-const code=html.slice(html.indexOf('function renderAssisted('),html.indexOf('async function query('));
+// Load the shared diagnostic-copy dependency along with both renderers.
+const code=html.slice(html.indexOf('function diagnosticReason('),html.indexOf('async function query('));
 const results={innerHTML:''};
 const context=vm.createContext({$:id=>{assert.equal(id,'results');return results;},esc:x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))});
 vm.runInContext(code,context);
