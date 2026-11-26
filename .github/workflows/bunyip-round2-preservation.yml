@@ -1,0 +1,42 @@
+name: Bunyip round-two consumed preservation
+on:
+  push:
+    branches: ['local/bunyip-round2']
+    paths:
+      - 'tools/bunyip_round2_preservation.py'
+      - '.github/workflows/bunyip-round2-preservation.yml'
+permissions:
+  contents: read
+jobs:
+  consumed-preservation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install existing isolator
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends bubblewrap
+      - name: Require isolation and execute unchanged consumed runners
+        run: |
+          STUDY_TEST_PYTHON="$(command -v python)"
+          mkdir -p "$RUNNER_TEMP/bunyip-sandbox-source"
+          git archive HEAD | tar -x -C "$RUNNER_TEMP/bunyip-sandbox-source"
+          cd "$RUNNER_TEMP/bunyip-sandbox-source"
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$STUDY_TEST_PYTHON" -m unittest tests.test_study_sandbox -v
+          cd "$GITHUB_WORKSPACE"
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0="$GITHUB_WORKSPACE" "$STUDY_TEST_PYTHON" tools/bunyip_round2_preservation.py --source-commit "${{ github.sha }}" --output "$RUNNER_TEMP/bunyip-round2-preservation"
+      - name: Retain every output and failed attempt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bunyip-preservation-${{ github.sha }}
+          path: ${{ runner.temp }}/bunyip-round2-preservation/
+          if-no-files-found: warn
+          retention-days: 90
