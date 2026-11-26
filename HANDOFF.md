@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `46a0bb09e45f04c3952e76b85d3513208b67a972` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `54f0aa6b57a3b578ac4d8d432a770718f68bc49bf009d8c3c548cff0f5ca0d0a`.
+Base commit: `9b4bdf98453b017187256904af8f7bec9a54c80c` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `a54182a278c2d08611fd82d863b692c4ed4b7707979e7dd86443342db53c8d37`.
 
 ## Betty report for Al
 
@@ -55,24 +55,20 @@ Clarification: The next milestone is getting those actual code files into a remo
 
 ### Validation recorded
 
-- GitHub main verified2622813aba9ee1f1880693eeb71ae015cb3da999/tree78ffea54e3ad0e35ac1dd27f6db16c32a8ec23dc; no open PR at discovery. Outside definition is unchanged from that exact revision. No reader code, frozen tests/keys or acceptance policy is modified in this remote checkpoint.
-- Session-recorded local state: baseline21/78 primary positives and360/366 withholds; C1/C2 primary recovery rejected after2 and4 newly exposed unsupported completions respectively. C3 focused37 passed; broad C3 acceptance remains pending. See the checkpoint for disjoint suite counts and original failures. Offline access prevents re-verifying raw local receipts.
-- Unique completed/resource-attempt evidence was byte-verified into persistent local archives before the outage. Archive locations/hashes are recorded; their payloads are not uploaded in this checkpoint. Held inputs/keys and private correspondence are excluded.
-- Original workspace became reachable through a surviving shell despite process exhaustion. Actual source bytes were exported directly; nine files match the retained C3 archive exactly, and the development generator was retrieved directly with hash. No source reconstructed from summaries. Public evidence filtering/upload remains next.
+- Current recovered source and public evidence are committed through46a0bb0 and generated handoff8a53b5f; main remains2622813. Actual source hashes and retained raw receipts supersede earlier outage-only status. Historical checkpoint statements remain in dated records.
 - Public evidence selection includes4597 original files/27800118 uncompressed bytes; every bundled payload byte hash reverified. Keys, held transfer inputs and private material excluded. Rejected source snapshots retained byte-identically. Packaging first attempt failed a narrow allowlist before upload; inspected the public regression-test member and retained that attempt without changing reader or scoring.
 - Recovered local C3 primary record:75/444 completed;75 source-key decisions correct, including14 positives;369 execution failures. Guards0/44 completed and44 execution failures. These are not369+44 reader refusals. At exact source commit baa19f5 remote regression passed1904tests with1skip plus JS/API/WASM/Chromium; later-head checks remain required.
 - Matched remote development at483f35a:572 executions per revision, zero execution failures. Candidate128/128 supported positives+444/444 correct withholds;71 recovered positive executions across34 original question strings/71unique inputs.40executions/19strings are the matched-source wording diagnostic;31other source/proof recoveries separate.89question strings,524unique inputs,48repeated memberships per572.
 - Source/citation audit:12 corrected baseline unsupported cases, zero lost valid support, no citation change to preserved support. Original main contract replay is exact for all560 earlier frozen baseline cases. All22 original strict-key output failures retained; all22 satisfy the prospective pre-implementation polarity contract and exact quotations.
 - Navigation stage: stable IDs unique; Outside definition byte-unchanged; original documents preserved in reviewed versioned history snapshots. No frozen input/key/score or historical measurement was modified or rerun by navigation. Native1904(1skip) source test and572case comparison remain distinct from metadata/transport work.
+- All849 retained released-reader contract outputs recovered directly; all recorded reader-code maps match the released main baseline. Reference archive SHA25671bd781c5a10041652a6b83d7d4b29ff30042f79006c00c7f5301b75fc1ae7a2; this validates reference identity, not C3 preservation. Interrupted C3 preservation retained separately.
 
 ### Limitations and blocked checks
 
-- Observed host zombie-process exhaustion caused EAGAIN, then execution environment became unavailable. Local handoff build/check failed to launch. Initial checkpoint inventory may be stale until the dedicated recovery workflow rebuilds/checks it; retain the original failed checks and judge the latest exact head.
 - 36 routing and64 cross-family transfer cases remain unopened/unrun under same-operator custody. Human onboarding, independent historical/semantic adjudication/preparation/blinding/outside-custodian scoring and native OOCC remain NOT_RUN.
 - PID1 diagnostic was denied by automatic approval due supervisor disruption risk and was not executed. No sandbox/protection gate may be bypassed. No new round2 deployment verification has occurred.
-- Core C3 source, original UI/workflow changes and reviewed new public evidence are published; remaining local documentation/index/history updates and complete software validation are pending. Original C3 local test state was uncommitted: source hashes identify those bytes, not a fabricated pre-existing tested commit.
-- New current source-key development pass does not erase C1/C2 rejection, original strict-key failures or local execution failures. Full preservation, committed ZIP freeze, both once-only held packets and latest-head required gates remain necessary before merge. Navigation metadata work is in progress; no paths/frozen bytes moved.
 - Local Git working branch still has baseline ancestry2622813 and original uncommitted files; remote API commits are the current published state. Do not force-push/reset or deliver a local archive as current without reconciling. The key-bearing frozen-development-inputs.tar.xz was removed from the local index without changing its bytes, privately copied/verified, and explicitly ignored for publication. All held transfer/key material remains excluded.
+- Local process exhaustion persists; actual source/evidence/navigation are published. Remote recovery workflow generated and checked the handoff; current exact-head gates and849C3 preservation are pending. Development passes do not erase22strict-key failures or rejected candidates. Both held packets remain unopened.
 
 ### Next steps
 
