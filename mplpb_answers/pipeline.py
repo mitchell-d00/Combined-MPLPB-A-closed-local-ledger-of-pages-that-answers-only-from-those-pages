@@ -390,9 +390,10 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
     if (mode == 'strict' and profile.prose and relation_hops is None and as_of is None
             and not any(exact.get(k) for k in ('record_id', 'field', 'exact_value'))):
         from .compound_fields import answer_named_fields, parse_named_fields
-        entity = parse_named_fields(question)
-        if entity:
-            kind, code, fields = answer_named_fields(root, initial_gate, entity, max_passages, max_chars)
+        named_request = parse_named_fields(question)
+        if named_request:
+            entity, labels = named_request
+            kind, code, fields = answer_named_fields(root, initial_gate, entity, labels, max_passages, max_chars)
             contract.update(fields)
             return finish(kind, code, 'See the decision for each requested named source field.', 'strict')
     if exact.get('alias_resolution',{}).get('status') in {'blocked','ambiguous'}:

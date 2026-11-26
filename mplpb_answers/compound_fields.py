@@ -40,22 +40,34 @@ def parse_question(question):
 
 
 def parse_named_fields(question):
-    """Parse both requested labels and a single entity without dropping clauses."""
+    """Bind one complete request to an entity and its explicit field obligations."""
     from .ordinary_questions import slot
 
-    text = ' '.join(question.strip().removesuffix('?').split())
-    for form in (
-        r'(?:When|What time|At which time|At what time) does (.+?) open,? and where is it located',
-        r'For (.+?), (?:give|report|show|list) its opening time and location',
-        r'What is the opening time and location (?:of|for|at) (.+)',
-    ):
-        match = re.fullmatch(form, text, re.I)
-        if match and slot(match[1]) and not re.search(r'[.,]', match[1]):
-            return match[1]
+    text = ' '.join(question.split())
+    if text.endswith(('?', '.')):
+        text = text[:-1].rstrip()
+    if text.endswith(('?', '.')):
+        return None
+    compound = ('opening time', 'location')
+    forms = (
+        (r'(?:When|What time|At which time|At what time) does (.+?) open,? and where is it located', compound),
+        (r'For (.+?), (?:give|report|show|list) its opening time and location', compound),
+        (r'What is the opening time and location (?:of|for|at) (.+)', compound),
+        (r'Where is (.+)', ('location',)),
+        (r'Tell me where (.+?) is', ('location',)),
+    )
+    for pattern, labels in forms:
+        match = re.fullmatch(pattern, text, re.I)
+        if not match:
+            continue
+        entity = match[1]
+        if (slot(entity) and not re.search(r'[.,]', entity)
+                and not re.search(r'\b(?:according to|says?|said|reported|where|is)\b', entity, re.I)):
+            return entity, labels
     return None
 
 
-def answer_named_fields(root, gate, entity, max_passages, max_chars):
+def answer_named_fields(root, gate, entity, fields, max_passages, max_chars):
     """Admit each field from the original question's eligible source set."""
     from mplpb_combined.ledger import Ledger
     from .body_text import body_text
@@ -63,7 +75,6 @@ def answer_named_fields(root, gate, entity, max_passages, max_chars):
     from .frames import QuestionFrame, normalize
     from .ordinary_evidence import named_fields
 
-    fields = ('opening time', 'location')
     if any(s['reason'] == 'correction scope unclear' for s in gate.excluded):
         return 'abstain', 'correction_scope_unclear', {'missing': list(fields)}
     allowed = {(s['id'], s['path'], s['hash']) for s in gate.sources}

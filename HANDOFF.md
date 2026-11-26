@@ -4,8 +4,8 @@ Last reviewed: 2026-11-26.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `575ce6b7b62b7ee5240654b23c638c6653eea4f7` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `e5693bbea83c63fe940195891ac5c7a9484de581abc6d85c18b64b04c64f9123`.
+Base commit: `253a67259e190ccda86a9b4ef434bbdf5c63bb40` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `0d83cf2ff1751e3f283a3e43abc2bc20d6cea745f64a3e6ae076887a8fc778dc`.
 
 ## Betty report for Al
 
@@ -17,11 +17,11 @@ Devise and run Thoth, a bounded ordinary-question interpretation sprint. Group r
 
 ### Implemented scope
 
-- Register Egyptian-gods / Thoth, freeze 12 development and 12 fresh cases, and preserve separate custody. Wampus and Bunyip evidence remain retained.
+- Bind one terminal mark and ordinary direct/indirect location forms to the existing named-field admission, preserving the original question for eligibility. Existing compound proof and cited partial composition are reused.
 
 ### Validation recorded
 
-- Scope, registries and both key hashes precede implementation. Fresh inputs remain held.
+- 28 existing Bunyip/compound tests passed. Matched parser controls cover negation, attribution, conditions and terminal punctuation.
 
 ### Limitations and blocked checks
 
@@ -29,7 +29,7 @@ Devise and run Thoth, a bounded ordinary-question interpretation sprint. Group r
 
 ### Next steps
 
-- Implement only the named request interpretation and run the four pinned readers on the frozen development packet.
+- Pin the candidate runtime and compare the four readers on frozen development. Recheck consumed Wampus and Bunyip.
 
 ## Use this ZIP in your repository
 
