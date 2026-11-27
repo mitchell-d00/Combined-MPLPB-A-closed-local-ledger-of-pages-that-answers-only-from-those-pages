@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `5dfa6b7316c19b8d993c18aaad7774467fd68ec9` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `fb49011c45ac3cc24d09860b3a0b1483f7ae9421a64e30fb9b0300942f421cd9`.
+Base commit: `2d560c9daa21dfb50e79aa7cad09911809980875` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `225ecc0d00f69c453749e80106260f627845da5aaa21977d8ac59f21fce17a55`.
 
 ## Betty report for Al
 
@@ -40,6 +40,7 @@ Continue rebuilding from the recorded seeds and pinned generator revision, inclu
 - The primary rebuild matched all 962 archived public files including the seal, as well as the original key, dice, pairing, generator, runner, worker and scorer fingerprints. The 128 other exposed development inputs match their public seals, but no matching original keys were recovered.
 - The first two D% replay attempts stopped in setup before any reader ran. The second had valid public packet bytes but lacked the checkout identity D% records. Restore the original host checkout setup while keeping the Bubblewrap worker mounts unchanged.
 - The two-lane public 832 job completed. BB matched 900 original positives and citations and 200 withholds per reader. The seven registry groups scored 899 exact contracts, 18 new original-key passes, and 24 diagnostic-only abstention differences across 941 paired memberships.
+- The restored primary and earlier D% packets verified in the third hosted attempt. No reader ran because the host Git safety settings were placed after the Python executable. The logged prelaunch failure is retained. Move the settings into the existing host environment invocation.
 
 ### Limitations and blocked checks
 

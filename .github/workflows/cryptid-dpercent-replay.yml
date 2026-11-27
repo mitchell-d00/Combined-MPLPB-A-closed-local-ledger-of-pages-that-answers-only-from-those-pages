@@ -95,10 +95,10 @@ jobs:
               stage=output/role
               stage.mkdir()
               for label, public in packets:
-                  command=['sudo','env','MPLPB_REQUIRE_SANDBOX=1','PYTHONPATH='+str(root),sys.executable,
+                  command=['sudo','env','MPLPB_REQUIRE_SANDBOX=1','PYTHONPATH='+str(root),
                            'GIT_CONFIG_COUNT=2','GIT_CONFIG_KEY_0=safe.directory','GIT_CONFIG_VALUE_0='+str(root),
                            'GIT_CONFIG_KEY_1=safe.directory','GIT_CONFIG_VALUE_1='+str(runtime),
-                           '-m','tools.dpercent','run','--packets',str(public),'--out',str(stage/label),
+                           sys.executable,'-m','tools.dpercent','run','--packets',str(public),'--out',str(stage/label),
                            '--implementation',str(runtime)]
                   with (stage/(label+'.log')).open('x') as log:
                       status=subprocess.run(command,stdout=log,stderr=subprocess.STDOUT).returncode
