@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `99666618df1b2a2531d5010b9c8d1d14ec64c3f4` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `80183a2e505e7ecf71132b130eb79f154aa3b209562e13f42ab5231abc9f253f`.
+Base commit: `bcbe47c881bbc79564491d5090a977c381c47fae` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `bd5f0792ad6923b1a99889d1e9647af19e9d21505c5fcf7b5fa7ef9016a508cd`.
 
 ## Betty report for Al
 
@@ -42,6 +42,8 @@ The target is precise: **prove which document qualifies, then independently prov
 - 41 focused tests passed. Direct development smoke selected eight documents and attributed six claims, with six abstentions. Isolated replay is pending.
 - Pinned candidate 55bd3ff03eeea593be69fe3e21d9395de2b9b24a with scoped source ZIP SHA-256 d622665da100120ad94a635b66301fb37bb52db2bb816031479bc2e90c1d542d.
 - The isolated development replay completed all 12. It verified eight source selections and six report attributions, including two selected-document reporter refusals. All six abstention contracts matched, including the duplicate-writer case.
+- The first frozen fresh replay matched all 12 I/O contracts. It verified eight selections and six attributions, with two selected-source reporter refusals, and no unsupported claims.
+- The 832 preservation attempt stopped at the frozen harness checksum because new tests shared a frozen test file. The original test bytes are restored and new tests are in a separate file. This does not alter reader bytes, keys, or the first fresh result. The original attempt is retained.
 
 ### Limitations and blocked checks
 
@@ -49,7 +51,7 @@ The target is precise: **prove which document qualifies, then independently prov
 
 ### Next steps
 
-- Run the unchanged fresh packet once on the pinned native candidate and retain the first score. Verify the applicable preservation and release checks before merge and Pages readback.
+- Run only the blocked public preservation cohort with the same native pin. Do not rerun the fresh transfer. Then finish exact-head release checks.
 
 ## Use this ZIP in your repository
 

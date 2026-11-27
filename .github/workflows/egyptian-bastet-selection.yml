@@ -34,6 +34,10 @@ jobs:
           case "$phase" in
             development) test "$COHORT" = packet || exit 0 ;;
             fresh) ;;
+            public-preservation)
+              test "$COHORT" = public-832 || exit 0
+              phase=development
+              ;;
             *) exit 1 ;;
           esac
           export PHASE="$phase"
