@@ -189,6 +189,10 @@ by the no-unverified-promotion audit. It is a static source/prior-art comparison
 not a new evaluation family or new efficacy score; PR #38’s retained cases and
 results remain unchanged.
 
+## Bunyip Round 3
+
+[First results and preservation](../evaluation/cryptid/bunyip/round3/RESULTS.md) link the frozen inputs, four exact reader pins and original scores.
+
 ## Primary Book Test
 
 The [Primary Book Test](TEST_TOOLS.md#primary-book-test) generates new excerpts and quote controls from pinned firsthand book chapters. It also runs independently authored questions. The automatic scorer checks quote presence and citation, and the prose run requires human review of meaning and evidence.

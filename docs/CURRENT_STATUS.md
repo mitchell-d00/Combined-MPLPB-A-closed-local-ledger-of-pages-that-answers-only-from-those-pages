@@ -25,6 +25,17 @@ PR #111 kept the controller lab-only, with reader and production workflow
 bytes unchanged. Its Pages receipt records the site build at the merge.
 [PR #111 engineering milestone](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/111)
 
+## Bunyip Round 3 cumulative reader assessment
+
+[First comparison and archives](../evaluation/cryptid/bunyip/round3/RESULTS.md) cover 48 executions across
+12 synthetic cases and nine distinct questions. Released main scored five
+complete answers, one checked partial and five correct withholds, with one
+attribution miss. All four arms had zero unsupported claims and execution
+failures. The 832 public contracts, BB and the 96 consumed outputs were
+replayed. The original 87/96 strict failure is recorded. Clean PR #113
+merged at `40d82a5cf4497a36e7061412861a600fe8602e57`. PR #106 is closed
+unmerged with historical evidence retained and its incident open.
+
 ## Historical Thoth preparation and original PR #106
 
 The [clean PR #106 reconciliation](../evaluation/cryptid/bunyip/round2/reconciliation/README.md)
