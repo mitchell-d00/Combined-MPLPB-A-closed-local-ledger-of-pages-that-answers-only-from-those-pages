@@ -30,7 +30,7 @@ jobs:
           import hashlib,json,re
           root=Path('evaluation/egyptian-gods/attribution-scope')
           phase=(root/'phase.txt').read_text().strip()
-          assert phase in {'baseline','seshat','anubis','horus','fresh'}
+          assert phase in {'baseline','seshat','anubis','horus','horus-2','fresh'}
           for name in ('seshat','anubis','horus'):
               arm=root/name/('fresh' if phase=='fresh' else 'development')
               seal=json.loads((arm/'freeze.json').read_bytes())

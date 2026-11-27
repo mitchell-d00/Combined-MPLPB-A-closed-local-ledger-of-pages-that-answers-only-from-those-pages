@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `f83cb24cdff27a3977aaaed5be29a89907156010` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `855fa72cd71e7b1e0ce105f1ad853bc9864198f4fce050853c25bdbd82f3998d`.
+Base commit: `109f729623eb44d9a9632399e91474e90e1c6772` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `10ab2c03317b6fa5400c6c981a92bc287f4dc154ac9c9d48ad577ff89f6cc61a`.
 
 ## Betty report for Al
 
@@ -21,12 +21,14 @@ Expand the current assignment into one bounded three-set Egyptian-gods batch. Pr
 - Seshat binds an exact reporter and embedded writer before resolving an unambiguous reported object. The printed recorder remains a separate source role.
 - Anubis independently binds explicit denial of a report and denial inside the reported writing claim. A missing scoped witness withholds.
 - Horus binds an exact if-clause and the instruction or intention modality, or routes the explicit conditions-of-permission question to the existing policy proof. No condition fulfillment or execution authority is inferred.
+- Route the bounded subject-before-modal permission request through the existing permission proof. The first Horus score and archive remain retained.
 
 ### Validation recorded
 
 - Remote main is a442c8f0. No Seshat branch or worktree was found. The initial stage diagnosis and all six freezes precede changes to the reader.
 - The isolated released development baseline had 9/9 target witnesses discovered, 0/9 targets complete and 9/9 controls withheld, zero unsupported claims or execution failures. The baseline archive and per-set first scores are retained.
 - The five existing source-claim, policy, attribution and report suites passed after applying the ordered native changes.
+- Isolated intermediate runs preserve the ordered gains: Seshat 3/3 at its stage, Anubis 3/3 at its stage, and first Horus 2/3. All matched controls withheld. Horus permission missed because the embedded question places the subject before the modal.
 
 ### Limitations and blocked checks
 
