@@ -27,11 +27,14 @@ bytes unchanged. Its Pages receipt records the site build at the merge.
 
 ## Bunyip Round 3 cumulative reader assessment
 
-[Prospective freeze](../evaluation/cryptid/bunyip/round3/SCOPE.md) records six pairs, nine distinct questions and
-48 planned executions across released main, C3, Wampus and Thoth. No reader
-changes or Round 3 measurements have been made at the freeze. Clean PR #113
-merged at `40d82a5cf4497a36e7061412861a600fe8602e57`. Original PR #106 is closed
-unmerged, with its branch and historical reports retained.
+[First comparison and archives](../evaluation/cryptid/bunyip/round3/RESULTS.md) cover 48 executions across
+12 synthetic cases and nine distinct questions. Released main scored five
+complete answers, one checked partial and five correct withholds, with one
+attribution miss. All four arms had zero unsupported claims and execution
+failures. The 832 public contracts, BB and the 96 consumed outputs were
+replayed. The original 87/96 strict failure is recorded. Clean PR #113
+merged at `40d82a5cf4497a36e7061412861a600fe8602e57`. PR #106 is closed
+unmerged with historical evidence retained and its incident open.
 
 ## Historical Thoth preparation and original PR #106
 

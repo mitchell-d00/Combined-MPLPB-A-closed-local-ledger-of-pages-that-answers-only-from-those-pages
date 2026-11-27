@@ -191,7 +191,7 @@ results remain unchanged.
 
 ## Bunyip Round 3
 
-[Scope and freeze](../evaluation/cryptid/bunyip/round3/SCOPE.md) link the original Cryptid worker, scoring contract and four exact reader pins.
+[First results and preservation](../evaluation/cryptid/bunyip/round3/RESULTS.md) link the frozen inputs, four exact reader pins and original scores.
 
 ## Primary Book Test
 

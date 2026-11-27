@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `40d82a5cf4497a36e7061412861a600fe8602e57` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `3d751c8b6015c35b9be2feaed8ca4a3e584783acfdb84f4042535f74251b74dc`.
+Base commit: `62a6ed78832522f1038e2dea4ccfe48b29586cb0` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `c154dcf8b8f8c346b30e731989323f6f439ec2ca17376f9e28e8ac54947d5502`.
 
 ## Betty report for Al
 
@@ -44,18 +44,22 @@ Run the Betty implementation step first, then the Al review step in a separate c
 ### Implemented scope
 
 - Finish clean PR #113 reconciliation and close #106 unmerged. Freeze Bunyip Round 3 against unchanged released main and exact C3, Wampus and Thoth packages.
+- Retain and score the first four-reader comparison, replay the 832, BB and 96-case preservation cohorts, and publish exact archives and readback.
 
 ### Validation recorded
 
 - PR #113 all 11 exact-head checks passed. Merged tree is identical to the checked tree. All 48 changed files matched remote readback. PR #106 is closed unmerged with its historical body intact. Round 3 pins and synthetic freeze verified without running a reader.
+- All 48 diagnostic executions completed. Released main 5 complete, 1 checked partial and 5 withholds, with one attribution miss. All four arms had zero unsupported claim cases and zero errors. No valid outcomes were lost.
+- BB 900 exact positives and citations, 200 exact withholds. All 832 public contracts exact. All 96 consumed cases executed, with the 87/96 exact comparison and nine unchanged diagnostic fingerprints separately retained.
 
 ### Limitations and blocked checks
 
 - The independent and human labels remain NOT_RUN. The original 17 private checks remain incomplete and original 100 transfers remain NOT_RUN. Recovery is INTERRUPTED / UNRECOVERED. Publication incident OPEN. Round 3 preparation/scoring same-operator.
+- D03-A retrieved both witnesses but attribution admission stopped in interpretation. Wrong-reporter control also stopped before proof. No repair or consolidation was measured.
 
 ### Next steps
 
-- Run frozen Round 3 and preservation cohorts under the existing harness. Check PR #113 Pages as its workflow completes. Archive first outputs, grade and select at most one justified repair.
+- Run unchanged exact-head release and archive checks for the evidence PR, download and compare the pushed files, merge if qualified and verify Pages. A separate follow-up may distinguish generic and named-source attribution adjuncts with proof-stage contrasts.
 
 ## Use this ZIP in your repository
 
