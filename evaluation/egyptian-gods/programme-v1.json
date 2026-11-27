@@ -1,0 +1,158 @@
+{
+  "schema": "mplpb-egyptian-programme-v1",
+  "apparatus": {
+    "worker": "tools/cryptid_trial_v5.py",
+    "claim_scorer": "tools/cryptid_claim_score_v5.py",
+    "case_manifest": "cryptid-case-registry-v1",
+    "budgets": "existing Cryptid worker and reader caps",
+    "sequence": [
+      "base",
+      "combinations",
+      "fresh-transfer",
+      "end-to-end-io"
+    ],
+    "phase_labels": [
+      "development",
+      "consumed-preservation",
+      "fresh-transfer"
+    ],
+    "custody": "Same-operator synthetic authoring, evaluator key outside worker. Independent evaluation NOT_RUN."
+  },
+  "families": [
+    {
+      "name": "Thoth",
+      "responsibility": "terminal punctuation, location interpretation, and named compound partials",
+      "record": "thoth/RESULTS.md",
+      "registry_paths": [
+        "thoth/development/registry.json",
+        "thoth/fresh/registry.json"
+      ],
+      "tested_runtime": "6ec348b31ec79e37def77a7019cd22102df85f93",
+      "first_fresh": {
+        "complete": 6,
+        "checked_partial": 3,
+        "withhold": 3
+      },
+      "status": "historical-consumed"
+    },
+    {
+      "name": "Seshat",
+      "responsibility": "printed writer, recorder, reporter and embedded author",
+      "record": "attribution-scope/RESULTS.md",
+      "registry_paths": [
+        "attribution-scope/seshat/development/registry.json",
+        "attribution-scope/seshat/fresh/registry.json"
+      ],
+      "tested_runtime": "426791113348b259797223316f6ca2d6e6b7ccb8",
+      "first_fresh": {
+        "complete": 3,
+        "checked_partial": 0,
+        "withhold": 3
+      },
+      "status": "historical-consumed"
+    },
+    {
+      "name": "Anubis",
+      "responsibility": "outer reporting negation and embedded negation",
+      "record": "attribution-scope/RESULTS.md",
+      "registry_paths": [
+        "attribution-scope/anubis/development/registry.json",
+        "attribution-scope/anubis/fresh/registry.json"
+      ],
+      "tested_runtime": "426791113348b259797223316f6ca2d6e6b7ccb8",
+      "first_fresh": {
+        "complete": 3,
+        "checked_partial": 0,
+        "withhold": 3
+      },
+      "status": "historical-consumed"
+    },
+    {
+      "name": "Horus",
+      "responsibility": "source conditions, instruction, permission and intended versus completed action",
+      "record": "attribution-scope/RESULTS.md",
+      "registry_paths": [
+        "attribution-scope/horus/development/registry.json",
+        "attribution-scope/horus/fresh/registry.json"
+      ],
+      "tested_runtime": "426791113348b259797223316f6ca2d6e6b7ccb8",
+      "first_fresh": {
+        "complete": 3,
+        "checked_partial": 0,
+        "withhold": 3
+      },
+      "status": "historical-consumed"
+    },
+    {
+      "name": "Bunyip Round 4",
+      "responsibility": "recognize terminal generic attribution without dropping a named constraint",
+      "record": "../cryptid/bunyip/round4/RESULTS.md",
+      "registry_paths": [
+        "../cryptid/bunyip/round4/diagnostic/registry.json",
+        "../cryptid/bunyip/round4/fresh/registry.json"
+      ],
+      "tested_runtime": "568b44c5fcba9fa65bb29e045a1e1080cfebb709",
+      "first_fresh": {
+        "complete": 2,
+        "checked_partial": 0,
+        "withhold": 4,
+        "checked_conflict": 1,
+        "miss": 1
+      },
+      "status": "first-implementation-recorded"
+    },
+    {
+      "name": "Bastet",
+      "stage": "base",
+      "responsibility": "named selection of one eligible printed report writer independently of the reported speaker",
+      "generator": "bastet/prepare.py",
+      "registry_paths": [
+        "bastet/development/registry.json",
+        "bastet/fresh/registry.json"
+      ],
+      "status": "prospective-frozen",
+      "first_fresh": "NOT_RUN",
+      "baseline": "bastet/baseline.json",
+      "development_lead": {
+        "id": "BUNYIP-R4-F05",
+        "role": "consumed-development",
+        "record": "../cryptid/bunyip/round4/evidence/fresh-candidate-score.json",
+        "first_outcome": "miss",
+        "raw_sha256": "77c9b7c8779e586d7769b780434a2c68eaa813434a530e3886be5e0fc4442c92",
+        "registry_sha256": "0cec1f60b6a643f894d52c7bfd8d3edcbbd1ed7f50d11a8fb2f95efa8c4e0fab",
+        "original_diagnostic": "interpretation_unsupported",
+        "required_witnesses_discovered": true
+      },
+      "first_development": "NOT_RUN",
+      "matches_per_draw": {
+        "pairs": 6,
+        "cases": 12,
+        "expected_completes": 6,
+        "expected_withholds": 6
+      },
+      "distinct_questions": {
+        "development": 4,
+        "fresh": 4
+      }
+    }
+  ],
+  "next_combinations": [
+    {
+      "name": "writer-plus-polarity",
+      "requires": [
+        "Bastet",
+        "Seshat",
+        "Anubis"
+      ],
+      "obligation": "Report the scoped denial in the uniquely selected original and withhold a contrary or misattributed claim."
+    },
+    {
+      "name": "writer-plus-condition-and-conflict",
+      "requires": [
+        "Bastet",
+        "Horus"
+      ],
+      "obligation": "Keep conditions and both eligible sides visible. Preserve a checked partial when another independently requested field lacks a witness."
+    }
+  ]
+}

@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `0f07ac5a38863146ef92c8281ed52f60e8d72aa7` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `a40011830d733224855ef41f6b4c12dbac47ed5c1bede875121b37a90b7b07cf`.
+Base commit: `d8d4cd5c4c4f3abd1ff1325868f0d16714b24eab` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `cdea345649559e5fdbbc1a7cb6c8474c3a3aa7c5e3fced1711699e6907fc732a`.
 
 ## Betty report for Al
 
@@ -13,57 +13,52 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-> Betty; start **Bunyip Round 4: attribution interpretation and proof**, using released main as the baseline.
->
-> Investigate Round 3’s remaining attribution miss. Trace where the question stopped: parsing, source selection, attribution proof, or final admission. Preserve the original miss and first result.
->
-> **Freeze a small diagnostic set before execution**, distinguishing:
->
-> - A generic source adjunct, such as “according to the record.”
-> - A named-source constraint, such as “according to Reporter A.”
-> - A wrong-reporter contrast where the requested attribution is unsupported.
->
-> Include supported answers, relevant conflicts, and cases that must withhold. Require citations and correct attribution. A wrong-reporter case that stops at interpretation does not demonstrate working attribution proof.
->
-> Pin inputs, expected contracts, scorer, runtime, and case IDs. Record distinct questions separately from executions and disclose preparation and scoring custody.
->
-> Run the unchanged baseline first. If the evidence justifies a repair, freeze a separate fresh comparison before implementation and make one bounded change. Preserve specialized proof requirements. Measure wording coverage separately from any reduction in duplicated logic.
->
-> After freezing the candidate, run the fresh comparison once and preserve its first score. Do not repair against those results while continuing to call them fresh.
->
-> Verify the affected focused tests, retained Bunyip/Wampus/Thoth contracts, 832 public contracts, BB positives/citations and withholds, and applicable release checks. Keep existing diagnostic exceptions within their authorized scope.
->
-> Push recoverable checkpoints before long runs. Include publishable fixtures, generators, runtime pins, raw results, failures, scoring records, and checksum inventories. Verify remote byte readback and update HANDOFF, CURRENT_STATUS, and the Test Index.
->
-> Existing authorization covers push, merge after applicable checks pass, and deployment verification. If no justified repair emerges, publish and merge the assessment as evidence without changing the reader.
->
-> Keep the effect-controller lab unchanged during this sprint. Finish with the diagnosed cause, measured gains, preservation results, remaining misses, PR and commit links, and merge/deployment status.
+Alongside Round 4, establish an Egyptian-series registry modeled on the Cryptid programme. Inventory existing families, retain their original results, and define the next Bast set around a specific uncovered responsibility.
+
+Build deterministic generators, stable case IDs, frozen expectations, positive/negative pairs, and reproducible manifests. Distinguish development, consumed preservation, and fresh transfer.
+
+Finish each family with end-to-end I/O checks: actual source inputs and questions must produce the expected answer status, supported fields, citations, unresolved fields, and diagnostics. Keep execution failures separate from reader misses.
+
+Use Round 4’s attribution work as the first bounded implementation task. Freeze the wider programme now; execute it in small batches after each preceding result is recorded. Preserve failures and custody limits, then push and merge qualifying work under existing authorization.
+
+**Round 4 produced a bounded gain:** one additional fresh complete answer, with prior valid outcomes preserved. The wrong-reporter controls now reaching proof is useful evidence; their earlier withholding alone did not establish that distinction worked.
+
+For Bastet, my proposed rule is:
+
+**The printed writer may select an eligible document; the embedded reporter determines attribution of the statement.**
+
+Selecting Alice’s document must not turn Bob’s reported statement into Alice’s statement.
+
+Betty should freeze matched cases covering:
+
+- One eligible document with the requested printed writer.
+- The same document with a different embedded reporter.
+- Two eligible documents sharing that writer; uniqueness is unresolved.
+- A writer’s name appearing only in quoted content.
+- Missing or conflicting writer information.
+- A correct document selection paired with an unsupported reporter attribution.
+
+Record document selection and claim attribution separately. Require the full source-to-answer I/O contract, including citations and withholding reasons.
+
+Finish #115’s checks, merge, and deployment verification first. Then pin that released reader as Bastet’s baseline. Preserve the named-source miss as a development case; use separately frozen cases for the fresh comparison.
+
+The retained scorer errors and corrected coordinate readback should stay visible together. The original 87/96 result and its narrowly scoped diagnostic policy remain unchanged.
 
 ### Implemented scope
 
-- Verify released main and freeze Round 4 attribution diagnosis under eight new IDs. Keep Round 3 results and the controller lab unchanged.
-- Preserve eight original baseline executions and first score. Freeze the separate fresh arm and the bounded parser proposal before any reader change.
-- Extend only the whole reporting-object pattern with the frozen generic terminal adjunct. Preserve the original authority question and all native proof gates.
-- Publish the first fresh pair, unchanged diagnostic raw responses, versioned coordinate scoring, frozen runtime, and 832/BB/96 preservation.
+- After verifying PR #115 deployment, register the Egyptian programme, freeze Bastet development and fresh cases with separate keys, and retain Round 4 F05 as consumed development.
 
 ### Validation recorded
 
-- Remote main matches the verified released commit 39df3d14. Original Round 3 D03-A found both required passages and stopped before native attribution proof. Packet, key seal, runtime and runner verified without a new reader run.
-- Baseline reached proof for bare attribution, bare wrong-reporter and opposed evidence. It missed generic and named positives before proof. The first score flagged two coordinate discrepancies. A separately versioned recheck of the unchanged raw outputs verified one valid complete answer, one cited conflict, four withholds and two misses.
-- All 30 focused reported-content and ordinary-question tests passed on the scoped patch.
-- Frozen native candidate 568b44c5fcba9fa65bb29e045a1e1080cfebb709, scoped ZIP SHA-256 f7aa5541e1114722fac62b09ba0323a1400b0d3af2eb7de61d33f17ae3a283b7.
-- Eight diagnostic executions and 16 fresh paired executions completed on 14 distinct question strings. Fresh completes 1 to 2, cited conflicts 1 to 1, withholds 4 to 4, misses 2 to 1. Zero unsupported or lost valid outcomes, zero errors. The generic wrong reporter and competing objects withheld at attribution proof.
-- All 832 public contracts match exactly. BB 900/900 positive plus eligible citations and 200/200 controls. All 96 retained cases executed, reproducing the historical 87/96 strict result and all nine pinned normalized diagnostic refusal fingerprints.
+- PR #115 passed all 11 checks and the live Chromium, preview hash and native-module checks. Bastet baseline is the verified released merge. Generated and verified six matched pairs per draw with no execution yet.
 
 ### Limitations and blocked checks
 
-- Same-operator synthetic design and scoring. Independent and human evaluations remain NOT_RUN. Original 17 checks incomplete, 100 transfers NOT_RUN and publication incident open.
-- Named-source requests have no verified named-source selector in this experiment. The correction to evaluator coordinates leaves frozen semantic expectations intact.
-- The true named-source target still misses before proof. Neither the named negative nor the terminal generic gain verifies a named selector. Same-operator fresh authoring and scoring.
+- Bastet named selection and attribution remain unmeasured at the freeze. Fresh transfer and independent evaluation NOT_RUN. Original incomplete evidence and publication incident remain unchanged.
 
 ### Next steps
 
-- Complete the unchanged exact-head CI, verify remote downloads, merge only after applicable checks, then verify Pages at the merged commit. Do not tune the first fresh packet.
+- Run only the frozen Bastet development arm and record selection, attribution and withhold reasons separately. Keep fresh reserved for a later committed candidate.
 
 ## Use this ZIP in your repository
 

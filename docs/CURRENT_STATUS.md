@@ -25,6 +25,15 @@ PR #111 kept the controller lab-only, with reader and production workflow
 bytes unchanged. Its Pages receipt records the site build at the merge.
 [PR #111 engineering milestone](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/111)
 
+## Egyptian-series programme and Bastet
+
+[Programme registry](../evaluation/egyptian-gods/PROGRAMME.md) retains the
+historical families and records the next six matched Bastet pairs per
+draw. [Bastet baseline](../evaluation/egyptian-gods/bastet/baseline.json)
+pins the deployed Round 4 reader. Named-source development will run first.
+Fresh transfer remains NOT_RUN.
+
+
 ## Bunyip Round 4 attribution interpretation and proof
 
 [First scores and preservation](../evaluation/cryptid/bunyip/round4/RESULTS.md) record eight diagnostic and
