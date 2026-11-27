@@ -84,6 +84,13 @@ answer misses and shows safe withholding separately from selection proof.
 link both candidate draws, raw results, the first public-preservation
 failure and its successful retry.
 
+## Heka-01 evidence-to-Git lab
+
+[Heka-01](../evaluation/egyptian-gods/heka-01/README.md) composes Bastet proof with a
+separately authorized disposable Git CAS. The first fresh packet matched
+13/13 phases. Two development diagnostic discrepancies remain open.
+No production dispatcher or release policy changed.
+
 ## Egyptian-gods attribution and scope batch
 
 [Bounded Seshat, Anubis and Horus results](../evaluation/egyptian-gods/attribution-scope/RESULTS.md)

@@ -205,6 +205,13 @@ family receipts. [Bastet results](../evaluation/egyptian-gods/bastet/SELECTION_R
 measure named-document selection and report attribution separately, with
 the first fresh score and preservation retained.
 
+## Heka-01 evidence-to-Git lab
+
+[Heka-01](../evaluation/egyptian-gods/heka-01/README.md) composes Bastet proof with a
+separately authorized disposable Git CAS. The first fresh packet matched
+13/13 phases. Two development diagnostic discrepancies remain open.
+No production dispatcher or release policy changed.
+
 ## Bunyip Round 4
 
 [Attribution results](../evaluation/cryptid/bunyip/round4/RESULTS.md) link the first diagnostic, versioned

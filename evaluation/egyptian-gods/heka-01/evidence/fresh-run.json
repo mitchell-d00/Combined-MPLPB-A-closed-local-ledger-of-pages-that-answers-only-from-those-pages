@@ -1,0 +1,1077 @@
+{
+  "mode": "candidate",
+  "draw": "F",
+  "inputs_sha256": "061531d94f63797ddb867d45d7aca8016ef6efc9a78d89a4d6104f349789b63a",
+  "cases": [
+    {
+      "id": "HEKA-F-01",
+      "phases": [
+        {
+          "pid": 59634,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-01/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 1,
+          "writes": 1,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+            "obligation": {
+              "writer": "Fara Linden",
+              "reporter": "Uma Brooks",
+              "author": "Evan Quill",
+              "object": "the herbarium catalogue",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "608932780d8c9c2f5e230c5674bd6b793979d62dae447c4be044928b3a7f89fc",
+            "proof": "2e08566bd357478cf72d8ec7211dd91948b1f0a296869edfaf220b72d9f91334",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-01/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-e38fb2a480e249a4bc46453d46930defb1fc93b51227e0f5d24ce680984fa468"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "workerReadback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "code": "interrupted",
+          "execution": "indeterminate",
+          "process": {
+            "code": 74,
+            "signal": null,
+            "completionReceipt": false
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "pending"
+        },
+        {
+          "pid": 59770,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-01/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+            "obligation": {
+              "writer": "Fara Linden",
+              "reporter": "Uma Brooks",
+              "author": "Evan Quill",
+              "object": "the herbarium catalogue",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "608932780d8c9c2f5e230c5674bd6b793979d62dae447c4be044928b3a7f89fc",
+            "proof": "2e08566bd357478cf72d8ec7211dd91948b1f0a296869edfaf220b72d9f91334",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-01/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-e38fb2a480e249a4bc46453d46930defb1fc93b51227e0f5d24ce680984fa468"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "pending",
+          "code": "reservation_indeterminate",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "pending"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-F-02",
+      "phases": [
+        {
+          "pid": 59922,
+          "authority": "absent",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-02/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+            "obligation": {
+              "writer": "Fara Linden",
+              "reporter": "Uma Brooks",
+              "author": "Evan Quill",
+              "object": "the herbarium catalogue",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "608932780d8c9c2f5e230c5674bd6b793979d62dae447c4be044928b3a7f89fc",
+            "proof": "2e08566bd357478cf72d8ec7211dd91948b1f0a296869edfaf220b72d9f91334",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-02/store"
+            }
+          },
+          "admission": {
+            "decision": "withhold",
+            "code": "not_authorized",
+            "selected": {
+              "report": "report-1",
+              "grant": null
+            },
+            "receiptIds": [],
+            "missing": [],
+            "scope": null
+          },
+          "code": "grant_missing",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-F-03",
+      "phases": [
+        {
+          "pid": 60071,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-03/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+            "obligation": {
+              "writer": "Fara Linden",
+              "reporter": "Uma Brooks",
+              "author": "Evan Quill",
+              "object": "the herbarium catalogue",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "608932780d8c9c2f5e230c5674bd6b793979d62dae447c4be044928b3a7f89fc",
+            "proof": "2e08566bd357478cf72d8ec7211dd91948b1f0a296869edfaf220b72d9f91334",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-03/store"
+            }
+          },
+          "admission": {
+            "decision": "withhold",
+            "code": "revision_mismatch",
+            "selected": {
+              "report": null,
+              "grant": null
+            },
+            "receiptIds": [],
+            "missing": [],
+            "scope": null
+          },
+          "code": "revision_mismatch",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-F-04",
+      "phases": [
+        {
+          "pid": 60201,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-04/store"
+          },
+          "proof": "named_report_source_unresolved",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": null,
+          "code": "proof_incomplete",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-F-05",
+      "phases": [
+        {
+          "pid": 60340,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-05/store"
+          },
+          "proof": "named_report_content_unresolved",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": null,
+          "code": "proof_incomplete",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-F-06",
+      "phases": [
+        {
+          "pid": 60499,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-06/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+            "obligation": {
+              "writer": "Fara Linden",
+              "reporter": "Uma Brooks",
+              "author": "Evan Quill",
+              "object": "the herbarium catalogue",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "608932780d8c9c2f5e230c5674bd6b793979d62dae447c4be044928b3a7f89fc",
+            "proof": "2e08566bd357478cf72d8ec7211dd91948b1f0a296869edfaf220b72d9f91334",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-06/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-cb1f738a1ad7912f195b32c9d5f2215aa188afe9a6907243fbc959b26dd2ff7a"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unavailable",
+          "code": "reservation_unavailable",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unavailable"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-F-07",
+      "phases": [
+        {
+          "pid": 60654,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-07/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 1,
+          "writes": 0,
+          "competingWrites": 1,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+            "obligation": {
+              "writer": "Fara Linden",
+              "reporter": "Uma Brooks",
+              "author": "Evan Quill",
+              "object": "the herbarium catalogue",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "608932780d8c9c2f5e230c5674bd6b793979d62dae447c4be044928b3a7f89fc",
+            "proof": "2e08566bd357478cf72d8ec7211dd91948b1f0a296869edfaf220b72d9f91334",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-07/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-d36d3a1fbb8ccc746cef45cdf8de37a08b280cca239fda0490837d09c4d04725"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "workerReadback": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "controller": {
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "heka-d36d3a1fbb8ccc746cef45cdf8de37a08b280cca239fda0490837d09c4d04725"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "failed"
+          },
+          "code": "allowed",
+          "execution": "failed",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "ref": "competing",
+          "store": "failed"
+        },
+        {
+          "pid": 60715,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-07/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+            "obligation": {
+              "writer": "Fara Linden",
+              "reporter": "Uma Brooks",
+              "author": "Evan Quill",
+              "object": "the herbarium catalogue",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "608932780d8c9c2f5e230c5674bd6b793979d62dae447c4be044928b3a7f89fc",
+            "proof": "2e08566bd357478cf72d8ec7211dd91948b1f0a296869edfaf220b72d9f91334",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-07/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-d36d3a1fbb8ccc746cef45cdf8de37a08b280cca239fda0490837d09c4d04725"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "failed",
+          "code": "duplicate_request",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "readback": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "ref": "competing",
+          "store": "failed"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-F-08",
+      "phases": [
+        {
+          "pid": 60759,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-08/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 1,
+          "writes": 1,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+            "obligation": {
+              "writer": "Fara Linden",
+              "reporter": "Uma Brooks",
+              "author": "Evan Quill",
+              "object": "the herbarium catalogue",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "608932780d8c9c2f5e230c5674bd6b793979d62dae447c4be044928b3a7f89fc",
+            "proof": "2e08566bd357478cf72d8ec7211dd91948b1f0a296869edfaf220b72d9f91334",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-08/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-495ec7cdff18c7a614aab29f41309e457ea9c5d606feb06f52a65d1818306d10"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "workerReadback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "controller": {
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "heka-495ec7cdff18c7a614aab29f41309e457ea9c5d606feb06f52a65d1818306d10"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "completed"
+          },
+          "code": "allowed",
+          "execution": "completed",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "completed"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-F-09",
+      "phases": [
+        {
+          "pid": 60809,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-09/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+            "obligation": {
+              "writer": "Fara Linden",
+              "reporter": "Uma Brooks",
+              "author": "Evan Quill",
+              "object": "the herbarium catalogue",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "608932780d8c9c2f5e230c5674bd6b793979d62dae447c4be044928b3a7f89fc",
+            "proof": "2e08566bd357478cf72d8ec7211dd91948b1f0a296869edfaf220b72d9f91334",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-09/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-38090434c841f055d6f1493f05c7b3a8a87a21d01d8627a88f19bf6b1b1759b1"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "controller": {
+            "verdict": {
+              "decision": "missing_evidence",
+              "code": "missing_check",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [],
+              "missing": [
+                "canary-ready"
+              ],
+              "scope": null
+            },
+            "execution": "not_run"
+          },
+          "code": "evidence_changed",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-F-10",
+      "phases": [
+        {
+          "pid": 60857,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-10/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 1,
+          "writes": 1,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+            "obligation": {
+              "writer": "Fara Linden",
+              "reporter": "Uma Brooks",
+              "author": "Evan Quill",
+              "object": "the herbarium catalogue",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "608932780d8c9c2f5e230c5674bd6b793979d62dae447c4be044928b3a7f89fc",
+            "proof": "2e08566bd357478cf72d8ec7211dd91948b1f0a296869edfaf220b72d9f91334",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-10/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-478c9321a4775db2119b7edf6a488123947912fff462b9426b3f0f27aabfd451"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "workerReadback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "controller": {
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "heka-478c9321a4775db2119b7edf6a488123947912fff462b9426b3f0f27aabfd451"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "completed"
+          },
+          "code": "allowed",
+          "execution": "completed",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "completed"
+        },
+        {
+          "pid": 60880,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-10/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+            "obligation": {
+              "writer": "Fara Linden",
+              "reporter": "Uma Brooks",
+              "author": "Evan Quill",
+              "object": "the herbarium catalogue",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "608932780d8c9c2f5e230c5674bd6b793979d62dae447c4be044928b3a7f89fc",
+            "proof": "2e08566bd357478cf72d8ec7211dd91948b1f0a296869edfaf220b72d9f91334",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/fresh/HEKA-F-10/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-478c9321a4775db2119b7edf6a488123947912fff462b9426b3f0f27aabfd451"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "completed",
+          "code": "duplicate_request",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "completed"
+        }
+      ]
+    }
+  ]
+}

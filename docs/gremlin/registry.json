@@ -304,6 +304,24 @@
         "handoff/al-notes/README.md"
       ],
       "note": "Advice, authorization and applied results are distinct; role labels do not authenticate."
+    },
+    {
+      "id": "heka-01",
+      "label": "Heka evidence-to-Git lab",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "lab-only",
+      "paths": [
+        "evaluation/egyptian-gods/heka-01"
+      ],
+      "evidence": [
+        "evaluation/egyptian-gods/heka-01/README.md",
+        "evaluation/egyptian-gods/heka-01/freeze.json"
+      ],
+      "note": "First fresh exact phases passed; two development diagnostic discrepancies are retained. No production dispatcher."
     }
   ],
   "relations": [
@@ -466,6 +484,39 @@
         "handoff/al-notes/README.md"
       ],
       "note": "Note 0001 records Gremlin scope, the explicit M override and Betty continuation."
+    },
+    {
+      "from": "heka-01",
+      "to": "reader",
+      "kind": "depends_on",
+      "basis": "source",
+      "evidence": [
+        "evaluation/egyptian-gods/heka-01/bridge.mjs",
+        "evaluation/egyptian-gods/heka-01/reader.py"
+      ],
+      "note": "Lab-only composition using the unchanged pinned interface."
+    },
+    {
+      "from": "heka-01",
+      "to": "workflow-controller",
+      "kind": "depends_on",
+      "basis": "source",
+      "evidence": [
+        "evaluation/egyptian-gods/heka-01/bridge.mjs",
+        "evaluation/egyptian-gods/heka-01/reader.py"
+      ],
+      "note": "Lab-only composition using the unchanged pinned interface."
+    },
+    {
+      "from": "heka-01",
+      "to": "restart-store",
+      "kind": "depends_on",
+      "basis": "source",
+      "evidence": [
+        "evaluation/egyptian-gods/heka-01/bridge.mjs",
+        "evaluation/egyptian-gods/heka-01/reader.py"
+      ],
+      "note": "Lab-only composition using the unchanged pinned interface."
     }
   ],
   "open_work": [
