@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `115c67d927332335a7b476d3974b0f7c47848659` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `42010faaacf4dce1389471d529245611f023427efa24c40e66fead338b70c884`.
+Base commit: `5dfa6b7316c19b8d993c18aaad7774467fd68ec9` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `fb49011c45ac3cc24d09860b3a0b1483f7ae9421a64e30fb9b0300942f421cd9`.
 
 ## Betty report for Al
 
@@ -13,7 +13,7 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Retire recovery of unavailable original Bunyip custody material. Inventory and freeze the full reproducible Cryptid replay against the released reader and pinned PR 110 candidate. Include BB, score original expectations, keep the separate diagnostic proposal inactive, and preserve the historical and incident records.
+Continue rebuilding from the recorded seeds and pinned generator revision, including the original parameters and source-state settings. Compare regenerated inputs and keys against the retained hashes or seals. Exact matches restore those cases to the replay inventory. Record the regeneration receipt and run them under their original IDs and expectations. If any bytes differ or cannot be verified, label that reconstruction separately. Keep original execution statuses unchanged until the restored cases actually run. Revise the proposed retirement list after this check; retire only what remains unrecoverable.
 
 ### Implemented scope
 
@@ -24,6 +24,7 @@ Retire recovery of unavailable original Bunyip custody material. Inventory and f
 - Route the bounded subject-before-modal permission request through the existing permission proof. The first Horus score and archive remain retained.
 - Prepare the inactive PR110 narrow diagnostic compatibility proposal. Keep active gates and reader bytes unchanged.
 - Freeze the full reproducible inventory: 55 registry cohorts, 248 original D% cases via verified original seals, BB, and the overlapping 832 public preservation contracts.
+- Restore the original 444-case fully enumerated primary packet to the Cryptid replay inventory. Freeze the exact reconstitution and keep evaluator keys out of the hosted worker and public artifacts.
 
 ### Validation recorded
 
@@ -36,16 +37,19 @@ Retire recovery of unavailable original Bunyip custody material. Inventory and f
 - Capability gate 52/52, public preservation 832/832, BB 900 exact positives and citations and 200 exact withholds. The untouched retained exact check scored 87/96. Readback shows only diagnostic changes on nine unchanged abstentions. All 46 prior claim-bearing contracts matched.
 - Raw readback verified 96/96 executions, 87 exact contracts, 46 exact prior claim-bearing contracts and only the nine listed diagnostic changes. Direct source and presentation consumer probes recorded. The prior documentation check found two frozen metadata files not classified; register their unaltered byte hashes.
 - All seven registry groups completed. The D% first hosted job stopped at the archive layout assertion before any D% worker ran. Preserve the failure. Retry only the two original public D% packets, staging seal-listed public members with exact original fingerprints from the legacy archives. No evaluator member reaches the worker or the new artifact.
+- The primary rebuild matched all 962 archived public files including the seal, as well as the original key, dice, pairing, generator, runner, worker and scorer fingerprints. The 128 other exposed development inputs match their public seals, but no matching original keys were recovered.
+- The first two D% replay attempts stopped in setup before any reader ran. The second had valid public packet bytes but lacked the checkout identity D% records. Restore the original host checkout setup while keeping the Bubblewrap worker mounts unchanged.
+- The two-lane public 832 job completed. BB matched 900 original positives and citations and 200 withholds per reader. The seven registry groups scored 899 exact contracts, 18 new original-key passes, and 24 diagnostic-only abstention differences across 941 paired memberships.
 
 ### Limitations and blocked checks
 
 - Fresh packets and scoring keys stay in separate local custody. Preparation and scoring are same-operator. Independent/human measures NOT_RUN. Original 17 checks incomplete, 100 held cases NOT_RUN and historical publication incident separately OPEN.
 - Held: unchanged 96-case exact comparator failed on nine refusal diagnostic differences. An automatic review rejected the proposed preservation workflow and acceptance change. The original acceptance script was run unchanged. Candidate and raw evidence are pinned. The live reader remains the released Thoth pin a442c8f0.
-- Original custody recovery is retired due to unavailable material. Original 17 remain incomplete, original 100 NOT_RUN and original exposed development key unavailable. Historical exposure remains OPEN separately.
+- Archive incidence remains open separately. The 17 original private checks remain incomplete and the original 36 routing and 64 cross-family held cases remain NOT_RUN. The original 128 other exposed development cases have verified input bytes but no verified original keys. No historical status changes from the primary rebuild.
 
 ### Next steps
 
-- Verify retained cohort uploads, score original D% keys separately and publish the reproducible replay findings. Nine-case diagnostic proposal remains inactive.
+- Replay and privately score the 444 exact restored primary cases and the two unchanged D% draws using the original scorer, then publish verified receipts and update the PR report. Diagnostic compatibility remains inactive.
 
 ## Use this ZIP in your repository
 

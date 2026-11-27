@@ -23,7 +23,7 @@ jobs:
           sudo apt-get install --yes --no-install-recommends bubblewrap
           sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$(command -v python)" -m unittest tests.test_study_sandbox -v
       - id: replay
-        name: Stage only seal-listed public files and replay both readers
+        name: Replay the sealed D% draws and restored Round 2 primary
         run: |
           python - <<'PY'
           import hashlib, json, os, subprocess, sys, zipfile
@@ -36,20 +36,31 @@ jobs:
           output = base/'cryptid-dpercent'
           output.mkdir()
           (output/'manifest.sha256').write_text(digest(plan_bytes)+'\n')
+          supplement = Path('evaluation/cryptid/full-reproducible-replay/round2-primary-rebuild-freeze-v1.json').read_bytes()
+          rebuild = json.loads(supplement)
+          assert rebuild['coverage_manifest_sha256']==digest(plan_bytes)
+          (output/'round2-rebuild.sha256').write_text(digest(supplement)+'\n')
           packets = []
-          for spec in plan['special_cohorts']:
-              if spec['id'] not in {'bunyip-dpercent-development','bunyip-dpercent-fresh-consumed'}:
+          worker_hash = digest(Path('tools/dpercent_worker.py').read_bytes())
+          for spec in [*plan['special_cohorts'], rebuild['spec']]:
+              if spec['id'] not in {'bunyip-dpercent-development','bunyip-dpercent-fresh-consumed','bunyip-round2-primary'}:
                   continue
               label = spec['id']
-              record = Path(spec['seal']).read_bytes()
-              assert digest(record)==spec['seal_sha256']
-              seal = json.loads(record)['public_seal']
               raw = Path(spec['packet']).read_bytes()
               assert digest(raw)==spec['packet_sha256']
               public = base/label
               public.mkdir()
               with zipfile.ZipFile(Path(spec['packet'])) as original:
-                  assert json.loads(original.read('public/seal.json'))==seal
+                  public_seal = original.read('public/seal.json')
+                  seal = json.loads(public_seal)
+                  if label=='bunyip-round2-primary':
+                      assert digest(public_seal)==spec['public_seal_sha256']
+                      assert set(original.namelist())=={'public/seal.json', *('public/'+name for name in seal['public_files'])}
+                  else:
+                      record = Path(spec['seal']).read_bytes()
+                      assert digest(record)==spec['seal_sha256']
+                      assert seal==json.loads(record)['public_seal']
+                  assert seal['worker_sha256']==worker_hash
                   for relative, expected in seal['public_files'].items():
                       p = PurePosixPath(relative)
                       assert not p.is_absolute() and '..' not in p.parts and p.name not in {'key.json','dice.json','pairing.json'}
@@ -58,11 +69,11 @@ jobs:
                       target=public/relative
                       target.parent.mkdir(parents=True,exist_ok=True)
                       target.write_bytes(data)
-                  (public/'seal.json').write_bytes(original.read('public/seal.json'))
+                  (public/'seal.json').write_bytes(public_seal)
               packets.append((label,public))
-          assert len(packets)==2
+          assert len(packets)==3
           root = Path.cwd()
-          assert digest((root/'tools/dpercent_worker.py').read_bytes())==seal['worker_sha256']
+          git_objects = Path(subprocess.check_output(['git','rev-parse','--absolute-git-dir'],text=True).strip())/'objects'
           statuses = []
           for role, pin in plan['readers'].items():
               source = pin['commit']
@@ -75,10 +86,18 @@ jobs:
               runtime.mkdir()
               with zipfile.ZipFile(archive) as source_archive:
                   source_archive.extractall(runtime)
+              # The original runner records the host checkout identity. Its worker
+              # receives copies of the three packages and has no access to .git.
+              subprocess.run(['git','init','--quiet',str(runtime)],check=True)
+              (runtime/'.git/objects/info/alternates').write_text(str(git_objects)+'\n')
+              (runtime/'.git/HEAD').write_text(source+'\n')
+              assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=runtime,text=True).strip()==source
               stage=output/role
               stage.mkdir()
               for label, public in packets:
                   command=['sudo','env','MPLPB_REQUIRE_SANDBOX=1','PYTHONPATH='+str(root),sys.executable,
+                           'GIT_CONFIG_COUNT=2','GIT_CONFIG_KEY_0=safe.directory','GIT_CONFIG_VALUE_0='+str(root),
+                           'GIT_CONFIG_KEY_1=safe.directory','GIT_CONFIG_VALUE_1='+str(runtime),
                            '-m','tools.dpercent','run','--packets',str(public),'--out',str(stage/label),
                            '--implementation',str(runtime)]
                   with (stage/(label+'.log')).open('x') as log:
