@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `7279cc9b310712c341b1bab13ba8fa9ad17cd1b0` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `b8b7fd3ebbc3aab85b1860bb350e43bd0169a397b7e351d6f81d1ed26abfbecb`.
+Base commit: `d6104e617b736d52f91647981978cc2fc8a06018` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `0db550c874714646e8a1a3dc93465d5c84f71f813340f5cc4bd2996ddef81863`.
 
 ## Betty report for Al
 
@@ -22,6 +22,7 @@ Expand the current assignment into one bounded three-set Egyptian-gods batch. Pr
 - Anubis independently binds explicit denial of a report and denial inside the reported writing claim. A missing scoped witness withholds.
 - Horus binds an exact if-clause and the instruction or intention modality, or routes the explicit conditions-of-permission question to the existing policy proof. No condition fulfillment or execution authority is inferred.
 - Route the bounded subject-before-modal permission request through the existing permission proof. The first Horus score and archive remain retained.
+- Prepare the inactive PR110 narrow diagnostic compatibility proposal. Keep active gates and reader bytes unchanged.
 
 ### Validation recorded
 
@@ -32,6 +33,7 @@ Expand the current assignment into one bounded three-set Egyptian-gods batch. Pr
 - The cumulative development pin 426791113 scored 3/3 targets and 3/3 withholds in each set. Its native scoped ZIP matched local and hosted archive bytes. Both readers now run the three fresh arms together.
 - Frozen fresh compared the released and cumulative readers once per case. Seshat, Anubis and Horus each moved from 0/3 to 3/3 with 3/3 controls withheld. Zero useful partials, unsupported claims, lost valid targets or execution failures. No fresh-informed repair.
 - Capability gate 52/52, public preservation 832/832, BB 900 exact positives and citations and 200 exact withholds. The untouched retained exact check scored 87/96. Readback shows only diagnostic changes on nine unchanged abstentions. All 46 prior claim-bearing contracts matched.
+- Raw readback verified 96/96 executions, 87 exact contracts, 46 exact prior claim-bearing contracts and only the nine listed diagnostic changes. Direct source and presentation consumer probes recorded. The prior documentation check found two frozen metadata files not classified; register their unaltered byte hashes.
 
 ### Limitations and blocked checks
 
@@ -40,7 +42,7 @@ Expand the current assignment into one bounded three-set Egyptian-gods batch. Pr
 
 ### Next steps
 
-- The bounded batch is closed. For a separate release decision, review the nine refusal diagnostic deltas against a prospective, explicit contract, retain the original exact failure, and rerun applicable gates on the same pin. No release or deployment performed.
+- Await explicit Mitchell approval of proposal v1 SHA-256 22868e9f9604a4c3fee87226eecc7ef2aa5d5bdb1982eaa3c47e176b5d7ae97a before freezing and running it prospectively. The exact 87/96 failure remains.
 
 ## Use this ZIP in your repository
 
