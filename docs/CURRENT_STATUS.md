@@ -44,7 +44,7 @@ claims. The original Thoth reader evidence preserves all 832 public contracts,
 BB's 900 positive contracts and citations and 200 withholds, and 19 protected
 C3/Wampus outcomes. This is bounded software evidence with same-operator
 preparation and scoring. The [original PR #106](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/106)
-remains open and unmerged. Its historical evaluation is pinned at `961be47602c5e3ccb94459c106b3fa28754549bf`.
+remains unmerged. The PR records its review disposition. Its historical evaluation is pinned at `961be47602c5e3ccb94459c106b3fa28754549bf`.
 
 The original workspace recovery remains **INTERRUPTED / UNRECOVERED**. A
 separate pinned-generator rebuild restored the exact inputs and evaluator key

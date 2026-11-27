@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `e7680e6ee379456f1bc11b8b36ed68c20c4a7271` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `aa72e95fa0a18e98e66677a0904a8b2736afabd248dde71078e71c2a9a3fbdda`.
+Base commit: `d0c0ee333302a7c3cd1d35f4f9ae4d8366372dae` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `8f7d5c4c8a982f2f3e7db70877e4696482d426b6ecb01fedfbdcde1377c24008`.
 
 ## Betty report for Al
 
@@ -22,7 +22,7 @@ Add a dated current-status note above PR #106’s historical reports. Correct li
 
 ### Validation recorded
 
-- PR #106 is open and unmerged. Its historical description body was preserved byte for byte under the dated note. Verified merges and successful Pages receipts for PRs #109, #110 and #111. PR #112 merged separately after all 11 checks.
+- PR #106 was open and unmerged when the dated note was added. Its historical description body was preserved byte for byte under the dated note. Verified merges and successful Pages receipts for PRs #109, #110 and #111. PR #112 merged separately after all 11 checks.
 - Six historical 444-case primary output sets matched original strict per-case grades. Both replacement comparison score objects matched exactly using verified original keys in evaluator custody. No reader executions were added.
 
 ### Limitations and blocked checks
