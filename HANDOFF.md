@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `0aba797739ec4787cd677397036bc1d27581c529` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `664f3c8fe087bef5c754e251a6ef7ca06fba8e098c669bff4985a783ed410355`.
+Base commit: `ad60394f2a77d285fbe17f8ca9532b311660662c` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `a43d9b5e7cec2054e8c715cb823cc962d38a2a54b61b2d401a65d12c427958c2`.
 
 ## Betty report for Al
 
@@ -13,7 +13,7 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Archive the published From Workflow Decisions to Git Effects PDF unchanged. Freeze and measure restart duplication first. If needed, freeze a separate durable lab candidate. Retain the original results, preserve a recoverable checkpoint, and merge only after applicable checks pass.
+Archive the published From Workflow Decisions to Git Effects PDF unchanged. Freeze and measure restart duplication first. If needed, freeze a separate durable lab candidate. Retain the original results, preserve a recoverable checkpoint, and merge only after applicable checks pass. Add the six-part proposal-to-effect direction to TeamBuilding as a goal alongside language work.
 
 ### Implemented scope
 
@@ -21,6 +21,7 @@ Archive the published From Workflow Decisions to Git Effects PDF unchanged. Free
 - Keep the restart baseline and store experiment separate. Freeze the exclusive reservation, outcome readback, interruption, and no-retry policy before implementation.
 - Add a lab-only fsynced exclusive directory reservation wrapper with separate Git execution and readback receipts. Leave the original controller and release paths unchanged.
 - Preserve exact source and result archives, raw subprocess logs and outcome records, independent ref readbacks and disposable Git bundles. Add the study to the Test Index and paper archive.
+- Record the TeamBuilding goal and its separate admission, attempt, observation and durability states. Keep Git as the bounded tested adapter.
 
 ### Validation recorded
 

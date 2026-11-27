@@ -1,6 +1,6 @@
 # TeamBuilding
 
-Last reviewed: 2026-11-26.
+Last reviewed: 2026-11-27.
 
 Package role: [research method and reproducible evidence](PACKAGE_GUIDE.md#evidence-and-limits).
 
@@ -22,6 +22,37 @@ Keep three questions separate:
 MPLPB enforces its admission boundaries. Truth adjudication requires a separately
 defined evaluation. Connections can suggest an investigation; they do not
 automatically transfer evidence, permission or authority.
+
+## Goal for language, evidence and controlled effects
+
+Continue improving how the reader interprets ordinary language, including
+entities, relationships, attribution, negation and qualifications. Preserve the
+evidence and refusal boundaries as coverage grows. In parallel, develop a
+workflow that can carry a proposal through these six responsibilities.
+
+1. **Ledger.** Preserve claims, revisions, decisions and receipts.
+2. **Reader.** Interpret the request and recover its relevant evidence.
+3. **Policy.** Decide whether the exact action is admissible using the target
+   revision, applicable evidence and maintainer authority.
+4. **Executor.** Perform the authorized effect with safeguards specific to
+   the resource.
+5. **Readback.** Independently inspect what actually changed.
+6. **Recovery.** Retain reservations and reconcile interrupted operations
+   without repeating an unresolved request.
+
+**Admitted, attempted, observed and durably recorded are separate states.**
+An admission gives the applicable scope. An execution attempt may fail.
+Readback can show that a change occurred even when the completion receipt
+is absent. Preserve that uncertainty and the evidence needed to resolve it.
+
+Git is the first tested effect adapter. The lab exercises exact ref
+compare-and-swap, independent marker readback and duplicate protection
+across process restart under local storage assumptions. File writes,
+deployments and other services each need an executor suited to the resource,
+its own readback, and interruption tests. Each adapter's guarantee follows
+from its own evidence. Extend one effect boundary at a time. The current
+controller remains lab-only. Authentication and receipt provenance remain
+separate work. [Workflow and restart evidence](../evaluation/comparative-tests/workflow-controller/restart/README.md)
 
 ## Shared-rule criterion for Betty, Al and Outside
 
