@@ -46,6 +46,25 @@ BB is consumed external regression. Preparation and scoring were same-operator.
 Independent historical and semantic adjudication, external preparation/blinding,
 outside-custodian scoring, native OOCC and human onboarding stay NOT_RUN.
 
+## Clean-candidate browser repair
+
+The first Chromium probe expected a field caption on a supported documentary
+answer. The browser returned its correct documentary caption, SUPPORTED
+SOURCE ASSERTIONS. After measuring that distinction, the next probe
+caught a presentation failure on the period-terminated opening-time and
+location question. The reader emitted a checked partial, but the renderer
+threw `Cannot read properties of undefined (reading 'message')` because the
+unresolved named field had a status without an individual diagnostic.
+The renderer now displays the field's status and any diagnostic that exists.
+The existing renderer regression covers both contract shapes.
+
+The corrected local Chromium build returned one cited supported answer
+(F06-A), one cited checked partial with the unresolved field visible (F08-A),
+and one refusal with no citation (F10-B), with zero JavaScript page errors.
+These are product probes using the frozen synthetic questions and imported
+source text. The native package trees and their archived scores are unchanged.
+Exact-head release and live replication remain required.
+
 ## Separate publication incident
 
 | Question | Verified status on November 27 |

@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `04c3273729a3b1d3973e42b4461ee9a748e57b61` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `cc91ba7f1ed35020b3a746043495c81ce8030792d57e0abc182003692c11e5be`.
+Base commit: `1fbe43e9fda33b1b5cfeba77a9a3edf94bcb0380` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `c194975364cf42a36b163553d7a1ae2a39bc6d41595534e215fe7e7a9017348d`.
 
 ## Betty report for Al
 
@@ -43,6 +43,7 @@ Finish with a clear released or held result, commit and PR links, completed chec
 
 - Integrate the tested cumulative C3, Wampus and Thoth reader and reviewed refusal copy on current clean main f52ed384. Keep the PR #108 packaging and original PR #106 checkpoints.
 - Retain only the selected public evidence and record prospective release acceptance and the separate historical cleanup plan.
+- Render named compound field statuses even when there is no per-field diagnostic. Keep the verified citation and missing field visible. This is a browser presentation repair; the native release fingerprint is unchanged.
 
 ### Validation recorded
 
@@ -50,6 +51,7 @@ Finish with a clear released or held result, commit and PR links, completed chec
 - 42 focused Python tests and the documentary-rendering and museum refusal-copy checks passed. One initial local command named a nonexistent test module; the corrected command completed.
 - Retained same-runtime evidence covers 832 public contracts, BB 900 positives and citations/200 withholds, 19 protected contracts and all three C3 routing recoveries. Thoth scored 6 complete, 3 useful partial and 3 expected withholds on each frozen draw, zero unsupported claims.
 - The first clean-head source-tags run 45921394600 failed because the new evidence family lacked its department field. Assigned Egyptian gods to Testing and Evaluation and verified locally. Runtime bytes are unchanged. The sparse local JavaScript API probe lacked resources and did not complete. Exact-head CI runs from the complete checkout and ZIP.
+- First local Chromium attempt used a field caption for a supported documentary answer. The corrected probe found a missing optional diagnostic renderer failure on Thoth F08-A. After repair, the existing renderer, UI-script and refusal-copy checks passed. The candidate browser displayed the supported F06-A, checked partial F08-A and refusal F10-B; citations opened for the two supported portions and all three had zero page errors.
 
 ### Limitations and blocked checks
 

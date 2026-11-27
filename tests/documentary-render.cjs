@@ -34,6 +34,13 @@ assert(results.innerHTML.includes('Inspect the exact label.'));
 assert(results.innerHTML.includes('data-page="folio-1.html"'));
 assert(!results.innerHTML.includes('Source procedure inspection'));
 
+// Named compound fields carry a status and may omit an individual diagnostic.
+delete context.result.reader.answer_contract.question_parts[1].diagnostic;
+vm.runInContext('render(result)',context);
+assert(results.innerHTML.includes('PARTIAL SOURCE EVIDENCE'));
+assert(results.innerHTML.includes('<strong>shelf code</strong> · unresolved'));
+assert(results.innerHTML.includes('data-page="folio-1.html"'));
+
 // Verified field cards follow citation pins, not lexical retrieval order.
 const controls={results,
  'ask-reader-mode':{value:'supported'},'monster-reason':{checked:false}};
