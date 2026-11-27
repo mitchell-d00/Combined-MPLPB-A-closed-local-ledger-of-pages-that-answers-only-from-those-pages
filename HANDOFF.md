@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `9a4d2c09e9e31529867252779a2d15a7d998f985` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `100b079aaaa57271975df711579087596c69f33cf68e15bc68b87836157c93ed`.
+Base commit: `4d5f4a4f31ac8161570a4910270b3e2c83b3115e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `b667d1c2ec27c1e32b2b0f015da81a4ba8bbc4aeb339904e0e915cc884490343`.
 
 ## Betty report for Al
 
@@ -13,25 +13,29 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Do it
+Just give me a Betty prompt this time and note it in Al notes
 
 ### Implemented scope
 
-- Read Al note 0003 at a36cc00a52d28588e22a1e0faa5e6451451976fa and apply Heka-01 in disposable local Git fixtures. Reader, original controller and reservation code unchanged.
+- Publish Al note 0004 with a focused Betty prompt reviewing the two Heka-01 withdrawal diagnostic differences.
+- Preserve all native implementation, packet/key/scorer bytes and first scores; advice does not authorize silent acceptance-policy changes.
+- Keep the Heka-01 implementation and its working state on parent PR 120; this advisory branch targets that branch, not an independent release to main.
 
 ### Validation recorded
 
-- Freeze 161d9100d preceded the baseline and bridge. The first Node/Python pipe capture preflight was retained; file-backed capture enabled actual runs.
-- Pinned candidate 9a4d2c09e9e31529867252779a2d15a7d998f985. Disconnected baseline 10/11 exact phases and zero writes. Development 12/14; first fresh 13/13. Neither development diagnostic mismatch reached the writer.
-- Competing CAS preserved the competing ref. Restart withheld known duplicates and preserved indeterminate post-Git completion. Controller and restart replay matched all frozen current grades.
+- Read PR 120 at 4d5f4a4f, frozen CONTRACT.md, grade.py and the retained development score. The only scored differences are D-04 proof and D-07 recheck codes.
+- No reader or effect experiment was executed. This update does not relabel a failing exact grade or activate production dispatch.
 
 ### Limitations and blocked checks
 
-- Same operator authored and scored. Keys are held locally in private workspace custody. Host identity, provenance and a cross-resource transaction are outside the lab evidence. Original unsupported or incomplete states remain in their recorded scopes.
+- Original baseline 10/11, development 12/14 and first fresh 13/13 remain their recorded exact grades.
+- The report is Al advice. Betty must verify the exact merge requirements, distinguish expectation discrepancy from implementation defect, and record her own disposition.
+- Keys/generator are private workspace material with no remote backup attested in the reviewed report; prompt requires approved private custody and retrieval verification.
 
 ### Next steps
 
-- Keep the lab candidate held for the two frozen exact diagnostic discrepancies. The first-run traces and original keys are the reference for any separately authorized follow-up. No production dispatch.
+- Betty reads note 0004 at its published commit, acknowledges it, and applies/defer/rejects the prompt under the maintainer's existing scope.
+- Publish diagnostic disposition and recoverable evidence; merge lab-only work only under actual applicable gates, preserving all historical failures and production boundaries.
 
 ## Use this ZIP in your repository
 

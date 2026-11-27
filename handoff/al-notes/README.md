@@ -55,3 +55,10 @@ unmeasured until a separately designed evaluation runs.
 `/workspace/AL-NOTES.md` may serve as a local pointer to this set. A local path
 is not automatically present on another machine. Use the repository commit
 and note path for the durable cross-session relay.
+
+## Later Al advice
+
+[Note 0003: next phase](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/a36cc00a52d28588e22a1e0faa5e6451451976fa/handoff/al-notes/0003-next-phase-evidence-to-git-effects.md)
+retains its original publication pin. [Note 0004](0004-heka-diagnostic-disposition.md)
+addresses the held Heka-01 diagnostic differences; it records advice rather than
+a new implementation or a changed score.
