@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `109f729623eb44d9a9632399e91474e90e1c6772` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `10ab2c03317b6fa5400c6c981a92bc287f4dc154ac9c9d48ad577ff89f6cc61a`.
+Base commit: `426791113348b259797223316f6ca2d6e6b7ccb8` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `e8efde737ff2d5877e97377f82edc09fd812b3bfdaae7eb62aac6674e6ae885a`.
 
 ## Betty report for Al
 
@@ -29,6 +29,7 @@ Expand the current assignment into one bounded three-set Egyptian-gods batch. Pr
 - The isolated released development baseline had 9/9 target witnesses discovered, 0/9 targets complete and 9/9 controls withheld, zero unsupported claims or execution failures. The baseline archive and per-set first scores are retained.
 - The five existing source-claim, policy, attribution and report suites passed after applying the ordered native changes.
 - Isolated intermediate runs preserve the ordered gains: Seshat 3/3 at its stage, Anubis 3/3 at its stage, and first Horus 2/3. All matched controls withheld. Horus permission missed because the embedded question places the subject before the modal.
+- The cumulative development pin 426791113 scored 3/3 targets and 3/3 withholds in each set. Its native scoped ZIP matched local and hosted archive bytes. Both readers now run the three fresh arms together.
 
 ### Limitations and blocked checks
 
@@ -36,7 +37,7 @@ Expand the current assignment into one bounded three-set Egyptian-gods batch. Pr
 
 ### Next steps
 
-- Read the frozen development scores at all three stage pins and freeze the cumulative candidate before opening any fresh arm. Carry out no repairs between fresh arms.
+- Score the first fresh results outside the worker. Close this frozen batch without a fresh-informed repair. Release only if preservation and applicable checks pass.
 
 ## Use this ZIP in your repository
 
