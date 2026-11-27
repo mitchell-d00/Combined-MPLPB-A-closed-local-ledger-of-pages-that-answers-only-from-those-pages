@@ -9,6 +9,14 @@ candidate-only entries link their original checked PR #106 pins. See
 
 [Product, project and evidence boundaries](RESPONSIBILITY_BOUNDARIES.md) describe which distributions carry runtime, tools and retained records.
 
+## Bunyip Round 3 cumulative reader assessment
+
+[Prospective freeze](../evaluation/cryptid/bunyip/round3/SCOPE.md) records six pairs, nine distinct questions and
+48 planned executions across released main, C3, Wampus and Thoth. No reader
+changes or Round 3 measurements have been made at the freeze. Clean PR #113
+merged at `40d82a5cf4497a36e7061412861a600fe8602e57`. Original PR #106 is closed
+unmerged, with its branch and historical reports retained.
+
 ## Clean cumulative reader release
 
 [Release acceptance and incident scope](recovery/THOTH_CLEAN_RELEASE.md) ·

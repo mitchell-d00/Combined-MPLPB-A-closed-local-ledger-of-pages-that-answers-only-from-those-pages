@@ -4495,6 +4495,19 @@
           "tests/test_department_navigation.py"
         ]
       }
+    },
+    {
+      "family": "bunyip-round3",
+      "artifacts": "evaluation/cryptid/bunyip/round3",
+      "tests": [
+        "tests/test_study_sandbox.py"
+      ],
+      "runners": [
+        "tools/cryptid_trial_v5.py",
+        "tools/bunyip_round2_preservation.py",
+        "evaluation/cryptid/bunyip/round3/score.py"
+      ],
+      "scope": "Four pinned reader snapshots, twelve authorized synthetic cases, same-operator diagnostic. Freeze only at first checkpoint."
     }
   ],
   "experimental_track": {

@@ -1,0 +1,87 @@
+name: Bunyip Round 3 isolated reader assessment
+on:
+  push:
+    branches: ['study/bunyip-round3']
+    paths: ['evaluation/cryptid/bunyip/round3/diagnostic/freeze.json']
+permissions:
+  contents: read
+
+jobs:
+  frozen-study:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        cohort: [diagnostic, public-832, retained-96, bb]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify the study freeze and released reader bytes
+        env:
+          PYTHONPATH: .
+        run: |
+          study=evaluation/cryptid/bunyip/round3
+          python "$study/run.py" --verify-only
+          pin="$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["released"]["commit"])' "$study/readers.json")"
+          git fetch --no-tags --depth=1 origin "$pin"
+          git diff --exit-code "$pin" HEAD -- mplpb_answers mplpb_combined mplpb_work
+          echo "RELEASED_PIN=$pin" >> "$GITHUB_ENV"
+      - name: Require the existing worker isolation checks
+        if: matrix.cohort != 'bb'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends bubblewrap
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$(command -v python)" -m unittest tests.test_study_sandbox -v
+      - name: Run the frozen cohort
+        env:
+          COHORT: ${{ matrix.cohort }}
+          PYTHONPATH: .
+        run: |
+          set -euo pipefail
+          study=evaluation/cryptid/bunyip/round3
+          parent="$RUNNER_TEMP/bunyip-round3"
+          mkdir "$parent"
+          output="$parent/$COHORT"
+          isolated=(sudo env MPLPB_REQUIRE_SANDBOX=1 PYTHONPATH="$PWD"
+            GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0="$PWD" "$(command -v python)")
+          case "$COHORT" in
+            diagnostic)
+              python "$study/run.py" --output "$output" --work "$RUNNER_TEMP/historical"
+              ;;
+            public-832)
+              sudo mkdir -p /workspace/cryptid-custody
+              "${isolated[@]}" -m tools.bunyip_round2_preservation --source-commit "$RELEASED_PIN" --output "$output"
+              ;;
+            retained-96)
+              mkdir "$output"
+              result=0
+              "${isolated[@]}" evaluation/egyptian-gods/thoth/verify_release_replay.py \
+                --implementation "$PWD" --commit "$RELEASED_PIN" --output "$output" || result=$?
+              python "$study/preserve.py" retained --output "$output" --strict-exit "$result"
+              ;;
+            bb)
+              python "$study/preserve.py" bb --output "$output" --work "$RUNNER_TEMP/bb-fixtures"
+              ;;
+          esac
+        # Each cohort has a separate, append-only artifact even on failure.
+      - name: Prepare public artifact retention
+        if: always()
+        run: |
+          out="$RUNNER_TEMP/bunyip-round3"
+          if test -d "$out"; then
+            sudo chown -R "$(id -u):$(id -g)" "$out"
+            test -z "$(find "$out" -iname '*key.json' -print -quit)"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bunyip-round3-${{ matrix.cohort }}-${{ github.sha }}
+          path: ${{ runner.temp }}/bunyip-round3/
+          if-no-files-found: warn
+          retention-days: 90

@@ -25,6 +25,14 @@ PR #111 kept the controller lab-only, with reader and production workflow
 bytes unchanged. Its Pages receipt records the site build at the merge.
 [PR #111 engineering milestone](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/111)
 
+## Bunyip Round 3 cumulative reader assessment
+
+[Prospective freeze](../evaluation/cryptid/bunyip/round3/SCOPE.md) records six pairs, nine distinct questions and
+48 planned executions across released main, C3, Wampus and Thoth. No reader
+changes or Round 3 measurements have been made at the freeze. Clean PR #113
+merged at `40d82a5cf4497a36e7061412861a600fe8602e57`. Original PR #106 is closed
+unmerged, with its branch and historical reports retained.
+
 ## Historical Thoth preparation and original PR #106
 
 The [clean PR #106 reconciliation](../evaluation/cryptid/bunyip/round2/reconciliation/README.md)
