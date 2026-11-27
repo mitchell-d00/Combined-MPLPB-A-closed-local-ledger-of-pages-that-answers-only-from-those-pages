@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `d6104e617b736d52f91647981978cc2fc8a06018` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `0db550c874714646e8a1a3dc93465d5c84f71f813340f5cc4bd2996ddef81863`.
+Base commit: `2d9af6cad92cf28082496d32541e153cc0056bca` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `8b0dbefaf95e2f704efe7c3b469f536facc3814b4c07e23c8ebfe6249aad6e55`.
 
 ## Betty report for Al
 
@@ -13,7 +13,7 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Expand the current assignment into one bounded three-set Egyptian-gods batch. Preserve any Seshat work already completed. Freeze Seshat attribution, Anubis negation and scope, and Horus conditions and modality together. Compare the released and pinned candidate readers and close after the frozen evaluation; release only if the recorded gates pass.
+Retire recovery of unavailable original Bunyip custody material. Inventory and freeze the full reproducible Cryptid replay against the released reader and pinned PR 110 candidate. Include BB, score original expectations, keep the separate diagnostic proposal inactive, and preserve the historical and incident records.
 
 ### Implemented scope
 
@@ -23,6 +23,7 @@ Expand the current assignment into one bounded three-set Egyptian-gods batch. Pr
 - Horus binds an exact if-clause and the instruction or intention modality, or routes the explicit conditions-of-permission question to the existing policy proof. No condition fulfillment or execution authority is inferred.
 - Route the bounded subject-before-modal permission request through the existing permission proof. The first Horus score and archive remain retained.
 - Prepare the inactive PR110 narrow diagnostic compatibility proposal. Keep active gates and reader bytes unchanged.
+- Freeze the full reproducible inventory: 55 registry cohorts, 248 original D% cases via verified original seals, BB, and the overlapping 832 public preservation contracts.
 
 ### Validation recorded
 
@@ -39,10 +40,11 @@ Expand the current assignment into one bounded three-set Egyptian-gods batch. Pr
 
 - Fresh packets and scoring keys stay in separate local custody. Preparation and scoring are same-operator. Independent/human measures NOT_RUN. Original 17 checks incomplete, 100 held cases NOT_RUN and historical publication incident separately OPEN.
 - Held: unchanged 96-case exact comparator failed on nine refusal diagnostic differences. An automatic review rejected the proposed preservation workflow and acceptance change. The original acceptance script was run unchanged. Candidate and raw evidence are pinned. The live reader remains the released Thoth pin a442c8f0.
+- Original custody recovery is retired due to unavailable material. Original 17 remain incomplete, original 100 NOT_RUN and original exposed development key unavailable. Historical exposure remains OPEN separately.
 
 ### Next steps
 
-- Await explicit Mitchell approval of proposal v1 SHA-256 22868e9f9604a4c3fee87226eecc7ef2aa5d5bdb1982eaa3c47e176b5d7ae97a before freezing and running it prospectively. The exact 87/96 failure remains.
+- Run only the frozen reproducible inventory. Check and score each persisted cohort. The nine-case diagnostic exception remains inactive pending explicit approval of the exact manifest.
 
 ## Use this ZIP in your repository
 

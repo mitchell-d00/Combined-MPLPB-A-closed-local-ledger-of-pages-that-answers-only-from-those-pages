@@ -18,6 +18,13 @@ The original PR #106 gates and the unavailable 17 and 100 cases retain their
 original disposition. These entries link checked source and retained results.
 
 
+## Full reproducible Cryptid replay
+
+The [frozen coverage inventory](../evaluation/cryptid/full-reproducible-replay/README.md)
+includes BB and the reproducible retained Cryptid packets. Unavailable original
+Bunyip checks and the development key are retired from active recovery and keep
+their original historical dispositions.
+
 ## Egyptian-gods attribution and scope batch
 
 [Bounded Seshat, Anubis and Horus results](../evaluation/egyptian-gods/attribution-scope/RESULTS.md)

@@ -32,9 +32,13 @@ C3/Wampus outcomes. This is bounded software evidence with same-operator
 preparation and scoring. The [original PR #106](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/106)
 remains the historical evaluation record at `961be47602c5e3ccb94459c106b3fa28754549bf`.
 
-Recovery remains **INTERRUPTED / UNRECOVERED**. The original 17 private
-preservation checks are incomplete, the 100 original held transfer cases remain
-NOT_RUN, and the 22 original C3 strict-key mismatches remain recorded.
+The original Bunyip recovery was **INTERRUPTED / UNRECOVERED** and is now
+**retired due to unavailable custody material**. The original 17 private
+checks remain incomplete, all 100 original held cases remain NOT_RUN,
+and the original development key remains unavailable. The 22 original
+C3 strict-key mismatches remain recorded. No recovery action remains on
+the active backlog. The [full reproducible Cryptid replay](../evaluation/cryptid/full-reproducible-replay/README.md)
+uses available pinned material and retains the original denominators.
 The clean release excludes the known incident ancestry and affected archive
 blobs. Prior Git-history exposure remains **OPEN** on the original branch/PR.
 Independent historical/semantic evaluation, independent preparation/blinding,

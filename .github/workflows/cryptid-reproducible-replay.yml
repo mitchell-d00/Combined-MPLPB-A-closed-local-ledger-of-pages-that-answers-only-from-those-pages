@@ -1,0 +1,139 @@
+name: Full reproducible Cryptid replay
+on:
+  push:
+    branches: ['study/egyptian-gods-attribution-scope']
+    paths: ['.github/workflows/cryptid-reproducible-replay.yml']
+permissions:
+  contents: read
+jobs:
+  retained-replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        cohort: ['1', '2', '3', '4', '5', '6', '7', 'dpercent', 'public-832']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require the existing worker isolator
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends bubblewrap
+          sudo mkdir -p /workspace/cryptid-custody
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$(command -v python)" -m unittest tests.test_study_sandbox -v
+      - name: Replay the sealed cohort and preserve each reader's actual results
+        env:
+          COHORT: ${{ matrix.cohort }}
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, subprocess, sys, zipfile
+          from pathlib import Path
+
+          plan_path = Path('evaluation/cryptid/full-reproducible-replay/coverage-manifest-v1.json')
+          plan_bytes = plan_path.read_bytes()
+          plan = json.loads(plan_bytes)
+          cohort = os.environ['COHORT']
+          output = Path(os.environ['RUNNER_TEMP']) / 'cryptid-replay'
+          output.mkdir()
+          (output/'manifest.sha256').write_text(hashlib.sha256(plan_bytes).hexdigest()+'\n')
+          pack = ('mplpb_answers','mplpb_combined','mplpb_work')
+          statuses = []
+          python = sys.executable
+          root = Path.cwd()
+          priv = ['sudo','env','MPLPB_REQUIRE_SANDBOX=1', 'PYTHONPATH='+str(root), python]
+          for role, pin in plan['readers'].items():
+              revision = pin['commit']
+              subprocess.run(['git','fetch','--depth=1','origin',revision],check=True)
+              archive = output / (role+'-runtime.zip')
+              subprocess.run(['git','archive','--format=zip','-0','-o',str(archive),revision,*pack],check=True)
+              assert hashlib.sha256(archive.read_bytes()).hexdigest()==pin['sha256']
+              runtime = output.parent/('cryptid-runtime-'+role)
+              runtime.mkdir()
+              with zipfile.ZipFile(archive) as zipped:
+                  zipped.extractall(runtime)
+              stage = output/role
+              stage.mkdir()
+              def run(label, command):
+                  with (stage/(label+'.log')).open('x') as log:
+                      code=subprocess.run(command,stdout=log,stderr=subprocess.STDOUT).returncode
+                  statuses.append({'role':role,'cohort':label,'exit_code':code})
+                  (output/'execution.json').write_text(json.dumps(statuses,indent=2)+'\n')
+                  print(role,label,code,flush=True)
+                  return code
+              if cohort=='public-832':
+                  assert all({p.relative_to(root) for p in (root/k).glob('*.py')}
+                          == {p.relative_to(runtime) for p in (runtime/k).glob('*.py')} for k in pack)
+                  with zipfile.ZipFile(archive) as zipped:
+                      zipped.extractall(root)
+                  run('public-832',priv[:2]+['GIT_CONFIG_COUNT=1','GIT_CONFIG_KEY_0=safe.directory',
+                      'GIT_CONFIG_VALUE_0='+str(root)]+priv[2:]+[
+                      '-m','tools.bunyip_round2_preservation','--source-commit',revision,'--output',str(stage/'public-832')])
+              elif cohort=='dpercent':
+                  for spec in plan['special_cohorts']:
+                      if spec['id'] not in ('bunyip-dpercent-development','bunyip-dpercent-fresh-consumed'):
+                          continue
+                      label=spec['id']
+                      payload=Path(spec['packet'])
+                      assert hashlib.sha256(payload.read_bytes()).hexdigest()==spec['packet_sha256']
+                      sealed=output.parent/(role+'-'+label)
+                      sealed.mkdir()
+                      with zipfile.ZipFile(payload) as zipped:
+                          assert all(n.startswith('public/') for n in zipped.namelist())
+                          zipped.extractall(sealed)
+                      run(label,priv+['-m','tools.dpercent','run','--packets',str(sealed/'public'),
+                          '--implementation',str(runtime),'--out',str(stage/label)])
+              else:
+                  for row in plan['registries']:
+                      if row['group']!=cohort:
+                          continue
+                      assert row['class']=='Replayable unchanged' and row['publication'].startswith('Public registered')
+                      for file,digest in [(row['registry'],row['registry_sha256']), (row['seal'],row['seal_sha256']),
+                                          (row['runner'],row['runner_sha256'])]:
+                          assert hashlib.sha256(Path(file).read_bytes()).hexdigest()==digest
+                      label=row['artifact_key']
+                      packet=row['registry'] if row['runner_argument']=='--registry' else row['packet_directory']
+                      destination=stage/label
+                      run(label,priv+[row['runner'],row['runner_argument'],packet,'--implementation',
+                          str(runtime),'--source-commit',revision,'--output',str(destination)])
+                      if row['key_status']=='tracked-evaluator-key' and (destination/'run.json').is_file():
+                          assert hashlib.sha256(Path(row['key']).read_bytes()).hexdigest()==row['key_sha256']
+                          assert hashlib.sha256(Path(row['scorer']).read_bytes()).hexdigest()==row['scorer_sha256']
+                          def score(label_, scorer, key, registry=True):
+                              run(label_+'-scorer',[python,scorer]+(['--registry',row['registry']] if registry else [])+[
+                                  '--key',key,'--run',str(destination),'--output',str(stage/(label_+'-score.json'))])
+                          score(label,row['scorer'],row['key'])
+                          for extra in row.get('extra_scoring',[]):
+                              assert hashlib.sha256(Path(extra['key']).read_bytes()).hexdigest()==extra['sha256']
+                              if extra['kind']=='resource_limits':
+                                  assert hashlib.sha256(Path(extra['scorer']).read_bytes()).hexdigest()==extra['scorer_sha256']
+                                  score(label+'-resources',extra['scorer'],extra['key'],False)
+                              else:
+                                  score(label+'-strict',row['scorer'],extra['key'])
+          assert statuses
+          if any(status['exit_code'] for status in statuses):
+              raise SystemExit(1)
+          PY
+      - id: safety
+        name: Make retained public output readable
+        if: always()
+        run: |
+          if test -d "$RUNNER_TEMP/cryptid-replay"; then
+            sudo chown -R "$(id -u):$(id -g)" "$RUNNER_TEMP/cryptid-replay"
+            if find "$RUNNER_TEMP/cryptid-replay" -iname '*key.json' -print -quit | grep -q .; then
+              exit 1
+            fi
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.safety.outcome != 'failure'
+        with:
+          name: cryptid-replay-${{ matrix.cohort }}-${{ github.sha }}
+          path: ${{ runner.temp }}/cryptid-replay/
+          if-no-files-found: warn
+          retention-days: 90
