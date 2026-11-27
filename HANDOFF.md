@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `55fea85035ea1b51cb45b5441b3ecb76568b0adf` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `a4bf5e7c7604f42a1c0cdcf24c5c5cbfe05c53283e83c24c8b76223cd06c29a7`.
+Base commit: `7279cc9b310712c341b1bab13ba8fa9ad17cd1b0` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `b8b7fd3ebbc3aab85b1860bb350e43bd0169a397b7e351d6f81d1ed26abfbecb`.
 
 ## Betty report for Al
 
@@ -30,14 +30,17 @@ Expand the current assignment into one bounded three-set Egyptian-gods batch. Pr
 - The five existing source-claim, policy, attribution and report suites passed after applying the ordered native changes.
 - Isolated intermediate runs preserve the ordered gains: Seshat 3/3 at its stage, Anubis 3/3 at its stage, and first Horus 2/3. All matched controls withheld. Horus permission missed because the embedded question places the subject before the modal.
 - The cumulative development pin 426791113 scored 3/3 targets and 3/3 withholds in each set. Its native scoped ZIP matched local and hosted archive bytes. Both readers now run the three fresh arms together.
+- Frozen fresh compared the released and cumulative readers once per case. Seshat, Anubis and Horus each moved from 0/3 to 3/3 with 3/3 controls withheld. Zero useful partials, unsupported claims, lost valid targets or execution failures. No fresh-informed repair.
+- Capability gate 52/52, public preservation 832/832, BB 900 exact positives and citations and 200 exact withholds. The untouched retained exact check scored 87/96. Readback shows only diagnostic changes on nine unchanged abstentions. All 46 prior claim-bearing contracts matched.
 
 ### Limitations and blocked checks
 
 - Fresh packets and scoring keys stay in separate local custody. Preparation and scoring are same-operator. Independent/human measures NOT_RUN. Original 17 checks incomplete, 100 held cases NOT_RUN and historical publication incident separately OPEN.
+- Held: unchanged 96-case exact comparator failed on nine refusal diagnostic differences. An automatic review rejected the proposed preservation workflow and acceptance change. The original acceptance script was run unchanged. Candidate and raw evidence are pinned. The live reader remains the released Thoth pin a442c8f0.
 
 ### Next steps
 
-- Score the first fresh results outside the worker. Close this frozen batch without a fresh-informed repair. Release only if preservation and applicable checks pass.
+- The bounded batch is closed. For a separate release decision, review the nine refusal diagnostic deltas against a prospective, explicit contract, retain the original exact failure, and rerun applicable gates on the same pin. No release or deployment performed.
 
 ## Use this ZIP in your repository
 

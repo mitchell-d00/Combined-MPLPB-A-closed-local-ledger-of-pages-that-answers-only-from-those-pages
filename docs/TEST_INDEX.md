@@ -18,6 +18,12 @@ The original PR #106 gates and the unavailable 17 and 100 cases retain their
 original disposition. These entries link checked source and retained results.
 
 
+## Egyptian-gods attribution and scope batch
+
+[Bounded Seshat, Anubis and Horus results](../evaluation/egyptian-gods/attribution-scope/RESULTS.md)
+link the frozen inputs, ordered development, first fresh scores and release
+preservation. The earlier Thoth and Cryptid checkpoints retain their scope.
+
 ## Capability-to-evidence map
 
 Use [MPLPB product](MPLPB.md), develop in [Experimental Lab](EXPERIMENTAL_LAB.md),

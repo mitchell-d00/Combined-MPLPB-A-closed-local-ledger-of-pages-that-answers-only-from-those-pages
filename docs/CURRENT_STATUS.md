@@ -5,6 +5,14 @@ Last reviewed: 2026-11-27.
 [Use MPLPB](MPLPB.md) · [Develop MPLPB](EXPERIMENTAL_LAB.md) ·
 [Inspect the evidence](TESTING_APPARATUS.md) · [Test Index](TEST_INDEX.md).
 
+**Released main `a442c8f0c9629b65a3af38ba57319aa9c2af8dbe`** serves the clean
+Thoth reader from PR #109. The [Seshat, Anubis and Horus batch](../evaluation/egyptian-gods/attribution-scope/RESULTS.md)
+is closed and held. It recovered all nine fresh positives with nine controls
+withheld. The 832 public contracts, BB and all 46 claim-bearing retained
+contracts matched. The unchanged exact retained comparator failed on nine
+refusal diagnostic changes. Independent and human evaluations remain NOT_RUN.
+
+
 **Clean Thoth release candidate.** The published starting main is
 `f52ed384b831c2abb7656dfabc0d4b7632c38457` with PR #108's verified
 packaging. Its previously released reader is `2622813aba9ee1f1880693eeb71ae015cb3da999`.
