@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `cef389a15293ceb51e813f2a1060246843a30aaf` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `daccade4e42738aa5354bfc6c041b2742b352a4682585ae96c512491fc0457cf`.
+Base commit: `229f00e3e50511116d6574403a542b517f662a22` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `91268c78e45ce198d3d7bd1cd7270e8a24d958c2c2369abcdd8285ee4d139518`.
 
 ## Betty report for Al
 
@@ -39,7 +39,7 @@ The target is precise: **prove which document qualifies, then independently prov
 
 ### Validation recorded
 
-- 40 focused tests passed. Direct development smoke selected eight documents and attributed six claims, with six abstentions. Isolated replay is pending.
+- 41 focused tests passed. Direct development smoke selected eight documents and attributed six claims, with six abstentions. Isolated replay is pending.
 
 ### Limitations and blocked checks
 

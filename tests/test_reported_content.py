@@ -138,12 +138,20 @@ class NamedReportSelection(unittest.TestCase):
         self.withheld(result)
         self.assertEqual(result['diagnostic']['code'], 'named_report_source_unresolved')
 
-    def test_from_byline_requires_closed_physical_paragraph_and_report(self):
+    def test_from_byline_requires_closed_physical_paragraph(self):
         self.named_source(label='<p>From: Iona Vale</p>')
         self.assertTrue(self.ask(self.ending)['answer_supported'])
         withdraw(self.root, 'A')
         self.named_source('B', '<pre>From: Iona Vale\nSubject: draft report</pre>')
         self.withheld(self.ask(self.ending))
+
+
+    def test_from_selection_does_not_depend_on_any_reporting_clause(self):
+        first = self.source('<p>From: Iona Vale</p><p>The estuary was quiet.</p>')
+        result = self.ask(self.ending)
+        self.withheld(result)
+        self.assertEqual(result['diagnostic']['code'], 'named_report_content_unresolved')
+        self.assertEqual(result['documentary_support']['named_source_selection']['path'], first.path)
 
 
 if __name__ == '__main__':

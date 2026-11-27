@@ -251,11 +251,11 @@ def _select_writer(records, requested):
         first = _BYLINE.match(body)
         if not first:
             continue
-        # A physically separate From paragraph followed by complete report prose
-        # is a byline in this route. Mail headers and folded fields remain guarded.
+        # A closed From paragraph followed by plain prose supplies a byline.
+        # The paragraph boundary is physical, and mail fields stay guarded.
         layout = _FROM_PARAGRAPH.match(record.body_html)
         standalone_from = bool(layout and html.unescape(layout[1]) == first[0]
-                               and report_roles(html.unescape(layout[2])))
+                               and not re.match(r"\s*[^:]{1,80}:", html.unescape(layout[2])))
         ranges = kernel.context_ranges(record, standalone_from_byline=standalone_from)
         declarations = [label for label in _BYLINE.finditer(body)
                         if unqualified_span(record, body, *label.span(), ranges=ranges)]

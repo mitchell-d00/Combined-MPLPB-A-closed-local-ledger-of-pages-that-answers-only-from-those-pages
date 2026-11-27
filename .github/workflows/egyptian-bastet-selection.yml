@@ -78,7 +78,7 @@ jobs:
         run: |
           set -euo pipefail
           study=evaluation/egyptian-gods/bastet
-          parent="$RUNNER_TEMP/round4"
+          parent="$RUNNER_TEMP/bastet-selection"
           mkdir "$parent"
           out="$parent/$COHORT"
           legacy=evaluation/cryptid/bunyip/round3/preserve.py
@@ -120,7 +120,7 @@ jobs:
         if: always() && steps.freeze.outputs.phase != ''
         name: Check public archive boundary
         run: |
-          root="$RUNNER_TEMP/round4"
+          root="$RUNNER_TEMP/bastet-selection"
           if test -d "$root"; then
             sudo chown -R "$(id -u):$(id -g)" "$root"
             test -z "$(find "$root" -iname '*key.json' -print -quit)"
