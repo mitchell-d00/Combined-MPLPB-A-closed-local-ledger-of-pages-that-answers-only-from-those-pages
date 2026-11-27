@@ -1,10 +1,10 @@
 {
   "schema": "gremlin-map-v1",
   "reviewed_on": "2026-11-27",
-  "inspected_revision": "db5c5680a22b7f3c08288bc0e06e3d221614a2dc",
+  "inspected_revision": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
   "meaning": "Maintenance index. Links and impact hints confer no evidence, release status or authority.",
-  "tracked_paths": 77388,
-  "pathset_sha256": "9e34906f142f93a721e19b0e0080f96ae6db1a1aae43737e59f643fe57286f8f",
+  "tracked_paths": 77389,
+  "pathset_sha256": "76da42d5ed2a7a2ae887cea84074d4a49f70a60b3d861ddd64b3a67f9d1f8614",
   "ownership_index": "docs/departments/components.json",
   "evidence_index": "docs/results.json",
   "content_exclusions": [
@@ -28,13 +28,13 @@
       "evidence": [
         {
           "path": "handoff/al-notes/README.md",
-          "sha256": "571e87525a824777e2d41ab5412250b05795dd71c204369fc640ec6717f6c9ae"
+          "sha256": "d6c08370ab5a9742fd31a86a22b555eccd9ef0c3c17388ad6744d33df2550b52"
         }
       ],
       "note": "Advice, authorization and applied results are distinct; role labels do not authenticate.",
       "kind": "component",
-      "tracked_files": 4,
-      "content_sha256": "4787ec490c2d9b9ec3d90f18f1f572de41e6b7c718e0af304e3db9ceba16d0ec"
+      "tracked_files": 5,
+      "content_sha256": "dfc72469d5bbd4c829d96676e4949889d31d008308802661a454db3fc7643fe5"
     },
     {
       "id": "applications",
@@ -114,8 +114,8 @@
       "status": "mixed distribution and coordination",
       "note": "Ownership is not a minimal runtime/package manifest.",
       "paths": [],
-      "tracked_files": 388,
-      "content_sha256": "759dbb0a224a83a857028ca06f4111d2d4b00e78ae0c738fce603651f3dd62d4",
+      "tracked_files": 389,
+      "content_sha256": "cb7fece7e54f4306ccf4d7abda15ca74f067e1ea4f0fdada0cdbf70bb38716f5",
       "evidence": [
         {
           "path": "docs/departments/delivery-operations.md",
@@ -212,7 +212,7 @@
       "note": "Maintenance graph and change-review hints; no effect authority or exhaustive dependency claim.",
       "kind": "component",
       "tracked_files": 8,
-      "content_sha256": "a47e0cc5fcfb4ab0620ec68eaf3a4d162b9e9fb369b528133d7af5543c9660ba"
+      "content_sha256": "2d476539f6b2ab35c9a78988aba61208710daeb836446a599097398b12f54bda"
     },
     {
       "id": "handoff",
@@ -234,8 +234,28 @@
       ],
       "note": "Recover revisions, decisions, objections, custody and next steps; coordination is not source proof.",
       "kind": "component",
-      "tracked_files": 10,
-      "content_sha256": "61705e192e1b5f463ca090c6078b20d3c6fc83679604abfb106056ee302ef430"
+      "tracked_files": 11,
+      "content_sha256": "398fe3552fe407358911e5018f31b2007decb8a7febfb1f758493a4de9d215ee"
+    },
+    {
+      "id": "heka-01",
+      "label": "Proposed evidence-to-Git I/O study",
+      "scopes": [
+        "project",
+        "experiment"
+      ],
+      "status": "proposed",
+      "paths": [],
+      "evidence": [
+        {
+          "path": "handoff/al-notes/0003-next-phase-evidence-to-git-effects.md",
+          "sha256": "783b4da9d02bf8bf97e03e44c436bbc6dcb22160038853be9a92cbc5522aaee6"
+        }
+      ],
+      "note": "Al proposal only: compose actual reader proof with separately authorized disposable Git canary and recovery. No integrated execution measured.",
+      "kind": "component",
+      "tracked_files": 0,
+      "content_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     {
       "id": "intake-research",
@@ -954,7 +974,7 @@
       "scope_from_index": "Project-maintenance map for components, typed links, data, experiments and revisit conditions; no reader or effect-support claim.",
       "status_from_index": "Nine local maintenance boundary tests passed after correcting a fixture-only missing department entry. Repository-scale and extracted-candidate checks recorded in the Gremlin PR report. Independent assessment and relay benefit NOT_RUN.",
       "status_authority": "docs/results.json; may describe a historical pin",
-      "content_sha256": "f78020415a4c158c40ab6b468e8aaebd1efd08a4c9bd3a5f8b536f171497d050",
+      "content_sha256": "7072e26b5870f4bbc80012095ccbf5b7a1d515283c0254652ad02351396e121f",
       "evidence": [
         {
           "path": "docs/results.json",
@@ -3268,7 +3288,7 @@
       "evidence": [
         {
           "path": "handoff/al-notes/README.md",
-          "sha256": "571e87525a824777e2d41ab5412250b05795dd71c204369fc640ec6717f6c9ae"
+          "sha256": "d6c08370ab5a9742fd31a86a22b555eccd9ef0c3c17388ad6744d33df2550b52"
         }
       ],
       "note": "Note 0001 records Gremlin scope, the explicit M override and Betty continuation."
@@ -3298,6 +3318,45 @@
         }
       ],
       "note": "Map updates precede final handoff generation; neither map nor handoff grants authority."
+    },
+    {
+      "from": "heka-01",
+      "to": "reader",
+      "kind": "possible_reuse",
+      "basis": "proposal",
+      "evidence": [
+        {
+          "path": "handoff/al-notes/0003-next-phase-evidence-to-git-effects.md",
+          "sha256": "783b4da9d02bf8bf97e03e44c436bbc6dcb22160038853be9a92cbc5522aaee6"
+        }
+      ],
+      "note": "Inspect and reuse this existing boundary under a separately frozen bridge contract; no compatibility or end-to-end guarantee is established."
+    },
+    {
+      "from": "heka-01",
+      "to": "restart-store",
+      "kind": "possible_reuse",
+      "basis": "proposal",
+      "evidence": [
+        {
+          "path": "handoff/al-notes/0003-next-phase-evidence-to-git-effects.md",
+          "sha256": "783b4da9d02bf8bf97e03e44c436bbc6dcb22160038853be9a92cbc5522aaee6"
+        }
+      ],
+      "note": "Inspect and reuse this existing boundary under a separately frozen bridge contract; no compatibility or end-to-end guarantee is established."
+    },
+    {
+      "from": "heka-01",
+      "to": "workflow-controller",
+      "kind": "possible_reuse",
+      "basis": "proposal",
+      "evidence": [
+        {
+          "path": "handoff/al-notes/0003-next-phase-evidence-to-git-effects.md",
+          "sha256": "783b4da9d02bf8bf97e03e44c436bbc6dcb22160038853be9a92cbc5522aaee6"
+        }
+      ],
+      "note": "Inspect and reuse this existing boundary under a separately frozen bridge contract; no compatibility or end-to-end guarantee is established."
     },
     {
       "from": "intake-research",
@@ -4510,6 +4569,18 @@
     }
   ],
   "open_work": [
+    {
+      "id": "evidence-to-effect",
+      "component": "heka-01",
+      "question": "Can actual current reader proof satisfy a scoped evidence obligation for a separately authorized Git effect while preserving admission, execution, readback and durable outcome?",
+      "revisit_when": "Betty freezes or runs the proposed Heka-01 bridge study; retain missing integration evidence until then.",
+      "evidence": [
+        {
+          "path": "handoff/al-notes/0003-next-phase-evidence-to-git-effects.md",
+          "sha256": "783b4da9d02bf8bf97e03e44c436bbc6dcb22160038853be9a92cbc5522aaee6"
+        }
+      ]
+    },
     {
       "id": "historical-custody",
       "component": "cryptid-programme",
