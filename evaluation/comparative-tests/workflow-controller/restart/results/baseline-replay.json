@@ -1,0 +1,639 @@
+{
+  "cases": 3,
+  "passed": 3,
+  "rows": [
+    {
+      "id": "R01",
+      "fresh": true,
+      "sameRequest": true,
+      "continuous": true,
+      "phases": [
+        {
+          "expect": {
+            "decision": "allow",
+            "code": "allowed",
+            "execution": "completed",
+            "attempts": 1,
+            "writes": 1,
+            "competingWrites": 0,
+            "ref": "intended",
+            "hostUsed": false,
+            "reserved": true
+          },
+          "outcome": {
+            "decision": "allow",
+            "code": "allowed",
+            "execution": "completed",
+            "attempts": 1,
+            "writes": 1,
+            "competingWrites": 0,
+            "ref": "intended",
+            "hostUsed": false,
+            "reserved": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "after": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "process": {
+            "pid": 21394,
+            "code": 0,
+            "signal": null,
+            "result": "phase-1.json"
+          },
+          "raw": {
+            "pid": 21394,
+            "proposal": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+            },
+            "hostUsed": false,
+            "initialAdmission": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "receipt-canary-ready"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "receipt-canary-ready"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "completed",
+            "subsequent": {
+              "decision": "withhold",
+              "code": "duplicate_request",
+              "selected": {
+                "report": null,
+                "grant": null
+              },
+              "receiptIds": [],
+              "missing": [],
+              "scope": null
+            },
+            "attempts": 1,
+            "writes": 1,
+            "competingWrites": 0,
+            "ref": {
+              "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "ref": "intended",
+              "marker": "intended"
+            }
+          },
+          "passed": true
+        },
+        {
+          "expect": {
+            "decision": "allow",
+            "code": "allowed",
+            "execution": "failed",
+            "attempts": 1,
+            "writes": 0,
+            "competingWrites": 0,
+            "ref": "intended",
+            "hostUsed": false,
+            "reserved": true
+          },
+          "outcome": {
+            "decision": "allow",
+            "code": "allowed",
+            "execution": "failed",
+            "attempts": 1,
+            "writes": 0,
+            "competingWrites": 0,
+            "ref": "intended",
+            "hostUsed": false,
+            "reserved": true
+          },
+          "before": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "after": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "process": {
+            "pid": 21416,
+            "code": 0,
+            "signal": null,
+            "result": "phase-2.json"
+          },
+          "raw": {
+            "pid": 21416,
+            "proposal": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+            },
+            "hostUsed": false,
+            "initialAdmission": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "receipt-canary-ready"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "receipt-canary-ready"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "failed",
+            "subsequent": {
+              "decision": "withhold",
+              "code": "duplicate_request",
+              "selected": {
+                "report": null,
+                "grant": null
+              },
+              "receiptIds": [],
+              "missing": [],
+              "scope": null
+            },
+            "attempts": 1,
+            "writes": 0,
+            "competingWrites": 0,
+            "ref": {
+              "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "ref": "intended",
+              "marker": "intended"
+            }
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "R02",
+      "fresh": true,
+      "sameRequest": true,
+      "continuous": true,
+      "phases": [
+        {
+          "expect": {
+            "decision": "allow",
+            "code": "allowed",
+            "execution": "failed",
+            "attempts": 1,
+            "writes": 0,
+            "competingWrites": 1,
+            "ref": "competing",
+            "hostUsed": false,
+            "reserved": true
+          },
+          "outcome": {
+            "decision": "allow",
+            "code": "allowed",
+            "execution": "failed",
+            "attempts": 1,
+            "writes": 0,
+            "competingWrites": 1,
+            "ref": "competing",
+            "hostUsed": false,
+            "reserved": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "after": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "process": {
+            "pid": 21465,
+            "code": 0,
+            "signal": null,
+            "result": "phase-1.json"
+          },
+          "raw": {
+            "pid": 21465,
+            "proposal": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+            },
+            "hostUsed": false,
+            "initialAdmission": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "receipt-canary-ready"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "receipt-canary-ready"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "failed",
+            "subsequent": {
+              "decision": "withhold",
+              "code": "duplicate_request",
+              "selected": {
+                "report": null,
+                "grant": null
+              },
+              "receiptIds": [],
+              "missing": [],
+              "scope": null
+            },
+            "attempts": 1,
+            "writes": 0,
+            "competingWrites": 1,
+            "ref": {
+              "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+              "ref": "competing",
+              "marker": "competing"
+            }
+          },
+          "passed": true
+        },
+        {
+          "expect": {
+            "decision": "allow",
+            "code": "allowed",
+            "execution": "failed",
+            "attempts": 1,
+            "writes": 0,
+            "competingWrites": 0,
+            "ref": "competing",
+            "hostUsed": false,
+            "reserved": true
+          },
+          "outcome": {
+            "decision": "allow",
+            "code": "allowed",
+            "execution": "failed",
+            "attempts": 1,
+            "writes": 0,
+            "competingWrites": 0,
+            "ref": "competing",
+            "hostUsed": false,
+            "reserved": true
+          },
+          "before": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "after": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "process": {
+            "pid": 21488,
+            "code": 0,
+            "signal": null,
+            "result": "phase-2.json"
+          },
+          "raw": {
+            "pid": 21488,
+            "proposal": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+            },
+            "hostUsed": false,
+            "initialAdmission": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "receipt-canary-ready"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "receipt-canary-ready"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "failed",
+            "subsequent": {
+              "decision": "withhold",
+              "code": "duplicate_request",
+              "selected": {
+                "report": null,
+                "grant": null
+              },
+              "receiptIds": [],
+              "missing": [],
+              "scope": null
+            },
+            "attempts": 1,
+            "writes": 0,
+            "competingWrites": 0,
+            "ref": {
+              "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+              "ref": "competing",
+              "marker": "competing"
+            }
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "R03",
+      "fresh": true,
+      "sameRequest": true,
+      "continuous": true,
+      "phases": [
+        {
+          "expect": {
+            "decision": "allow",
+            "code": "allowed",
+            "execution": "completed",
+            "attempts": 1,
+            "writes": 1,
+            "competingWrites": 0,
+            "ref": "intended",
+            "hostUsed": false,
+            "reserved": true
+          },
+          "outcome": {
+            "decision": "allow",
+            "code": "allowed",
+            "execution": "completed",
+            "attempts": 1,
+            "writes": 1,
+            "competingWrites": 0,
+            "ref": "intended",
+            "hostUsed": false,
+            "reserved": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "after": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "process": {
+            "pid": 21537,
+            "code": 0,
+            "signal": null,
+            "result": "phase-1.json"
+          },
+          "raw": {
+            "pid": 21537,
+            "proposal": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+            },
+            "hostUsed": false,
+            "initialAdmission": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "receipt-canary-ready"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "receipt-canary-ready"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "completed",
+            "subsequent": {
+              "decision": "withhold",
+              "code": "duplicate_request",
+              "selected": {
+                "report": null,
+                "grant": null
+              },
+              "receiptIds": [],
+              "missing": [],
+              "scope": null
+            },
+            "attempts": 1,
+            "writes": 1,
+            "competingWrites": 0,
+            "ref": {
+              "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "ref": "intended",
+              "marker": "intended"
+            }
+          },
+          "passed": true
+        },
+        {
+          "expect": {
+            "decision": "withhold",
+            "code": "duplicate_request",
+            "execution": "not_run",
+            "attempts": 0,
+            "writes": 0,
+            "competingWrites": 0,
+            "ref": "intended",
+            "hostUsed": true,
+            "reserved": true
+          },
+          "outcome": {
+            "decision": "withhold",
+            "code": "duplicate_request",
+            "execution": "not_run",
+            "attempts": 0,
+            "writes": 0,
+            "competingWrites": 0,
+            "ref": "intended",
+            "hostUsed": true,
+            "reserved": true
+          },
+          "before": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "after": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "process": {
+            "pid": 21559,
+            "code": 0,
+            "signal": null,
+            "result": "phase-2.json"
+          },
+          "raw": {
+            "pid": 21559,
+            "proposal": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+            },
+            "hostUsed": true,
+            "initialAdmission": {
+              "decision": "withhold",
+              "code": "duplicate_request",
+              "selected": {
+                "report": null,
+                "grant": null
+              },
+              "receiptIds": [],
+              "missing": [],
+              "scope": null
+            },
+            "verdict": {
+              "decision": "withhold",
+              "code": "duplicate_request",
+              "selected": {
+                "report": null,
+                "grant": null
+              },
+              "receiptIds": [],
+              "missing": [],
+              "scope": null
+            },
+            "execution": "not_run",
+            "subsequent": {
+              "decision": "withhold",
+              "code": "duplicate_request",
+              "selected": {
+                "report": null,
+                "grant": null
+              },
+              "receiptIds": [],
+              "missing": [],
+              "scope": null
+            },
+            "attempts": 0,
+            "writes": 0,
+            "competingWrites": 0,
+            "ref": {
+              "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "ref": "intended",
+              "marker": "intended"
+            }
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ]
+}

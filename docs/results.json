@@ -1525,10 +1525,12 @@
         "evaluation/comparative-tests/dispatch-enforcement/run_controls.py",
         "tools/governance_demo.py",
         "evaluation/comparative-tests/workflow-controller/controller.mjs",
-        "evaluation/comparative-tests/workflow-controller/replay.mjs"
+        "evaluation/comparative-tests/workflow-controller/replay.mjs",
+        "evaluation/comparative-tests/workflow-controller/restart/baseline-run.mjs",
+        "evaluation/comparative-tests/workflow-controller/restart/durable-run.mjs"
       ],
       "scope": "Seven paired native MPLPB dispatch observations, a two-arm local Git comparison, and 28 follow-up controls across Python, seat RPC, loopback HTTP, and the stock CLI.",
-      "measurement_status": "Dispatch controls reproduced at MPLPB 6ba371c. The governance archive passed 10/10 local controls with zero calls for the six denied inputs. Complete mediation, hosted branch policies and native OOCC remain unestablished. The bounded workflow controller lab separately matched 40/40 frozen expectations, with one verified disposable Git ref update and seven no-write canary controls.",
+      "measurement_status": "Dispatch controls reproduced at MPLPB 6ba371c. The governance archive passed 10/10 local controls with zero calls for the six denied inputs. Complete mediation, hosted branch policies and native OOCC remain unestablished. The bounded workflow controller lab separately matched 40/40 frozen expectations, with one verified disposable Git ref update and seven no-write canary controls. The lab-only restart study matched 3/3 baseline and 6/6 candidate scenarios, including contention and two explicit interrupted outcomes.",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "work-coordination",
