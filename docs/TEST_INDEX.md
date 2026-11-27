@@ -18,6 +18,16 @@ The original PR #106 gates and the unavailable 17 and 100 cases retain their
 original disposition. These entries link checked source and retained results.
 
 
+## Workflow authority and Git effects
+
+The [published paper](../papers/From-Workflow-Decisions-to-Git-Effects.pdf)
+and [dated archive note](../papers/2026-11-27-workflow-git-effects-archive-note.md)
+preserve the earlier competing-writer milestone at PR #111.
+The [lab restart study](../evaluation/comparative-tests/workflow-controller/restart/README.md)
+records the volatile baseline and the separate store candidate with frozen inputs,
+raw effects and explicit interruption states. Production access and authentication
+remain outside the tested scope.
+
 ## Full reproducible Cryptid replay
 
 The [frozen coverage inventory](../evaluation/cryptid/full-reproducible-replay/README.md)

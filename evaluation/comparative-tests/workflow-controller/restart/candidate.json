@@ -1,0 +1,23 @@
+{
+  "schema":"mplpb-lab-reservation-candidate-v1",
+  "fields":["decision","code","execution","attempts","writes","competingWrites","store"],
+  "scenarios":[
+    {"id":"D01","mode":"sequential","ref":"intended","phases":[
+      {"options":{},"expect":["allow","allowed","completed",1,1,0,"completed"],"ref":"intended"},
+      {"options":{},"expect":["withhold","duplicate_request","not_run",0,0,0,"completed"],"ref":"intended"}]},
+    {"id":"D02","mode":"sequential","ref":"competing","phases":[
+      {"options":{"competing":true},"expect":["allow","allowed","failed",1,0,1,"failed"],"ref":"competing"},
+      {"options":{},"expect":["withhold","duplicate_request","not_run",0,0,0,"failed"],"ref":"competing"}]},
+    {"id":"D03","mode":"race","ref":"intended","phases":[
+      {"options":{"barrier":true},"expect":["allow","allowed","completed",1,1,0,"completed"]},
+      {"options":{"barrier":true},"expect":["withhold","reservation_conflict","not_run",0,0,0,"contended"]}]},
+    {"id":"D04","mode":"sequential","ref":"initial","phases":[
+      {"options":{"crash":"after-claim"},"expectCrash":{"exit":73,"events":["claimed"],"attempts":0,"writes":0,"store":"pending"},"ref":"initial"},
+      {"options":{},"expect":["missing_evidence","reservation_indeterminate","not_run",0,0,0,"pending"],"ref":"initial"}]},
+    {"id":"D05","mode":"unavailable","ref":"initial","phases":[
+      {"options":{},"expect":["missing_evidence","reservation_unavailable","not_run",0,0,0,"unavailable"],"ref":"initial"}]},
+    {"id":"D06","mode":"sequential","ref":"intended","phases":[
+      {"options":{"crash":"after-git"},"expectCrash":{"exit":74,"events":["claimed","writer_attempt","writer_returned"],"attempts":1,"writes":1,"store":"pending"},"ref":"intended"},
+      {"options":{},"expect":["missing_evidence","reservation_indeterminate","not_run",0,0,0,"pending"],"ref":"intended"}]}
+  ]
+}

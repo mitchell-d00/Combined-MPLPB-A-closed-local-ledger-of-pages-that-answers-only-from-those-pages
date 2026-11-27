@@ -1,0 +1,16 @@
+{
+  "schema": "mplpb-restart-baseline-v1",
+  "upstream_sha256": "5e71d0b7fc3f64294b726e8108a08d9ff0e79552a8975ee379aaa2546e988291",
+  "markers": ["initial", "intended", "competing"],
+  "scenarios": [
+    {"id":"R01","competing":false,"host_retains":false,"expect":[
+      {"decision":"allow","code":"allowed","execution":"completed","attempts":1,"writes":1,"competingWrites":0,"ref":"intended","hostUsed":false,"reserved":true},
+      {"decision":"allow","code":"allowed","execution":"failed","attempts":1,"writes":0,"competingWrites":0,"ref":"intended","hostUsed":false,"reserved":true}]},
+    {"id":"R02","competing":true,"host_retains":false,"expect":[
+      {"decision":"allow","code":"allowed","execution":"failed","attempts":1,"writes":0,"competingWrites":1,"ref":"competing","hostUsed":false,"reserved":true},
+      {"decision":"allow","code":"allowed","execution":"failed","attempts":1,"writes":0,"competingWrites":0,"ref":"competing","hostUsed":false,"reserved":true}]},
+    {"id":"R03","competing":false,"host_retains":true,"expect":[
+      {"decision":"allow","code":"allowed","execution":"completed","attempts":1,"writes":1,"competingWrites":0,"ref":"intended","hostUsed":false,"reserved":true},
+      {"decision":"withhold","code":"duplicate_request","execution":"not_run","attempts":0,"writes":0,"competingWrites":0,"ref":"intended","hostUsed":true,"reserved":true}]}
+  ]
+}

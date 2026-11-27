@@ -37,6 +37,8 @@ The [governance gate experiment](../evaluation/comparative-tests/governance-gate
 
 The [bounded workflow controller](../evaluation/comparative-tests/workflow-controller/README.md) matched 40/40 frozen workflow decisions. One canary updated the disposable Git ref and seven controls left it untouched. Production dispatch remains outside this lab.
 
+The [lab restart and duplicate-protection study](../evaluation/comparative-tests/workflow-controller/restart/README.md) preserves the volatile baseline, storage candidate, original replays, and raw Git readback.
+
 The [D12 solo post-freeze historical pilot](../evaluation/d12/solo-post-freeze/README.md) ran 24 questions on six freshly drawn FRUS source pairs. Strict Ask completed **0/19** answerable cases. Native search and word overlap each found all required passages for **12/19**. No full answer was issued on the five missing-evidence cases. The precommitted key comes from a solo review.
 
 The [4score20 diagnostic](../evaluation/d12/4score20/README.md) traces interpretation, discovery, and contextual proof on three of the frozen D12 cases. It isolates one missing duration plan, a four-anchor telegram relation, and an exact quote that spans two statement units.

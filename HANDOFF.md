@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `32dd7469a1e3ac1d575b355f604d2b1ec8d92e7a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ef99c5ae360243a9596e5bbdc30357b1bdd49cac66665ed00ddff29c113a72b5`.
+Base commit: `ad60394f2a77d285fbe17f8ca9532b311660662c` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `a43d9b5e7cec2054e8c715cb823cc962d38a2a54b61b2d401a65d12c427958c2`.
 
 ## Betty report for Al
 
@@ -13,38 +13,30 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Finish PR #111’s verification with one bounded competing-writer test. Retry the failed isolation job unchanged. Freeze the matched ref scenarios first, retain the original evidence and keep the controller lab-only. Merge verified lab work when requirements pass.
+Archive the published From Workflow Decisions to Git Effects PDF unchanged. Freeze and measure restart duplication first. If needed, freeze a separate durable lab candidate. Retain the original results, preserve a recoverable checkpoint, and merge only after applicable checks pass. Add the six-part proposal-to-effect direction to TeamBuilding as a goal alongside language work.
 
 ### Implemented scope
 
-- Freeze the lab policy and separate development, retained shadow, held and canary packets.
-- Integrate the verified B-Tests evaluator as a lab-only dependency. Add a disposable Git compare-and-swap canary and a shadow runner.
-- Retain raw first candidate results, measured historical label differences, and the artifact and fixture digests.
-- Freeze two matched disposable Git ref scenarios, including beforeWrite hook location, independent ref and marker readback, CAS failure and duplicate reservation expectations.
-- Add the matched competing-writer scenario to the lab harness using the existing beforeWrite hook. Keep the workflow and controller policy unchanged.
-- Save the complete recoverable public checkpoint, exact tested ZIP, generator and frozen parameters, raw verdicts, readbacks, checksums, and first CI setup log. Keep the pinned upstream snapshot in persistent workspace custody without credentials.
+- Archive the exact PDF with its digest, paper index entry and separate dated PR #111 note. Freeze the baseline fixtures, expected outcomes and scoring against released a0136939.
+- Keep the restart baseline and store experiment separate. Freeze the exclusive reservation, outcome readback, interruption, and no-retry policy before implementation.
+- Add a lab-only fsynced exclusive directory reservation wrapper with separate Git execution and readback receipts. Leave the original controller and release paths unchanged.
+- Preserve exact source and result archives, raw subprocess logs and outcome records, independent ref readbacks and disposable Git bundles. Add the study to the Test Index and paper archive.
+- Record the TeamBuilding goal and its separate admission, attempt, observation and durability states. Keep Git as the bounded tested adapter.
 
 ### Validation recorded
 
-- Verified released main at a7d572067dbf68077ea306584b067e457bd7a3a4. Inspected TeamBuilding, WorkStore controls, and pinned B-Tests action gate. Verified the input hashes.
-- First working-tree shadow and development runs matched 7/7 and 15/15 expected outcomes. Two historical withholding labels were refined to missing evidence. The pinned upstream tests passed 14/14 after staging the upstream fixture.
-- The extracted candidate ZIP at 5111ebba9f6bab653b93d1f61dd73965eeb43583 matched 40/40 frozen cases. Eight admissions and 32 protective results. Zero false admissions, false denials or case execution failures. One mediated ref update, and the seven canary controls left its observed marker unchanged.
-- The pinned B-Tests action suite passed 14/14 and the existing governance, specialist continuity and handoff tests passed 63/63 on retry. Documentation audit passed. No reader, browser runtime or production release workflow bytes changed.
-- Retained the first study-sandbox failure from run 46020305274 attempt 1. The Microsoft Ubuntu package repository returned HTTP 403 before isolation tests. Requested an unchanged retry.
-- The unchanged study-sandbox retry passed at the original PR head. The first package setup failure remains separate and was retained.
-- The candidate archive from 32dd7469a1e3ac1d575b355f604d2b1ec8d92e7a passed all 40 prior cases and both new matched cases. The positive completed one ref update. The contrast preserved the competing marker after failed CAS. Duplicate requests attempted no update in either case.
-- Original isolation run 46020305274 failed in apt setup before tests. Unchanged attempt 2 passed four enforced isolation tests and completed 75/75 D% cases. Downloaded and checked the aggregate artifact and retained both original logs.
+- The PDF copy matches the supplied attachment byte for byte. Verified the frozen baseline input digests.
+- Baseline matched all three frozen scenarios. Both unretained duplicates reached Git after restart with zero successful writes. The host-retained key blocked the duplicate with zero Git attempts.
+- The archive from 0aba797739ec4787cd677397036bc1d27581c529 passed all 42 original controls, three baseline scenarios and six frozen candidate scenarios. The candidate withheld known and pending duplicates before Git, selected one writer in the local contention test, and retained uncertainty on both abrupt exits. 63 existing checks and 14 pinned upstream tests passed.
 
 ### Limitations and blocked checks
 
-- Held cases are same-operator and accessible to the implementer. Production dispatch is excluded.
-- Two local canary initialization attempts hit Node subprocess capture EPERM. Neither reached any case or ref write. File-descriptor output capture was substituted in the harness.
-- Six development/shadow pairs overlap. The held suite is same-operator, with no exact input/state overlap. Cross-process isolation and durable revocation remain outside the lab. Direct Git and external operations can bypass this harness.
-- The competing-writer hook tests one deterministic interleaving and one ref. It establishes neither cross-process grant revocation nor durable reservations. Identity and receipt provenance remain simulated. No restricted evidence, held private keys or credentials were generated for this lab.
+- No restart measurements were run before this freeze. The study is lab-only.
+- The store assumes a trusted host and local filesystem with atomic create and directory sync. Power loss, distributed authority and storage, authentication, manual reconciliation and production dispatch are outside the tested scope. Public lab fixtures and bundles contain no restricted inputs or credentials.
 
 ### Next steps
 
-- Verify the new exact-head CI, confirm the pushed checkpoint downloads and hashes, then merge the lab-only change under the maintainer’s authorization.
+- Download and compare the pushed paper and lab archive bytes. Verify exact-head CI and merge only after its checks pass under the maintainer’s existing authorization.
 
 ## Use this ZIP in your repository
 
