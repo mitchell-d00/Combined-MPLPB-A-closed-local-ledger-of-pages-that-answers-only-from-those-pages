@@ -8,15 +8,17 @@ Last reviewed: 2026-11-27.
 **Clean Thoth release candidate.** The published starting main is
 `f52ed384b831c2abb7656dfabc0d4b7632c38457` with PR #108's verified
 packaging. Its previously released reader is `2622813aba9ee1f1880693eeb71ae015cb3da999`.
-The cumulative C3, Wampus and Thoth candidate reader copies the tested native
-tree `6ec348b31ec79e37def77a7019cd22102df85f93`.
+The cumulative candidate starts from tested Thoth native tree
+`6ec348b31ec79e37def77a7019cd22102df85f93`. A one-file routing repair preserves
+the existing explicit relational location form and requires fresh release
+preservation on the revised bytes.
 [Acceptance, candidate evidence and incident plan](recovery/THOTH_CLEAN_RELEASE.md).
 The [PR #109 Betty report](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/109)
 records the checked clean head, source ZIP digest and release decision. Deployment requires a separate live receipt.
 
 The frozen Thoth development and fresh draws each retained six complete
 answers, three checked partials, three controls withheld and zero unsupported
-claims. The unchanged reader evidence preserves all 832 public contracts,
+claims. The original Thoth reader evidence preserves all 832 public contracts,
 BB's 900 positive contracts and citations and 200 withholds, and 19 protected
 C3/Wampus outcomes. This is bounded software evidence with same-operator
 preparation and scoring. The [original PR #106](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/106)

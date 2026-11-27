@@ -1,0 +1,86 @@
+name: Thoth clean release preservation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/thoth-release-preservation.yml'
+      - 'mplpb_answers/compound_fields.py'
+
+permissions:
+  contents: read
+
+jobs:
+  public-preservation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require the existing worker isolator
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends bubblewrap
+          sudo mkdir -p /workspace/cryptid-custody
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$(command -v python)" -m unittest tests.test_study_sandbox -v
+      - name: Replay exactly the 832 public preservation contracts
+        run: |
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0="$GITHUB_WORKSPACE" "$(command -v python)" -m tools.bunyip_round2_preservation --source-commit "$(git rev-parse HEAD)" --output "$RUNNER_TEMP/thoth-public-preservation"
+      - name: Retain public results even after a failure
+        if: always()
+        run: |
+          if test -d "$RUNNER_TEMP/thoth-public-preservation"; then
+            sudo chown -R "$(id -u):$(id -g)" "$RUNNER_TEMP/thoth-public-preservation"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: thoth-public-preservation-${{ github.event.pull_request.head.sha }}
+          path: ${{ runner.temp }}/thoth-public-preservation/
+          if-no-files-found: warn
+          retention-days: 90
+
+  frozen-replacements:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require the existing worker isolator
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends bubblewrap
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$(command -v python)" -m unittest tests.test_study_sandbox -v
+      - name: Freeze the runtime and compare previously measured public contracts
+        run: |
+          set -euo pipefail
+          OUT="$RUNNER_TEMP/thoth-replacements"
+          RUNTIME="$RUNNER_TEMP/thoth-runtime"
+          mkdir -p "$OUT" "$RUNTIME"
+          git archive --format=zip -0 -o "$OUT/runtime.zip" HEAD mplpb_answers mplpb_combined mplpb_work
+          sha256sum "$OUT/runtime.zip" | tee "$OUT/runtime.sha256"
+          unzip -q "$OUT/runtime.zip" -d "$RUNTIME"
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$(command -v python)" evaluation/egyptian-gods/thoth/verify_release_replay.py --implementation "$RUNTIME" --commit "$(git rev-parse HEAD)" --output "$OUT"
+      - name: Retain public results even after a failure
+        if: always()
+        run: |
+          if test -d "$RUNNER_TEMP/thoth-replacements"; then
+            sudo chown -R "$(id -u):$(id -g)" "$RUNNER_TEMP/thoth-replacements"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: thoth-replacements-${{ github.event.pull_request.head.sha }}
+          path: ${{ runner.temp }}/thoth-replacements/
+          if-no-files-found: warn
+          retention-days: 90

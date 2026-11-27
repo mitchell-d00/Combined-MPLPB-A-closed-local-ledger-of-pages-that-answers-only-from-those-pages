@@ -19,7 +19,7 @@ evidence. The earlier Bunyip gate remains incomplete in its original record.
 
 | Check | Prospective acceptance | Retained result on tested bytes |
 |---|---|---|
-| Runtime identity | Compare all three runtime package Git trees with tested Thoth and reproduce its scoped ZIP | Tested ZIP SHA-256 `4ccdf9b9099192395e41b57cbdf2c2ad61a7e79e5b566ba0bccbd306326a5fe5` |
+| Runtime identity | Compare all three runtime package Git trees with tested Thoth. Pin the exact clean runtime ZIP and require affected preservation on any difference | Reference Thoth ZIP SHA-256 `4ccdf9b9099192395e41b57cbdf2c2ad61a7e79e5b566ba0bccbd306326a5fe5` |
 | Public preservation | All 832 normalized contracts match and every case executes | [832/832 exact](../../evaluation/egyptian-gods/thoth/preservation-comparison.json) |
 | BB external regression | All 900 positives and citations preserved and all 200 controls withhold | [900 positives and citations, 200/200 withholds](../../evaluation/egyptian-gods/thoth/preservation.json) |
 | C3 and Wampus preservation | Preserve the 19 protected complete/partial contracts and all three C3 fresh-routing recoveries | [19/19 and 3/3](../../evaluation/egyptian-gods/thoth/RESULTS.md) |
@@ -64,6 +64,31 @@ and one refusal with no citation (F10-B), with zero JavaScript page errors.
 These are product probes using the frozen synthetic questions and imported
 source text. The native package trees and their archived scores are unchanged.
 Exact-head release and live replication remain required.
+
+## Reader routing regression and release retest
+
+The original-byte clean candidate reached the existing 52-case public gate.
+It passed 50 and produced zero false-supported bridges. The first run
+[45921606171](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/45921606171)
+retains that failure. The new named-field route treated the terminal
+predicate in “Where is … located?” as part of the entity. That removed the
+unaffected location answer in `partial-correction` and hid an existing
+conflict in `diagnostic-known-conflict`. The focused change hands the existing
+relational location form back to its established proof path. It neither changes
+the gate nor widens eligibility. A varied-source regression protects equivalent
+supported and conflicting facts.
+
+The repaired reader passes all 52 public capability checks with zero
+false-supported bridges locally. Its only native difference from tested Thoth
+is `mplpb_answers/compound_fields.py`. The repaired candidate needs its own ZIP
+and exact-head CI. The existing isolated 832-case comparison is repeated
+against the same public reference. The same isolated adapter also compares
+all 96 retained Thoth, Wampus and Bunyip replacement decisions to their
+original Thoth contracts, ignoring only code fingerprints. That comparison
+covers both Thoth draws and all 19 protected prior outcomes. BB is replayed
+against the original public package and retained fixture bytes. Treat unmet
+preservation, an execution failure or a failed software check as a release
+blocker. The first Thoth scores and original Bunyip gate remain retained.
 
 ## Separate publication incident
 

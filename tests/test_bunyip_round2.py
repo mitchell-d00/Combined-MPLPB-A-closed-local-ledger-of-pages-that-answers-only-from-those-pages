@@ -114,6 +114,15 @@ class RoundTwoTests(unittest.TestCase):
         self.source('<p>Only if the permit is approved.</p><p>Name: Willow Office</p><p>Opening time: 12:30</p>',ident='TWO')
         self.assertTrue(self.answer('When does Willow Office open?')['answer_supported'])
 
+    def test_relational_location_witnesses_keep_conflict_and_support(self):
+        self.source('<p>The cenotaph is located in Birch Square.</p>')
+        question = 'Where is the cenotaph located?'
+        answer = self.answer(question)
+        self.assertTrue(answer['answer_supported'])
+        self.assertIn('Birch Square', answer['text'])
+        self.source('<p>The cenotaph is located in Ash Square.</p>', ident='TWO')
+        self.assertEqual(self.answer(question)['kind'], 'conflict')
+
     def test_object_free_task_requires_unique_actor_recipient_binding(self):
         self.source('<p>Yara Moss instructed the field team to inspect the western bridge.</p>')
         q='Which task did Yara Moss give the field team?'

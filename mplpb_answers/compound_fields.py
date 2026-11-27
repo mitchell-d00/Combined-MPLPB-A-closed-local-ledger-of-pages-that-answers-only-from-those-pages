@@ -48,6 +48,10 @@ def parse_named_fields(question):
         text = text[:-1].rstrip()
     if text.endswith(('?', '.')):
         return None
+    # Preserve the established relational location proof and its conflict diagnostics.
+    relation = relation_graph.parse(text)
+    if relation and relation.relation == 'location':
+        return None
     compound = ('opening time', 'location')
     forms = (
         (r'(?:When|What time|At which time|At what time) does (.+?) open,? and where is it located', compound),

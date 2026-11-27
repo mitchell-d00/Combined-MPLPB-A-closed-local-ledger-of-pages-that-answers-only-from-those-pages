@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `1fbe43e9fda33b1b5cfeba77a9a3edf94bcb0380` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `c194975364cf42a36b163553d7a1ae2a39bc6d41595534e215fe7e7a9017348d`.
+Base commit: `c60f4f3d6b716a030cd0396c2f02e7ceaf60bd7e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `2aafad6120875f1e058a8526687aaee0a934b9924c0dbb97e806c471b6a7604b`.
 
 ## Betty report for Al
 
@@ -44,6 +44,7 @@ Finish with a clear released or held result, commit and PR links, completed chec
 - Integrate the tested cumulative C3, Wampus and Thoth reader and reviewed refusal copy on current clean main f52ed384. Keep the PR #108 packaging and original PR #106 checkpoints.
 - Retain only the selected public evidence and record prospective release acceptance and the separate historical cleanup plan.
 - Render named compound field statuses even when there is no per-field diagnostic. Keep the verified citation and missing field visible. This is a browser presentation repair; the native release fingerprint is unchanged.
+- Keep established relational location proof precedence. The sole native difference from tested Thoth is the narrow routing guard in compound_fields.py. Keep the earlier failing tested bytes and scores unchanged.
 
 ### Validation recorded
 
@@ -52,6 +53,7 @@ Finish with a clear released or held result, commit and PR links, completed chec
 - Retained same-runtime evidence covers 832 public contracts, BB 900 positives and citations/200 withholds, 19 protected contracts and all three C3 routing recoveries. Thoth scored 6 complete, 3 useful partial and 3 expected withholds on each frozen draw, zero unsupported claims.
 - The first clean-head source-tags run 45921394600 failed because the new evidence family lacked its department field. Assigned Egyptian gods to Testing and Evaluation and verified locally. Runtime bytes are unchanged. The sparse local JavaScript API probe lacked resources and did not complete. Exact-head CI runs from the complete checkout and ZIP.
 - First local Chromium attempt used a field caption for a supported documentary answer. The corrected probe found a missing optional diagnostic renderer failure on Thoth F08-A. After repair, the existing renderer, UI-script and refusal-copy checks passed. The candidate browser displayed the supported F06-A, checked partial F08-A and refusal F10-B; citations opened for the two supported portions and all three had zero page errors.
+- The original-byte clean head failed the public capability gate on partial-correction and diagnostic-known-conflict, 50/52 with zero false-supported bridges. The narrow repair restored 52/52 locally with zero false-supported bridges. All 43 focused native checks passed. Seven replay registries and original harness hashes matched.
 
 ### Limitations and blocked checks
 
@@ -60,7 +62,7 @@ Finish with a clear released or held result, commit and PR links, completed chec
 
 ### Next steps
 
-- Run exact-head archive-first and software gates on the frozen clean release candidate. The clean PR Betty report records exact head, ZIP hash and release decision. Merge after the exact-head gates pass and verify the live runtime, support, partial and refusal and compact ZIP. Keep incident cleanup separate.
+- Freeze and validate the exact repaired release head. Rerun the 832 public contracts, 96 original Thoth/Wampus/Bunyip synthetic contracts via the existing isolated adapter, the BB matched preservation, and all required software CI. The clean PR report records exact source and artifact fingerprints. Merge only after these checks pass and verify live reader, support, checked partial, refusal and compact ZIP. Keep cleanup separate.
 
 ## Use this ZIP in your repository
 
