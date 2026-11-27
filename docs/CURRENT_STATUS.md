@@ -25,6 +25,16 @@ PR #111 kept the controller lab-only, with reader and production workflow
 bytes unchanged. Its Pages receipt records the site build at the merge.
 [PR #111 engineering milestone](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/111)
 
+## Bunyip Round 4 attribution interpretation and proof
+
+[First scores and preservation](../evaluation/cryptid/bunyip/round4/RESULTS.md) record eight diagnostic and
+16 paired executions across 14 distinct questions. The candidate recovered
+one generic reporting-object answer and routed two generic negatives to
+native proof-stage withhold. Both fresh arms retained the cited conflict.
+The named-source positive is still open. The original Round 3 miss, the
+first Round 4 coordinate-scoring failure and all preservation receipts
+remain available.
+
 ## Bunyip Round 3 cumulative reader assessment
 
 [First comparison and archives](../evaluation/cryptid/bunyip/round3/RESULTS.md) cover 48 executions across

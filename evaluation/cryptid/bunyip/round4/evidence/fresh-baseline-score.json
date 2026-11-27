@@ -1,0 +1,123 @@
+{
+  "reader": "39df3d14ebf4bb01c056e8b04b8da65c7303fa61",
+  "cases": 8,
+  "distinct_questions": 7,
+  "counts": {
+    "complete": 1,
+    "miss": 2,
+    "correct_withhold": 4,
+    "checked_conflict": 1
+  },
+  "rows": [
+    {
+      "id": "BUNYIP-R4-F01",
+      "family": "bare-positive",
+      "question": "Which document did Nadia Moss say Lena Finch wrote?",
+      "expected": "complete",
+      "execution": "completed",
+      "score": "complete",
+      "diagnostic": "supported",
+      "stage": "bounded_records",
+      "raw_sha256": "005f4c0684e3d781cd76d0b734ed2dc634069b18e86b12b453dfaaa30cb21846",
+      "proof_reached": true,
+      "required_witnesses_discovered": true
+    },
+    {
+      "id": "BUNYIP-R4-F02",
+      "family": "generic-positive",
+      "question": "Which document did Nadia Moss say Lena Finch wrote, according to this source.",
+      "expected": "complete",
+      "execution": "completed",
+      "score": "miss",
+      "diagnostic": "interpretation_unsupported",
+      "stage": "strict",
+      "raw_sha256": "8c0059095f584a2824437f0f2d7da18c61f7fadad62c87701c617a56d0e954a8",
+      "proof_reached": false,
+      "required_witnesses_discovered": true
+    },
+    {
+      "id": "BUNYIP-R4-F03",
+      "family": "generic-wrong-reporter",
+      "question": "Which document did Otis Clark say Lena Finch wrote, according to this source.",
+      "expected": "withhold",
+      "execution": "completed",
+      "score": "correct_withhold",
+      "diagnostic": "interpretation_unsupported",
+      "stage": "strict",
+      "raw_sha256": "db08fd65773bf1998e3071b398efde2b3e4b30df92ac87ae934786204c7e15f6",
+      "proof_reached": false,
+      "required_witnesses_discovered": null
+    },
+    {
+      "id": "BUNYIP-R4-F04",
+      "family": "bare-wrong-reporter",
+      "question": "Which document did Otis Clark say Lena Finch wrote?",
+      "expected": "withhold",
+      "execution": "completed",
+      "score": "correct_withhold",
+      "diagnostic": "reported_object_unresolved",
+      "stage": "bounded_records",
+      "raw_sha256": "bddd15acfd5a2d6febf9d159abd2c08db4e68f33df161435fdd476c75041c9d5",
+      "proof_reached": true,
+      "required_witnesses_discovered": null
+    },
+    {
+      "id": "BUNYIP-R4-F05",
+      "family": "named-positive",
+      "question": "Which document did Nadia Moss say Lena Finch wrote, according to Nadia Moss?",
+      "expected": "complete",
+      "execution": "completed",
+      "score": "miss",
+      "diagnostic": "interpretation_unsupported",
+      "stage": "strict",
+      "raw_sha256": "b8c25123cda7f34dc6c977231f605a72c98817f60aecce4e9038a19a62835840",
+      "proof_reached": false,
+      "required_witnesses_discovered": true
+    },
+    {
+      "id": "BUNYIP-R4-F06",
+      "family": "named-wrong-source",
+      "question": "Which document did Nadia Moss say Lena Finch wrote, according to Otis Clark?",
+      "expected": "withhold",
+      "execution": "completed",
+      "score": "correct_withhold",
+      "diagnostic": "interpretation_unsupported",
+      "stage": "strict",
+      "raw_sha256": "31b3582fc5e1f653dfe1a0c18f98cf7150bb4b790ddf7ffc76645211b9689458",
+      "proof_reached": false,
+      "required_witnesses_discovered": null
+    },
+    {
+      "id": "BUNYIP-R4-F07",
+      "family": "generic-competing-objects",
+      "question": "Which document did Nadia Moss say Lena Finch wrote, according to this source.",
+      "expected": "withhold",
+      "execution": "completed",
+      "score": "correct_withhold",
+      "diagnostic": "interpretation_unsupported",
+      "stage": "strict",
+      "raw_sha256": "e13be819d76b5b6985d801c743a9fd2482956d6c363f079a30b19c41db5c7726",
+      "proof_reached": false,
+      "required_witnesses_discovered": null
+    },
+    {
+      "id": "BUNYIP-R4-F08",
+      "family": "opposed-content",
+      "question": "What does Nadia Moss report about whether Lena Finch wrote the workshop bulletin?",
+      "expected": "conflict",
+      "execution": "completed",
+      "score": "checked_conflict",
+      "diagnostic": "conflicting_reported_content",
+      "stage": "bounded_records",
+      "raw_sha256": "a59ce5201df8a9e45820805caaa8127fe32c3775f68648bc8cfd53e1716d2098",
+      "proof_reached": true,
+      "required_witnesses_discovered": true
+    }
+  ],
+  "run_sha256": "f5bc6ca4241f4bb489db9dd3e85e69c9f6d9d5434ee8fec0590337e6a3422b5b",
+  "scorer_sha256": "453bcde2fd3339d03c370d197bccde310533972c26a89d195280cbf02608a987",
+  "registry_sha256": "0cec1f60b6a643f894d52c7bfd8d3edcbbd1ed7f50d11a8fb2f95efa8c4e0fab",
+  "key_sha256": "8354da6afbaf1fc2a858d8f398e90719839fabd0cf2d571680fa62ba48305d8c",
+  "projection_adapter_sha256": "7df2a8df6c2af91fbbba1841422dbd4e7d7fe0d32b45f2db56a446a3f841c9bd",
+  "policy": "fixture_to_admitted_html_coordinate_correction_v2"
+}

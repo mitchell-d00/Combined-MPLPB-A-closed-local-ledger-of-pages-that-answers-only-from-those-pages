@@ -45,7 +45,8 @@ def request(question):
                         form='minutes' if q.endswith(' in the minutes?') else None)
     match = re.fullmatch(
         rf'(?:What|Which document) did (?P<reporter>{_PERSON}) (?:say|state|report) '
-        rf'(?:that )?(?P<author>{_PERSON}) wrote[?.]', q, re.I)
+        rf'(?:that )?(?P<author>{_PERSON}) wrote'
+        r'(?:,\s+according to (?:the|this) (?:record|source))?[?.]', q, re.I)
     if match and all(kernel.named_actor(match[k]) for k in ('reporter', 'author')):
         return dict(match.groupdict(), object=None, conditional=False, form=None,
                     required_outer_negative=False, required_inner_negative=False)
