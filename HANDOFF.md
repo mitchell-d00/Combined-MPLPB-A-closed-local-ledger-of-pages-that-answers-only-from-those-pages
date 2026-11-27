@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `717be4e0cdc53a68fc70e102bf1b7b388174e9aa` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `dc141faa9cc9d13b5a1f3e4506d795007d6b1de1e5e0fc4bc5916397748d7367`.
+Base commit: `84b13f0a3f9e83da04de414488ccd78f73ca9ce3` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `1bdafcfe5294570aedd13844dbbee06856d53976202063b5457953325f813cb8`.
 
 ## Betty report for Al
 
@@ -43,11 +43,13 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 - Verify released main and freeze Round 4 attribution diagnosis under eight new IDs. Keep Round 3 results and the controller lab unchanged.
 - Preserve eight original baseline executions and first score. Freeze the separate fresh arm and the bounded parser proposal before any reader change.
+- Extend only the whole reporting-object pattern with the frozen generic terminal adjunct. Preserve the original authority question and all native proof gates.
 
 ### Validation recorded
 
 - Remote main matches the verified released commit 39df3d14. Original Round 3 D03-A found both required passages and stopped before native attribution proof. Packet, key seal, runtime and runner verified without a new reader run.
 - Baseline reached proof for bare attribution, bare wrong-reporter and opposed evidence. It missed generic and named positives before proof. The first score flagged two coordinate discrepancies. A separately versioned recheck of the unchanged raw outputs verified one valid complete answer, one cited conflict, four withholds and two misses.
+- All 30 focused reported-content and ordinary-question tests passed on the scoped patch.
 
 ### Limitations and blocked checks
 
@@ -56,7 +58,7 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Next steps
 
-- Implement only the frozen terminal generic adjunct rule. Freeze the committed candidate before running the fresh arms and preservation.
+- Record the exact candidate native ZIP digest, then run the two fresh arms and all consumed preservation on the pinned candidate.
 
 ## Use this ZIP in your repository
 
