@@ -2,15 +2,18 @@
   "reviewed_on": "2026-11-27",
   "instruction": "Build a bounded deterministic workflow controller from MPLPB’s retained evidence. Start from current released main. Freeze the policy, schemas, development cases, and held evaluation before implementation. Run shadow tests and one disposable local Git canary. Push a reproducible checkpoint and leave Al a report. Stop at the frozen scope.",
   "scope": [
-    "Freeze the lab policy and separate development, retained shadow, held and canary packets."
+    "Freeze the lab policy and separate development, retained shadow, held and canary packets.",
+    "Integrate the verified B-Tests evaluator as a lab-only dependency. Add a disposable Git compare-and-swap canary and a shadow runner."
   ],
   "validation": [
-    "Verified released main at a7d572067dbf68077ea306584b067e457bd7a3a4. Inspected TeamBuilding, WorkStore controls, and pinned B-Tests action gate. Verified the input hashes."
+    "Verified released main at a7d572067dbf68077ea306584b067e457bd7a3a4. Inspected TeamBuilding, WorkStore controls, and pinned B-Tests action gate. Verified the input hashes.",
+    "First working-tree shadow and development runs matched 7/7 and 15/15 expected outcomes. Two historical withholding labels were refined to missing evidence. The pinned upstream tests passed 14/14 after staging the upstream fixture."
   ],
   "limitations": [
-    "Held cases are same-operator and accessible to the implementer. Production dispatch is excluded."
+    "Held cases are same-operator and accessible to the implementer. Production dispatch is excluded.",
+    "Two local canary initialization attempts hit Node subprocess capture EPERM. Neither reached any case or ref write. File-descriptor output capture was substituted in the harness."
   ],
   "next_steps": [
-    "Implement the thin adapter and evaluate the development and shadow suites before opening the held run."
+    "Run the candidate archive with the frozen canary and held suites and preserve the first results."
   ]
 }
