@@ -1,0 +1,39 @@
+{
+  "schema": "museum-refusal-copy-protocol-v1",
+  "state": "FROZEN_PROTOCOL; UI implementation and execution NOT_RUN",
+  "origin": "Outside-reported museum wording lead; exact original browser packet not supplied",
+  "protected_decision": "Never change answer_supported, claims, refusal kind or admission to improve copy",
+  "cases": [
+    {
+      "id": "CRYPT-BUNYIP-R02-UI-0001",
+      "displayed_supporting_sources": 0,
+      "eligible_corpus_passages": "positive",
+      "diagnostic": "proof or interpretation gap",
+      "required_message": "No supported answer established. Eligible passages may exist; inspect the diagnostic or related pages.",
+      "forbidden_inference": "Zero displayed sources means no eligible corpus evidence"
+    },
+    {
+      "id": "CRYPT-BUNYIP-R02-UI-0002",
+      "eligible_corpus_passages": 0,
+      "diagnostic": "restricted_or_unavailable",
+      "required_message": "No eligible passages can be served under the current profile. Corpus absence is not established."
+    },
+    {
+      "id": "CRYPT-BUNYIP-R02-UI-0003",
+      "diagnostic": "known_source_conflict",
+      "required_message": "Conflicting eligible statements leave the answer unresolved."
+    },
+    {
+      "id": "CRYPT-BUNYIP-R02-UI-0004",
+      "diagnostic": "index_exhaustion",
+      "required_message": "The proof or search budget stopped before a complete answer was established."
+    }
+  ],
+  "inspected_paths": [
+    "index.html:257 visibleSources is a presentation list",
+    "mplpb_answers/pipeline.py:332 diagnostic category uses recorded eligible_pages",
+    "mplpb_answers/presentation.py:91 category-specific source warning",
+    "mplpb_answers/passages.py:109 all eligible records are separate from lexical candidates"
+  ],
+  "actual_museum_reproduction": "NOT_RUN; do not claim exact reproduction without original case"
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "bunyip-round2-retention-v1",
+  "baseline_archive": "baseline-retained.tar.xz",
+  "bytes": 147232,
+  "sha256": "6783dc3ba5457cfeff234d233ccdbb53e6fa33310b30d749ce7d24247ddc5325",
+  "verified_original_files": 896,
+  "all_original_raw_outputs_and_scores_preserved": true,
+  "input_archive": "frozen-development-inputs.tar.xz",
+  "input_archive_sha256": "1bc933f5a6d50741bf101f711e2e8ec3500a4c4ca0a88b9ab414cfbd6fc490f4",
+  "auto_review_rejection": {
+    "action": "Delete /workspace/artifacts/MPLPB-attribution-fresh-source.zip after lossless verification and replace storage with predecessor ZIP plus delta",
+    "status": "NOT_EXECUTED",
+    "stated_reason": "The command deletes a retained full source archive after verification and replaces it with a delta encoding; despite a receipt, this is destructive modification of frozen evidence and was not explicitly authorized for this specific archive.",
+    "original_zip_untouched": true,
+    "original_zip_sha256": "93d801d6554575542d50fee557ddbd099c607f1325ef6c8aed917d32768918fb",
+    "proposed_lossless_delta_bytes": 1132207,
+    "full_zip_bytes": 713529154,
+    "required_user_decision": "Explicit permission for this archive storage encoding; exact full ZIP reconstruction verified before any reclamation."
+  }
+}

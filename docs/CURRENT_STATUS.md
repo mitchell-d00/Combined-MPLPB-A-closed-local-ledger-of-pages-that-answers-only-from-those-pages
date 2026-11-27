@@ -27,6 +27,11 @@ bytes unchanged. Its Pages receipt records the site build at the merge.
 
 ## Historical Thoth preparation and original PR #106
 
+The [clean PR #106 reconciliation](../evaluation/cryptid/bunyip/round2/reconciliation/README.md)
+links the original grades, rejected candidates, approved evidence and file
+dispositions. The unrecoverable original study is retired while its recorded
+incomplete checks, NOT_RUN transfers and open incident remain visible.
+
 Before PR #109, main carried PR #108’s packaging at `f52ed384b831c2abb7656dfabc0d4b7632c38457`.
 Clean Thoth started from tested native tree `6ec348b31ec79e37def77a7019cd22102df85f93`
 and included a one-file routing repair. The [clean release record](recovery/THOTH_CLEAN_RELEASE.md)

@@ -1,0 +1,80 @@
+{
+  "schema": "bunyip-round2-baseline-summary-v1",
+  "baseline_revision": "2622813aba9ee1f1880693eeb71ae015cb3da999",
+  "native_changes": false,
+  "planned": 444,
+  "attempted": 444,
+  "completed": 444,
+  "scored": 444,
+  "worker_execution_failures": 0,
+  "prelaunch_infrastructure_failures": 1,
+  "positive_targets": 78,
+  "correct_complete_answers": 21,
+  "remaining_positive_misses": 57,
+  "withhold_targets": 366,
+  "correct_withholds": 360,
+  "false_supported_control_cases": 6,
+  "strict_decisions_passed": 381,
+  "strict_decisions_failed": 63,
+  "unscored_supported": 0,
+  "unique_question_strings": 78,
+  "unique_source_question_state_inputs": 396,
+  "repeated_execution_memberships": 48,
+  "by_family": {
+    "category": {
+      "cases": 108,
+      "outcomes": {
+        "detected_answer": 6,
+        "appropriate_refusal": 90,
+        "over_refusal": 12
+      }
+    },
+    "classification_confirmation": {
+      "cases": 12,
+      "outcomes": {
+        "detected_answer": 3,
+        "over_refusal": 3,
+        "appropriate_refusal": 6
+      }
+    },
+    "instruction": {
+      "cases": 108,
+      "outcomes": {
+        "detected_answer": 6,
+        "appropriate_refusal": 90,
+        "over_refusal": 12
+      }
+    },
+    "owner": {
+      "cases": 108,
+      "outcomes": {
+        "detected_answer": 6,
+        "appropriate_refusal": 90,
+        "over_refusal": 12
+      }
+    },
+    "time": {
+      "cases": 108,
+      "outcomes": {
+        "over_refusal": 18,
+        "false_alarm": 6,
+        "appropriate_refusal": 84
+      }
+    }
+  },
+  "positive_required_evidence_discovery": "78/78 full native and BM25 statement coverage",
+  "quotation_failures": 0,
+  "false_case_ids": [
+    "DP00074",
+    "DP00092",
+    "DP00222",
+    "DP00240",
+    "DP00370",
+    "DP00388"
+  ],
+  "classification": "Newly reproduced baseline misses and six competing-time control failures; no candidate regression or gain claimed. Investigate competing-field proof before release.",
+  "scorer_limitation": "Original expanded by_feature tables omit72 typed-instruction rows; overall and by_family account for all444. Original scorer and scores retained unchanged.",
+  "raw_retention": "baseline-retained.tar.xz: all896 original files byte-verified; keys and input archive retained separately",
+  "publication": "NOT_RUN; storage blocked",
+  "independent_evaluations": "NOT_RUN"
+}

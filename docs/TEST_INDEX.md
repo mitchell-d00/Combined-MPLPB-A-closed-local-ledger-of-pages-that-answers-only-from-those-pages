@@ -31,6 +31,11 @@ remain outside the tested scope.
 
 ## Full reproducible Cryptid replay
 
+The [clean PR #106 reconciliation](../evaluation/cryptid/bunyip/round2/reconciliation/README.md)
+links the original grades, rejected candidates, approved evidence and file
+dispositions. The unrecoverable original study is retired while its recorded
+incomplete checks, NOT_RUN transfers and open incident remain visible.
+
 The [frozen coverage inventory](../evaluation/cryptid/full-reproducible-replay/README.md)
 includes BB, the reproducible retained Cryptid packets and the exact 444-case
 Bunyip primary rebuild. The other 128 exposed development inputs have
