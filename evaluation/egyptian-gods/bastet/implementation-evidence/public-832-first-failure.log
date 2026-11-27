@@ -1,0 +1,31 @@
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4666681Z Traceback (most recent call last):
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4673480Z   File "<frozen runpy>", line 198, in _run_module_as_main
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4673959Z   File "<frozen runpy>", line 88, in _run_code
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4674957Z   File "/home/runner/work/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/tools/bunyip_round2_preservation.py", line 98, in <module>
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4676177Z     p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);p.add_argument('--source-commit',required=True);main(p.parse_args())
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4676765Z                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4677732Z   File "/home/runner/work/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/tools/bunyip_round2_preservation.py", line 67, in main
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4679459Z     attempts=list(pool.map(execute,specs))
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4679887Z              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4680385Z   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4681099Z     yield _result_or_cancel(fs.pop())
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4681374Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4681846Z   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4682329Z     return fut.result(timeout)
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4682584Z            ^^^^^^^^^^^^^^^^^^^
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4683200Z   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4683647Z     return self.__get_result()
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4684107Z            ^^^^^^^^^^^^^^^^^^^
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4684536Z   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4684976Z     raise self._exception
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4685422Z   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4685956Z     result = self.fn(*self.args, **self.kwargs)
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4686268Z              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4687155Z   File "/home/runner/work/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/tools/bunyip_round2_preservation.py", line 55, in execute
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4688324Z     if name=='release280':return {'cohort':name,'adapter':'existing tools.bubble_wrap_trial.execute','returncode':release_public(output),'private_blocked':17}
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4688886Z                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4689902Z   File "/home/runner/work/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/tools/bunyip_round2_preservation.py", line 35, in release_public
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4690878Z     for name,expected in freeze['files'].items():assert B.sha(ROOT/name)==expected
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4691258Z                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4691556Z AssertionError
+study (public-832)	Run the frozen cohort	2026-11-27T19:45:45.4783969Z ##[error]Process completed with exit code 1.

@@ -33,7 +33,13 @@ draw. [Bastet baseline](../evaluation/egyptian-gods/bastet/baseline.json)
 pins the deployed Round 4 reader. [First development](../evaluation/egyptian-gods/bastet/RESULTS.md)
 completed all 12 executions across four distinct questions with no
 supported named selections or attributions. Safe withholds were 6/6
-and exact I/O withholds 5/6. Fresh transfer remains NOT_RUN.
+and exact I/O withholds 5/6. [Bastet selection results](../evaluation/egyptian-gods/bastet/SELECTION_RESULTS.md)
+record eight verified document selections and six independently verified
+attributions in each 12-case candidate draw. The first fresh draw matched
+all 12 I/O contracts with zero unsupported claims. Two cases in each draw
+verify a source selection while withholding the attribution. Duplicate
+eligible writers now yield the required ambiguity abstention. PR #117
+records the exact-head release and deployment disposition.
 
 
 ## Bunyip Round 4 attribution interpretation and proof
@@ -42,7 +48,7 @@ and exact I/O withholds 5/6. Fresh transfer remains NOT_RUN.
 16 paired executions across 14 distinct questions. The candidate recovered
 one generic reporting-object answer and routed two generic negatives to
 native proof-stage withhold. Both fresh arms retained the cited conflict.
-The named-source positive is still open. The original Round 3 miss, the
+The named-source positive remained a Round 4 miss and informed Bastet. The original Round 3 miss, the
 first Round 4 coordinate-scoring failure and all preservation receipts
 remain available.
 

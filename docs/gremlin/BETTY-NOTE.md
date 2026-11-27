@@ -23,7 +23,8 @@ obligations are not forgotten. He also asked to leave notes for Betty.
 
 This work is isolated from Bastet. It starts at released main
 `cef389a15293ceb51e813f2a1060246843a30aaf` on `lab/gremlin-system-map`.
-The registry's observations apply to that baseline. Bastet's candidate state
+The initial registry observations apply to that baseline; the current map is
+reconciled against Bastet merge `db5c5680a22b7f3c08288bc0e06e3d221614a2dc`. Bastet's candidate state
 must be recovered from its own latest PR; Gremlin is not a substitute for that
 handoff. Do not overwrite Bastet's working state with this branch's handoff.
 
@@ -67,3 +68,10 @@ and tests.
 
 Validation and publication status are recorded in the generated HANDOFF and
 the Gremlin PR report. A command documented here is not a claim it has run.
+
+## First live note relay
+
+[Al note 0002](../../handoff/al-notes/0002-first-live-relay-and-bastet-integration.md)
+records Mitchell's report that the repository relay was tested and worked.
+Betty should acknowledge her exact read revision separately. One functional
+observation does not establish a speed, cost or general reliability benefit.

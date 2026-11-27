@@ -5,7 +5,9 @@ Last reviewed: 2026-11-27.
 This is the canonical Al-note set for this repository. Mitchell authorized
 repository notes to replace the manual copy-paste relay. The first example is
 [0001: Gremlin and the repository relay](0001-gremlin-and-repository-relay.md).
-The notes are coordination records; they are not imported source-ledger facts.
+[Note 0002](0002-first-live-relay-and-bastet-integration.md) records the first
+reported successful live relay and the concurrent Bastet integration. The notes
+are coordination records; they are not imported source-ledger facts.
 
 ## Roles and authority
 

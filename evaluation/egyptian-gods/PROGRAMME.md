@@ -73,7 +73,9 @@ remain NOT_RUN.
 
 [First Bastet development results](bastet/RESULTS.md) record 0/6
 completions, six safe withholds, five exact I/O withholds and no verified
-selection or attribution. Bastet retains Round 4 F05 as a consumed development lead. Separate Bastet inputs have new IDs and seals. The first fresh comparison remains NOT_RUN. The existing 17
+selection or attribution. Bastet retains Round 4 F05 as a consumed development lead. Separate Bastet inputs have new IDs and seals. [Bastet implementation and first fresh score](bastet/SELECTION_RESULTS.md)
+record eight proven selections, six complete attributions and six exact
+withholds on each candidate draw. The existing 17
 incomplete checks, original 100 NOT_RUN transfers, retired recovery and
 open publication incident retain their states. The programme does not
 expand the diagnostic compatibility authorization or change the

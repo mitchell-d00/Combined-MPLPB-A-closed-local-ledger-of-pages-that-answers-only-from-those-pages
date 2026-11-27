@@ -1,0 +1,138 @@
+name: Bastet pinned source-selection replay
+on:
+  push:
+    branches: ['study/bastet-document-selection']
+    paths: ['evaluation/egyptian-gods/bastet/candidate-dispatch.json']
+permissions:
+  contents: read
+
+jobs:
+  study:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        cohort: [packet, public-832, retained-96, bb]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - id: freeze
+        name: Verify the public synthetic packet and native runtime pin
+        env:
+          PYTHONPATH: .
+          COHORT: ${{ matrix.cohort }}
+        run: |
+          set -euo pipefail
+          study=evaluation/egyptian-gods/bastet
+          phase="$(jq -er '.phase' "$study/candidate-dispatch.json")"
+          case "$phase" in
+            development) test "$COHORT" = packet || exit 0 ;;
+            fresh) ;;
+            public-preservation)
+              test "$COHORT" = public-832 || exit 0
+              phase=development
+              ;;
+            *) exit 1 ;;
+          esac
+          export PHASE="$phase"
+          python - <<'PY_CHECK'
+          import hashlib, json, os
+          from pathlib import Path
+          from tools.cryptid_adapter_v5 import snapshot
+          home = Path('evaluation/egyptian-gods/bastet') / os.environ['PHASE']
+          seal = json.loads((home/'freeze.json').read_bytes())
+          registry = (home/'registry.json').read_bytes()
+          assert seal['publication']=='authorized synthetic raw outputs only'
+          assert hashlib.sha256(registry).hexdigest()==seal['registry_sha256']
+          cases = json.loads(registry)['cases']
+          assert len(cases)==len({r['id'] for r in cases})==12
+          for row in cases:
+              packet = home/'inputs'/row['id']
+              assert str(packet)==row['packet'] and set(row['files'])=={'case.json'}
+              assert snapshot(packet)==row['files']
+              case = json.loads((packet/'case.json').read_bytes())
+              assert case['id']==row['id'] and case['profile']=='internal'
+              assert all(s['origin']=='machine' and s['title']=='Synthetic documentary record'
+                         for s in case['sources'])
+          PY_CHECK
+          pin="$(jq -er .commit "$study/candidate-dispatch.json")"
+          git fetch --no-tags --depth=1 origin "$pin"
+          git diff --exit-code "$pin" HEAD -- mplpb_answers mplpb_combined mplpb_work
+          echo "phase=$phase" >> "$GITHUB_OUTPUT"
+          echo "pin=$pin" >> "$GITHUB_OUTPUT"
+      - name: Require actual isolation
+        if: steps.freeze.outputs.phase != '' && matrix.cohort != 'bb'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends bubblewrap
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$(command -v python)" -m unittest tests.test_study_sandbox -v
+      - name: Run the frozen cohort
+        if: steps.freeze.outputs.phase != ''
+        env:
+          PHASE: ${{ steps.freeze.outputs.phase }}
+          PIN: ${{ steps.freeze.outputs.pin }}
+          COHORT: ${{ matrix.cohort }}
+          PYTHONPATH: .
+        run: |
+          set -euo pipefail
+          study=evaluation/egyptian-gods/bastet
+          parent="$RUNNER_TEMP/bastet-selection"
+          mkdir "$parent"
+          out="$parent/$COHORT"
+          legacy=evaluation/cryptid/bunyip/round3/preserve.py
+          isolated=(sudo env MPLPB_REQUIRE_SANDBOX=1 PYTHONPATH="$PWD"
+            GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0="$PWD" "$(command -v python)")
+          case "$COHORT" in
+            packet)
+              runtime="$RUNNER_TEMP/runtime"
+              mkdir "$out" "$runtime"
+              git archive --format=zip -0 -o "$out/runtime.zip" "$PIN" mplpb_answers mplpb_combined mplpb_work
+              echo "$(jq -er .runtime_zip_sha256 "$study/candidate-dispatch.json")  $out/runtime.zip" | sha256sum -c
+              unzip -q "$out/runtime.zip" -d "$runtime"
+              "${isolated[@]}" -m tools.cryptid_trial_v5 \
+                --registry "$study/$PHASE/registry.json" --implementation "$runtime" \
+                --source-commit "$PIN" --output "$out/$PHASE"
+              ;;
+            public-832)
+              sudo mkdir -p /workspace/cryptid-custody
+              result=0
+              "${isolated[@]}" -m tools.bunyip_round2_preservation --source-commit "$PIN" --output "$out" || result=$?
+              # The original published reference stays in Git. Retain all new raw files.
+              if test -f "$out/comparison-v1.json"; then
+                sudo mv "$out/released-reference" "$RUNNER_TEMP/reference-extraction"
+              fi
+              exit "$result"
+              ;;
+            retained-96)
+              mkdir "$out"
+              result=0
+              "${isolated[@]}" evaluation/egyptian-gods/thoth/verify_release_replay.py \
+                --implementation "$PWD" --commit "$PIN" --output "$out" || result=$?
+              python "$legacy" retained --output "$out" --strict-exit "$result"
+              ;;
+            bb)
+              python "$legacy" bb --output "$out" --work "$RUNNER_TEMP/bb-fixtures"
+              ;;
+          esac
+      - id: retain
+        if: always() && steps.freeze.outputs.phase != ''
+        name: Check public archive boundary
+        run: |
+          root="$RUNNER_TEMP/bastet-selection"
+          if test -d "$root"; then
+            sudo chown -R "$(id -u):$(id -g)" "$root"
+            test -z "$(find "$root" -iname '*key.json' -print -quit)"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.retain.outcome == 'success'
+        with:
+          name: bastet-${{ matrix.cohort }}-${{ github.sha }}
+          path: ${{ runner.temp }}/bastet-selection/
+          if-no-files-found: warn
+          retention-days: 90

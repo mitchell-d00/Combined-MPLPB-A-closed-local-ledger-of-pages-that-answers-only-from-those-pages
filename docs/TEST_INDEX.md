@@ -80,6 +80,9 @@ preserve Thoth, Seshat, Anubis, Horus and Round 4 under their original pins.
 fresh I/O for unique printed-writer selection and separate reporter attribution.
 [First Bastet development baseline](../evaluation/egyptian-gods/bastet/RESULTS.md) preserves the six
 answer misses and shows safe withholding separately from selection proof.
+[Bastet implementation and first fresh score](../evaluation/egyptian-gods/bastet/SELECTION_RESULTS.md)
+link both candidate draws, raw results, the first public-preservation
+failure and its successful retry.
 
 ## Egyptian-gods attribution and scope batch
 

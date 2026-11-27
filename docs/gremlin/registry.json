@@ -1,7 +1,7 @@
 {
   "schema": "gremlin-registry-v1",
   "reviewed_on": "2026-11-27",
-  "inspected_revision": "cef389a15293ceb51e813f2a1060246843a30aaf",
+  "inspected_revision": "db5c5680a22b7f3c08288bc0e06e3d221614a2dc",
   "departments": {
     "reader": {
       "label": "Deterministic reader",
@@ -472,10 +472,11 @@
     {
       "id": "writer-reporter",
       "component": "egyptian-programme",
-      "question": "At baseline cef389a1, Bastet has no verified document selection or attribution. Inspect printed-writer selection separately from embedded reporter proof.",
-      "revisit_when": "Bastet implementation merges or its frozen first fresh score is available.",
+      "question": "Bastet PR 117 reports released document selection by printed writer followed by separate reporter proof. The first fresh candidate had no released-reader arm; retain that comparison limit while investigating additional request forms.",
+      "revisit_when": "A new named-document wording, source layout, eligibility condition or attribution repair is proposed.",
       "evidence": [
-        "evaluation/egyptian-gods/bastet/RESULTS.md"
+        "evaluation/egyptian-gods/bastet/RESULTS.md",
+        "evaluation/egyptian-gods/bastet/SELECTION_RESULTS.md"
       ]
     },
     {

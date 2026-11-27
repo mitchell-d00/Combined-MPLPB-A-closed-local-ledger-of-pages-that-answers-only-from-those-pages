@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `cef389a15293ceb51e813f2a1060246843a30aaf` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `702e399a4e909777d1947abf37f397bd3f052a8b15ae3e4fa6f7df6902caad37`.
+Base commit: `1d63e9f1124669530dc1e623cd1fdb12b434e123` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `5fee0aae064b295524a452c4abfbd8fa2416601d26c1a0b48395b2ed21985f85`.
 
 ## Betty report for Al
 
@@ -35,12 +35,15 @@ Give me a prompt for a seprate repo I have that is exploring Betty outside and A
 
 Continue
 
+Note it was tested and worked
+
 ### Implemented scope
 
 - Al remains Al and implements Gremlin under Mitchell's explicit scoped override, not as an independent reviewer or a silent Betty role change.
 - Add a read-only maintenance map joining existing ownership/results indexes with component links, reuse candidates, revisit conditions, content drift and change-review hints.
 - Create canonical handoff/al-notes with note 0001, link agent/TeamBuilding/Gremlin guidance, and maintain a local workspace pointer. BOA instructions are a prompt only; no BOA repository edits in this task.
 - Keep Bastet, reader, controller, browser builder, existing production workflows and private custody unchanged. Add a dedicated map check workflow.
+- Reconcile with Bastet release db5c5680 after its concurrent merge; preserve its reader, evidence and existing workflow bytes and keep Al note 0001 unchanged. Record the first successful live repository relay in Al note 0002.
 
 ### Validation recorded
 
@@ -49,12 +52,15 @@ Continue
 - Documentation inventory audit passed with the Al-note links and classification. No reader/effect experiment or independent evaluation was rerun.
 - Full repository Gremlin freshness check passed at the working candidate; documentation audit and department coverage passed with zero unmapped paths.
 - Ten focused tests passed (nine Gremlin tests plus department navigation). Reader, ledger, work runtime, browser, browser builder and effect-controller paths have no diff from the released base.
+- First published candidate 1d63e9f passed exact source-ZIP integrity, 10 focused tests, full map freshness, handoff freshness and documentation audit from extraction. ZIP SHA-256 4a1641bd10b10a56faa6e6a9f9b5b0a9aef5ecb53529de67047b4893e41c6a5b.
+- Fresh Git readback matched all 21 changed paths at 1d63e9f. Mitchell reported the first repository-note relay was tested and worked after Betty fetched PR 118; this is one live functional observation, not measured efficiency or independent validation.
 
 ### Limitations and blocked checks
 
 - Same-operator Al implementation and checks under Mitchell's explicit scoped override; independent review NOT_RUN.
 - Curated graph and impact hints are incomplete. Existence and byte identity do not establish relationships, truth, permission, release readiness or test success.
 - Extracted-candidate and exact-head remote CI are pending until the committed candidate runs. The local workspace pointer is not automatically shared with other machines.
+- Main advanced to Bastet db5c5680 after the first candidate publication. The integrated Gremlin candidate requires its own regenerated map/handoff and exact-head checks.
 
 ### Next steps
 
