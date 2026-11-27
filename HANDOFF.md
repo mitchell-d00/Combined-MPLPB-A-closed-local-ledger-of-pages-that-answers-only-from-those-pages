@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `e6e8cacf10c744b6c7b165ec1c6b235eba438530` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `db4b57f67070e71f613d7c71db18507368ed956a83850fdbb13516feedd517dc`.
+Base commit: `6ff09a241b722321dfa5af2397fb7b5342b4b20b` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `5a36215f52cffc97270a1cbe9b4565542eacc295813b0d30ec9fa58ff7a00a41`.
 
 ## Betty report for Al
 
@@ -21,6 +21,7 @@ Finish PR #111’s verification with one bounded competing-writer test. Retry th
 - Integrate the verified B-Tests evaluator as a lab-only dependency. Add a disposable Git compare-and-swap canary and a shadow runner.
 - Retain raw first candidate results, measured historical label differences, and the artifact and fixture digests.
 - Freeze two matched disposable Git ref scenarios, including beforeWrite hook location, independent ref and marker readback, CAS failure and duplicate reservation expectations.
+- Add the matched competing-writer scenario to the lab harness using the existing beforeWrite hook. Keep the workflow and controller policy unchanged.
 
 ### Validation recorded
 
@@ -29,6 +30,7 @@ Finish PR #111’s verification with one bounded competing-writer test. Retry th
 - The extracted candidate ZIP at 5111ebba9f6bab653b93d1f61dd73965eeb43583 matched 40/40 frozen cases. Eight admissions and 32 protective results. Zero false admissions, false denials or case execution failures. One mediated ref update, and the seven canary controls left its observed marker unchanged.
 - The pinned B-Tests action suite passed 14/14 and the existing governance, specialist continuity and handoff tests passed 63/63 on retry. Documentation audit passed. No reader, browser runtime or production release workflow bytes changed.
 - Retained the first study-sandbox failure from run 46020305274 attempt 1. The Microsoft Ubuntu package repository returned HTTP 403 before isolation tests. Requested an unchanged retry.
+- The unchanged study-sandbox retry passed at the original PR head. The first package setup failure remains separate and was retained.
 
 ### Limitations and blocked checks
 
@@ -38,7 +40,7 @@ Finish PR #111’s verification with one bounded competing-writer test. Retry th
 
 ### Next steps
 
-- Implement only the frozen competing-ref lab harness. Replay affected checks and wait for exact-head CI before merging.
+- Run the candidate archive with all 40 earlier cases and the two frozen competing-writer cases. Retain raw readback and first logs.
 
 ## Use this ZIP in your repository
 

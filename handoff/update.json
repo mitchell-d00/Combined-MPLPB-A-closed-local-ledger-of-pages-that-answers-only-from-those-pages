@@ -5,14 +5,16 @@
     "Freeze the lab policy and separate development, retained shadow, held and canary packets.",
     "Integrate the verified B-Tests evaluator as a lab-only dependency. Add a disposable Git compare-and-swap canary and a shadow runner.",
     "Retain raw first candidate results, measured historical label differences, and the artifact and fixture digests.",
-    "Freeze two matched disposable Git ref scenarios, including beforeWrite hook location, independent ref and marker readback, CAS failure and duplicate reservation expectations."
+    "Freeze two matched disposable Git ref scenarios, including beforeWrite hook location, independent ref and marker readback, CAS failure and duplicate reservation expectations.",
+    "Add the matched competing-writer scenario to the lab harness using the existing beforeWrite hook. Keep the workflow and controller policy unchanged."
   ],
   "validation": [
     "Verified released main at a7d572067dbf68077ea306584b067e457bd7a3a4. Inspected TeamBuilding, WorkStore controls, and pinned B-Tests action gate. Verified the input hashes.",
     "First working-tree shadow and development runs matched 7/7 and 15/15 expected outcomes. Two historical withholding labels were refined to missing evidence. The pinned upstream tests passed 14/14 after staging the upstream fixture.",
     "The extracted candidate ZIP at 5111ebba9f6bab653b93d1f61dd73965eeb43583 matched 40/40 frozen cases. Eight admissions and 32 protective results. Zero false admissions, false denials or case execution failures. One mediated ref update, and the seven canary controls left its observed marker unchanged.",
     "The pinned B-Tests action suite passed 14/14 and the existing governance, specialist continuity and handoff tests passed 63/63 on retry. Documentation audit passed. No reader, browser runtime or production release workflow bytes changed.",
-    "Retained the first study-sandbox failure from run 46020305274 attempt 1. The Microsoft Ubuntu package repository returned HTTP 403 before isolation tests. Requested an unchanged retry."
+    "Retained the first study-sandbox failure from run 46020305274 attempt 1. The Microsoft Ubuntu package repository returned HTTP 403 before isolation tests. Requested an unchanged retry.",
+    "The unchanged study-sandbox retry passed at the original PR head. The first package setup failure remains separate and was retained."
   ],
   "limitations": [
     "Held cases are same-operator and accessible to the implementer. Production dispatch is excluded.",
@@ -20,6 +22,6 @@
     "Six development/shadow pairs overlap. The held suite is same-operator, with no exact input/state overlap. Cross-process isolation and durable revocation remain outside the lab. Direct Git and external operations can bypass this harness."
   ],
   "next_steps": [
-    "Implement only the frozen competing-ref lab harness. Replay affected checks and wait for exact-head CI before merging."
+    "Run the candidate archive with all 40 earlier cases and the two frozen competing-writer cases. Retain raw readback and first logs."
   ]
 }

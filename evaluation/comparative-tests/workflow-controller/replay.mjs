@@ -6,7 +6,7 @@ import { join } from 'node:path'
 import { controllerFactory } from './controller.mjs'
 
 const [gatePath, suite, output] = process.argv.slice(2)
-assert(gatePath && output && ['shadow', 'development', 'canary', 'held'].includes(suite),
+assert(gatePath && output && ['shadow', 'development', 'canary', 'held', 'competing-writer'].includes(suite),
   'Usage: node replay.mjs <pinned B-Tests index.mjs> <suite> <new-output.json>')
 const create = await controllerFactory(gatePath)
 const packet = JSON.parse(readFileSync(new URL(suite + '.json', import.meta.url), 'utf8'))
@@ -25,7 +25,7 @@ function shadow(cases) {
   })
 }
 
-function canary({ template, cases }) {
+function withCanaryRepository(run, markers = { initial: 'before', intended: 'after' }) {
   const repo = mkdtempSync(join(tmpdir(), 'mplpb-workflow-canary-'))
   // No inherited Git-dir/index/worktree selection and no network remotes.
   const env = Object.fromEntries(Object.entries(process.env).filter(([key]) => !key.startsWith('GIT_')))
@@ -53,13 +53,38 @@ function canary({ template, cases }) {
       git('commit', '--quiet', '-m', marker)
       return git('rev-parse', 'HEAD')
     }
-    const initial = commitMarker('before')
+    const initial = commitMarker(markers.initial)
     git('branch', 'canary', initial)
     git('switch', '--quiet', '--create', 'payload')
-    const payload = commitMarker('after')
+    const payload = commitMarker(markers.intended)
     git('switch', '--quiet', 'main')
+    let competing
+    if (markers.competing) {
+      git('switch', '--quiet', '--create', 'competing')
+      competing = commitMarker(markers.competing)
+      git('switch', '--quiet', 'main')
+    }
     const ref = 'refs/heads/canary'
-    const snapshot = () => ({ ref: git('rev-parse', ref), marker: git('show', ref + ':marker') })
+    const snapshot = () => {
+      const observed = git('rev-parse', ref)
+      return { ref: observed, marker: git('show', observed + ':marker') }
+    }
+    return run({ git, initial, payload, competing, ref, snapshot })
+  } finally {
+    rmSync(repo, { recursive: true, force: true })
+  }
+}
+
+function bindRevision(template, initial) {
+  const state = structuredClone(template)
+  for (const kind of ['grants', 'receipts', 'reports']) {
+    for (const entry of state[kind]) entry.revision = initial
+  }
+  return state
+}
+
+function canary({ template, cases }) {
+  return withCanaryRepository(({ git, initial, payload, ref, snapshot }) => {
     let state, revoke
     const gate = create({
       readState: () => ({ ...state, revision: git('rev-parse', 'HEAD') }),
@@ -70,10 +95,7 @@ function canary({ template, cases }) {
       },
     })
     return cases.map(({ id, scenario, expect, effect }) => {
-      state = structuredClone(template)
-      for (const kind of ['grants', 'receipts', 'reports']) {
-        for (const entry of state[kind]) entry.revision = initial
-      }
+      state = bindRevision(template, initial)
       const proposal = { action: 'record-canary', revision: initial }
       revoke = scenario === 'revoke-before-write'
       if (scenario === 'blocked-role') state.session.role = 'Al'
@@ -94,9 +116,76 @@ function canary({ template, cases }) {
         passed: verdict.code === expect && wrote === effect && contentsMatch &&
           execution === (effect ? 'completed' : 'not_run') }
     })
-  } finally {
-    rmSync(repo, { recursive: true, force: true })
+  })
+}
+
+function competingWriter({ setup, cases }, template) {
+  return cases.map(({ id, competing_write: hasCompetitor, expect }) =>
+    withCanaryRepository(({ git, initial, payload, competing, ref, snapshot }) => {
+      assert.equal(ref, setup.ref)
+      const state = bindRevision(template, initial)
+      const proposal = { action: 'record-canary', revision: initial }
+      const commits = { initial, intended: payload, competing }
+      let afterHook, casExit
+      let hookCalls = 0
+      let controllerAttempts = 0
+      const board = create({
+        readState: () => ({ ...state, revision: git('rev-parse', 'HEAD') }),
+        beforeWrite() {
+          hookCalls++
+          if (hasCompetitor) git('update-ref', ref, competing, initial)
+          afterHook = snapshot()
+        },
+        writeCanary(scope) {
+          controllerAttempts++
+          try {
+            git('update-ref', ref, payload, scope.revision)
+            casExit = 0
+          } catch (error) {
+            casExit = error.status
+            throw error
+          }
+        },
+      })
+      const before = snapshot()
+      const initialAdmission = board.evaluate(proposal)
+      const attempt = board.run(proposal)
+      const afterAttempt = snapshot()
+      const duplicate = board.run(proposal)
+      const afterDuplicate = snapshot()
+      const controllerUpdates = Number(Boolean(afterHook && afterHook.ref !== afterAttempt.ref &&
+        afterAttempt.ref === payload))
+      const competingUpdates = Number(Boolean(afterHook && before.ref !== afterHook.ref &&
+        afterHook.ref === competing))
+      const matches = (actual, name) => actual?.ref === commits[name] && actual.marker === setup.markers[name]
+      const passed = matches(before, 'initial') && matches(afterHook, expect.after_hook) &&
+        matches(afterAttempt, expect.after_attempt) && matches(afterDuplicate, expect.after_duplicate) &&
+        initialAdmission.decision === expect.admission && attempt.verdict.decision === expect.admission &&
+        attempt.execution === expect.execution && duplicate.execution === expect.duplicate.execution &&
+        duplicate.verdict.code === expect.duplicate.code && hookCalls === expect.hook_calls &&
+        controllerAttempts === expect.controller_attempts && controllerUpdates === expect.controller_updates &&
+        competingUpdates === expect.competing_updates &&
+        (expect.execution === 'completed' ? casExit === 0 : Number.isInteger(casExit) && casExit > 0)
+      return { id, expect, commits, before, initialAdmission, afterHook, attempt, casExit, afterAttempt,
+        duplicate, afterDuplicate, hookCalls, controllerAttempts, controllerUpdates, competingUpdates, passed }
+    }, setup.markers))
+}
+
+if (suite === 'competing-writer') {
+  const { template } = JSON.parse(readFileSync(new URL('canary.json', import.meta.url), 'utf8'))
+  const rows = competingWriter(packet, template)
+  const summary = {
+    cases: rows.length,
+    matches: rows.filter(row => row.passed).length,
+    admissions: rows.filter(row => row.attempt.verdict.decision === 'allow').length,
+    completed: rows.filter(row => row.attempt.execution === 'completed').length,
+    failed: rows.filter(row => row.attempt.execution === 'failed').length,
+    controllerUpdates: rows.reduce((count, row) => count + row.controllerUpdates, 0),
+    competingUpdates: rows.reduce((count, row) => count + row.competingUpdates, 0),
   }
+  writeFileSync(output, JSON.stringify({ suite, summary, rows }, null, 2) + '\n', { flag: 'wx' })
+  console.log(suite, summary)
+  process.exit(summary.matches === summary.cases ? 0 : 1)
 }
 
 const rows = suite === 'canary' ? canary(packet) : shadow(packet)
