@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `55bd3ff03eeea593be69fe3e21d9395de2b9b24a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `2256e4211937996e4124c7c53f245f50ee521fa547aba290640c5f5672e3fbb1`.
+Base commit: `99666618df1b2a2531d5010b9c8d1d14ec64c3f4` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `80183a2e505e7ecf71132b130eb79f154aa3b209562e13f42ab5231abc9f253f`.
 
 ## Betty report for Al
 
@@ -41,6 +41,7 @@ The target is precise: **prove which document qualifies, then independently prov
 
 - 41 focused tests passed. Direct development smoke selected eight documents and attributed six claims, with six abstentions. Isolated replay is pending.
 - Pinned candidate 55bd3ff03eeea593be69fe3e21d9395de2b9b24a with scoped source ZIP SHA-256 d622665da100120ad94a635b66301fb37bb52db2bb816031479bc2e90c1d542d.
+- The isolated development replay completed all 12. It verified eight source selections and six report attributions, including two selected-document reporter refusals. All six abstention contracts matched, including the duplicate-writer case.
 
 ### Limitations and blocked checks
 
@@ -48,7 +49,7 @@ The target is precise: **prove which document qualifies, then independently prov
 
 ### Next steps
 
-- Archive the committed native candidate, replay the consumed packet in isolation, then open the unchanged fresh packet once and run preservation.
+- Run the unchanged fresh packet once on the pinned native candidate and retain the first score. Verify the applicable preservation and release checks before merge and Pages readback.
 
 ## Use this ZIP in your repository
 
