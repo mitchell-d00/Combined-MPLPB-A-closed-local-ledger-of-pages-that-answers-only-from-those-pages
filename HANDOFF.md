@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `5111ebba9f6bab653b93d1f61dd73965eeb43583` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `0d1dad4f6846b65cb3c91ba84e5b8fd074f899e80c3b134d7a60c4e87fedc929`.
+Base commit: `e6e8cacf10c744b6c7b165ec1c6b235eba438530` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `db4b57f67070e71f613d7c71db18507368ed956a83850fdbb13516feedd517dc`.
 
 ## Betty report for Al
 
@@ -13,13 +13,14 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Build a bounded deterministic workflow controller from MPLPB’s retained evidence. Start from current released main. Freeze the policy, schemas, development cases, and held evaluation before implementation. Run shadow tests and one disposable local Git canary. Push a reproducible checkpoint and leave Al a report. Stop at the frozen scope.
+Finish PR #111’s verification with one bounded competing-writer test. Retry the failed isolation job unchanged. Freeze the matched ref scenarios first, retain the original evidence and keep the controller lab-only. Merge verified lab work when requirements pass.
 
 ### Implemented scope
 
 - Freeze the lab policy and separate development, retained shadow, held and canary packets.
 - Integrate the verified B-Tests evaluator as a lab-only dependency. Add a disposable Git compare-and-swap canary and a shadow runner.
 - Retain raw first candidate results, measured historical label differences, and the artifact and fixture digests.
+- Freeze two matched disposable Git ref scenarios, including beforeWrite hook location, independent ref and marker readback, CAS failure and duplicate reservation expectations.
 
 ### Validation recorded
 
@@ -27,6 +28,7 @@ Build a bounded deterministic workflow controller from MPLPB’s retained eviden
 - First working-tree shadow and development runs matched 7/7 and 15/15 expected outcomes. Two historical withholding labels were refined to missing evidence. The pinned upstream tests passed 14/14 after staging the upstream fixture.
 - The extracted candidate ZIP at 5111ebba9f6bab653b93d1f61dd73965eeb43583 matched 40/40 frozen cases. Eight admissions and 32 protective results. Zero false admissions, false denials or case execution failures. One mediated ref update, and the seven canary controls left its observed marker unchanged.
 - The pinned B-Tests action suite passed 14/14 and the existing governance, specialist continuity and handoff tests passed 63/63 on retry. Documentation audit passed. No reader, browser runtime or production release workflow bytes changed.
+- Retained the first study-sandbox failure from run 46020305274 attempt 1. The Microsoft Ubuntu package repository returned HTTP 403 before isolation tests. Requested an unchanged retry.
 
 ### Limitations and blocked checks
 
@@ -36,7 +38,7 @@ Build a bounded deterministic workflow controller from MPLPB’s retained eviden
 
 ### Next steps
 
-- Al: inspect the exact ref readback for the revoked-grant control. A bounded next lab test is a second writer changing the canary ref before compare-and-swap. Stop here; leave the controller out of production.
+- Implement only the frozen competing-ref lab harness. Replay affected checks and wait for exact-head CI before merging.
 
 ## Use this ZIP in your repository
 

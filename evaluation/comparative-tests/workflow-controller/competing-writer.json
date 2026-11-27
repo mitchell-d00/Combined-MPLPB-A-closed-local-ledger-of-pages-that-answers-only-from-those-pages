@@ -1,0 +1,48 @@
+{
+  "schema": "mplpb-disposable-ref-compare-and-swap-v1",
+  "base_checkpoint": "e6e8cacf10c744b6c7b165ec1c6b235eba438530",
+  "setup": {
+    "repository": "fresh disposable local repository per scenario, no remotes",
+    "ref": "refs/heads/canary",
+    "markers": {"initial": "before", "intended": "after", "competing": "competing-writer"},
+    "authorization": "Reuse the frozen canary template. Bind fixture revision fields to the initial disposable HEAD.",
+    "hook": "Invoke the competing Git process in the existing beforeWrite hook after initial admission and before the synchronous recheck, reservation and controller CAS. Keep HEAD, grants, receipts and custody unchanged.",
+    "controller_cas": "git update-ref <canary ref> <intended commit> <initial commit>",
+    "readback": "Identify the ref's exact commit and read marker from that commit before the hook, after the hook, after the controller attempt, and after a duplicate. Count controller attempts and writes separately from competing effects.",
+    "reservation": "Once reserved, the exact action and revision remain used even if CAS fails. The duplicate must not call the hook or the writer."
+  },
+  "cases": [
+    {
+      "id": "CW01",
+      "competing_write": false,
+      "expect": {
+        "admission": "allow",
+        "execution": "completed",
+        "hook_calls": 1,
+        "controller_attempts": 1,
+        "controller_updates": 1,
+        "competing_updates": 0,
+        "after_hook": "initial",
+        "after_attempt": "intended",
+        "duplicate": {"code": "duplicate_request", "execution": "not_run"},
+        "after_duplicate": "intended"
+      }
+    },
+    {
+      "id": "CW02",
+      "competing_write": true,
+      "expect": {
+        "admission": "allow",
+        "execution": "failed",
+        "hook_calls": 1,
+        "controller_attempts": 1,
+        "controller_updates": 0,
+        "competing_updates": 1,
+        "after_hook": "competing",
+        "after_attempt": "competing",
+        "duplicate": {"code": "duplicate_request", "execution": "not_run"},
+        "after_duplicate": "competing"
+      }
+    }
+  ]
+}
