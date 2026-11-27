@@ -1,11 +1,13 @@
 # Test Index for humans and AI
 
-Last reviewed: 2026-11-26.
+Last reviewed: 2026-11-27.
 
 This documentation change keeps the released reader from `2622813aba9ee1f1880693eeb71ae015cb3da999`.
 C3 and the UI-copy proposal remain **unmerged in [PR #106](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/106)**.
 Candidate tests/evidence below link to that checked pin. Their implementation,
 archives and commit history are not imported. See [HANDOFF](../HANDOFF.md).
+
+[Product, project and evidence boundaries](RESPONSIBILITY_BOUNDARIES.md) describe which distributions carry runtime, tools and retained records.
 
 ## Capability-to-evidence map
 

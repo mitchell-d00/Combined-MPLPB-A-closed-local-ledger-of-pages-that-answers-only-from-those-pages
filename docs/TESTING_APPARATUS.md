@@ -2,7 +2,7 @@
 
 <a id="testing-and-training-apparatus"></a>
 
-Last reviewed: 2026-11-26.
+Last reviewed: 2026-11-27.
 
 [MPLPB](MPLPB.md) · [Experimental Lab](EXPERIMENTAL_LAB.md)
 · [Component map](COMPONENT_MAP.md) · **[Authoritative Test Index](TEST_INDEX.md)**
@@ -17,6 +17,8 @@ records that its preparation is not a completed fine-tuning run.
 Scope: development/evaluation records. A test's pin, execution date and status
 belong to its own receipt; [the handoff](../HANDOFF.md) gives continuation,
 and [history](DEVELOPMENT_HISTORY.md) preserves older scope and revisions.
+
+[Evidence publication and custody](RESPONSIBILITY_BOUNDARIES.md#publication-and-custody) defines what belongs in public inventories and what stays in custody.
 
 ## Find the apparatus
 

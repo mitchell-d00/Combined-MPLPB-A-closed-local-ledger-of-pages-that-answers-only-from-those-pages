@@ -1,12 +1,14 @@
 # Installation and release packages
 
-Last reviewed: 2026-11-20.
+Last reviewed: 2026-11-27.
 
 [Package guide](PACKAGE_GUIDE.md#delivery-and-packaging) · [Documentation index](README.md)
 
 Choose a delivery mode for the part you need. A native wheel, full source checkout
 and standalone browser are related distributions, not interchangeable installations.
 All retain the same distinction between source inspection and strict answer support.
+
+[Product distribution manifest](PRODUCT_DISTRIBUTION.json) inventories the compact native download and current delivery boundaries.
 
 ## Choose a distribution
 

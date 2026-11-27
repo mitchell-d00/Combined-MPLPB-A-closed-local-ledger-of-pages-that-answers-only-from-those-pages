@@ -1,6 +1,6 @@
 # Experimental Lab
 
-Last reviewed: 2026-11-26.
+Last reviewed: 2026-11-27.
 
 [MPLPB](MPLPB.md) · [Testing apparatus and evidence](TESTING_APPARATUS.md)
 · [Component map](COMPONENT_MAP.md) · [Test Index](TEST_INDEX.md)
@@ -13,6 +13,8 @@ ability. A branch candidate is not released merely because its report exists.
 Scope: proposed or tested experimental capabilities. Use each pinned report's
 revision and [the current handoff](../HANDOFF.md) to continue work; the
 [history index](DEVELOPMENT_HISTORY.md) distinguishes earlier contracts.
+
+[Project dependencies and packaging boundaries](RESPONSIBILITY_BOUNDARIES.md) maps the tools shared with the released product.
 
 ## Find a proposal or experiment
 

@@ -1,6 +1,6 @@
 # Components and their homes
 
-Last reviewed: 2026-11-26.
+Last reviewed: 2026-11-27.
 
 [MPLPB](MPLPB.md) · [Experimental Lab](EXPERIMENTAL_LAB.md)
 · [Testing apparatus and evidence](TESTING_APPARATUS.md)
@@ -28,6 +28,8 @@ Implementation paths, imports, commands, frozen archives and historical links
 are preserved. Any future physical move needs a separate proposal with explicit
 old-path/new-path entries and import, command, link and preservation checks.
 There are no proposed or performed implementation moves in this pass.
+
+[Responsibility and packaging map](RESPONSIBILITY_BOUNDARIES.md) records physical, distribution and navigation boundaries.
 
 ## Follow a capability to its evidence
 
