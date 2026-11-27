@@ -27,12 +27,33 @@ def _name(value):
             and not set(kernel.normalized(value).split())&{'i','he','she','they','it','we','you','if','unless','not','no','only','never','neither','perhaps','possibly','allegedly','reportedly','apparently'})
 
 
+def _conditional_request(question):
+    condition = r'[^,.!?;:]{1,160}'
+    leading = re.fullmatch(rf'If (?P<condition>{condition}), (?P<question>what did .+)', question, re.I)
+    trailing = re.fullmatch(rf'(?P<question>what did .+?),? if (?P<condition>{condition})', question, re.I)
+    match = leading or trailing
+    if not match or re.search(r'\b(?:if|unless|provided)\b', match['condition'], re.I):
+        return None
+    text = match['question']
+    instruction = re.fullmatch(rf'What did (.+?) (?:instruct|tell) ({_RECIPIENT}) to do', text, re.I)
+    intention = re.fullmatch(r'What did (.+?) intend to do', text, re.I)
+    binding = instruction or intention
+    if not binding or not _name(binding[1]):
+        return None
+    return {'kind': 'instruction' if instruction else 'intention',
+            'actor': binding[1], 'recipient': binding[2] if instruction else binding[1],
+            'required_condition': 'if ' + match['condition']}
+
+
 def request(question):
     from .ordinary_questions import request as ordinary_request
     ordinary=ordinary_request(question)
     if ordinary and ordinary['kind']=='instruction':
         return {k:ordinary[k] for k in ('kind','actor','object','recipient')}
     q=kernel.source_question(question).strip().rstrip('? .')
+    conditional = _conditional_request(q)
+    if conditional:
+        return conditional
     denied=re.fullmatch(r'What does the record deny about (.{2,120}?) and (.{2,220})',q,re.I)
     if denied and _name(denied[1]):return {'kind':'denial','actor':denied[1],'object':denied[2]}
     modal=re.fullmatch(r'What (instruction|intention|recommendation|forecast|conditional statement|completed action) does the record attribute to (.{2,120}?) concerning (.{2,220})',q,re.I)
@@ -179,9 +200,15 @@ def verify(index,max_passages,max_chars):
                     or (target_object and kernel.normalized(frame.object_text)!=kernel.normalized(target_object))
                     or frame.modality!=('assertion' if goal['kind']=='denial' else goal['kind'])):continue
             if goal.get('recipient') and kernel.normalized(frame.task_actor)!=kernel.normalized(goal['recipient']):continue
+            required_condition = goal.get('required_condition')
+            if required_condition and tuple(map(kernel.normalized, frame.conditions)) != (kernel.normalized(required_condition),):
+                continue
             matches.append((frame,value,citations))
     if not fresh.unchanged() or not index.unchanged():return 'abstain','source_changed',{}
-    if not matches:return None
+    if not matches:
+        if goal.get('required_condition'):
+            return 'abstain', 'requested_source_condition_unresolved', {}
+        return None
     required_negative=goal['kind']=='denial'
     selected=[m for m in matches if m[0].negative==required_negative]
     if not selected:return None
