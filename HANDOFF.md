@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `1c79a6cb7c7c0d93fa05e6c390877617aea72243` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `387bb6b1476d9519d54b508ebfcc9a0c6251eb75e2756c6fb657faf55fbadea0`.
+Base commit: `cef389a15293ceb51e813f2a1060246843a30aaf` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `702e399a4e909777d1947abf37f397bd3f052a8b15ae3e4fa6f7df6902caad37`.
 
 ## Betty report for Al
 
@@ -13,55 +13,53 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Alongside Round 4, establish an Egyptian-series registry modeled on the Cryptid programme. Inventory existing families, retain their original results, and define the next Bast set around a specific uncovered responsibility.
+We should make Gremlin it keeps an active system map of relations and components in product / project / data experiment that way we don’t forget things in the project 5hat may help us later or may need to be changed moving to git  Mplpb could be fully turned into an git effect stack / effect stack
 
-Build deterministic generators, stable case IDs, frozen expectations, positive/negative pairs, and reproducible manifests. Distinguish development, consumed preservation, and fresh transfer.
+Make sure to leave notes so Betty understands
 
-Finish each family with end-to-end I/O checks: actual source inputs and questions must produce the expected answer status, supported fields, citations, unresolved fields, and diagnostics. Keep execution failures separate from reader misses.
+Asterisk the Betty handoff as an Al authorized by M
 
-Use Round 4’s attribution work as the first bounded implementation task. Freeze the wider programme now; execute it in small batches after each preceding result is recorded. Preserve failures and custody limits, then push and merge qualifying work under existing authorization.
+No I just care because it’s breaking Al protocol
 
-**Round 4 produced a bounded gain:** one additional fresh complete answer, with prior valid outcomes preserved. The wrong-reporter controls now reaching proof is useful evidence; their earlier withholding alone did not establish that distinction worked.
+It’s fine just note to Betty or to w/e I’m approving it but you are an Al it’s not a system break it’s an override
 
-For Bastet, my proposed rule is:
+Give me nformation for her so she knows and understand what we are doing now so push merge work and she is aware of us in it
 
-**The printed writer may select an eligible document; the embedded reporter determines attribution of the statement.**
+Very good Iv thought this may be a way I can skip copy paste you can write to Al notes as example
 
-Selecting Alice’s document must not turn Bob’s reported statement into Alice’s statement.
+Apply that as well to work space Al notes
 
-Betty should freeze matched cases covering:
+And do this as the first one with the other notes directing the system to the new notes set
 
-- One eligible document with the requested printed writer.
-- The same document with a different embedded reporter.
-- Two eligible documents sharing that writer; uniqueness is unresolved.
-- A writer’s name appearing only in quoted content.
-- Missing or conflicting writer information.
-- A correct document selection paired with an unsupported reporter attribution.
+Give me a prompt for a seprate repo I have that is exploring Betty outside and Al BOA so it ads Al notes to the repo
 
-Record document selection and claim attribution separately. Require the full source-to-answer I/O contract, including citations and withholding reasons.
-
-Finish #115’s checks, merge, and deployment verification first. Then pin that released reader as Bastet’s baseline. Preserve the named-source miss as a development case; use separately frozen cases for the fresh comparison.
-
-The retained scorer errors and corrected coordinate readback should stay visible together. The original 87/96 result and its narrowly scoped diagnostic policy remain unchanged.
+Continue
 
 ### Implemented scope
 
-- After verifying PR #115 deployment, register the Egyptian programme, freeze Bastet development and fresh cases with separate keys, and retain Round 4 F05 as consumed development.
-- Run and preserve the first Bastet development baseline. Leave the sealed fresh transfer unopened by the worker.
+- Al remains Al and implements Gremlin under Mitchell's explicit scoped override, not as an independent reviewer or a silent Betty role change.
+- Add a read-only maintenance map joining existing ownership/results indexes with component links, reuse candidates, revisit conditions, content drift and change-review hints.
+- Create canonical handoff/al-notes with note 0001, link agent/TeamBuilding/Gremlin guidance, and maintain a local workspace pointer. BOA instructions are a prompt only; no BOA repository edits in this task.
+- Keep Bastet, reader, controller, browser builder, existing production workflows and private custody unchanged. Add a dedicated map check workflow.
 
 ### Validation recorded
 
-- PR #115 passed all 11 checks and the live Chromium, preview hash and native-module checks. Bastet baseline is the verified released merge. Generated and verified six matched pairs per draw with no execution yet.
-- Bastet completed 12 executions across four questions. Discovery found all six target witnesses. Zero completeness, verified selections, verified attributions, unsupported claims or execution failures. All six controls withheld safely; five matched the exact I/O kind. The multi-writer retrieval conflict remains a status miss.
+- Nine local Gremlin boundary tests passed after correcting the initial fixture-only missing handoff ownership. Tests cover byte drift, path changes, references, proposed edges, extracted path inventories and source mutation boundaries.
+- Repository-scale generation covered 77,362 tracked paths, 92 map nodes, 120 relations and six revisit items. Local ledger impact query identified reader and delivery dependents and explicitly labeled snapshot-only freshness.
+- Documentation inventory audit passed with the Al-note links and classification. No reader/effect experiment or independent evaluation was rerun.
+- Full repository Gremlin freshness check passed at the working candidate; documentation audit and department coverage passed with zero unmapped paths.
+- Ten focused tests passed (nine Gremlin tests plus department navigation). Reader, ledger, work runtime, browser, browser builder and effect-controller paths have no diff from the released base.
 
 ### Limitations and blocked checks
 
-- Bastet named selection and attribution remain unmeasured at the freeze. Fresh transfer and independent evaluation NOT_RUN. Original incomplete evidence and publication incident remain unchanged.
-- No selector was demonstrated and no reader change was made. Fresh transfer remains NOT_RUN.
+- Same-operator Al implementation and checks under Mitchell's explicit scoped override; independent review NOT_RUN.
+- Curated graph and impact hints are incomplete. Existence and byte identity do not establish relationships, truth, permission, release readiness or test success.
+- Extracted-candidate and exact-head remote CI are pending until the committed candidate runs. The local workspace pointer is not automatically shared with other machines.
 
 ### Next steps
 
-- Complete exact-head documentation and release checks for the evidence PR, verify remote readback, and merge when qualifying. Keep the separate Bastet implementation outside this baseline batch.
+- Review source-scale map, run documentation/handoff checks, commit and test an extracted candidate.
+- Push the recoverable branch and PR; merge only when applicable exact-head requirements pass. Leave actual commit and checks for Betty to acknowledge without overwriting her Bastet working state.
 
 ## Use this ZIP in your repository
 

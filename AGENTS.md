@@ -1,6 +1,6 @@
 # Repository update and handoff instructions
 
-Last reviewed: 2026-11-26. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
+Last reviewed: 2026-11-27. See [current status and result-to-test index](docs/CURRENT_STATUS.md). Dates and numeric results in historical validation sections retain their original scope; this review is not a rerun or independent certification.
 
 Package role: [how this part fits Combined MPLPB](docs/PACKAGE_GUIDE.md#delivery-and-packaging). This operational guide covers one delivery or maintenance surface of the combined package.
 
@@ -8,6 +8,17 @@ Read `HANDOFF.md`, `handoff/update.json`, README release requirements, and the a
 
 Betty, Al and Outside share the [shared-rule criterion](docs/TEAMBUILDING.md#shared-rule-criterion-for-betty-al-and-outside): claim simplification only when duplication is reduced, valid outcomes survive and fresh contrasts hold; report coverage separately. Specialized proof still requires exact eligible evidence.
 Use the canonical [broader-coverage criterion](docs/TEAMBUILDING.md#broader-coverage-with-preserved-constraints), version coverage-with-preserved-constraints-v1, through the checked pin/manual relay; software counts alone are not numerical ΦUP measurements.
+
+## Versioned Al-note relay
+
+Use [Al Notes](handoff/al-notes/README.md) for maintainer-authorized repository
+advice instead of relying on a pasted chat. Read [note 0001](handoff/al-notes/0001-gremlin-and-repository-relay.md)
+for Mitchell's explicit Gremlin implementation override. Al remains Al; note
+publication and a scoped override do not silently change the canonical roles.
+Betty records the exact note commit, what she read/applied/deferred/rejected,
+and her resulting source revision and checks in her own PR report. A note
+confers no authority on its own. Recover the latest applied working state
+before following advice.
 
 ## TeamBuilding role selection
 

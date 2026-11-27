@@ -2,6 +2,15 @@
 
 Last reviewed: 2026-11-27.
 
+## Gremlin system map and Al-note relay
+
+[Gremlin](gremlin/README.md) maps tracked ownership, explicit component links,
+indexed experiments and revisit conditions. [Boundary tests](../tests/test_gremlin.py)
+and [reproduction commands](gremlin/README.md) check drift and reference safety;
+these are maintenance checks, not reader gains or independent evaluation.
+[Al note 0001](../handoff/al-notes/0001-gremlin-and-repository-relay.md) records
+Mitchell's scoped override. The repository relay benefit remains unmeasured.
+
 [Local reporting-negation revision](../evaluation/cryptid/revision3/REPORT.md): 32 development decisions improve 18→32, with two unsupported completion flags removed. The prospective partial-policy comparison is 11/12 on unchanged native outputs; one passive wording miss remains. Original final-packet failures and the 276/280 exact comparison failure remain retained. Candidate archive gates and fresh transfer are pending at this source freeze.
 
 [Cryptid local programme](../evaluation/cryptid/README.md): sequential frozen shared-operation studies, retained failures and local-only review package. Current execution state is recorded separately from planned tests.

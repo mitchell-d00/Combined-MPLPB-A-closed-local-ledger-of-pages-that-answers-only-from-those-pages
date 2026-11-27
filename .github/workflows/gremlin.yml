@@ -1,0 +1,21 @@
+name: Gremlin system map
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  gremlin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exercise drift, reference and impact boundaries
+        run: python -m unittest tests.test_gremlin -v
+      - name: Require the reviewed map to match the candidate
+        run: python -m test_tools.gremlin check

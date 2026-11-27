@@ -1,0 +1,527 @@
+{
+  "schema": "gremlin-registry-v1",
+  "reviewed_on": "2026-11-27",
+  "inspected_revision": "cef389a15293ceb51e813f2a1060246843a30aaf",
+  "departments": {
+    "reader": {
+      "label": "Deterministic reader",
+      "scopes": [
+        "product",
+        "project"
+      ],
+      "status": "released finite rules",
+      "note": "Interpretation, source proof, citations, checked partials and withholding."
+    },
+    "ledger": {
+      "label": "Local ledger",
+      "scopes": [
+        "product",
+        "project"
+      ],
+      "status": "released",
+      "note": "Records, eligibility, revisions and provenance; source assertion and truth remain separate."
+    },
+    "work-coordination": {
+      "label": "Work coordination",
+      "scopes": [
+        "product",
+        "project"
+      ],
+      "status": "mixed shipped interfaces",
+      "note": "Covered dispatch, tasks, continuity and receipts; not universal control over writers."
+    },
+    "applications": {
+      "label": "Applications and interfaces",
+      "scopes": [
+        "product",
+        "project"
+      ],
+      "status": "released interfaces",
+      "note": "Browser, CLI, desktop and API; their packaging boundaries differ."
+    },
+    "intake-research": {
+      "label": "Intake and research",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "mixed runtime and research",
+      "note": "Sorter interfaces and proposals share ownership; proposal links do not establish support."
+    },
+    "testing-evaluation": {
+      "label": "Testing and retained evidence",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "apparatus and historical evidence",
+      "note": "A test path is not a passing or independent measurement."
+    },
+    "delivery-operations": {
+      "label": "Delivery and project operations",
+      "scopes": [
+        "product",
+        "project"
+      ],
+      "status": "mixed distribution and coordination",
+      "note": "Ownership is not a minimal runtime/package manifest."
+    }
+  },
+  "components": [
+    {
+      "id": "workflow-controller",
+      "label": "Workflow decision and Git canary",
+      "scopes": [
+        "project",
+        "experiment"
+      ],
+      "status": "lab-only",
+      "paths": [
+        "evaluation/comparative-tests/workflow-controller"
+      ],
+      "evidence": [
+        "evaluation/comparative-tests/workflow-controller/POLICY.md"
+      ],
+      "note": "The original controller and restart extension have distinct contracts; not production dispatch."
+    },
+    {
+      "id": "restart-store",
+      "label": "Persistent reservation laboratory",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "lab-only",
+      "paths": [
+        "evaluation/comparative-tests/workflow-controller/restart"
+      ],
+      "evidence": [
+        "evaluation/comparative-tests/workflow-controller/restart/README.md"
+      ],
+      "note": "Local restart/contending processes tested; interrupted completion remains indeterminate."
+    },
+    {
+      "id": "cryptid-programme",
+      "label": "Cryptid reader programme",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "retained studies",
+      "paths": [
+        "evaluation/cryptid"
+      ],
+      "evidence": [
+        "evaluation/cryptid/README.md"
+      ],
+      "note": "Keep frozen grades, consumed packets, restricted evidence and missing keys distinct."
+    },
+    {
+      "id": "egyptian-programme",
+      "label": "Egyptian reader programme",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "retained and active studies",
+      "paths": [
+        "evaluation/egyptian-gods"
+      ],
+      "evidence": [
+        "evaluation/egyptian-gods/README.md"
+      ],
+      "note": "Existing studies and Bastet baseline are retained; candidate status requires its exact PR."
+    },
+    {
+      "id": "browser-runtime",
+      "label": "Browser interface and builder",
+      "scopes": [
+        "product",
+        "project"
+      ],
+      "status": "released shared build",
+      "paths": [
+        "browser",
+        "index.html",
+        "tools/build_browser_runtime.py"
+      ],
+      "evidence": [
+        "docs/PRODUCT_DISTRIBUTION.json"
+      ],
+      "note": "Hosted and standalone browser share runtime and selected resources, not every retained study."
+    },
+    {
+      "id": "native-distribution",
+      "label": "Native package and ZIP builder",
+      "scopes": [
+        "product",
+        "project"
+      ],
+      "status": "released packaging",
+      "paths": [
+        "pyproject.toml",
+        "tools/build_release_packages.py"
+      ],
+      "evidence": [
+        "docs/PRODUCT_DISTRIBUTION.json"
+      ],
+      "note": "One wheel contains the three runtime package roots; package membership is not directory ownership."
+    },
+    {
+      "id": "reference-data",
+      "label": "Reference corpus and resources",
+      "scopes": [
+        "data",
+        "project"
+      ],
+      "status": "mixed source and fixtures",
+      "paths": [
+        "reference_corpus",
+        "resources"
+      ],
+      "evidence": [
+        "docs/RESPONSIBILITY_BOUNDARIES.md"
+      ],
+      "note": "Only configured licensed resources ship; do not promote all reference data into runtime."
+    },
+    {
+      "id": "example-data",
+      "label": "Demo and example inputs",
+      "scopes": [
+        "product",
+        "data",
+        "experiment"
+      ],
+      "status": "public examples",
+      "paths": [
+        "examples"
+      ],
+      "evidence": [
+        "docs/MPLPB.md"
+      ],
+      "note": "Synthetic demos and fixtures are not a general truth corpus."
+    },
+    {
+      "id": "prior-dispatch",
+      "label": "Prior dispatch enforcement study",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "retained study",
+      "paths": [
+        "evaluation/comparative-tests/dispatch-enforcement"
+      ],
+      "evidence": [
+        "evaluation/comparative-tests/dispatch-enforcement/README.md"
+      ],
+      "note": "Inspect the original scope before reusing a gate or receipt contract."
+    },
+    {
+      "id": "preserved-parts",
+      "label": "Earlier component implementations",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "preserved variants",
+      "paths": [
+        "parts"
+      ],
+      "evidence": [
+        "docs/departments/components.json"
+      ],
+      "note": "Swarm lease/fencing, networked, image and earlier local paths retain separate original tests."
+    },
+    {
+      "id": "handoff",
+      "label": "Artifact and working-state recovery",
+      "scopes": [
+        "project"
+      ],
+      "status": "active coordination",
+      "paths": [
+        "handoff",
+        "HANDOFF.md",
+        "tools/build_handoff.py"
+      ],
+      "evidence": [
+        "AGENTS.md"
+      ],
+      "note": "Recover revisions, decisions, objections, custody and next steps; coordination is not source proof."
+    },
+    {
+      "id": "gremlin",
+      "label": "Component map and drift checker",
+      "scopes": [
+        "project",
+        "experiment"
+      ],
+      "status": "developer map",
+      "paths": [
+        "docs/gremlin",
+        "test_tools/gremlin.py",
+        "tests/test_gremlin.py",
+        ".github/workflows/gremlin.yml"
+      ],
+      "evidence": [
+        "docs/gremlin/README.md"
+      ],
+      "note": "Maintenance graph and change-review hints; no effect authority or exhaustive dependency claim."
+    },
+    {
+      "id": "future-effect-adapters",
+      "label": "Additional effect adapters",
+      "scopes": [
+        "project",
+        "experiment"
+      ],
+      "status": "proposed",
+      "paths": [],
+      "evidence": [
+        "docs/TEAMBUILDING.md"
+      ],
+      "note": "Files, deployments and other resources each need their own safeguards, readback and interruption tests."
+    },
+    {
+      "id": "al-notes",
+      "label": "Versioned Al advice and override relay",
+      "scopes": [
+        "project"
+      ],
+      "status": "coordination only",
+      "paths": [
+        "handoff/al-notes"
+      ],
+      "evidence": [
+        "handoff/al-notes/README.md"
+      ],
+      "note": "Advice, authorization and applied results are distinct; role labels do not authenticate."
+    }
+  ],
+  "relations": [
+    {
+      "from": "reader",
+      "to": "ledger",
+      "kind": "depends_on",
+      "basis": "source",
+      "evidence": [
+        "mplpb_answers/pipeline.py"
+      ],
+      "note": "Reader obtains ledger state and provenance gates through existing imports."
+    },
+    {
+      "from": "browser-runtime",
+      "to": "reader",
+      "kind": "depends_on",
+      "basis": "documentation",
+      "evidence": [
+        "docs/RESPONSIBILITY_BOUNDARIES.md"
+      ],
+      "note": "Browser embeds the deterministic runtime; changes require distribution and browser review."
+    },
+    {
+      "from": "browser-runtime",
+      "to": "example-data",
+      "kind": "uses_data",
+      "basis": "documentation",
+      "evidence": [
+        "docs/RESPONSIBILITY_BOUNDARIES.md"
+      ],
+      "note": "Configured demos participate in the browser delivery; the exact bundle manifest governs inclusion."
+    },
+    {
+      "from": "browser-runtime",
+      "to": "reference-data",
+      "kind": "uses_data",
+      "basis": "documentation",
+      "evidence": [
+        "docs/RESPONSIBILITY_BOUNDARIES.md"
+      ],
+      "note": "Some configured resources participate; this is not an all-files packaging assertion."
+    },
+    {
+      "from": "native-distribution",
+      "to": "reader",
+      "kind": "depends_on",
+      "basis": "documentation",
+      "evidence": [
+        "docs/PRODUCT_DISTRIBUTION.json"
+      ],
+      "note": "The native wheel includes this runtime package responsibility."
+    },
+    {
+      "from": "native-distribution",
+      "to": "ledger",
+      "kind": "depends_on",
+      "basis": "documentation",
+      "evidence": [
+        "docs/PRODUCT_DISTRIBUTION.json"
+      ],
+      "note": "The native wheel includes this runtime package responsibility."
+    },
+    {
+      "from": "native-distribution",
+      "to": "work-coordination",
+      "kind": "depends_on",
+      "basis": "documentation",
+      "evidence": [
+        "docs/PRODUCT_DISTRIBUTION.json"
+      ],
+      "note": "The native wheel includes this runtime package responsibility."
+    },
+    {
+      "from": "restart-store",
+      "to": "workflow-controller",
+      "kind": "depends_on",
+      "basis": "source",
+      "evidence": [
+        "evaluation/comparative-tests/workflow-controller/restart/README.md"
+      ],
+      "note": "Extension reuses the frozen canary; original controller remains separately retained."
+    },
+    {
+      "from": "reader",
+      "to": "cryptid-programme",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "evidence": [
+        "docs/results.json"
+      ],
+      "note": "Reader preservation and wording studies; retain original runtime pins and failures."
+    },
+    {
+      "from": "reader",
+      "to": "egyptian-programme",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "evidence": [
+        "docs/results.json"
+      ],
+      "note": "Attribution/scope studies and end-to-end answer contracts; fresh and consumed remain separate."
+    },
+    {
+      "from": "gremlin",
+      "to": "handoff",
+      "kind": "records",
+      "basis": "documentation",
+      "evidence": [
+        "AGENTS.md"
+      ],
+      "note": "Map updates precede final handoff generation; neither map nor handoff grants authority."
+    },
+    {
+      "from": "workflow-controller",
+      "to": "prior-dispatch",
+      "kind": "possible_reuse",
+      "basis": "proposal",
+      "evidence": [
+        "evaluation/comparative-tests/dispatch-enforcement/README.md"
+      ],
+      "note": "Review earlier dispatch and receipt safeguards before inventing replacements."
+    },
+    {
+      "from": "workflow-controller",
+      "to": "preserved-parts",
+      "kind": "possible_reuse",
+      "basis": "proposal",
+      "evidence": [
+        "docs/departments/components.json"
+      ],
+      "note": "Inspect preserved swarm lease/fencing and network signature experiments; no compatibility is assumed."
+    },
+    {
+      "from": "future-effect-adapters",
+      "to": "restart-store",
+      "kind": "possible_reuse",
+      "basis": "proposal",
+      "evidence": [
+        "docs/TEAMBUILDING.md"
+      ],
+      "note": "Reservation concepts may transfer; resource-specific guarantees require new tests."
+    },
+    {
+      "from": "gremlin",
+      "to": "future-effect-adapters",
+      "kind": "records",
+      "basis": "documentation",
+      "evidence": [
+        "docs/TEAMBUILDING.md"
+      ],
+      "note": "The map records the roadmap separately from demonstrated adapters."
+    },
+    {
+      "from": "gremlin",
+      "to": "al-notes",
+      "kind": "records",
+      "basis": "documentation",
+      "evidence": [
+        "handoff/al-notes/README.md"
+      ],
+      "note": "Note 0001 records Gremlin scope, the explicit M override and Betty continuation."
+    }
+  ],
+  "open_work": [
+    {
+      "id": "writer-reporter",
+      "component": "egyptian-programme",
+      "question": "At baseline cef389a1, Bastet has no verified document selection or attribution. Inspect printed-writer selection separately from embedded reporter proof.",
+      "revisit_when": "Bastet implementation merges or its frozen first fresh score is available.",
+      "evidence": [
+        "evaluation/egyptian-gods/bastet/RESULTS.md"
+      ]
+    },
+    {
+      "id": "minimal-desktop",
+      "component": "applications",
+      "question": "Desktop uses the full source bundle. A minimal distribution needs explicit runtime imports and data membership.",
+      "revisit_when": "A desktop packaging split or tool/resource relocation is proposed.",
+      "evidence": [
+        "docs/RESPONSIBILITY_BOUNDARIES.md"
+      ]
+    },
+    {
+      "id": "trusted-receipts",
+      "component": "workflow-controller",
+      "question": "Host identity and receipt provenance are simulated; determine what authenticates a real grant and action receipt.",
+      "revisit_when": "A proposal extends the lab to production authority or another host.",
+      "evidence": [
+        "evaluation/comparative-tests/workflow-controller/POLICY.md"
+      ]
+    },
+    {
+      "id": "interrupted-effect",
+      "component": "restart-store",
+      "question": "The interrupted post-Git case has observable effect without durable completion. Reconciliation must preserve uncertainty and prevent blind retry.",
+      "revisit_when": "Manual reconciliation, power-loss recovery or distributed storage is proposed.",
+      "evidence": [
+        "evaluation/comparative-tests/workflow-controller/restart/README.md"
+      ]
+    },
+    {
+      "id": "historical-custody",
+      "component": "cryptid-programme",
+      "question": "Original 17 checks remain incomplete, 100 transfers NOT_RUN, recovery interrupted and publication-history exposure open. Closing PR 106 did not erase that incident.",
+      "revisit_when": "History remediation or any republication of retained archives is proposed.",
+      "evidence": [
+        "docs/recovery/THOTH_CLEAN_RELEASE.md"
+      ]
+    },
+    {
+      "id": "prior-parts",
+      "component": "preserved-parts",
+      "question": "Earlier variants contain separate tested ideas that may be useful; inspect original scopes and dependencies before reuse.",
+      "revisit_when": "A new lease, fencing, signature, graph or image feature is planned.",
+      "evidence": [
+        "docs/departments/components.json"
+      ]
+    }
+  ]
+}

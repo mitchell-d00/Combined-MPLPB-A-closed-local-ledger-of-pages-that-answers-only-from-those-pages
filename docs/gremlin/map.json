@@ -1,0 +1,4586 @@
+{
+  "schema": "gremlin-map-v1",
+  "reviewed_on": "2026-11-27",
+  "inspected_revision": "cef389a15293ceb51e813f2a1060246843a30aaf",
+  "meaning": "Maintenance index. Links and impact hints confer no evidence, release status or authority.",
+  "tracked_paths": 77362,
+  "pathset_sha256": "78ea95724e149dbaf03ee15d3efb7d4a5c03e068a2affc1830ea44f74bf346c1",
+  "ownership_index": "docs/departments/components.json",
+  "evidence_index": "docs/results.json",
+  "content_exclusions": [
+    "HANDOFF.md",
+    "docs/gremlin/MAP.md",
+    "docs/gremlin/map.json",
+    "handoff/manifest.json",
+    "handoff/update.json"
+  ],
+  "nodes": [
+    {
+      "id": "al-notes",
+      "label": "Versioned Al advice and override relay",
+      "scopes": [
+        "project"
+      ],
+      "status": "coordination only",
+      "paths": [
+        "handoff/al-notes"
+      ],
+      "evidence": [
+        {
+          "path": "handoff/al-notes/README.md",
+          "sha256": "3dd115da0ccf66f8e39b1c426311d245653f6369ff7d922ec3438cf9190d1fc4"
+        }
+      ],
+      "note": "Advice, authorization and applied results are distinct; role labels do not authenticate.",
+      "kind": "component",
+      "tracked_files": 3,
+      "content_sha256": "33ccba105a0f6e8209b98e1aed1340e66d9f1989e95aa2021a8884b5243c6ff2"
+    },
+    {
+      "id": "applications",
+      "kind": "department",
+      "label": "Applications and interfaces",
+      "scopes": [
+        "product",
+        "project"
+      ],
+      "status": "released interfaces",
+      "note": "Browser, CLI, desktop and API; their packaging boundaries differ.",
+      "paths": [],
+      "tracked_files": 561,
+      "content_sha256": "c50dd278f4c3605199960000bf644cb7a1b217528ef52a13b38fb6e6d23aef6e",
+      "evidence": [
+        {
+          "path": "docs/departments/applications.md",
+          "sha256": "908a41c9f9970ce8da839f6430a209e0cf7d6b3f100b0bcee1069fa75a852e23"
+        }
+      ]
+    },
+    {
+      "id": "browser-runtime",
+      "label": "Browser interface and builder",
+      "scopes": [
+        "product",
+        "project"
+      ],
+      "status": "released shared build",
+      "paths": [
+        "browser",
+        "index.html",
+        "tools/build_browser_runtime.py"
+      ],
+      "evidence": [
+        {
+          "path": "docs/PRODUCT_DISTRIBUTION.json",
+          "sha256": "a2a7bf3f9f754de0d86ba86322ce3a80191a98c66e283a375331ca30b674d64a"
+        }
+      ],
+      "note": "Hosted and standalone browser share runtime and selected resources, not every retained study.",
+      "kind": "component",
+      "tracked_files": 11,
+      "content_sha256": "cd3a1114717290ecff1945c7c809a1a1e7a09912b20855411a1a2e2f5a980c65"
+    },
+    {
+      "id": "cryptid-programme",
+      "label": "Cryptid reader programme",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "retained studies",
+      "paths": [
+        "evaluation/cryptid"
+      ],
+      "evidence": [
+        {
+          "path": "evaluation/cryptid/README.md",
+          "sha256": "1e6d532985e34cb87be0aa22cb8ab4390fa61a43592a949e9d8244ff104c449c"
+        }
+      ],
+      "note": "Keep frozen grades, consumed packets, restricted evidence and missing keys distinct.",
+      "kind": "component",
+      "tracked_files": 49771,
+      "content_sha256": "0a8aeaed1d4597499db0633d285e8d614b90426c11f9315fcc780f3674039cd2"
+    },
+    {
+      "id": "delivery-operations",
+      "kind": "department",
+      "label": "Delivery and project operations",
+      "scopes": [
+        "product",
+        "project"
+      ],
+      "status": "mixed distribution and coordination",
+      "note": "Ownership is not a minimal runtime/package manifest.",
+      "paths": [],
+      "tracked_files": 386,
+      "content_sha256": "6439a14ca19b6f83faa05cc844bb42290f1fba2241c5b9b7f6cc7d6b6a80d25f",
+      "evidence": [
+        {
+          "path": "docs/departments/delivery-operations.md",
+          "sha256": "dbb86838c5847b014c66f45d236fd324c4d11f71d5c09dd16a72ee5b1094c988"
+        }
+      ]
+    },
+    {
+      "id": "egyptian-programme",
+      "label": "Egyptian reader programme",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "retained and active studies",
+      "paths": [
+        "evaluation/egyptian-gods"
+      ],
+      "evidence": [
+        {
+          "path": "evaluation/egyptian-gods/README.md",
+          "sha256": "b93362be41575ba73362128998128da2183050891840fc726468abfc5f01f91e"
+        }
+      ],
+      "note": "Existing studies and Bastet baseline are retained; candidate status requires its exact PR.",
+      "kind": "component",
+      "tracked_files": 176,
+      "content_sha256": "f51bcad0d7b8285a8780f4995526da34d8f98c7c3f8ff17a3a5842ec4a0b1e55"
+    },
+    {
+      "id": "example-data",
+      "label": "Demo and example inputs",
+      "scopes": [
+        "product",
+        "data",
+        "experiment"
+      ],
+      "status": "public examples",
+      "paths": [
+        "examples"
+      ],
+      "evidence": [
+        {
+          "path": "docs/MPLPB.md",
+          "sha256": "702ce5ddd348815d962e0b0ec43684b9a6d54225b7d13a3df0b77f779fbe4225"
+        }
+      ],
+      "note": "Synthetic demos and fixtures are not a general truth corpus.",
+      "kind": "component",
+      "tracked_files": 147,
+      "content_sha256": "e76916ec8571aea62e150de3d944e9b3e51bbe8d678b47d7f82ef9e0cf3df6df"
+    },
+    {
+      "id": "future-effect-adapters",
+      "label": "Additional effect adapters",
+      "scopes": [
+        "project",
+        "experiment"
+      ],
+      "status": "proposed",
+      "paths": [],
+      "evidence": [
+        {
+          "path": "docs/TEAMBUILDING.md",
+          "sha256": "3429545f18291d7fc9bc959e3c960c45d30a63537527d9eeef0a6371620cde4d"
+        }
+      ],
+      "note": "Files, deployments and other resources each need their own safeguards, readback and interruption tests.",
+      "kind": "component",
+      "tracked_files": 0,
+      "content_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "id": "gremlin",
+      "label": "Component map and drift checker",
+      "scopes": [
+        "project",
+        "experiment"
+      ],
+      "status": "developer map",
+      "paths": [
+        "docs/gremlin",
+        "test_tools/gremlin.py",
+        "tests/test_gremlin.py",
+        ".github/workflows/gremlin.yml"
+      ],
+      "evidence": [
+        {
+          "path": "docs/gremlin/README.md",
+          "sha256": "74c34df3f96db8b984862dbf0f894663b33d32fd720e192e96efcaeb8b9f1dc4"
+        }
+      ],
+      "note": "Maintenance graph and change-review hints; no effect authority or exhaustive dependency claim.",
+      "kind": "component",
+      "tracked_files": 8,
+      "content_sha256": "dc7c4e3aaea41cdd70a3951ceed4e60819cc568fb89cf4ff534f5de31533bf0c"
+    },
+    {
+      "id": "handoff",
+      "label": "Artifact and working-state recovery",
+      "scopes": [
+        "project"
+      ],
+      "status": "active coordination",
+      "paths": [
+        "handoff",
+        "HANDOFF.md",
+        "tools/build_handoff.py"
+      ],
+      "evidence": [
+        {
+          "path": "AGENTS.md",
+          "sha256": "7deb92cb3ccd4680d967ea24e59f2a0785bb35fcef59db4b159d03556754aceb"
+        }
+      ],
+      "note": "Recover revisions, decisions, objections, custody and next steps; coordination is not source proof.",
+      "kind": "component",
+      "tracked_files": 9,
+      "content_sha256": "626fb5c0cc0d3f38a02e53ed34123318c7925bc24de7e4b4ca661f1f4810653e"
+    },
+    {
+      "id": "intake-research",
+      "kind": "department",
+      "label": "Intake and research",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "mixed runtime and research",
+      "note": "Sorter interfaces and proposals share ownership; proposal links do not establish support.",
+      "paths": [],
+      "tracked_files": 122,
+      "content_sha256": "b869815a9f31fd06b9a58dacff65a054899a05ffb28ce4e9cdc070518cc799f8",
+      "evidence": [
+        {
+          "path": "docs/departments/intake-research.md",
+          "sha256": "a2c91d586f0bd4ddbc48d8e42ad4080590618ecfcd1d7611cb91642a501d94dc"
+        }
+      ]
+    },
+    {
+      "id": "ledger",
+      "kind": "department",
+      "label": "Local ledger",
+      "scopes": [
+        "product",
+        "project"
+      ],
+      "status": "released",
+      "note": "Records, eligibility, revisions and provenance; source assertion and truth remain separate.",
+      "paths": [],
+      "tracked_files": 10,
+      "content_sha256": "b0292564f754d86938932460f4ee90fe706fccd5893f046a6cf01c9c59f08db4",
+      "evidence": [
+        {
+          "path": "docs/departments/ledger.md",
+          "sha256": "716e93f9cd6f6d68a5cbfdedcfe95aca1a3b06b7ff6ad6e40f578ed450e361ca"
+        }
+      ]
+    },
+    {
+      "id": "native-distribution",
+      "label": "Native package and ZIP builder",
+      "scopes": [
+        "product",
+        "project"
+      ],
+      "status": "released packaging",
+      "paths": [
+        "pyproject.toml",
+        "tools/build_release_packages.py"
+      ],
+      "evidence": [
+        {
+          "path": "docs/PRODUCT_DISTRIBUTION.json",
+          "sha256": "a2a7bf3f9f754de0d86ba86322ce3a80191a98c66e283a375331ca30b674d64a"
+        }
+      ],
+      "note": "One wheel contains the three runtime package roots; package membership is not directory ownership.",
+      "kind": "component",
+      "tracked_files": 2,
+      "content_sha256": "f4fc68b723d1f22d86de589be8348c08a6cfb83d39a42f8d09f0d9ef8ffa8234"
+    },
+    {
+      "id": "preserved-parts",
+      "label": "Earlier component implementations",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "preserved variants",
+      "paths": [
+        "parts"
+      ],
+      "evidence": [
+        {
+          "path": "docs/departments/components.json",
+          "sha256": "06b19a7a70686b7eb3ac5ffa7bce4ae1959679bee3b9c41a1fcdd65e0ccb697b"
+        }
+      ],
+      "note": "Swarm lease/fencing, networked, image and earlier local paths retain separate original tests.",
+      "kind": "component",
+      "tracked_files": 364,
+      "content_sha256": "c0bb47c81037d4f864c9be956072eef50d8e93c287c656ef5c394da5ca0dd4db"
+    },
+    {
+      "id": "prior-dispatch",
+      "label": "Prior dispatch enforcement study",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "retained study",
+      "paths": [
+        "evaluation/comparative-tests/dispatch-enforcement"
+      ],
+      "evidence": [
+        {
+          "path": "evaluation/comparative-tests/dispatch-enforcement/README.md",
+          "sha256": "24a976cb6c8692a9f2bcae4d8faf3d780856f3741a461e167c44343dc8c46325"
+        }
+      ],
+      "note": "Inspect the original scope before reusing a gate or receipt contract.",
+      "kind": "component",
+      "tracked_files": 10,
+      "content_sha256": "eaf9f54f05209989244d6338f61102d1a39b68bd602bccd1f21bd7abc89173e6"
+    },
+    {
+      "id": "reader",
+      "kind": "department",
+      "label": "Deterministic reader",
+      "scopes": [
+        "product",
+        "project"
+      ],
+      "status": "released finite rules",
+      "note": "Interpretation, source proof, citations, checked partials and withholding.",
+      "paths": [],
+      "tracked_files": 62,
+      "content_sha256": "38902cdc24fa899ec6481bfd4d06bf99b8feec9dc071d48f0d0975648811e09f",
+      "evidence": [
+        {
+          "path": "docs/departments/reader.md",
+          "sha256": "dc9b1a81d914fad0d52c4a39b01440bd20e415efd22a5f16b2ef207686e0fa57"
+        }
+      ]
+    },
+    {
+      "id": "reference-data",
+      "label": "Reference corpus and resources",
+      "scopes": [
+        "data",
+        "project"
+      ],
+      "status": "mixed source and fixtures",
+      "paths": [
+        "reference_corpus",
+        "resources"
+      ],
+      "evidence": [
+        {
+          "path": "docs/RESPONSIBILITY_BOUNDARIES.md",
+          "sha256": "8a3803d05f7778d8f596fd529064ed1400efda1a23393a26610321cff36a90ca"
+        }
+      ],
+      "note": "Only configured licensed resources ship; do not promote all reference data into runtime.",
+      "kind": "component",
+      "tracked_files": 94,
+      "content_sha256": "55f3b9980619d41c226bdd4934529ff41d13e94a40b3c4ecab224beff4b9839b"
+    },
+    {
+      "id": "restart-store",
+      "label": "Persistent reservation laboratory",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "lab-only",
+      "paths": [
+        "evaluation/comparative-tests/workflow-controller/restart"
+      ],
+      "evidence": [
+        {
+          "path": "evaluation/comparative-tests/workflow-controller/restart/README.md",
+          "sha256": "cf3429a4c7a8c3e4f3547ee497515d009213d7eddc32ebf21761e37c6dda928c"
+        }
+      ],
+      "note": "Local restart/contending processes tested; interrupted completion remains indeterminate.",
+      "kind": "component",
+      "tracked_files": 19,
+      "content_sha256": "17f6e573e3886411fe1a7e6cf644239fb0c1371c675a5398d41749d746a0af8c"
+    },
+    {
+      "id": "study:archival-inspection",
+      "kind": "study",
+      "label": "archival-inspection",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/archival-inspection"
+      ],
+      "tracked_files": 74,
+      "scope_from_index": "Finite source event/date relationships and native completion on unchanged development documents; independent semantic correctness unmeasured.",
+      "status_from_index": "See dated retained before/after study, guards, costs and initial failed controls. Unseen200-question and actual independent review NOT RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "e6f8c2ac9577aa0fff8b5da47c09d58de4f8ebd2db067b1aac34f8fa9476445c",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_event_date_inventory.py",
+        "tests/test_archival_onboarding.py"
+      ],
+      "runners": [
+        "tools/article_study.py",
+        "tools/dpercent.py",
+        "tools/benchmark_dashboard.py",
+        "tools/blind_archival_packets.py",
+        "tools/archival_tutorial.py"
+      ]
+    },
+    {
+      "id": "study:attribution",
+      "kind": "study",
+      "label": "attribution",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/attribution"
+      ],
+      "tracked_files": 174,
+      "scope_from_index": "Frozen cross-form source attribution with 48 development and 24 procedurally sealed same-operator transfer cases; complete PE-02 contract preservation.",
+      "status_from_index": "Frozen development 24/48 to 48/48. First transfer 12/24 to 24/24 is retained with control-overlap limits and now consumed development. A fresh generator/seed/keys/baseline were frozen before further edits; fresh once-only transfer improves 12/24 to 24/24, with 12 positives and 12 withholds passing and zero false support or budget failures. New source constructions differ from inspected development examples; templates remain visible to same operator. All 17 PE-02 and all 24 consumed-packet contracts remain identical; 56 focused controls pass. Exact publication head 71b2725 passed all nine checks, including full archive/regression CI (1779 tests, two skipped); merged 851de6c and deployed successfully. Detailed release receipt is in current-failure-inventory. Independent preparation, blinding, historical/semantic adjudication, outside-custodian scoring and native OOCC remain NOT_RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "e27912004c790fbb6adc1a838df4dc3beee0988a7df083fb9073b3183fbc5313",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_signed_instructions.py",
+        "tests/test_source_attributed_instructions.py"
+      ],
+      "runners": [
+        "tools/attribution_trial.py",
+        "tools/attribution_packets.py",
+        "tools/compare_attribution_preservation.py",
+        "tools/audit_attribution_witnesses.py",
+        "tools/attribution_fresh_transfer.py"
+      ]
+    },
+    {
+      "id": "study:audit-2026-10-21",
+      "kind": "study",
+      "label": "audit-2026-10-21",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/audit-2026-10-21"
+      ],
+      "tracked_files": 141,
+      "scope_from_index": "Dated system audit; live endpoint, browser and corpus configuration require original report context.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "ab3c8e2077a1116e502d179b98bf1ba9143e226d4d5310ae4685abcb422897af",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_audit_20261021.py"
+      ],
+      "runners": [
+        "tools/evaluate_audit_20261021.py",
+        "tools/browser_audit_20261021.py"
+      ]
+    },
+    {
+      "id": "study:bubble-wrap",
+      "kind": "study",
+      "label": "bubble-wrap",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/bubble-wrap"
+      ],
+      "tracked_files": 16104,
+      "scope_from_index": "Fail-closed isolated reported-content trial, separately frozen 32-case Wrap matrix and explicit preservation/accounting links. Original 20 inputs and 24 sealed transfer cases retained.",
+      "status_from_index": "Original development230/256→256/256 with disclosed v3 scorer amendment; first transferFAIL16/24 retained and consumed. Continuation272/280→280/280; nine guards6/9→9/9, one exposed false support removed; rejected wider candidate retained. Committed7f6641d ZIP f5be70718a1454171005493eba452e8fbd0602f3195e5325f57dd268840f8162 passes280/280,1810 native tests,52public controls,15software commands,WASM and Chromium. Fresh same-operator composition transfer16/24→24/24,12positives12withholds0false support; host preparation failure with0reader executions retained, same-source resume executed each candidate once.28non-target positive questions remain incomplete. Exact publication CI/merge/deployment pending. Independent evaluations and OOCC NOT_RUN. Source-tag experiment and12human onboarding are next authorized work, human observations NOT_RUN. Final2ab4b01 exact-headCI all10checks passed;1811native tests. Full bounded1000replay231/420complete580refusals retained189misses; old v1 unscored-support failure retained and21original positive witnesses checked by versioned host audit. Merged16948d5 with93/95/97 ancestry; allfourPRs merged,zeroopenaftercatchup. Pages45670095889 and six-module liveChromium observer passed.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "57df51b6642542d7cc2c1ca97cb346d3e42b97e56eb9c5f4d14fff7f34586ccd",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_study_sandbox.py",
+        "tests/test_reported_content.py",
+        "tests/test_bubble_wrap_accounting.py",
+        "tests/test_status_authority.py",
+        "tests/test_documentary_byline_units.py"
+      ],
+      "runners": [
+        "tools/bubble_wrap_trial.py",
+        "tools/bubble_wrap_adapter.py",
+        "tools/bubble_wrap_packets.py",
+        "tools/audit_bubble_wrap_delivery.py",
+        "tools/bubble_wrap_native_gates.py",
+        "tools/bubble_wrap_score_v3.py",
+        "tools/bubble_wrap_review.py",
+        "tools/bubble_wrap_transfer.py",
+        "tools/bubble_wrap_fresh_packet.py"
+      ]
+    },
+    {
+      "id": "study:bunyip-bb",
+      "kind": "study",
+      "label": "bunyip-bb",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/cryptid/bunyip/bb"
+      ],
+      "tracked_files": 3,
+      "scope_from_index": "Ben Gelhaus external adversarial benchmark, Mitchell implementation. Unchanged released package900answerable150canonical750paraphrase+200negative. Already consumed regression, not unseen transfer.",
+      "status_from_index": "Main and candidate900/900correct,200/200withholds,900/900exact eligible citations each. Original historical results unchanged. No new language gain or pooled accuracy.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "65727b35287aebb3406d86a50f203f205418aac213bcae55b2de120747bda1b8",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_field_question_forms.py"
+      ],
+      "runners": [
+        "tools/evaluate_field_questions.py",
+        "evaluation/field-question-normalization/2026-11-20/verify_citations.py"
+      ]
+    },
+    {
+      "id": "study:bunyip-round2",
+      "kind": "study",
+      "label": "bunyip-round2",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/cryptid/bunyip"
+      ],
+      "tracked_files": 4941,
+      "scope_from_index": "Whole-question relation/arguments under medial attribution, category/time wording and omitted task objects. Original questions, exact witnesses and same-operator custody. Existing failures retained.",
+      "status_from_index": "572/572 exposed source-key decisions; 71 recovered positive executions/34 original question strings, 40 wording-only diagnostic executions/19 strings.22original strict-key failures retained.832/832public consumed contracts exact;17private BLOCKED.36+64held transfer UNOPENED_NOT_RUN. Release blocked by remaining custody-history exposure and private isolation. No merge/deployment.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "f09f1f2f478cdba2573af5bd08480f9fdc78591c02145189d8cfb369e22d89d6",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_ordinary_questions.py",
+        "tests/test_study_sandbox.py"
+      ],
+      "runners": [
+        "tools/dpercent.py",
+        "tools/dpercent_expanded.py"
+      ]
+    },
+    {
+      "id": "study:candidate-review-workspace",
+      "kind": "study",
+      "label": "candidate-review-workspace",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/candidate-review-workspace"
+      ],
+      "tracked_files": 343,
+      "scope_from_index": "Opt-in processed/eligible-original review; ownership policy, byte fidelity and separate budgets, not semantic historical validation.",
+      "status_from_index": "Final e0ff226:1267 extracted-ZIP tests and isolated frozen-wheel check pass; all22 native results unchanged at2 complete. Five public cases/replays retain15 exact matches,49 phrase cues,39 processed passages; failures and costs preserved. Semantic human/unseen assessment NOT RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "74a146e13d72eb41dff1d1fb8a2b7dcf08f304e1c8925b21ce4f8c05628356b6",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_candidate_workspace.py"
+      ],
+      "runners": [
+        "mplpb_work/candidate_workspace.py",
+        "tools/evaluate_candidate_workspace.py",
+        "tools/report_candidate_workspace.py",
+        "tools/check_candidate_workspace_install.py"
+      ]
+    },
+    {
+      "id": "study:closed-ledger-boundaries",
+      "kind": "study",
+      "label": "closed-ledger-boundaries",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/closed-ledger-boundaries"
+      ],
+      "tracked_files": 20,
+      "scope_from_index": "Author-written unchanged-input source-support boundaries, diagnostic categories, host observation ordering and candidate-only Chromium; no independent historical accuracy or exact legacy887 reproduction.",
+      "status_from_index": "2026-11-17 frozen source archive; complete measured command outcomes recorded in dated report, unknown human effort and semantic accuracy remain null.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "7dcc0f4e673c5813f334025d10b6640816c091c0bedb09ab9c8081f55d2ea66c",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_answer_boundaries.py",
+        "tests/test_scoped_extensions.py",
+        "tests/test_supersession_policy.py"
+      ],
+      "runners": [
+        "tools/reproduce_boundaries.py",
+        "tools/evaluate_public_evidence.py",
+        "evaluation/closed-ledger-boundaries/2026-11-17/compare_contracts.py"
+      ]
+    },
+    {
+      "id": "study:comparative-tests",
+      "kind": "study",
+      "label": "comparative-tests",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/comparative-tests"
+      ],
+      "tracked_files": 69,
+      "scope_from_index": "Seven paired native MPLPB dispatch observations, a two-arm local Git comparison, and 28 follow-up controls across Python, seat RPC, loopback HTTP, and the stock CLI.",
+      "status_from_index": "Dispatch controls reproduced at MPLPB 6ba371c. The governance archive passed 10/10 local controls with zero calls for the six denied inputs. Complete mediation, hosted branch policies and native OOCC remain unestablished. The bounded workflow controller lab separately matched 40/40 frozen expectations, with one verified disposable Git ref update and seven no-write canary controls. The lab-only restart study matched 3/3 baseline and 6/6 candidate scenarios, including contention and two explicit interrupted outcomes.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "8882a2768e3d2a722ffbbdb7c5a72cb8d6d6169cbf31d7207781c39654363687",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_governance_demo.py",
+        "tests/test_specialist_continuity.py"
+      ],
+      "runners": [
+        "evaluation/comparative-tests/executable-gates/verify.py",
+        "evaluation/comparative-tests/executable-gates/probes/run_probes.py",
+        "evaluation/comparative-tests/executable-gates/probes/git_probe.sh",
+        "evaluation/comparative-tests/dispatch-enforcement/run_controls.py",
+        "tools/governance_demo.py",
+        "evaluation/comparative-tests/workflow-controller/controller.mjs",
+        "evaluation/comparative-tests/workflow-controller/replay.mjs",
+        "evaluation/comparative-tests/workflow-controller/restart/baseline-run.mjs",
+        "evaluation/comparative-tests/workflow-controller/restart/durable-run.mjs"
+      ]
+    },
+    {
+      "id": "study:contextual",
+      "kind": "study",
+      "label": "contextual",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/contextual"
+      ],
+      "tracked_files": 7,
+      "scope_from_index": "Synthetic conversational context and historical metrics; contextual state is not source authority.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "64e24c7815c9818fc0652237fde85363035550cf8be9a4b434d1302f7042fbfa",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_context_evaluation.py",
+        "tests/test_grounded_chat.py"
+      ],
+      "runners": [
+        "tools/evaluate_grounded_chat.py",
+        "tools/benchmark_grounded_chat.py"
+      ]
+    },
+    {
+      "id": "study:conversation",
+      "kind": "study",
+      "label": "conversation",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/conversation"
+      ],
+      "tracked_files": 12,
+      "scope_from_index": "Scripted finite conversation fixtures; exact old metrics require original revision/configuration.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "628d487558451d01c2b27c1cba58bd4b7f7121a72453eab0fd40d4920cec7012",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_conversation_router.py",
+        "tests/test_chat_matrix.py"
+      ],
+      "runners": [
+        "tools/evaluate_conversation.py",
+        "tools/evaluate_context_matrix.py",
+        "tools/smoke_conversation_architecture.py"
+      ]
+    },
+    {
+      "id": "study:conversation-repairs",
+      "kind": "study",
+      "label": "conversation-repairs",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/conversation-repairs"
+      ],
+      "tracked_files": 2,
+      "scope_from_index": "Developer-authored conversation regression examples, not independent users.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "b85f5787fb31f0361fda29fc536dc64536c74873d97699d7a5ffde30ca651037",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_conversation_repairs.py"
+      ],
+      "runners": [
+        "tools/evaluate_conversation_repairs.py"
+      ]
+    },
+    {
+      "id": "study:cryptid",
+      "kind": "study",
+      "label": "cryptid",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/cryptid"
+      ],
+      "tracked_files": 49771,
+      "scope_from_index": "Sequential shared-operation programme with frozen baselines, consumed and fresh transfer; published review candidate, not a released coverage claim. Bunyip Round 3 adds a bounded four-reader diagnostic and consumed preservation within this family. Bunyip Round 4 freezes attribution interpretation and native proof controls, with independent scoring NOT_RUN.",
+      "status_from_index": "Clean cumulative Thoth shipped in PR #109. Later reader gains shipped in PR #110 and the lab-only controller merged in PR #111. Original PR #106 remains unmerged with 17 private preservation cases incomplete and 100 unopened transfers NOT_RUN. The full reproducible replay includes the exact 444-case Round 2 primary rebuild, BB, and public preservation. Historical scores and failed candidates remain at their original pins.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "0a8aeaed1d4597499db0633d285e8d614b90426c11f9315fcc780f3674039cd2",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_documentary_date_roles.py",
+        "tests/test_event_date_inventory.py",
+        "tests/test_study_sandbox.py",
+        "tests/test_source_claims.py",
+        "tests/test_source_claim_authority.py",
+        "tests/test_ordinary_questions.py"
+      ],
+      "runners": [
+        "tools/study_sandbox.py",
+        "tools/cryptid_trial.py",
+        "tools/cryptid_score.py",
+        "tools/cryptid_mothman_packets.py",
+        "tools/cryptid_score_v2.py",
+        "tools/cryptid_preservation.py",
+        "tools/cryptid_transfer.py",
+        "tools/audit_cryptid.py",
+        "tools/cryptid_trial_v2.py",
+        "tools/cryptid_claim_score_v2.py",
+        "tools/cryptid_existing_controls.py",
+        "tools/cryptid_contract_preservation.py",
+        "tools/cryptid_archive.py",
+        "tools/cryptid_trial_v3.py",
+        "tools/cryptid_claim_score_v3.py",
+        "tools/cryptid_preservation_v2.py",
+        "tools/cryptid_preserve_prior.py",
+        "tools/cryptid_close_series.py",
+        "tools/cryptid_claim_score_v4.py",
+        "tools/cryptid_preserve_all.py",
+        "tools/audit_cryptid_v3.py",
+        "tools/cryptid_final_packets.py",
+        "tools/cryptid_final_transfer.py",
+        "tools/cryptid_gate.py",
+        "tools/cryptid_resource_score.py",
+        "tools/cryptid_structure_score_v2.py",
+        "tools/audit_cryptid_v4.py",
+        "tools/cryptid_layout_wrap.py",
+        "tools/cryptid_final_fresh2.py",
+        "tools/audit_cryptid_v5.py",
+        "tools/cryptid_revision3_packets.py",
+        "tools/cryptid_reporting_shell_wrap.py",
+        "tools/cryptid_reporting_budget_wrap.py",
+        "tools/cryptid_policy_score_v1.py",
+        "tools/cryptid_revision3_fresh.py",
+        "tools/cryptid_zip_delta.py",
+        "tools/cryptid_reporting_compatibility_wrap.py",
+        "tools/cryptid_semantic_preservation_v1.py",
+        "tools/bunyip_title_wrap.py",
+        "tools/bunyip_score.py",
+        "tools/bunyip_legacy_assessment.py",
+        "tools/bunyip_final3_packets.py",
+        "tools/bunyip_language_attribution.py",
+        "tools/bunyip_language_assessment_v2.py",
+        "tools/cryptid_trial_v5.py",
+        "tools/bunyip_round2_preservation.py",
+        "evaluation/cryptid/bunyip/round3/score.py",
+        "evaluation/cryptid/bunyip/round4/run.py",
+        "evaluation/cryptid/bunyip/round4/score_v2.py"
+      ]
+    },
+    {
+      "id": "study:cryptid-bunyip-dpercent",
+      "kind": "study",
+      "label": "cryptid-bunyip-dpercent",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/cryptid/bunyip/dpercent"
+      ],
+      "tracked_files": 31,
+      "scope_from_index": "Original paired questions; same source and matched budgets. D% worker, Dice Bag custody, D20 matched conditions. No parallel harness.",
+      "status_from_index": "Development12/32→32/32positives,108withholds;fresh8/24→14/24positive,84withholds,ten misses;3new original ordinary strings/6repeated executions/4unique source-question inputs.849prior contracts exact;no unsupported additions/lost valid support/citation failures. Same-operator not independent. No tag/layout/diagnostic gain credited.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "5a01245150eca9432e52f49d0b43a2016e7a27b39e63cd0158a154de6568aa22",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_ordinary_questions.py",
+        "tests/test_dpercent.py",
+        "tests/test_study_sandbox.py"
+      ],
+      "runners": [
+        "tools/dpercent.py",
+        "tools/dpercent_worker.py",
+        "tools/dpercent_expanded.py",
+        "tools/bunyip_dpercent_packets.py"
+      ]
+    },
+    {
+      "id": "study:cryptid-gremlin-map",
+      "kind": "study",
+      "label": "cryptid-gremlin-map",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "docs/gremlin"
+      ],
+      "tracked_files": 5,
+      "scope_from_index": "Project-maintenance map for components, typed links, data, experiments and revisit conditions; no reader or effect-support claim.",
+      "status_from_index": "Nine local maintenance boundary tests passed after correcting a fixture-only missing department entry. Repository-scale and extracted-candidate checks recorded in the Gremlin PR report. Independent assessment and relay benefit NOT_RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "b8819413d6f5429232bba48f5b3837a0223b5d5fa23e421e44f9a1e39000f4b8",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_gremlin.py"
+      ],
+      "runners": [
+        "test_tools/gremlin.py"
+      ]
+    },
+    {
+      "id": "study:current-failure-inventory",
+      "kind": "study",
+      "label": "current-failure-inventory",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/current-failure-inventory"
+      ],
+      "tracked_files": 869,
+      "scope_from_index": "Read-only replay of 64 Known cases, 32 Focus cases and fifteen fresh synthetic contrasts on merged reader 851de6c; frozen next proposal only.",
+      "status_from_index": "111 completed: thirteen complete, four partial, two conflicts, 92 abstentions. Two sampled old compound-field recoveries; no lost old valid complete answer. All sixty no-full-support controls retained withholding. Five multisuite report-content misses have full discovery but no admitted goals. Historical 605 is not a current census. Twenty development inputs and twenty-four unopened future transfer instances frozen; no native repair. Independent historical/semantic/preparation/blinding/outside-custodian/OOCC remain NOT_RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "c7d9984f6e6dddcc6313923dcd54a008dbde27f52fdbad15aacb017f09de30bf",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_source_attributed_instructions.py",
+        "tests/test_signed_instructions.py"
+      ],
+      "runners": [
+        "tools/current_failure_inventory.py",
+        "tools/analyze_failure_inventory.py",
+        "tools/freeze_reported_content_proposal.py"
+      ]
+    },
+    {
+      "id": "study:d10",
+      "kind": "study",
+      "label": "d10",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/d10"
+      ],
+      "tracked_files": 4,
+      "scope_from_index": "D100 topic planning and D% class indexing. The exact-anchor adapter uses claims and citations from Strict Ask on frozen paired samples.",
+      "status_from_index": "Ten filled synthetic draws passed all 20 questions. Mixed-source smoke passed four questions with eight draws unfilled. Local D% sandbox setup failed before inference and the patched batch driver reported nonzero.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "1c827cad7248c3422effc0bad194e6f0c840d34ccf52dbe42ae29c402213d2d5",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_d10.py",
+        "tests/test_dpercent_weaknesses.py"
+      ],
+      "runners": [
+        "test_tools/d10_index.py",
+        "test_tools/d10_capture.py",
+        "test_tools/d10.py"
+      ]
+    },
+    {
+      "id": "study:d12",
+      "kind": "study",
+      "label": "d12",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/d12"
+      ],
+      "tracked_files": 164,
+      "scope_from_index": "Matched D6 evidence path perturbation and separate source-grounded historical prose trace, with exact citation readback.",
+      "status_from_index": "144/144 generated pairs passed, with zero unexpected completions. The original 22 baseline had 3 full answers, 2 partials, 3 conflicts and 14 abstentions. The historical seam candidate had 4 full, 3 partial, 3 conflicts and 12 abstentions, with 19/19 exact citation readbacks. The nine supplied coordinator excerpts moved from nine abstentions to five full and four partial; 28 matched sprint controls passed. The training coordinator recovered three authored calendar cases and preserved two refusals. A constructor-built calendar candidate reproduced those outcomes. The prose constructor traced wording comparison and drafted review-only recommendation proof obligations. Corpus discovery ranked two exact field rules on five development records. Spot verified an uploaded closing date while withholding on a missing field and competing owners in the isolated preview. Its benchmark replay retained all 22 native contracts, 15 D20 withholds and six correct Primary Book controls. The installed documentary-language demo matched 40/40 synthetic labels versus 20/40 at baseline, with 70 exact citation readbacks and zero false full answers. The mode replay retained the original 22 strict outcomes, recorded 22 unconfigured-assisted abstentions, and reproduced the per-case report from its archived source. Advanced MPLPB preserved every strict contract with 12 followed lookups, three investigations and seven stops. The training command selected the elapsed-days repair and blocked the inclusive-days variant on a protected holdout. Matched discovery budgets yielded full drafted anchor coverage of 4/21 for ordinary retrieval, 5/21 for graph guidance, and 3/21 for three-way interleaving. All strict statuses and claim lists were preserved. A separate post-freeze solo pilot used 24 questions on six source pairs. Strict Ask completed none of the 19 answerable cases and gave no full answers on five missing-evidence cases. Native and word-overlap discovery found every anchor for 12 of 19 answerable cases. The 4score20 replay traced three pilot cases and isolated a literal quote spanning two statement units. J/Opass preserved the deterministic display in 16 local model calls, with 8 of 8 constrained layout choices accepted and 0 of 8 free-text choices accepted. Scout completed 0 of 18 answerable prompts and 0 of 6 cross-document relationships on a fresh post-freeze draw, with all six missing-evidence controls withheld and exact graph-scoped proof preserved. The live flag follow-up matched all 22 historical strict contracts and all 48 Scout graph passes. Independent historical truth review was not run.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "5d9bf737973f48beb7e0b699e3a9ce77e66dc99f95665317e457f55b8342cd9a",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_d12.py",
+        "tests/test_training_coordinator.py",
+        "tests/test_advanced.py",
+        "tests/test_d12_pattern_sprints.py",
+        "tests/test_historical_seams.py",
+        "tests/test_j_opass.py",
+        "tests/test_experience_graph.py",
+        "tests/test_release_language_coverage.py",
+        "tests/test_d6.py"
+      ],
+      "runners": [
+        "test_tools/d12.py",
+        "test_tools/training_benchmarks.py",
+        "mplpb_work/training.py",
+        "test_tools/d12_pattern_sprints.py",
+        "test_tools/historical_seams.py",
+        "test_tools/four_score_twenty.py",
+        "test_tools/j_opass.py",
+        "test_tools/live_flag_replay.py",
+        "evaluation/d12/scout/run.py",
+        "evaluation/d12/scout/score.py",
+        "tools/article_study.py",
+        "tools/release_demo.py",
+        "test_tools/historical_mode_replay.py",
+        "evaluation/d12/discovery-combos/replay.py",
+        "evaluation/d12/discovery-combos/followups.py",
+        "evaluation/d12/discovery-combos/flag_smoke.py",
+        "evaluation/d12/solo-post-freeze/draw.py",
+        "evaluation/d12/solo-post-freeze/seal.py",
+        "evaluation/d12/solo-post-freeze/run.py",
+        "evaluation/d12/solo-post-freeze/score.py",
+        "test_tools/historical_22_graph.py",
+        "test_tools/historical_graph_study.py"
+      ]
+    },
+    {
+      "id": "study:d20",
+      "kind": "study",
+      "label": "d20",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/d20"
+      ],
+      "tracked_files": 9,
+      "scope_from_index": "Synthetic matched record ownership, alternate question and alias formats, competing owners, missing facts, retired eligibility, raw-sorter observations and canonical-selector isolation probes.",
+      "status_from_index": "Frozen native seed 20 and 64-seed class study on d497b00, with a paired owner-question repair replay. Measures authored structures under disposable ledgers. Independent historical transfer remains unmeasured.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "a95267cd4ce66f0b69020eb9736c3809125e863f0b52033afe6de5c195433244",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_d20.py",
+        "tests/test_field_question_forms.py"
+      ],
+      "runners": [
+        "test_tools/d20.py"
+      ]
+    },
+    {
+      "id": "study:d4",
+      "kind": "study",
+      "label": "d4",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/d4"
+      ],
+      "tracked_files": 10,
+      "scope_from_index": "Documentary identity, local co-reference, mixed D% controls and small documentary packets with support, partial support, conflict and unresolved controls.",
+      "status_from_index": "Retained D4 synthetic development evaluation and a reproducible fictional query panel. Profile labels provide synthetic coverage, not evidence about human cohorts.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "54cd2233e436339a0d446e82bfbb72d60e3c8e9ecea36a9597824fd2abd4fd3c",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_reference_identity.py",
+        "tests/test_d4.py",
+        "tests/test_bounded_records.py"
+      ],
+      "runners": [
+        "tools/d4.py",
+        "tools/d4_patterns.py",
+        "tools/bounded_record_study.py"
+      ]
+    },
+    {
+      "id": "study:d6",
+      "kind": "study",
+      "label": "d6",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/d6"
+      ],
+      "tracked_files": 16,
+      "scope_from_index": "Opt-in native evidence compilation from explicit record and field selectors, with exact citations, branch and arithmetic controls, and optional sealed Dice Bag corpus replay.",
+      "status_from_index": "90/90 seeded synthetic checks passed. All 12 frozen Dice Bag records compiled their declared fields and withheld completion for the missing-field control. The calendar sprint passed 48 matched controls. Authored source notes recovered 12/12 target spans at one passage. Exact thesaurus edge search recovered 6/6 target spans in a separate authored probe. Strict support remained unchanged in both discovery arms.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "ec409a2ec8c4c8f7bdf98390b33def8e86645bd59381f0a841a10e71aeef9e1b",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_d6.py",
+        "tests/test_d6_calendar.py",
+        "tests/test_source_notes.py",
+        "tests/test_thesaurus_graph.py"
+      ],
+      "runners": [
+        "test_tools/d6.py",
+        "test_tools/calendar_notes_study.py",
+        "mplpb_answers/d6.py"
+      ]
+    },
+    {
+      "id": "study:d8",
+      "kind": "study",
+      "label": "d8",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/d8"
+      ],
+      "tracked_files": 6,
+      "scope_from_index": "Source ownership, ambiguity boundaries, strict source-local verification, and complete or partial assembly for a named pair.",
+      "status_from_index": "Two of eight initial controls passed. All eight passed on the repaired implementation. The 24-case D12 replay removed one nonresponsive excerpt comparison and preserved the 0/19 complete-answer coverage. The historical 22 retained each strict status, diagnostic, and citation count.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "8a562d3f946cbf43c4e1cfe61867a461043b38106277e983f6e82121489a1c1f",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_d8_owner_boundaries.py",
+        "tests/test_comparison_completion.py"
+      ],
+      "runners": [
+        "tests/test_d8_owner_boundaries.py"
+      ]
+    },
+    {
+      "id": "study:dice-bag",
+      "kind": "study",
+      "label": "dice-bag",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/dice-bag"
+      ],
+      "tracked_files": 4,
+      "scope_from_index": "Seeded live USGS structured records, separate operator/custodian paths, strict field answers and reviewed synonym lookup.",
+      "status_from_index": "First live batch filled 12 draws and scored 72 questions. All 36 strict negatives withheld. Lookup recovered 12 listed-phrase pairs after confirmation and produced none for 12 unlisted wordings. The installed graph route preserves the original full score on the frozen 72.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "55d60014d0709e0303a67af658f991b996861f4acc96995312e7dce64b72d24d",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_dice_bag.py",
+        "tests/test_graph_synonym_index.py"
+      ],
+      "runners": [
+        "test_tools/dice_bag.py",
+        "mplpb_answers/synonym_graph.py",
+        "test_tools/synonym_index.py"
+      ]
+    },
+    {
+      "id": "study:documentary-articles",
+      "kind": "study",
+      "label": "documentary-articles",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/documentary-articles"
+      ],
+      "tracked_files": 20,
+      "scope_from_index": "Read-only assembly preservation and shared declared ancestry; not new historical reconstruction accuracy or independent corroboration.",
+      "status_from_index": "Development controls and unchanged-original preservation study; see dated report for actual completed checks.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "44dd0052aa4bacf6cf43eafc60978e90363e85a76c230139d0710c4569d7f652",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_documentary_article.py"
+      ],
+      "runners": [
+        "tools/article_study.py"
+      ]
+    },
+    {
+      "id": "study:documentary-assertions",
+      "kind": "study",
+      "label": "documentary-assertions",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/documentary-assertions"
+      ],
+      "tracked_files": 198,
+      "scope_from_index": "Finite source-attributed assertion certificates, independent question obligations and checked partial composition; no historical truth or independent human accuracy claim.",
+      "status_from_index": "Executed on extracted 6acf45a: 1068 Python tests, public 52/52, actual WebAssembly and Chromium. Unchanged original/government questions: checked partial answers 0→2/22, full supported answers 0→0/22; independent semantic review and unseen evaluation NOT RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "090ddf90ea20ae6ba48a3de09a9fdd393d6c7c5f6ee18d19b8f8dfd4d8ed5ef4",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_documentary_assertions.py",
+        "tests/test_documentary_originals.py",
+        "tests/documentary-render.cjs"
+      ],
+      "runners": [
+        "tools/compare_documentary_answers.py",
+        "tools/unprepared_challenge.py",
+        "tools/check_browser_wasm.mjs"
+      ]
+    },
+    {
+      "id": "study:documentary-date-pattern",
+      "kind": "study",
+      "label": "documentary-date-pattern",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/documentary-date-pattern"
+      ],
+      "tracked_files": 4,
+      "scope_from_index": "Bounded role-phrase aliases in documentary date questions and separate named-summary passage discovery.",
+      "status_from_index": "Only the Fort Sumter paraphrase gained full support across 40 follow-ups. The 22 original native outcomes and citations remained the same. The Apollo 13 named-summary probe recovered its reference passage. Independent semantic review remains outstanding.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "37b22406e3011b5e7345298feba065dec759335d11dd091af57315f484d06fe8",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_event_date_inventory.py",
+        "tests/test_report_section_probe.py"
+      ],
+      "runners": [
+        "test_tools/historical_patterns.py",
+        "tools/article_study.py",
+        "test_tools/report_section_probe.py"
+      ]
+    },
+    {
+      "id": "study:documentary-scope",
+      "kind": "study",
+      "label": "documentary-scope",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/documentary-scope"
+      ],
+      "tracked_files": 603,
+      "scope_from_index": "Finite scope/role interpretation controls and unchanged original-record development comparisons; candidates never earn answer support.",
+      "status_from_index": "Executed: baseline 1011 tests, final archive 1035 tests; public prepared controls 52/52; original/familiar draft spans unchanged at 18/23 and 9/9, native support 0/14 and 0/8. Independent semantic review NOT RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "716345c64c5e052ac61197158f93f0c0582439d28a2e33d2e427792da989cdf4",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_documentary_scope.py",
+        "tests/test_prose_reconstruction.py",
+        "tests/test_source_mapping.py"
+      ],
+      "runners": [
+        "tools/compare_documentary_scope.py",
+        "tools/unprepared_challenge.py"
+      ]
+    },
+    {
+      "id": "study:documentation-audit",
+      "kind": "study",
+      "label": "documentation-audit",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/documentation-audit"
+      ],
+      "tracked_files": 9,
+      "scope_from_index": "Current documentation inventory and evidence-link checks; structural coverage does not prove historical metrics.",
+      "status_from_index": "current structural audit",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "727faa14a2368f96c48a6cd2301e1c7bcec7064eed47ff815b2758ff3d1eb6b2",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_documentation_audit.py",
+        "tests/test_handoff.py",
+        "tests/test_self_knowledge.py",
+        "tests/test_department_navigation.py"
+      ],
+      "runners": [
+        "tools/audit_documentation.py",
+        "tools/audit_departments.py"
+      ]
+    },
+    {
+      "id": "study:dpercent",
+      "kind": "study",
+      "label": "dpercent",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/dpercent"
+      ],
+      "tracked_files": 135,
+      "scope_from_index": "Original fictional structurally randomized prose;binary source-assertion answerability and refusal,bounded retrieval comparison;not historical accuracy.",
+      "status_from_index": "Frozen6e0de9e:1240/1240 executed;20→200/600 complete checked(160 source assertions,40 word locations),640/640 expected refusals,F0%,400 incomplete answerable cases.Historical complete2/22 unchanged.1431 archived tests,52 public controls,actualWASM and headlessChromium passed.All failed/interrupted attempts retained.Independent semantic review NOT RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "c0d30d19d220e95d34fccc5ada5c3e879cb7a921ee1d627f235a88ed2aca6b5a",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_dpercent.py",
+        "tests/test_dpercent_features.py",
+        "tests/test_prose_rule_classes.py",
+        "tests/test_prose_qualification_mutations.py",
+        "tests/test_documentary_text_location.py",
+        "tests/test_literal_boundary_guards.py",
+        "tests/test_documentary_header_scope.py"
+      ],
+      "runners": [
+        "tools/dpercent.py",
+        "tools/dpercent_worker.py",
+        "tools/dpercent_features.py"
+      ]
+    },
+    {
+      "id": "study:dpercent-expanded",
+      "kind": "study",
+      "label": "dpercent-expanded",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/dpercent-expanded"
+      ],
+      "tracked_files": 19,
+      "scope_from_index": "Known-error structural stress testing across historical prose and field admission; frozen packets, isolated worker and post-run keys. Not independent/unseen evaluation.",
+      "status_from_index": "Two complete1000-case frozen runs:156 to168/420 matched complete,580/580 refusals,252 positives still unresolved; no execution failures. Initial/scorer failures and interruption retained.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "58066e01565023e766432b09677daf45317e27340bad5495ebcedee46ac34019",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_compound_fields.py",
+        "tests/test_pinned_documentary_inspection.py",
+        "tests/test_dpercent_expanded.py"
+      ],
+      "runners": [
+        "tools/verify_bounded_repair.py",
+        "tools/dpercent_expanded.py",
+        "tools/dpercent.py"
+      ]
+    },
+    {
+      "id": "study:dpercent-known-weaknesses",
+      "kind": "study",
+      "label": "dpercent-known-weaknesses",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/dpercent-known-weaknesses"
+      ],
+      "tracked_files": 24,
+      "scope_from_index": "75 executable authored classes,15 explicit unmeasured gaps; sealed 4096-case study, graph obligations separate from native support and semantic truth.",
+      "status_from_index": "4096/4096 executed;657/1262 complete,605 missed positives in11 classes;2834/2834 expected refusals;37 budget-partial graphs;156894 node spans audited without errors. Developer-authored; independent review NOT RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "b53850bcbc1a9b118173092dd3beae54530edd36e3ede295caf8a15bdd2895d5",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_dpercent_weaknesses.py"
+      ],
+      "runners": [
+        "tools/dpercent_weaknesses.py",
+        "tools/dpercent_weakness_batch.py",
+        "tools/dpercent_weakness_audit.py"
+      ]
+    },
+    {
+      "id": "study:egyptian-gods",
+      "kind": "study",
+      "label": "egyptian-gods",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/egyptian-gods"
+      ],
+      "tracked_files": 176,
+      "scope_from_index": "Frozen Thoth interpretation and controls, four matched native readers. Original setup failure retained as a receipt with the full artifact in PR #106. Frozen Seshat, Anubis and Horus attribution, polarity and modality sets. The reusable programme preserves the historical families and adds Bastet printed-writer and attribution I/O.",
+      "status_from_index": "Development and same-operator fresh evaluation completed. Independent adjudication and human onboarding NOT_RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "f51bcad0d7b8285a8780f4995526da34d8f98c7c3f8ff17a3a5842ec4a0b1e55",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_bunyip_round2.py",
+        "tests/test_ordinary_questions.py",
+        "tests/test_compound_fields.py"
+      ],
+      "runners": [
+        "tools/cryptid_replay_packet_v5.py",
+        "evaluation/egyptian-gods/thoth/readout.py",
+        "evaluation/egyptian-gods/attribution-scope/readout.py",
+        "evaluation/egyptian-gods/bastet/prepare.py",
+        "evaluation/egyptian-gods/bastet/io_score.py"
+      ]
+    },
+    {
+      "id": "study:field-aliases",
+      "kind": "study",
+      "label": "field-aliases",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/field-aliases"
+      ],
+      "tracked_files": 70,
+      "scope_from_index": "One bounded source-body field-alias improvement; immutable legacy benchmarks and a sealed240-case developer holdout. Not independent semantic validation.",
+      "status_from_index": "Native2427d80: expanded189/420 with580 refusals;240 development50/64;150 prospective33/40; original200/600 and historical3/22 unchanged; independent review NOT RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "8b8f945380e9c5b5a82700c3c53995d50ac2a9e47def046c400b9002a9b4cf75",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_field_aliases.py"
+      ],
+      "runners": [
+        "tools/field_alias_challenge.py",
+        "tools/dpercent.py",
+        "tools/dpercent_expanded.py",
+        "tools/reproduce_boundaries.py"
+      ]
+    },
+    {
+      "id": "study:field-question-normalization",
+      "kind": "study",
+      "label": "field-question-normalization",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/field-question-normalization"
+      ],
+      "tracked_files": 71,
+      "scope_from_index": "Unchanged public synthetic literal-field question forms, positive/negative support and exact key-value scoring; no historical accuracy or independent semantic review.",
+      "status_from_index": "Final9b5ff0c:1482 native tests,52 public controls,900/900 exact fields,200/200 refusals,900 eligible citation readbacks; original22 contracts preserved. Independent semantic review NOT RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "0b61a1ec1a4a2efe14ed67e93bd592466c4eca8667e8f384e757c1b948971185",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_field_question_forms.py"
+      ],
+      "runners": [
+        "tools/evaluate_field_questions.py",
+        "tools/reproduce_boundaries.py"
+      ]
+    },
+    {
+      "id": "study:fixpack",
+      "kind": "study",
+      "label": "fixpack",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/fixpack"
+      ],
+      "tracked_files": 261,
+      "scope_from_index": "Supplied patch hardening, unchanged22 development replay, separate discovery, fictional process-interruption and optional live-model flag probes. No independent historical accuracy.",
+      "status_from_index": "Final runtime7c92db5:1364 unittest passed,52 public controls;unchanged22 complete2→2,partial1→2;draft anchors27/32 unchanged;fresh blinded AI assessment only;live tiny model no utility gain.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "cf634485f11c117804f506d5ce5b668433d0341eba3b1e87713144afd04de075",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_stacked_field_safety.py",
+        "tests/test_classing_boundaries.py",
+        "tests/test_exploration_budget.py",
+        "tests/test_documentary_local_context.py",
+        "tests/test_semantic_triage.py",
+        "tests/test_ledger_generations.py"
+      ],
+      "runners": [
+        "tools/reproduce_boundaries.py",
+        "tools/report_fixpack_retest.py",
+        "tools/evaluate_fixpack_exploration.py",
+        "tools/evaluate_semantic_triage.py"
+      ]
+    },
+    {
+      "id": "study:free-browser-helper",
+      "kind": "study",
+      "label": "free-browser-helper",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/free-browser-helper"
+      ],
+      "tracked_files": 32,
+      "scope_from_index": "Authored real-engine/browser workflow and pinned assets/candidate-data tests; synthetic plans only, no live Phi-4/iPad or independent human validation. Includes bounded model-load stage/error/export/retry diagnostics, with simulated failure cases and real runtime API construction without weights; no device root-cause or inference claim. Actual pinned upstream/patched limit-negotiation functions are exercised with authored adapter/device capacities; physical model inference remains separate. Plain streamed chat, prompt/Send placement at iPad/narrow widths, reviewed model-proposed collection creation, and generation-time disposal/reload recovery use explicit engine fixtures; no neural or physical iPad generation claim.",
+      "status_from_index": "Local development evidence; exact candidate/CI/deployment outcomes are separate.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "8f18c598f905930c3195bc971844138c992e8d51a97ed811b05e977d03e3791b",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_browser_ai_assets.py",
+        "tests/test_owner_corpus.py",
+        "tests/browser-ai-helper.cjs",
+        "tests/browser-model-loader.cjs",
+        "tests/browser-webgpu-limits.cjs"
+      ],
+      "runners": [
+        "tools/browser_free_helper.py",
+        "tools/build_ai_assets.py",
+        "tools/prepare_owner_corpus.py",
+        "tools/browser_model_selection.py"
+      ]
+    },
+    {
+      "id": "study:general-reader",
+      "kind": "study",
+      "label": "general-reader",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/general-reader"
+      ],
+      "tracked_files": 36,
+      "scope_from_index": "Evaluation machinery and protocol; no achieved live-model general-quality release claim. Includes constrained native narrator complete-rendering checks and authored loopback backend protocols; no live neural inference or historical accuracy gain measured.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "c1c03f80d91b174880ba55424a1e61fcde4bebb7b34858a56919a326c0c43a60",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_general_answers.py",
+        "tests/test_general_evaluation.py",
+        "tests/test_local_reader.py",
+        "tests/test_release_answer_contract.py",
+        "tests/test_local_narrator.py"
+      ],
+      "runners": [
+        "tools/evaluate_general_answers.py"
+      ]
+    },
+    {
+      "id": "study:historical-experts",
+      "kind": "study",
+      "label": "historical-experts",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/historical-experts"
+      ],
+      "tracked_files": 12,
+      "scope_from_index": "52 fully published development requirements across evidence authority, diagnostics, exact routing, event candidates, explicit scoped corrections, candidate inference, receipt separation and measured computation, plus bounded original-paper expert replay. No blind, human-usability or general historical-truth claim. Includes original-source study protocol tests; external questions/reviewer participation and independent validation remain outstanding. Linux worker isolation has dedicated actual namespace probes and fail-closed controls; no human-operator or host-administrator isolation claim. Scoped-extension controls cover explicit source-field routing/conflicts, event nodes, correction windows, bounded quoted exploration and non-authoritative receipt/effort reporting; effort instrumentation is not independent human measurement. Adaptive Search has paired bounded traversal and source-authority regression controls.",
+      "status_from_index": "Developer-authored inspected controls; run current candidate tests/replay and inspect actual exact-head CI before claiming successful validation.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "5f2df11a65c6decc99693c29051c74153590eeafffa4950223cc1b665fc110f1",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_historical_evidence.py",
+        "tests/test_historical_verifier.py",
+        "tests/test_historical_investigation.py",
+        "tests/test_collection_predicates.py",
+        "tests/test_historical_passages.py",
+        "tests/test_public_evidence_challenge.py",
+        "tests/test_historical_study.py",
+        "tests/test_study_sandbox.py",
+        "tests/test_scoped_extensions.py"
+      ],
+      "runners": [
+        "tools/evaluate_historical_experts.py",
+        "tools/evaluate_public_evidence.py",
+        "tools/historical_study.py",
+        "tools/study_sandbox.py"
+      ]
+    },
+    {
+      "id": "study:historical-patterns",
+      "kind": "study",
+      "label": "historical-patterns",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/historical-patterns"
+      ],
+      "tracked_files": 7,
+      "scope_from_index": "Forty authored follow-ups across ten groups on the originals from the frozen historical 22. Separate strict answers, reference-anchor visibility, and scope controls.",
+      "status_from_index": "Main f9e71b9 supported one direct case with all anchors and zero paraphrases. All ten scope controls withheld full support. Independent semantic review remains unmeasured.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "9c7c34e596d3adca3d130f911318ee62fdd589ab90daeaf8c5c6dfbbb68f039a",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_historical_patterns.py"
+      ],
+      "runners": [
+        "test_tools/historical_patterns.py"
+      ]
+    },
+    {
+      "id": "study:historical-synonym-graph",
+      "kind": "study",
+      "label": "historical-synonym-graph",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/historical-synonym-graph"
+      ],
+      "tracked_files": 6,
+      "scope_from_index": "Graph-guided passage discovery on the original 22, 40 frozen follow-ups, and 12 authored requests on three prepared history records, with strict output kept separate.",
+      "status_from_index": "On the original 22, complete draft-anchor visibility rose from 4/21 to 5/21. All 12 new topic record hints matched the reference. Independent grading was not run.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "5a1bd44c4d75a59c08e11c3d70335ac6de3eb100c565d5baf409ed6186c2cf9e",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_historical_graph_study.py"
+      ],
+      "runners": [
+        "test_tools/historical_graph_study.py",
+        "test_tools/historical_22_graph.py"
+      ]
+    },
+    {
+      "id": "study:killtest",
+      "kind": "study",
+      "label": "killtest",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "killtest"
+      ],
+      "tracked_files": 20,
+      "scope_from_index": "Original adjudication inputs and outputs preserved; run original revision for exact historical reproduction.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "3d100db9f9c789140d378a8cf7479927efc20d61fda7c80b3c710ba8a3c31b71",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_answer.py",
+        "tests/test_canned_guard.py"
+      ],
+      "runners": [
+        "mplpb_combined/killtest.py"
+      ]
+    },
+    {
+      "id": "study:language-audit",
+      "kind": "study",
+      "label": "language-audit",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/language-audit"
+      ],
+      "tracked_files": 30,
+      "scope_from_index": "Inspected pottery labels and synthetic development data; document identity is not completeness.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "55396270928c5313b4c4e81b5c9c789487ab14403eb46fe7740f10a925b922fc",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_assertion_polarity.py",
+        "tests/test_relation_graph.py",
+        "tests/test_literal_evidence.py",
+        "tests/test_answer_support.py"
+      ],
+      "runners": [
+        "tools/evaluate_answer_reliability.py",
+        "tools/evaluate_language_audit.py",
+        "tools/trace_language_audit.py"
+      ]
+    },
+    {
+      "id": "study:live-conversation",
+      "kind": "study",
+      "label": "live-conversation",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/live-conversation"
+      ],
+      "tracked_files": 12,
+      "scope_from_index": "Retained WebAssembly/live transport experiment; networking and deployed revision are run-specific.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "8177bbd4bf54e479a45c53e9a763cdf024977d755e84dc2fddf842dfbc0ef055",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_browser_bridge.py",
+        "tests/test_live_acquisition.py"
+      ],
+      "runners": [
+        "tools/live_conversation_wasm.mjs",
+        "tools/summarize_live_conversation.py"
+      ]
+    },
+    {
+      "id": "study:mcp-agent",
+      "kind": "study",
+      "label": "mcp-agent",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/mcp-agent"
+      ],
+      "tracked_files": 9,
+      "scope_from_index": "Authored local MCP protocol/authority/session tests and actual official SDK client workflow; no third-party model obedience or independent human validation.",
+      "status_from_index": "Current local adapter execution; exact candidate/CI/deployment identity remains separate.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "d7f61ef67e6923ac2f7b9754c7d673d216dd5e550f101ef6074e683d04e6e3b1",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_mcp_agent.py"
+      ],
+      "runners": [
+        "tools/check_mcp_client.py"
+      ]
+    },
+    {
+      "id": "study:model-selection",
+      "kind": "study",
+      "label": "model-selection",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/model-selection"
+      ],
+      "tracked_files": 2,
+      "scope_from_index": "Pinned upstream MIT license/config/library/tensor-metadata downloads and authored loader/real Chromium selection tests; runtime/GPU success uses explicit fixtures, not neural inference or physical iPad validation.",
+      "status_from_index": "Local implementation checks; exact archive, CI and deployed revision outcomes are separate.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "b06b46e8989662e1971faeacaba3b4170bcc95891312b9cf39e675c36fa8ec7f",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_browser_ai_assets.py",
+        "tests/browser-model-loader.cjs"
+      ],
+      "runners": [
+        "tools/browser_model_selection.py",
+        "tools/browser_free_helper.py",
+        "tools/build_ai_assets.py"
+      ]
+    },
+    {
+      "id": "study:newcomer-navigation",
+      "kind": "study",
+      "label": "newcomer-navigation",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/newcomer-navigation"
+      ],
+      "tracked_files": 23,
+      "scope_from_index": "Released-wheel quick-start, exact citations, documentation examples and component navigation; no human results.",
+      "status_from_index": "Software PASS; two corrected host-verifier failures retained; human onboarding NOT_RUN",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "6ccea8bcc20d42cb3cb434c3994f0856f248d80a1e7e45159651b257cfbbe516",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_department_navigation.py"
+      ],
+      "runners": [
+        "tools/verify_readme_quickstart.py",
+        "tools/audit_departments.py"
+      ]
+    },
+    {
+      "id": "study:no-unverified-promotion",
+      "kind": "study",
+      "label": "no-unverified-promotion",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/no-unverified-promotion"
+      ],
+      "tracked_files": 13,
+      "scope_from_index": "88 contract tests, authored artifact boundary control and five-case old/patched completion comparison; inspected development evidence, no held-out four-domain efficacy or novelty claim.",
+      "status_from_index": "2026-11-10 local replay retained with exact implementation/test hashes; historical results remain unchanged",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "d9fc1ffa380b8e1a13bd8eb64413e5a7a816112266ba5d2b150c223a9d250722",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_answer_reliability.py",
+        "tests/test_answer_support.py",
+        "tests/test_page_retrieval.py",
+        "tests/test_release_answer_contract.py",
+        "tests/test_release_evidence.py",
+        "tests/test_handoff.py",
+        "tests/test_specialist_continuity.py"
+      ],
+      "runners": [
+        "tools/audit_unverified_promotion.py"
+      ]
+    },
+    {
+      "id": "study:onboarding",
+      "kind": "study",
+      "label": "onboarding",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/onboarding"
+      ],
+      "tracked_files": 57,
+      "scope_from_index": "Frozen twelve-first-time-user six/six documentation pilot. Exact same wheel/collection/tasks/interface, only entry docs differ. Seven-department navigation preserves existing paths.",
+      "status_from_index": "Prepared two400KBparticipant ZIPs and frozen rubric/assignment. Actual ZIP extraction and installed-wheel software checks produce5identical native contracts and opened citation; these are not human observations. Human executionNOT_RUN, observations/acceptance null. Mitchell recruits and returns actual observations. Pilot thresholds5/6and+2 retained; no population inference.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "bcfa37acec9154570ca18050a04d1212fa5418dafce8e83c9eddccb26440591a",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_onboarding_scoring.py",
+        "tests/test_department_navigation.py"
+      ],
+      "runners": [
+        "tools/build_onboarding_pilot.py",
+        "tools/score_onboarding_pilot.py",
+        "tools/audit_onboarding_pilot.py",
+        "tools/audit_departments.py"
+      ]
+    },
+    {
+      "id": "study:ownership",
+      "kind": "study",
+      "label": "ownership",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/ownership"
+      ],
+      "tracked_files": 6,
+      "scope_from_index": "Historical ownership comparison, bounded adversaries; later tests do not recertify old predictions.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "cc0d1e4f3728fc187bf859ab10d41e49dc41eab27458b16ca8265564325f85f9",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_ownership_adversarial.py"
+      ],
+      "runners": [
+        "tools/evaluate_ownership.py",
+        "tools/compare_ownership_predictions.py"
+      ]
+    },
+    {
+      "id": "study:persona-corpus-transfer",
+      "kind": "study",
+      "label": "persona-corpus-transfer",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/persona-corpus-transfer"
+      ],
+      "tracked_files": 6,
+      "scope_from_index": "Eight synthetic persona collections, with explicit fields, natural descriptions of a record, missing evidence, domain-specific overreach, and reviewed synonym selector lookup.",
+      "status_from_index": "Native baseline on d8e5b6d: 8/8 exact field questions supported, 0/8 natural-description equivalents, 16/16 negative controls withheld. The authored synonym follow-up recovered 16/16 after selector review, while 8 additional qualified prompts remained lookup-only. No human or external semantic validation.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "60d59de9b6bbc184b4067ab1348b23278ec7a5067a2813aad6138fdf9dc0639e",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_persona_corpus_transfer.py",
+        "tests/test_synonym_index.py"
+      ],
+      "runners": [
+        "test_tools/persona_corpus_transfer.py",
+        "test_tools/synonym_index.py",
+        "test_tools/synonym_index_study.py"
+      ]
+    },
+    {
+      "id": "study:pole",
+      "kind": "study",
+      "label": "pole",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/pole"
+      ],
+      "tracked_files": 240,
+      "scope_from_index": "Seeded difficulty levels, exact case pinning, key-separated replay, and structural documentary regressions.",
+      "status_from_index": "The 48-case focus replay recovered 11 full answers and produced two cited conflicts while retaining all 20 expected withholds. The 120-case inherited catalog replay kept all scored outcomes. The follow-up proved 12/12 explicit named-source corrections and chains with 12/12 withholds. The authentic draw retained 1/10 complete anchored answers and 0/6 relational completions at the preceding pin. The prose cycle recovered 3/6 authentic bridges and 6/12 authentic transfer questions with all controls still withheld. PE-02 preserves 1/4 historical completions, adds one Smith-letter checked partial, retains six inherited full withholds and the presentation partial, and passes one new positive and five new negative controls. All 17 discovery outputs are unchanged; independent semantic/historical review remains NOT_RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "dc0a28239ebaa9761dfd1e91825074515b00bb11e923e8ef124a2f4e49a67e95",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_pole.py",
+        "tests/test_field_question_forms.py",
+        "tests/test_documentary_link_proofs.py",
+        "tests/test_publication_corrections.py",
+        "tests/test_successive_publication_corrections.py",
+        "tests/test_sorter_v2.py",
+        "tests/test_documentary_errata.py",
+        "tests/test_pole_focus_extend.py",
+        "tests/test_documentary_named_advice.py",
+        "tests/test_documentary_presentation.py",
+        "tests/test_signed_instructions.py"
+      ],
+      "runners": [
+        "tools/pole.py",
+        "tools/pole_worker.py",
+        "tools/pole_open_items.py",
+        "tools/pole_named_proofs.py",
+        "tools/pole_authentic.py",
+        "tools/pole_prose_cycle.py",
+        "tools/pole_remaining.py",
+        "tools/pole_erratum_cycle.py",
+        "tools/pole_focus_extend.py",
+        "tools/pole_frus_boundary.py",
+        "tools/pole_frus_proposition.py",
+        "tools/pole_frus_singleclass.py",
+        "tools/pole_frus_presentation.py",
+        "tools/pole_frus_pe01.py",
+        "tools/pole_frus_pe02.py",
+        "tools/verify_frus_witnesses.py"
+      ]
+    },
+    {
+      "id": "study:practical-coverage",
+      "kind": "study",
+      "label": "practical-coverage",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/practical-coverage"
+      ],
+      "tracked_files": 3,
+      "scope_from_index": "Historical intermediate reader coverage; use pinned revision for exact historical outcomes.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "e50d8df4fa28357f763027a6c03fefa21ec34281917bb207b6380d3bf6e28b72",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_practical_evidence.py",
+        "tests/test_operational_evidence.py"
+      ],
+      "runners": [
+        "tools/evaluate_practical_coverage.py"
+      ]
+    },
+    {
+      "id": "study:preprocessing-sorter",
+      "kind": "study",
+      "label": "preprocessing-sorter",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/preprocessing-sorter"
+      ],
+      "tracked_files": 89,
+      "scope_from_index": "Fictional raw-text extraction, identical mode nodes, primary versus embedded header classification before occurrence boundaries, retained review edges and unchanged native retired-page withholding. No historical accuracy or supported-answer gain measured. Optional exact/neighbor ranking and source-anchored candidate links remain non-authoritative. All22 development cases are rerun; source discovery and strict completion are distinct. Configured unreserved retest regressed2 to1 complete answer; new options study pending.",
+      "status_from_index": "Retained frozen implementations and new supplied-probe scope regressions; developer software reproduction, independent historical review NOT RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "034181ed0752e3b696905c983305c0dac3a5c183f59bf60ad9e43c7d2c96c7d5",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_sorter.py",
+        "tests/test_sorter_suggestions.py",
+        "tests/test_sorter_first_study.py",
+        "tests/test_sorter_options_study.py"
+      ],
+      "runners": [
+        "tools/evaluate_sorter.py",
+        "tools/sorter_first_study.py",
+        "tools/sorter_options_study.py"
+      ]
+    },
+    {
+      "id": "study:procedure-recovery",
+      "kind": "study",
+      "label": "procedure-recovery",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/procedure-recovery"
+      ],
+      "tracked_files": 15,
+      "scope_from_index": "Authored linear procedures and synthetic recovery; not arbitrary prose or human execution validation.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "b7f1c7df5195c7de610fc90d80857418551be87d09ba24f97086e2290df307d6",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_procedure_recovery.py",
+        "tests/test_procedure_constraints.py",
+        "tests/test_exploration_store.py"
+      ],
+      "runners": [
+        "tools/evaluate_procedure_recovery.py",
+        "tools/browser_procedure_recovery.py"
+      ]
+    },
+    {
+      "id": "study:reconstruction-engine",
+      "kind": "study",
+      "label": "reconstruction-engine",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/reconstruction-engine"
+      ],
+      "tracked_files": 367,
+      "scope_from_index": "Finite independent documentary checks and unchanged original-record development replay; graph candidates and synthetic truth fixtures never establish real historical truth.",
+      "status_from_index": "Executed: final extracted63cea98 passed1124 tests/public52/52/WASM/nine Chromium checks/MCP45. All22 unchanged cases completed; full0→1/22, checked partial2→2/22. Seven accepted citations rechecked and reverse-mapped. Independent review and >=200 unseen evaluation NOT RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "80f5c9414b984ebdc3ef6df1a0b36a29445fc1bc354170f6572a666342d6bd2c",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_reconstruction_engine.py",
+        "tests/test_historical_review_rules.py",
+        "tests/test_historical_targets.py",
+        "crawler/test_historical.mjs",
+        "tests/test_comparison_completion.py"
+      ],
+      "runners": [
+        "tools/compare_documentary_answers.py",
+        "tools/unprepared_challenge.py",
+        "tools/demo_historical_review.py",
+        "tools/historical_targets.py"
+      ]
+    },
+    {
+      "id": "study:reference-corpus-reproduction",
+      "kind": "study",
+      "label": "reference-corpus-reproduction",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/reference-corpus-reproduction"
+      ],
+      "tracked_files": 182,
+      "scope_from_index": "73 authored positives and 20 controls, four sealed corpus stages; lab-only unratified data, not learning.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "c0d2ff4ed65b3f1be11fc51edd7e650434adbe3ac3c56a59190fdc072bba7801",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_reference_corpus.py",
+        "tests/test_reference_evidence.py"
+      ],
+      "runners": [
+        "tools/build_reference_corpus.py",
+        "tools/verify_reference_evidence.py"
+      ]
+    },
+    {
+      "id": "study:relation-graph",
+      "kind": "study",
+      "label": "relation-graph",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/relation-graph"
+      ],
+      "tracked_files": 4,
+      "scope_from_index": "Inspected pottery document-identity proxy and scripted synthetic users; original reports preserved.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "af8c5cab5b3bb7227bd35a8aa78e2a14f4bb4455935deaedd4927a2427292baf",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_relation_graph.py",
+        "tests/test_relation_graph_generated.py",
+        "tests/test_relation_graph_synthetic_users.py"
+      ],
+      "runners": [
+        "tools/benchmark_relation_graph.py",
+        "tools/simulate_relation_graph_users.py",
+        "tools/evaluate_relation_graph.py"
+      ]
+    },
+    {
+      "id": "study:reliability",
+      "kind": "study",
+      "label": "reliability",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/reliability"
+      ],
+      "tracked_files": 8,
+      "scope_from_index": "Historical strict-reader and chat-mode comparisons; synthetic free chat is not factual accuracy.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "99b9e53baa58d7a1edf394c33318002bc63d91762c118ce5a2a9aba549b0e068",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_answer_reliability.py",
+        "tests/test_literal_evidence.py",
+        "tests/test_answer_support.py",
+        "tests/test_procedure_constraints.py"
+      ],
+      "runners": [
+        "tools/evaluate_answer_reliability.py",
+        "tools/evaluate_chat_modes.py"
+      ]
+    },
+    {
+      "id": "study:report-pins",
+      "kind": "study",
+      "label": "report-pins",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/report-pins"
+      ],
+      "tracked_files": 65,
+      "scope_from_index": "Frozen six-body coordination metadata replay through both CLI roles with mocked HTTP only and a thirty-second per-process limit.",
+      "status_from_index": "Baseline 8/12 expected decisions with four false-current matches; repaired parser 12/12 with zero false-current matches. Historical accuracy, semantic adjudication and native OOCC remain NOT_RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "ef35804006f7d388d042a4f84a70081ec1654b6036cecb7adcecdfd06633c1b2",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/javascript-api.cjs",
+        "tests/test_ledger_ui.py"
+      ],
+      "runners": [
+        "tools/replay_report_pins.py"
+      ]
+    },
+    {
+      "id": "study:researcher-pilot",
+      "kind": "study",
+      "label": "researcher-pilot",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/researcher-pilot"
+      ],
+      "tracked_files": 6,
+      "scope_from_index": "Six authored fictional workflows; no independent human usability validation.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "0755ae6310339d9e3a35939dc87046fa7be01045228d796151e815952f65da1f",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_researcher_pilot.py"
+      ],
+      "runners": [
+        "tools/evaluate_researcher_pilot.py",
+        "tools/browser_researcher_pilot.py"
+      ]
+    },
+    {
+      "id": "study:response-1000",
+      "kind": "study",
+      "label": "response-1000",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/response-1000"
+      ],
+      "tracked_files": 2,
+      "scope_from_index": "Authored finite response edge smoke; not independent language accuracy.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "5ed4e4c4dd225236cf98025c1ab3743eaa3b7633f477a674f80941dc94abce88",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_response_edge_smoke.py"
+      ],
+      "runners": [
+        "tools/evaluate_response_1000.py"
+      ]
+    },
+    {
+      "id": "study:root",
+      "kind": "study",
+      "label": "root",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation"
+      ],
+      "tracked_files": 75723,
+      "scope_from_index": "Original frozen root benchmarks retain their labels and revision. The Primary Book Test generates separate quote controls and runs user-authored questions over pinned book excerpts.",
+      "status_from_index": "Frozen benchmark results retain their scope. Primary Book Test batches have their own seeds, source receipts and case outcomes.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "6bdaa6b246196f5d6c2ede52ab5a0837fdefd55d27b06553f4b44360afdea0b4",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_evaluation.py",
+        "tests/test_primary_book_test.py"
+      ],
+      "runners": [
+        "mplpb_combined/evaluate.py",
+        "test_tools/primary_book_test.py"
+      ]
+    },
+    {
+      "id": "study:solo-milestone",
+      "kind": "study",
+      "label": "solo-milestone",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/solo-milestone"
+      ],
+      "tracked_files": 194,
+      "scope_from_index": "22 unchanged original-record development questions, source-only recorded-arrangement completion, fresh-context blinded AI assessment and separately measured cache/inspection/storage improvements; no independent human/unseen validation.",
+      "status_from_index": "2026-11-17 before/after runs completed; AI-assessed complete1→2, correct refusal4→4, error/over-refusal17→16; code and quote-fidelity outcomes retained with failed intermediates.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "1275fd5b7cac70a121bb4c11fdc497ebe185e72e45a9de30b378dc85130d8615",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_arrangement_completion.py",
+        "tests/test_solo_research.py",
+        "tests/test_documentary_originals.py"
+      ],
+      "runners": [
+        "tools/unprepared_challenge.py",
+        "tools/reproduce_boundaries.py",
+        "evaluation/solo-milestone/2026-11-17/compare_runs.py",
+        "evaluation/solo-milestone/2026-11-17/score_ai_assessment.py",
+        "evaluation/solo-milestone/2026-11-17/certificate_audit.py"
+      ]
+    },
+    {
+      "id": "study:sorter-exploration",
+      "kind": "study",
+      "label": "sorter-exploration",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/sorter-exploration"
+      ],
+      "tracked_files": 80,
+      "scope_from_index": "Read-only labels and unofficial bounded hypotheses beside native authority;mocked model boundaries and fictional examples,not historical semantic accuracy.",
+      "status_from_index": "Final f856205:1379 extracted tests and52 public controls passed;111 identical nodes across modes;22 extra review edges;one live model smoke yielded a repeated open question,no semantic utility claim. Storage/socket failures preserved. Fresh pinned B-Tests d100100/100 and explorer companion100/100 passed;123 external harness controls passed;merge pending exact-head CI.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "6954a52e9f0417239942cd6e100b9f6dddddb749a605c08dab93d7e98cc973a8",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_sorter_explorer.py",
+        "tests/test_sorter_v2.py",
+        "tests/test_answer_router_boundaries.py",
+        "tests/test_local_narrator.py"
+      ],
+      "runners": [
+        "mplpb_work/sorter_explorer.py",
+        "tools/reproduce_boundaries.py",
+        "evaluation/sorter-exploration/2026-11-19/d100/check_exploration.py"
+      ]
+    },
+    {
+      "id": "study:sorter-first-originals",
+      "kind": "study",
+      "label": "sorter-first-originals",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/sorter-first-originals"
+      ],
+      "tracked_files": 1663,
+      "scope_from_index": "All22 unchanged original-record development questions: direct versus configured sorter-first retest and separate common-guard optional ranker/relater comparison; exact original passage mapping, unsupported suggestions and measured costs. Draft span discovery is distinct from native complete answers.",
+      "status_from_index": "Preserved direct2/22 and failed sorter1/22 trials; final88 workers restore2/22 complete and27/32 draft spans in each of four arms. Full1249 extracted-ZIP tests pass;12 claims32 original citations and44 suggestion files freshly replayed. Independent human/unseen semantic assessment NOT RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "d42589285b2c8a7eb9b2aac92e538d3ca214669629cd30be425e6a9b13b071b0",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_sorter_first_study.py",
+        "tests/test_sorter_options_study.py",
+        "tests/test_sorter_suggestions.py",
+        "tests/test_witness_admission.py"
+      ],
+      "runners": [
+        "tools/sorter_first_study.py",
+        "tools/sorter_options_study.py",
+        "tools/audit_sorter_options_study.py",
+        "tools/report_witness_admission.py"
+      ]
+    },
+    {
+      "id": "study:source-tags",
+      "kind": "study",
+      "label": "source-tags",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/source-tags"
+      ],
+      "tracked_files": 1571,
+      "scope_from_index": "Frozen raw-vs-source-linked proposal comparison,72development/24sealed same-operator transfer; tree containment and complete native role/witness checks, no new answer coverage preclaimed.",
+      "status_from_index": "Raw72/72→72/72. Native2af8ba8proposal72/72(6valid66tamper),freshonce24/24(6valid18tamper),0wrongassignments,0answer recovery.280prior contracts preserved;1834native tests pass. First browserdeliveryFAILretained. UI-only065840dZIPafe52d43e335f5963b765d00c7ad373a6ec0fd6a5bb560c86a93d7d3a6bffb98hasidenticalnativebytes andpasses15software,58focused,WASM,bothChromiumwithactualsource-dialogwait. No transfer rerun. ExactpublicationCI/merge/livepending. Independent labels andnativeOOCC NOT_RUN.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "1e595e103aad7fd799d3c6b6eaaf4870748752276465968fda62bdb81583c239",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_source_tags.py",
+        "tests/test_reported_content.py"
+      ],
+      "runners": [
+        "tools/source_tags_trial.py",
+        "tools/source_tags_packets.py",
+        "tools/source_tags_transfer.py",
+        "tools/audit_source_tags.py"
+      ]
+    },
+    {
+      "id": "study:specialist-continuity",
+      "kind": "study",
+      "label": "specialist-continuity",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/specialist-continuity"
+      ],
+      "tracked_files": 3,
+      "scope_from_index": "Five-instance recovery and bounded source-status support regressions including pre-challenge blocking; developer fixtures, not general entailment or independent agent performance.",
+      "status_from_index": "Historical reports preserved; current tests and demo exercise the independent bounded source checker.",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "b5327e09d795cd0a269630c0dbbecf79466613d45288af36b2bdd9087b14d7d8",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_specialist_continuity.py"
+      ],
+      "runners": [
+        "tools/demo_specialist_continuity.py"
+      ]
+    },
+    {
+      "id": "study:topics",
+      "kind": "study",
+      "label": "topics",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/topics"
+      ],
+      "tracked_files": 8,
+      "scope_from_index": "Authored topic-example source fixtures; no unseen-domain language accuracy claim.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "f2a096deb4969e1fdc648631446a275c4635029c705a3046c918ea4623751d0b",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_answer.py"
+      ],
+      "runners": [
+        "tools/build_topic_examples.py",
+        "tools/test_topic_examples.py"
+      ]
+    },
+    {
+      "id": "study:unprepared-originals",
+      "kind": "study",
+      "label": "unprepared-originals",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/unprepared-originals"
+      ],
+      "tracked_files": 1433,
+      "scope_from_index": "Frozen authentic original editions and developer questions, separate randomized fictional controls, candidate mapping and raw/canonical round-trip fidelity. Draft span coverage is retrieval only. Independent historical review NOT RUN. Follow-up retains source-linked developer semantic judgments, incorrect and unresolved relationships, missed facets, and a post-code-freeze cold transfer record; no independent human validation. Targeted recovery retains all previous useful reviewed associations; later two-record transfer remains unresolved. Calendar cues are assessed separately. All semantic labels remain developer/AI judgments, not independent human evaluation.",
+      "status_from_index": "Actual dated baseline and updated executions, preserved pilots, incomplete independent semantic assessment",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "06b72042bbd0d035d33da0dc6688faa87146e9e87815a273b648c9d7a3ca2ff6",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_unprepared_challenge.py",
+        "tests/test_unprepared_prose.py",
+        "tests/test_source_mapping.py",
+        "tests/test_prose_reconstruction.py"
+      ],
+      "runners": [
+        "tools/unprepared_sources.py",
+        "tools/unprepared_challenge.py",
+        "tools/randomized_original_controls.py",
+        "tools/trace_original_conversion.py",
+        "tools/reconstruct_original.py",
+        "tools/prose_quality_study.py",
+        "tools/audit_prose_study.py",
+        "tools/report_prose_followup.py",
+        "tools/evaluate_recovery_targets.py",
+        "tools/report_recovery_results.py"
+      ]
+    },
+    {
+      "id": "study:user-collections",
+      "kind": "study",
+      "label": "user-collections",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/user-collections"
+      ],
+      "tracked_files": 19,
+      "scope_from_index": "Synthetic unfamiliar collections, revisions and policy checks; independent builders outstanding.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "d72d3163b816a52f0c0c576178944c76301b34c2e1bc955077cc3df7c6a2a154",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_policy_evidence.py",
+        "tests/test_exploration_store.py"
+      ],
+      "runners": [
+        "tools/evaluate_user_collections.py",
+        "tools/browser_collection_policies.py"
+      ]
+    },
+    {
+      "id": "study:wiki",
+      "kind": "study",
+      "label": "wiki",
+      "scopes": [
+        "data",
+        "experiment"
+      ],
+      "status": "indexed-evidence",
+      "paths": [
+        "evaluation/wiki"
+      ],
+      "tracked_files": 118,
+      "scope_from_index": "Historical capture integrity checks; missing payload pins/raw-live mismatch prevent scoring the preserved snapshot.",
+      "status_from_index": "retained results; original run date/revision/configuration applies",
+      "status_authority": "docs/results.json; may describe a historical pin",
+      "content_sha256": "df7eac14ae203de0f48b776db3e397ee581b627f1c40713f1ccb6ecee0f116e2",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "tests": [
+        "tests/test_wiki_capture.py"
+      ],
+      "runners": [
+        "tools/wiki_live_eval.py"
+      ]
+    },
+    {
+      "id": "testing-evaluation",
+      "kind": "department",
+      "label": "Testing and retained evidence",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "apparatus and historical evidence",
+      "note": "A test path is not a passing or independent measurement.",
+      "paths": [],
+      "tracked_files": 76214,
+      "content_sha256": "216615498e6af2da5555dd9d1a64b46d13c3e1dc5df8def1ebfe50c4948eae38",
+      "evidence": [
+        {
+          "path": "docs/departments/testing-evaluation.md",
+          "sha256": "78ff810ec64d6ae62d7f0a0b0b8a3e01b36380acc107f5da9666193e6c68c085"
+        }
+      ]
+    },
+    {
+      "id": "work-coordination",
+      "kind": "department",
+      "label": "Work coordination",
+      "scopes": [
+        "product",
+        "project"
+      ],
+      "status": "mixed shipped interfaces",
+      "note": "Covered dispatch, tasks, continuity and receipts; not universal control over writers.",
+      "paths": [],
+      "tracked_files": 7,
+      "content_sha256": "cf6879094afea9a65112097fb112a79bed20452b82461be7803fc04e4535b9e7",
+      "evidence": [
+        {
+          "path": "docs/departments/work-coordination.md",
+          "sha256": "e4254f72bd8b10245a908cfebc18b3b1da12541983afcfe7cfb62f527e40381c"
+        }
+      ]
+    },
+    {
+      "id": "workflow-controller",
+      "label": "Workflow decision and Git canary",
+      "scopes": [
+        "project",
+        "experiment"
+      ],
+      "status": "lab-only",
+      "paths": [
+        "evaluation/comparative-tests/workflow-controller"
+      ],
+      "evidence": [
+        {
+          "path": "evaluation/comparative-tests/workflow-controller/POLICY.md",
+          "sha256": "cd184b96e6d404808c8d30194548f3558c5ddccbddf6de01a602d0cb3bbbab2e"
+        }
+      ],
+      "note": "The original controller and restart extension have distinct contracts; not production dispatch.",
+      "kind": "component",
+      "tracked_files": 45,
+      "content_sha256": "b87385f18472082aad5709e1c4099e28c6a62ef6625587ccabe30c2f52d95367"
+    }
+  ],
+  "relations": [
+    {
+      "from": "applications",
+      "to": "study:audit-2026-10-21",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "applications",
+      "to": "study:conversation",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "applications",
+      "to": "study:conversation-repairs",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "applications",
+      "to": "study:cryptid",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "applications",
+      "to": "study:free-browser-helper",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "applications",
+      "to": "study:live-conversation",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "applications",
+      "to": "study:mcp-agent",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "applications",
+      "to": "study:model-selection",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "applications",
+      "to": "study:onboarding",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "applications",
+      "to": "study:researcher-pilot",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "applications",
+      "to": "study:source-tags",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "applications",
+      "to": "study:user-collections",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "applications",
+      "to": "study:wiki",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "browser-runtime",
+      "to": "reader",
+      "kind": "depends_on",
+      "basis": "documentation",
+      "evidence": [
+        {
+          "path": "docs/RESPONSIBILITY_BOUNDARIES.md",
+          "sha256": "8a3803d05f7778d8f596fd529064ed1400efda1a23393a26610321cff36a90ca"
+        }
+      ],
+      "note": "Browser embeds the deterministic runtime; changes require distribution and browser review."
+    },
+    {
+      "from": "browser-runtime",
+      "to": "example-data",
+      "kind": "uses_data",
+      "basis": "documentation",
+      "evidence": [
+        {
+          "path": "docs/RESPONSIBILITY_BOUNDARIES.md",
+          "sha256": "8a3803d05f7778d8f596fd529064ed1400efda1a23393a26610321cff36a90ca"
+        }
+      ],
+      "note": "Configured demos participate in the browser delivery; the exact bundle manifest governs inclusion."
+    },
+    {
+      "from": "browser-runtime",
+      "to": "reference-data",
+      "kind": "uses_data",
+      "basis": "documentation",
+      "evidence": [
+        {
+          "path": "docs/RESPONSIBILITY_BOUNDARIES.md",
+          "sha256": "8a3803d05f7778d8f596fd529064ed1400efda1a23393a26610321cff36a90ca"
+        }
+      ],
+      "note": "Some configured resources participate; this is not an all-files packaging assertion."
+    },
+    {
+      "from": "delivery-operations",
+      "to": "study:cryptid",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "delivery-operations",
+      "to": "study:cryptid-gremlin-map",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "delivery-operations",
+      "to": "study:documentation-audit",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "delivery-operations",
+      "to": "study:fixpack",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "delivery-operations",
+      "to": "study:onboarding",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "delivery-operations",
+      "to": "study:report-pins",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "delivery-operations",
+      "to": "study:root",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "future-effect-adapters",
+      "to": "restart-store",
+      "kind": "possible_reuse",
+      "basis": "proposal",
+      "evidence": [
+        {
+          "path": "docs/TEAMBUILDING.md",
+          "sha256": "3429545f18291d7fc9bc959e3c960c45d30a63537527d9eeef0a6371620cde4d"
+        }
+      ],
+      "note": "Reservation concepts may transfer; resource-specific guarantees require new tests."
+    },
+    {
+      "from": "gremlin",
+      "to": "al-notes",
+      "kind": "records",
+      "basis": "documentation",
+      "evidence": [
+        {
+          "path": "handoff/al-notes/README.md",
+          "sha256": "3dd115da0ccf66f8e39b1c426311d245653f6369ff7d922ec3438cf9190d1fc4"
+        }
+      ],
+      "note": "Note 0001 records Gremlin scope, the explicit M override and Betty continuation."
+    },
+    {
+      "from": "gremlin",
+      "to": "future-effect-adapters",
+      "kind": "records",
+      "basis": "documentation",
+      "evidence": [
+        {
+          "path": "docs/TEAMBUILDING.md",
+          "sha256": "3429545f18291d7fc9bc959e3c960c45d30a63537527d9eeef0a6371620cde4d"
+        }
+      ],
+      "note": "The map records the roadmap separately from demonstrated adapters."
+    },
+    {
+      "from": "gremlin",
+      "to": "handoff",
+      "kind": "records",
+      "basis": "documentation",
+      "evidence": [
+        {
+          "path": "AGENTS.md",
+          "sha256": "7deb92cb3ccd4680d967ea24e59f2a0785bb35fcef59db4b159d03556754aceb"
+        }
+      ],
+      "note": "Map updates precede final handoff generation; neither map nor handoff grants authority."
+    },
+    {
+      "from": "intake-research",
+      "to": "study:candidate-review-workspace",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "intake-research",
+      "to": "study:historical-synonym-graph",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "intake-research",
+      "to": "study:persona-corpus-transfer",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "intake-research",
+      "to": "study:preprocessing-sorter",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "intake-research",
+      "to": "study:reference-corpus-reproduction",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "intake-research",
+      "to": "study:relation-graph",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "intake-research",
+      "to": "study:sorter-exploration",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "intake-research",
+      "to": "study:sorter-first-originals",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "intake-research",
+      "to": "study:source-tags",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "ledger",
+      "to": "study:bunyip-bb",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "ledger",
+      "to": "study:bunyip-round2",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "ledger",
+      "to": "study:closed-ledger-boundaries",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "ledger",
+      "to": "study:comparative-tests",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "ledger",
+      "to": "study:cryptid",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "ledger",
+      "to": "study:cryptid-bunyip-dpercent",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "ledger",
+      "to": "study:killtest",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "ledger",
+      "to": "study:no-unverified-promotion",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "ledger",
+      "to": "study:ownership",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "ledger",
+      "to": "study:reliability",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "ledger",
+      "to": "study:specialist-continuity",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "native-distribution",
+      "to": "ledger",
+      "kind": "depends_on",
+      "basis": "documentation",
+      "evidence": [
+        {
+          "path": "docs/PRODUCT_DISTRIBUTION.json",
+          "sha256": "a2a7bf3f9f754de0d86ba86322ce3a80191a98c66e283a375331ca30b674d64a"
+        }
+      ],
+      "note": "The native wheel includes this runtime package responsibility."
+    },
+    {
+      "from": "native-distribution",
+      "to": "reader",
+      "kind": "depends_on",
+      "basis": "documentation",
+      "evidence": [
+        {
+          "path": "docs/PRODUCT_DISTRIBUTION.json",
+          "sha256": "a2a7bf3f9f754de0d86ba86322ce3a80191a98c66e283a375331ca30b674d64a"
+        }
+      ],
+      "note": "The native wheel includes this runtime package responsibility."
+    },
+    {
+      "from": "native-distribution",
+      "to": "work-coordination",
+      "kind": "depends_on",
+      "basis": "documentation",
+      "evidence": [
+        {
+          "path": "docs/PRODUCT_DISTRIBUTION.json",
+          "sha256": "a2a7bf3f9f754de0d86ba86322ce3a80191a98c66e283a375331ca30b674d64a"
+        }
+      ],
+      "note": "The native wheel includes this runtime package responsibility."
+    },
+    {
+      "from": "reader",
+      "to": "ledger",
+      "kind": "depends_on",
+      "basis": "source",
+      "evidence": [
+        {
+          "path": "mplpb_answers/pipeline.py",
+          "sha256": "61f87e06286313e051dc531cae7e9fe8d86dd1c513acd0080bf1419da4fd4249"
+        }
+      ],
+      "note": "Reader obtains ledger state and provenance gates through existing imports."
+    },
+    {
+      "from": "reader",
+      "to": "cryptid-programme",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "note": "Reader preservation and wording studies; retain original runtime pins and failures."
+    },
+    {
+      "from": "reader",
+      "to": "egyptian-programme",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ],
+      "note": "Attribution/scope studies and end-to-end answer contracts; fresh and consumed remain separate."
+    },
+    {
+      "from": "reader",
+      "to": "study:archival-inspection",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:attribution",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:audit-2026-10-21",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:bubble-wrap",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:bunyip-bb",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:bunyip-round2",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:candidate-review-workspace",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:closed-ledger-boundaries",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:contextual",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:conversation",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:conversation-repairs",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:cryptid",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:cryptid-bunyip-dpercent",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:current-failure-inventory",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:d10",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:d12",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:d20",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:d4",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:d6",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:d8",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:dice-bag",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:documentary-articles",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:documentary-assertions",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:documentary-date-pattern",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:documentary-scope",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:dpercent",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:dpercent-expanded",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:dpercent-known-weaknesses",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:field-aliases",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:field-question-normalization",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:free-browser-helper",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:general-reader",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:historical-experts",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:historical-patterns",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:historical-synonym-graph",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:killtest",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:language-audit",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:live-conversation",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:mcp-agent",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:model-selection",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:no-unverified-promotion",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:ownership",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:persona-corpus-transfer",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:pole",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:practical-coverage",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:preprocessing-sorter",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:procedure-recovery",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:reconstruction-engine",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:reference-corpus-reproduction",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:relation-graph",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:reliability",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:researcher-pilot",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:response-1000",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:solo-milestone",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:sorter-exploration",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:sorter-first-originals",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:source-tags",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:topics",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:unprepared-originals",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:user-collections",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "reader",
+      "to": "study:wiki",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "restart-store",
+      "to": "workflow-controller",
+      "kind": "depends_on",
+      "basis": "source",
+      "evidence": [
+        {
+          "path": "evaluation/comparative-tests/workflow-controller/restart/README.md",
+          "sha256": "cf3429a4c7a8c3e4f3547ee497515d009213d7eddc32ebf21761e37c6dda928c"
+        }
+      ],
+      "note": "Extension reuses the frozen canary; original controller remains separately retained."
+    },
+    {
+      "from": "testing-evaluation",
+      "to": "study:cryptid-gremlin-map",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "work-coordination",
+      "to": "study:comparative-tests",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "work-coordination",
+      "to": "study:specialist-continuity",
+      "kind": "tested_by",
+      "basis": "documentation",
+      "note": "Indexed coverage link, not a passed check.",
+      "evidence": [
+        {
+          "path": "docs/results.json",
+          "sha256": "7138d3c298da922d32e2975c3a0d3f6b2f8706e0688fa1ef415687a1d3fbac50"
+        }
+      ]
+    },
+    {
+      "from": "workflow-controller",
+      "to": "preserved-parts",
+      "kind": "possible_reuse",
+      "basis": "proposal",
+      "evidence": [
+        {
+          "path": "docs/departments/components.json",
+          "sha256": "06b19a7a70686b7eb3ac5ffa7bce4ae1959679bee3b9c41a1fcdd65e0ccb697b"
+        }
+      ],
+      "note": "Inspect preserved swarm lease/fencing and network signature experiments; no compatibility is assumed."
+    },
+    {
+      "from": "workflow-controller",
+      "to": "prior-dispatch",
+      "kind": "possible_reuse",
+      "basis": "proposal",
+      "evidence": [
+        {
+          "path": "evaluation/comparative-tests/dispatch-enforcement/README.md",
+          "sha256": "24a976cb6c8692a9f2bcae4d8faf3d780856f3741a461e167c44343dc8c46325"
+        }
+      ],
+      "note": "Review earlier dispatch and receipt safeguards before inventing replacements."
+    }
+  ],
+  "open_work": [
+    {
+      "id": "historical-custody",
+      "component": "cryptid-programme",
+      "question": "Original 17 checks remain incomplete, 100 transfers NOT_RUN, recovery interrupted and publication-history exposure open. Closing PR 106 did not erase that incident.",
+      "revisit_when": "History remediation or any republication of retained archives is proposed.",
+      "evidence": [
+        {
+          "path": "docs/recovery/THOTH_CLEAN_RELEASE.md",
+          "sha256": "eadd5b83a854ed4d4ccbc0bd1c2490dbf6537c963a2772a640dd5a783b43eff4"
+        }
+      ]
+    },
+    {
+      "id": "interrupted-effect",
+      "component": "restart-store",
+      "question": "The interrupted post-Git case has observable effect without durable completion. Reconciliation must preserve uncertainty and prevent blind retry.",
+      "revisit_when": "Manual reconciliation, power-loss recovery or distributed storage is proposed.",
+      "evidence": [
+        {
+          "path": "evaluation/comparative-tests/workflow-controller/restart/README.md",
+          "sha256": "cf3429a4c7a8c3e4f3547ee497515d009213d7eddc32ebf21761e37c6dda928c"
+        }
+      ]
+    },
+    {
+      "id": "minimal-desktop",
+      "component": "applications",
+      "question": "Desktop uses the full source bundle. A minimal distribution needs explicit runtime imports and data membership.",
+      "revisit_when": "A desktop packaging split or tool/resource relocation is proposed.",
+      "evidence": [
+        {
+          "path": "docs/RESPONSIBILITY_BOUNDARIES.md",
+          "sha256": "8a3803d05f7778d8f596fd529064ed1400efda1a23393a26610321cff36a90ca"
+        }
+      ]
+    },
+    {
+      "id": "prior-parts",
+      "component": "preserved-parts",
+      "question": "Earlier variants contain separate tested ideas that may be useful; inspect original scopes and dependencies before reuse.",
+      "revisit_when": "A new lease, fencing, signature, graph or image feature is planned.",
+      "evidence": [
+        {
+          "path": "docs/departments/components.json",
+          "sha256": "06b19a7a70686b7eb3ac5ffa7bce4ae1959679bee3b9c41a1fcdd65e0ccb697b"
+        }
+      ]
+    },
+    {
+      "id": "trusted-receipts",
+      "component": "workflow-controller",
+      "question": "Host identity and receipt provenance are simulated; determine what authenticates a real grant and action receipt.",
+      "revisit_when": "A proposal extends the lab to production authority or another host.",
+      "evidence": [
+        {
+          "path": "evaluation/comparative-tests/workflow-controller/POLICY.md",
+          "sha256": "cd184b96e6d404808c8d30194548f3558c5ddccbddf6de01a602d0cb3bbbab2e"
+        }
+      ]
+    },
+    {
+      "id": "writer-reporter",
+      "component": "egyptian-programme",
+      "question": "At baseline cef389a1, Bastet has no verified document selection or attribution. Inspect printed-writer selection separately from embedded reporter proof.",
+      "revisit_when": "Bastet implementation merges or its frozen first fresh score is available.",
+      "evidence": [
+        {
+          "path": "evaluation/egyptian-gods/bastet/RESULTS.md",
+          "sha256": "24a2077877db0b580b544c2b26e78464b723df7c1193759fdacc4f4b854bebde"
+        }
+      ]
+    }
+  ]
+}

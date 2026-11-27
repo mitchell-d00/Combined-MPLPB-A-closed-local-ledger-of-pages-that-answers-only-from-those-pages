@@ -39,3 +39,11 @@ Follow capability → implementation → test → result → retained evidence i
 [Test Index](TEST_INDEX.md#capability-to-evidence-map). Its existing machine
 inventory records stable family IDs, responsible area/department, per-run pins,
 checksums, custody and execution status. Navigation is not a new measurement.
+
+## Active relationships and remembered work
+
+[Gremlin](gremlin/README.md) joins this ownership map and the existing result
+index with typed relationships, possible reuse and revisit conditions. Its
+generated map checks drift; its impact hints are not a complete dependency
+analysis. [Al Notes](../handoff/al-notes/README.md) records versioned advice
+and explicit overrides separately from Betty's applied results.
