@@ -1,0 +1,206 @@
+{
+  "suite": "competing-writer",
+  "summary": {
+    "cases": 2,
+    "matches": 2,
+    "admissions": 2,
+    "completed": 1,
+    "failed": 1,
+    "controllerUpdates": 1,
+    "competingUpdates": 1
+  },
+  "rows": [
+    {
+      "id": "CW01",
+      "expect": {
+        "admission": "allow",
+        "execution": "completed",
+        "hook_calls": 1,
+        "controller_attempts": 1,
+        "controller_updates": 1,
+        "competing_updates": 0,
+        "after_hook": "initial",
+        "after_attempt": "intended",
+        "duplicate": {
+          "code": "duplicate_request",
+          "execution": "not_run"
+        },
+        "after_duplicate": "intended"
+      },
+      "commits": {
+        "initial": "fc2796837b06ab3ee170a877d602c66bc5864f1c",
+        "intended": "b2680cd6887f303357ea4b53369e74ed611f59c6",
+        "competing": "069666420e1f59f298a051bb5b2388c7b4fd5398"
+      },
+      "before": {
+        "ref": "fc2796837b06ab3ee170a877d602c66bc5864f1c",
+        "marker": "before"
+      },
+      "initialAdmission": {
+        "decision": "allow",
+        "code": "allowed",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-canary-ready"
+        ],
+        "missing": [],
+        "scope": {
+          "action": "record-canary",
+          "revision": "fc2796837b06ab3ee170a877d602c66bc5864f1c",
+          "mode": "local-canary"
+        }
+      },
+      "afterHook": {
+        "ref": "fc2796837b06ab3ee170a877d602c66bc5864f1c",
+        "marker": "before"
+      },
+      "attempt": {
+        "verdict": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "receipt-canary-ready"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "fc2796837b06ab3ee170a877d602c66bc5864f1c",
+            "mode": "local-canary"
+          }
+        },
+        "execution": "completed"
+      },
+      "casExit": 0,
+      "afterAttempt": {
+        "ref": "b2680cd6887f303357ea4b53369e74ed611f59c6",
+        "marker": "after"
+      },
+      "duplicate": {
+        "verdict": {
+          "decision": "withhold",
+          "code": "duplicate_request",
+          "selected": {
+            "report": null,
+            "grant": null
+          },
+          "receiptIds": [],
+          "missing": [],
+          "scope": null
+        },
+        "execution": "not_run"
+      },
+      "afterDuplicate": {
+        "ref": "b2680cd6887f303357ea4b53369e74ed611f59c6",
+        "marker": "after"
+      },
+      "hookCalls": 1,
+      "controllerAttempts": 1,
+      "controllerUpdates": 1,
+      "competingUpdates": 0,
+      "passed": true
+    },
+    {
+      "id": "CW02",
+      "expect": {
+        "admission": "allow",
+        "execution": "failed",
+        "hook_calls": 1,
+        "controller_attempts": 1,
+        "controller_updates": 0,
+        "competing_updates": 1,
+        "after_hook": "competing",
+        "after_attempt": "competing",
+        "duplicate": {
+          "code": "duplicate_request",
+          "execution": "not_run"
+        },
+        "after_duplicate": "competing"
+      },
+      "commits": {
+        "initial": "fc2796837b06ab3ee170a877d602c66bc5864f1c",
+        "intended": "b2680cd6887f303357ea4b53369e74ed611f59c6",
+        "competing": "069666420e1f59f298a051bb5b2388c7b4fd5398"
+      },
+      "before": {
+        "ref": "fc2796837b06ab3ee170a877d602c66bc5864f1c",
+        "marker": "before"
+      },
+      "initialAdmission": {
+        "decision": "allow",
+        "code": "allowed",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-canary-ready"
+        ],
+        "missing": [],
+        "scope": {
+          "action": "record-canary",
+          "revision": "fc2796837b06ab3ee170a877d602c66bc5864f1c",
+          "mode": "local-canary"
+        }
+      },
+      "afterHook": {
+        "ref": "069666420e1f59f298a051bb5b2388c7b4fd5398",
+        "marker": "competing-writer"
+      },
+      "attempt": {
+        "verdict": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "receipt-canary-ready"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "fc2796837b06ab3ee170a877d602c66bc5864f1c",
+            "mode": "local-canary"
+          }
+        },
+        "execution": "failed"
+      },
+      "casExit": 128,
+      "afterAttempt": {
+        "ref": "069666420e1f59f298a051bb5b2388c7b4fd5398",
+        "marker": "competing-writer"
+      },
+      "duplicate": {
+        "verdict": {
+          "decision": "withhold",
+          "code": "duplicate_request",
+          "selected": {
+            "report": null,
+            "grant": null
+          },
+          "receiptIds": [],
+          "missing": [],
+          "scope": null
+        },
+        "execution": "not_run"
+      },
+      "afterDuplicate": {
+        "ref": "069666420e1f59f298a051bb5b2388c7b4fd5398",
+        "marker": "competing-writer"
+      },
+      "hookCalls": 1,
+      "controllerAttempts": 1,
+      "controllerUpdates": 0,
+      "competingUpdates": 1,
+      "passed": true
+    }
+  ]
+}

@@ -86,3 +86,48 @@ done
 The controller verifies the upstream module hash before importing it. Each
 canary replay creates fresh Git revisions in a temporary repository. The
 verdicts and marker transitions reproduce; the fresh Git IDs may differ.
+
+## Competing-writer follow-up
+
+Two matched [scenarios](competing-writer.json) were frozen at
+`6ff09a241` before harness changes. The only intervening action in the
+contrast is a subprocess Git write to the same canary ref from the existing
+`beforeWrite` hook. Grants, receipts and target HEAD stay current.
+The controller's expected-old-value ref update still uses the initial ref.
+
+| Scenario | Admission | Execution | Ref after attempt and duplicate |
+|---|---|---|---|
+| CW01, unchanged ref | Allow | Completed | Intended commit and marker |
+| CW02, intervening process | Allow | Failed CAS | Competing commit and distinct marker |
+
+The intended update occurred exactly once overall. In CW02 Git rejected the
+stale CAS and the readback matched the competing commit and marker. Both
+duplicates returned `duplicate_request` and attempted no write. The failed
+CAS is a matching execution outcome and remains visible as `failed`.
+This controlled interleaving covers one ref and an in-memory reservation.
+Durable deduplication, external authorization and enforcement over other
+writers remain unestablished. Production dispatch stays inactive.
+
+The [tested lab ZIP](results/follow-up/tested-lab.zip) is from
+`32dd7469a1e3ac1d575b355f604d2b1ec8d92e7a`. SHA-256
+`af684b0541491ed2352ac1b86b6b5c9f9759aed8ec9ece727fc53c6e77a3b511`.
+The old 40 cases were replayed from the extraction and passed again. Original
+outputs and overlap disclosures are retained above. The new
+[raw per-scenario results](results/follow-up/competing-writer.json) include
+all ref snapshots, the CAS exit code, and duplicate outcomes.
+
+The first isolation attempt stopped during apt setup with an HTTP 403 from
+Microsoft's Ubuntu repository. It executed zero isolation tests. The
+unchanged retry passed all four mandatory isolation tests and executed all
+75 frozen D% classes. The [evidence ZIP](results/follow-up/verification-evidence.zip)
+retains both exact CI logs, the verified aggregate artifact, and local logs.
+This was a setup failure, separate from the controller outcomes.
+The source policy, production workflows and reader bytes were unchanged.
+
+To replay the follow-up, unpack the tested lab ZIP, verify `INPUTS.sha256`
+and `COMPETING_WRITER.sha256`, and run the documented command with suite
+`competing-writer` and a fresh output path. Both fixture sets use fixed
+parameters, with no random seed. The
+[original fixture authoring script](reproduction/freeze-original-cases.py)
+retains its original bytes. Run it from disposable staging if regeneration
+is needed. The matched pair was authored directly in the frozen JSON.
