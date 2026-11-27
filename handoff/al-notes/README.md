@@ -9,6 +9,10 @@ repository notes to replace the manual copy-paste relay. The first example is
 reported successful live relay and the concurrent Bastet integration. The notes
 are coordination records; they are not imported source-ledger facts.
 
+[Note 0003](0003-next-phase-evidence-to-git-effects.md) reviews the completed
+Bastet/Gremlin release and proposes the next bounded evidence-to-effect lab phase.
+It is advice; no integrated-stack result has been measured yet.
+
 ## Roles and authority
 
 Al normally reviews evidence and proposes bounded next work. Publishing an Al

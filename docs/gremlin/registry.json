@@ -1,7 +1,7 @@
 {
   "schema": "gremlin-registry-v1",
   "reviewed_on": "2026-11-27",
-  "inspected_revision": "db5c5680a22b7f3c08288bc0e06e3d221614a2dc",
+  "inspected_revision": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
   "departments": {
     "reader": {
       "label": "Deterministic reader",
@@ -304,6 +304,20 @@
         "handoff/al-notes/README.md"
       ],
       "note": "Advice, authorization and applied results are distinct; role labels do not authenticate."
+    },
+    {
+      "id": "heka-01",
+      "label": "Proposed evidence-to-Git I/O study",
+      "scopes": [
+        "project",
+        "experiment"
+      ],
+      "status": "proposed",
+      "paths": [],
+      "evidence": [
+        "handoff/al-notes/0003-next-phase-evidence-to-git-effects.md"
+      ],
+      "note": "Al proposal only: compose actual reader proof with separately authorized disposable Git canary and recovery. No integrated execution measured."
     }
   ],
   "relations": [
@@ -466,6 +480,36 @@
         "handoff/al-notes/README.md"
       ],
       "note": "Note 0001 records Gremlin scope, the explicit M override and Betty continuation."
+    },
+    {
+      "from": "heka-01",
+      "to": "reader",
+      "kind": "possible_reuse",
+      "basis": "proposal",
+      "evidence": [
+        "handoff/al-notes/0003-next-phase-evidence-to-git-effects.md"
+      ],
+      "note": "Inspect and reuse this existing boundary under a separately frozen bridge contract; no compatibility or end-to-end guarantee is established."
+    },
+    {
+      "from": "heka-01",
+      "to": "workflow-controller",
+      "kind": "possible_reuse",
+      "basis": "proposal",
+      "evidence": [
+        "handoff/al-notes/0003-next-phase-evidence-to-git-effects.md"
+      ],
+      "note": "Inspect and reuse this existing boundary under a separately frozen bridge contract; no compatibility or end-to-end guarantee is established."
+    },
+    {
+      "from": "heka-01",
+      "to": "restart-store",
+      "kind": "possible_reuse",
+      "basis": "proposal",
+      "evidence": [
+        "handoff/al-notes/0003-next-phase-evidence-to-git-effects.md"
+      ],
+      "note": "Inspect and reuse this existing boundary under a separately frozen bridge contract; no compatibility or end-to-end guarantee is established."
     }
   ],
   "open_work": [
@@ -522,6 +566,15 @@
       "revisit_when": "A new lease, fencing, signature, graph or image feature is planned.",
       "evidence": [
         "docs/departments/components.json"
+      ]
+    },
+    {
+      "id": "evidence-to-effect",
+      "component": "heka-01",
+      "question": "Can actual current reader proof satisfy a scoped evidence obligation for a separately authorized Git effect while preserving admission, execution, readback and durable outcome?",
+      "revisit_when": "Betty freezes or runs the proposed Heka-01 bridge study; retain missing integration evidence until then.",
+      "evidence": [
+        "handoff/al-notes/0003-next-phase-evidence-to-git-effects.md"
       ]
     }
   ]
