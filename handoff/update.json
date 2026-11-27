@@ -3,7 +3,8 @@
   "instruction": "Archive the published From Workflow Decisions to Git Effects PDF unchanged. Freeze and measure restart duplication first. If needed, freeze a separate durable lab candidate. Retain the original results, preserve a recoverable checkpoint, and merge only after applicable checks pass.",
   "scope": [
     "Archive the exact PDF with its digest, paper index entry and separate dated PR #111 note. Freeze the baseline fixtures, expected outcomes and scoring against released a0136939.",
-    "Keep the restart baseline and store experiment separate. Freeze the exclusive reservation, outcome readback, interruption, and no-retry policy before implementation."
+    "Keep the restart baseline and store experiment separate. Freeze the exclusive reservation, outcome readback, interruption, and no-retry policy before implementation.",
+    "Add a lab-only fsynced exclusive directory reservation wrapper with separate Git execution and readback receipts. Leave the original controller and release paths unchanged."
   ],
   "validation": [
     "The PDF copy matches the supplied attachment byte for byte. Verified the frozen baseline input digests.",
@@ -13,6 +14,6 @@
     "No restart measurements were run before this freeze. The study is lab-only."
   ],
   "next_steps": [
-    "Implement the lab reservation wrapper. Score fixed sequential, racing and interrupted processes before publishing the tested archive."
+    "Run the tested archive against original controls and all frozen restart cases. Retain process logs, results and fixture Git bundles."
   ]
 }

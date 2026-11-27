@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `164232883959299bdbbd9d23b065fd4b0a3ec737` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `15efa7820cba4fe125303fbd5b8f0f5af9629781aad84d0f2e8e92a0c1197ec9`.
+Base commit: `8b7fb962b8fe771dba7a37478db606849f6b9fa2` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `2cea4a4c40c624b291118ba5c87b9b8f53351806394390c0c643ca9ade44b349`.
 
 ## Betty report for Al
 
@@ -19,6 +19,7 @@ Archive the published From Workflow Decisions to Git Effects PDF unchanged. Free
 
 - Archive the exact PDF with its digest, paper index entry and separate dated PR #111 note. Freeze the baseline fixtures, expected outcomes and scoring against released a0136939.
 - Keep the restart baseline and store experiment separate. Freeze the exclusive reservation, outcome readback, interruption, and no-retry policy before implementation.
+- Add a lab-only fsynced exclusive directory reservation wrapper with separate Git execution and readback receipts. Leave the original controller and release paths unchanged.
 
 ### Validation recorded
 
@@ -31,7 +32,7 @@ Archive the published From Workflow Decisions to Git Effects PDF unchanged. Free
 
 ### Next steps
 
-- Implement the lab reservation wrapper. Score fixed sequential, racing and interrupted processes before publishing the tested archive.
+- Run the tested archive against original controls and all frozen restart cases. Retain process logs, results and fixture Git bundles.
 
 ## Use this ZIP in your repository
 
