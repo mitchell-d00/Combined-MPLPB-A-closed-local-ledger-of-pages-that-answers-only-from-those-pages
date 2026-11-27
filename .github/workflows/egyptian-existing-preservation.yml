@@ -1,0 +1,55 @@
+name: Replay existing preservation for the Egyptian batch
+on:
+  push:
+    branches: ['study/egyptian-gods-attribution-scope']
+    paths: ['.github/workflows/egyptian-existing-preservation.yml']
+permissions:
+  contents: read
+jobs:
+  frozen-preservation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 3
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify frozen runtime and original isolator
+        run: |
+          pin="$(cat evaluation/egyptian-gods/attribution-scope/candidate-pin.txt)"
+          git diff --exit-code "$pin" HEAD -- mplpb_answers mplpb_combined mplpb_work
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends bubblewrap
+          sudo mkdir -p /workspace/cryptid-custody
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$(command -v python)" -m unittest tests.test_study_sandbox -v
+      - name: Run the original 832 public case comparison without alterations
+        run: |
+          pin="$(cat evaluation/egyptian-gods/attribution-scope/candidate-pin.txt)"
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0="$GITHUB_WORKSPACE" "$(command -v python)" -m tools.bunyip_round2_preservation --source-commit "$pin" --output "$RUNNER_TEMP/egyptian-832-public"
+      - name: Run the original exact 96 retained contract comparison without alterations
+        if: success() || failure()
+        run: |
+          pin="$(cat evaluation/egyptian-gods/attribution-scope/candidate-pin.txt)"
+          git diff --exit-code "$pin" HEAD -- mplpb_answers mplpb_combined mplpb_work
+          mkdir -p "$RUNNER_TEMP/egyptian-retained-contracts"
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$(command -v python)" evaluation/egyptian-gods/thoth/verify_release_replay.py \
+            --implementation "$PWD" --commit "$pin" --output "$RUNNER_TEMP/egyptian-retained-contracts"
+      - name: Keep the public comparison artifacts including first failures
+        if: always()
+        run: |
+          for out in "$RUNNER_TEMP/egyptian-832-public" "$RUNNER_TEMP/egyptian-retained-contracts"; do
+            if test -d "$out"; then sudo chown -R "$(id -u):$(id -g)" "$out"; fi
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: egyptian-existing-preservation-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/egyptian-832-public/
+            ${{ runner.temp }}/egyptian-retained-contracts/
+          if-no-files-found: warn
+          retention-days: 90
