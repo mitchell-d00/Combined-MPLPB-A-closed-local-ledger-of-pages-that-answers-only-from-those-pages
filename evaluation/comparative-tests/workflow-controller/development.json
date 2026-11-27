@@ -1,0 +1,900 @@
+[
+  {
+    "id": "D01",
+    "proposal": {
+      "action": "run-tests",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "run-tests"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "run-tests",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-input-freeze",
+          "action": "run-tests",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "input-freeze",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "prepared",
+      "used": []
+    },
+    "expect": {
+      "decision": "allow",
+      "code": "allowed"
+    }
+  },
+  {
+    "id": "D02",
+    "proposal": {
+      "action": "merge",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "merge"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-candidate-tests",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "candidate-tests",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        },
+        {
+          "id": "receipt-release-acceptance",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "release-acceptance",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "tested",
+      "used": []
+    },
+    "expect": {
+      "decision": "allow",
+      "code": "allowed"
+    }
+  },
+  {
+    "id": "D03",
+    "proposal": {
+      "action": "deploy",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "deploy"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "deploy",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-merge-event",
+          "action": "deploy",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "merge-event",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        },
+        {
+          "id": "receipt-deployment-package",
+          "action": "deploy",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "deployment-package",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "merged",
+      "used": []
+    },
+    "expect": {
+      "decision": "allow",
+      "code": "allowed"
+    }
+  },
+  {
+    "id": "D04",
+    "proposal": {
+      "action": "deploy",
+      "revision": "a442c8f0c9629b65a3af38ba57319aa9c2af8dbe"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "deploy"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "deploy",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-merge-event",
+          "action": "deploy",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "merge-event",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        },
+        {
+          "id": "receipt-deployment-package",
+          "action": "deploy",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "deployment-package",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "merged",
+      "used": []
+    },
+    "expect": {
+      "decision": "withhold",
+      "code": "revision_mismatch"
+    }
+  },
+  {
+    "id": "D05",
+    "proposal": {
+      "action": "merge",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Al",
+        "capabilities": [
+          "merge"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-candidate-tests",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "candidate-tests",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        },
+        {
+          "id": "receipt-release-acceptance",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "release-acceptance",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "tested",
+      "used": []
+    },
+    "expect": {
+      "decision": "withhold",
+      "code": "capability_denied"
+    }
+  },
+  {
+    "id": "D06",
+    "proposal": {
+      "action": "merge",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "merge"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "Outside",
+          "session": "session-1",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-candidate-tests",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "candidate-tests",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        },
+        {
+          "id": "receipt-release-acceptance",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "release-acceptance",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "tested",
+      "used": []
+    },
+    "expect": {
+      "decision": "withhold",
+      "code": "not_authorized"
+    }
+  },
+  {
+    "id": "D07",
+    "proposal": {
+      "action": "merge",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "merge"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a442c8f0c9629b65a3af38ba57319aa9c2af8dbe"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-candidate-tests",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "candidate-tests",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        },
+        {
+          "id": "receipt-release-acceptance",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "release-acceptance",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "tested",
+      "used": []
+    },
+    "expect": {
+      "decision": "missing_evidence",
+      "code": "report_missing"
+    }
+  },
+  {
+    "id": "D08",
+    "proposal": {
+      "action": "merge",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "merge"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-candidate-tests",
+          "action": "merge",
+          "revision": "a442c8f0c9629b65a3af38ba57319aa9c2af8dbe",
+          "kind": "candidate-tests",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        },
+        {
+          "id": "receipt-release-acceptance",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "release-acceptance",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "tested",
+      "used": []
+    },
+    "expect": {
+      "decision": "missing_evidence",
+      "code": "missing_check"
+    }
+  },
+  {
+    "id": "D09",
+    "proposal": {
+      "action": "merge",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "merge"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-candidate-tests",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "candidate-tests",
+          "availability": "available",
+          "execution": "failed",
+          "semantic": "not_run"
+        },
+        {
+          "id": "receipt-release-acceptance",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "release-acceptance",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "tested",
+      "used": []
+    },
+    "expect": {
+      "decision": "withhold",
+      "code": "execution_failed"
+    }
+  },
+  {
+    "id": "D10",
+    "proposal": {
+      "action": "merge",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "merge"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-candidate-tests",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "candidate-tests",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        },
+        {
+          "id": "receipt-release-acceptance",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "release-acceptance",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "failed"
+        }
+      ],
+      "custody": "public",
+      "release": "tested",
+      "used": []
+    },
+    "expect": {
+      "decision": "withhold",
+      "code": "semantic_failed"
+    }
+  },
+  {
+    "id": "D11",
+    "proposal": {
+      "action": "merge",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "merge"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-candidate-tests",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "candidate-tests",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        },
+        {
+          "id": "receipt-release-acceptance",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "release-acceptance",
+          "availability": "unavailable",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "tested",
+      "used": []
+    },
+    "expect": {
+      "decision": "missing_evidence",
+      "code": "receipt_unavailable"
+    }
+  },
+  {
+    "id": "D12",
+    "proposal": {
+      "action": "deploy",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "deploy"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "deploy",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-merge-event",
+          "action": "deploy",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "merge-event",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        },
+        {
+          "id": "receipt-deployment-package",
+          "action": "deploy",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "deployment-package",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "tested",
+      "used": []
+    },
+    "expect": {
+      "decision": "withhold",
+      "code": "release_phase_mismatch"
+    }
+  },
+  {
+    "id": "D13",
+    "proposal": {
+      "action": "merge",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "merge"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "revoked"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-candidate-tests",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "candidate-tests",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        },
+        {
+          "id": "receipt-release-acceptance",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "release-acceptance",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "tested",
+      "used": []
+    },
+    "expect": {
+      "decision": "withhold",
+      "code": "grant_revoked"
+    }
+  },
+  {
+    "id": "D14",
+    "proposal": {
+      "action": "merge",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": "maintainer"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "merge"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-candidate-tests",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "candidate-tests",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        },
+        {
+          "id": "receipt-release-acceptance",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "release-acceptance",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "tested",
+      "used": []
+    },
+    "expect": {
+      "decision": "withhold",
+      "code": "invalid_proposal"
+    }
+  },
+  {
+    "id": "D15",
+    "proposal": {
+      "action": "run-tests",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "run-tests"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "run-tests",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-input-freeze",
+          "action": "run-tests",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "input-freeze",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "unavailable",
+      "release": "prepared",
+      "used": []
+    },
+    "expect": {
+      "decision": "missing_evidence",
+      "code": "custody_unavailable"
+    }
+  }
+]

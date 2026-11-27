@@ -1,0 +1,228 @@
+{
+  "suite": "held",
+  "summary": {
+    "cases": 10,
+    "matches": 10,
+    "correctAdmissions": 1,
+    "falseAdmissions": 0,
+    "falseDenials": 0,
+    "protectedOutcomes": 9,
+    "executionFailures": 0,
+    "realWrites": 0,
+    "historicalLabelDifferences": []
+  },
+  "rows": [
+    {
+      "id": "H01",
+      "expect": {
+        "decision": "missing_evidence",
+        "code": "missing_check"
+      },
+      "verdict": {
+        "decision": "missing_evidence",
+        "code": "missing_check",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [],
+        "missing": [
+          "merge-event"
+        ],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "H02",
+      "expect": {
+        "decision": "withhold",
+        "code": "ambiguous_authorization"
+      },
+      "verdict": {
+        "decision": "withhold",
+        "code": "ambiguous_authorization",
+        "selected": {
+          "report": "report-1",
+          "grant": null
+        },
+        "receiptIds": [],
+        "missing": [],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "H03",
+      "expect": {
+        "decision": "withhold",
+        "code": "report_conflict"
+      },
+      "verdict": {
+        "decision": "withhold",
+        "code": "report_conflict",
+        "selected": {
+          "report": null,
+          "grant": null
+        },
+        "receiptIds": [],
+        "missing": [],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "H04",
+      "expect": {
+        "decision": "allow",
+        "code": "allowed"
+      },
+      "verdict": {
+        "decision": "allow",
+        "code": "allowed",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-candidate-tests",
+          "receipt-release-acceptance"
+        ],
+        "missing": [],
+        "scope": {
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "mode": "shadow"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "H05",
+      "expect": {
+        "decision": "missing_evidence",
+        "code": "execution_not_run"
+      },
+      "verdict": {
+        "decision": "missing_evidence",
+        "code": "execution_not_run",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-deployment-package"
+        ],
+        "missing": [
+          "deployment-package"
+        ],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "H06",
+      "expect": {
+        "decision": "missing_evidence",
+        "code": "semantic_not_run"
+      },
+      "verdict": {
+        "decision": "missing_evidence",
+        "code": "semantic_not_run",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-deployment-package"
+        ],
+        "missing": [
+          "deployment-package"
+        ],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "H07",
+      "expect": {
+        "decision": "missing_evidence",
+        "code": "invalid_state"
+      },
+      "verdict": {
+        "decision": "missing_evidence",
+        "code": "invalid_state",
+        "selected": {
+          "report": null,
+          "grant": null
+        },
+        "receiptIds": [],
+        "missing": [
+          "valid_host_state"
+        ],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "H08",
+      "expect": {
+        "decision": "withhold",
+        "code": "custody_restricted"
+      },
+      "verdict": {
+        "decision": "withhold",
+        "code": "custody_restricted",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [],
+        "missing": [],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "H09",
+      "expect": {
+        "decision": "withhold",
+        "code": "ambiguous_check"
+      },
+      "verdict": {
+        "decision": "withhold",
+        "code": "ambiguous_check",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-merge-event",
+          "conflict"
+        ],
+        "missing": [],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "H10",
+      "expect": {
+        "decision": "withhold",
+        "code": "not_authorized"
+      },
+      "verdict": {
+        "decision": "withhold",
+        "code": "not_authorized",
+        "selected": {
+          "report": "report-1",
+          "grant": null
+        },
+        "receiptIds": [],
+        "missing": [],
+        "scope": null
+      },
+      "passed": true
+    }
+  ]
+}

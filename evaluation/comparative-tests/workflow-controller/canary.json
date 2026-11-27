@@ -1,0 +1,93 @@
+{
+  "template": {
+    "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+    "session": {
+      "id": "session-1",
+      "role": "Betty",
+      "capabilities": [
+        "record-canary"
+      ]
+    },
+    "grants": [
+      {
+        "id": "direction-1",
+        "issuer": "maintainer",
+        "session": "session-1",
+        "action": "record-canary",
+        "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+        "status": "active"
+      }
+    ],
+    "reports": [
+      {
+        "id": "report-1",
+        "kind": "applied",
+        "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+      }
+    ],
+    "receipts": [
+      {
+        "id": "receipt-canary-ready",
+        "action": "record-canary",
+        "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+        "kind": "canary-ready",
+        "availability": "available",
+        "execution": "completed",
+        "semantic": "passed"
+      }
+    ],
+    "custody": "public",
+    "release": "prepared",
+    "used": []
+  },
+  "cases": [
+    {
+      "id": "C01",
+      "scenario": "blocked-role",
+      "expect": "capability_denied",
+      "effect": false
+    },
+    {
+      "id": "C02",
+      "scenario": "wrong-revision",
+      "expect": "revision_mismatch",
+      "effect": false
+    },
+    {
+      "id": "C03",
+      "scenario": "stale-receipt",
+      "expect": "missing_check",
+      "effect": false
+    },
+    {
+      "id": "C04",
+      "scenario": "conflicting-receipts",
+      "expect": "ambiguous_check",
+      "effect": false
+    },
+    {
+      "id": "C05",
+      "scenario": "revoked-grant",
+      "expect": "grant_revoked",
+      "effect": false
+    },
+    {
+      "id": "C06",
+      "scenario": "revoke-before-write",
+      "expect": "grant_revoked",
+      "effect": false
+    },
+    {
+      "id": "C07",
+      "scenario": "allow",
+      "expect": "allowed",
+      "effect": true
+    },
+    {
+      "id": "C08",
+      "scenario": "duplicate",
+      "expect": "duplicate_request",
+      "effect": false
+    }
+  ]
+}

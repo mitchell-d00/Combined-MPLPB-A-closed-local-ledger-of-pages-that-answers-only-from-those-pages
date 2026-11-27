@@ -1,0 +1,203 @@
+{
+  "suite": "canary",
+  "summary": {
+    "cases": 8,
+    "matches": 8,
+    "correctAdmissions": 1,
+    "falseAdmissions": 0,
+    "falseDenials": 0,
+    "protectedOutcomes": 7,
+    "executionFailures": 0,
+    "realWrites": 1,
+    "historicalLabelDifferences": []
+  },
+  "rows": [
+    {
+      "id": "C01",
+      "scenario": "blocked-role",
+      "expect": "capability_denied",
+      "effect": false,
+      "verdict": {
+        "decision": "withhold",
+        "code": "capability_denied",
+        "selected": {
+          "report": null,
+          "grant": null
+        },
+        "receiptIds": [],
+        "missing": [],
+        "scope": null
+      },
+      "execution": "not_run",
+      "before": "before",
+      "after": "before",
+      "refChanged": false,
+      "passed": true
+    },
+    {
+      "id": "C02",
+      "scenario": "wrong-revision",
+      "expect": "revision_mismatch",
+      "effect": false,
+      "verdict": {
+        "decision": "withhold",
+        "code": "revision_mismatch",
+        "selected": {
+          "report": null,
+          "grant": null
+        },
+        "receiptIds": [],
+        "missing": [],
+        "scope": null
+      },
+      "execution": "not_run",
+      "before": "before",
+      "after": "before",
+      "refChanged": false,
+      "passed": true
+    },
+    {
+      "id": "C03",
+      "scenario": "stale-receipt",
+      "expect": "missing_check",
+      "effect": false,
+      "verdict": {
+        "decision": "missing_evidence",
+        "code": "missing_check",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [],
+        "missing": [
+          "canary-ready"
+        ],
+        "scope": null
+      },
+      "execution": "not_run",
+      "before": "before",
+      "after": "before",
+      "refChanged": false,
+      "passed": true
+    },
+    {
+      "id": "C04",
+      "scenario": "conflicting-receipts",
+      "expect": "ambiguous_check",
+      "effect": false,
+      "verdict": {
+        "decision": "withhold",
+        "code": "ambiguous_check",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-canary-ready",
+          "conflicting"
+        ],
+        "missing": [],
+        "scope": null
+      },
+      "execution": "not_run",
+      "before": "before",
+      "after": "before",
+      "refChanged": false,
+      "passed": true
+    },
+    {
+      "id": "C05",
+      "scenario": "revoked-grant",
+      "expect": "grant_revoked",
+      "effect": false,
+      "verdict": {
+        "decision": "withhold",
+        "code": "grant_revoked",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [],
+        "missing": [],
+        "scope": null
+      },
+      "execution": "not_run",
+      "before": "before",
+      "after": "before",
+      "refChanged": false,
+      "passed": true
+    },
+    {
+      "id": "C06",
+      "scenario": "revoke-before-write",
+      "expect": "grant_revoked",
+      "effect": false,
+      "verdict": {
+        "decision": "withhold",
+        "code": "grant_revoked",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [],
+        "missing": [],
+        "scope": null
+      },
+      "execution": "not_run",
+      "before": "before",
+      "after": "before",
+      "refChanged": false,
+      "passed": true
+    },
+    {
+      "id": "C07",
+      "scenario": "allow",
+      "expect": "allowed",
+      "effect": true,
+      "verdict": {
+        "decision": "allow",
+        "code": "allowed",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-canary-ready"
+        ],
+        "missing": [],
+        "scope": {
+          "action": "record-canary",
+          "revision": "fc2796837b06ab3ee170a877d602c66bc5864f1c",
+          "mode": "local-canary"
+        }
+      },
+      "execution": "completed",
+      "before": "before",
+      "after": "after",
+      "refChanged": true,
+      "passed": true
+    },
+    {
+      "id": "C08",
+      "scenario": "duplicate",
+      "expect": "duplicate_request",
+      "effect": false,
+      "verdict": {
+        "decision": "withhold",
+        "code": "duplicate_request",
+        "selected": {
+          "report": null,
+          "grant": null
+        },
+        "receiptIds": [],
+        "missing": [],
+        "scope": null
+      },
+      "execution": "not_run",
+      "before": "after",
+      "after": "after",
+      "refChanged": false,
+      "passed": true
+    }
+  ]
+}

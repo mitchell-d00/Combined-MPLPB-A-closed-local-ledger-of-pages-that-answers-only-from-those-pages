@@ -1,0 +1,432 @@
+[
+  {
+    "id": "S01",
+    "proposal": {
+      "action": "merge",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "merge"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-candidate-tests",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "candidate-tests",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        },
+        {
+          "id": "receipt-release-acceptance",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "release-acceptance",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "failed"
+        }
+      ],
+      "custody": "public",
+      "release": "tested",
+      "used": []
+    },
+    "expect": {
+      "decision": "withhold",
+      "code": "semantic_failed"
+    },
+    "observed": "withhold",
+    "record": "Original PR110 87/96 exact gate failed",
+    "source": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/110"
+  },
+  {
+    "id": "S02",
+    "proposal": {
+      "action": "merge",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "merge"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-candidate-tests",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "candidate-tests",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        },
+        {
+          "id": "receipt-release-acceptance",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "release-acceptance",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "tested",
+      "used": []
+    },
+    "expect": {
+      "decision": "allow",
+      "code": "allowed"
+    },
+    "observed": "allow",
+    "record": "PR110 authorized nine-case prospective pass and merged",
+    "source": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/110#issuecomment-7219742999"
+  },
+  {
+    "id": "S03",
+    "proposal": {
+      "action": "deploy",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "deploy"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "deploy",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-merge-event",
+          "action": "deploy",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "merge-event",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        },
+        {
+          "id": "receipt-deployment-package",
+          "action": "deploy",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "deployment-package",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "merged",
+      "used": []
+    },
+    "expect": {
+      "decision": "allow",
+      "code": "allowed"
+    },
+    "observed": "allow",
+    "record": "PR110 merged then Pages published",
+    "source": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/46008844245"
+  },
+  {
+    "id": "S04",
+    "proposal": {
+      "action": "run-tests",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "run-tests"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "run-tests",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-input-freeze",
+          "action": "run-tests",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "input-freeze",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "unavailable",
+      "release": "prepared",
+      "used": []
+    },
+    "expect": {
+      "decision": "missing_evidence",
+      "code": "custody_unavailable"
+    },
+    "observed": "withhold",
+    "record": "17 original checks incomplete and 100 held cases NOT_RUN",
+    "source": "../../cryptid/full-reproducible-replay/README.md"
+  },
+  {
+    "id": "S05",
+    "proposal": {
+      "action": "run-tests",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "run-tests"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "run-tests",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-input-freeze",
+          "action": "run-tests",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "input-freeze",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "prepared",
+      "used": []
+    },
+    "expect": {
+      "decision": "allow",
+      "code": "allowed"
+    },
+    "observed": "allow",
+    "record": "Exact primary rebuild restored 444 original cases before replay",
+    "source": "../../cryptid/full-reproducible-replay/README.md"
+  },
+  {
+    "id": "S06",
+    "proposal": {
+      "action": "deploy",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "deploy"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "deploy",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-merge-event",
+          "action": "deploy",
+          "revision": "a442c8f0c9629b65a3af38ba57319aa9c2af8dbe",
+          "kind": "merge-event",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        },
+        {
+          "id": "receipt-deployment-package",
+          "action": "deploy",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "deployment-package",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "merged",
+      "used": []
+    },
+    "expect": {
+      "decision": "missing_evidence",
+      "code": "missing_check"
+    },
+    "observed": "withhold",
+    "record": "B-Tests Round 7 old revision pass did not admit deploy",
+    "source": "https://github.com/mitchell-d00/B-Tests/blob/c8f5b90a3560a0c0a916955719cef76074abebf8/gate-js/round-7.json"
+  },
+  {
+    "id": "S07",
+    "proposal": {
+      "action": "merge",
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+    },
+    "state": {
+      "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+      "session": {
+        "id": "session-1",
+        "role": "Betty",
+        "capabilities": [
+          "merge"
+        ]
+      },
+      "grants": [
+        {
+          "id": "direction-1",
+          "issuer": "maintainer",
+          "session": "session-1",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "status": "active"
+        }
+      ],
+      "reports": [
+        {
+          "id": "report-1",
+          "kind": "applied",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4"
+        }
+      ],
+      "receipts": [
+        {
+          "id": "receipt-candidate-tests",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "candidate-tests",
+          "availability": "available",
+          "execution": "failed",
+          "semantic": "not_run"
+        },
+        {
+          "id": "receipt-release-acceptance",
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "kind": "release-acceptance",
+          "availability": "available",
+          "execution": "completed",
+          "semantic": "passed"
+        }
+      ],
+      "custody": "public",
+      "release": "tested",
+      "used": []
+    },
+    "expect": {
+      "decision": "withhold",
+      "code": "execution_failed"
+    },
+    "observed": "withhold",
+    "record": "D% prelaunch failed before reader ran; no release credit",
+    "source": "../../cryptid/full-reproducible-replay/README.md"
+  }
+]
