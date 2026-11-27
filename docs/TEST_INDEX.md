@@ -2,6 +2,15 @@
 
 Last reviewed: 2026-11-27.
 
+## Gremlin system map and Al-note relay
+
+[Gremlin](gremlin/README.md) maps tracked ownership, explicit component links,
+indexed experiments and revisit conditions. [Boundary tests](../tests/test_gremlin.py)
+and [reproduction commands](gremlin/README.md) check drift and reference safety;
+these are maintenance checks, not reader gains or independent evaluation.
+[Al note 0001](../handoff/al-notes/0001-gremlin-and-repository-relay.md) records
+Mitchell's scoped override. The repository relay benefit remains unmeasured.
+
 The release history records clean cumulative Thoth in PR #109, the later
 reader release in PR #110 and the lab-only controller in PR #111. Earlier
 candidate-only entries link their original checked PR #106 pins. See

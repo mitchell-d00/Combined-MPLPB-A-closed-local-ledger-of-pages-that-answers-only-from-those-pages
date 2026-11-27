@@ -175,6 +175,21 @@ Al:
 
 Al’s endorsement cannot replace missing evidence, erase a failed result or authorize a change to a frozen key.
 
+### Repository Al Notes and explicit overrides
+
+Mitchell authorized a versioned [Al Notes](../handoff/al-notes/README.md) relay
+to reduce copy-paste between sessions. Notes remain advice unless covered by
+maintainer authorization. Al normally remains read-only for implementation;
+any implementation exception must record Mitchell's explicit override, scope
+and role. [Note 0001](../handoff/al-notes/0001-gremlin-and-repository-relay.md)
+is the first scoped example. Al's own implementation and checks do not become
+independent review. Betty acknowledges the note's actual commit and separately
+records her applied work and checked revision. Reading is not applying;
+author labels are not authentication; notes do not automatically execute.
+
+Use [Gremlin](gremlin/README.md) to recover component relationships, change-review
+hints and useful unfinished work. Map links confer neither support nor authority.
+
 ### Betty — Implement, test and retain the result
 
 Betty performs authorized implementation and evaluation work.
