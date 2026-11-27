@@ -1,6 +1,8 @@
 # Papers
 
-Nine supplied papers are preserved in eleven files. The PDF and Markdown versions of Combined MPLPB and MPLPB Image are retained separately. Original bytes are unchanged; filenames have been simplified.
+Last reviewed: 2026-11-27.
+
+Ten supplied papers are preserved in twelve files. The PDF and Markdown versions of Combined MPLPB and MPLPB Image are retained separately. Original bytes are unchanged; filenames have been simplified.
 
 | Paper | Preserved files | Source |
 |---|---|---|
@@ -13,6 +15,7 @@ Nine supplied papers are preserved in eleven files. The PDF and Markdown version
 | Clarity Is Not Validation | [Text](Clarity_Is_Not_Validation.txt) | Direct attachment |
 | Combined MPLPB | [PDF](Combined_MPLPB.pdf), [Markdown](Combined_MPLPB.md) | `files(3).zip`, including its nested code archive |
 | MPLPB Image v2 | [PDF](MPLPB_Image_v2.pdf), [Markdown](MPLPB_Image_v2.md) | `MPLPB-Image-v2(2).zip` |
+| From Workflow Decisions to Git Effects | [PDF](From-Workflow-Decisions-to-Git-Effects.pdf) · [Dated archive note](2026-11-27-workflow-git-effects-archive-note.md) | Supplied published PDF |
 
 [manifest.json](manifest.json) records exact original filenames, archive member paths, SHA-256 digests, and byte sizes. [upload-inventory.json](upload-inventory.json) records all ten original attachments, including the code archives. The art studio archive is software, rather than a paper; its review is included in [the upload review](../docs/UPLOAD_REVIEW.md).
 
