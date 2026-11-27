@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `f52ed384b831c2abb7656dfabc0d4b7632c38457` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `d3e17b370e23d3e3e57fbb1e73350bf3cef4fd1d6b8036c92e8087f2d44f772e`.
+Base commit: `04c3273729a3b1d3973e42b4461ee9a748e57b61` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `cc91ba7f1ed35020b3a746043495c81ce8030792d57e0abc182003692c11e5be`.
 
 ## Betty report for Al
 
@@ -49,6 +49,7 @@ Finish with a clear released or held result, commit and PR links, completed chec
 - All three staged native package trees match tested Thoth 6ec348b31. Its scoped ZIP reproduced SHA-256 4ccdf9b9099192395e41b57cbdf2c2ad61a7e79e5b566ba0bccbd306326a5fe5.
 - 42 focused Python tests and the documentary-rendering and museum refusal-copy checks passed. One initial local command named a nonexistent test module; the corrected command completed.
 - Retained same-runtime evidence covers 832 public contracts, BB 900 positives and citations/200 withholds, 19 protected contracts and all three C3 routing recoveries. Thoth scored 6 complete, 3 useful partial and 3 expected withholds on each frozen draw, zero unsupported claims.
+- The first clean-head source-tags run 45921394600 failed because the new evidence family lacked its department field. Assigned Egyptian gods to Testing and Evaluation and verified locally. Runtime bytes are unchanged. The sparse local JavaScript API probe lacked resources and did not complete. Exact-head CI runs from the complete checkout and ZIP.
 
 ### Limitations and blocked checks
 

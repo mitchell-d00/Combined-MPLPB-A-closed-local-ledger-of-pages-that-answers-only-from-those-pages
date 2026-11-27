@@ -11,8 +11,8 @@ packaging. Its previously released reader is `2622813aba9ee1f1880693eeb71ae015cb
 The cumulative C3, Wampus and Thoth candidate reader copies the tested native
 tree `6ec348b31ec79e37def77a7019cd22102df85f93`.
 [Acceptance, candidate evidence and incident plan](recovery/THOTH_CLEAN_RELEASE.md).
-The clean PR's Betty report records the checked clean head, source ZIP digest
-and released or held decision. Deployment requires a separate live receipt.
+The [PR #109 Betty report](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/109)
+records the checked clean head, source ZIP digest and release decision. Deployment requires a separate live receipt.
 
 The frozen Thoth development and fresh draws each retained six complete
 answers, three checked partials, three controls withheld and zero unsupported
