@@ -331,7 +331,7 @@ def date_inventory(index,record):
     return {'proposition':value,'citations':citations}
 
 
-def context_ranges(record, *, document_draft=False, literal_source=False):
+def context_ranges(record, *, document_draft=False, literal_source=False, standalone_from_byline=False):
     """Conservatively exclude quotation/chrome and qualified heading scopes.
 
     Position through the unchanged canonical projection. A page containing a
@@ -399,7 +399,7 @@ def context_ranges(record, *, document_draft=False, literal_source=False):
     # extractor's new sentence boundaries must never erase these governors.
     # This restricts semantic assertions; literal text-location remains allowed.
     labels=[];lines=full[:2000].lstrip('\ufeff').splitlines()[:16];header_uncertain=False
-    if lines and re.match(r'From: ',lines[0],re.I):
+    if lines and re.match(r'From: ',lines[0],re.I) and not standalone_from_byline:
         fields=[]
         for line in lines:
             m=re.fullmatch(r'(From|To|Date(?: written| sent| received)?|Subject|Message-ID|Cc): (.+)',line,re.I)

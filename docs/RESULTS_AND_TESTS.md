@@ -192,8 +192,9 @@ results remain unchanged.
 ## Egyptian-series programme
 
 [Registry](../evaluation/egyptian-gods/PROGRAMME.md) preserves the original
-family receipts and names the next bounded Bastet source-selection and
-attribution obligation.
+family receipts. [Bastet results](../evaluation/egyptian-gods/bastet/SELECTION_RESULTS.md)
+measure named-document selection and report attribution separately, with
+the first fresh score and preservation retained.
 
 ## Bunyip Round 4
 
