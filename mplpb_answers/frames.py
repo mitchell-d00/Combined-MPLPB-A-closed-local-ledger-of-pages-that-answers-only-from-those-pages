@@ -71,6 +71,10 @@ def parse(question):
         if relation=='owner':
             return QuestionFrame(relation,entity,'who owns '+entity,rf'(?P<value>.+) owns {e}',rf'(?P<value>.+) does not own {e}')
         if relation=='description':
-            return QuestionFrame(relation,entity,'what is '+entity,rf'(?:the )?{e} (?:is|are) (?P<value>.+)',rf'(?:the )?{e} (?:is|are) not (?P<value>.+)',requested_value=normalize(proposal.get('requested_value','')))
+            requested=normalize(proposal.get('requested_value',''))
+            # A conjunction-containing name must be witnessed as one singular
+            # subject, not inferred from coordinated plural subjects.
+            copula='is' if requested and re.search(r'\band\b',entity) else '(?:is|are)'
+            return QuestionFrame(relation,entity,'what is '+entity,rf'(?:the )?{e} {copula} (?P<value>.+)',rf'(?:the )?{e} {copula} not (?P<value>.+)',requested_value=requested)
         return QuestionFrame(relation,entity,'when does '+entity+' open',rf'(?:the )?{e} opens at (?P<value>.+)',rf'(?:the )?{e} does not open at (?P<value>.+)')
     return None

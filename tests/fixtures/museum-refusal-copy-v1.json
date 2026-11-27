@@ -1,0 +1,100 @@
+{
+  "origin": "C2 candidate existing-CLI software walkthrough; synthetic reconstruction, not original Outside live case; no human trial",
+  "eligible_nonempty_corpus_records": 1,
+  "displayed_supporting_source_count_for_closing": 0,
+  "native_decision_preserved": true,
+  "cases": {
+    "opening": {
+      "kind": "return",
+      "reason": "Exact source body field evidence; no inference from record identity.",
+      "answer_contract": {
+        "answer_supported": true,
+        "diagnostic": {
+          "code": "supported",
+          "stage": "strict",
+          "message": "Exact source body field evidence; no inference from record identity.",
+          "category": "source_support_established",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Open the cited source and check its conditions and revision."
+          ]
+        },
+        "claims": [
+          {
+            "text": "Opening time: 09:00.",
+            "qualifiers": [
+              "Source-declared field; source truth is unverified."
+            ],
+            "citations": [
+              {
+                "field": "opening time",
+                "value": "09:00.",
+                "quote": "Opening time: 09:00.",
+                "source_id": "DOC-0001",
+                "path": "doc-0001.html",
+                "hash": "sha256:3405efdc08adc0749d61d4b063bc48894deddfdc36d622135c61fcc2ab4e3a8a",
+                "body_start": 0,
+                "body_end": 20,
+                "start": 0,
+                "end": 20,
+                "stacked_field_suspected": false
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "DOC-0001",
+            "path": "doc-0001.html",
+            "hash": "sha256:3405efdc08adc0749d61d4b063bc48894deddfdc36d622135c61fcc2ab4e3a8a",
+            "title": "Museum hours",
+            "origin": "human",
+            "origin_depth": 0,
+            "scope": "museum hours",
+            "not_for": "",
+            "derived_from": [],
+            "supersedes": [],
+            "evidence_roots": [
+              "DOC-0001@sha256:3405efdc08adc0749d61d4b063bc48894deddfdc36d622135c61fcc2ab4e3a8a"
+            ]
+          }
+        ]
+      }
+    },
+    "closing": {
+      "kind": "not_in_corpus",
+      "reason": "Question is outside the supported statement grammar.",
+      "answer_contract": {
+        "answer_supported": false,
+        "diagnostic": {
+          "code": "exact_field_missing",
+          "stage": "strict",
+          "message": "The exact eligible record has no explicit body evidence for the requested field.",
+          "category": "insufficient_evidence",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Inspect the exact record and supply an explicit source body field; an identifier alone is not field support."
+          ]
+        },
+        "claims": [],
+        "sources": [
+          {
+            "id": "DOC-0001",
+            "path": "doc-0001.html",
+            "hash": "sha256:3405efdc08adc0749d61d4b063bc48894deddfdc36d622135c61fcc2ab4e3a8a",
+            "title": "Museum hours",
+            "origin": "human",
+            "origin_depth": 0,
+            "scope": "museum hours",
+            "not_for": "",
+            "derived_from": [],
+            "supersedes": [],
+            "evidence_roots": [
+              "DOC-0001@sha256:3405efdc08adc0749d61d4b063bc48894deddfdc36d622135c61fcc2ab4e3a8a"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -2,12 +2,21 @@
 
 Last reviewed: 2026-11-27.
 
-This documentation change keeps the released reader from `2622813aba9ee1f1880693eeb71ae015cb3da999`.
-C3 and the UI-copy proposal remain **unmerged in [PR #106](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/106)**.
-Candidate tests/evidence below link to that checked pin. Their implementation,
-archives and commit history are not imported. See [HANDOFF](../HANDOFF.md).
+The clean cumulative release uses the tested Thoth native tree. Earlier
+candidate-only entries link their original checked PR #106 pins. See
+[HANDOFF](../HANDOFF.md) and [current status](CURRENT_STATUS.md).
 
 [Product, project and evidence boundaries](RESPONSIBILITY_BOUNDARIES.md) describe which distributions carry runtime, tools and retained records.
+
+## Clean cumulative reader release
+
+[Release acceptance and incident scope](recovery/THOTH_CLEAN_RELEASE.md) ·
+[Bunyip replacement scores](../evaluation/cryptid/bunyip/round2/replacement/RESULTS.md) ·
+[Wampus Cat](../evaluation/cryptid/wampus-cat/RESULTS.md) ·
+[Thoth](../evaluation/egyptian-gods/thoth/RESULTS.md).
+The original PR #106 gates and the unavailable 17 and 100 cases retain their
+original disposition. These entries link checked source and retained results.
+
 
 ## Capability-to-evidence map
 

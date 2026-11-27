@@ -1,0 +1,4357 @@
+{
+  "development_vs_c3": {
+    "comparison_format": "bunyip-round2-replacement-readout-v1",
+    "packet_arms": [
+      "development"
+    ],
+    "summary": {
+      "cases": 12,
+      "released_executed": 12,
+      "released_unsupported_completions": 0,
+      "released_unsupported_claim_cases": 0,
+      "released_correct_controls": 4,
+      "candidate_executed": 12,
+      "candidate_unsupported_completions": 0,
+      "candidate_unsupported_claim_cases": 0,
+      "candidate_correct_controls": 5,
+      "candidate_only": 4,
+      "neither": 2
+    },
+    "by_family": {
+      "missing": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 0,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "candidate_only": 1
+      },
+      "irrelevant": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 0,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 0,
+        "neither": 1
+      },
+      "mismatch": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 1,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "candidate_only": 1
+      },
+      "restricted": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 1,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "candidate_only": 1
+      },
+      "withdraw": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 1,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "candidate_only": 1
+      },
+      "role": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 1,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "neither": 1
+      }
+    },
+    "distinct_original_questions": 6,
+    "question_memberships": {
+      "When does Bracken Depot open, and where is it located?": [
+        "CRYPT-WAMPUS-D01-A",
+        "CRYPT-WAMPUS-D01-B"
+      ],
+      "For Clover Gallery, give its opening time and location.": [
+        "CRYPT-WAMPUS-D02-A",
+        "CRYPT-WAMPUS-D02-B"
+      ],
+      "What is the opening time and location of Birch Room?": [
+        "CRYPT-WAMPUS-D03-A",
+        "CRYPT-WAMPUS-D03-B"
+      ],
+      "What is the opening time and location of Coral Hall?": [
+        "CRYPT-WAMPUS-D04-A",
+        "CRYPT-WAMPUS-D04-B"
+      ],
+      "At which time does Hazel Arcade open, and where is it located?": [
+        "CRYPT-WAMPUS-D05-A",
+        "CRYPT-WAMPUS-D05-B"
+      ],
+      "For Sable Depot, list its opening time and location.": [
+        "CRYPT-WAMPUS-D06-A",
+        "CRYPT-WAMPUS-D06-B"
+      ]
+    },
+    "rows": [
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D01-A",
+        "family": "missing",
+        "question": "When does Bracken Depot open, and where is it located?",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "documentary_assertion_not_established",
+          "raw_output_sha256": "203704872cc119dc66b0e1aa7aa62ee9a23c89cfb9a20dfde920c4e24cf60a99"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "supported_answer",
+          "claim_count": 2,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [
+            "Opening time: 08:20",
+            "Location: Lower arch"
+          ],
+          "citation_errors": [],
+          "diagnostic": "supported",
+          "raw_output_sha256": "80fcb458a65b11524d2e0fe2c2c773f419d688046920e081071e9856794dd042"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D01-B",
+        "family": "missing",
+        "question": "When does Bracken Depot open, and where is it located?",
+        "expected": "partial",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": true
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "documentary_assertion_not_established",
+          "raw_output_sha256": "c5697f08e728cf3a42686ad4889ee0e6be535fd8b542b29b555ac5f7a4bb19d7"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "partial_answer",
+          "claim_count": 1,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": true
+          },
+          "required_witnesses_covered": [
+            "Opening time: 08:20"
+          ],
+          "citation_errors": [],
+          "diagnostic": "compound_field_incomplete",
+          "raw_output_sha256": "723431d376b025993d49a97dcded1d0033ee7ff24ab8e970bbcbe36cc21ebf2a"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D02-A",
+        "family": "irrelevant",
+        "question": "For Clover Gallery, give its opening time and location.",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "501e5a3b9b13844d09e1103643b53f7f65d33391872d59b2c7123329f74ce94e"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "850dc5dc811f3d2182f359a086bf71d924abe6ea1c3bbe86f420824b438488a5"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D02-B",
+        "family": "irrelevant",
+        "question": "For Clover Gallery, give its opening time and location.",
+        "expected": "partial",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "4b3db3f38cd5d40c94d5a421baa0ba641a695954f4d58944ed4c1d0a83ae5c1b"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "ebfba0d2de46811fa13af9480d8136a9058a406cd2b44a1444fe916ac632acd8"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D03-A",
+        "family": "mismatch",
+        "question": "What is the opening time and location of Birch Room?",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "evidence_not_established",
+          "raw_output_sha256": "5f3f1bfbbca806b521e2d9c69dbd13e23a01ae104a11ae2f1faa3e0811eeb432"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "supported_answer",
+          "claim_count": 2,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [
+            "Opening time: 07:30",
+            "Location: South ferry"
+          ],
+          "citation_errors": [],
+          "diagnostic": "supported",
+          "raw_output_sha256": "302540160a410511db5c3687e9c6f18768fcbfd278ff6432971a1b705a5d2e75"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D03-B",
+        "family": "mismatch",
+        "question": "What is the opening time and location of Birch Room?",
+        "expected": "withhold",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "evidence_not_established",
+          "raw_output_sha256": "b314d7d4f0bda9fa0fe782f85a226bcbdb2ba605b41215c1c41fd3ad9029b6af"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "conflict",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "compound_field_incomplete",
+          "raw_output_sha256": "87a6616741212da031230e0c8712ae33ea38cbbeccf2562107888bae3df2d5b4"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D04-A",
+        "family": "restricted",
+        "question": "What is the opening time and location of Coral Hall?",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "evidence_not_established",
+          "raw_output_sha256": "0dd5241be1c8174631657021f897f225060ff7bba951f23dccd4c9d55d2a963e"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "supported_answer",
+          "claim_count": 2,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [
+            "Opening time: 10:05",
+            "Location: Pier lane"
+          ],
+          "citation_errors": [],
+          "diagnostic": "supported",
+          "raw_output_sha256": "6330ccab6424e339d53194fa24d2072b6425dbaf62196faeab2dc07b52855ad2"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D04-B",
+        "family": "restricted",
+        "question": "What is the opening time and location of Coral Hall?",
+        "expected": "withhold",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "evidence_not_established",
+          "raw_output_sha256": "08a8cc7ecf7ba08cf531ac409d6d8bf4270ec1e03f9ed2daa7f57f0a68496a7b"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "compound_field_incomplete",
+          "raw_output_sha256": "04925596f128c4d2c45c607474234f6394f6bc0b937c409b92b2c76edc43595e"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D05-A",
+        "family": "withdraw",
+        "question": "At which time does Hazel Arcade open, and where is it located?",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "2baec4b9fc086a4df16bda9b84acb1924cb907e03c00f9cbda737d0afe34a1de"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "supported_answer",
+          "claim_count": 2,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [
+            "Opening time: 06:25",
+            "Location: East court"
+          ],
+          "citation_errors": [],
+          "diagnostic": "supported",
+          "raw_output_sha256": "7085c4fff12b1bf495681afe66f5d14a8b63b2011583b17409d79685680e196a"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D05-B",
+        "family": "withdraw",
+        "question": "At which time does Hazel Arcade open, and where is it located?",
+        "expected": "withhold",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "95b3f3a9261b5086841cc7e573ae32c5e102f2109ac6b3829b3d46592cc4b0f8"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "compound_field_incomplete",
+          "raw_output_sha256": "af493b3e44ef87f5a36625f4ca51d65b8c4cbcf23e169d55549073de40fd4e30"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D06-A",
+        "family": "role",
+        "question": "For Sable Depot, list its opening time and location.",
+        "expected": "partial",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "38921ae66b0fc4c9e21409bc8e23aa69b2a30e66207ade3d0028d09a34e7e854"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "b13564335a0048a981e473a70c362a0e5470dd0742f411fae38b43d3280b2666"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D06-B",
+        "family": "role",
+        "question": "For Sable Depot, list its opening time and location.",
+        "expected": "withhold",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "e604fec83a81d2343d0975e84f2804285278c6ab7a745f551b804772dd905272"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "3a8fa6ccdccd928c53132c9df61d5a2942cecea1c70858a1d9f7402159766b7f"
+        }
+      }
+    ],
+    "reference_reader": "c3",
+    "reference_artifact_sha256": "186575e2f9bf3a82b318ef717b89f9edeca08b0b5615c80acb4a0a02f79e5587",
+    "wampus_artifact_sha256": "186575e2f9bf3a82b318ef717b89f9edeca08b0b5615c80acb4a0a02f79e5587"
+  },
+  "development_vs_released": {
+    "comparison_format": "bunyip-round2-replacement-readout-v1",
+    "packet_arms": [
+      "development"
+    ],
+    "summary": {
+      "cases": 12,
+      "released_executed": 12,
+      "released_unsupported_completions": 0,
+      "released_unsupported_claim_cases": 0,
+      "released_correct_controls": 4,
+      "candidate_executed": 12,
+      "candidate_unsupported_completions": 0,
+      "candidate_unsupported_claim_cases": 0,
+      "candidate_correct_controls": 5,
+      "candidate_only": 4,
+      "neither": 2
+    },
+    "by_family": {
+      "missing": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 0,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "candidate_only": 1
+      },
+      "irrelevant": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 0,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 0,
+        "neither": 1
+      },
+      "mismatch": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 1,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "candidate_only": 1
+      },
+      "restricted": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 1,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "candidate_only": 1
+      },
+      "withdraw": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 1,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "candidate_only": 1
+      },
+      "role": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 1,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "neither": 1
+      }
+    },
+    "distinct_original_questions": 6,
+    "question_memberships": {
+      "When does Bracken Depot open, and where is it located?": [
+        "CRYPT-WAMPUS-D01-A",
+        "CRYPT-WAMPUS-D01-B"
+      ],
+      "For Clover Gallery, give its opening time and location.": [
+        "CRYPT-WAMPUS-D02-A",
+        "CRYPT-WAMPUS-D02-B"
+      ],
+      "What is the opening time and location of Birch Room?": [
+        "CRYPT-WAMPUS-D03-A",
+        "CRYPT-WAMPUS-D03-B"
+      ],
+      "What is the opening time and location of Coral Hall?": [
+        "CRYPT-WAMPUS-D04-A",
+        "CRYPT-WAMPUS-D04-B"
+      ],
+      "At which time does Hazel Arcade open, and where is it located?": [
+        "CRYPT-WAMPUS-D05-A",
+        "CRYPT-WAMPUS-D05-B"
+      ],
+      "For Sable Depot, list its opening time and location.": [
+        "CRYPT-WAMPUS-D06-A",
+        "CRYPT-WAMPUS-D06-B"
+      ]
+    },
+    "rows": [
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D01-A",
+        "family": "missing",
+        "question": "When does Bracken Depot open, and where is it located?",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "documentary_assertion_not_established",
+          "raw_output_sha256": "f889268410a6d377fd337ab91e96c98b6b45fd255dd2dd4c6c6a3e0dc9c8fb52"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "supported_answer",
+          "claim_count": 2,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [
+            "Opening time: 08:20",
+            "Location: Lower arch"
+          ],
+          "citation_errors": [],
+          "diagnostic": "supported",
+          "raw_output_sha256": "80fcb458a65b11524d2e0fe2c2c773f419d688046920e081071e9856794dd042"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D01-B",
+        "family": "missing",
+        "question": "When does Bracken Depot open, and where is it located?",
+        "expected": "partial",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": true
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "documentary_assertion_not_established",
+          "raw_output_sha256": "054a5e9ec4c40a03bfac6d4aa33d8077e37a70284c311d11cee10238a48a54f0"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "partial_answer",
+          "claim_count": 1,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": true
+          },
+          "required_witnesses_covered": [
+            "Opening time: 08:20"
+          ],
+          "citation_errors": [],
+          "diagnostic": "compound_field_incomplete",
+          "raw_output_sha256": "723431d376b025993d49a97dcded1d0033ee7ff24ab8e970bbcbe36cc21ebf2a"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D02-A",
+        "family": "irrelevant",
+        "question": "For Clover Gallery, give its opening time and location.",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "098c81fe9b919b2153a2a267a7dfe8bef83e9f3acc31cdb65e9c22ce873fad29"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "850dc5dc811f3d2182f359a086bf71d924abe6ea1c3bbe86f420824b438488a5"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D02-B",
+        "family": "irrelevant",
+        "question": "For Clover Gallery, give its opening time and location.",
+        "expected": "partial",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "1d65255795597e3254c340f82b1ca23619dd5fac46c37bc4d0b5ba867808997b"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "ebfba0d2de46811fa13af9480d8136a9058a406cd2b44a1444fe916ac632acd8"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D03-A",
+        "family": "mismatch",
+        "question": "What is the opening time and location of Birch Room?",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "evidence_not_established",
+          "raw_output_sha256": "2b5524c43acaffa80eabb3a73e480b5e63eb5e2c9d895d0e990ac69bc582ae0a"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "supported_answer",
+          "claim_count": 2,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [
+            "Opening time: 07:30",
+            "Location: South ferry"
+          ],
+          "citation_errors": [],
+          "diagnostic": "supported",
+          "raw_output_sha256": "302540160a410511db5c3687e9c6f18768fcbfd278ff6432971a1b705a5d2e75"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D03-B",
+        "family": "mismatch",
+        "question": "What is the opening time and location of Birch Room?",
+        "expected": "withhold",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "evidence_not_established",
+          "raw_output_sha256": "960fbf531f615539e8c05c2a1f1c0068a7d886855b29bf6910f3d7d66eed18d0"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "conflict",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "compound_field_incomplete",
+          "raw_output_sha256": "87a6616741212da031230e0c8712ae33ea38cbbeccf2562107888bae3df2d5b4"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D04-A",
+        "family": "restricted",
+        "question": "What is the opening time and location of Coral Hall?",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "evidence_not_established",
+          "raw_output_sha256": "8ef4969fb32b06dc87f3166342a07d106f38dd15ce9b1bb8f0371470e98f286b"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "supported_answer",
+          "claim_count": 2,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [
+            "Opening time: 10:05",
+            "Location: Pier lane"
+          ],
+          "citation_errors": [],
+          "diagnostic": "supported",
+          "raw_output_sha256": "6330ccab6424e339d53194fa24d2072b6425dbaf62196faeab2dc07b52855ad2"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D04-B",
+        "family": "restricted",
+        "question": "What is the opening time and location of Coral Hall?",
+        "expected": "withhold",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "evidence_not_established",
+          "raw_output_sha256": "225161dcbe9b4cd62f261086dffc89cecdbdbdecd9ecdc2fc8b71b39baaa380e"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "compound_field_incomplete",
+          "raw_output_sha256": "04925596f128c4d2c45c607474234f6394f6bc0b937c409b92b2c76edc43595e"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D05-A",
+        "family": "withdraw",
+        "question": "At which time does Hazel Arcade open, and where is it located?",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "a59e88644d831404448012728052346346dc2afb3f284af60b261a47ace3fd5b"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "supported_answer",
+          "claim_count": 2,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [
+            "Opening time: 06:25",
+            "Location: East court"
+          ],
+          "citation_errors": [],
+          "diagnostic": "supported",
+          "raw_output_sha256": "7085c4fff12b1bf495681afe66f5d14a8b63b2011583b17409d79685680e196a"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D05-B",
+        "family": "withdraw",
+        "question": "At which time does Hazel Arcade open, and where is it located?",
+        "expected": "withhold",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "55a09f2f12a1efd7002f4894c3978a00f3fade7c3baa9bb64294e9344bdaa8d6"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "compound_field_incomplete",
+          "raw_output_sha256": "af493b3e44ef87f5a36625f4ca51d65b8c4cbcf23e169d55549073de40fd4e30"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D06-A",
+        "family": "role",
+        "question": "For Sable Depot, list its opening time and location.",
+        "expected": "partial",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "32d66dffee882a27f75cf9bd57d9846ed44e73c40052d3d3c8935ee59566efd4"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "b13564335a0048a981e473a70c362a0e5470dd0742f411fae38b43d3280b2666"
+        }
+      },
+      {
+        "packet": "development",
+        "id": "CRYPT-WAMPUS-D06-B",
+        "family": "role",
+        "question": "For Sable Depot, list its opening time and location.",
+        "expected": "withhold",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "fc25c7bb5a45d0af9110ed35b7795e4d2929571997e5d83a9e3d781c5e2a6012"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "3a8fa6ccdccd928c53132c9df61d5a2942cecea1c70858a1d9f7402159766b7f"
+        }
+      }
+    ],
+    "reference_reader": "released",
+    "reference_artifact_sha256": "186575e2f9bf3a82b318ef717b89f9edeca08b0b5615c80acb4a0a02f79e5587",
+    "wampus_artifact_sha256": "186575e2f9bf3a82b318ef717b89f9edeca08b0b5615c80acb4a0a02f79e5587"
+  },
+  "consumed_bunyip": {
+    "development": {
+      "comparison_format": "bunyip-round2-replacement-readout-v1",
+      "packet_arms": [
+        "development"
+      ],
+      "summary": {
+        "cases": 10,
+        "released_executed": 10,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 5,
+        "candidate_executed": 10,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 5,
+        "neither": 4,
+        "both": 1
+      },
+      "by_family": {
+        "signed instruction": {
+          "cases": 2,
+          "released_executed": 2,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 1,
+          "candidate_executed": 2,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 1,
+          "neither": 1
+        },
+        "reported speaker": {
+          "cases": 2,
+          "released_executed": 2,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 1,
+          "candidate_executed": 2,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 1,
+          "neither": 1
+        },
+        "conditional instruction": {
+          "cases": 2,
+          "released_executed": 2,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 1,
+          "candidate_executed": 2,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 1,
+          "neither": 1
+        },
+        "checked partial": {
+          "cases": 2,
+          "released_executed": 2,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 1,
+          "candidate_executed": 2,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 1,
+          "neither": 1
+        },
+        "competing owners": {
+          "cases": 2,
+          "released_executed": 2,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 1,
+          "candidate_executed": 2,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 1,
+          "both": 1
+        }
+      },
+      "distinct_original_questions": 7,
+      "question_memberships": {
+        "What task did Mira Loden give the harbor survey delegation in the letter to Rusk?": [
+          "C3-REPL-P01-A",
+          "C3-REPL-P01-B"
+        ],
+        "What did Juno Meir report that Tessa Vale wrote?": [
+          "C3-REPL-P02-A"
+        ],
+        "What did Rian Holt report that Tessa Vale wrote?": [
+          "C3-REPL-P02-B"
+        ],
+        "What did Ana Rell instruct the supply crew to do if the east lock opens?": [
+          "C3-REPL-P03-A"
+        ],
+        "Did the supply crew move the sealed barrels if the east lock opens?": [
+          "C3-REPL-P03-B"
+        ],
+        "What transition did Mira Loden intend her approach in the letter to Kline to guide, and what task did she give the harbor survey delegation in the letter to Rusk?": [
+          "C3-REPL-P04-A",
+          "C3-REPL-P04-B"
+        ],
+        "When does Maple Quay open?": [
+          "C3-REPL-P05-A",
+          "C3-REPL-P05-B"
+        ]
+      },
+      "rows": [
+        {
+          "packet": "development",
+          "id": "C3-REPL-P01-A",
+          "family": "signed instruction",
+          "question": "What task did Mira Loden give the harbor survey delegation in the letter to Rusk?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "signed_instruction_unresolved",
+            "raw_output_sha256": "1c10829277c05da01ac164c0e705cb1db6d914518401880f4166e97ef615d0bf"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "signed_instruction_unresolved",
+            "raw_output_sha256": "7e18a573ddef6b1f2e8e0e89d66f799ba2b969ba378ec46d83d5a23fe6bd3cc2"
+          }
+        },
+        {
+          "packet": "development",
+          "id": "C3-REPL-P01-B",
+          "family": "signed instruction",
+          "question": "What task did Mira Loden give the harbor survey delegation in the letter to Rusk?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "signed_instruction_unresolved",
+            "raw_output_sha256": "43a293e6f062485db182f5c7d07aadab294ec2c4e7ea0e7a0e0b696c0d6a4fe4"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "signed_instruction_unresolved",
+            "raw_output_sha256": "3fe0edda4324ee360fe9ee2d90ecfa5375f7221b6e21fe6469f3ce195ac565e9"
+          }
+        },
+        {
+          "packet": "development",
+          "id": "C3-REPL-P02-A",
+          "family": "reported speaker",
+          "question": "What did Juno Meir report that Tessa Vale wrote?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "ef03cc1eae6697e39630becd917796ed064bd8c103b4b5b7afab7274fc8e9228"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "ab66ceeb852957a1f0d286ed8d50873813e5012efa0fa0b49fe015b81829c307"
+          }
+        },
+        {
+          "packet": "development",
+          "id": "C3-REPL-P02-B",
+          "family": "reported speaker",
+          "question": "What did Rian Holt report that Tessa Vale wrote?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "5ea947f1f87ffef4fe343ea8431e0c94b4a0e06cd77aa24ed70e6ccfd18b0a59"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "4f315fb04e1dc5bdc92643977ed478ee20aede0d290f1cc68cdeedd076baa8fd"
+          }
+        },
+        {
+          "packet": "development",
+          "id": "C3-REPL-P03-A",
+          "family": "conditional instruction",
+          "question": "What did Ana Rell instruct the supply crew to do if the east lock opens?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": false,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "85a1f22b7f44e992f34f9fc84d5ac3eb57cab1bfbd6809add6f2e2a2d8f9f790"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": false,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "2c0420861767a4c4570d4e66949a8594a5538d07d02ba18ca2ea891be08333d8"
+          }
+        },
+        {
+          "packet": "development",
+          "id": "C3-REPL-P03-B",
+          "family": "conditional instruction",
+          "question": "Did the supply crew move the sealed barrels if the east lock opens?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "9412bc33b1c2867a9ae433dfb96d77fc06ada5c10005b4b1145545ab6925488d"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "594657c196a04820a8a6deb91c026da217213f52fcb25ef70d0668bc7f5e9648"
+          }
+        },
+        {
+          "packet": "development",
+          "id": "C3-REPL-P04-A",
+          "family": "checked partial",
+          "question": "What transition did Mira Loden intend her approach in the letter to Kline to guide, and what task did she give the harbor survey delegation in the letter to Rusk?",
+          "expected": "partial",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": false
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "signed_instruction_unresolved",
+            "raw_output_sha256": "0f89cb0e8881c23a27302a477eadbdc9d2e745f7e8087e45e38f242c2575e825"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": false
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "signed_instruction_unresolved",
+            "raw_output_sha256": "3fcf8d9b4d6f842e7092744a2248555d62820fe3724bf371529e191b1355f646"
+          }
+        },
+        {
+          "packet": "development",
+          "id": "C3-REPL-P04-B",
+          "family": "checked partial",
+          "question": "What transition did Mira Loden intend her approach in the letter to Kline to guide, and what task did she give the harbor survey delegation in the letter to Rusk?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "restricted_or_unavailable",
+            "raw_output_sha256": "bada8a30dfde601ce86c3b85147f1e795a9f424b3bc97b1cbbe22f60535e8c5c"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "restricted_or_unavailable",
+            "raw_output_sha256": "8474ea6a2438954199a57801eb007752c68369e2ee8c1ea8ee4296d76ba7a816"
+          }
+        },
+        {
+          "packet": "development",
+          "id": "C3-REPL-P05-A",
+          "family": "competing owners",
+          "question": "When does Maple Quay open?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Opening time: 08:40"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "36e44903ee5f4be021cee7b130f50d11a0136bfa9adca68bfb2210ae783ebcce"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Opening time: 08:40"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "2fc67f9648dcf9ead9dce5644b483f2288fccbe1b8360131a028f6e3f37f2600"
+          }
+        },
+        {
+          "packet": "development",
+          "id": "C3-REPL-P05-B",
+          "family": "competing owners",
+          "question": "When does Maple Quay open?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "conflict",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Opening time: 08:40",
+              "Opening time: 10:20"
+            ],
+            "citation_errors": [],
+            "diagnostic": "conflicting_or_multiple_owners",
+            "raw_output_sha256": "46c3ce422334d5d9fae5722f024a00ae7784d4857c34a6e007a877c4e6487deb"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "conflict",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Opening time: 08:40",
+              "Opening time: 10:20"
+            ],
+            "citation_errors": [],
+            "diagnostic": "conflicting_or_multiple_owners",
+            "raw_output_sha256": "67f42981bd5f924410d25eaf39a674ea1cd88a120befbdbca8f3e61d4e4c5d25"
+          }
+        }
+      ],
+      "reference_reader": "c3",
+      "reference_artifact_sha256": "1420fc5a9c68ea48a27f8df2082ed7b5c01896aeefbde6202edf5ee5383c6a48",
+      "wampus_artifact_sha256": "186575e2f9bf3a82b318ef717b89f9edeca08b0b5615c80acb4a0a02f79e5587"
+    },
+    "R": {
+      "comparison_format": "bunyip-round2-replacement-readout-v1",
+      "packet_arms": [
+        "R"
+      ],
+      "summary": {
+        "cases": 20,
+        "released_executed": 20,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 10,
+        "candidate_executed": 20,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 10,
+        "both": 3,
+        "neither": 7
+      },
+      "by_family": {
+        "entity and yes/no": {
+          "cases": 8,
+          "released_executed": 8,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 4,
+          "candidate_executed": 8,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 4,
+          "both": 2,
+          "neither": 2
+        },
+        "temporal role and routing": {
+          "cases": 8,
+          "released_executed": 8,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 4,
+          "candidate_executed": 8,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 4,
+          "both": 1,
+          "neither": 3
+        },
+        "ownership wording": {
+          "cases": 4,
+          "released_executed": 4,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 2,
+          "candidate_executed": 4,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 2,
+          "neither": 2
+        }
+      },
+      "distinct_original_questions": 10,
+      "question_memberships": {
+        "Is Vale and Sedge a municipal archive?": [
+          "C3-REPL-R01-A",
+          "C3-REPL-R01-B"
+        ],
+        "Is Loam Exchange a public library?": [
+          "C3-REPL-R02-A",
+          "C3-REPL-R02-B"
+        ],
+        "Is it true that Silver Ferry is a census registry?": [
+          "C3-REPL-R03-A",
+          "C3-REPL-R03-B"
+        ],
+        "Would the record call Moor Lantern a district school?": [
+          "C3-REPL-R04-A",
+          "C3-REPL-R04-B"
+        ],
+        "At which time does Cairn Desk open?": [
+          "C3-REPL-R05-A",
+          "C3-REPL-R05-B"
+        ],
+        "What time is Juniper Counter opening?": [
+          "C3-REPL-R06-A",
+          "C3-REPL-R06-B"
+        ],
+        "When does Salt Wharf open to visitors?": [
+          "C3-REPL-R07-A",
+          "C3-REPL-R07-B"
+        ],
+        "What is the opening time at Aster House?": [
+          "C3-REPL-R08-A",
+          "C3-REPL-R08-B"
+        ],
+        "Who owns Fern Atelier, according to the record?": [
+          "C3-REPL-R09-A",
+          "C3-REPL-R09-B"
+        ],
+        "Can the record identify the owner of Stone Bindery?": [
+          "C3-REPL-R10-A",
+          "C3-REPL-R10-B"
+        ]
+      },
+      "rows": [
+        {
+          "packet": "R",
+          "id": "C3-REPL-R01-A",
+          "family": "entity and yes/no",
+          "question": "Is Vale and Sedge a municipal archive?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": true,
+              "polarity": true,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": true,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Vale and Sedge is a municipal archive."
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "ebde023de6e176d5b5b2f29482f9e3156775cfc0351e38d5d320203d03b5bba2"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": true,
+              "polarity": true,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": true,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Vale and Sedge is a municipal archive."
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "30e7bd04ef7c29790030d23673d0e32e2299189cc24c1de825c94e36b4847d68"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R01-B",
+          "family": "entity and yes/no",
+          "question": "Is Vale and Sedge a municipal archive?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "90d8aa66477cc8c3ca19dbe38acb9e4248dbf394c65f0b923e673ab0ce961bb6"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "91aaf1499d33452c4300dfea6ed466ba4c8599187def405d2700f9bbf575c9ff"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R02-A",
+          "family": "entity and yes/no",
+          "question": "Is Loam Exchange a public library?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": true,
+              "polarity": true,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": true,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Loam Exchange is not a public library."
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "e15ddf72141d265d4f14f8a18b0f17fd53ad637dccdf674294e68a2469b108b4"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": true,
+              "polarity": true,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": true,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Loam Exchange is not a public library."
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "4e9ea50e235902a68bee0568afd64bd9d0ecce33562e166cf6a7ab7088977d90"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R02-B",
+          "family": "entity and yes/no",
+          "question": "Is Loam Exchange a public library?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "6d295de6bf891d210db9d989cef607fd70ad60a3dafaaf6df4c76a1976d1fd60"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "0ea8bd8631318385ed05b030cffa85a9296f8cf0036618488e9450fb35d973d0"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R03-A",
+          "family": "entity and yes/no",
+          "question": "Is it true that Silver Ferry is a census registry?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": false,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "bae009ac8a7d19973de3e128945d70b93bcf6d47ed7ad5e142358feea1dc3da4"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": false,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "2871d3710b3c573f623308580ad642ae19969c3cf69943668c499ca69f6b2d93"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R03-B",
+          "family": "entity and yes/no",
+          "question": "Is it true that Silver Ferry is a census registry?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "6c6f6c124021e35b8e960dff9089f92d4c52832c97d5278b3a87e69b97e75d07"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "f47961b9f70b4250039df3247ae80f5c3783fa7e30e329fbd2ed2dddf62f5d21"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R04-A",
+          "family": "entity and yes/no",
+          "question": "Would the record call Moor Lantern a district school?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": false,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "270e678075d9db2636e2db504098d2736446464500b4aeca1b568c43297238ec"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": false,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "dda5fe2466b7376cb281dc144048364dd90c9b08aee1317ba82dee7bd78a5337"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R04-B",
+          "family": "entity and yes/no",
+          "question": "Would the record call Moor Lantern a district school?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "87e9eb70c13a972577cc5efc68301a0b5e9eed01070a6441e23dabcfd3cf593c"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "dbd9e995842ae85cc29f478072b8b79b8bd39525b1ee845f67912e526252f0f5"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R05-A",
+          "family": "temporal role and routing",
+          "question": "At which time does Cairn Desk open?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Opening time: 07:25"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "2416a3bef09d50072f7de8f8acd3eea3fac183ddef8945561c4a4478ffea5162"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Opening time: 07:25"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "a7c165220d7f60dedb1499c63991c776d015c669f63e28d1ecc5423fb4267abc"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R05-B",
+          "family": "temporal role and routing",
+          "question": "At which time does Cairn Desk open?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "unresolved_evidence",
+            "raw_output_sha256": "7909cf242f6aa56267add56a4f03270e9a13886ad3b542162c6f5972248dffc9"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "unresolved_evidence",
+            "raw_output_sha256": "6f0cca6a9bd4690db40556b5967a29fd61f9f2ea60b7bb8b856c65ca21075d8b"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R06-A",
+          "family": "temporal role and routing",
+          "question": "What time is Juniper Counter opening?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "123903283d65b1b6b7a4650b2f9e8d82c091dc66d0590d6e0336a19721fe2973"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "b39399c713c38ef87fd8d6ac85b219a61fc8af2f47af75aacdd4a2653017deef"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R06-B",
+          "family": "temporal role and routing",
+          "question": "What time is Juniper Counter opening?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "conflict",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "retrieval_ambiguous",
+            "raw_output_sha256": "3e2362d83f286f0144ba711789c1783abb5ec34e3b60bd3c1858e725f2ca3a9d"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "conflict",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "retrieval_ambiguous",
+            "raw_output_sha256": "3b38d1ac516a35cf242b193c672a72ca2f95f502bbcb7cd3cb0ce81ff1f61681"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R07-A",
+          "family": "temporal role and routing",
+          "question": "When does Salt Wharf open to visitors?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "documentary_assertion_not_established",
+            "raw_output_sha256": "50c81e43f5a96745c8fbb16b4a891f03ddb07193960c7a21bbcdaf017ce0ca25"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "documentary_assertion_not_established",
+            "raw_output_sha256": "d8f70944f6f040302b5904a64ebfbac2b0910dc50e36f850f26ce8dae39ac168"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R07-B",
+          "family": "temporal role and routing",
+          "question": "When does Salt Wharf open to visitors?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "documentary_assertion_not_established",
+            "raw_output_sha256": "3763c8a08c4e6f57c41cfa5fbdfd12339fdaa004faef90d07ab9928f9bcf4e37"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "documentary_assertion_not_established",
+            "raw_output_sha256": "51a5c7c06f8e274db06201ce22af38848735e62858d0bc11b4ba88ddcc33a582"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R08-A",
+          "family": "temporal role and routing",
+          "question": "What is the opening time at Aster House?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "177e0546c0294f86bfe03797bde4d4574198840bca8e0d96c490456923782b44"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "f2dc2a3f8aae6ca8bbfaf500bf0172e92b602769d47422395a808b45c1990815"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R08-B",
+          "family": "temporal role and routing",
+          "question": "What is the opening time at Aster House?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "77087995ccaf79eb66224c4c9a9cbdd21b57e5363df977ea253a9ff7a8e0652b"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "1bf0b408e4a9da56dd7a1b977e78df2e72aae43e050af5a0aea674dc098c1687"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R09-A",
+          "family": "ownership wording",
+          "question": "Who owns Fern Atelier, according to the record?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "97a5ee44270ead6d24bdf23be54a548a180fa05fdd33b9e63aef8883222eff8a"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "868dd066ae39d48ca03fb1cf6d9a57a67a03db7a1a5d14f063311a0175394daf"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R09-B",
+          "family": "ownership wording",
+          "question": "Who owns Fern Atelier, according to the record?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "3fb6aa3809c9ea142818b312f9eff71faae5d610573d2fb9c825006751283e4c"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "8e9d212c8f92fe2f1d994e54285c42960ee9ff7bea6227ce73ef6dc8abd42f46"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R10-A",
+          "family": "ownership wording",
+          "question": "Can the record identify the owner of Stone Bindery?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "db9f493defaaa45ac7643a0b2e5b2908b698ae50cfb1cce6e7b8cec845813407"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "fee32677de8599db94eae1baeafd57b4c76c7a2730dbda75009b88dd9b24736e"
+          }
+        },
+        {
+          "packet": "R",
+          "id": "C3-REPL-R10-B",
+          "family": "ownership wording",
+          "question": "Can the record identify the owner of Stone Bindery?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "5b147b9091b7da6a80ab608ad2768b4b8274735b5ce4741f0e1f11b0dbbdaed8"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "1a7c567b1dafc1d74f0372edfe27d3cf794c1c041b1718e4c6f6e53023dfc1ed"
+          }
+        }
+      ],
+      "reference_reader": "c3",
+      "reference_artifact_sha256": "f0e6da998f224b8f0e58ab99bd2c0b8dd52aca6fe4f9a75ca4f858b856949e68",
+      "wampus_artifact_sha256": "186575e2f9bf3a82b318ef717b89f9edeca08b0b5615c80acb4a0a02f79e5587"
+    },
+    "X": {
+      "comparison_format": "bunyip-round2-replacement-readout-v1",
+      "packet_arms": [
+        "X"
+      ],
+      "summary": {
+        "cases": 20,
+        "released_executed": 20,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 6,
+        "candidate_executed": 20,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 9,
+        "neither": 7,
+        "candidate_only": 3
+      },
+      "by_family": {
+        "attribution and negation": {
+          "cases": 6,
+          "released_executed": 6,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 3,
+          "candidate_executed": 6,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 3,
+          "neither": 3
+        },
+        "conditional instruction": {
+          "cases": 6,
+          "released_executed": 6,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 3,
+          "candidate_executed": 6,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 3,
+          "neither": 3
+        },
+        "compound and partial": {
+          "cases": 8,
+          "released_executed": 8,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 0,
+          "candidate_executed": 8,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 3,
+          "candidate_only": 3,
+          "neither": 1
+        }
+      },
+      "distinct_original_questions": 16,
+      "question_memberships": {
+        "What did Elin Voss report that Neri Tarn wrote?": [
+          "C3-REPL-X01-A"
+        ],
+        "What did Rhea Olm report that Neri Tarn wrote?": [
+          "C3-REPL-X01-B"
+        ],
+        "What did Ivo Pell say Lina Rook did not write?": [
+          "C3-REPL-X02-A"
+        ],
+        "What did Rhea Olm say Lina Rook did not write?": [
+          "C3-REPL-X02-B"
+        ],
+        "What did Ada Fern report that Omar Kline wrote?": [
+          "C3-REPL-X03-A"
+        ],
+        "What did Rhea Olm report that Omar Kline wrote?": [
+          "C3-REPL-X03-B"
+        ],
+        "If the tide falls, what did Leda Owen instruct the harbor team to do?": [
+          "C3-REPL-X04-A"
+        ],
+        "Did the harbor team actually mark the pier boundary if the tide falls?": [
+          "C3-REPL-X04-B"
+        ],
+        "What did Milo Fenn tell the inventory crew to do, if the archive reopens?": [
+          "C3-REPL-X05-A"
+        ],
+        "Did the inventory crew actually count the red cases if the archive reopens?": [
+          "C3-REPL-X05-B"
+        ],
+        "What was the watch team instructed to do by Rosa Holt if the beacon goes dark?": [
+          "C3-REPL-X06-A"
+        ],
+        "Did the watch team actually close the lower walkway if the beacon goes dark?": [
+          "C3-REPL-X06-B"
+        ],
+        "When does Pine Archive open, and where is it located?": [
+          "C3-REPL-X07-A",
+          "C3-REPL-X07-B"
+        ],
+        "For Ash Room, give its opening time and location.": [
+          "C3-REPL-X08-A",
+          "C3-REPL-X08-B"
+        ],
+        "What is the opening time and location of Tern Repository?": [
+          "C3-REPL-X09-A",
+          "C3-REPL-X09-B"
+        ],
+        "At which time does Elm Observatory open, and where is it located?": [
+          "C3-REPL-X10-A",
+          "C3-REPL-X10-B"
+        ]
+      },
+      "rows": [
+        {
+          "packet": "X",
+          "id": "C3-REPL-X01-A",
+          "family": "attribution and negation",
+          "question": "What did Elin Voss report that Neri Tarn wrote?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": false,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "8153bfb19f12b5d1c566db06f5c33a7e40d56719a7f7795a2e657a1fe810578e"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": false,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "b3cc2929d0ef4ad3b43dcdf2466bfc5c5b96e65b2e2a3b0eab49781672caf0c3"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X01-B",
+          "family": "attribution and negation",
+          "question": "What did Rhea Olm report that Neri Tarn wrote?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "e276e10c049b31809eb7b136b9eb1c18c63f7f648edc4d5f758ee7527f0b9e53"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "5af9123dcbdb59298fb34bb53f6945973452ba7aef755fc3515b7f6a46e119ab"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X02-A",
+          "family": "attribution and negation",
+          "question": "What did Ivo Pell say Lina Rook did not write?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": false,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "fd47fb3517e662eb8cefe37055125e4f4c5a2f7fa8ce49901e108ebd3353636a"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": false,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "8201e449967133dfbfad92ced8f4a765e28bdbf2fa5e3419ea7124205e041779"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X02-B",
+          "family": "attribution and negation",
+          "question": "What did Rhea Olm say Lina Rook did not write?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "c50d7a8977aaf9d5eeb5d1fb875e06adf0d435c034b84926bcab3d6422576ab0"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "b75c619ace5d72799880462f4fc81f8f8cc84d0fd1a2bd5c8a1d2b43b02fd442"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X03-A",
+          "family": "attribution and negation",
+          "question": "What did Ada Fern report that Omar Kline wrote?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": false,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "b0d9ec28c1718e689950541142c4d9dcdf6a2a994c7cb34f9f47a8b727f409de"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": false,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "f63e54f4248c8fdf94916a60cb68efb25ab9855f41f26680ee82e4f6d6f44b16"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X03-B",
+          "family": "attribution and negation",
+          "question": "What did Rhea Olm report that Omar Kline wrote?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "989b0331928d9141c024f0c63bb1d40c7159e8f1ea03c5316c252b413bd4e66f"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "b3f988a7becb596dd2a7e7d3e145c7c6f9c56e7f353671f1fdfe8473ce7e0961"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X04-A",
+          "family": "conditional instruction",
+          "question": "If the tide falls, what did Leda Owen instruct the harbor team to do?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": false,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "04b4891acf403bdc720b7a28c7e829440c088b3b4abb90f2126cfed26e76cd30"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": false,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "50f9b2a0d112eac0db8eb672ca07ca3591e070a8735aa54364b18949a76e71fe"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X04-B",
+          "family": "conditional instruction",
+          "question": "Did the harbor team actually mark the pier boundary if the tide falls?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "a428584c815f89ba4c12669dc0179ee379b892f58a7057ba87c8d0674c7519f2"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "2225b296eed0518a767829b559f3b5b61fcc8c203a457331fe3dad7355f3dcad"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X05-A",
+          "family": "conditional instruction",
+          "question": "What did Milo Fenn tell the inventory crew to do, if the archive reopens?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": false,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "732d2fab58ec61cb48d86f73f55c4068d99c63620bcc441d3d34980442cec5f3"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": false,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "1c94f513922294673d80d16d692231ede9ff81740d92909800b2326f650ea613"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X05-B",
+          "family": "conditional instruction",
+          "question": "Did the inventory crew actually count the red cases if the archive reopens?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "fdc295f68cdfdac46756d2915bcd06e8308ab949362126962325e5cfdf264a59"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "8e0100453c0f59bd7ebb9e44f5d5fd53d3517f5ecd97d24b509327f87fea908c"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X06-A",
+          "family": "conditional instruction",
+          "question": "What was the watch team instructed to do by Rosa Holt if the beacon goes dark?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": false,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "004df16e3453018ee07c337b6743e903ddf9dcc52a3e11636e58f4541cfc313e"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": false,
+              "polarity": null,
+              "conditions": false,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "8d16040b1cb5d671cbe93010af422f11b8dc788171581e7020cfec541ecb9c05"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X06-B",
+          "family": "conditional instruction",
+          "question": "Did the watch team actually close the lower walkway if the beacon goes dark?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "2bd31713a5b9c4a2ea5d4b3c655f1fe0a883da72baeb342d3b471e6abd92d2e6"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "3bea9db018bc8c863a1f6b87e6762920221ff51eca9cd881b60cca415569fd54"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X07-A",
+          "family": "compound and partial",
+          "question": "When does Pine Archive open, and where is it located?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "documentary_assertion_not_established",
+            "raw_output_sha256": "5bdb187592e14e20afeb5997e32125f7b3d598ee3c6376406353f490aea27205"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 2,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Opening time: 07:05",
+              "Location: North quay"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "20620e1853a33cdf58e65446803097900f7019d00cdad08f0875e5804793bdf5"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X07-B",
+          "family": "compound and partial",
+          "question": "When does Pine Archive open, and where is it located?",
+          "expected": "partial",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": true
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "documentary_assertion_not_established",
+            "raw_output_sha256": "311f6430ff4be8a3044b070b937e85c3508e5a6ec979b1785361ee97c753038f"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "partial_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": true
+            },
+            "required_witnesses_covered": [
+              "Opening time: 07:05"
+            ],
+            "citation_errors": [],
+            "diagnostic": "compound_field_incomplete",
+            "raw_output_sha256": "25ddc6780630aea47053c387572c0c92a5461be4baffae55433845c9d0dde5ba"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X08-A",
+          "family": "compound and partial",
+          "question": "For Ash Room, give its opening time and location.",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "5151af49f7c0154994b2861dc1759cbe526bbc6a943ae064d9021f67fdb1d396"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "a5447c6742afa55e539a69bcc67000629062702e25458f62ed7ba5f74993cf03"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X08-B",
+          "family": "compound and partial",
+          "question": "For Ash Room, give its opening time and location.",
+          "expected": "partial",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": false
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "aa2af72cc8691907d835631ac2795c4eaeb0b5b2fa8ca6dee6ea8074cc71b913"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": false
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "ca2b01c75954a741581c0fd1929340b8a93ff1c6c9b898cbde46917d2237d8fb"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X09-A",
+          "family": "compound and partial",
+          "question": "What is the opening time and location of Tern Repository?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "fe1179a6ccc02ee3689ef9ea6518421d28f5bf15c8fba7dd66bc4c3399775daa"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 2,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Opening time: 08:25",
+              "Location: East wharf"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "d9f7fdea9d39122828799cb02ba0f642eb5e39a0164e65034ba283d482db834c"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X09-B",
+          "family": "compound and partial",
+          "question": "What is the opening time and location of Tern Repository?",
+          "expected": "partial",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": false
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "evidence_not_established",
+            "raw_output_sha256": "163894c315d6b307663a4fa117ca95bca9030dca4e32c2635521bc36a0d9bff9"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "partial_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": true
+            },
+            "required_witnesses_covered": [
+              "Opening time: 08:25"
+            ],
+            "citation_errors": [],
+            "diagnostic": "compound_field_incomplete",
+            "raw_output_sha256": "7e9d612a4e488da0675e24f63c78fa51c562d402b7b08044c71aa122c33171c3"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X10-A",
+          "family": "compound and partial",
+          "question": "At which time does Elm Observatory open, and where is it located?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "7e4da05733849c5794a417aeacbebe32f124e9f3e363d27cf95554c4bfb3c7ea"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 2,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Opening time: 12:05",
+              "Location: South terrace"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "d1460dcbe0cf41d08ed3a90a3165022679d2d5598d93577df4752e74f8e42025"
+          }
+        },
+        {
+          "packet": "X",
+          "id": "C3-REPL-X10-B",
+          "family": "compound and partial",
+          "question": "At which time does Elm Observatory open, and where is it located?",
+          "expected": "partial",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": false
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "e0ca2442c90b9cceb8254a0b64631bf860d9d3c56c780dc4829099acdf3bf73d"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "partial_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": true
+            },
+            "required_witnesses_covered": [
+              "Opening time: 12:05"
+            ],
+            "citation_errors": [],
+            "diagnostic": "compound_field_incomplete",
+            "raw_output_sha256": "245eadcb5f00448e211a119346febb0a52c0490d92bc09558e1e8ae2c15dc0b4"
+          }
+        }
+      ],
+      "reference_reader": "c3",
+      "reference_artifact_sha256": "f0e6da998f224b8f0e58ab99bd2c0b8dd52aca6fe4f9a75ca4f858b856949e68",
+      "wampus_artifact_sha256": "186575e2f9bf3a82b318ef717b89f9edeca08b0b5615c80acb4a0a02f79e5587"
+    }
+  }
+}

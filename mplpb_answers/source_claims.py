@@ -139,6 +139,7 @@ def _derive(record,body,unit,previous,info):
 def verify(index,max_passages,max_chars):
     goal=request(index.question)
     if goal is None:return None
+    target_object=goal.get('object')
     fresh=PassageIndex(index.root,index.question,index.profile)
     if len(fresh.records)>8 or sum(len(r.body_html) for r in fresh.records)>200000:return 'abstain','reference_scan_budget',{}
     matches=[];used=0;unresolved=False;alternatives=[];unparsed_units=[]
@@ -160,7 +161,7 @@ def verify(index,max_passages,max_chars):
                 unresolved=True
                 alternatives.append(kernel.citation(record,body,a,b))
             if b-a>2200:
-                if kernel.normalized(goal['object']) in kernel.normalized(text):
+                if (kernel.normalized(target_object) in kernel.normalized(text) if target_object else kernel.normalized(goal['actor']) in kernel.normalized(text)):
                     unresolved=True
                     unparsed_units.append({'source_id':record.id,'path':record.path,'hash':record.hash_actual,
                         'body_start':a,'body_end':b,'characters':b-a,'reason':'statement_phrase_budget',
@@ -169,13 +170,13 @@ def verify(index,max_passages,max_chars):
             derived=_derive(record,body,unit,previous,info);previous=unit
             if derived is None:
                 if (kernel.normalized(goal['actor']) in kernel.normalized(text)
-                        and kernel.normalized(goal['object']) in kernel.normalized(text)
+                        and (not target_object or kernel.normalized(target_object) in kernel.normalized(text))
                         and re.search(r'\b(?:not|never|intend\w*|instruct\w*|recommend\w*|forecast\w*|predict\w*|complet\w*|would)\b',text,re.I)):
                     unresolved=True
                 continue
             frame,value,citations=derived
             if (kernel.normalized(frame.actor)!=kernel.normalized(goal['actor'])
-                    or kernel.normalized(frame.object_text)!=kernel.normalized(goal['object'])
+                    or (target_object and kernel.normalized(frame.object_text)!=kernel.normalized(target_object))
                     or frame.modality!=('assertion' if goal['kind']=='denial' else goal['kind'])):continue
             if goal.get('recipient') and kernel.normalized(frame.task_actor)!=kernel.normalized(goal['recipient']):continue
             matches.append((frame,value,citations))

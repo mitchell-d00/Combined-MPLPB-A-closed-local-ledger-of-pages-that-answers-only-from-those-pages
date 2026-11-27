@@ -9,7 +9,7 @@ VERSION = 'statement-support-v4'
 
 
 from .frames import normalize, parse
-from .assertions import attach, conflicts
+from .assertions import attach, admission_state
 
 
 def statement_support(question, record):
@@ -64,6 +64,21 @@ def statement_support(question, record):
             if any(c in value for c in ['"','“','”',';']):continue
             spans.append({'quote':raw,'value':value})
     values={s['value'] for s in spans}
+    if frame.requested_value:
+        # Explicit denial is its own witnessed proposition. A different type
+        # never supplies a denial, and the question supplies no source fact.
+        spans=[s for s in spans if normalize(s['value'])==frame.requested_value]
+        negative_spans=[s for s in negative_spans if normalize(s['value'])==frame.requested_value]
+        if spans and negative_spans:
+            return {'status':'conflict','spans':spans,'negative_spans':negative_spans,'frame':frame.to_dict(),
+                    'reason':'Explicit positive and negative classification witnesses conflict.'}
+        selected=spans or negative_spans
+        if selected:
+            return {'status':'supported','spans':spans,'negative_spans':negative_spans,'answer_spans':selected,
+                    'literal_polarity':'positive' if spans else 'negative','polarity_contract':'literal-classification-yes-no-v1',
+                    'frame':frame.to_dict(),'reason':'Exact eligible singular classification witness; independent truth is not established.'}
+        return {'status':'unsupported','spans':[],'negative_spans':[],
+                'reason':'No explicit positive or negative witness establishes the requested classification.'}
     if len(values)>1 or (values & {s['value'] for s in negative_spans}):return {'status':'conflict','reason':'Conflicting matching statements in the candidate page.','spans':spans,'negative_spans':negative_spans,'frame':frame.to_dict()}
     if frame.requested_value and {normalize(p['value']) for p in spans}!={frame.requested_value}:
         return {'status':'unsupported','spans':spans,'negative_spans':negative_spans,'reason':'The requested literal description was not uniquely established.'}
@@ -85,7 +100,9 @@ class SupportedAnswer(Answer):
             from .procedures import render
             return render(self.support['procedure'])
         if self.support.get('status')=='supported':
-            return '\n'.join(s['quote'] for s in self.support['spans'])
+            text='\n'.join(s['quote'] for s in self.support.get('answer_spans',self.support['spans']))
+            polarity=self.support.get('literal_polarity')
+            return ('Yes. ' if polarity=='positive' else 'No. ' if polarity=='negative' else '')+text
         return ''
 
     def to_dict(self):
@@ -177,10 +194,8 @@ def supported_answer(root, question, profile=None):
                                                unresolved_spans=check.get('unresolved_spans', []),
                                                assertions=check.get('assertions', []))
                                            for rec, check in checks]
-        supported = [(rec, check) for rec, check in checks if check['status'] == 'supported']
-        conflict = conflicts(checks)
+        supported, conflict, unresolved = admission_state(checks)
         out.support['statement_conflict'] = conflict
-        unresolved = any(check.get('unresolved') for _, check in checks)
         out.support['unresolved'] = unresolved
         if len(supported) == 1 and not conflict and not unresolved:
             rec, check = supported[0]
@@ -230,10 +245,10 @@ def supported_answer(root, question, profile=None):
                                                unresolved_spans=check.get('unresolved_spans', []),
                                                assertions=check.get('assertions', []))
                                        for rec,check in checks]
-    supported = [(rec,check) for rec,check in checks if check['status']=='supported']
-    conflict = conflicts(checks)
+    supported, conflict, unresolved = admission_state(checks)
     out.support['statement_conflict'] = conflict
-    if len(supported)==1 and not conflict:
+    if unresolved:out.support['unresolved'] = True
+    if len(supported)==1 and not conflict and not unresolved:
         rec,check = supported[0]
         out.record, out.depth, out.kind = rec, ledger.depth(rec), RETURN
         out.support.update(check)
@@ -244,7 +259,9 @@ def supported_answer(root, question, profile=None):
         out.kind = AMBIGUOUS if conflict or len(supported)>1 else NOT_IN_CORPUS
         out.support['status'] = 'conflict' if out.kind==AMBIGUOUS else 'unsupported'
         out.reason = ('Multiple eligible supporting pages or conflicting statements; no winner chosen.'
-                      if out.kind==AMBIGUOUS else 'No eligible body statement supports the complete question.')
+                      if out.kind==AMBIGUOUS else
+                      'Relevant eligible evidence could not be uniquely bound or scoped; a complete answer is unresolved.' if unresolved else
+                      'No eligible body statement supports the complete question.')
         out.support['reason'] = out.reason
     return out
 
