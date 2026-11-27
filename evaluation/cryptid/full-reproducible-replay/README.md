@@ -20,7 +20,8 @@ method differs from older reports' source-text-only overlap calculations.
 | First D% preparation repeat | Identical development alias | 140 memberships represented by that earlier draw |
 | BB | Replayable unchanged with original retained fixture bytes | 900 positives + 200 controls |
 | Public 832 preservation | Replayable unchanged; includes overlap with native registries | 832 comparisons |
-| Round 2 original exposed development | Outputs or receipts only; original key unavailable | 572 historical memberships |
+| Round 2 original exposed primary | Replayable unchanged with reconstructed original key | 444 |
+| Round 2 other original exposed development | Verified inputs and historical receipts, no original key | 128 historical memberships |
 | Round 2 original private preservation | Unavailable and retired | 17 original checks incomplete |
 | Round 2 original held transfer | Unavailable and retired | 100 NOT_RUN |
 
@@ -35,13 +36,76 @@ retain each cohort's raw results and logs. BB uses the already retained
 fixture bytes and original scoring. Historical software selectors and human
 onboarding preparation are inventoried separately from reader question packets.
 
-## Retirement and release boundary
+## Original packet rebuild and retirement
 
-Mitchell retired recovery of the unavailable original Bunyip custody material.
-The 17 original checks remain incomplete, the 100 original held transfer
-cases remain NOT_RUN, and the original Round 2 development key remains
-unavailable. The old interrupted recovery record and original scores remain
-historical. No active recovery action remains for those materials.
+The [supplemental freeze](round2-primary-rebuild-freeze-v1.json) adds the
+Round 2 primary packet to the frozen inventory. The original generator fully
+enumerates this packet. Its Dice Bag record has a null seed and no rolls, like
+the two earlier D% draws. All 962 public files including the seal match the
+retained public archive. The original evaluator key, dice, pairing, worker,
+runner and scorer hash checks also match. The [public-only ZIP](round2-primary-sealed-public-v1.zip)
+preserves the same packet members. The exact evaluator key is regenerated
+in separate custody using `tools/bunyip_round2_packets.py` from
+`961be47602c5e3ccb94459c106b3fa28754549bf`. Copy the exact generator
+bytes with `git show`, verify its SHA-256 against the supplemental freeze,
+then run it on the evaluator host with `--out <empty-public-dir>` and
+`--custody <empty-private-dir>`. Use the pinned runner and worker hashes in
+the freeze. Verify the public seal, key, dice and pairing before replay.
+Mount only the sealed case inputs in the worker. Apply the original scorer
+to the saved outputs in separate evaluator custody.
+
+The other 128 exposed development inputs match their public seals: 54 routing,
+18 polarity, 44 guards, four mixed-binding and eight irrelevance. No matching
+original keys were recovered. They retain their original scores and historical
+failure records. No scoring recipe was inferred from the original results.
+The 17 original private checks remain incomplete, with one original startup
+failure and 16 unrun. The 36 original held routing and 64 held cross-family
+cases remain unopened and NOT_RUN. No exact generation recipes with the
+full original custody inputs and hashes were recovered for those cohorts.
+They are retired from active recovery. The interrupted workspace recovery
+remains INTERRUPTED / UNRECOVERED.
+
+## Matched replay results
+
+The [verified receipt](replay-receipt-v1.json) records the original scores,
+normalization and raw-artifact digests. Both readers completed 941 registry
+memberships. There are 899 exact contracts, 18 new original-key passes
+(nine Egyptian development and nine Egyptian fresh), and 24 diagnostic-only
+changes on unsupported, zero-claim abstentions. All 419 claim-bearing
+released contracts match. No earlier registry key pass was lost and no new
+registry false-support flag was recorded.
+
+Both readers matched all 832 public preservation contracts and all 900 BB
+positives with their citations, plus 200 BB withholds. The BB raw results
+are retained in the [public replay ZIP](bb-replay-raw-v1.zip). The 64 original
+software controls passed per reader after the retained Nessie fixture
+staging failure.
+
+The separate isolated [D% raw artifact](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/45998421140/artifacts/15196778865) contains the
+original worker outputs. The frozen original evaluator scored them outside
+the worker.
+
+| Cohort | Cases per reader | Complete answers, released → candidate | Expected withholds, released → candidate | False alarms, released → candidate | Execution failures, released → candidate |
+|---|---:|---:|---:|---:|---:|
+| D% development | 140 | 28/32 → 28/32 | 108/108 → 108/108 | 0 → 0 | 0 → 0 |
+| D% consumed fresh | 108 | 24/24 → 24/24 | 84/84 → 84/84 | 0 → 0 | 0 → 0 |
+| Restored Round 2 primary | 444 | 72/78 → 72/78 | 366/366 → 366/366 | 0 → 0 | 0 → 0 |
+
+All 692 normalized D% contracts matched. The restored primary retained six
+strict literal-field mismatches on both readers. Each includes a Yes/No
+prefix that the strict matcher retains. The original source/format assessor
+accounts for the prefix and verifies the underlying source claims and
+citations. It scored 444/444 source decisions and 12/12 prospective polarity
+checks on both readers. The receipt retains both scores and the six IDs.
+The three earlier hosted prelaunch failures ran zero readers and are retained
+in the receipt.
+
+Both readers completed all 3,565 replay memberships. It includes
+569 repeated memberships between public preservation and the registries.
+The additional 64 software selectors are counted separately. These are
+synthetic development and preservation comparisons.
+
+## Release boundary
 
 The reproducible release proposal requires completed eligible replays,
 original semantic scoring, preserved prior source support, zero new

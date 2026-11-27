@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `2d560c9daa21dfb50e79aa7cad09911809980875` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `225ecc0d00f69c453749e80106260f627845da5aaa21977d8ac59f21fce17a55`.
+Base commit: `d4d52f07d81c10dbfa863a162d27ff85bc5c4021` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `dac7e872d537a4a09562ceac73a01bbf84fb9cd2697bf31ca6706da63a1007a1`.
 
 ## Betty report for Al
 
@@ -41,16 +41,21 @@ Continue rebuilding from the recorded seeds and pinned generator revision, inclu
 - The first two D% replay attempts stopped in setup before any reader ran. The second had valid public packet bytes but lacked the checkout identity D% records. Restore the original host checkout setup while keeping the Bubblewrap worker mounts unchanged.
 - The two-lane public 832 job completed. BB matched 900 original positives and citations and 200 withholds per reader. The seven registry groups scored 899 exact contracts, 18 new original-key passes, and 24 diagnostic-only abstention differences across 941 paired memberships.
 - The restored primary and earlier D% packets verified in the third hosted attempt. No reader ran because the host Git safety settings were placed after the Python executable. The logged prelaunch failure is retained. Move the settings into the existing host environment invocation.
+- Downloaded all seven registry artifacts and the public 832 artifact, verified their hosted ZIP digests and checked the per-arm receipts. The BB raw outputs are retained publicly with verified digests.
+- The isolated replay scored the restored primary and both earlier D% draws under their original IDs and keys. Primary source decisions under the original source/format assessment: 444/444 → 444/444. Across the three cohorts: 0 new false-alarm flags and 0 lost original-key passes. The first three D% prelaunch attempts executed no reader and remain in the receipt.
+- The full reproducible replay inventory includes 3,565 memberships per reader with explicit overlapping cohorts and 64 separate software selectors per reader. The 444-case public ZIP and original evaluator fingerprints are indexed independently.
+- Documentation audit passed after materializing one unchanged sparse-checkout dependency. Original native bytes, worker, scorers and active preservation comparator remain identical.
+- All 692 D% normalized contracts matched. The original 444-case primary literal matcher scored 72/78 target answers and 366/366 withholds on each reader. Six unchanged Yes/No prefix mismatches remain under that matcher. The original source/format assessor scored 444/444 source decisions and 12/12 polarity checks on each reader.
 
 ### Limitations and blocked checks
 
 - Fresh packets and scoring keys stay in separate local custody. Preparation and scoring are same-operator. Independent/human measures NOT_RUN. Original 17 checks incomplete, 100 held cases NOT_RUN and historical publication incident separately OPEN.
 - Held: unchanged 96-case exact comparator failed on nine refusal diagnostic differences. An automatic review rejected the proposed preservation workflow and acceptance change. The original acceptance script was run unchanged. Candidate and raw evidence are pinned. The live reader remains the released Thoth pin a442c8f0.
-- Archive incidence remains open separately. The 17 original private checks remain incomplete and the original 36 routing and 64 cross-family held cases remain NOT_RUN. The original 128 other exposed development cases have verified input bytes but no verified original keys. No historical status changes from the primary rebuild.
+- The publication-history incident remains open separately. The 17 original private checks remain incomplete and the original 36 routing and 64 cross-family held cases remain NOT_RUN. The original 128 other exposed development cases have verified input bytes but no verified original keys. No historical status changes from the primary rebuild.
 
 ### Next steps
 
-- Replay and privately score the 444 exact restored primary cases and the two unchanged D% draws using the original scorer, then publish verified receipts and update the PR report. Diagnostic compatibility remains inactive.
+- Candidate is held. The original 87/96 exact-comparison failure remains. Mitchell must explicitly authorize the nine pinned transitions under diagnostic compatibility manifest SHA-256 22868e9f9604a4c3fee87226eecc7ef2aa5d5bdb1982eaa3c47e176b5d7ae97a before prospectively freezing and verifying that policy. Finish applicable exact-head checks before release.
 
 ## Use this ZIP in your repository
 

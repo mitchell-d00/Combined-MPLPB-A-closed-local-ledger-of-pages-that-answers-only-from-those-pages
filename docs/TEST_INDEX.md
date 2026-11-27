@@ -21,9 +21,10 @@ original disposition. These entries link checked source and retained results.
 ## Full reproducible Cryptid replay
 
 The [frozen coverage inventory](../evaluation/cryptid/full-reproducible-replay/README.md)
-includes BB and the reproducible retained Cryptid packets. Unavailable original
-Bunyip checks and the development key are retired from active recovery and keep
-their original historical dispositions.
+includes BB, the reproducible retained Cryptid packets and the exact 444-case
+Bunyip primary rebuild. The other 128 exposed development inputs have
+verified bytes with unavailable original scoring keys. The original 17
+incomplete checks and 100 held NOT_RUN cases remain retired.
 
 ## Egyptian-gods attribution and scope batch
 
