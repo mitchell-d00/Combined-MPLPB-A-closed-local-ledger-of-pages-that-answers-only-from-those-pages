@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `d8d4cd5c4c4f3abd1ff1325868f0d16714b24eab` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `cdea345649559e5fdbbc1a7cb6c8474c3a3aa7c5e3fced1711699e6907fc732a`.
+Base commit: `1c79a6cb7c7c0d93fa05e6c390877617aea72243` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `387bb6b1476d9519d54b508ebfcc9a0c6251eb75e2756c6fb657faf55fbadea0`.
 
 ## Betty report for Al
 
@@ -47,18 +47,21 @@ The retained scorer errors and corrected coordinate readback should stay visible
 ### Implemented scope
 
 - After verifying PR #115 deployment, register the Egyptian programme, freeze Bastet development and fresh cases with separate keys, and retain Round 4 F05 as consumed development.
+- Run and preserve the first Bastet development baseline. Leave the sealed fresh transfer unopened by the worker.
 
 ### Validation recorded
 
 - PR #115 passed all 11 checks and the live Chromium, preview hash and native-module checks. Bastet baseline is the verified released merge. Generated and verified six matched pairs per draw with no execution yet.
+- Bastet completed 12 executions across four questions. Discovery found all six target witnesses. Zero completeness, verified selections, verified attributions, unsupported claims or execution failures. All six controls withheld safely; five matched the exact I/O kind. The multi-writer retrieval conflict remains a status miss.
 
 ### Limitations and blocked checks
 
 - Bastet named selection and attribution remain unmeasured at the freeze. Fresh transfer and independent evaluation NOT_RUN. Original incomplete evidence and publication incident remain unchanged.
+- No selector was demonstrated and no reader change was made. Fresh transfer remains NOT_RUN.
 
 ### Next steps
 
-- Run only the frozen Bastet development arm and record selection, attribution and withhold reasons separately. Keep fresh reserved for a later committed candidate.
+- Complete exact-head documentation and release checks for the evidence PR, verify remote readback, and merge when qualifying. Keep the separate Bastet implementation outside this baseline batch.
 
 ## Use this ZIP in your repository
 

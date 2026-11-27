@@ -30,8 +30,10 @@ bytes unchanged. Its Pages receipt records the site build at the merge.
 [Programme registry](../evaluation/egyptian-gods/PROGRAMME.md) retains the
 historical families and records the next six matched Bastet pairs per
 draw. [Bastet baseline](../evaluation/egyptian-gods/bastet/baseline.json)
-pins the deployed Round 4 reader. Named-source development will run first.
-Fresh transfer remains NOT_RUN.
+pins the deployed Round 4 reader. [First development](../evaluation/egyptian-gods/bastet/RESULTS.md)
+completed all 12 executions across four distinct questions with no
+supported named selections or attributions. Safe withholds were 6/6
+and exact I/O withholds 5/6. Fresh transfer remains NOT_RUN.
 
 
 ## Bunyip Round 4 attribution interpretation and proof

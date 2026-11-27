@@ -69,6 +69,8 @@ incomplete checks and 100 held NOT_RUN cases remain retired.
 preserve Thoth, Seshat, Anubis, Horus and Round 4 under their original pins.
 [Bastet](../evaluation/egyptian-gods/bastet/README.md) freezes development and
 fresh I/O for unique printed-writer selection and separate reporter attribution.
+[First Bastet development baseline](../evaluation/egyptian-gods/bastet/RESULTS.md) preserves the six
+answer misses and shows safe withholding separately from selection proof.
 
 ## Egyptian-gods attribution and scope batch
 
