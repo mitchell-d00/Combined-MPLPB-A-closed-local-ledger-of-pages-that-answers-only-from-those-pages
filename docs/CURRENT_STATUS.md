@@ -5,24 +5,38 @@ Last reviewed: 2026-11-27.
 [Use MPLPB](MPLPB.md) · [Develop MPLPB](EXPERIMENTAL_LAB.md) ·
 [Inspect the evidence](TESTING_APPARATUS.md) · [Test Index](TEST_INDEX.md).
 
-**Released main `a442c8f0c9629b65a3af38ba57319aa9c2af8dbe`** serves the clean
-Thoth reader from PR #109. The [Seshat, Anubis and Horus batch](../evaluation/egyptian-gods/attribution-scope/RESULTS.md)
-is closed and held. It recovered all nine fresh positives with nine controls
-withheld. The 832 public contracts, BB and all 46 claim-bearing retained
-contracts matched. The unchanged exact retained comparator failed on nine
-refusal diagnostic changes. Independent and human evaluations remain NOT_RUN.
+## Release history and current reader
 
+| Milestone | Merge | Verified Pages run |
+|---|---|---|
+| Clean cumulative Thoth, PR #109 | [a442c8f0](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/commit/a442c8f0c9629b65a3af38ba57319aa9c2af8dbe) | [45924528751](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/45924528751) |
+| Seshat, Anubis and Horus reader gains, PR #110 | [a7d57206](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/commit/a7d572067dbf68077ea306584b067e457bd7a3a4) | [46008844245](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/46008844245) |
+| Lab-only workflow controller, PR #111 | [a0136939](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/commit/a01369392071bd6781be379a4b580d9a9d0bc460) | [46024452749](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/46024452749) |
 
-**Clean Thoth release candidate.** The published starting main is
-`f52ed384b831c2abb7656dfabc0d4b7632c38457` with PR #108's verified
-packaging. Its previously released reader is `2622813aba9ee1f1880693eeb71ae015cb3da999`.
-The cumulative candidate starts from tested Thoth native tree
-`6ec348b31ec79e37def77a7019cd22102df85f93`. A one-file routing repair preserves
-the existing explicit relational location form and requires fresh release
-preservation on the revised bytes.
-[Acceptance, candidate evidence and incident plan](recovery/THOTH_CLEAN_RELEASE.md).
-The [PR #109 Betty report](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/109)
-records the checked clean head, source ZIP digest and release decision. Deployment requires a separate live receipt.
+The [Seshat, Anubis and Horus batch](../evaluation/egyptian-gods/attribution-scope/RESULTS.md)
+recovered nine fresh positives with nine controls withheld. The batch matched
+832 public contracts, BB and all 46 claim-bearing retained contracts. The
+original exact comparator remains failed at 87/96. The separately authorized
+prospective verification accepted all 96 frozen cases, including the nine
+pinned diagnostic-only changes, before the merge and verified Pages release.
+[PR #110 authorization and verification](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/110#issuecomment-7219742999)
+
+PR #111 kept the controller lab-only, with reader and production workflow
+bytes unchanged. Its Pages receipt records the site build at the merge.
+[PR #111 engineering milestone](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/111)
+
+## Historical Thoth preparation and original PR #106
+
+The [clean PR #106 reconciliation](../evaluation/cryptid/bunyip/round2/reconciliation/README.md)
+links the original grades, rejected candidates, approved evidence and file
+dispositions. The unrecoverable original study is retired while its recorded
+incomplete checks, NOT_RUN transfers and open incident remain visible.
+
+Before PR #109, main carried PR #108’s packaging at `f52ed384b831c2abb7656dfabc0d4b7632c38457`.
+Clean Thoth started from tested native tree `6ec348b31ec79e37def77a7019cd22102df85f93`
+and included a one-file routing repair. The [clean release record](recovery/THOTH_CLEAN_RELEASE.md)
+preserves its acceptance and incident plan. The [PR #109 report](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/109)
+records the checked head, source ZIP and verified release.
 
 The frozen Thoth development and fresh draws each retained six complete
 answers, three checked partials, three controls withheld and zero unsupported
@@ -30,7 +44,7 @@ claims. The original Thoth reader evidence preserves all 832 public contracts,
 BB's 900 positive contracts and citations and 200 withholds, and 19 protected
 C3/Wampus outcomes. This is bounded software evidence with same-operator
 preparation and scoring. The [original PR #106](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/106)
-remains the historical evaluation record at `961be47602c5e3ccb94459c106b3fa28754549bf`.
+remains unmerged. The PR records its review disposition. Its historical evaluation is pinned at `961be47602c5e3ccb94459c106b3fa28754549bf`.
 
 The original workspace recovery remains **INTERRUPTED / UNRECOVERED**. A
 separate pinned-generator rebuild restored the exact inputs and evaluator key
@@ -39,7 +53,7 @@ exposed development cases have verified public inputs and unavailable original
 keys. Retirement applies to the 17 incomplete private checks and 100 original
 held cases marked NOT_RUN. The 22 original C3 strict-key mismatches remain
 recorded. See the [full reproducible Cryptid replay](../evaluation/cryptid/full-reproducible-replay/README.md)
-for the supplemental freeze and the current PR #110 release hold.
+for the supplemental freeze and the earlier PR #110 release-hold record.
 The clean release excludes the known incident ancestry and affected archive
 blobs. Prior Git-history exposure remains **OPEN** on the original branch/PR.
 Independent historical/semantic evaluation, independent preparation/blinding,

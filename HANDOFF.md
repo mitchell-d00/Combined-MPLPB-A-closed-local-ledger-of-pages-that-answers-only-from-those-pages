@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `ad60394f2a77d285fbe17f8ca9532b311660662c` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `a43d9b5e7cec2054e8c715cb823cc962d38a2a54b61b2d401a65d12c427958c2`.
+Base commit: `d0c0ee333302a7c3cd1d35f4f9ae4d8366372dae` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `8f7d5c4c8a982f2f3e7db70877e4696482d426b6ecb01fedfbdcde1377c24008`.
 
 ## Betty report for Al
 
@@ -13,30 +13,26 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Archive the published From Workflow Decisions to Git Effects PDF unchanged. Freeze and measure restart duplication first. If needed, freeze a separate durable lab candidate. Retain the original results, preserve a recoverable checkpoint, and merge only after applicable checks pass. Add the six-part proposal-to-effect direction to TeamBuilding as a goal alongside language work.
+Add a dated current-status note above PR #106’s historical reports. Correct live documents where needed and preserve original checks and the incident status. Keep these changes separate from the tested restart candidate. Finish PR #106 by reconciling useful publishable material on a clean branch. Merge the checked reconciliation, then close #106 unmerged as superseded. Retire the interrupted study and keep the incident open.
 
 ### Implemented scope
 
-- Archive the exact PDF with its digest, paper index entry and separate dated PR #111 note. Freeze the baseline fixtures, expected outcomes and scoring against released a0136939.
-- Keep the restart baseline and store experiment separate. Freeze the exclusive reservation, outcome readback, interruption, and no-retry policy before implementation.
-- Add a lab-only fsynced exclusive directory reservation wrapper with separate Git execution and readback receipts. Leave the original controller and release paths unchanged.
-- Preserve exact source and result archives, raw subprocess logs and outcome records, independent ref readbacks and disposable Git bundles. Add the study to the Test Index and paper archive.
-- Record the TeamBuilding goal and its separate admission, attempt, observation and durability states. Keep Git as the bounded tested adapter.
+- Reconcile the current status page, Test Index, results registry and Thoth clean-release guide on a separate documentation branch.
+- Inventory 253 original and historical-only paths, carry forward 34 selected public items with exact publication authority, and retain the original primary and replacement scoring records.
 
 ### Validation recorded
 
-- The PDF copy matches the supplied attachment byte for byte. Verified the frozen baseline input digests.
-- Baseline matched all three frozen scenarios. Both unretained duplicates reached Git after restart with zero successful writes. The host-retained key blocked the duplicate with zero Git attempts.
-- The archive from 0aba797739ec4787cd677397036bc1d27581c529 passed all 42 original controls, three baseline scenarios and six frozen candidate scenarios. The candidate withheld known and pending duplicates before Git, selected one writer in the local contention test, and retained uncertainty on both abrupt exits. 63 existing checks and 14 pinned upstream tests passed.
+- PR #106 was open and unmerged when the dated note was added. Its historical description body was preserved byte for byte under the dated note. Verified merges and successful Pages receipts for PRs #109, #110 and #111. PR #112 merged separately after all 11 checks.
+- Six historical 444-case primary output sets matched original strict per-case grades. Both replacement comparison score objects matched exactly using verified original keys in evaluator custody. No reader executions were added.
 
 ### Limitations and blocked checks
 
-- No restart measurements were run before this freeze. The study is lab-only.
-- The store assumes a trusted host and local filesystem with atomic create and directory sync. Power loss, distributed authority and storage, authentication, manual reconciliation and production dispatch are outside the tested scope. Public lab fixtures and bundles contain no restricted inputs or credentials.
+- Original 17 checks incomplete, original 100 transfers NOT_RUN, workspace recovery INTERRUPTED / UNRECOVERED and historical exposure OPEN.
+- Original 128 exposed case keys remain unavailable for independent regrading. The historical 17 private checks and 100 held transfers retain their incomplete and NOT_RUN statuses. The incident remains separately linked and open.
 
 ### Next steps
 
-- Download and compare the pushed paper and lab archive bytes. Verify exact-head CI and merge only after its checks pass under the maintainer’s existing authorization.
+- Verify the promoted exact-head checks and remote readback, merge the clean reconciliation, verify any Pages deployment, then close the original PR unmerged. Leave branch and custody evidence intact.
 
 ## Use this ZIP in your repository
 

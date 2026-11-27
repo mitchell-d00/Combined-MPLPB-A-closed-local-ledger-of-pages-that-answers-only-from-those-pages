@@ -2,7 +2,8 @@
 
 Last reviewed: 2026-11-27.
 
-The clean cumulative release uses the tested Thoth native tree. Earlier
+The release history records clean cumulative Thoth in PR #109, the later
+reader release in PR #110 and the lab-only controller in PR #111. Earlier
 candidate-only entries link their original checked PR #106 pins. See
 [HANDOFF](../HANDOFF.md) and [current status](CURRENT_STATUS.md).
 
@@ -29,6 +30,11 @@ raw effects and explicit interruption states. Production access and authenticati
 remain outside the tested scope.
 
 ## Full reproducible Cryptid replay
+
+The [clean PR #106 reconciliation](../evaluation/cryptid/bunyip/round2/reconciliation/README.md)
+links the original grades, rejected candidates, approved evidence and file
+dispositions. The unrecoverable original study is retired while its recorded
+incomplete checks, NOT_RUN transfers and open incident remain visible.
 
 The [frozen coverage inventory](../evaluation/cryptid/full-reproducible-replay/README.md)
 includes BB, the reproducible retained Cryptid packets and the exact 444-case

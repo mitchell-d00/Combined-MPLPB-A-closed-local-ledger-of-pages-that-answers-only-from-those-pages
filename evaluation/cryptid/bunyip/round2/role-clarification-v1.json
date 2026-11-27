@@ -1,0 +1,94 @@
+{
+  "schema": "teambuilding-role-clarification-v1",
+  "reviewed_on": "2026-11-26",
+  "baseline_revision": "2622813aba9ee1f1880693eeb71ae015cb3da999",
+  "roles_version": "teambuilding-roles-v1",
+  "outside_unchanged": true,
+  "outside_sha256": "9b2bb7081155cdc2b38af58336aeca41829a5fe8775b3773d82add5844835c76",
+  "prior_handoff_snapshot": "evaluation/cryptid/bunyip/round2/history/role-clarification-pre-update-v1.tar.xz",
+  "prior_handoff_snapshot_sha256": "17253c6fb58da82edbfa643bd2a204249c5e09b78e77451d874798df49ca8b32",
+  "frozen_tests_keys_policy_changed": false,
+  "human_execution": "NOT_RUN",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "add",
+        "--intent-to-add",
+        "evaluation/cryptid/bunyip/round2/history/role-clarification-pre-update-v1.tar.xz",
+        "evaluation/cryptid/bunyip/round2/role-clarification-v1.json"
+      ],
+      "exit_code": 128,
+      "stdout": "",
+      "stderr": "fatal: unable to create threaded lstat: Resource temporarily unavailable\n"
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "core.preloadindex=false",
+        "-c",
+        "index.threads=1",
+        "add",
+        "--intent-to-add",
+        "evaluation/cryptid/bunyip/round2/history/role-clarification-pre-update-v1.tar.xz",
+        "evaluation/cryptid/bunyip/round2/role-clarification-v1.json"
+      ],
+      "execution_error": "[Errno 11] Resource temporarily unavailable"
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "core.preloadindex=false",
+        "-c",
+        "index.threads=1",
+        "rev-parse",
+        "HEAD"
+      ],
+      "execution_error": "[Errno 11] Resource temporarily unavailable"
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "core.preloadindex=false",
+        "-c",
+        "index.threads=1",
+        "branch",
+        "--show-current"
+      ],
+      "execution_error": "[Errno 11] Resource temporarily unavailable"
+    },
+    {
+      "command": [
+        "git",
+        "-c",
+        "core.preloadindex=false",
+        "-c",
+        "index.threads=1",
+        "status",
+        "--porcelain",
+        "--untracked-files=no"
+      ],
+      "execution_error": "[Errno 11] Resource temporarily unavailable"
+    }
+  ],
+  "available_workspace_bytes": 2514944,
+  "documentation_checks": {
+    "outside_byte_unchanged": true,
+    "one_canonical_definition_per_role": true,
+    "handoff_role_and_criteria_anchors": [
+      "al--review-evidence-and-propose-the-next-test",
+      "betty--implement-test-and-retain-the-result",
+      "outside",
+      "shared-rule-criterion-for-betty-al-and-outside",
+      "broader-coverage-with-preserved-constraints",
+      "separation-and-acceptance",
+      "recover-artifact-state-and-working-state"
+    ],
+    "frozen_keys_changed": false
+  },
+  "handoff_text": "Updated using unchanged builder.render with prior manifest; inventory freshness BLOCKED, not a passing generated-handoff gate.",
+  "required_handoff_commands": "Both launch attempts failed EAGAIN; local raw receipt /workspace/cryptid-custody/bunyip-r02-roles-handoff-checks-v1.json"
+}

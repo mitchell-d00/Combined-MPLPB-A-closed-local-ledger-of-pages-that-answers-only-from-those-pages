@@ -1,0 +1,31 @@
+{
+  "schema": "bunyip-round2-remote-checkpoint-attempt-v1",
+  "revision": "89b1dc031ced2cc96f0e44f77fc9dcd230d992d0",
+  "scope": "Documentation checkpoint only; local C3 implementation not uploaded",
+  "failures": [
+    {
+      "job_id": 140027137672,
+      "check": "regression",
+      "classification": "documentation_inventory_failure",
+      "reason": "Unclassified or removed documents: ['handoff/history/pr105-handoff-before-round2.md']",
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/45853910193/job/140027137672"
+    },
+    {
+      "job_id": 140027133027,
+      "check": "infrastructure-sync",
+      "classification": "documentation_inventory_failure",
+      "reason": "Same unclassified retained historical handoff",
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/45853909068/job/140027133027"
+    },
+    {
+      "job_id": 140026951545,
+      "check": "handoff",
+      "classification": "stale_generated_handoff",
+      "reason": "Initial recovery checkpoint deliberately carried a pending inventory; original failed run retained",
+      "url": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/45853855997/job/140026951545"
+    }
+  ],
+  "repair": "Classify the retained historical handoff in existing documentation inventory; run unchanged handoff builder/checker remotely. No source/key/reader/scorer change.",
+  "recovery_generated_commit": "927e8956a11730234e9d7cf3129310ed2ecac0e3",
+  "acceptance": "PENDING"
+}
