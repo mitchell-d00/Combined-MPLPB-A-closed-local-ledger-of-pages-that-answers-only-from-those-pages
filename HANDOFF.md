@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `1c79a6cb7c7c0d93fa05e6c390877617aea72243` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `387bb6b1476d9519d54b508ebfcc9a0c6251eb75e2756c6fb657faf55fbadea0`.
+Base commit: `cef389a15293ceb51e813f2a1060246843a30aaf` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `daccade4e42738aa5354bfc6c041b2742b352a4682585ae96c512491fc0457cf`.
 
 ## Betty report for Al
 
@@ -13,55 +13,41 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Alongside Round 4, establish an Egyptian-series registry modeled on the Cryptid programme. Inventory existing families, retain their original results, and define the next Bast set around a specific uncovered responsibility.
+**Round 4 is now a released gain. Bastet has a useful baseline, with fresh evaluation still untouched.**
 
-Build deterministic generators, stable case IDs, frozen expectations, positive/negative pairs, and reproducible manifests. Distinguish development, consumed preservation, and fresh transfer.
+Bastet’s discovery found the passages, but selection and attribution remain unproved. The duplicate-writer status miss also matters: staying claim-free is only part of the required contract.
 
-Finish each family with end-to-end I/O checks: actual source inputs and questions must produce the expected answer status, supported fields, citations, unresolved fields, and diagnostics. Keep execution failures separate from reader misses.
+Betty’s next bounded task should be:
 
-Use Round 4’s attribution work as the first bounded implementation task. Freeze the wider programme now; execute it in small batches after each preceding result is recorded. Preserve failures and custody limits, then push and merge qualifying work under existing authorization.
+> Implement Bastet’s document-selection boundary using the consumed development packet.
+>
+> Require source-backed evidence of the printed writer. Apply the declared eligibility constraints, then determine whether exactly one document qualifies. Preserve the distinction between document writer and embedded reporter throughout interpretation, proof, and output.
+>
+> Test selection and attribution separately: selecting the right document must not authorize a statement attributed to the wrong reporter. For duplicate eligible documents, return the frozen ambiguity contract rather than choosing one.
+>
+> Retain every baseline result, including the duplicate-writer status miss. Do not revise the key to accommodate the implementation.
+>
+> Pin the candidate before opening the existing fresh packet. Preserve its first fresh score; any subsequent repair makes that packet development evidence.
+>
+> Run the applicable preservation and release checks, push and verify the recoverable evidence, then merge and verify deployment when requirements pass under existing authorization.
 
-**Round 4 produced a bounded gain:** one additional fresh complete answer, with prior valid outcomes preserved. The wrong-reporter controls now reaching proof is useful evidence; their earlier withholding alone did not establish that distinction worked.
-
-For Bastet, my proposed rule is:
-
-**The printed writer may select an eligible document; the embedded reporter determines attribution of the statement.**
-
-Selecting Alice’s document must not turn Bob’s reported statement into Alice’s statement.
-
-Betty should freeze matched cases covering:
-
-- One eligible document with the requested printed writer.
-- The same document with a different embedded reporter.
-- Two eligible documents sharing that writer; uniqueness is unresolved.
-- A writer’s name appearing only in quoted content.
-- Missing or conflicting writer information.
-- A correct document selection paired with an unsupported reporter attribution.
-
-Record document selection and claim attribution separately. Require the full source-to-answer I/O contract, including citations and withholding reasons.
-
-Finish #115’s checks, merge, and deployment verification first. Then pin that released reader as Bastet’s baseline. Preserve the named-source miss as a development case; use separately frozen cases for the fresh comparison.
-
-The retained scorer errors and corrected coordinate readback should stay visible together. The original 87/96 result and its narrowly scoped diagnostic policy remain unchanged.
+The target is precise: **prove which document qualifies, then independently prove who said what within it.** Report gains in those two responsibilities separately.
 
 ### Implemented scope
 
-- After verifying PR #115 deployment, register the Egyptian programme, freeze Bastet development and fresh cases with separate keys, and retain Round 4 F05 as consumed development.
-- Run and preserve the first Bastet development baseline. Leave the sealed fresh transfer unopened by the worker.
+- Require an unqualified printed byline in a unique eligible original, then use the existing, independent report proof. Preserve all frozen packets, keys and baseline receipts.
 
 ### Validation recorded
 
-- PR #115 passed all 11 checks and the live Chromium, preview hash and native-module checks. Bastet baseline is the verified released merge. Generated and verified six matched pairs per draw with no execution yet.
-- Bastet completed 12 executions across four questions. Discovery found all six target witnesses. Zero completeness, verified selections, verified attributions, unsupported claims or execution failures. All six controls withheld safely; five matched the exact I/O kind. The multi-writer retrieval conflict remains a status miss.
+- 40 focused tests passed. Direct development smoke selected eight documents and attributed six claims, with six abstentions. Isolated replay is pending.
 
 ### Limitations and blocked checks
 
-- Bastet named selection and attribution remain unmeasured at the freeze. Fresh transfer and independent evaluation NOT_RUN. Original incomplete evidence and publication incident remain unchanged.
-- No selector was demonstrated and no reader change was made. Fresh transfer remains NOT_RUN.
+- Only the two bounded named-document question forms apply. Fresh transfer and independent evaluation have not been run.
 
 ### Next steps
 
-- Complete exact-head documentation and release checks for the evidence PR, verify remote readback, and merge when qualifying. Keep the separate Bastet implementation outside this baseline batch.
+- Archive the committed native candidate, replay the consumed packet in isolation, then open the unchanged fresh packet once and run preservation.
 
 ## Use this ZIP in your repository
 

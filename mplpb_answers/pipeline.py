@@ -14,6 +14,8 @@ from .passages import PassageIndex
 from mplpb_combined import provenance_gate as G
 
 DIAGNOSTICS = {
+    'named_report_source_unresolved': 'Inspect the printed writer declarations and identify one eligible document.',
+    'named_report_content_unresolved': 'Inspect the selected document for the exact statement by the requested reporter.',
     'exact_field_missing': 'Inspect the exact record and supply an explicit source body field; an identifier alone is not field support.',
     'contradictory_passages_pruned': 'Increase the evidence budget to display all competing passages; no selected subset licenses an answer.',
     'event_identity_unresolved': 'Supply an explicit source-declared event or occurrence key; similar subjects do not establish identity.',

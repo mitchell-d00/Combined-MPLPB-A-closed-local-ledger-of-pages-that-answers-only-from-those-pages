@@ -49,10 +49,10 @@ def same_name(requested, declared):
     return requested == declared or (' ' not in requested and requested == declared.rsplit(' ', 1)[-1])
 
 
-def unqualified_span(record, body, start, end):
+def unqualified_span(record, body, start, end, *, ranges=None):
     """Recheck canonical bytes and documentary governors for a complete witness."""
     return (body_text(record.body_html) == body and 0 <= start < end <= len(body)
-            and not any(a < end and b > start for a, b in context_ranges(record))
+            and not any(a < end and b > start for a, b in (context_ranges(record) if ranges is None else ranges))
             and not quoted_context(body[:start]) and not META.search(body[:start]))
 
 

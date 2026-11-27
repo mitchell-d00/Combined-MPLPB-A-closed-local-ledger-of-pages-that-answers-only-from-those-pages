@@ -23,13 +23,36 @@ _REPORT_VERBS = '|'.join(re.escape(word) for word in sorted(_REPORT_FORMS,key=le
 _PASSIVE_FORMS = {'was reported':(False,False),'was not reported':(True,False),
                   'would be reported':(False,True),'would not be reported':(True,True)}
 
+_REPORT_OBJECT = (
+    rf'(?:What|Which document) did (?P<reporter>{_PERSON}) (?:say|state|report) '
+    rf'(?:that )?(?P<author>{_PERSON}) wrote'
+)
+_NAMED_REPORT = (
+    rf'In the report written by (?P<writer>{_PERSON}),\s+{_REPORT_OBJECT}[?.]',
+    rf'{_REPORT_OBJECT},\s+in the document from (?P<writer>{_PERSON})[?.]',
+)
+_BYLINE = re.compile(r'^(?:Written by |Report by |From: )(?P<writer>[^\n]+?)\.?$', re.M | re.I)
+_FROM_PARAGRAPH = re.compile(
+    r'\s*(?:<h1>[^<>]*</h1>\s*)?<p>(From: [^<>\r\n]{1,120})</p>\s*'
+    r'<p>([^<>\r\n]{1,1800})</p>', re.I
+)
+
+
+def _object_goal(match):
+    return dict(match.groupdict(), object=None, conditional=False, form=None,
+                required_outer_negative=False, required_inner_negative=False)
+
 
 def request(question):
+    q = kernel.source_question(question)
+    for pattern in _NAMED_REPORT:
+        match = re.fullmatch(pattern, q, re.I)
+        if match and all(kernel.named_actor(name) for name in match.groupdict().values()):
+            return _object_goal(match)
     from .ordinary_questions import request as ordinary_request
     ordinary=ordinary_request(question)
     if ordinary and ordinary['kind']=='reported':
         return {k:ordinary[k] for k in ('reporter','author','object','required_outer_negative')} | {'conditional':False,'form':None}
-    q = kernel.source_question(question)
     patterns = [
         (rf'What does (?P<reporter>{_PERSON}) report about the writer of (?P<object>{_OBJECT}), without independently verifying the event\?', False),
         (rf'What does (?P<reporter>{_PERSON}) report about whether (?P<author>{_PERSON}) wrote (?P<object>{_OBJECT})\?', False),
@@ -44,12 +67,9 @@ def request(question):
             return dict(match.groupdict(), conditional=conditional,
                         form='minutes' if q.endswith(' in the minutes?') else None)
     match = re.fullmatch(
-        rf'(?:What|Which document) did (?P<reporter>{_PERSON}) (?:say|state|report) '
-        rf'(?:that )?(?P<author>{_PERSON}) wrote'
-        r'(?:,\s+according to (?:the|this) (?:record|source))?[?.]', q, re.I)
+        _REPORT_OBJECT + r'(?:,\s+according to (?:the|this) (?:record|source))?[?.]', q, re.I)
     if match and all(kernel.named_actor(match[k]) for k in ('reporter', 'author')):
-        return dict(match.groupdict(), object=None, conditional=False, form=None,
-                    required_outer_negative=False, required_inner_negative=False)
+        return _object_goal(match)
     match = re.fullmatch(
         rf'Did (?P<reporter>{_PERSON})(?P<outer> not)? (?:say|state) that '
         rf'(?P<author>{_PERSON}) (?P<action>wrote|did not write) (?P<object>{_OBJECT})[?.]',
@@ -155,9 +175,10 @@ def _citation(record, body, start, end):
     return value
 
 
-def _proof(record, body, start, end, roles, goal):
+def _proof(record, body, start, end, roles, goal, *, selected_writer=None):
+    ranges = selected_writer[2] if selected_writer is not None else None
     if (record.kind != 'page' or record.derived_from or record.fields.get('corrects-field')
-            or not unqualified_span(record, body, start, end)):
+            or not unqualified_span(record, body, start, end, ranges=ranges)):
         return None
     if (goal.get('required_inner_negative') is not None
             and roles['embedded_content_negative'] != goal['required_inner_negative']):
@@ -167,32 +188,36 @@ def _proof(record, body, start, end, roles, goal):
     # A separate governing paragraph cannot disappear at a sentence boundary.
     prior = body[:start]
     governor = re.search(r'\b(?:If|Unless)\b[^.!?]{0,180}[.:]\s*$', prior, re.I)
-    if governor and unqualified_span(record, body, *governor.span()):
+    if governor and unqualified_span(record, body, *governor.span(), ranges=ranges):
         return None
     if bool(roles['conditions']) != goal['conditional']:
         return None
-    writer, writer_span = _writer(body)
-    if not writer_span and not goal['object']:
-        label = re.match(r'^Report by (?P<writer>[^.\n]+)\.', body)
-        if label and kernel.named_actor(label['writer']):
-            writer, writer_span = label['writer'], label.span()
-    witnesses = [_citation(record, body, start, end)]
-    if writer_span:
-        if not unqualified_span(record, body, *writer_span):
-            return None
-        direct = _citation(record, body, *writer_span)
-        if direct is not None:
-            witnesses.append(direct)
-        else:
-            # Separate printed heading/byline paragraphs need separate exact
-            # original witnesses, rather than an invented cross-tag substring.
-            segment = body[writer_span[0]:writer_span[1]]
-            lines = list(re.finditer(r'[^\n]+', segment))
-            if len(lines) != 2 or lines[0][0] not in {'Report.', 'Meeting minutes.'}:return None
-            for line in lines:
-                lo, hi = writer_span[0]+line.start(), writer_span[0]+line.end()
-                if not unqualified_span(record, body, lo, hi):return None
-                witnesses.append(_citation(record, body, lo, hi))
+    if selected_writer is not None:
+        writer, writer_citation, _ = selected_writer
+        witnesses = [_citation(record, body, start, end), writer_citation]
+    else:
+        writer, writer_span = _writer(body)
+        if not writer_span and not goal['object']:
+            label = re.match(r'^Report by (?P<writer>[^.\n]+)\.', body)
+            if label and kernel.named_actor(label['writer']):
+                writer, writer_span = label['writer'], label.span()
+        witnesses = [_citation(record, body, start, end)]
+        if writer_span:
+            if not unqualified_span(record, body, *writer_span):
+                return None
+            direct = _citation(record, body, *writer_span)
+            if direct is not None:
+                witnesses.append(direct)
+            else:
+                # Separate printed heading/byline paragraphs need separate exact
+                # original witnesses, rather than an invented cross-tag substring.
+                segment = body[writer_span[0]:writer_span[1]]
+                lines = list(re.finditer(r'[^\n]+', segment))
+                if len(lines) != 2 or lines[0][0] not in {'Report.', 'Meeting minutes.'}:return None
+                for line in lines:
+                    lo, hi = writer_span[0]+line.start(), writer_span[0]+line.end()
+                    if not unqualified_span(record, body, lo, hi):return None
+                    witnesses.append(_citation(record, body, lo, hi))
     if goal['form']:
         label = re.search(r'\bMeeting minutes\.', body)
         if not label or not unqualified_span(record, body, *label.span()):
@@ -213,6 +238,40 @@ def _proof(record, body, start, end, roles, goal):
             'source_support_established': True,
             'qualifiers': ['Source-scoped reporting statement only; retain its denial and conditions. '
                            'Independent authorship, reporting occurrence and execution remain unverified.']}
+
+
+def _select_writer(records, requested):
+    """Resolve a unique eligible original using only unqualified printed bylines."""
+    target = kernel.normalized(requested)
+    matches = []
+    for record in records:
+        if record.kind != 'page' or record.derived_from or record.fields.get('corrects-field'):
+            continue
+        body = kernel.body_text(record.body_html)
+        first = _BYLINE.match(body)
+        if not first:
+            continue
+        # A physically separate From paragraph followed by complete report prose
+        # is a byline in this route. Mail headers and folded fields remain guarded.
+        layout = _FROM_PARAGRAPH.match(record.body_html)
+        standalone_from = bool(layout and html.unescape(layout[1]) == first[0]
+                               and report_roles(html.unescape(layout[2])))
+        ranges = kernel.context_ranges(record, standalone_from_byline=standalone_from)
+        declarations = [label for label in _BYLINE.finditer(body)
+                        if unqualified_span(record, body, *label.span(), ranges=ranges)]
+        if not any(kernel.normalized(label['writer']) == target for label in declarations):
+            continue
+        if (declarations[0].start() != 0
+                or any(kernel.normalized(label['writer']) != target for label in declarations)):
+            return None, None, 'conflicting_or_unscoped_byline'
+        witness = _citation(record, body, *first.span())
+        if witness is None or not kernel.named_actor(first['writer']):
+            return None, None, 'unverified_byline'
+        matches.append((record, (first['writer'], witness, ranges)))
+    if len(matches) != 1:
+        return None, None, 'multiple_eligible_documents' if matches else 'no_eligible_byline'
+    record, writer = matches[0]
+    return record, writer, None
 
 
 def verify(index, max_passages, max_chars):
@@ -236,9 +295,25 @@ def verify(index, max_passages, max_chars):
     # The checker rederives clauses from every eligible reread record. Proposals,
     # retrieval ranks, source titles and published scoring keys do not authorize it.
     records = {r.path:r for r, *_ in checked['contexts']}
+    selected_writer = None
+    selection = {}
+    if 'writer' in goal:
+        record, selected_writer, reason = _select_writer(records.values(), goal['writer'])
+        if reason:
+            return 'abstain', 'named_report_source_unresolved', {
+                'documentary_support': {'named_source_selection': {'status': 'unresolved', 'reason': reason}}
+            }
+        records = {record.path: record}
+        selection = {'named_source_selection': {
+            'status': 'verified', 'source_id': record.id, 'path': record.path, 'hash': record.hash_actual
+        }}
     for record in records.values():
         body = kernel.body_text(record.body_html)
-        for start, end, statement in kernel.units(body):
+        # The verified byline is its own unit even when it has no final period.
+        offset = selected_writer[1]['body_end'] + 1 if selected_writer else 0
+        for start, end, statement in kernel.units(body[offset:]):
+            start += offset
+            end += offset
             roles = report_roles(statement)
             relevant = (kernel.normalized(goal['reporter']) in kernel.normalized(statement)
                         and relevant_object(statement)
@@ -250,12 +325,16 @@ def verify(index, max_passages, max_chars):
                     or not matches_object(roles['object'])
                     or (goal.get('author') and kernel.normalized(roles['author']) != kernel.normalized(goal['author']))):
                 continue
-            proof = _proof(record, body, start, end, roles, goal)
+            proof = _proof(record, body, start, end, roles, goal, selected_writer=selected_writer)
             if proof is None:
                 unresolved = True
             else:
                 proofs.append(proof)
     if not goal['object'] and (unresolved or len(proofs) != 1):
+        if selection:
+            if not index.unchanged():
+                return 'abstain', 'source_changed', {}
+            return 'abstain', 'named_report_content_unresolved', {'documentary_support': selection}
         return 'abstain', 'reported_object_unresolved', {}
     if unresolved or not proofs or len(proofs) > 2:
         if goal.get('required_inner_negative') is not None:
@@ -283,4 +362,4 @@ def verify(index, max_passages, max_chars):
                         'truth_verified':False,'independence_verified':False},
         'documentary_support':{'scope':'source_attributed_report_content',
             'source_support_claims':len(proofs),'examined_characters':checked['examined_characters'],
-            'examined_units':checked['examined_units'],'limits':checked['limits'],'record_limit':8}}
+            'examined_units':checked['examined_units'],'limits':checked['limits'],'record_limit':8, **selection}}
