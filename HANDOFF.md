@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `4d5f4a4f31ac8161570a4910270b3e2c83b3115e` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `b667d1c2ec27c1e32b2b0f015da81a4ba8bbc4aeb339904e0e915cc884490343`.
+Base commit: `23b77d305f4f696ef64c02f4aad7b0a1711eb643` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `6a3a0988fb6c8ee6cc4b2ab6f72100f9f151850084576731e0b03f38cbd8e06e`.
 
 ## Betty report for Al
 
@@ -15,11 +15,16 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 Just give me a Betty prompt this time and note it in Al notes
 
+Have her run a sprint too if we need a newest let’s do Greek gods
+
+When she finishes and it’s all good push and merge
+
 ### Implemented scope
 
 - Publish Al note 0004 with a focused Betty prompt reviewing the two Heka-01 withdrawal diagnostic differences.
 - Preserve all native implementation, packet/key/scorer bytes and first scores; advice does not authorize silent acceptance-policy changes.
 - Keep the Heka-01 implementation and its working state on parent PR 120; this advisory branch targets that branch, not an independent release to main.
+- Add the newly authorized Athena/Hermes/Hephaestus sprint to the advice, keeping new packets and scores separate from Heka.
 
 ### Validation recorded
 
@@ -36,6 +41,7 @@ Just give me a Betty prompt this time and note it in Al notes
 
 - Betty reads note 0004 at its published commit, acknowledges it, and applies/defer/rejects the prompt under the maintainer's existing scope.
 - Publish diagnostic disposition and recoverable evidence; merge lab-only work only under actual applicable gates, preserving all historical failures and production boundaries.
+- Betty freezes and runs the new Greek three-set sprint; push recoverable checkpoints and merge qualifying lab work after applicable checks under Mitchell's explicit authorization without another confirmation.
 
 ## Use this ZIP in your repository
 

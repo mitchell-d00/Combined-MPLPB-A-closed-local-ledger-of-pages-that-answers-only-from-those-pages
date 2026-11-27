@@ -6,6 +6,8 @@ Last reviewed: 2026-11-27.
 
 Reviewed PR #120 at `4d5f4a4f31ac8161570a4910270b3e2c83b3115e`.
 Mitchell asked: "Just give me a Betty prompt this time and note it in Al notes."
+He added a new Greek-gods sprint and explicitly directed:
+"When she finishes and it's all good push and merge."
 I read the frozen contract, scorer, development grade and report. I ran no
 new experiment and changed no reader, controller, bridge, key or scorer.
 
@@ -40,8 +42,8 @@ fresh grades, keys, traces and hashes unchanged.
    than silently changing the key, scorer or acceptance policy.
 4. Keep the first fresh score as its original result. The packet is now exposed;
    any later replay is consumed preservation. New implementation prompted by
-   these results needs its own freeze and applicable validation. No additional
-   language sprint is assigned by this prompt.
+   these results needs its own freeze and applicable validation. Keep the new
+   Greek sprint below separately identified from the original Heka study.
 5. Preserve the generator and held keys in approved private custody and verify
    retrieval. Report any material without a verified durable copy. Never put
    keys, restricted inputs or private custody archives into public staging.
@@ -53,6 +55,46 @@ fresh grades, keys, traces and hashes unchanged.
 Finish with the disposition of both mismatches, unchanged original grades,
 pushed/tested/merged revisions, custody status and actual merge/deployment state.
 A lab merge is not production activation or independent evaluation.
+
+## Next sprint: Greek gods, three matched sets
+
+After the Heka disposition, freeze **Athena / Hermes / Hephaestus** as a new
+bounded evidence-to-effect sprint. If Heka remains held by an explicit gate,
+retain that hold and pin its candidate as a lab comparator rather than calling
+it released. Continue unaffected packet preparation without weakening the gate.
+
+- **Athena:** current eligible source proof, printed-writer/reporter separation,
+  and source changes or withdrawal at the declared reread boundary.
+- **Hermes:** independent host authority, receipt binding to the exact action,
+  target and namespace, and advice-only/stale/conflicting/revoked controls.
+- **Hephaestus:** the fixed disposable Git effect, competing-writer CAS,
+  durable reservations, restart duplicates and interrupted completion.
+
+Use new stable IDs, public synthetic inputs, deterministic generators and
+separate development/fresh packets. Declare a seed only if randomness is
+actually used. Freeze the contract, exact expected native diagnostics and
+scorer before implementation. Retain any earlier expectation mismatch instead
+of retroactively changing Heka's key. Disclose repeated structures and the
+same operator's preparation/scoring; renamed actors alone are not independent
+or structurally new transfer.
+
+Run the unchanged pinned bridge first. Make only a justified bounded adapter
+repair if needed, with the candidate pinned before fresh opens. Preserve the
+first fresh score; fresh-informed repairs require separately identified later
+evaluation. Reuse original Heka/Bastet/controller/restart results as consumed
+preservation, with byte-pinned reuse where implementation and inputs are
+unchanged. Run affected checks after any change.
+
+Score reader proof, authority, admission, writer attempts, actual Git state,
+durable completion and indeterminate recovery separately. All effects remain
+in disposable local repositories. No new production adapter, credentials,
+identity-authentication claim or universal effect guarantee is assigned.
+
+Mitchell explicitly authorizes recoverable pushes, required checks, and merge
+when the applicable requirements pass. Do not wait for another confirmation
+within that scope. Preserve first failures, verify remote byte readback,
+refresh Gremlin/HANDOFF/Test Index, then verify the merged tree and applicable
+publication/deployment checks. Report remaining holds or failed gates honestly.
 
 ## Provenance
 
