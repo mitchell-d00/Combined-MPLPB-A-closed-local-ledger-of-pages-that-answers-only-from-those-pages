@@ -1,0 +1,123 @@
+{
+  "reader": "39df3d14ebf4bb01c056e8b04b8da65c7303fa61",
+  "cases": 8,
+  "distinct_questions": 7,
+  "counts": {
+    "complete": 1,
+    "miss": 2,
+    "correct_withhold": 4,
+    "checked_conflict": 1
+  },
+  "rows": [
+    {
+      "id": "BUNYIP-R4-D01",
+      "family": "bare-positive",
+      "question": "What did Iris Brook report that Milo Dean wrote?",
+      "expected": "complete",
+      "execution": "completed",
+      "score": "complete",
+      "diagnostic": "supported",
+      "stage": "bounded_records",
+      "raw_sha256": "8ea1d1a0ae6461e28c22d59a45f79e2616bcc37d6005254ef1d1f608f1fd1c93",
+      "proof_reached": true,
+      "required_witnesses_discovered": true
+    },
+    {
+      "id": "BUNYIP-R4-D02",
+      "family": "generic-positive",
+      "question": "What did Iris Brook report that Milo Dean wrote, according to the record?",
+      "expected": "complete",
+      "execution": "completed",
+      "score": "miss",
+      "diagnostic": "interpretation_unsupported",
+      "stage": "strict",
+      "raw_sha256": "23dcaf1a9ce42d14ae6b94b5d0a42cee83a41bed684dd375c06005ff1147db05",
+      "proof_reached": false,
+      "required_witnesses_discovered": true
+    },
+    {
+      "id": "BUNYIP-R4-D03",
+      "family": "generic-wrong-reporter",
+      "question": "What did Rosa Field report that Milo Dean wrote, according to the record?",
+      "expected": "withhold",
+      "execution": "completed",
+      "score": "correct_withhold",
+      "diagnostic": "interpretation_unsupported",
+      "stage": "strict",
+      "raw_sha256": "9cdc3f8a3e48e2046b3c292e782fc274aef28f8c6acd31f9b105a3934d1cb631",
+      "proof_reached": false,
+      "required_witnesses_discovered": null
+    },
+    {
+      "id": "BUNYIP-R4-D04",
+      "family": "bare-wrong-reporter",
+      "question": "What did Rosa Field report that Milo Dean wrote?",
+      "expected": "withhold",
+      "execution": "completed",
+      "score": "correct_withhold",
+      "diagnostic": "reported_object_unresolved",
+      "stage": "bounded_records",
+      "raw_sha256": "37be25f0b5debd7ca675b3db711805d1211bc704ae31f603f57fb5bb15048512",
+      "proof_reached": true,
+      "required_witnesses_discovered": null
+    },
+    {
+      "id": "BUNYIP-R4-D05",
+      "family": "named-positive",
+      "question": "What did Iris Brook report that Milo Dean wrote, according to Iris Brook?",
+      "expected": "complete",
+      "execution": "completed",
+      "score": "miss",
+      "diagnostic": "interpretation_unsupported",
+      "stage": "strict",
+      "raw_sha256": "3475591a23db9f2e4b2e98235eb4d3b1d913d13a007ae42eea4331d65d82d6bd",
+      "proof_reached": false,
+      "required_witnesses_discovered": true
+    },
+    {
+      "id": "BUNYIP-R4-D06",
+      "family": "named-wrong-source",
+      "question": "What did Iris Brook report that Milo Dean wrote, according to Rosa Field?",
+      "expected": "withhold",
+      "execution": "completed",
+      "score": "correct_withhold",
+      "diagnostic": "interpretation_unsupported",
+      "stage": "strict",
+      "raw_sha256": "47c771f14114e6c15d041efd1fe4d5f4372a4dd69cdeedf531a6625e9c17f7bb",
+      "proof_reached": false,
+      "required_witnesses_discovered": null
+    },
+    {
+      "id": "BUNYIP-R4-D07",
+      "family": "generic-competing-objects",
+      "question": "What did Iris Brook report that Milo Dean wrote, according to the record?",
+      "expected": "withhold",
+      "execution": "completed",
+      "score": "correct_withhold",
+      "diagnostic": "interpretation_unsupported",
+      "stage": "strict",
+      "raw_sha256": "760a811a6d4f66044921fb6500a0dd0bc276c74b0e1049b625c8aca1daad1178",
+      "proof_reached": false,
+      "required_witnesses_discovered": null
+    },
+    {
+      "id": "BUNYIP-R4-D08",
+      "family": "opposed-content",
+      "question": "What does Iris Brook report about whether Milo Dean wrote the garden roster?",
+      "expected": "conflict",
+      "execution": "completed",
+      "score": "checked_conflict",
+      "diagnostic": "conflicting_reported_content",
+      "stage": "bounded_records",
+      "raw_sha256": "680209dd16936e8b51af49a4a0e99361afe69fe1c06a5cfac4063aaad47f7938",
+      "proof_reached": true,
+      "required_witnesses_discovered": true
+    }
+  ],
+  "run_sha256": "e6b0300221ca5434e64dd180176c0138dc88096365a71f222cf177950dcbaac1",
+  "scorer_sha256": "453bcde2fd3339d03c370d197bccde310533972c26a89d195280cbf02608a987",
+  "registry_sha256": "9f7a2d51466ba6f1505830104f0618ae0da1a2f2400b25ccbbf149b23a279f8e",
+  "key_sha256": "05f1638ea09e42983b5f8305ed03e38eb07c98e45f44ccdf2be5aea54964bdec",
+  "projection_adapter_sha256": "7df2a8df6c2af91fbbba1841422dbd4e7d7fe0d32b45f2db56a446a3f841c9bd",
+  "policy": "fixture_to_admitted_html_coordinate_correction_v2"
+}

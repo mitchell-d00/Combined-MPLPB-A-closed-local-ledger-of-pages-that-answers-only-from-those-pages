@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `39df3d14ebf4bb01c056e8b04b8da65c7303fa61` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `230a2ebc037c4480b96d6d272e7c2d4f9573989de8cd9c1a5834d854c3145eb0`.
+Base commit: `717be4e0cdc53a68fc70e102bf1b7b388174e9aa` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `dc141faa9cc9d13b5a1f3e4506d795007d6b1de1e5e0fc4bc5916397748d7367`.
 
 ## Betty report for Al
 
@@ -42,18 +42,21 @@ Run the Betty implementation step first, then the Al review step in a separate c
 ### Implemented scope
 
 - Verify released main and freeze Round 4 attribution diagnosis under eight new IDs. Keep Round 3 results and the controller lab unchanged.
+- Preserve eight original baseline executions and first score. Freeze the separate fresh arm and the bounded parser proposal before any reader change.
 
 ### Validation recorded
 
 - Remote main matches the verified released commit 39df3d14. Original Round 3 D03-A found both required passages and stopped before native attribution proof. Packet, key seal, runtime and runner verified without a new reader run.
+- Baseline reached proof for bare attribution, bare wrong-reporter and opposed evidence. It missed generic and named positives before proof. The first score flagged two coordinate discrepancies. A separately versioned recheck of the unchanged raw outputs verified one valid complete answer, one cited conflict, four withholds and two misses.
 
 ### Limitations and blocked checks
 
 - Same-operator synthetic design and scoring. Independent and human evaluations remain NOT_RUN. Original 17 checks incomplete, 100 transfers NOT_RUN and publication incident open.
+- Named-source requests have no verified named-source selector in this experiment. The correction to evaluator coordinates leaves frozen semantic expectations intact.
 
 ### Next steps
 
-- Run the unchanged diagnostic first. Freeze a separate fresh comparison and one bounded repair only if the stage and control evidence warrant it.
+- Implement only the frozen terminal generic adjunct rule. Freeze the committed candidate before running the fresh arms and preservation.
 
 ## Use this ZIP in your repository
 
