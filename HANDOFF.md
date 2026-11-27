@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `bcbe47c881bbc79564491d5090a977c381c47fae` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `bd5f0792ad6923b1a99889d1e9647af19e9d21505c5fcf7b5fa7ef9016a508cd`.
+Base commit: `4177a804f920145112aa589d78c266d3e26c0c65` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `ca7de0158bc07d33213c7bd44dcb18567b34609812810dffd228165a389bec78`.
 
 ## Betty report for Al
 
@@ -44,14 +44,15 @@ The target is precise: **prove which document qualifies, then independently prov
 - The isolated development replay completed all 12. It verified eight source selections and six report attributions, including two selected-document reporter refusals. All six abstention contracts matched, including the duplicate-writer case.
 - The first frozen fresh replay matched all 12 I/O contracts. It verified eight selections and six attributions, with two selected-source reporter refusals, and no unsupported claims.
 - The 832 preservation attempt stopped at the frozen harness checksum because new tests shared a frozen test file. The original test bytes are restored and new tests are in a separate file. This does not alter reader bytes, keys, or the first fresh result. The original attempt is retained.
+- The isolated retry matched all 832 public contracts with unchanged native bytes. BB matched 900 positives, 900 citations and 200 withholds. The retained 96-case run reproduced 87 exact matches and the same nine bounded diagnostic changes. The original exact failure stands.
 
 ### Limitations and blocked checks
 
-- Only the two bounded named-document question forms apply. Fresh transfer and independent evaluation have not been run.
+- The implementation covers the two frozen named-document forms and eligible anchored printed bylines. Fresh synthetic transfer has been run. Independent historical accuracy, outside scoring, independent adjudication, native OOCC and human evaluation are NOT_RUN. The historical incident remains open.
 
 ### Next steps
 
-- Run only the blocked public preservation cohort with the same native pin. Do not rerun the fresh transfer. Then finish exact-head release checks.
+- Finish exact-head checks on PR #117, verify remote evidence bytes, then merge and verify the published runtime if all requirements pass. Keep the first fresh score and frozen original baseline unchanged.
 
 ## Use this ZIP in your repository
 
