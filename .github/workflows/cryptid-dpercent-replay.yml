@@ -1,0 +1,106 @@
+name: Replay the original sealed Cryptid D% public inputs
+on:
+  push:
+    branches: ['study/egyptian-gods-attribution-scope']
+    paths: ['.github/workflows/cryptid-dpercent-replay.yml']
+permissions:
+  contents: read
+jobs:
+  dpercent:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require the original D% isolator
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends bubblewrap
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$(command -v python)" -m unittest tests.test_study_sandbox -v
+      - id: replay
+        name: Stage only seal-listed public files and replay both readers
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, subprocess, sys, zipfile
+          from pathlib import Path, PurePosixPath
+
+          digest = lambda data: hashlib.sha256(data).hexdigest()
+          plan_bytes = Path('evaluation/cryptid/full-reproducible-replay/coverage-manifest-v1.json').read_bytes()
+          plan = json.loads(plan_bytes)
+          base = Path(os.environ['RUNNER_TEMP'])
+          output = base/'cryptid-dpercent'
+          output.mkdir()
+          (output/'manifest.sha256').write_text(digest(plan_bytes)+'\n')
+          packets = []
+          for spec in plan['special_cohorts']:
+              if spec['id'] not in {'bunyip-dpercent-development','bunyip-dpercent-fresh-consumed'}:
+                  continue
+              label = spec['id']
+              record = Path(spec['seal']).read_bytes()
+              assert digest(record)==spec['seal_sha256']
+              seal = json.loads(record)['public_seal']
+              raw = Path(spec['packet']).read_bytes()
+              assert digest(raw)==spec['packet_sha256']
+              public = base/label
+              public.mkdir()
+              with zipfile.ZipFile(Path(spec['packet'])) as original:
+                  assert json.loads(original.read('public/seal.json'))==seal
+                  for relative, expected in seal['public_files'].items():
+                      p = PurePosixPath(relative)
+                      assert not p.is_absolute() and '..' not in p.parts and p.name not in {'key.json','dice.json','pairing.json'}
+                      data = original.read('public/'+relative)
+                      assert digest(data)==expected
+                      target=public/relative
+                      target.parent.mkdir(parents=True,exist_ok=True)
+                      target.write_bytes(data)
+                  (public/'seal.json').write_bytes(original.read('public/seal.json'))
+              packets.append((label,public))
+          assert len(packets)==2
+          root = Path.cwd()
+          assert digest((root/'tools/dpercent_worker.py').read_bytes())==seal['worker_sha256']
+          statuses = []
+          for role, pin in plan['readers'].items():
+              source = pin['commit']
+              archive = output/(role+'-runtime.zip')
+              subprocess.run(['git','fetch','--depth=1','origin',source],check=True)
+              subprocess.run(['git','archive','--format=zip','-0','-o',str(archive),source,
+                              'mplpb_answers','mplpb_combined','mplpb_work'],check=True)
+              assert digest(archive.read_bytes())==pin['sha256']
+              runtime = base/('dpercent-runtime-'+role)
+              runtime.mkdir()
+              with zipfile.ZipFile(archive) as source_archive:
+                  source_archive.extractall(runtime)
+              stage=output/role
+              stage.mkdir()
+              for label, public in packets:
+                  command=['sudo','env','MPLPB_REQUIRE_SANDBOX=1','PYTHONPATH='+str(root),sys.executable,
+                           '-m','tools.dpercent','run','--packets',str(public),'--out',str(stage/label),
+                           '--implementation',str(runtime)]
+                  with (stage/(label+'.log')).open('x') as log:
+                      status=subprocess.run(command,stdout=log,stderr=subprocess.STDOUT).returncode
+                  statuses.append({'role':role,'cohort':label,'exit_code':status})
+                  (output/'execution.json').write_text(json.dumps(statuses,indent=2)+'\n')
+                  print(role,label,status,flush=True)
+          if any(x['exit_code'] for x in statuses):
+              raise SystemExit(1)
+          PY
+      - id: safety
+        name: Check retained output scope
+        if: always()
+        run: |
+          if test -d "$RUNNER_TEMP/cryptid-dpercent"; then
+            sudo chown -R "$(id -u):$(id -g)" "$RUNNER_TEMP/cryptid-dpercent"
+            if find "$RUNNER_TEMP/cryptid-dpercent" -iname '*key.json' -print -quit | grep -q .; then exit 1; fi
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.safety.outcome != 'failure'
+        with:
+          name: cryptid-dpercent-public-replay-${{ github.sha }}
+          path: ${{ runner.temp }}/cryptid-dpercent/
+          if-no-files-found: warn
+          retention-days: 90

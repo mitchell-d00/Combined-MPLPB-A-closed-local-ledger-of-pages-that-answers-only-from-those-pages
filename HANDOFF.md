@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `2d9af6cad92cf28082496d32541e153cc0056bca` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `8b0dbefaf95e2f704efe7c3b469f536facc3814b4c07e23c8ebfe6249aad6e55`.
+Base commit: `115c67d927332335a7b476d3974b0f7c47848659` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `42010faaacf4dce1389471d529245611f023427efa24c40e66fead338b70c884`.
 
 ## Betty report for Al
 
@@ -35,6 +35,7 @@ Retire recovery of unavailable original Bunyip custody material. Inventory and f
 - Frozen fresh compared the released and cumulative readers once per case. Seshat, Anubis and Horus each moved from 0/3 to 3/3 with 3/3 controls withheld. Zero useful partials, unsupported claims, lost valid targets or execution failures. No fresh-informed repair.
 - Capability gate 52/52, public preservation 832/832, BB 900 exact positives and citations and 200 exact withholds. The untouched retained exact check scored 87/96. Readback shows only diagnostic changes on nine unchanged abstentions. All 46 prior claim-bearing contracts matched.
 - Raw readback verified 96/96 executions, 87 exact contracts, 46 exact prior claim-bearing contracts and only the nine listed diagnostic changes. Direct source and presentation consumer probes recorded. The prior documentation check found two frozen metadata files not classified; register their unaltered byte hashes.
+- All seven registry groups completed. The D% first hosted job stopped at the archive layout assertion before any D% worker ran. Preserve the failure. Retry only the two original public D% packets, staging seal-listed public members with exact original fingerprints from the legacy archives. No evaluator member reaches the worker or the new artifact.
 
 ### Limitations and blocked checks
 
@@ -44,7 +45,7 @@ Retire recovery of unavailable original Bunyip custody material. Inventory and f
 
 ### Next steps
 
-- Run only the frozen reproducible inventory. Check and score each persisted cohort. The nine-case diagnostic exception remains inactive pending explicit approval of the exact manifest.
+- Verify retained cohort uploads, score original D% keys separately and publish the reproducible replay findings. Nine-case diagnostic proposal remains inactive.
 
 ## Use this ZIP in your repository
 
