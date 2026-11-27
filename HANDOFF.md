@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `62a6ed78832522f1038e2dea4ccfe48b29586cb0` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `c154dcf8b8f8c346b30e731989323f6f439ec2ca17376f9e28e8ac54947d5502`.
+Base commit: `246a1bdcb9cf80c5561bc7b761cb3fd58bed21bc` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `0ff04f685b5e4fa1096114fbccf4cc20ccd36009496b239bcb59f3da01806ac0`.
 
 ## Betty report for Al
 
@@ -51,6 +51,7 @@ Run the Betty implementation step first, then the Al review step in a separate c
 - PR #113 all 11 exact-head checks passed. Merged tree is identical to the checked tree. All 48 changed files matched remote readback. PR #106 is closed unmerged with its historical body intact. Round 3 pins and synthetic freeze verified without running a reader.
 - All 48 diagnostic executions completed. Released main 5 complete, 1 checked partial and 5 withholds, with one attribution miss. All four arms had zero unsupported claim cases and zero errors. No valid outcomes were lost.
 - BB 900 exact positives and citations, 200 exact withholds. All 832 public contracts exact. All 96 consumed cases executed, with the 87/96 exact comparison and nine unchanged diagnostic fingerprints separately retained.
+- First evidence head failed the repository index audit because Round 3 was registered as a top-level family. Corrected its registration under Cryptid. The separate hosted isolation setup at that head stopped before tests on a Microsoft package feed HTTP 403. Both failures are retained. No study configuration, scoring or reader bytes changed.
 
 ### Limitations and blocked checks
 

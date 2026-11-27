@@ -69,7 +69,11 @@ the released reader, browser and production workflows have unchanged bytes.
   diagnostic-only changes. The PR #110 approval stays attached to
   its exact action and pins. [Replay readback](evidence/retained-96-readback.json).
 - **Current acceptance:** the unchanged release workflows run on the
-  evidence PR. Check and deployment receipts are recorded in the live PR.
+  evidence PR. The first evidence head failed repository checks because Round 3
+  was initially indexed as a top-level family. The index now registers it under
+  Cryptid. Hosted isolation setup also encountered a transient Microsoft feed
+  HTTP 403 at that head, before any isolation test. The release workflow and
+  frozen study remain unchanged. [First evidence-head run](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/commit/246a1bdcb9cf80c5561bc7b761cb3fd58bed21bc/checks).
 
 The original 17 private checks remain incomplete. The original 100
 held transfers remain NOT_RUN and unopened. Recovery stays
