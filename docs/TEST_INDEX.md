@@ -2,7 +2,8 @@
 
 Last reviewed: 2026-11-27.
 
-The clean cumulative release uses the tested Thoth native tree. Earlier
+The release history records clean cumulative Thoth in PR #109, the later
+reader release in PR #110 and the lab-only controller in PR #111. Earlier
 candidate-only entries link their original checked PR #106 pins. See
 [HANDOFF](../HANDOFF.md) and [current status](CURRENT_STATUS.md).
 

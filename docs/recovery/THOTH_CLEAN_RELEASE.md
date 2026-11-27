@@ -2,6 +2,16 @@
 
 Last reviewed: 2026-11-27.
 
+## Released status
+
+Clean cumulative Thoth merged and shipped through PR #109 at
+`a442c8f0c9629b65a3af38ba57319aa9c2af8dbe`. The current release chain and
+the original PR #106 dispositions are in [Current status](../CURRENT_STATUS.md).
+The original incomplete checks and open publication-history incident retain
+their recorded status. [PR #109](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/109) · [Verified Pages run](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/45924528751)
+
+## Historical release preparation
+
 The release branch starts at deployed main `f52ed384b831c2abb7656dfabc0d4b7632c38457`
 and retains PR #108's packaging. It copies the cumulative reader from tested
 Thoth `6ec348b31ec79e37def77a7019cd22102df85f93` and the reviewed refusal
