@@ -1,0 +1,107 @@
+name: Bunyip Round 4 isolated attribution assessment
+on:
+  push:
+    branches: ['study/bunyip-round4']
+    paths: ['evaluation/cryptid/bunyip/round4/dispatch.json']
+permissions:
+  contents: read
+
+jobs:
+  study:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        cohort: [comparison, public-832, retained-96, bb]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - id: freeze
+        name: Verify the public synthetic packet and native runtime pin
+        env:
+          PYTHONPATH: .
+          COHORT: ${{ matrix.cohort }}
+        run: |
+          set -euo pipefail
+          study=evaluation/cryptid/bunyip/round4
+          phase="$(jq -er '.phase' "$study/dispatch.json")"
+          python "$study/run.py" "$phase"
+          if test "$phase" = diagnostic; then
+            pin="$(jq -er '.baseline.commit' "$study/$phase/freeze.json")"
+            if test "$COHORT" != comparison; then exit 0; fi
+          else
+            pin="$(jq -er '.candidate.commit' "$study/dispatch.json")"
+          fi
+          git fetch --no-tags --depth=1 origin "$pin"
+          git diff --exit-code "$pin" HEAD -- mplpb_answers mplpb_combined mplpb_work
+          echo "phase=$phase" >> "$GITHUB_OUTPUT"
+          echo "pin=$pin" >> "$GITHUB_OUTPUT"
+      - name: Require actual isolation
+        if: steps.freeze.outputs.phase != '' && matrix.cohort != 'bb'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends bubblewrap
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$(command -v python)" -m unittest tests.test_study_sandbox -v
+      - name: Run the frozen cohort
+        if: steps.freeze.outputs.phase != ''
+        env:
+          PHASE: ${{ steps.freeze.outputs.phase }}
+          PIN: ${{ steps.freeze.outputs.pin }}
+          COHORT: ${{ matrix.cohort }}
+          PYTHONPATH: .
+        run: |
+          set -euo pipefail
+          study=evaluation/cryptid/bunyip/round4
+          parent="$RUNNER_TEMP/round4"
+          mkdir "$parent"
+          out="$parent/$COHORT"
+          legacy=evaluation/cryptid/bunyip/round3/preserve.py
+          isolated=(sudo env MPLPB_REQUIRE_SANDBOX=1 PYTHONPATH="$PWD"
+            GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=safe.directory GIT_CONFIG_VALUE_0="$PWD" "$(command -v python)")
+          case "$COHORT" in
+            comparison)
+              python "$study/run.py" "$PHASE" --output "$out" --work "$RUNNER_TEMP/runtime"
+              ;;
+            public-832)
+              sudo mkdir -p /workspace/cryptid-custody
+              result=0
+              "${isolated[@]}" -m tools.bunyip_round2_preservation --source-commit "$PIN" --output "$out" || result=$?
+              # The original published reference stays in Git. Retain all new raw files.
+              if test -f "$out/comparison-v1.json"; then
+                sudo mv "$out/released-reference" "$RUNNER_TEMP/reference-extraction"
+              fi
+              exit "$result"
+              ;;
+            retained-96)
+              mkdir "$out"
+              result=0
+              "${isolated[@]}" evaluation/egyptian-gods/thoth/verify_release_replay.py \
+                --implementation "$PWD" --commit "$PIN" --output "$out" || result=$?
+              python "$legacy" retained --output "$out" --strict-exit "$result"
+              ;;
+            bb)
+              python "$legacy" bb --output "$out" --work "$RUNNER_TEMP/bb-fixtures"
+              ;;
+          esac
+      - id: retain
+        if: always() && steps.freeze.outputs.phase != ''
+        name: Check public archive boundary
+        run: |
+          root="$RUNNER_TEMP/round4"
+          if test -d "$root"; then
+            sudo chown -R "$(id -u):$(id -g)" "$root"
+            test -z "$(find "$root" -iname '*key.json' -print -quit)"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.retain.outcome == 'success'
+        with:
+          name: bunyip-round4-${{ matrix.cohort }}-${{ github.sha }}
+          path: ${{ runner.temp }}/round4/
+          if-no-files-found: warn
+          retention-days: 90

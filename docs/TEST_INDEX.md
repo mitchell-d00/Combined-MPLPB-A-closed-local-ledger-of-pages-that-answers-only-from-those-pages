@@ -9,6 +9,12 @@ candidate-only entries link their original checked PR #106 pins. See
 
 [Product, project and evidence boundaries](RESPONSIBILITY_BOUNDARIES.md) describe which distributions carry runtime, tools and retained records.
 
+## Bunyip Round 4 attribution interpretation and proof
+
+[Diagnostic freeze](../evaluation/cryptid/bunyip/round4/SCOPE.md) pins eight synthetic cases at released main.
+The baseline, original Round 3 miss, conflict and wrong-reporter controls
+remain separate from any later candidate.
+
 ## Bunyip Round 3 cumulative reader assessment
 
 [First comparison and archives](../evaluation/cryptid/bunyip/round3/RESULTS.md) cover 48 executions across

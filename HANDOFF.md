@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `246a1bdcb9cf80c5561bc7b761cb3fd58bed21bc` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `0ff04f685b5e4fa1096114fbccf4cc20ccd36009496b239bcb59f3da01806ac0`.
+Base commit: `39df3d14ebf4bb01c056e8b04b8da65c7303fa61` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `230a2ebc037c4480b96d6d272e7c2d4f9573989de8cd9c1a5834d854c3145eb0`.
 
 ## Betty report for Al
 
@@ -13,54 +13,47 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-> Betty; finish the reconciliation, then run **Bunyip Round 3: cumulative reader assessment**. Push recoverable checkpoints throughout and merge completed work when applicable requirements pass.
+> Betty; start **Bunyip Round 4: attribution interpretation and proof**, using released main as the baseline.
 >
-> **1. Finish reconciliation.** Complete the remaining exact-head checks, merge the clean reconciliation PR, and verify the merged tree and remote evidence readback. Then close #106 unmerged as superseded, linking its clean successors. Keep the publication-history incident separately tracked. Preserve all incomplete and `NOT_RUN` labels.
+> Investigate Round 3’s remaining attribution miss. Trace where the question stopped: parsing, source selection, attribution proof, or final admission. Preserve the original miss and first result.
 >
-> **2. Freeze Round 3 before running.** Pin current released main as the baseline. Include available pinned C3, Wampus and Thoth versions as historical comparators, clearly identifying their revisions. Use new case IDs.
+> **Freeze a small diagnostic set before execution**, distinguishing:
 >
-> Examine retained misses and devise a small diagnostic packet covering:
+> - A generic source adjunct, such as “according to the record.”
+> - A named-source constraint, such as “according to Reporter A.”
+> - A wrong-reporter contrast where the requested attribution is unsupported.
 >
-> - Imperative and ordinary-language question forms.
-> - Attribution, negation, and entity scope.
-> - Conditions, modality, and conflicting evidence.
+> Include supported answers, relevant conflicts, and cases that must withhold. Require citations and correct attribution. A wrong-reporter case that stops at interpretation does not demonstrate working attribution proof.
 >
-> Pair supported targets with contrasts that should withhold or return a checked partial. Freeze inputs, expected outcomes, scoring rules, and preservation requirements. Identify distinct questions separately from executions. Record preparation, key access, and scoring custody honestly.
+> Pin inputs, expected contracts, scorer, runtime, and case IDs. Record distinct questions separately from executions and disclose preparation and scoring custody.
 >
-> **3. Run the first comparison unchanged.** Preserve raw responses, citations, diagnostics, execution errors, and first scores. Report complete answers, checked partials, correct withholds, unsupported claims, and lost valid answers separately. Report coverage gains and rule consolidation separately.
+> Run the unchanged baseline first. If the evidence justifies a repair, freeze a separate fresh comparison before implementation and make one bounded change. Preserve specialized proof requirements. Measure wording coverage separately from any reduction in duplicated logic.
 >
-> Use the findings to select one bounded repair if justified. Any packet that informs the repair becomes development evidence. Freeze a separately identified fresh packet before implementing the repair; do not inspect its scoring material during implementation. Disclose same-operator access wherever applicable.
+> After freezing the candidate, run the fresh comparison once and preserve its first score. Do not repair against those results while continuing to call them fresh.
 >
-> **4. Verify preservation.** Reuse old Bunyip and Wampus cases as consumed preservation. Run the applicable public-contract, BB positive/citation and withholding checks, plus the current release acceptance suite. Preserve original strict-score failures and approved diagnostic exceptions exactly as recorded. Do not replace missing historical keys with invented originals or reopen the original held packets.
+> Verify the affected focused tests, retained Bunyip/Wampus/Thoth contracts, 832 public contracts, BB positives/citations and withholds, and applicable release checks. Keep existing diagnostic exceptions within their authorized scope.
 >
-> **5. Publish and finish.** Push specifications and checkpoints before long runs. Include publishable fixtures, generators, runtime pins, raw first results, scores, reproduction commands, and checksum inventories. Verify downloaded copies against local bytes.
+> Push recoverable checkpoints before long runs. Include publishable fixtures, generators, runtime pins, raw results, failures, scoring records, and checksum inventories. Verify remote byte readback and update HANDOFF, CURRENT_STATUS, and the Test Index.
 >
-> Update HANDOFF, CURRENT_STATUS, and the Test Index. Keep reader changes separate from the controller work.
+> Existing authorization covers push, merge after applicable checks pass, and deployment verification. If no justified repair emerges, publish and merge the assessment as evidence without changing the reader.
 >
-> Existing authorization covers push, required checks, merge, and applicable deployment verification. Merge a qualifying candidate; otherwise publish the evidence checkpoint and state the exact blocker without weakening gates.
->
-> Finish with reconciliation status, Round 3 results, preserved gains and remaining misses, tested and merged revisions, deployment status, and anything still unbacked.
+> Keep the effect-controller lab unchanged during this sprint. Finish with the diagnosed cause, measured gains, preservation results, remaining misses, PR and commit links, and merge/deployment status.
 
 ### Implemented scope
 
-- Finish clean PR #113 reconciliation and close #106 unmerged. Freeze Bunyip Round 3 against unchanged released main and exact C3, Wampus and Thoth packages.
-- Retain and score the first four-reader comparison, replay the 832, BB and 96-case preservation cohorts, and publish exact archives and readback.
+- Verify released main and freeze Round 4 attribution diagnosis under eight new IDs. Keep Round 3 results and the controller lab unchanged.
 
 ### Validation recorded
 
-- PR #113 all 11 exact-head checks passed. Merged tree is identical to the checked tree. All 48 changed files matched remote readback. PR #106 is closed unmerged with its historical body intact. Round 3 pins and synthetic freeze verified without running a reader.
-- All 48 diagnostic executions completed. Released main 5 complete, 1 checked partial and 5 withholds, with one attribution miss. All four arms had zero unsupported claim cases and zero errors. No valid outcomes were lost.
-- BB 900 exact positives and citations, 200 exact withholds. All 832 public contracts exact. All 96 consumed cases executed, with the 87/96 exact comparison and nine unchanged diagnostic fingerprints separately retained.
-- First evidence head failed the repository index audit because Round 3 was registered as a top-level family. Corrected its registration under Cryptid. The separate hosted isolation setup at that head stopped before tests on a Microsoft package feed HTTP 403. Both failures are retained. No study configuration, scoring or reader bytes changed.
+- Remote main matches the verified released commit 39df3d14. Original Round 3 D03-A found both required passages and stopped before native attribution proof. Packet, key seal, runtime and runner verified without a new reader run.
 
 ### Limitations and blocked checks
 
-- The independent and human labels remain NOT_RUN. The original 17 private checks remain incomplete and original 100 transfers remain NOT_RUN. Recovery is INTERRUPTED / UNRECOVERED. Publication incident OPEN. Round 3 preparation/scoring same-operator.
-- D03-A retrieved both witnesses but attribution admission stopped in interpretation. Wrong-reporter control also stopped before proof. No repair or consolidation was measured.
+- Same-operator synthetic design and scoring. Independent and human evaluations remain NOT_RUN. Original 17 checks incomplete, 100 transfers NOT_RUN and publication incident open.
 
 ### Next steps
 
-- Run unchanged exact-head release and archive checks for the evidence PR, download and compare the pushed files, merge if qualified and verify Pages. A separate follow-up may distinguish generic and named-source attribution adjuncts with proof-stage contrasts.
+- Run the unchanged diagnostic first. Freeze a separate fresh comparison and one bounded repair only if the stage and control evidence warrant it.
 
 ## Use this ZIP in your repository
 
