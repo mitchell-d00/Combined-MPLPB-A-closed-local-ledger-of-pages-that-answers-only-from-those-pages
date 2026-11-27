@@ -1,0 +1,34 @@
+node:internal/child_process:1191
+    result.error = new ErrnoException(result.error, 'spawnSync ' + options.file);
+                   ^
+
+<ref *1> Error: spawnSync python3 EPERM
+    at Object.spawnSync (node:internal/child_process:1191:20)
+    at spawnSync (node:child_process:929:24)
+    at execFileSync (node:child_process:972:15)
+    at reader (file:///workspace/mplpb-product-boundaries/evaluation/egyptian-gods/heka-01/study.mjs:16:18)
+    at run (file:///workspace/mplpb-product-boundaries/evaluation/egyptian-gods/heka-01/study.mjs:57:5)
+    at file:///workspace/mplpb-product-boundaries/evaluation/egyptian-gods/heka-01/study.mjs:109:9
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  errno: -1,
+  code: 'EPERM',
+  syscall: 'spawnSync python3',
+  path: 'python3',
+  spawnargs: [
+    '/workspace/mplpb-product-boundaries/evaluation/egyptian-gods/heka-01/reader.py',
+    'prepare',
+    '/workspace/heka-01-custody/baseline-first/HEKA-D-01/ledger',
+    '/workspace/heka-01-custody/baseline-first/HEKA-D-01/case.json'
+  ],
+  error: [Circular *1],
+  status: 0,
+  signal: null,
+  output: [ null, '', '' ],
+  pid: 58269,
+  stdout: '',
+  stderr: ''
+}
+
+Node.js v24.22.3

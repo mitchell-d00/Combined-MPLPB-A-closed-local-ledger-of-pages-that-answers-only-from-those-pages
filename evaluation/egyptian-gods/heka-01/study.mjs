@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
-import { existsSync, mkdirSync, readFileSync, realpathSync } from 'node:fs'
-import { join, resolve } from 'node:path'
+import { closeSync, existsSync, mkdirSync, mkdtempSync, openSync, readFileSync, realpathSync, rmSync } from 'node:fs'
+import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { child, fixture, gitRunner, loadJSON, observe, saveJSON } from '../../comparative-tests/workflow-controller/restart/fixture.mjs'
 import { reservations } from '../../comparative-tests/workflow-controller/restart/reservation.mjs'
@@ -13,11 +13,20 @@ export const sha = bytes => createHash('sha256').update(bytes).digest('hex')
 export const markers = ['initial', 'intended', 'competing']
 
 export function reader(operation, ledger, caseFile) {
-  const output = execFileSync('python3', [join(lab, 'reader.py'), operation, ledger, caseFile], {
-    cwd: root, encoding: 'utf8', timeout: 6000,
-    env: { PATH: process.env.PATH, PYTHONPATH: root, PYTHONDONTWRITEBYTECODE: '1' },
-  })
-  return operation === 'probe' ? JSON.parse(output) : undefined
+  // File-backed capture avoids the managed runner's pipe teardown EPERM.
+  const capture = mkdtempSync(join(dirname(caseFile), '.reader-'))
+  const file = join(capture, 'stdout')
+  const fd = openSync(file, 'wx')
+  try {
+    execFileSync('python3', [join(lab, 'reader.py'), operation, ledger, caseFile], {
+      cwd: root, timeout: 6000, stdio: ['ignore', fd, 'inherit'],
+      env: { PATH: process.env.PATH, PYTHONPATH: root, PYTHONDONTWRITEBYTECODE: '1' },
+    })
+    return operation === 'probe' ? loadJSON(file) : undefined
+  } finally {
+    closeSync(fd)
+    rmSync(capture, { recursive: true })
+  }
 }
 
 export function nativeStatus(raw) {
