@@ -60,14 +60,15 @@ jobs:
       - name: Build installation packages
         run: |
           python tools/build_release_packages.py
-          python -m pip wheel --no-deps --wheel-dir release .
-          mkdir -p dist/downloads
-          python -m zipfile -c dist/downloads/mplpb-native.zip release/*.whl
+          WHEEL_DIR="$(mktemp -d "$RUNNER_TEMP/mplpb-wheels.XXXXXX")"
+          python -m pip wheel --no-deps --wheel-dir "$WHEEL_DIR" .
+          python tools/build_release_packages.py --native-wheel-dir "$WHEEL_DIR" --output dist/downloads
+          cp "$WHEEL_DIR/"*.whl release/
           python -m zipfile -t dist/downloads/mplpb-native.zip
-          python -m zipfile -e dist/downloads/mplpb-native.zip "$RUNNER_TEMP/mplpb-native"
-          python -m venv "$RUNNER_TEMP/mplpb-install"
-          "$RUNNER_TEMP/mplpb-install/bin/pip" install --no-index --no-deps "$RUNNER_TEMP/mplpb-native/"*.whl
-          "$RUNNER_TEMP/mplpb-install/bin/mplpb-combined" --help
+          python tools/verify_readme_quickstart.py \
+            --native-zip dist/downloads/mplpb-native.zip \
+            --work "$RUNNER_TEMP/mplpb-native-quickstart" \
+            --output release/native-quickstart
       - name: Run synthetic context matrix
         run: python -m tools.evaluate_context_matrix --output release/context-matrix.json
       - name: Run complete synthetic researcher journeys

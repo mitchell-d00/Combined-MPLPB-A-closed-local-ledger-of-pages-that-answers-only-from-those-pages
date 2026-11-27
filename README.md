@@ -1,6 +1,6 @@
 # MPLPB
 
-Last reviewed: 2026-11-26.
+Last reviewed: 2026-11-27.
 
 MPLPB keeps a local collection of documents and answers supported questions from
 their text. Each supported claim points back to a source passage. It is useful
@@ -9,6 +9,14 @@ leave unresolved.
 
 [Open the browser app](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/)
 · [Installation choices](docs/INSTALLATION.md) · [User guide](docs/MPLPB.md)
+
+## Choose a route
+
+- [Use MPLPB](docs/MPLPB.md) for installation, importing documents and checking citations.
+- [Develop MPLPB](docs/EXPERIMENTAL_LAB.md) for implementation, experiments and tooling.
+- [Inspect the evidence](docs/TESTING_APPARATUS.md) for frozen tests, results and custody.
+
+[Responsibility and distribution map](docs/RESPONSIBILITY_BOUNDARIES.md) · [Component map](docs/COMPONENT_MAP.md)
 
 ## What can I do today?
 
@@ -33,6 +41,8 @@ source text; it does not establish that the source is truthful.
 
 The app initially needs internet access to load. Its bundled example pages are
 synthetic demonstration material. [Browser and offline options](docs/INSTALLATION.md)
+
+**Your documents.** Paste plain text or load a UTF-8 `.txt` or `.md` file. Give the source a title and review it before asking. A public URL is optional when you supply the text.
 
 ## Try it from the terminal
 
@@ -87,16 +97,6 @@ mplpb-combined ask demo-ledger "When does the museum open?" --record-id DOC-0001
 Inspect `answer_contract.claims[].citations[]`: the quote is **Opening time: 09:00.**, alongside
 the source identifier, revision hash and text coordinates. The browser shows
 supporting passages with its answer. [Adding documents and inspecting citations](docs/MPLPB.md)
-
-## Choose an area
-
-| Area | Start here for |
-|---|---|
-| **[MPLPB — the usable artifact](docs/MPLPB.md)** | Installing, adding documents, asking questions and checking answers |
-| **[Experimental Lab](docs/EXPERIMENTAL_LAB.md)** | Proposed features, reader experiments, candidate repairs and research |
-| **[Testing apparatus and evidence](docs/TESTING_APPARATUS.md)** | Cryptid, regressions, evaluation archives, TeamBuilding, Thespian and onboarding |
-
-[Component and department map](docs/COMPONENT_MAP.md) · [All guides](docs/README.md)
 
 ## Limitations and evidence
 

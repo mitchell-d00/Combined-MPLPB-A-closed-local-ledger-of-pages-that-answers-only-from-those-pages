@@ -33,6 +33,11 @@ def build(core_archive, output):
     for folder in folders:
         paths.update(p for p in (ROOT / folder).rglob('*') if p.is_file()
                      and '__pycache__' not in p.parts and p.suffix not in ('.pyc','.tmp') and p.name != '.lock')
+    # Wiki captures/heads back the configured corpus and history view. The
+    # study guides and offline test reports stay in the source/evidence archive.
+    wiki = ROOT / 'evaluation/wiki'
+    paths.difference_update(wiki.glob('*.md'))
+    paths.difference_update((wiki / 'reports').rglob('*'))
     paths.add(ROOT / 'LICENSE')
     paths.add(ROOT / '.well-known/mplpb.json')
     # Store one copy of large references; the Python runtime verifies and joins parts.

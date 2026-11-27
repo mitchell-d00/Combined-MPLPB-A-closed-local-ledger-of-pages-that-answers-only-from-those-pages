@@ -1,6 +1,6 @@
 # MPLPB product — the usable artifact
 
-Last reviewed: 2026-11-26.
+Last reviewed: 2026-11-27.
 
 [Try MPLPB](../README.md#try-it-from-the-terminal) · [Installation](INSTALLATION.md)
 · [Components](COMPONENT_MAP.md) · [Test Index](TEST_INDEX.md)
@@ -13,6 +13,8 @@ omissions. It does not independently authenticate what a document claims.
 Scope: released user operations. Check [current status](CURRENT_STATUS.md) and
 [the handoff](../HANDOFF.md) for release/version and continuation cues;
 [development history](DEVELOPMENT_HISTORY.md) keeps earlier contracts separate.
+
+[Product distribution and responsibilities](RESPONSIBILITY_BOUNDARIES.md) explains what is delivered and what is shared.
 
 ## Start
 

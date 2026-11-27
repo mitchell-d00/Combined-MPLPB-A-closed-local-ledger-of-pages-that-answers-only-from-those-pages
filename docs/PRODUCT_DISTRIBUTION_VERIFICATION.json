@@ -1,0 +1,115 @@
+{
+  "base_commit": "515a919df40996e9d1d521dd50474b832a1a599c",
+  "scope": "Local candidate software checks; no deployment verification or human onboarding.",
+  "native": {
+    "meaning": "Clean-environment native software verification; human onboarding NOT_RUN",
+    "readme_sha256": "e5ea95dae8386f5cea38670a91aff3a9917a1a712bca06007a38812a00e87e8b",
+    "script_sha256": "966350bb789b46a15cfca50b20fe45658192bc09ad470c5bffc84f9ed8433ed2",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "command_exit_code": 3,
+    "download_sha256": "eb6a7fbc1df252af94df7df98f875810e2a4078963b6e5fb484590107155315d",
+    "wheel_sha256": {
+      "combined_mplpb-2.1.0rc1-py3-none-any.whl": "468b8f672b1a767991f0a61fad06e2286e907480051e6ec986d10d4b07b59590"
+    },
+    "checks": {
+      "readme_under_180_lines": true,
+      "script_expected_refusal_exit": true,
+      "fresh_write": true,
+      "supported_output": true,
+      "missing_output": true,
+      "no_traceback": true,
+      "wheel_installed": true,
+      "exact_citation": true,
+      "partial_output": true,
+      "owner_output": true,
+      "conflict_output": true
+    },
+    "passed": true
+  },
+  "native_guard_controls": [
+    "Rejected a second staged wheel.",
+    "Rejected a non-runtime file inside a runtime package root."
+  ],
+  "browser": {
+    "baseline": {
+      "bytes": 40520867,
+      "sha256": "6aceb68ee7aa42f30d091006770c8ad7b7574e8d7ecff9e1da58d8b0ce9b0326",
+      "bundled_files": 659,
+      "pyodide": "314.0.7",
+      "core_release_sha256": "2abdcc2e35208af406e07724cffa85bc582ced97e9028383ecf5462541393f95"
+    },
+    "candidate": {
+      "bytes": 39949037,
+      "sha256": "3b562ef3eefc01e63a9b7cb88b136cc1df66d677f536d1452232b83a86f7f858",
+      "bundled_files": 638,
+      "pyodide": "314.0.7",
+      "core_release_sha256": "2abdcc2e35208af406e07724cffa85bc582ced97e9028383ecf5462541393f95"
+    },
+    "removed_files": [
+      "evaluation/wiki/MENU.md",
+      "evaluation/wiki/OPEN_CLONE.md",
+      "evaluation/wiki/README.md",
+      "evaluation/wiki/REVIEW.md",
+      "evaluation/wiki/SNAPSHOT.md",
+      "evaluation/wiki/reports/check-20261008T160208090927Z.json",
+      "evaluation/wiki/reports/check-20261008T160208090927Z.live-response.json",
+      "evaluation/wiki/reports/check-20261008T160447484270Z.json",
+      "evaluation/wiki/reports/check-20261008T160447484270Z.live-response.json",
+      "evaluation/wiki/reports/run-20261008T161709982158Z.json",
+      "evaluation/wiki/reports/run-20261008T161709982158Z.live-response.json",
+      "evaluation/wiki/reports/run-20261008T163437225741Z.json",
+      "evaluation/wiki/reports/run-20261008T163437225741Z.live-response.json",
+      "evaluation/wiki/reports/run-20261008T163831856452Z.json",
+      "evaluation/wiki/reports/run-20261008T163831856452Z.live-response.json",
+      "evaluation/wiki/reports/run-20261008T164947285584Z.json",
+      "evaluation/wiki/reports/run-20261008T164947285584Z.live-response.json",
+      "evaluation/wiki/reports/run-20261008T165246248458Z.json",
+      "evaluation/wiki/reports/run-20261008T165246248458Z.live-response.json",
+      "evaluation/wiki/reports/run-20261008T165537443696Z.json",
+      "evaluation/wiki/reports/run-20261008T165537443696Z.live-response.json"
+    ],
+    "standalone_html_bytes_removed": 571830
+  },
+  "browser_engine_check": "Existing real Pyodide WebAssembly check passed; the configured Wiki corpus was still listed.",
+  "candidate_preview_setup_failures": [
+    "First process could not open a loopback socket under its sandbox.",
+    "Second attempt loaded the app but lacked the existing researcher-pilot fixture in the sparse checkout."
+  ],
+  "documentation": {
+    "reviewed_on": "2026-11-26",
+    "inspected_revision": "2622813aba9ee1f1880693eeb71ae015cb3da999",
+    "documents": 1374,
+    "classifications": {
+      "current": 203,
+      "historical": 1158,
+      "vendor": 13
+    },
+    "evaluation_families": 66,
+    "meaning": "Inventory, preserved bytes and retained test/tool paths checked; historical metrics are not rerun by this check."
+  },
+  "infrastructure_check": "Existing static repository infrastructure check passed.",
+  "browser_chromium_preview": {
+    "synthetic": true,
+    "journey": {
+      "schema": "mplpb-researcher-browser-pilot-v1",
+      "suite_sha256": "38b29eb6599f4484b5d7e7e654251aee54e6e25d9dd5d388b195c32c70e5d6d5",
+      "persona": "mara",
+      "actual_browser": "Chromium with running application engine",
+      "checks_passed": [
+        "create_collection_through_ui",
+        "paste_import_through_ui",
+        "ask_and_click_cited_source",
+        "known_reader_limit_is_not_an_answer",
+        "conflicting_bulletins_do_not_choose_a_winner",
+        "save_multisentence_investigation_note",
+        "indexeddb_reload_preserves_note_and_exact_transcript",
+        "resume_rechecks_sources"
+      ],
+      "status": "synthetic_ui_workflow_passed",
+      "known_answerable_refusals": 1,
+      "human_usability_measured": false,
+      "product_backup_or_upgrade_tested": false,
+      "notice": "One scripted persona, developer-inspected controls; not six browser users or a human pilot."
+    }
+  }
+}

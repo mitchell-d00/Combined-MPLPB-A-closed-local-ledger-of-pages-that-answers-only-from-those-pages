@@ -25,6 +25,39 @@ def build(output, browser):
     (output/'SHA256.json').write_text(json.dumps(manifest,indent=2)+'\n')
     print(json.dumps(manifest,indent=2))
 
-if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--output',default='release');p.add_argument('--browser',default='dist/index.html');a=p.parse_args()
-    build(a.output,a.browser)
+
+def build_native(output, wheel_directory):
+    """Package one staged wheel and enforce its supported top-level contents."""
+    manifest = json.loads((ROOT / 'docs/PRODUCT_DISTRIBUTION.json').read_text())['native']
+    wheels = sorted(path for path in Path(wheel_directory).glob('*.whl') if path.is_file())
+    if len(wheels) != manifest['wheel_count']:
+        raise ValueError('The native ZIP needs exactly one wheel from the current build')
+    wheel = wheels[0]
+    with zipfile.ZipFile(wheel) as archive:
+        members = [Path(entry.filename) for entry in archive.infolist() if not entry.is_dir()]
+    if any(path.is_absolute() or '..' in path.parts for path in members):
+        raise ValueError('The native wheel contains an invalid member path')
+    roots = {path.parts[0] for path in members}
+    packages = set(manifest['packages'])
+    if any(path.parts[0] in packages and (len(path.parts) != 2 or path.suffix != manifest['module_suffix'])
+           for path in members):
+        raise ValueError('The native wheel contains files beyond the supported runtime modules')
+    metadata = roots - packages
+    if not packages <= roots or len(metadata) != 1 or not next(iter(metadata)).endswith('.dist-info'):
+        raise ValueError('Wheel contents do not match the native distribution manifest')
+    output = Path(output)
+    output.mkdir(parents=True, exist_ok=True)
+    with zipfile.ZipFile(output / manifest['archive'], 'w', zipfile.ZIP_DEFLATED) as archive:
+        archive.write(wheel, wheel.name)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', default='release')
+    parser.add_argument('--browser', default='dist/index.html')
+    parser.add_argument('--native-wheel-dir', type=Path)
+    args = parser.parse_args()
+    if args.native_wheel_dir is None:
+        build(args.output, args.browser)
+    else:
+        build_native(args.output, args.native_wheel_dir)

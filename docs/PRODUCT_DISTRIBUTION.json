@@ -1,0 +1,40 @@
+{
+  "schema": "mplpb-product-distribution-v1",
+  "native": {
+    "archive": "mplpb-native.zip",
+    "wheel_count": 1,
+    "packages": [
+      "mplpb_combined",
+      "mplpb_answers",
+      "mplpb_work"
+    ],
+    "metadata": "One wheel's .dist-info only",
+    "runtime_requirements": "Python and pip; no declared third-party application dependencies",
+    "module_suffix": ".py"
+  },
+  "standalone_browser": {
+    "archive": "mplpb-monster-browser.zip",
+    "members": [
+      "MPLPB_Browser.html",
+      "READ_ME.txt"
+    ],
+    "browser_runtime": "Pyodide core, supported browser code, runtime Python modules, configured demo ledgers, licensed reference resources and discovery metadata",
+    "status": "Outer ZIP scoped; Wiki reports and study notes excluded from the embedded build; remaining shared inputs still need granular review"
+  },
+  "desktop": {
+    "status": "Runs from the full source distribution; no minimal desktop ZIP has been delivered",
+    "entry": [
+      "launch.py",
+      "Launch_MPLPB.sh",
+      "Launch_MPLPB.bat",
+      "tools/ledger_ui.py",
+      "index.html"
+    ],
+    "shared_requirements": "Core runtime packages, imported tools, configured demo/reference data and a browser"
+  },
+  "source": {
+    "archive": "mplpb-monster.zip",
+    "purpose": "Full committed repository for development, review and recovery",
+    "excluded": "Untracked local state, held custody, and Git history"
+  }
+}
