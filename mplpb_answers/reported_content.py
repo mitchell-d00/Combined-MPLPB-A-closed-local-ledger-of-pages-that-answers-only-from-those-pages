@@ -49,6 +49,15 @@ def request(question):
     if match and all(kernel.named_actor(match[k]) for k in ('reporter', 'author')):
         return dict(match.groupdict(), object=None, conditional=False, form=None,
                     required_outer_negative=False, required_inner_negative=False)
+    match = re.fullmatch(
+        rf'Did (?P<reporter>{_PERSON})(?P<outer> not)? (?:say|state) that '
+        rf'(?P<author>{_PERSON}) (?P<action>wrote|did not write) (?P<object>{_OBJECT})[?.]',
+        q, re.I)
+    if match and all(kernel.named_actor(match[k]) for k in ('reporter', 'author')):
+        return {k: match[k] for k in ('reporter', 'author', 'object')} | {
+            'conditional': False, 'form': None, 'required_outer_negative': bool(match['outer']),
+            'required_inner_negative': match['action'].casefold() == 'did not write',
+        }
     return None
 
 
@@ -248,6 +257,8 @@ def verify(index, max_passages, max_chars):
     if not goal['object'] and (unresolved or len(proofs) != 1):
         return 'abstain', 'reported_object_unresolved', {}
     if unresolved or not proofs or len(proofs) > 2:
+        if goal.get('required_inner_negative') is not None:
+            return 'abstain', 'report_polarity_unresolved', {}
         return None
     if len(proofs) == 2:
         identity = lambda p: tuple(str(p['proposition'][k]) for k in

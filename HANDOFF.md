@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `dec7ee943ae2a0f3ef62f426c8c801d01acf15a5` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `9e38d6f4cc7288dc1630c82650765cabb13c7c1ea6dc2286faa4b9d1382f6607`.
+Base commit: `97867f5efbe5564926bdb6e50d00a8094bb211e8` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `105fa69c7cf7148b07d6ab202d65401c6b7757c050b8af9819cae8e72fcd74ab`.
 
 ## Betty report for Al
 
@@ -19,6 +19,7 @@ Expand the current assignment into one bounded three-set Egyptian-gods batch. Pr
 
 - Freeze six development and six fresh cases per set, each with three supported targets and three contrasts. Use the unchanged Cryptid v5 isolation runner.
 - Seshat binds an exact reporter and embedded writer before resolving an unambiguous reported object. The printed recorder remains a separate source role.
+- Anubis independently binds explicit denial of a report and denial inside the reported writing claim. A missing scoped witness withholds.
 
 ### Validation recorded
 
@@ -31,7 +32,7 @@ Expand the current assignment into one bounded three-set Egyptian-gods batch. Pr
 
 ### Next steps
 
-- Run the Seshat development pin and compare all sets. Proceed in sequence to Anubis and Horus; fresh packets stay closed.
+- Collect the isolated Seshat and Anubis development results. Implement Horus separately and pin the cumulative reader while fresh inputs remain in custody.
 
 ## Use this ZIP in your repository
 
