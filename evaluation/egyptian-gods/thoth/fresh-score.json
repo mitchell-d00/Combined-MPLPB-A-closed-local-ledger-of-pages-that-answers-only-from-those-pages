@@ -1,0 +1,2233 @@
+{
+  "new_cases": {
+    "released": {
+      "comparison_format": "bunyip-round2-replacement-readout-v1",
+      "packet_arms": [
+        "fresh"
+      ],
+      "summary": {
+        "cases": 12,
+        "released_executed": 12,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 3,
+        "candidate_executed": 12,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 3,
+        "candidate_only": 9
+      },
+      "by_family": {
+        "location": {
+          "cases": 6,
+          "released_executed": 6,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 0,
+          "candidate_executed": 6,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 0,
+          "candidate_only": 6
+        },
+        "compound partial": {
+          "cases": 3,
+          "released_executed": 3,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 0,
+          "candidate_executed": 3,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 0,
+          "candidate_only": 3
+        },
+        "negation": {
+          "cases": 1,
+          "released_executed": 1,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 1,
+          "candidate_executed": 1,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 1
+        },
+        "attribution": {
+          "cases": 1,
+          "released_executed": 1,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 1,
+          "candidate_executed": 1,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 1
+        },
+        "condition": {
+          "cases": 1,
+          "released_executed": 1,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 1,
+          "candidate_executed": 1,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 1
+        }
+      },
+      "distinct_original_questions": 12,
+      "question_memberships": {
+        "Where is Cedar Food Pantry?": [
+          "EGY-THOTH-F01-A"
+        ],
+        "Where is Cedar Food Pantry.": [
+          "EGY-THOTH-F02-A"
+        ],
+        "Tell me where Cedar Food Pantry is.": [
+          "EGY-THOTH-F03-A"
+        ],
+        "Where is Mallow Dance Studio?": [
+          "EGY-THOTH-F04-A"
+        ],
+        "Where is Mallow Dance Studio.": [
+          "EGY-THOTH-F05-A"
+        ],
+        "Tell me where Mallow Dance Studio is.": [
+          "EGY-THOTH-F06-A"
+        ],
+        "When does Tidepool Visitor Counter open, and where is it located?": [
+          "EGY-THOTH-F07-A"
+        ],
+        "When does Tidepool Visitor Counter open, and where is it located.": [
+          "EGY-THOTH-F08-A"
+        ],
+        "For Tidepool Visitor Counter, list its opening time and location.": [
+          "EGY-THOTH-F09-A"
+        ],
+        "Tell me where Cedar Food Pantry is not.": [
+          "EGY-THOTH-F10-B"
+        ],
+        "Where did the visitor say Cedar Food Pantry is?": [
+          "EGY-THOTH-F11-B"
+        ],
+        "Where is Cedar Food Pantry if the bridge closes?": [
+          "EGY-THOTH-F12-B"
+        ]
+      },
+      "rows": [
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F01-A",
+          "family": "location",
+          "question": "Where is Cedar Food Pantry?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "7a0d7053bcd7a08aef7c67401cf9a39e22e993e02a6f30218f76ea94533cb507"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Railway arcade"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "6ca40e4192e8587e28bf97a713f65ee77c63a6dbd957decd0b746ca7337a6aae"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F02-A",
+          "family": "location",
+          "question": "Where is Cedar Food Pantry.",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "9b8b3f7faa3ab13cc32d3154a7646068e0446cd25e783d53f2dbac2ec239b501"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Railway arcade"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "5b4ef1031f9a61e8d0770f6f6423dffe61b5f0daf33f8d992273d346b31f5642"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F03-A",
+          "family": "location",
+          "question": "Tell me where Cedar Food Pantry is.",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "5bef381e379cbd1118cee33cccd4fdeb944611ef77a247896a164f88eb9706fe"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Railway arcade"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "b475e3dff0f08d5aceaa81bad7208b977199def28847131571168947a3d265c8"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F04-A",
+          "family": "location",
+          "question": "Where is Mallow Dance Studio?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "dca9831ce4a5d1a959b249388284e5b312c3ab654deae20d2e5ab423684ccd90"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Market court"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "43aab6b722bb6a10f96fa3770ce6535cdfb58a12f637e9b2a1f432997070d677"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F05-A",
+          "family": "location",
+          "question": "Where is Mallow Dance Studio.",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "7d6956ce2e430dc3b238eb05935b853bce96f446246670a4e5e11174c77c80f9"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Market court"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "74461d17dcf7ad66a339c47bdd979dfdb62bc21aa866d66c0cce9bc58f5854b2"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F06-A",
+          "family": "location",
+          "question": "Tell me where Mallow Dance Studio is.",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "ddccdafbcabd019292fca23f7622a61543f3883ea1f81fe33103f9cdb58e9aa7"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Market court"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "904f3f77fb9deb0d58b6ca6dc6f81300f6b3d2eca59d841a566329c14f6bbfbf"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F07-A",
+          "family": "compound partial",
+          "question": "When does Tidepool Visitor Counter open, and where is it located?",
+          "expected": "partial",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": false
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "documentary_assertion_not_established",
+            "raw_output_sha256": "e808cfc49c1a13edd5eca9b1edd81c761abe0ff94473189c51efea9bb93255fb"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "partial_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": true
+            },
+            "required_witnesses_covered": [
+              "Opening time: 07:55"
+            ],
+            "citation_errors": [],
+            "diagnostic": "compound_field_incomplete",
+            "raw_output_sha256": "bedbe043d2394243e5e2f133527b94b2cecaa34084ace0ffece42a6edc802f75"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F08-A",
+          "family": "compound partial",
+          "question": "When does Tidepool Visitor Counter open, and where is it located.",
+          "expected": "partial",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": false
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "documentary_assertion_not_established",
+            "raw_output_sha256": "94a09b0d52944a88bb38161eb2530be09873c5350cc44822c333da6a8c407ca1"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "partial_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": true
+            },
+            "required_witnesses_covered": [
+              "Opening time: 07:55"
+            ],
+            "citation_errors": [],
+            "diagnostic": "compound_field_incomplete",
+            "raw_output_sha256": "1cd5c76d37ad8fad2c9ddde11724ab5226764ca1919517af666374badcc286f9"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F09-A",
+          "family": "compound partial",
+          "question": "For Tidepool Visitor Counter, list its opening time and location.",
+          "expected": "partial",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": false
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "d35076fd5c156063adae967f2eba7f0dba54062874c5da9d3da4918cccd54595"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "partial_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": true
+            },
+            "required_witnesses_covered": [
+              "Opening time: 07:55"
+            ],
+            "citation_errors": [],
+            "diagnostic": "compound_field_incomplete",
+            "raw_output_sha256": "297041c136714592217be7c68fd92e12152eb3ab660b3ae676e3cdeb4d4bccc9"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F10-B",
+          "family": "negation",
+          "question": "Tell me where Cedar Food Pantry is not.",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "6629b7b3b8eca3e18eb6bd362f56ad1bd6087f1b1a1a79ef89502594bfa458fc"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "4f6fd811e5d3348865f503c2fc6bd79829d9c1e8c16f9d6892e2e8324cd2f54d"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F11-B",
+          "family": "attribution",
+          "question": "Where did the visitor say Cedar Food Pantry is?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "660204162f5130db5b4a82048f5a1b04154f701025093bea9eef2649e691891e"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "26142b949b19075a6cd0374fd44aa2eef0c83604a9bcaca196b9a071d6059bd7"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F12-B",
+          "family": "condition",
+          "question": "Where is Cedar Food Pantry if the bridge closes?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "9f85576c05f7564a05c7ffc3d89ad632f08841b0f2bda6e9f2724190fe411f91"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "8cf79463e600cfb04c5fd97d660c7116fe4c2e227177fe3346d91d5ceaaac0a3"
+          }
+        }
+      ],
+      "reference_role": "released",
+      "reference_artifact_sha256": "31174a27bb2ac3442033901a555c0b80c421167a3d7d708d22c78a569586919c",
+      "thoth_artifact_sha256": "31174a27bb2ac3442033901a555c0b80c421167a3d7d708d22c78a569586919c",
+      "protected_contracts": []
+    },
+    "c3": {
+      "comparison_format": "bunyip-round2-replacement-readout-v1",
+      "packet_arms": [
+        "fresh"
+      ],
+      "summary": {
+        "cases": 12,
+        "released_executed": 12,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 3,
+        "candidate_executed": 12,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 3,
+        "candidate_only": 9
+      },
+      "by_family": {
+        "location": {
+          "cases": 6,
+          "released_executed": 6,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 0,
+          "candidate_executed": 6,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 0,
+          "candidate_only": 6
+        },
+        "compound partial": {
+          "cases": 3,
+          "released_executed": 3,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 0,
+          "candidate_executed": 3,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 0,
+          "candidate_only": 3
+        },
+        "negation": {
+          "cases": 1,
+          "released_executed": 1,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 1,
+          "candidate_executed": 1,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 1
+        },
+        "attribution": {
+          "cases": 1,
+          "released_executed": 1,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 1,
+          "candidate_executed": 1,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 1
+        },
+        "condition": {
+          "cases": 1,
+          "released_executed": 1,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 1,
+          "candidate_executed": 1,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 1
+        }
+      },
+      "distinct_original_questions": 12,
+      "question_memberships": {
+        "Where is Cedar Food Pantry?": [
+          "EGY-THOTH-F01-A"
+        ],
+        "Where is Cedar Food Pantry.": [
+          "EGY-THOTH-F02-A"
+        ],
+        "Tell me where Cedar Food Pantry is.": [
+          "EGY-THOTH-F03-A"
+        ],
+        "Where is Mallow Dance Studio?": [
+          "EGY-THOTH-F04-A"
+        ],
+        "Where is Mallow Dance Studio.": [
+          "EGY-THOTH-F05-A"
+        ],
+        "Tell me where Mallow Dance Studio is.": [
+          "EGY-THOTH-F06-A"
+        ],
+        "When does Tidepool Visitor Counter open, and where is it located?": [
+          "EGY-THOTH-F07-A"
+        ],
+        "When does Tidepool Visitor Counter open, and where is it located.": [
+          "EGY-THOTH-F08-A"
+        ],
+        "For Tidepool Visitor Counter, list its opening time and location.": [
+          "EGY-THOTH-F09-A"
+        ],
+        "Tell me where Cedar Food Pantry is not.": [
+          "EGY-THOTH-F10-B"
+        ],
+        "Where did the visitor say Cedar Food Pantry is?": [
+          "EGY-THOTH-F11-B"
+        ],
+        "Where is Cedar Food Pantry if the bridge closes?": [
+          "EGY-THOTH-F12-B"
+        ]
+      },
+      "rows": [
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F01-A",
+          "family": "location",
+          "question": "Where is Cedar Food Pantry?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "0ca0e0ce36edad6faae787513dbb942d4fb49c9d21b116ec99efaf6ea7fb2117"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Railway arcade"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "6ca40e4192e8587e28bf97a713f65ee77c63a6dbd957decd0b746ca7337a6aae"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F02-A",
+          "family": "location",
+          "question": "Where is Cedar Food Pantry.",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "fafa8b1cef456e768699ce8577b93fa740d05aa61d5dc0b012c647983a23375a"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Railway arcade"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "5b4ef1031f9a61e8d0770f6f6423dffe61b5f0daf33f8d992273d346b31f5642"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F03-A",
+          "family": "location",
+          "question": "Tell me where Cedar Food Pantry is.",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "4275c4d59a3ebc6b6626736bbe3f9efa0dbcb7551f6f4678fb010f1a6843dc77"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Railway arcade"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "b475e3dff0f08d5aceaa81bad7208b977199def28847131571168947a3d265c8"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F04-A",
+          "family": "location",
+          "question": "Where is Mallow Dance Studio?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "b21d26d787c139da063925574bed6b44999d8cae5ae6d585d3320668cf214ef3"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Market court"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "43aab6b722bb6a10f96fa3770ce6535cdfb58a12f637e9b2a1f432997070d677"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F05-A",
+          "family": "location",
+          "question": "Where is Mallow Dance Studio.",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "45aef0d2937a66edf5fd555bbdaeaae7060b721ead89cf18a0bf291e073cc406"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Market court"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "74461d17dcf7ad66a339c47bdd979dfdb62bc21aa866d66c0cce9bc58f5854b2"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F06-A",
+          "family": "location",
+          "question": "Tell me where Mallow Dance Studio is.",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "8c7467d5e47268ad818b00be9f522e9e648752c4d26f85e597a41b7e3e6e9dd2"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Market court"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "904f3f77fb9deb0d58b6ca6dc6f81300f6b3d2eca59d841a566329c14f6bbfbf"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F07-A",
+          "family": "compound partial",
+          "question": "When does Tidepool Visitor Counter open, and where is it located?",
+          "expected": "partial",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": false
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "documentary_assertion_not_established",
+            "raw_output_sha256": "1cb9fac0b65ebbeda638b94a9be5a5802f4853c2946a63b603210b03e20693dd"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "partial_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": true
+            },
+            "required_witnesses_covered": [
+              "Opening time: 07:55"
+            ],
+            "citation_errors": [],
+            "diagnostic": "compound_field_incomplete",
+            "raw_output_sha256": "bedbe043d2394243e5e2f133527b94b2cecaa34084ace0ffece42a6edc802f75"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F08-A",
+          "family": "compound partial",
+          "question": "When does Tidepool Visitor Counter open, and where is it located.",
+          "expected": "partial",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": false
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "documentary_assertion_not_established",
+            "raw_output_sha256": "5370baa5f0d5986879ab6c26297616a38259be7e5cefb5f959cff6e6b73a5f25"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "partial_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": true
+            },
+            "required_witnesses_covered": [
+              "Opening time: 07:55"
+            ],
+            "citation_errors": [],
+            "diagnostic": "compound_field_incomplete",
+            "raw_output_sha256": "1cd5c76d37ad8fad2c9ddde11724ab5226764ca1919517af666374badcc286f9"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F09-A",
+          "family": "compound partial",
+          "question": "For Tidepool Visitor Counter, list its opening time and location.",
+          "expected": "partial",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": false
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "f3e47761f56b2b285655b6187eec1c7da8fdfbff35bdb042acc3f168bd934dac"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "partial_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": true
+            },
+            "required_witnesses_covered": [
+              "Opening time: 07:55"
+            ],
+            "citation_errors": [],
+            "diagnostic": "compound_field_incomplete",
+            "raw_output_sha256": "297041c136714592217be7c68fd92e12152eb3ab660b3ae676e3cdeb4d4bccc9"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F10-B",
+          "family": "negation",
+          "question": "Tell me where Cedar Food Pantry is not.",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "d3c170ad0928b6afc08c131c6945b3301f5096eeb01ad65ab2c4075003e65438"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "4f6fd811e5d3348865f503c2fc6bd79829d9c1e8c16f9d6892e2e8324cd2f54d"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F11-B",
+          "family": "attribution",
+          "question": "Where did the visitor say Cedar Food Pantry is?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "2ba9707e4474218ca09420390011eb59b2aac532f5952bf91e7eee90aff3ac7d"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "26142b949b19075a6cd0374fd44aa2eef0c83604a9bcaca196b9a071d6059bd7"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F12-B",
+          "family": "condition",
+          "question": "Where is Cedar Food Pantry if the bridge closes?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "8ffc281f7cf4e5ee485522736f5ee0201867b61f469e445738a9234a2ff2b630"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "8cf79463e600cfb04c5fd97d660c7116fe4c2e227177fe3346d91d5ceaaac0a3"
+          }
+        }
+      ],
+      "reference_role": "c3",
+      "reference_artifact_sha256": "31174a27bb2ac3442033901a555c0b80c421167a3d7d708d22c78a569586919c",
+      "thoth_artifact_sha256": "31174a27bb2ac3442033901a555c0b80c421167a3d7d708d22c78a569586919c",
+      "protected_contracts": []
+    },
+    "wampus": {
+      "comparison_format": "bunyip-round2-replacement-readout-v1",
+      "packet_arms": [
+        "fresh"
+      ],
+      "summary": {
+        "cases": 12,
+        "released_executed": 12,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 3,
+        "candidate_executed": 12,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 3,
+        "candidate_only": 8,
+        "both": 1
+      },
+      "by_family": {
+        "location": {
+          "cases": 6,
+          "released_executed": 6,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 0,
+          "candidate_executed": 6,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 0,
+          "candidate_only": 6
+        },
+        "compound partial": {
+          "cases": 3,
+          "released_executed": 3,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 0,
+          "candidate_executed": 3,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 0,
+          "both": 1,
+          "candidate_only": 2
+        },
+        "negation": {
+          "cases": 1,
+          "released_executed": 1,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 1,
+          "candidate_executed": 1,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 1
+        },
+        "attribution": {
+          "cases": 1,
+          "released_executed": 1,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 1,
+          "candidate_executed": 1,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 1
+        },
+        "condition": {
+          "cases": 1,
+          "released_executed": 1,
+          "released_unsupported_completions": 0,
+          "released_unsupported_claim_cases": 0,
+          "released_correct_controls": 1,
+          "candidate_executed": 1,
+          "candidate_unsupported_completions": 0,
+          "candidate_unsupported_claim_cases": 0,
+          "candidate_correct_controls": 1
+        }
+      },
+      "distinct_original_questions": 12,
+      "question_memberships": {
+        "Where is Cedar Food Pantry?": [
+          "EGY-THOTH-F01-A"
+        ],
+        "Where is Cedar Food Pantry.": [
+          "EGY-THOTH-F02-A"
+        ],
+        "Tell me where Cedar Food Pantry is.": [
+          "EGY-THOTH-F03-A"
+        ],
+        "Where is Mallow Dance Studio?": [
+          "EGY-THOTH-F04-A"
+        ],
+        "Where is Mallow Dance Studio.": [
+          "EGY-THOTH-F05-A"
+        ],
+        "Tell me where Mallow Dance Studio is.": [
+          "EGY-THOTH-F06-A"
+        ],
+        "When does Tidepool Visitor Counter open, and where is it located?": [
+          "EGY-THOTH-F07-A"
+        ],
+        "When does Tidepool Visitor Counter open, and where is it located.": [
+          "EGY-THOTH-F08-A"
+        ],
+        "For Tidepool Visitor Counter, list its opening time and location.": [
+          "EGY-THOTH-F09-A"
+        ],
+        "Tell me where Cedar Food Pantry is not.": [
+          "EGY-THOTH-F10-B"
+        ],
+        "Where did the visitor say Cedar Food Pantry is?": [
+          "EGY-THOTH-F11-B"
+        ],
+        "Where is Cedar Food Pantry if the bridge closes?": [
+          "EGY-THOTH-F12-B"
+        ]
+      },
+      "rows": [
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F01-A",
+          "family": "location",
+          "question": "Where is Cedar Food Pantry?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "ee3c138b46eb648dae86372e1125b229f991f181b8026a7dc7664fdbc3b315d2"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Railway arcade"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "6ca40e4192e8587e28bf97a713f65ee77c63a6dbd957decd0b746ca7337a6aae"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F02-A",
+          "family": "location",
+          "question": "Where is Cedar Food Pantry.",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "531ac84ad35a02fa4f558c632db1c78640dcd953de596b68cee7f6a4bf774c61"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Railway arcade"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "5b4ef1031f9a61e8d0770f6f6423dffe61b5f0daf33f8d992273d346b31f5642"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F03-A",
+          "family": "location",
+          "question": "Tell me where Cedar Food Pantry is.",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "646e2481bab89162c9e934fd69112eedd3768e0599ac7ac614790bda8e8625f6"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Railway arcade"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "b475e3dff0f08d5aceaa81bad7208b977199def28847131571168947a3d265c8"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F04-A",
+          "family": "location",
+          "question": "Where is Mallow Dance Studio?",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "eb372009ff045c5de35b2cb8f434ff810a03aa45a22755c7ae4db45d95e99df6"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Market court"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "43aab6b722bb6a10f96fa3770ce6535cdfb58a12f637e9b2a1f432997070d677"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F05-A",
+          "family": "location",
+          "question": "Where is Mallow Dance Studio.",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "3c7deb154b04544f9450edca9254e43ef3aab064dd3d4280fd79502c56dd51b6"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Market court"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "74461d17dcf7ad66a339c47bdd979dfdb62bc21aa866d66c0cce9bc58f5854b2"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F06-A",
+          "family": "location",
+          "question": "Tell me where Mallow Dance Studio is.",
+          "expected": "complete",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "7a30cedfe32c89268cd64b44c0dcc86b98d8198c4b8fd7a1586d34fcdb392104"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "supported_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [
+              "Location: Market court"
+            ],
+            "citation_errors": [],
+            "diagnostic": "supported",
+            "raw_output_sha256": "904f3f77fb9deb0d58b6ca6dc6f81300f6b3d2eca59d841a566329c14f6bbfbf"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F07-A",
+          "family": "compound partial",
+          "question": "When does Tidepool Visitor Counter open, and where is it located?",
+          "expected": "partial",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "partial_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": true
+            },
+            "required_witnesses_covered": [
+              "Opening time: 07:55"
+            ],
+            "citation_errors": [],
+            "diagnostic": "compound_field_incomplete",
+            "raw_output_sha256": "c6f41d36717a6b022f115ab19a6b80630ff320eb0cd77ede567ddaf6a6679b14"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "partial_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": true
+            },
+            "required_witnesses_covered": [
+              "Opening time: 07:55"
+            ],
+            "citation_errors": [],
+            "diagnostic": "compound_field_incomplete",
+            "raw_output_sha256": "bedbe043d2394243e5e2f133527b94b2cecaa34084ace0ffece42a6edc802f75"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F08-A",
+          "family": "compound partial",
+          "question": "When does Tidepool Visitor Counter open, and where is it located.",
+          "expected": "partial",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": false
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "documentary_assertion_not_established",
+            "raw_output_sha256": "a0f0f722e94303d86833145e84106029ee97c17abfdef971ea50f9df291d9231"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "partial_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": true
+            },
+            "required_witnesses_covered": [
+              "Opening time: 07:55"
+            ],
+            "citation_errors": [],
+            "diagnostic": "compound_field_incomplete",
+            "raw_output_sha256": "1cd5c76d37ad8fad2c9ddde11724ab5226764ca1919517af666374badcc286f9"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F09-A",
+          "family": "compound partial",
+          "question": "For Tidepool Visitor Counter, list its opening time and location.",
+          "expected": "partial",
+          "membership": "target",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": false,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": false
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "695dc357a7ca3cc1ae4abc1c2c53590a95fc53e3db78543eb975a73748756b10"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "partial_answer",
+            "claim_count": 1,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": true,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": true,
+              "readable_yes_no": null,
+              "missing_obligation": true
+            },
+            "required_witnesses_covered": [
+              "Opening time: 07:55"
+            ],
+            "citation_errors": [],
+            "diagnostic": "compound_field_incomplete",
+            "raw_output_sha256": "297041c136714592217be7c68fd92e12152eb3ab660b3ae676e3cdeb4d4bccc9"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F10-B",
+          "family": "negation",
+          "question": "Tell me where Cedar Food Pantry is not.",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "dedce7e9372add8e53ee83cd12b078317e9f37a68a2760d289435d586e6c1d8b"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "4f6fd811e5d3348865f503c2fc6bd79829d9c1e8c16f9d6892e2e8324cd2f54d"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F11-B",
+          "family": "attribution",
+          "question": "Where did the visitor say Cedar Food Pantry is?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "a09ac5f472ad9620ed2b8c08fd435d90f2c41468290e6ed258c58d0b4f299675"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "26142b949b19075a6cd0374fd44aa2eef0c83604a9bcaca196b9a071d6059bd7"
+          }
+        },
+        {
+          "packet": "fresh",
+          "id": "EGY-THOTH-F12-B",
+          "family": "condition",
+          "question": "Where is Cedar Food Pantry if the bridge closes?",
+          "expected": "withhold",
+          "membership": "control",
+          "released": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "5b77bc23923c59d47400accaed9eaa0985f9a6ed90559268ead6c06c70c54b0d"
+          },
+          "candidate": {
+            "execution": "completed",
+            "status": "abstain",
+            "claim_count": 0,
+            "support": true,
+            "unsupported_completion": false,
+            "unsupported_claim_case": false,
+            "dimensions": {
+              "source_support": false,
+              "attribution": null,
+              "polarity": null,
+              "conditions": null,
+              "citation_correctness": null,
+              "readable_yes_no": null,
+              "missing_obligation": null
+            },
+            "required_witnesses_covered": [],
+            "citation_errors": [],
+            "diagnostic": "interpretation_unsupported",
+            "raw_output_sha256": "8cf79463e600cfb04c5fd97d660c7116fe4c2e227177fe3346d91d5ceaaac0a3"
+          }
+        }
+      ],
+      "reference_role": "wampus",
+      "reference_artifact_sha256": "31174a27bb2ac3442033901a555c0b80c421167a3d7d708d22c78a569586919c",
+      "thoth_artifact_sha256": "31174a27bb2ac3442033901a555c0b80c421167a3d7d708d22c78a569586919c",
+      "protected_contracts": [
+        {
+          "id": "EGY-THOTH-F07-A",
+          "same_contract": true
+        }
+      ]
+    }
+  }
+}

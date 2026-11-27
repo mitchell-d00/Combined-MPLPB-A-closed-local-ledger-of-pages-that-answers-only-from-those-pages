@@ -1,0 +1,1242 @@
+{
+  "fresh_vs_c3": {
+    "comparison_format": "bunyip-round2-replacement-readout-v1",
+    "packet_arms": [
+      "fresh"
+    ],
+    "summary": {
+      "cases": 10,
+      "released_executed": 10,
+      "released_unsupported_completions": 0,
+      "released_unsupported_claim_cases": 0,
+      "released_correct_controls": 3,
+      "candidate_executed": 10,
+      "candidate_unsupported_completions": 0,
+      "candidate_unsupported_claim_cases": 0,
+      "candidate_correct_controls": 4,
+      "candidate_only": 3,
+      "neither": 2
+    },
+    "by_family": {
+      "irrelevant": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 0,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "candidate_only": 1
+      },
+      "missing": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 0,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 0,
+        "neither": 1
+      },
+      "mismatch": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 1,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "candidate_only": 1
+      },
+      "withdraw": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 1,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "candidate_only": 1
+      },
+      "role": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 1,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "neither": 1
+      }
+    },
+    "distinct_original_questions": 5,
+    "question_memberships": {
+      "What time does Lichen Yard open and where is it located?": [
+        "CRYPT-WAMPUS-F01-A",
+        "CRYPT-WAMPUS-F01-B"
+      ],
+      "For Ochre Library, report its opening time and location.": [
+        "CRYPT-WAMPUS-F02-A",
+        "CRYPT-WAMPUS-F02-B"
+      ],
+      "What is the opening time and location of Flint Studio?": [
+        "CRYPT-WAMPUS-F03-A",
+        "CRYPT-WAMPUS-F03-B"
+      ],
+      "When does Marsh Counter open, and where is it located?": [
+        "CRYPT-WAMPUS-F04-A",
+        "CRYPT-WAMPUS-F04-B"
+      ],
+      "For Dune Shelter, show its opening time and location.": [
+        "CRYPT-WAMPUS-F05-A",
+        "CRYPT-WAMPUS-F05-B"
+      ]
+    },
+    "rows": [
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F01-A",
+        "family": "irrelevant",
+        "question": "What time does Lichen Yard open and where is it located?",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "e48ba562418e3bf2047aa2d733603d4f86df9827a0ebfea8d5f1adfaedcb2846"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "supported_answer",
+          "claim_count": 2,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [
+            "Opening time: 12:15",
+            "Location: Stone arcade"
+          ],
+          "citation_errors": [],
+          "diagnostic": "supported",
+          "raw_output_sha256": "bf49fd55b62f75800044fead4a2e9d7cb7faac8d389b25aab1d651dfaf5a0930"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F01-B",
+        "family": "irrelevant",
+        "question": "What time does Lichen Yard open and where is it located?",
+        "expected": "partial",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "033bb76c91e39f0d20ba6651d10b7238e6cdad887f19a50f3d38082dd9084578"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "partial_answer",
+          "claim_count": 1,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": true
+          },
+          "required_witnesses_covered": [
+            "Location: Stone arcade"
+          ],
+          "citation_errors": [],
+          "diagnostic": "compound_field_incomplete",
+          "raw_output_sha256": "d5f4df5778f646fda577bce9de2d7909d3e3cac15269a232aac76b7548b45f4e"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F02-A",
+        "family": "missing",
+        "question": "For Ochre Library, report its opening time and location.",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "8e9dc7805dca6c009a76566ce343d4ac17af0793ada67ca15bc2c20b87f42b29"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "17ee07a911409f20f8dabee4e46eb9379dfa9de5579ec99582780bb45e8993cd"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F02-B",
+        "family": "missing",
+        "question": "For Ochre Library, report its opening time and location.",
+        "expected": "partial",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "ec2bf8462c520744eff10da903d26b43ae5b2315972d0141a05e501edcc5f031"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "de888f9361c19b35ca82af3ae8a2dfd86baf080c524b6f15ce9780dd1577e215"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F03-A",
+        "family": "mismatch",
+        "question": "What is the opening time and location of Flint Studio?",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "evidence_not_established",
+          "raw_output_sha256": "bfee5f7fb22e321e0fe1a9f8adb4717f03dedefb9cf0ae5b6651539d0b1661b8"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "supported_answer",
+          "claim_count": 2,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [
+            "Opening time: 10:30",
+            "Location: Market gate"
+          ],
+          "citation_errors": [],
+          "diagnostic": "supported",
+          "raw_output_sha256": "e903e7d45b13cd271d62d18e378c2d53c84eef3d4668bcebf8d995fe0e1686fc"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F03-B",
+        "family": "mismatch",
+        "question": "What is the opening time and location of Flint Studio?",
+        "expected": "withhold",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "evidence_not_established",
+          "raw_output_sha256": "27d192554de61c884d74df983c9f9ffa0631eb6b4aa92747f2f48b844ad8396e"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "conflict",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "compound_field_incomplete",
+          "raw_output_sha256": "726a7e6ea4e33466f1d6d3b5508fcc21fa8d1254cbeb136b6049f183fd73e3cf"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F04-A",
+        "family": "withdraw",
+        "question": "When does Marsh Counter open, and where is it located?",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "documentary_assertion_not_established",
+          "raw_output_sha256": "0f2efebe23ae00a4acaf913ff22029b9c4b73ed2b79c0747f09accc0edbc333c"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "supported_answer",
+          "claim_count": 2,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [
+            "Opening time: 09:25",
+            "Location: Lower passage"
+          ],
+          "citation_errors": [],
+          "diagnostic": "supported",
+          "raw_output_sha256": "0f5a79a78dd7eb89cb0b431747be842c4407659cf71c61dfb7e244b650b08288"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F04-B",
+        "family": "withdraw",
+        "question": "When does Marsh Counter open, and where is it located?",
+        "expected": "withhold",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "documentary_assertion_not_established",
+          "raw_output_sha256": "42056579fbe60407cf6b1f04f87a94cfa77e282d35b77c90df8c2659c7238dc6"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "compound_field_incomplete",
+          "raw_output_sha256": "589baac96334b42838a6972bd813699c4e1a822d3063e0011535e40c2a8dd0c7"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F05-A",
+        "family": "role",
+        "question": "For Dune Shelter, show its opening time and location.",
+        "expected": "partial",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "b5b293ad874b7877cf4a9eff48d78dc988f9e25e3f5438d85c184edb274a906e"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "88c05330863a52060f2d77fe40bf4f7d6ac86579bb37b54d59543ca2ecae8568"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F05-B",
+        "family": "role",
+        "question": "For Dune Shelter, show its opening time and location.",
+        "expected": "withhold",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "8911ae987591b9a901205c1e1bc6fde41527b3a54b25b4fc2db97dd7bd0dafa6"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "c7b5d4d247ecc85424120944329319af444ba17696624a07db13afc4c4f14e7e"
+        }
+      }
+    ],
+    "reference_reader": "c3",
+    "reference_artifact_sha256": "b0a59d783e4b704ba1e19b99639389fde925158984e459684de59542e30e24d1",
+    "wampus_artifact_sha256": "b0a59d783e4b704ba1e19b99639389fde925158984e459684de59542e30e24d1"
+  },
+  "fresh_vs_released": {
+    "comparison_format": "bunyip-round2-replacement-readout-v1",
+    "packet_arms": [
+      "fresh"
+    ],
+    "summary": {
+      "cases": 10,
+      "released_executed": 10,
+      "released_unsupported_completions": 0,
+      "released_unsupported_claim_cases": 0,
+      "released_correct_controls": 3,
+      "candidate_executed": 10,
+      "candidate_unsupported_completions": 0,
+      "candidate_unsupported_claim_cases": 0,
+      "candidate_correct_controls": 4,
+      "candidate_only": 3,
+      "neither": 2
+    },
+    "by_family": {
+      "irrelevant": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 0,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "candidate_only": 1
+      },
+      "missing": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 0,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 0,
+        "neither": 1
+      },
+      "mismatch": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 1,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "candidate_only": 1
+      },
+      "withdraw": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 1,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "candidate_only": 1
+      },
+      "role": {
+        "cases": 2,
+        "released_executed": 2,
+        "released_unsupported_completions": 0,
+        "released_unsupported_claim_cases": 0,
+        "released_correct_controls": 1,
+        "candidate_executed": 2,
+        "candidate_unsupported_completions": 0,
+        "candidate_unsupported_claim_cases": 0,
+        "candidate_correct_controls": 1,
+        "neither": 1
+      }
+    },
+    "distinct_original_questions": 5,
+    "question_memberships": {
+      "What time does Lichen Yard open and where is it located?": [
+        "CRYPT-WAMPUS-F01-A",
+        "CRYPT-WAMPUS-F01-B"
+      ],
+      "For Ochre Library, report its opening time and location.": [
+        "CRYPT-WAMPUS-F02-A",
+        "CRYPT-WAMPUS-F02-B"
+      ],
+      "What is the opening time and location of Flint Studio?": [
+        "CRYPT-WAMPUS-F03-A",
+        "CRYPT-WAMPUS-F03-B"
+      ],
+      "When does Marsh Counter open, and where is it located?": [
+        "CRYPT-WAMPUS-F04-A",
+        "CRYPT-WAMPUS-F04-B"
+      ],
+      "For Dune Shelter, show its opening time and location.": [
+        "CRYPT-WAMPUS-F05-A",
+        "CRYPT-WAMPUS-F05-B"
+      ]
+    },
+    "rows": [
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F01-A",
+        "family": "irrelevant",
+        "question": "What time does Lichen Yard open and where is it located?",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "e774a2c6bd2d1608a5c261cf8650f17b859635c22aa49c2fdfdb00c0c4f4a19c"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "supported_answer",
+          "claim_count": 2,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [
+            "Opening time: 12:15",
+            "Location: Stone arcade"
+          ],
+          "citation_errors": [],
+          "diagnostic": "supported",
+          "raw_output_sha256": "bf49fd55b62f75800044fead4a2e9d7cb7faac8d389b25aab1d651dfaf5a0930"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F01-B",
+        "family": "irrelevant",
+        "question": "What time does Lichen Yard open and where is it located?",
+        "expected": "partial",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "3126c2549e295155083cb89015badbefaa78c1a095fffecb3c84957a5d36ebee"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "partial_answer",
+          "claim_count": 1,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": true
+          },
+          "required_witnesses_covered": [
+            "Location: Stone arcade"
+          ],
+          "citation_errors": [],
+          "diagnostic": "compound_field_incomplete",
+          "raw_output_sha256": "d5f4df5778f646fda577bce9de2d7909d3e3cac15269a232aac76b7548b45f4e"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F02-A",
+        "family": "missing",
+        "question": "For Ochre Library, report its opening time and location.",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "37e4c9a0be5cc29f1a2666fdf05f061328ec82fadd39d8bb34970e30eee07a21"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "17ee07a911409f20f8dabee4e46eb9379dfa9de5579ec99582780bb45e8993cd"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F02-B",
+        "family": "missing",
+        "question": "For Ochre Library, report its opening time and location.",
+        "expected": "partial",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "7b9a94bd42016fb7f1b15294534a1259dd25d71708e0fffd79219b348f0404f4"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "de888f9361c19b35ca82af3ae8a2dfd86baf080c524b6f15ce9780dd1577e215"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F03-A",
+        "family": "mismatch",
+        "question": "What is the opening time and location of Flint Studio?",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "evidence_not_established",
+          "raw_output_sha256": "cf04fda6394329965e0f0c3a538c5d0ccaa527ac73b4ee3023346f87e0373a14"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "supported_answer",
+          "claim_count": 2,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [
+            "Opening time: 10:30",
+            "Location: Market gate"
+          ],
+          "citation_errors": [],
+          "diagnostic": "supported",
+          "raw_output_sha256": "e903e7d45b13cd271d62d18e378c2d53c84eef3d4668bcebf8d995fe0e1686fc"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F03-B",
+        "family": "mismatch",
+        "question": "What is the opening time and location of Flint Studio?",
+        "expected": "withhold",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "evidence_not_established",
+          "raw_output_sha256": "55a3baf079a267de439a31c4dfb3e03b1fe1a162879b0066851af3d3eb055dca"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "conflict",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "compound_field_incomplete",
+          "raw_output_sha256": "726a7e6ea4e33466f1d6d3b5508fcc21fa8d1254cbeb136b6049f183fd73e3cf"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F04-A",
+        "family": "withdraw",
+        "question": "When does Marsh Counter open, and where is it located?",
+        "expected": "complete",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "documentary_assertion_not_established",
+          "raw_output_sha256": "c73520139146c52e5fd4aa356942dd3071fef1be2e76db7a9f4a0cd0add6f35f"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "supported_answer",
+          "claim_count": 2,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": true,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": true,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [
+            "Opening time: 09:25",
+            "Location: Lower passage"
+          ],
+          "citation_errors": [],
+          "diagnostic": "supported",
+          "raw_output_sha256": "0f5a79a78dd7eb89cb0b431747be842c4407659cf71c61dfb7e244b650b08288"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F04-B",
+        "family": "withdraw",
+        "question": "When does Marsh Counter open, and where is it located?",
+        "expected": "withhold",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "documentary_assertion_not_established",
+          "raw_output_sha256": "e3a9f86fe2078273e256cd91d89f1c8787ca21ebeaf05b8af4a5a04773acef8a"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "compound_field_incomplete",
+          "raw_output_sha256": "589baac96334b42838a6972bd813699c4e1a822d3063e0011535e40c2a8dd0c7"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F05-A",
+        "family": "role",
+        "question": "For Dune Shelter, show its opening time and location.",
+        "expected": "partial",
+        "membership": "target",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "7b18bdd160cf3fceb42ab06bf6723e69328d1c23c79dedaf53ea4be5662a3d38"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": false,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": false
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "88c05330863a52060f2d77fe40bf4f7d6ac86579bb37b54d59543ca2ecae8568"
+        }
+      },
+      {
+        "packet": "fresh",
+        "id": "CRYPT-WAMPUS-F05-B",
+        "family": "role",
+        "question": "For Dune Shelter, show its opening time and location.",
+        "expected": "withhold",
+        "membership": "control",
+        "released": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "1cb2f59f6b32e597485bb1c5e4da5210bd2c4fb57cd6ad0082047639a7211ed9"
+        },
+        "candidate": {
+          "execution": "completed",
+          "status": "abstain",
+          "claim_count": 0,
+          "support": true,
+          "unsupported_completion": false,
+          "unsupported_claim_case": false,
+          "dimensions": {
+            "source_support": false,
+            "attribution": null,
+            "polarity": null,
+            "conditions": null,
+            "citation_correctness": null,
+            "readable_yes_no": null,
+            "missing_obligation": null
+          },
+          "required_witnesses_covered": [],
+          "citation_errors": [],
+          "diagnostic": "interpretation_unsupported",
+          "raw_output_sha256": "c7b5d4d247ecc85424120944329319af444ba17696624a07db13afc4c4f14e7e"
+        }
+      }
+    ],
+    "reference_reader": "released",
+    "reference_artifact_sha256": "b0a59d783e4b704ba1e19b99639389fde925158984e459684de59542e30e24d1",
+    "wampus_artifact_sha256": "b0a59d783e4b704ba1e19b99639389fde925158984e459684de59542e30e24d1"
+  }
+}

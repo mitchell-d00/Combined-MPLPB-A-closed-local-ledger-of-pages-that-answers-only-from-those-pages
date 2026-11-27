@@ -1,0 +1,46 @@
+{
+  "schema": "bunyip-bb-c3-preservation-v2",
+  "name": "Bunyip BB — Ben Gelhaus external adversarial benchmark",
+  "credits": {
+    "benchmark_and_analysis": "Ben Gelhaus",
+    "implementation": "Mitchell D. McPhetridge"
+  },
+  "package_sha256": "f4d1c8263dbb8dcf9f7ddbc9fc85be5d005864db4c74fce1a93cda1bb4865718",
+  "package_path": "evaluation/field-question-normalization/2026-11-20/public-reproduction.zip",
+  "baseline_revision": "2622813aba9ee1f1880693eeb71ae015cb3da999",
+  "candidate_source_revision": "baa19f5b9d6d733735b4c570c74d7a643cd06e6e",
+  "reader_hashes_match_all_900_retained_contracts": true,
+  "matched_result": {
+    "baseline": {
+      "canonical": 150,
+      "paraphrase": 750,
+      "negative_controls": 200,
+      "lost_valid_support": 0,
+      "unsupported_additions": 0,
+      "exact_contracts": 900
+    },
+    "candidate": {
+      "canonical": 150,
+      "paraphrase": 750,
+      "negative_controls": 200,
+      "lost_valid_support": 0,
+      "unsupported_additions": 0,
+      "exact_contracts": 900
+    }
+  },
+  "exact_eligible_citations_checked": 900,
+  "matched_source_comparison": "All900positive contracts and200negative decisions rerun on the same100source-file hashes; original generated-ledger replays retained separately.",
+  "original_retention_assertion": "FAILED900hash_differences; original generated ledger timestamps differed. That failed comparison was not relabelled a pass; a new matched-source run is separately retained.",
+  "phase": "CONSUMED_EXTERNAL_REGRESSION",
+  "same_operator": true,
+  "independent_semantic_adjudication": "NOT_RUN",
+  "historical_accuracy": "NOT_RUN",
+  "source_archive": {
+    "path": "evaluation/cryptid/bunyip/round2/bb-c3-retained-v2.tar.xz",
+    "sha256": "f2d4950b0f9943ddebce0d5852e1f0dfb5bfe62f602fb51958ca17ed3009e220",
+    "bytes": 132264,
+    "blob_sha": "f5ab969dcc893f364859386cca45b6814a35e2fc",
+    "byte_verified_members": 214
+  },
+  "limits": "Original reproduction retains aggregate negative decisions and example outputs; the exact evaluator retains all900positive contracts/citations. No new ordinary-language gain is credited."
+}

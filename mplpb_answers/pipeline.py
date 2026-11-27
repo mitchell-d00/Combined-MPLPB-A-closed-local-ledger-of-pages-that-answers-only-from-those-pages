@@ -387,6 +387,15 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
         return finish(kind, 'supported' if kind == 'supported_answer' else 'compound_field_incomplete',
                       'Both source fields were verified.' if kind == 'supported_answer'
                       else 'See the decision for each requested field.', 'strict', compound_views=views)
+    if (mode == 'strict' and profile.prose and relation_hops is None and as_of is None
+            and not any(exact.get(k) for k in ('record_id', 'field', 'exact_value'))):
+        from .compound_fields import answer_named_fields, parse_named_fields
+        named_request = parse_named_fields(question)
+        if named_request:
+            entity, labels = named_request
+            kind, code, fields = answer_named_fields(root, initial_gate, entity, labels, max_passages, max_chars)
+            contract.update(fields)
+            return finish(kind, code, 'See the decision for each requested named source field.', 'strict')
     if exact.get('alias_resolution',{}).get('status') in {'blocked','ambiguous'}:
         resolution = exact['alias_resolution']
         code = resolution['code']
@@ -490,7 +499,7 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
         return finish('abstain','correction_scope_unclear','Name the explicit field before applying a field-scoped correction.','interpretation')
     if strict.kind == 'return':
         body = body_text(strict.record.body_html)
-        quotes = [span['quote'] for span in strict.support.get('spans', [])]
+        quotes = [span['quote'] for span in strict.support.get('answer_spans',strict.support.get('spans', []))]
         if not quotes and strict.support.get('procedure', {}).get('steps'):
             quotes = list(dict.fromkeys(step['source']['quote'] for step in strict.support['procedure']['steps']))
         citations = []
@@ -506,6 +515,11 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
             return finish('abstain', 'missing_evidence', 'The bounded reader did not provide a source evidence span.', 'strict')
         contract.update(answer_supported=True, text=strict.text,
                         claims=[{'text': strict.text, 'qualifiers': [], 'citations': citations}])
+        if strict.support.get('literal_polarity'):
+            frame=strict.support['frame']
+            contract['claims'][0]['proposition']={'relation':'literal_classification','entity':frame['entity'],
+                'value':frame['requested_value'],'polarity':strict.support['literal_polarity'],
+                'historical_truth_independently_verified':False,'contract':'literal-classification-yes-no-v1'}
         contract['sources'] = [{'id': strict.record.id, 'path': strict.record.path, 'hash': strict.record.hash_actual}]
         contract['verification'].update(structural=True, semantic='bounded_deterministic_grammar')
         return finish('supported_answer', 'supported', 'Explicit source statements satisfy the existing bounded grammar.', 'strict')

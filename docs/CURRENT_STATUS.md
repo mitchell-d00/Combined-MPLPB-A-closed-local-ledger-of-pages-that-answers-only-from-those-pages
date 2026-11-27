@@ -1,36 +1,36 @@
 # Current implementation and evidence status
 
-Last reviewed: 2026-11-26.
+Last reviewed: 2026-11-27.
 
-This documentation-only integration keeps the reader, applications, tests,
-workflows and frozen evidence from main `2622813aba9ee1f1880693eeb71ae015cb3da999`.
-[MPLPB](MPLPB.md) · [Experimental Lab](EXPERIMENTAL_LAB.md) ·
-[Testing apparatus and evidence](TESTING_APPARATUS.md) · [Test Index](TEST_INDEX.md).
+[Use MPLPB](MPLPB.md) · [Develop MPLPB](EXPERIMENTAL_LAB.md) ·
+[Inspect the evidence](TESTING_APPARATUS.md) · [Test Index](TEST_INDEX.md).
 
-C3 remains **unmerged in [PR #106](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/106)** at
-`cc54c4276bb4895c33df46cc782e758f4c8e5a0b`. Its reported572/572development source-key decisions and832unchanged
-public contracts belong to that candidate, not newly released main behavior.
-The original22strict-key failures remain retained. Seventeen private preservation
-cases are incomplete;100held transfer cases remain unopened.
-[Candidate report](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/cc54c4276bb4895c33df46cc782e758f4c8e5a0b/evaluation/cryptid/bunyip/round2/README.md).
+**Clean Thoth release candidate.** The published starting main is
+`f52ed384b831c2abb7656dfabc0d4b7632c38457` with PR #108's verified
+packaging. Its previously released reader is `2622813aba9ee1f1880693eeb71ae015cb3da999`.
+The cumulative candidate starts from tested Thoth native tree
+`6ec348b31ec79e37def77a7019cd22102df85f93`. A one-file routing repair preserves
+the existing explicit relational location form and requires fresh release
+preservation on the revised bytes.
+[Acceptance, candidate evidence and incident plan](recovery/THOTH_CLEAN_RELEASE.md).
+The [PR #109 Betty report](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/109)
+records the checked clean head, source ZIP digest and release decision. Deployment requires a separate live receipt.
 
-The incident archives are absent from that candidate's current tree but remain
-reachable through its older Git history. This documentation branch starts from
-main and imports no affected ancestry, archive, source payload, key or reader fix.
-[Incident record](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/blob/cc54c4276bb4895c33df46cc782e758f4c8e5a0b/evaluation/cryptid/bunyip/round2/custody-containment-v2.json).
-[Clean scope and continuation](recovery/SAFE_DOCUMENTATION_MERGE.md).
+The frozen Thoth development and fresh draws each retained six complete
+answers, three checked partials, three controls withheld and zero unsupported
+claims. The original Thoth reader evidence preserves all 832 public contracts,
+BB's 900 positive contracts and citations and 200 withholds, and 19 protected
+C3/Wampus outcomes. This is bounded software evidence with same-operator
+preparation and scoring. The [original PR #106](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/106)
+remains the historical evaluation record at `961be47602c5e3ccb94459c106b3fa28754549bf`.
 
-Mitchell relayed Al's read-only review:156focused Python checks onmain and175
-on#106passed, together with JavaScript/rendering/handoff/docs checks and12listed
-CI instances; no new software regression was found in that review.
-Those are reviewer-reported measurements, not fresh executions by this update.
-Al's browser attempt stopped at certificate trust before app load and is not a
-pass. New exact-head checks and deployment receipts belong to this documentation PR.
-
-Human onboarding, independent historical/semantic/preparation/blinding,
-outside-custodian scoring and native OOCC remain NOT_RUN.
-The following entries retain their original dates, pins and measurement scope;
-their earlier pending-status language does not replace current continuation.
+Recovery remains **INTERRUPTED / UNRECOVERED**. The original 17 private
+preservation checks are incomplete, the 100 original held transfer cases remain
+NOT_RUN, and the 22 original C3 strict-key mismatches remain recorded.
+The clean release excludes the known incident ancestry and affected archive
+blobs. Prior Git-history exposure remains **OPEN** on the original branch/PR.
+Independent historical/semantic evaluation, independent preparation/blinding,
+outside-custodian scoring, native OOCC and human onboarding remain NOT_RUN.
 
 # Retained earlier status entries
 

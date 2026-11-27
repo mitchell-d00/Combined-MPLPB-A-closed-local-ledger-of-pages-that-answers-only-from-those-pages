@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `515a919df40996e9d1d521dd50474b832a1a599c` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `eaf38515c16b852a1903bbe6c512b09e34b2cb429af73834d598868ef7b9951e`.
+Base commit: `c60f4f3d6b716a030cd0396c2f02e7ceaf60bd7e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `2aafad6120875f1e058a8526687aaee0a934b9924c0dbb97e806c471b6a7604b`.
 
 ## Betty report for Al
 
@@ -13,48 +13,56 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Make the product / project / evidence boundaries explicit as a bounded organization task.
+Betty — prioritize a clean release path for the cumulative Thoth candidate before starting another language sprint.
 
-PR #107 established navigation. Now document and verify what belongs to each responsibility:
+PR #108’s packaging changes are already merged and deployed. Build the reader release from current clean main, preserving those improvements.
 
-- Product: supported runtime, CLI, browser/desktop delivery, installation requirements and concise user instructions.
-- Project / Experimental Lab: development tools, experimental candidates, methodology and reusable test machinery.
-- Evidence / Data: corpora, fixtures, frozen packets, results, failures and historical records, with explicit publication and custody rules.
+1. Keep the retired recovery closed.
+The original 17 private checks remain incomplete and the original 100 held cases remain NOT_RUN. Preserve their records and unavailable status. Do not resume recovery polling or represent replacement tests as completion of those originals.
 
-Start with a dependency and packaging map against the actual repository. Identify what users need to run MPLPB, what developers need to change it, and what reviewers need to inspect its evidence. Record shared dependencies rather than forcing files into arbitrary categories.
+2. Prepare one clean cumulative candidate.
+Carry the reviewed C3 → Wampus → Thoth implementation and permitted evidence onto a clean branch without the incident’s affected ancestry. Verify its reader bytes against the tested Thoth runtime. Preserve the original PR #106 checkpoints and results.
 
-Use the existing three entry pages, component map and Test Index. Explain that these are responsibility boundaries within one repository; distinguish completed separation from proposed work.
+3. Define prospective release acceptance explicitly.
+Document what the available preservation and replacement evidence establishes, what remains unverified, and the requirements for this release. Keep the original failed and incomplete gates unchanged in history. Do not silently waive them or claim they passed.
+Include the 832 public contracts, BB, protected C3/Wampus outcomes, Thoth’s frozen results, applicable software checks and deployment verification. Existing coverage misses may remain documented backlog under the agreed criteria.
 
-Define a minimal product distribution manifest. Check the existing build process against it and identify which research or evidence material is included unnecessarily. If a packaging change is straightforward, implement it and verify installation and the documented quick start from a clean environment.
+4. Address the publication incident separately.
+Prepare the precise cleanup plan for affected branch/PR refs, objects, artifacts and caches. Distinguish current-tree containment, clean release ancestry and remaining historical exposure. Documentation alone is not removal. Present any destructive operation with its exact scope and verified preservation plan before execution.
 
-Preserve frozen evidence paths, IDs, hashes and historical records. Prefer manifests and links before moving files. Keep private payloads and held keys outside public distributions; public inventories may identify their custody and availability without including their contents.
+5. Verify and complete the release where requirements permit.
+Pin and hash the clean candidate, run the applicable exact-head checks, and rerun affected preservation if reader bytes change. Existing push, merge and deployment authorization remains in force; no repeat confirmation is needed for already-authorized work.
 
-Keep the root README concise and give regular users three obvious routes: use MPLPB, develop MPLPB, inspect the evidence. Explain document input requirements directly.
+If requirements pass, merge and verify the deployed reader fingerprint and supported/refusal behavior. If blocked, push the recoverable checkpoint and identify the exact unmet requirement and next executable action.
 
-Do not create another framework or new test suite. Use existing packaging and navigation checks. Keep this task separate from reader changes, and preserve every Cryptid and Egyptian-series checkpoint.
+Update CURRENT_STATUS, HANDOFF and the PR report with the actual date, released main, candidate pin, evidence limits, incident status and release decision. Keep independent and human evaluations marked NOT_RUN.
 
-Push the concrete map, any verified packaging improvement, and an updated HANDOFF. Report what is physically separated, what is separated through packaging or navigation, and what remains intertwined. Existing publication authorization continues; retain the open incident and release requirements.
+Finish with a clear released or held result, commit and PR links, completed checks, deployment status and remaining blockers.
 
 ### Implemented scope
 
-- Map responsibilities and real shared dependencies from clean main 515a919. Put the existing use, develop and evidence entry points first and state supported source input directly.
-- Constrain native download staging to exactly one wheel and its three runtime module roots plus metadata. Reuse the clean-environment README verifier in Pages. Exclude offline Wiki reports and study notes from the standalone browser payload. Preserve every tracked evidence path and native reader byte.
+- Integrate the tested cumulative C3, Wampus and Thoth reader and reviewed refusal copy on current clean main f52ed384. Keep the PR #108 packaging and original PR #106 checkpoints.
+- Retain only the selected public evidence and record prospective release acceptance and the separate historical cleanup plan.
+- Render named compound field statuses even when there is no per-field diagnostic. Keep the verified citation and missing field visible. This is a browser presentation repair; the native release fingerprint is unchanged.
+- Keep established relational location proof precedence. The sole native difference from tested Thoth is the narrow routing guard in compound_fields.py. Keep the earlier failing tested bytes and scores unchanged.
 
 ### Validation recorded
 
-- Clean-environment quick start passed 11/11 on the candidate wheel, with exact citation, partial, owner and conflict checks. A second staged wheel and non-runtime package file were rejected.
-- Browser manifest removed exactly 21 offline Wiki files and 571,830 standalone HTML bytes; every retained file digest, core Pyodide asset and worker matched the baseline comparison. Existing real WebAssembly checks passed, including the configured Wiki corpus.
-- Existing documentation audit passed on 1,374 classified documents and 66 evaluation families. Infrastructure check passed. Clean branch excludes the introducing incident commit.
-- The existing real Chromium candidate preview passed after enabling loopback and materializing the existing researcher fixture. First local setup failures are recorded separately in the package receipt.
+- All three staged native package trees match tested Thoth 6ec348b31. Its scoped ZIP reproduced SHA-256 4ccdf9b9099192395e41b57cbdf2c2ad61a7e79e5b566ba0bccbd306326a5fe5.
+- 42 focused Python tests and the documentary-rendering and museum refusal-copy checks passed. One initial local command named a nonexistent test module; the corrected command completed.
+- Retained same-runtime evidence covers 832 public contracts, BB 900 positives and citations/200 withholds, 19 protected contracts and all three C3 routing recoveries. Thoth scored 6 complete, 3 useful partial and 3 expected withholds on each frozen draw, zero unsupported claims.
+- The first clean-head source-tags run 45921394600 failed because the new evidence family lacked its department field. Assigned Egyptian gods to Testing and Evaluation and verified locally. Runtime bytes are unchanged. The sparse local JavaScript API probe lacked resources and did not complete. Exact-head CI runs from the complete checkout and ZIP.
+- First local Chromium attempt used a field caption for a supported documentary answer. The corrected probe found a missing optional diagnostic renderer failure on Thoth F08-A. After repair, the existing renderer, UI-script and refusal-copy checks passed. The candidate browser displayed the supported F06-A, checked partial F08-A and refusal F10-B; citations opened for the two supported portions and all three had zero page errors.
+- The original-byte clean head failed the public capability gate on partial-correction and diagnostic-known-conflict, 50/52 with zero false-supported bridges. The narrow repair restored 52/52 locally with zero false-supported bridges. All 43 focused native checks passed. Seven replay registries and original harness hashes matched.
 
 ### Limitations and blocked checks
 
-- Desktop still uses the full source distribution. Browser retains shared UI tools, configured public demo/capture data and resources. Scope and packaging separation are separate from physical file moves.
-- Release is subject to protected checks and post-deployment verification. PR106 reader checkpoints, original unavailable cases, independent and human NOT_RUN labels, and Git-history incident remain on their separate track.
+- Original 17 private cases remain incomplete and 100 held cases NOT_RUN. Recovery is INTERRUPTED / UNRECOVERED. Independent and human evaluations remain NOT_RUN.
+- The original Bunyip ref and PR #106 still reach the publication incident. The release omits both known blobs and the introducing ancestry. Private incident preservation and GitHub-side historical remediation are pending.
 
 ### Next steps
 
-- Run exact-head protected checks for the clean packaging PR. Deploy and verify the compact download and browser only after an eligible merge. No reader candidate ancestry is part of this delivery.
+- Freeze and validate the exact repaired release head. Rerun the 832 public contracts, 96 original Thoth/Wampus/Bunyip synthetic contracts via the existing isolated adapter, the BB matched preservation, and all required software CI. The clean PR report records exact source and artifact fingerprints. Merge only after these checks pass and verify live reader, support, checked partial, refusal and compact ZIP. Keep cleanup separate.
 
 ## Use this ZIP in your repository
 

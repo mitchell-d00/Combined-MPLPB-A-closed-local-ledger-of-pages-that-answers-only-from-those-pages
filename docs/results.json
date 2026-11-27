@@ -1,7 +1,7 @@
 {
   "schema": "result-test-index-v1",
-  "reviewed_on": "2026-11-26",
-  "meaning": "Links establish retained test/reproduction coverage, not a fresh execution or certification of historical metrics. Original source, dates, fixtures and exact revisions remain in the linked reports. Documentation-only integration linksPR106at its tested pin; candidate implementation, tests, archives and history are not incorporated into main.",
+  "reviewed_on": "2026-11-27",
+  "meaning": "Links establish retained test and reproduction coverage. Scores retain their original dates, scope and runtime pins. The clean Thoth release reuses frozen evidence for identical reader bytes.",
   "families": [
     {
       "family": "cryptid",
@@ -392,6 +392,22 @@
         ]
       },
       "retained_pre_documentation_integration_measurement_status": "Versioned same-operator source-gain/preservation studies; C5 final exact-head CI pending. Original failed scores/candidates and execution errors retained; human/independent/OOCC NOT_RUN."
+    },
+    {
+      "family": "egyptian-gods",
+      "artifacts": "evaluation/egyptian-gods",
+      "tests": [
+        "tests/test_bunyip_round2.py",
+        "tests/test_ordinary_questions.py",
+        "tests/test_compound_fields.py"
+      ],
+      "runners": [
+        "tools/cryptid_replay_packet_v5.py",
+        "evaluation/egyptian-gods/thoth/readout.py"
+      ],
+      "scope": "Frozen Thoth interpretation and controls, four matched native readers. Original setup failure retained as a receipt with the full artifact in PR #106.",
+      "measurement_status": "Development and same-operator fresh evaluation completed. Independent adjudication and human onboarding NOT_RUN.",
+      "responsible_department": "testing-evaluation"
     },
     {
       "family": "onboarding",
