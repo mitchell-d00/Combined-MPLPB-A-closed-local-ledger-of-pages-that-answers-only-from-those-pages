@@ -1,6 +1,8 @@
 # Bastet document selection and reporter attribution
 
-Recorded 2026-11-27. [PR #117](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/117)
+Last reviewed: 2026-11-27.
+
+[PR #117](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/117)
 
 [Released baseline](baseline.json) · [First baseline results](RESULTS.md) ·
 [Candidate pin and source ZIP](candidate-dispatch.json) ·

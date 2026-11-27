@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `4177a804f920145112aa589d78c266d3e26c0c65` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `ca7de0158bc07d33213c7bd44dcb18567b34609812810dffd228165a389bec78`.
+Base commit: `b24238f2970f1e4c1573edf4c11dc47cbd3c9e66` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `fbf4e72297ea33681027a8c27e9363fa785be6847daf46b4e4e0b3e005946278`.
 
 ## Betty report for Al
 
