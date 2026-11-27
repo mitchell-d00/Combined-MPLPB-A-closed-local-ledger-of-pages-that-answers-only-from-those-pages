@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `df45d400d9d5a65e0019464f7893267cc4cc22b7` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `a7b748149b8dfb29ff89f739ef6441b4a80d0cc983c290f2d603b7bd2b1db675`.
+Base commit: `dec7ee943ae2a0f3ef62f426c8c801d01acf15a5` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `9e38d6f4cc7288dc1630c82650765cabb13c7c1ea6dc2286faa4b9d1382f6607`.
 
 ## Betty report for Al
 
@@ -18,10 +18,12 @@ Expand the current assignment into one bounded three-set Egyptian-gods batch. Pr
 ### Implemented scope
 
 - Freeze six development and six fresh cases per set, each with three supported targets and three contrasts. Use the unchanged Cryptid v5 isolation runner.
+- Seshat binds an exact reporter and embedded writer before resolving an unambiguous reported object. The printed recorder remains a separate source role.
 
 ### Validation recorded
 
 - Remote main is a442c8f0. No Seshat branch or worktree was found. The initial stage diagnosis and all six freezes precede changes to the reader.
+- The isolated released development baseline had 9/9 target witnesses discovered, 0/9 targets complete and 9/9 controls withheld, zero unsupported claims or execution failures. The baseline archive and per-set first scores are retained.
 
 ### Limitations and blocked checks
 
@@ -29,7 +31,7 @@ Expand the current assignment into one bounded three-set Egyptian-gods batch. Pr
 
 ### Next steps
 
-- Run the released development baseline, then Seshat, Anubis and Horus in order. Pin the cumulative candidate before releasing fresh operator inputs.
+- Run the Seshat development pin and compare all sets. Proceed in sequence to Anubis and Horus; fresh packets stay closed.
 
 ## Use this ZIP in your repository
 

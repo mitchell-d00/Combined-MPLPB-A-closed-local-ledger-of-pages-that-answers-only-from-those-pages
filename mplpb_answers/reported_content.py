@@ -43,6 +43,12 @@ def request(question):
                 not match.groupdict().get('author') or kernel.named_actor(match['author'])):
             return dict(match.groupdict(), conditional=conditional,
                         form='minutes' if q.endswith(' in the minutes?') else None)
+    match = re.fullmatch(
+        rf'(?:What|Which document) did (?P<reporter>{_PERSON}) (?:say|state|report) '
+        rf'(?:that )?(?P<author>{_PERSON}) wrote[?.]', q, re.I)
+    if match and all(kernel.named_actor(match[k]) for k in ('reporter', 'author')):
+        return dict(match.groupdict(), object=None, conditional=False, form=None,
+                    required_outer_negative=False, required_inner_negative=False)
     return None
 
 
@@ -143,6 +149,9 @@ def _proof(record, body, start, end, roles, goal):
     if (record.kind != 'page' or record.derived_from or record.fields.get('corrects-field')
             or not unqualified_span(record, body, start, end)):
         return None
+    if (goal.get('required_inner_negative') is not None
+            and roles['embedded_content_negative'] != goal['required_inner_negative']):
+        return None
     if goal.get('required_outer_negative') is not None and roles['outer_negative']!=goal['required_outer_negative']:
         return None
     # A separate governing paragraph cannot disappear at a sentence boundary.
@@ -153,6 +162,10 @@ def _proof(record, body, start, end, roles, goal):
     if bool(roles['conditions']) != goal['conditional']:
         return None
     writer, writer_span = _writer(body)
+    if not writer_span and not goal['object']:
+        label = re.match(r'^Report by (?P<writer>[^.\n]+)\.', body)
+        if label and kernel.named_actor(label['writer']):
+            writer, writer_span = label['writer'], label.span()
     witnesses = [_citation(record, body, start, end)]
     if writer_span:
         if not unqualified_span(record, body, *writer_span):
@@ -203,6 +216,12 @@ def verify(index, max_passages, max_chars):
         return 'abstain', 'source_changed', {}
     if not checked['scan_complete']:
         return 'abstain', 'reference_scan_budget', {}
+    if goal['object']:
+        matches_object = lambda text: kernel.normalized(goal['object']) == kernel.normalized(text)
+        relevant_object = lambda text: kernel.normalized(goal['object']) in kernel.normalized(text)
+    else:
+        matches_object = lambda text: True
+        relevant_object = lambda text: kernel.normalized(goal['author']) in kernel.normalized(text)
     proofs, unresolved = [], False
     # The checker rederives clauses from every eligible reread record. Proposals,
     # retrieval ranks, source titles and published scoring keys do not authorize it.
@@ -212,13 +231,13 @@ def verify(index, max_passages, max_chars):
         for start, end, statement in kernel.units(body):
             roles = report_roles(statement)
             relevant = (kernel.normalized(goal['reporter']) in kernel.normalized(statement)
-                        and kernel.normalized(goal['object']) in kernel.normalized(statement)
+                        and relevant_object(statement)
                         and re.search(r'\b(?:report\w*|said|say|says|state|stated|states|according)\b', statement, re.I))
             if not roles:
                 unresolved |= bool(relevant)
                 continue
             if (kernel.normalized(roles['reporter']) != kernel.normalized(goal['reporter'])
-                    or kernel.normalized(roles['object']) != kernel.normalized(goal['object'])
+                    or not matches_object(roles['object'])
                     or (goal.get('author') and kernel.normalized(roles['author']) != kernel.normalized(goal['author']))):
                 continue
             proof = _proof(record, body, start, end, roles, goal)
@@ -226,6 +245,8 @@ def verify(index, max_passages, max_chars):
                 unresolved = True
             else:
                 proofs.append(proof)
+    if not goal['object'] and (unresolved or len(proofs) != 1):
+        return 'abstain', 'reported_object_unresolved', {}
     if unresolved or not proofs or len(proofs) > 2:
         return None
     if len(proofs) == 2:
