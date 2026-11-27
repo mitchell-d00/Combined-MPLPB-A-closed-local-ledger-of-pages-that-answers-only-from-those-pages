@@ -1,0 +1,335 @@
+{
+  "suite": "development",
+  "summary": {
+    "cases": 15,
+    "matches": 15,
+    "correctAdmissions": 3,
+    "falseAdmissions": 0,
+    "falseDenials": 0,
+    "protectedOutcomes": 12,
+    "executionFailures": 0,
+    "realWrites": 0,
+    "historicalLabelDifferences": []
+  },
+  "rows": [
+    {
+      "id": "D01",
+      "expect": {
+        "decision": "allow",
+        "code": "allowed"
+      },
+      "verdict": {
+        "decision": "allow",
+        "code": "allowed",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-input-freeze"
+        ],
+        "missing": [],
+        "scope": {
+          "action": "run-tests",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "mode": "shadow"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "D02",
+      "expect": {
+        "decision": "allow",
+        "code": "allowed"
+      },
+      "verdict": {
+        "decision": "allow",
+        "code": "allowed",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-candidate-tests",
+          "receipt-release-acceptance"
+        ],
+        "missing": [],
+        "scope": {
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "mode": "shadow"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "D03",
+      "expect": {
+        "decision": "allow",
+        "code": "allowed"
+      },
+      "verdict": {
+        "decision": "allow",
+        "code": "allowed",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-merge-event",
+          "receipt-deployment-package"
+        ],
+        "missing": [],
+        "scope": {
+          "action": "deploy",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "mode": "shadow"
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "D04",
+      "expect": {
+        "decision": "withhold",
+        "code": "revision_mismatch"
+      },
+      "verdict": {
+        "decision": "withhold",
+        "code": "revision_mismatch",
+        "selected": {
+          "report": null,
+          "grant": null
+        },
+        "receiptIds": [],
+        "missing": [],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "D05",
+      "expect": {
+        "decision": "withhold",
+        "code": "capability_denied"
+      },
+      "verdict": {
+        "decision": "withhold",
+        "code": "capability_denied",
+        "selected": {
+          "report": null,
+          "grant": null
+        },
+        "receiptIds": [],
+        "missing": [],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "D06",
+      "expect": {
+        "decision": "withhold",
+        "code": "not_authorized"
+      },
+      "verdict": {
+        "decision": "withhold",
+        "code": "not_authorized",
+        "selected": {
+          "report": "report-1",
+          "grant": null
+        },
+        "receiptIds": [],
+        "missing": [],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "D07",
+      "expect": {
+        "decision": "missing_evidence",
+        "code": "report_missing"
+      },
+      "verdict": {
+        "decision": "missing_evidence",
+        "code": "report_missing",
+        "selected": {
+          "report": null,
+          "grant": null
+        },
+        "receiptIds": [],
+        "missing": [
+          "current_applied_report"
+        ],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "D08",
+      "expect": {
+        "decision": "missing_evidence",
+        "code": "missing_check"
+      },
+      "verdict": {
+        "decision": "missing_evidence",
+        "code": "missing_check",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [],
+        "missing": [
+          "candidate-tests"
+        ],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "D09",
+      "expect": {
+        "decision": "withhold",
+        "code": "execution_failed"
+      },
+      "verdict": {
+        "decision": "withhold",
+        "code": "execution_failed",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-candidate-tests"
+        ],
+        "missing": [],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "D10",
+      "expect": {
+        "decision": "withhold",
+        "code": "semantic_failed"
+      },
+      "verdict": {
+        "decision": "withhold",
+        "code": "semantic_failed",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-release-acceptance"
+        ],
+        "missing": [],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "D11",
+      "expect": {
+        "decision": "missing_evidence",
+        "code": "receipt_unavailable"
+      },
+      "verdict": {
+        "decision": "missing_evidence",
+        "code": "receipt_unavailable",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-release-acceptance"
+        ],
+        "missing": [
+          "release-acceptance"
+        ],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "D12",
+      "expect": {
+        "decision": "withhold",
+        "code": "release_phase_mismatch"
+      },
+      "verdict": {
+        "decision": "withhold",
+        "code": "release_phase_mismatch",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [],
+        "missing": [],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "D13",
+      "expect": {
+        "decision": "withhold",
+        "code": "grant_revoked"
+      },
+      "verdict": {
+        "decision": "withhold",
+        "code": "grant_revoked",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [],
+        "missing": [],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "D14",
+      "expect": {
+        "decision": "withhold",
+        "code": "invalid_proposal"
+      },
+      "verdict": {
+        "decision": "withhold",
+        "code": "invalid_proposal",
+        "selected": {
+          "report": null,
+          "grant": null
+        },
+        "receiptIds": [],
+        "missing": [],
+        "scope": null
+      },
+      "passed": true
+    },
+    {
+      "id": "D15",
+      "expect": {
+        "decision": "missing_evidence",
+        "code": "custody_unavailable"
+      },
+      "verdict": {
+        "decision": "missing_evidence",
+        "code": "custody_unavailable",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [],
+        "missing": [
+          "public_custody"
+        ],
+        "scope": null
+      },
+      "passed": true
+    }
+  ]
+}

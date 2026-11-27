@@ -1,0 +1,208 @@
+{
+  "suite": "shadow",
+  "summary": {
+    "cases": 7,
+    "matches": 7,
+    "correctAdmissions": 3,
+    "falseAdmissions": 0,
+    "falseDenials": 0,
+    "protectedOutcomes": 4,
+    "executionFailures": 0,
+    "realWrites": 0,
+    "historicalLabelDifferences": [
+      "S04",
+      "S06"
+    ]
+  },
+  "rows": [
+    {
+      "id": "S01",
+      "expect": {
+        "decision": "withhold",
+        "code": "semantic_failed"
+      },
+      "verdict": {
+        "decision": "withhold",
+        "code": "semantic_failed",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-release-acceptance"
+        ],
+        "missing": [],
+        "scope": null
+      },
+      "observed": "withhold",
+      "record": "Original PR110 87/96 exact gate failed",
+      "source": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/110",
+      "disagreement": false,
+      "passed": true
+    },
+    {
+      "id": "S02",
+      "expect": {
+        "decision": "allow",
+        "code": "allowed"
+      },
+      "verdict": {
+        "decision": "allow",
+        "code": "allowed",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-candidate-tests",
+          "receipt-release-acceptance"
+        ],
+        "missing": [],
+        "scope": {
+          "action": "merge",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "mode": "shadow"
+        }
+      },
+      "observed": "allow",
+      "record": "PR110 authorized nine-case prospective pass and merged",
+      "source": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/110#issuecomment-7219742999",
+      "disagreement": false,
+      "passed": true
+    },
+    {
+      "id": "S03",
+      "expect": {
+        "decision": "allow",
+        "code": "allowed"
+      },
+      "verdict": {
+        "decision": "allow",
+        "code": "allowed",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-merge-event",
+          "receipt-deployment-package"
+        ],
+        "missing": [],
+        "scope": {
+          "action": "deploy",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "mode": "shadow"
+        }
+      },
+      "observed": "allow",
+      "record": "PR110 merged then Pages published",
+      "source": "https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/46008844245",
+      "disagreement": false,
+      "passed": true
+    },
+    {
+      "id": "S04",
+      "expect": {
+        "decision": "missing_evidence",
+        "code": "custody_unavailable"
+      },
+      "verdict": {
+        "decision": "missing_evidence",
+        "code": "custody_unavailable",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [],
+        "missing": [
+          "public_custody"
+        ],
+        "scope": null
+      },
+      "observed": "withhold",
+      "record": "17 original checks incomplete and 100 held cases NOT_RUN",
+      "source": "../../cryptid/full-reproducible-replay/README.md",
+      "disagreement": true,
+      "passed": true
+    },
+    {
+      "id": "S05",
+      "expect": {
+        "decision": "allow",
+        "code": "allowed"
+      },
+      "verdict": {
+        "decision": "allow",
+        "code": "allowed",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-input-freeze"
+        ],
+        "missing": [],
+        "scope": {
+          "action": "run-tests",
+          "revision": "a7d572067dbf68077ea306584b067e457bd7a3a4",
+          "mode": "shadow"
+        }
+      },
+      "observed": "allow",
+      "record": "Exact primary rebuild restored 444 original cases before replay",
+      "source": "../../cryptid/full-reproducible-replay/README.md",
+      "disagreement": false,
+      "passed": true
+    },
+    {
+      "id": "S06",
+      "expect": {
+        "decision": "missing_evidence",
+        "code": "missing_check"
+      },
+      "verdict": {
+        "decision": "missing_evidence",
+        "code": "missing_check",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [],
+        "missing": [
+          "merge-event"
+        ],
+        "scope": null
+      },
+      "observed": "withhold",
+      "record": "B-Tests Round 7 old revision pass did not admit deploy",
+      "source": "https://github.com/mitchell-d00/B-Tests/blob/c8f5b90a3560a0c0a916955719cef76074abebf8/gate-js/round-7.json",
+      "disagreement": true,
+      "passed": true
+    },
+    {
+      "id": "S07",
+      "expect": {
+        "decision": "withhold",
+        "code": "execution_failed"
+      },
+      "verdict": {
+        "decision": "withhold",
+        "code": "execution_failed",
+        "selected": {
+          "report": "report-1",
+          "grant": "direction-1"
+        },
+        "receiptIds": [
+          "receipt-candidate-tests"
+        ],
+        "missing": [],
+        "scope": null
+      },
+      "observed": "withhold",
+      "record": "D% prelaunch failed before reader ran; no release credit",
+      "source": "../../cryptid/full-reproducible-replay/README.md",
+      "disagreement": false,
+      "passed": true
+    }
+  ]
+}

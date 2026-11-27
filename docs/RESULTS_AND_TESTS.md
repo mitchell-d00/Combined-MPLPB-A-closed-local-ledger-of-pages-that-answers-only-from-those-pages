@@ -35,6 +35,8 @@ The [discovery-combination replay](../evaluation/d12/discovery-combos/README.md)
 
 The [governance gate experiment](../evaluation/comparative-tests/governance-gate/README.md) checks AI-shaped proposals against host approval, WorkStore dispatch, and actual report bytes.
 
+The [bounded workflow controller](../evaluation/comparative-tests/workflow-controller/README.md) matched 40/40 frozen workflow decisions. One canary updated the disposable Git ref and seven controls left it untouched. Production dispatch remains outside this lab.
+
 The [D12 solo post-freeze historical pilot](../evaluation/d12/solo-post-freeze/README.md) ran 24 questions on six freshly drawn FRUS source pairs. Strict Ask completed **0/19** answerable cases. Native search and word overlap each found all required passages for **12/19**. No full answer was issued on the five missing-evidence cases. The precommitted key comes from a solo review.
 
 The [4score20 diagnostic](../evaluation/d12/4score20/README.md) traces interpretation, discovery, and contextual proof on three of the frozen D12 cases. It isolates one missing duration plan, a four-anchor telegram relation, and an exact quote that spans two statement units.
