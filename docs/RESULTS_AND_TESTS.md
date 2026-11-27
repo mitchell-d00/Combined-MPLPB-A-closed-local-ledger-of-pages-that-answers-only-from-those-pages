@@ -189,6 +189,12 @@ by the no-unverified-promotion audit. It is a static source/prior-art comparison
 not a new evaluation family or new efficacy score; PR #38’s retained cases and
 results remain unchanged.
 
+## Egyptian-series programme
+
+[Registry](../evaluation/egyptian-gods/PROGRAMME.md) preserves the original
+family receipts and names the next bounded Bastet source-selection and
+attribution obligation.
+
 ## Bunyip Round 4
 
 [Attribution results](../evaluation/cryptid/bunyip/round4/RESULTS.md) link the first diagnostic, versioned

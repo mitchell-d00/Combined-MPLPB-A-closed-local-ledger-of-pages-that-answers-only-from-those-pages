@@ -1,0 +1,376 @@
+{
+  "schema": "cryptid-claim-score-v1",
+  "version": "cryptid-claim-scorer-v5",
+  "scorer_sha256": "d91f3855437fb55d4ec165edcf48bad6a375437bcdf8acc7c8a2ea4b4e7d6b60",
+  "run_sha256": "dab3e82919ea0e1cb05768baa75d1adfec264f5b18751c61b75ea97ab71e0b40",
+  "key_sha256": "5b5dda540477003666549ff930b9c9f40a06003ecdb5e16fb84b69c0caf76886",
+  "counts": {
+    "planned": 12,
+    "attempted": 12,
+    "completed": 12,
+    "scored": 12,
+    "unscored": 0,
+    "passed": 6,
+    "false_support": 0,
+    "positive_misses": 6,
+    "budget_stops": 0,
+    "diagnostic_only": 0
+  },
+  "cases": [
+    {
+      "id": "CRYPT-BASTET-D-0001",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.08583812500000931,
+        "query_cpu_seconds": 0.085943759,
+        "peak_rss_bytes": 25305088,
+        "source_html_open_calls": {
+          "query": 5,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 82
+      }
+    },
+    {
+      "id": "CRYPT-BASTET-D-0002",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.07899190500000941,
+        "query_cpu_seconds": 0.079002018,
+        "peak_rss_bytes": 25305088,
+        "source_html_open_calls": {
+          "query": 5,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 60
+      }
+    },
+    {
+      "id": "CRYPT-BASTET-D-0003",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.07865546400000767,
+        "query_cpu_seconds": 0.078982103,
+        "peak_rss_bytes": 25305088,
+        "source_html_open_calls": {
+          "query": 5,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 79
+      }
+    },
+    {
+      "id": "CRYPT-BASTET-D-0004",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.07909908500002416,
+        "query_cpu_seconds": 0.078999501,
+        "peak_rss_bytes": 25305088,
+        "source_html_open_calls": {
+          "query": 5,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 79
+      }
+    },
+    {
+      "id": "CRYPT-BASTET-D-0005",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.07926219899999865,
+        "query_cpu_seconds": 0.07900112000000001,
+        "peak_rss_bytes": 25206784,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 160
+      }
+    },
+    {
+      "id": "CRYPT-BASTET-D-0006",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "conflict",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.07741524299999014,
+        "query_cpu_seconds": 0.078003702,
+        "peak_rss_bytes": 25194496,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 160
+      }
+    },
+    {
+      "id": "CRYPT-BASTET-D-0007",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.07865169099997615,
+        "query_cpu_seconds": 0.07899923900000001,
+        "peak_rss_bytes": 25280512,
+        "source_html_open_calls": {
+          "query": 5,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 104
+      }
+    },
+    {
+      "id": "CRYPT-BASTET-D-0008",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.07850594600000704,
+        "query_cpu_seconds": 0.07897995499999999,
+        "peak_rss_bytes": 25190400,
+        "source_html_open_calls": {
+          "query": 5,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 82
+      }
+    },
+    {
+      "id": "CRYPT-BASTET-D-0009",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.0783991910000168,
+        "query_cpu_seconds": 0.078995258,
+        "peak_rss_bytes": 25305088,
+        "source_html_open_calls": {
+          "query": 5,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 83
+      }
+    },
+    {
+      "id": "CRYPT-BASTET-D-0010",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.07858791399999632,
+        "query_cpu_seconds": 0.078943895,
+        "peak_rss_bytes": 25214976,
+        "source_html_open_calls": {
+          "query": 5,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 105
+      }
+    },
+    {
+      "id": "CRYPT-BASTET-D-0011",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": false,
+      "expected": "complete",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": true,
+      "false_support": false,
+      "errors": [
+        "positive_completion_miss",
+        "positive_claim_miss"
+      ],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": true,
+      "miss_stage_diagnostic": "interpretation",
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.07937183799998593,
+        "query_cpu_seconds": 0.079995801,
+        "peak_rss_bytes": 25300992,
+        "source_html_open_calls": {
+          "query": 10,
+          "discovery": 4
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 2,
+        "admitted_canonical_characters": 161
+      }
+    },
+    {
+      "id": "CRYPT-BASTET-D-0012",
+      "execution_status": "completed",
+      "scored": true,
+      "passed": true,
+      "expected": "withhold",
+      "kind": "abstain",
+      "claims": 0,
+      "positive_miss": false,
+      "false_support": false,
+      "errors": [],
+      "interpretation_inspection_recognized": false,
+      "required_witness_discovery": null,
+      "miss_stage_diagnostic": null,
+      "budget_stop": false,
+      "measurements": {
+        "query_wall_seconds": 0.07868400499998529,
+        "query_cpu_seconds": 0.07799216300000002,
+        "peak_rss_bytes": 25300992,
+        "source_html_open_calls": {
+          "query": 5,
+          "discovery": 2
+        },
+        "source_read_measurement": "Python audit open events for ledger HTML files during query/discovery; cached in-memory reads are not counted",
+        "admitted_source_count": 1,
+        "admitted_canonical_characters": 82
+      }
+    }
+  ],
+  "custody": "Same-operator keys/scoring; no independent historical or semantic adjudication."
+}

@@ -1,0 +1,86 @@
+name: Egyptian Bastet isolated development
+on:
+  push:
+    branches: ['study/egyptian-programme']
+    paths: ['evaluation/egyptian-gods/bastet/development/freeze.json']
+permissions:
+  contents: read
+
+jobs:
+  baseline:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - id: authorization
+        name: Verify frozen public synthetic fixtures
+        run: |
+          set -euo pipefail
+          study=evaluation/egyptian-gods/bastet
+          export STUDY="$study"
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,os,re
+          home=Path(os.environ['STUDY'])/'development'
+          seal=json.loads((home/'freeze.json').read_bytes())
+          assert seal['publication']=='authorized synthetic raw outputs only'
+          assert hashlib.sha256((home/'registry.json').read_bytes()).hexdigest()==seal['registry_sha256']
+          registry=json.loads((home/'registry.json').read_bytes())
+          assert len(registry['cases'])==12 and len({r['id'] for r in registry['cases']})==12
+          for row in registry['cases']:
+              assert re.fullmatch(r'CRYPT-BASTET-D-00(?:0[1-9]|1[0-2])',row['id'])
+              packet=home/'inputs'/row['id']
+              assert str(packet)==row['packet'] and {p.name for p in packet.iterdir()}=={'case.json'}
+              raw=(packet/'case.json').read_bytes()
+              assert hashlib.sha256(raw).hexdigest()==row['files']['case.json']
+              case=json.loads(raw)
+              assert case['id']==row['id'] and case['profile']=='internal'
+              assert all(s['origin']=='machine' and s['title']=='Synthetic documentary record'
+                         for s in case['sources'])
+          PY
+          pin="$(jq -er .commit "$study/baseline.json")"
+          git fetch --no-tags --depth=1 origin "$pin"
+          git diff --exit-code "$pin" HEAD -- mplpb_answers mplpb_combined mplpb_work
+          echo "pin=$pin" >> "$GITHUB_OUTPUT"
+      - name: Require the original study isolation
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends bubblewrap
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$(command -v python)" -m unittest tests.test_study_sandbox -v
+      - name: Run only the frozen development packet
+        env:
+          PIN: ${{ steps.authorization.outputs.pin }}
+        run: |
+          set -euo pipefail
+          study=evaluation/egyptian-gods/bastet
+          out="$RUNNER_TEMP/bastet"
+          runtime="$RUNNER_TEMP/runtime"
+          mkdir "$out" "$runtime"
+          git archive --format=zip -0 -o "$out/baseline-runtime.zip" "$PIN" mplpb_answers mplpb_combined mplpb_work
+          echo "$(jq -er .runtime_zip_sha256 "$study/baseline.json")  $out/baseline-runtime.zip" | sha256sum -c
+          unzip -q "$out/baseline-runtime.zip" -d "$runtime"
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$(command -v python)" -m tools.cryptid_trial_v5 \
+            --registry "$study/development/registry.json" --implementation "$runtime" \
+            --source-commit "$PIN" --output "$out/development"
+      - id: publish
+        if: always() && steps.authorization.outcome == 'success'
+        name: Verify worker artifact custody
+        run: |
+          out="$RUNNER_TEMP/bastet"
+          if test -d "$out"; then
+            sudo chown -R "$(id -u):$(id -g)" "$out"
+            test -z "$(find "$out" -iname '*key.json' -print -quit)"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.publish.outcome == 'success'
+        with:
+          name: bastet-development-${{ github.sha }}
+          path: ${{ runner.temp }}/bastet/
+          if-no-files-found: warn
+          retention-days: 90
