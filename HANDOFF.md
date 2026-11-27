@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `a01369392071bd6781be379a4b580d9a9d0bc460` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `d4d13967f8fb3af28edb108a36957809500ca7fa5b9211548ece74bbe0b15726`.
+Base commit: `164232883959299bdbbd9d23b065fd4b0a3ec737` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `15efa7820cba4fe125303fbd5b8f0f5af9629781aad84d0f2e8e92a0c1197ec9`.
 
 ## Betty report for Al
 
@@ -18,10 +18,12 @@ Archive the published From Workflow Decisions to Git Effects PDF unchanged. Free
 ### Implemented scope
 
 - Archive the exact PDF with its digest, paper index entry and separate dated PR #111 note. Freeze the baseline fixtures, expected outcomes and scoring against released a0136939.
+- Keep the restart baseline and store experiment separate. Freeze the exclusive reservation, outcome readback, interruption, and no-retry policy before implementation.
 
 ### Validation recorded
 
 - The PDF copy matches the supplied attachment byte for byte. Verified the frozen baseline input digests.
+- Baseline matched all three frozen scenarios. Both unretained duplicates reached Git after restart with zero successful writes. The host-retained key blocked the duplicate with zero Git attempts.
 
 ### Limitations and blocked checks
 
@@ -29,7 +31,7 @@ Archive the published From Workflow Decisions to Git Effects PDF unchanged. Free
 
 ### Next steps
 
-- Execute the frozen baseline using two fresh Node processes per scenario. Preserve the first results and Git readback.
+- Implement the lab reservation wrapper. Score fixed sequential, racing and interrupted processes before publishing the tested archive.
 
 ## Use this ZIP in your repository
 
