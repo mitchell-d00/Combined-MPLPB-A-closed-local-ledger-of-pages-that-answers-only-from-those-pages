@@ -1,0 +1,82 @@
+{
+  "schema": "cryptid-round2-primary-rebuild-freeze-v1",
+  "coverage_manifest_sha256": "bc41a0f753cc4d164672f26f082080fa4b7627b1767423de3a4ee91c5988279d",
+  "original": {
+    "generator_commit": "961be47602c5e3ccb94459c106b3fa28754549bf",
+    "original_baseline_commit": "2622813aba9ee1f1880693eeb71ae015cb3da999",
+    "freeze_sha256": "6b6b8e7bd7b331a7e7b24d54061966aa19e87c41c1692a6e56d62ccdad4797ed",
+    "generator_sha256": "0af669ea8a054116a3368327ab916bc40ac3d52d73c8853a29c9a299a34b9faa",
+    "original_archived_public_sha256": "ea89f9259ccab0a2490789625f1f58df720dbbfa891e2c7c8c06ed62470371cf",
+    "public_seal_sha256": "df3e508905732359f39030fb44a1109172ef87fe44b192616104474a762fd2e9",
+    "key_sha256": "59e6a5861e4360e96375a1daf21c42d25d215319bed9ef72221130eb6968abfa",
+    "dice_sha256": "ea4134f407e909c9acd118a926a35fef2ffb5525e2a852503d32a8498b1e0485",
+    "pairing_sha256": "c70a4ecbc92d2dd4e12bad7d9e5d5976b3fe06427d990b25204a3c1c05945fe4",
+    "runner_sha256": "c00a306599583aef07de9fbdfb904e1f882b938a3f1ba2b2eba758d3938aaed6",
+    "worker_sha256": "72de8f12be85663e863db3914c083cd9040b6d3750d38b6d27bf2734b502c294",
+    "scorer_sha256": "dfd664a039d0878a6e11d0ff5314be0e95b865610b07f44b11f3118f74f433ed",
+    "dice_seed": null,
+    "dice_rolls": [],
+    "generation": "Fully enumerated; no generated positive excluded; not random or unseen transfer"
+  },
+  "spec": {
+    "id": "bunyip-round2-primary",
+    "packet": "evaluation/cryptid/full-reproducible-replay/round2-primary-sealed-public-v1.zip",
+    "packet_sha256": "d27e70e085e39491018ef90c2ad07025eacf1b35e8c877bf3d6feecac1eec80c",
+    "cases": 444,
+    "public_seal_sha256": "df3e508905732359f39030fb44a1109172ef87fe44b192616104474a762fd2e9",
+    "seal_listed_files": 961
+  },
+  "known_overlap": {
+    "prior_distinct_source_question_state_inputs": 396,
+    "prior_exact_question_strings": 78
+  },
+  "replay_policy": "Use original case IDs, source state, budgets and scorer. Match released and candidate pins in the frozen coverage manifest. Keep reconstructed evaluator key outside hosted worker and artifact.",
+  "remaining_exposed_originals": [
+    {
+      "cohort": "guards",
+      "cases_with_verified_public_bytes": 44,
+      "key_sha256": "e335c6ba73d8be65afcab840f07fa5f7d33fac23fda61b2643460773c0eb2630",
+      "generator_sha256": "21738d011a6073b9572239f1cc236df0796db9a9ed964e7f24c2ec14f52804fd",
+      "original_scoring": "Original key not recovered"
+    },
+    {
+      "cohort": "mixed-binding",
+      "cases_with_verified_public_bytes": 4,
+      "key_sha256": "aeea219c7be2246798a1d836fc692ac3ea7e256df4fb9e8c71586aac3dd23364",
+      "generator_sha256": "21738d011a6073b9572239f1cc236df0796db9a9ed964e7f24c2ec14f52804fd",
+      "original_scoring": "Original key not recovered"
+    },
+    {
+      "cohort": "irrelevance",
+      "cases_with_verified_public_bytes": 8,
+      "key_sha256": "f80f9469982a0ef98fdb423502d43fc159f384c418969e52ddb0011be4b41ad2",
+      "generator_sha256": "21738d011a6073b9572239f1cc236df0796db9a9ed964e7f24c2ec14f52804fd",
+      "original_scoring": "Original key not recovered"
+    },
+    {
+      "cohort": "routing",
+      "cases_with_verified_public_bytes": 54,
+      "key_sha256": "482db4077a163f4d2d884bf79b96689097c0d3036e2ff95cadf0ec1d0146231f",
+      "generator_sha256": "e44a4dc8e8ebe13ff37e5c93a61d56d1bdb78f2131bda3f4993355e936ba222a",
+      "original_scoring": "Original key not recovered"
+    },
+    {
+      "cohort": "polarity",
+      "cases_with_verified_public_bytes": 18,
+      "key_sha256": "22448d788805c6fa23d5fc2d90544b39b28defd54b3b1c2f4acc79d3e6421eb7",
+      "generator_sha256": "c78037c7924578de97bc1dcf1a4c3c87888b0c2c4990d0264fb6841ae896bf1d",
+      "original_scoring": "Original key not recovered"
+    }
+  ],
+  "original_private_preservation": {
+    "count": 17,
+    "status": "INCOMPLETE",
+    "retirement": "Required original private state/custody material unavailable. No generator reconstruction identified."
+  },
+  "original_held_transfer": {
+    "routing": 36,
+    "cross_family": 64,
+    "status": "NOT_RUN",
+    "retirement": "Exact generator and original custody inputs or keys were not recovered. Held packets were not opened."
+  }
+}

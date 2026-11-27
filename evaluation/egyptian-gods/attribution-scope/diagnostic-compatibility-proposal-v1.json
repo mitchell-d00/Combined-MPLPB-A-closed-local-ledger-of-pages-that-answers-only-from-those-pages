@@ -1,0 +1,477 @@
+{
+  "schema": "mplpb-retained-diagnostic-compatibility-proposal-v1",
+  "policy_version": 1,
+  "status": "PROPOSED_INACTIVE",
+  "approval": null,
+  "scope": "One frozen retained replay for PR 110. Never a global diagnostic exclusion.",
+  "baseline": {
+    "commit": "6ec348b31ec79e37def77a7019cd22102df85f93",
+    "runtime_zip_sha256": "4ccdf9b9099192395e41b57cbdf2c2ad61a7e79e5b566ba0bccbd306326a5fe5",
+    "package_git_trees": {
+      "mplpb_answers": "734bbe423cb59697056a8d10a353a3adfe30c310",
+      "mplpb_combined": "8c1a189e74bc7cb3110f113c7ecd1ab8d271762b",
+      "mplpb_work": "aea978d8346e7c226c3bf32565ec69d55c4f98b8"
+    },
+    "reference_archives": {
+      "development": {
+        "path": "evaluation/egyptian-gods/thoth/development-evidence.zip",
+        "sha256": "5fb716a2912ec4a15fdc7e32a0c11da011542f72b495d07616d5d7f10f1e811d"
+      },
+      "fresh": {
+        "path": "evaluation/egyptian-gods/thoth/fresh-evidence.zip",
+        "sha256": "31174a27bb2ac3442033901a555c0b80c421167a3d7d708d22c78a569586919c"
+      }
+    }
+  },
+  "candidate": {
+    "commit": "426791113348b259797223316f6ca2d6e6b7ccb8",
+    "runtime_zip_sha256": "8c767ab82c2941c8a30d63bb522da87c326e7d44cdb3f513d12aa8e553fa71b2",
+    "package_git_trees": {
+      "mplpb_answers": "42c25a70c4f44942d003f62dbff9cbd79572c7b4",
+      "mplpb_combined": "8c1a189e74bc7cb3110f113c7ecd1ab8d271762b",
+      "mplpb_work": "aea978d8346e7c226c3bf32565ec69d55c4f98b8"
+    },
+    "retained_replay_artifact": {
+      "run_id": 45986749330,
+      "artifact_id": 15191409449,
+      "sha256": "6f795c6cd3f209e8d325a6b044afbf30ab87f26e21f2e7e4fe27d4454d4aebdc"
+    }
+  },
+  "comparator": {
+    "reference_version": "exact-retained-contract-replay-v1",
+    "unchanged_code": {
+      "path": "evaluation/egyptian-gods/thoth/verify_release_replay.py",
+      "sha256": "0650dc4fe8680dab451938414aae8470755daeb1f92b73dbc1a89cae621a4886"
+    },
+    "normalizer": {
+      "path": "tools/bubble_wrap_trial.py",
+      "sha256": "94a21ad195bfe2cc7e08608de5f1a08254b6ad10c26280a081f6ef8244570bd5"
+    },
+    "normalized_fingerprint_encoding": "JSON sorted keys, compact separators, UTF-8, unescaped Unicode, no final newline",
+    "prospective_version": "retained-diagnostic-compatibility-v1",
+    "required_population": 96,
+    "sorted_population_sha256": "83623fcee189fc6ba75d99c80e167b525b65044259eba41896f30414aa551775",
+    "code_fingerprint_handling": "Existing recursive exclusion of code_sha256 only"
+  },
+  "original_exact_result": {
+    "status": "FAILED",
+    "exact": 87,
+    "total": 96,
+    "receipt": {
+      "path": "evaluation/egyptian-gods/attribution-scope/retained-exact-96.json",
+      "sha256": "cd250bd0e84964ac79def9e8c514ca1ccb05c572eab5dddcd95ca52c220e741f"
+    }
+  },
+  "requirements": {
+    "precondition": "Mitchell explicitly approves this exact manifest SHA-256, then approval and policy are frozen before a new verification.",
+    "missing_duplicate_unknown_case_or_execution_failure": "reject",
+    "nonlisted_case_comparison": "full normalized contract equality",
+    "listed_case_comparison": "Require the exact arm, case ID, registry and reader fingerprints, both complete diagnostic fingerprints, and equality of every other normalized field. No missing or extra fields outside diagnostic. Require exactly the listed nine differences.",
+    "required_refusal_on_both": {
+      "kind": "abstain",
+      "answer_supported": false,
+      "claims": []
+    },
+    "abort_on_any_different_transition_or_unexpected_delta": true,
+    "historical_failure_is_preserved": true,
+    "active_release_gate_change": false
+  },
+  "exceptions": [
+    {
+      "case_id": "C3-REPL-P02-A",
+      "arm": "bunyip-development-thoth",
+      "registry_sha256": "b0ef5dbd865a4b4d04c94649f4115c5f287c6d66f65e68c493a125b76ea5c185",
+      "from_code": "interpretation_unsupported",
+      "to_code": "reported_object_unresolved",
+      "changed_fields": [
+        "diagnostic"
+      ],
+      "baseline": {
+        "archive_phase": "development",
+        "member": "bunyip-development-thoth/C3-REPL-P02-A/result.json",
+        "raw_result_sha256": "bb6de1e05ebe583a560d33294e26f39caeb4865d6f95da8326891de19c10c63b",
+        "normalized_contract_sha256": "6802affdd4e18655577f696512becdcc6d5a352bd675152c47612f6e0d677b0a",
+        "diagnostic_sha256": "9354baab5ff6ab7d41190a8c1ac0204a5903155befc5868c966dfb970ff8ada3",
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "category": "unsupported_question_grammar",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+          ]
+        }
+      },
+      "candidate": {
+        "member": "egyptian-retained-contracts/bunyip-development-thoth/C3-REPL-P02-A/result.json",
+        "raw_result_sha256": "6f39678618ddc86c644a54c58a9d760da14ad7df42a92848152a290f1e6e3509",
+        "normalized_contract_sha256": "5acd064231eadc2d98ed1c58edead8b4400912ed1a14bd0fba55a37f97025d2f",
+        "diagnostic_sha256": "5428b5aa447153041c10523052d94f519ea2b4e830770c4c40296d3d9bbd9f90",
+        "diagnostic": {
+          "code": "reported_object_unresolved",
+          "stage": "bounded_records",
+          "message": "See the cited statements and any unresolved parts.",
+          "category": "insufficient_evidence",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Review the diagnostic and source evidence before retrying."
+          ]
+        }
+      },
+      "identical_remaining_fields_sha256": "c6e071136633a5f833778f592362b4f7c31d35a36f6f69c2c75889ab606785f3"
+    },
+    {
+      "case_id": "C3-REPL-P02-B",
+      "arm": "bunyip-development-thoth",
+      "registry_sha256": "b0ef5dbd865a4b4d04c94649f4115c5f287c6d66f65e68c493a125b76ea5c185",
+      "from_code": "interpretation_unsupported",
+      "to_code": "reported_object_unresolved",
+      "changed_fields": [
+        "diagnostic"
+      ],
+      "baseline": {
+        "archive_phase": "development",
+        "member": "bunyip-development-thoth/C3-REPL-P02-B/result.json",
+        "raw_result_sha256": "589852e5c827acf34d3fc69aa593c1d6fe0fc7b164039e8c5e19a346ef7ad61d",
+        "normalized_contract_sha256": "11af864ebb692fee3a61c11e8557339beb7829f2c3ec48c30e5d976d578ae61f",
+        "diagnostic_sha256": "9354baab5ff6ab7d41190a8c1ac0204a5903155befc5868c966dfb970ff8ada3",
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "category": "unsupported_question_grammar",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+          ]
+        }
+      },
+      "candidate": {
+        "member": "egyptian-retained-contracts/bunyip-development-thoth/C3-REPL-P02-B/result.json",
+        "raw_result_sha256": "75c4dac5d29d65b5e245ba9c7951d2e6967bd1fb025ef729b4f4aac2c762a7cf",
+        "normalized_contract_sha256": "22a35a074f1679e16b254c215945adf4e052cad7278f30179f47c2a986582243",
+        "diagnostic_sha256": "5428b5aa447153041c10523052d94f519ea2b4e830770c4c40296d3d9bbd9f90",
+        "diagnostic": {
+          "code": "reported_object_unresolved",
+          "stage": "bounded_records",
+          "message": "See the cited statements and any unresolved parts.",
+          "category": "insufficient_evidence",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Review the diagnostic and source evidence before retrying."
+          ]
+        }
+      },
+      "identical_remaining_fields_sha256": "f61f9f1f5a6e0c2821319ad12c97f4677bcb11a3583d888457b401e2f690faeb"
+    },
+    {
+      "case_id": "C3-REPL-P03-A",
+      "arm": "bunyip-development-thoth",
+      "registry_sha256": "b0ef5dbd865a4b4d04c94649f4115c5f287c6d66f65e68c493a125b76ea5c185",
+      "from_code": "interpretation_unsupported",
+      "to_code": "requested_source_condition_unresolved",
+      "changed_fields": [
+        "diagnostic"
+      ],
+      "baseline": {
+        "archive_phase": "development",
+        "member": "bunyip-development-thoth/C3-REPL-P03-A/result.json",
+        "raw_result_sha256": "92f48c5214a2fed1eab09b6e7cb14e6b07e0c62fd49d875529b100a92dd00b1f",
+        "normalized_contract_sha256": "c7931448a1a598dd7df9ebd2d0c3cd6fba3015881d31bd5903472a8439e81050",
+        "diagnostic_sha256": "9354baab5ff6ab7d41190a8c1ac0204a5903155befc5868c966dfb970ff8ada3",
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "category": "unsupported_question_grammar",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+          ]
+        }
+      },
+      "candidate": {
+        "member": "egyptian-retained-contracts/bunyip-development-thoth/C3-REPL-P03-A/result.json",
+        "raw_result_sha256": "a02a215979cb9bf92044f365140dd5d6b16bad4d36dd2b9cf70883c94cc09f42",
+        "normalized_contract_sha256": "9419b50fdbaab59d05b5502bc0c9e62369da816cfcf6dd2202b3e3d0060262ce",
+        "diagnostic_sha256": "4de07a579002495bbd15b73fbd40cfdf769af39c6b21ea48746ec2becb1afbd2",
+        "diagnostic": {
+          "code": "requested_source_condition_unresolved",
+          "stage": "bounded_records",
+          "message": "See the cited statements and any unresolved parts.",
+          "category": "insufficient_evidence",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Review the diagnostic and source evidence before retrying."
+          ]
+        }
+      },
+      "identical_remaining_fields_sha256": "813513ba31c021b7eafd794a21bd12dee9dba38b260c9e1a6a10225d840dfeaf"
+    },
+    {
+      "case_id": "C3-REPL-X01-A",
+      "arm": "bunyip-X-thoth",
+      "registry_sha256": "ce1335a7eca56986fe01d02a91080a205fa944463f48a382f2c719625acb7f3f",
+      "from_code": "interpretation_unsupported",
+      "to_code": "reported_object_unresolved",
+      "changed_fields": [
+        "diagnostic"
+      ],
+      "baseline": {
+        "archive_phase": "development",
+        "member": "bunyip-X-thoth/C3-REPL-X01-A/result.json",
+        "raw_result_sha256": "daac28ea92a5757295c12b42fa8178643bc51fae711d5d2a1a61fa191486683b",
+        "normalized_contract_sha256": "dc1d014a3d4d7ff98d9c04feda5b1f54dcd4c3a8e02ae0705e380c4795491a90",
+        "diagnostic_sha256": "9354baab5ff6ab7d41190a8c1ac0204a5903155befc5868c966dfb970ff8ada3",
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "category": "unsupported_question_grammar",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+          ]
+        }
+      },
+      "candidate": {
+        "member": "egyptian-retained-contracts/bunyip-X-thoth/C3-REPL-X01-A/result.json",
+        "raw_result_sha256": "5f581df5d72b2eaadd1f74e6154e995c549915a3fee107e99780a5479c079535",
+        "normalized_contract_sha256": "6c60c9e7cf26099a537bb4803152a96e28e1cadda2c18d2b232836e996c02210",
+        "diagnostic_sha256": "5428b5aa447153041c10523052d94f519ea2b4e830770c4c40296d3d9bbd9f90",
+        "diagnostic": {
+          "code": "reported_object_unresolved",
+          "stage": "bounded_records",
+          "message": "See the cited statements and any unresolved parts.",
+          "category": "insufficient_evidence",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Review the diagnostic and source evidence before retrying."
+          ]
+        }
+      },
+      "identical_remaining_fields_sha256": "a36ef206f91e771ed3f6c6d7301250536ee8e6cd129235093759961b09d8b9fb"
+    },
+    {
+      "case_id": "C3-REPL-X01-B",
+      "arm": "bunyip-X-thoth",
+      "registry_sha256": "ce1335a7eca56986fe01d02a91080a205fa944463f48a382f2c719625acb7f3f",
+      "from_code": "interpretation_unsupported",
+      "to_code": "reported_object_unresolved",
+      "changed_fields": [
+        "diagnostic"
+      ],
+      "baseline": {
+        "archive_phase": "development",
+        "member": "bunyip-X-thoth/C3-REPL-X01-B/result.json",
+        "raw_result_sha256": "33608e3b3ce692f5cb18b8d17f5a79373328f1fbda007a34845a11789b70cb03",
+        "normalized_contract_sha256": "49205d1582bfeb628627206778aa1171608476087075b1df758d91f0ba0d8da3",
+        "diagnostic_sha256": "9354baab5ff6ab7d41190a8c1ac0204a5903155befc5868c966dfb970ff8ada3",
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "category": "unsupported_question_grammar",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+          ]
+        }
+      },
+      "candidate": {
+        "member": "egyptian-retained-contracts/bunyip-X-thoth/C3-REPL-X01-B/result.json",
+        "raw_result_sha256": "51a6b5c7fcdfa794b6868fb8bef17974e78a8dfe9285f7d8ebf5b64ea1ff2a1f",
+        "normalized_contract_sha256": "d66c08451726bada5d79a8e22e8a6c975ce5d680afd35a4026184a08780ec61d",
+        "diagnostic_sha256": "5428b5aa447153041c10523052d94f519ea2b4e830770c4c40296d3d9bbd9f90",
+        "diagnostic": {
+          "code": "reported_object_unresolved",
+          "stage": "bounded_records",
+          "message": "See the cited statements and any unresolved parts.",
+          "category": "insufficient_evidence",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Review the diagnostic and source evidence before retrying."
+          ]
+        }
+      },
+      "identical_remaining_fields_sha256": "31502424143756aaa89d9b333963547571c2e35f55ee3dce6894ef240fd5177f"
+    },
+    {
+      "case_id": "C3-REPL-X03-A",
+      "arm": "bunyip-X-thoth",
+      "registry_sha256": "ce1335a7eca56986fe01d02a91080a205fa944463f48a382f2c719625acb7f3f",
+      "from_code": "interpretation_unsupported",
+      "to_code": "reported_object_unresolved",
+      "changed_fields": [
+        "diagnostic"
+      ],
+      "baseline": {
+        "archive_phase": "development",
+        "member": "bunyip-X-thoth/C3-REPL-X03-A/result.json",
+        "raw_result_sha256": "6b25a05b0bc8348b3ae53189aebb5bbb91ecfd688a9b747b538f8b9f487a287c",
+        "normalized_contract_sha256": "d378ed2d63c7b1044b4e21322fd351b2916fc4c04d193f28e07e352e7da66bda",
+        "diagnostic_sha256": "9354baab5ff6ab7d41190a8c1ac0204a5903155befc5868c966dfb970ff8ada3",
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "category": "unsupported_question_grammar",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+          ]
+        }
+      },
+      "candidate": {
+        "member": "egyptian-retained-contracts/bunyip-X-thoth/C3-REPL-X03-A/result.json",
+        "raw_result_sha256": "1205a082343a7b542675b4f5d48f4409b3d76ae6e5bf8a447c7acf4b499ff338",
+        "normalized_contract_sha256": "a6c770ab883a4b5a8c21cef31fdfc53d3f84a88a4cdc0012536543d3cbbd2f1f",
+        "diagnostic_sha256": "5428b5aa447153041c10523052d94f519ea2b4e830770c4c40296d3d9bbd9f90",
+        "diagnostic": {
+          "code": "reported_object_unresolved",
+          "stage": "bounded_records",
+          "message": "See the cited statements and any unresolved parts.",
+          "category": "insufficient_evidence",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Review the diagnostic and source evidence before retrying."
+          ]
+        }
+      },
+      "identical_remaining_fields_sha256": "39cd39f60a996d68dee019eacfde090b3524d1efbb8d388d5e4a61c13d51c19b"
+    },
+    {
+      "case_id": "C3-REPL-X03-B",
+      "arm": "bunyip-X-thoth",
+      "registry_sha256": "ce1335a7eca56986fe01d02a91080a205fa944463f48a382f2c719625acb7f3f",
+      "from_code": "interpretation_unsupported",
+      "to_code": "reported_object_unresolved",
+      "changed_fields": [
+        "diagnostic"
+      ],
+      "baseline": {
+        "archive_phase": "development",
+        "member": "bunyip-X-thoth/C3-REPL-X03-B/result.json",
+        "raw_result_sha256": "b3487f108ec20d697d419ddf2c122ba205b486721a2d477a3b269e292fb616de",
+        "normalized_contract_sha256": "8ea292b4dddd83cac3a0a743d8d6fb46c064fdea27947da7ec0cf64036831fa6",
+        "diagnostic_sha256": "9354baab5ff6ab7d41190a8c1ac0204a5903155befc5868c966dfb970ff8ada3",
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "category": "unsupported_question_grammar",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+          ]
+        }
+      },
+      "candidate": {
+        "member": "egyptian-retained-contracts/bunyip-X-thoth/C3-REPL-X03-B/result.json",
+        "raw_result_sha256": "c2717d08f5a52092adae3ef985db2d8738191b6d731eae6697f4e8774984a8d4",
+        "normalized_contract_sha256": "d3bc8e4b2250c38996de59b27ea415499bf24eb5a395d8e375cbc4c050ec0bda",
+        "diagnostic_sha256": "5428b5aa447153041c10523052d94f519ea2b4e830770c4c40296d3d9bbd9f90",
+        "diagnostic": {
+          "code": "reported_object_unresolved",
+          "stage": "bounded_records",
+          "message": "See the cited statements and any unresolved parts.",
+          "category": "insufficient_evidence",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Review the diagnostic and source evidence before retrying."
+          ]
+        }
+      },
+      "identical_remaining_fields_sha256": "b872918e8f5d43a6fc201c2c2c4dbaf5d5d802e60004bb48b11250d29b0638d7"
+    },
+    {
+      "case_id": "C3-REPL-X04-A",
+      "arm": "bunyip-X-thoth",
+      "registry_sha256": "ce1335a7eca56986fe01d02a91080a205fa944463f48a382f2c719625acb7f3f",
+      "from_code": "interpretation_unsupported",
+      "to_code": "requested_source_condition_unresolved",
+      "changed_fields": [
+        "diagnostic"
+      ],
+      "baseline": {
+        "archive_phase": "development",
+        "member": "bunyip-X-thoth/C3-REPL-X04-A/result.json",
+        "raw_result_sha256": "141a13b942099050c360b74e37d2ec225d50898171c3110600f14bead04ff0a6",
+        "normalized_contract_sha256": "a1f3405c0ab9a7061b44935cd33c95ef0d098856f55791a7ca2902c9ecbefa9b",
+        "diagnostic_sha256": "9354baab5ff6ab7d41190a8c1ac0204a5903155befc5868c966dfb970ff8ada3",
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "category": "unsupported_question_grammar",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+          ]
+        }
+      },
+      "candidate": {
+        "member": "egyptian-retained-contracts/bunyip-X-thoth/C3-REPL-X04-A/result.json",
+        "raw_result_sha256": "6f09a75cdb5b7e206fe2408b47ccd69b79d4d6f0521680f8e27a6ae9c1ccd85f",
+        "normalized_contract_sha256": "ef93cb31d91809d4a84b102cbd7c1dbe1a9fecf3392d9972fd52d7b632c5787f",
+        "diagnostic_sha256": "4de07a579002495bbd15b73fbd40cfdf769af39c6b21ea48746ec2becb1afbd2",
+        "diagnostic": {
+          "code": "requested_source_condition_unresolved",
+          "stage": "bounded_records",
+          "message": "See the cited statements and any unresolved parts.",
+          "category": "insufficient_evidence",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Review the diagnostic and source evidence before retrying."
+          ]
+        }
+      },
+      "identical_remaining_fields_sha256": "df67600f117cd221eddcc6b5b888c068434827219b4f2abe62db2ba54d2c6b7d"
+    },
+    {
+      "case_id": "C3-REPL-X05-A",
+      "arm": "bunyip-X-thoth",
+      "registry_sha256": "ce1335a7eca56986fe01d02a91080a205fa944463f48a382f2c719625acb7f3f",
+      "from_code": "interpretation_unsupported",
+      "to_code": "requested_source_condition_unresolved",
+      "changed_fields": [
+        "diagnostic"
+      ],
+      "baseline": {
+        "archive_phase": "development",
+        "member": "bunyip-X-thoth/C3-REPL-X05-A/result.json",
+        "raw_result_sha256": "145d6e309521aa81efa0c523a0f333211eae09044dcc10fc56d884b288acca9d",
+        "normalized_contract_sha256": "43ffa36fe620fa12c52952311b26a6d4fd03409a3b0c9d4454ccf8fa19fe879a",
+        "diagnostic_sha256": "9354baab5ff6ab7d41190a8c1ac0204a5903155befc5868c966dfb970ff8ada3",
+        "diagnostic": {
+          "code": "interpretation_unsupported",
+          "stage": "strict",
+          "message": "Eligible passages exist, but the strict reader cannot establish an answer to this question.",
+          "category": "unsupported_question_grammar",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Inspect the relevant source. Try a supported question form or explicitly select a configured assisted reader; do not treat this refusal as proof that the answer is absent."
+          ]
+        }
+      },
+      "candidate": {
+        "member": "egyptian-retained-contracts/bunyip-X-thoth/C3-REPL-X05-A/result.json",
+        "raw_result_sha256": "1d199c41dd747e93724dea8261ef80533a85307f06f0894e82ddfea6a53b5a27",
+        "normalized_contract_sha256": "aa4c132edfac55317961cc62456e28d1096e73ffccfa585d1e36e348cc855244",
+        "diagnostic_sha256": "4de07a579002495bbd15b73fbd40cfdf769af39c6b21ea48746ec2becb1afbd2",
+        "diagnostic": {
+          "code": "requested_source_condition_unresolved",
+          "stage": "bounded_records",
+          "message": "See the cited statements and any unresolved parts.",
+          "category": "insufficient_evidence",
+          "corpus_answerability": "not_established",
+          "next_steps": [
+            "Review the diagnostic and source evidence before retrying."
+          ]
+        }
+      },
+      "identical_remaining_fields_sha256": "4e8c749f111c461c8ddbc7b55b5f6c5d200673b80b7cdb4ca7674a39731124e7"
+    }
+  ]
+}

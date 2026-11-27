@@ -1,0 +1,99 @@
+name: Egyptian gods isolated language batch
+on:
+  push:
+    branches: ['study/egyptian-gods-attribution-scope']
+    paths: ['evaluation/egyptian-gods/attribution-scope/phase.txt', '.github/workflows/egyptian-attribution-scope.yml']
+permissions:
+  contents: read
+jobs:
+  comparison:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Require the existing isolator
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends bubblewrap
+          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$(command -v python)" -m unittest tests.test_study_sandbox -v
+      - id: scope
+        name: Verify frozen public synthetic input scope
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,re
+          root=Path('evaluation/egyptian-gods/attribution-scope')
+          phase=(root/'phase.txt').read_text().strip()
+          assert phase in {'baseline','seshat','anubis','horus','horus-2','fresh'}
+          for name in ('seshat','anubis','horus'):
+              arm=root/name/('fresh' if phase=='fresh' else 'development')
+              seal=json.loads((arm/'freeze.json').read_bytes())
+              registry=(arm/'registry.json').read_bytes()
+              assert seal['public_raw_output'] is True
+              assert hashlib.sha256(registry).hexdigest()==seal['registry_sha256']
+              rows=json.loads(registry)['cases']
+              assert len(rows)==6
+              for row in rows:
+                  assert re.fullmatch('EGY-'+name.upper()+r'-[DF]0[1-6]',row['id'])
+                  packet=arm/'inputs'/row['id']
+                  assert str(packet)==row['packet'] and {p.name for p in packet.iterdir()}=={'case.json'}
+                  raw=(packet/'case.json').read_bytes()
+                  case=json.loads(raw)
+                  assert hashlib.sha256(raw).hexdigest()==row['files']['case.json']
+                  assert case['sources'] and case['adapter_mode']=='documentary' and case['id']==row['id']
+                  assert all(s['id']=='SYN-A' and s['origin']=='machine' for s in case['sources'])
+          PY
+          echo 'approved=yes' >> "$GITHUB_OUTPUT"
+      - name: Pin runtime and execute the unchanged runner
+        run: |
+          set -euo pipefail
+          ROOT=evaluation/egyptian-gods/attribution-scope
+          OUTPUT="$RUNNER_TEMP/egyptian-attribution-scope"
+          mkdir -p "$OUTPUT"
+          PHASE="$(cat "$ROOT/phase.txt")"
+          BASE=a442c8f0c9629b65a3af38ba57319aa9c2af8dbe
+          if test "$PHASE" = baseline || test "$PHASE" = fresh; then
+            git fetch --depth=1 origin "$BASE"
+          fi
+          failed=0
+          run_role() {
+            local role="$1" pin="$2" arm="$3" runtime="$RUNNER_TEMP/egyptian-$1"
+            mkdir -p "$runtime"
+            git archive --format=zip -0 -o "$OUTPUT/$role-runtime.zip" "$pin" mplpb_answers mplpb_combined mplpb_work
+            sha256sum "$OUTPUT/$role-runtime.zip" | tee -a "$OUTPUT/runtime-sha256.log"
+            unzip -q "$OUTPUT/$role-runtime.zip" -d "$runtime"
+            for set_name in seshat anubis horus; do
+              sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$(command -v python)" -m tools.cryptid_trial_v5 \
+                --registry "$ROOT/$set_name/$arm/registry.json" --implementation "$runtime" \
+                --source-commit "$pin" --output "$OUTPUT/$set_name-$arm-$role" || failed=1
+            done
+          }
+          if test "$PHASE" = baseline; then
+            run_role released "$BASE" development
+          elif test "$PHASE" = fresh; then
+            pin="$(cat "$ROOT/candidate-pin.txt")"
+            test "$(git rev-parse HEAD^)" = "$pin"
+            run_role released "$BASE" fresh
+            run_role candidate "$pin" fresh
+            hash="$(cut -d ' ' -f1 "$ROOT/candidate-runtime.sha256")"
+            echo "$hash  $OUTPUT/candidate-runtime.zip" | sha256sum --check
+          else
+            run_role candidate "$GITHUB_SHA" development
+          fi
+          exit "$failed"
+      - name: Make public synthetic outputs available for retention
+        if: always() && steps.scope.outputs.approved == 'yes'
+        run: sudo chown -R "$(id -u):$(id -g)" "$RUNNER_TEMP/egyptian-attribution-scope"
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.scope.outputs.approved == 'yes'
+        with:
+          name: egyptian-attribution-scope-${{ github.sha }}
+          path: ${{ runner.temp }}/egyptian-attribution-scope/
+          retention-days: 90

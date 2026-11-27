@@ -34,6 +34,8 @@ def parse(question):
         if match and not UNSAFE_SUBJECT.search(match['entity']):
             return PolicyRequest('requirements', match['entity'], q)
     match = re.fullmatch(rf'(?:under what conditions|when) (?P<modal>can|may) (?P<entity>{WORDS}) be (?P<verb>[a-z]+)', q)
+    if not match:
+        match = re.fullmatch(rf'what condition (?:governs|applies) when (?P<entity>{WORDS}) (?P<modal>can|may) be (?P<verb>[a-z]+)', q)
     if match and not UNSAFE_SUBJECT.search(match['entity']):
         return PolicyRequest('permission_conditions', match['entity'], q, match['modal']+':'+match['verb'])
     return None

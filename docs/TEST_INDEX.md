@@ -18,6 +18,20 @@ The original PR #106 gates and the unavailable 17 and 100 cases retain their
 original disposition. These entries link checked source and retained results.
 
 
+## Full reproducible Cryptid replay
+
+The [frozen coverage inventory](../evaluation/cryptid/full-reproducible-replay/README.md)
+includes BB, the reproducible retained Cryptid packets and the exact 444-case
+Bunyip primary rebuild. The other 128 exposed development inputs have
+verified bytes with unavailable original scoring keys. The original 17
+incomplete checks and 100 held NOT_RUN cases remain retired.
+
+## Egyptian-gods attribution and scope batch
+
+[Bounded Seshat, Anubis and Horus results](../evaluation/egyptian-gods/attribution-scope/RESULTS.md)
+link the frozen inputs, ordered development, first fresh scores and release
+preservation. The earlier Thoth and Cryptid checkpoints retain their scope.
+
 ## Capability-to-evidence map
 
 Use [MPLPB product](MPLPB.md), develop in [Experimental Lab](EXPERIMENTAL_LAB.md),

@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `c60f4f3d6b716a030cd0396c2f02e7ceaf60bd7e` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `2aafad6120875f1e058a8526687aaee0a934b9924c0dbb97e806c471b6a7604b`.
+Base commit: `48557079f39bc410e0f1bcff53c9343b1f6f03a0` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `1bd06cba46f74130ca619cb21faaff9301ef420aff1201a0c413dd4ccf765db8`.
 
 ## Betty report for Al
 
@@ -13,56 +13,52 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Betty — prioritize a clean release path for the cumulative Thoth candidate before starting another language sprint.
-
-PR #108’s packaging changes are already merged and deployed. Build the reader release from current clean main, preserving those improvements.
-
-1. Keep the retired recovery closed.
-The original 17 private checks remain incomplete and the original 100 held cases remain NOT_RUN. Preserve their records and unavailable status. Do not resume recovery polling or represent replacement tests as completion of those originals.
-
-2. Prepare one clean cumulative candidate.
-Carry the reviewed C3 → Wampus → Thoth implementation and permitted evidence onto a clean branch without the incident’s affected ancestry. Verify its reader bytes against the tested Thoth runtime. Preserve the original PR #106 checkpoints and results.
-
-3. Define prospective release acceptance explicitly.
-Document what the available preservation and replacement evidence establishes, what remains unverified, and the requirements for this release. Keep the original failed and incomplete gates unchanged in history. Do not silently waive them or claim they passed.
-Include the 832 public contracts, BB, protected C3/Wampus outcomes, Thoth’s frozen results, applicable software checks and deployment verification. Existing coverage misses may remain documented backlog under the agreed criteria.
-
-4. Address the publication incident separately.
-Prepare the precise cleanup plan for affected branch/PR refs, objects, artifacts and caches. Distinguish current-tree containment, clean release ancestry and remaining historical exposure. Documentation alone is not removal. Present any destructive operation with its exact scope and verified preservation plan before execution.
-
-5. Verify and complete the release where requirements permit.
-Pin and hash the clean candidate, run the applicable exact-head checks, and rerun affected preservation if reader bytes change. Existing push, merge and deployment authorization remains in force; no repeat confirmation is needed for already-authorized work.
-
-If requirements pass, merge and verify the deployed reader fingerprint and supported/refusal behavior. If blocked, push the recoverable checkpoint and identify the exact unmet requirement and next executable action.
-
-Update CURRENT_STATUS, HANDOFF and the PR report with the actual date, released main, candidate pin, evidence limits, incident status and release decision. Keep independent and human evaluations marked NOT_RUN.
-
-Finish with a clear released or held result, commit and PR links, completed checks, deployment status and remaining blockers.
+Move PR #110 into final release preparation. Reuse completed replay evidence where the pinned reader bytes are unchanged. Verify current main and the candidate’s clean ancestry, freeze the final source ZIP and manifest, and complete the applicable exact-head checks. Keep diagnostic compatibility v1 inactive and the original 87/96 failure visible. Present its exact authorization for Mitchell’s decision before prospective verification.
 
 ### Implemented scope
 
-- Integrate the tested cumulative C3, Wampus and Thoth reader and reviewed refusal copy on current clean main f52ed384. Keep the PR #108 packaging and original PR #106 checkpoints.
-- Retain only the selected public evidence and record prospective release acceptance and the separate historical cleanup plan.
-- Render named compound field statuses even when there is no per-field diagnostic. Keep the verified citation and missing field visible. This is a browser presentation repair; the native release fingerprint is unchanged.
-- Keep established relational location proof precedence. The sole native difference from tested Thoth is the narrow routing guard in compound_fields.py. Keep the earlier failing tested bytes and scores unchanged.
+- Freeze six development and six fresh cases per set, each with three supported targets and three contrasts. Use the unchanged Cryptid v5 isolation runner.
+- Seshat binds an exact reporter and embedded writer before resolving an unambiguous reported object. The printed recorder remains a separate source role.
+- Anubis independently binds explicit denial of a report and denial inside the reported writing claim. A missing scoped witness withholds.
+- Horus binds an exact if-clause and the instruction or intention modality, or routes the explicit conditions-of-permission question to the existing policy proof. No condition fulfillment or execution authority is inferred.
+- Route the bounded subject-before-modal permission request through the existing permission proof. The first Horus score and archive remain retained.
+- Prepare the inactive PR110 narrow diagnostic compatibility proposal. Keep active gates and reader bytes unchanged.
+- Freeze the full reproducible inventory: 55 registry cohorts, 248 original D% cases via verified original seals, BB, and the overlapping 832 public preservation contracts.
+- Restore the original 444-case fully enumerated primary packet to the Cryptid replay inventory. Freeze the exact reconstitution and keep evaluator keys out of the hosted worker and public artifacts.
+- Prepare the exact-head release through the existing ZIP-first and regression workflows. Preserve the original acceptance gate and keep diagnostic compatibility v1 inactive. The broader registry replay’s 24 diagnostic-only differences grant no exceptions; the proposal remains bounded to its nine pinned transitions.
 
 ### Validation recorded
 
-- All three staged native package trees match tested Thoth 6ec348b31. Its scoped ZIP reproduced SHA-256 4ccdf9b9099192395e41b57cbdf2c2ad61a7e79e5b566ba0bccbd306326a5fe5.
-- 42 focused Python tests and the documentary-rendering and museum refusal-copy checks passed. One initial local command named a nonexistent test module; the corrected command completed.
-- Retained same-runtime evidence covers 832 public contracts, BB 900 positives and citations/200 withholds, 19 protected contracts and all three C3 routing recoveries. Thoth scored 6 complete, 3 useful partial and 3 expected withholds on each frozen draw, zero unsupported claims.
-- The first clean-head source-tags run 45921394600 failed because the new evidence family lacked its department field. Assigned Egyptian gods to Testing and Evaluation and verified locally. Runtime bytes are unchanged. The sparse local JavaScript API probe lacked resources and did not complete. Exact-head CI runs from the complete checkout and ZIP.
-- First local Chromium attempt used a field caption for a supported documentary answer. The corrected probe found a missing optional diagnostic renderer failure on Thoth F08-A. After repair, the existing renderer, UI-script and refusal-copy checks passed. The candidate browser displayed the supported F06-A, checked partial F08-A and refusal F10-B; citations opened for the two supported portions and all three had zero page errors.
-- The original-byte clean head failed the public capability gate on partial-correction and diagnostic-known-conflict, 50/52 with zero false-supported bridges. The narrow repair restored 52/52 locally with zero false-supported bridges. All 43 focused native checks passed. Seven replay registries and original harness hashes matched.
+- Remote main is a442c8f0. No Seshat branch or worktree was found. The initial stage diagnosis and all six freezes precede changes to the reader.
+- The isolated released development baseline had 9/9 target witnesses discovered, 0/9 targets complete and 9/9 controls withheld, zero unsupported claims or execution failures. The baseline archive and per-set first scores are retained.
+- The five existing source-claim, policy, attribution and report suites passed after applying the ordered native changes.
+- Isolated intermediate runs preserve the ordered gains: Seshat 3/3 at its stage, Anubis 3/3 at its stage, and first Horus 2/3. All matched controls withheld. Horus permission missed because the embedded question places the subject before the modal.
+- The cumulative development pin 426791113 scored 3/3 targets and 3/3 withholds in each set. Its native scoped ZIP matched local and hosted archive bytes. Both readers now run the three fresh arms together.
+- Frozen fresh compared the released and cumulative readers once per case. Seshat, Anubis and Horus each moved from 0/3 to 3/3 with 3/3 controls withheld. Zero useful partials, unsupported claims, lost valid targets or execution failures. No fresh-informed repair.
+- Capability gate 52/52, public preservation 832/832, BB 900 exact positives and citations and 200 exact withholds. The untouched retained exact check scored 87/96. Readback shows only diagnostic changes on nine unchanged abstentions. All 46 prior claim-bearing contracts matched.
+- Raw readback verified 96/96 executions, 87 exact contracts, 46 exact prior claim-bearing contracts and only the nine listed diagnostic changes. Direct source and presentation consumer probes recorded. The prior documentation check found two frozen metadata files not classified; register their unaltered byte hashes.
+- All seven registry groups completed. The D% first hosted job stopped at the archive layout assertion before any D% worker ran. Preserve the failure. Retry only the two original public D% packets, staging seal-listed public members with exact original fingerprints from the legacy archives. No evaluator member reaches the worker or the new artifact.
+- The primary rebuild matched all 962 archived public files including the seal, as well as the original key, dice, pairing, generator, runner, worker and scorer fingerprints. The 128 other exposed development inputs match their public seals, but no matching original keys were recovered.
+- The first two D% replay attempts stopped in setup before any reader ran. The second had valid public packet bytes but lacked the checkout identity D% records. Restore the original host checkout setup while keeping the Bubblewrap worker mounts unchanged.
+- The two-lane public 832 job completed. BB matched 900 original positives and citations and 200 withholds per reader. The seven registry groups scored 899 exact contracts, 18 new original-key passes, and 24 diagnostic-only abstention differences across 941 paired memberships.
+- The restored primary and earlier D% packets verified in the third hosted attempt. No reader ran because the host Git safety settings were placed after the Python executable. The logged prelaunch failure is retained. Move the settings into the existing host environment invocation.
+- Downloaded all seven registry artifacts and the public 832 artifact, verified their hosted ZIP digests and checked the per-arm receipts. The BB raw outputs are retained publicly with verified digests.
+- The isolated replay scored the restored primary and both earlier D% draws under their original IDs and keys. Primary source decisions under the original source/format assessment: 444/444 → 444/444. Across the three cohorts: 0 new false-alarm flags and 0 lost original-key passes. The first three D% prelaunch attempts executed no reader and remain in the receipt.
+- The full reproducible replay inventory includes 3,565 memberships per reader with explicit overlapping cohorts and 64 separate software selectors per reader. The 444-case public ZIP and original evaluator fingerprints are indexed independently.
+- Documentation audit passed after materializing one unchanged sparse-checkout dependency. Original native bytes, worker, scorers and active preservation comparator remain identical.
+- All 692 D% normalized contracts matched. The original 444-case primary literal matcher scored 72/78 target answers and 366/366 withholds on each reader. Six unchanged Yes/No prefix mismatches remain under that matcher. The original source/format assessor scored 444/444 source decisions and 12/12 polarity checks on each reader.
+- Confirmed remote main a442c8f0, main ancestry, absence of the incident introduction commit from the branch ancestry, and current-tree absence of both known affected archives and blobs. The three native package trees match tested reader 426791113 byte for byte. The prior full replay remains applicable to this documentation-only checkpoint.
 
 ### Limitations and blocked checks
 
-- Original 17 private cases remain incomplete and 100 held cases NOT_RUN. Recovery is INTERRUPTED / UNRECOVERED. Independent and human evaluations remain NOT_RUN.
-- The original Bunyip ref and PR #106 still reach the publication incident. The release omits both known blobs and the introducing ancestry. Private incident preservation and GitHub-side historical remediation are pending.
+- Fresh packets and scoring keys stay in separate local custody. Preparation and scoring are same-operator. Independent/human measures NOT_RUN. Original 17 checks incomplete, 100 held cases NOT_RUN and historical publication incident separately OPEN.
+- Held: unchanged 96-case exact comparator failed on nine refusal diagnostic differences. An automatic review rejected the proposed preservation workflow and acceptance change. The original acceptance script was run unchanged. Candidate and raw evidence are pinned. The live reader remains the released Thoth pin a442c8f0.
+- The publication-history incident remains open separately. The 17 original private checks remain incomplete and the original 36 routing and 64 cross-family held cases remain NOT_RUN. The original 128 other exposed development cases have verified input bytes but no verified original keys. No historical status changes from the primary rebuild.
 
 ### Next steps
 
-- Freeze and validate the exact repaired release head. Rerun the 832 public contracts, 96 original Thoth/Wampus/Bunyip synthetic contracts via the existing isolated adapter, the BB matched preservation, and all required software CI. The clean PR report records exact source and artifact fingerprints. Merge only after these checks pass and verify live reader, support, checked partial, refusal and compact ZIP. Keep cleanup separate.
+- Read the exact-head CI evidence and download or verify the hosted source ZIP, wheel and release manifest before making a release decision. The live PR report binds those artifacts to this push.
+- Await Mitchell’s explicit authorization of proposal SHA-256 22868e9f9604a4c3fee87226eecc7ef2aa5d5bdb1982eaa3c47e176b5d7ae97a solely for the nine pinned transitions on the specified baseline and candidate. After approval, freeze the receipt, prospectively verify the approved policy, complete required gates, then merge and verify deployment.
 
 ## Use this ZIP in your repository
 

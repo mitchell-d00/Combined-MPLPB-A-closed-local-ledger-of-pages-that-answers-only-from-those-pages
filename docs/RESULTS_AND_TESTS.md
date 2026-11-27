@@ -1,10 +1,16 @@
 # Results and their tests
 
-Last reviewed: 2026-11-26.
+Last reviewed: 2026-11-27.
 
 [Local reporting-negation revision](../evaluation/cryptid/revision3/REPORT.md): 32 development decisions improve 18→32, with two unsupported completion flags removed. The prospective partial-policy comparison is 11/12 on unchanged native outputs; one passive wording miss remains. Original final-packet failures and the 276/280 exact comparison failure remain retained. Candidate archive gates and fresh transfer are pending at this source freeze.
 
 [Cryptid local programme](../evaluation/cryptid/README.md): sequential frozen shared-operation studies, retained failures and local-only review package. Current execution state is recorded separately from planned tests.
+
+[Full reproducible Cryptid replay](../evaluation/cryptid/full-reproducible-replay/README.md)
+compares the released reader and the pinned PR #110 candidate. It includes
+BB, the public preservation contracts and the 444 exact rebuilt Bunyip
+Round 2 primary cases. Historical failures and unavailable original custody
+checks retain their dispositions.
 
 [Source-linked proposals and delivery](../evaluation/source-tags/2026-11-25/README.md) pass72/72development and24/24once-only same-operator proposal decisions, with0wrong assignments and **0recovered answers**. All280earlier contracts remain unchanged. A wrong-source browser failure is retained and corrected in the delivery ZIP;15software commands,58focused checks,WASM and actualChromium source-dialog checks pass. Native engine source2af8ba8ran1,834tests; delivery source065840d has identical native bytes. Exact publicationCI/merge/live verification pending. [Seven departments](departments/README.md) preserve existing paths. [Human onboarding](../evaluation/onboarding/2026-11-25/README.md) is prepared, **NOT_RUN**.
 

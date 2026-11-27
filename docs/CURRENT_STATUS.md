@@ -5,6 +5,14 @@ Last reviewed: 2026-11-27.
 [Use MPLPB](MPLPB.md) · [Develop MPLPB](EXPERIMENTAL_LAB.md) ·
 [Inspect the evidence](TESTING_APPARATUS.md) · [Test Index](TEST_INDEX.md).
 
+**Released main `a442c8f0c9629b65a3af38ba57319aa9c2af8dbe`** serves the clean
+Thoth reader from PR #109. The [Seshat, Anubis and Horus batch](../evaluation/egyptian-gods/attribution-scope/RESULTS.md)
+is closed and held. It recovered all nine fresh positives with nine controls
+withheld. The 832 public contracts, BB and all 46 claim-bearing retained
+contracts matched. The unchanged exact retained comparator failed on nine
+refusal diagnostic changes. Independent and human evaluations remain NOT_RUN.
+
+
 **Clean Thoth release candidate.** The published starting main is
 `f52ed384b831c2abb7656dfabc0d4b7632c38457` with PR #108's verified
 packaging. Its previously released reader is `2622813aba9ee1f1880693eeb71ae015cb3da999`.
@@ -24,9 +32,14 @@ C3/Wampus outcomes. This is bounded software evidence with same-operator
 preparation and scoring. The [original PR #106](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/106)
 remains the historical evaluation record at `961be47602c5e3ccb94459c106b3fa28754549bf`.
 
-Recovery remains **INTERRUPTED / UNRECOVERED**. The original 17 private
-preservation checks are incomplete, the 100 original held transfer cases remain
-NOT_RUN, and the 22 original C3 strict-key mismatches remain recorded.
+The original workspace recovery remains **INTERRUPTED / UNRECOVERED**. A
+separate pinned-generator rebuild restored the exact inputs and evaluator key
+for the 444-case Bunyip Round 2 primary development packet. The other 128
+exposed development cases have verified public inputs and unavailable original
+keys. Retirement applies to the 17 incomplete private checks and 100 original
+held cases marked NOT_RUN. The 22 original C3 strict-key mismatches remain
+recorded. See the [full reproducible Cryptid replay](../evaluation/cryptid/full-reproducible-replay/README.md)
+for the supplemental freeze and the current PR #110 release hold.
 The clean release excludes the known incident ancestry and affected archive
 blobs. Prior Git-history exposure remains **OPEN** on the original branch/PR.
 Independent historical/semantic evaluation, independent preparation/blinding,
