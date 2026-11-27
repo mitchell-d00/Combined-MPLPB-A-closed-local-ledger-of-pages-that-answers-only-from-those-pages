@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `d4d52f07d81c10dbfa863a162d27ff85bc5c4021` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `dac7e872d537a4a09562ceac73a01bbf84fb9cd2697bf31ca6706da63a1007a1`.
+Base commit: `48557079f39bc410e0f1bcff53c9343b1f6f03a0` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `1bd06cba46f74130ca619cb21faaff9301ef420aff1201a0c413dd4ccf765db8`.
 
 ## Betty report for Al
 
@@ -13,7 +13,7 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Continue rebuilding from the recorded seeds and pinned generator revision, including the original parameters and source-state settings. Compare regenerated inputs and keys against the retained hashes or seals. Exact matches restore those cases to the replay inventory. Record the regeneration receipt and run them under their original IDs and expectations. If any bytes differ or cannot be verified, label that reconstruction separately. Keep original execution statuses unchanged until the restored cases actually run. Revise the proposed retirement list after this check; retire only what remains unrecoverable.
+Move PR #110 into final release preparation. Reuse completed replay evidence where the pinned reader bytes are unchanged. Verify current main and the candidate’s clean ancestry, freeze the final source ZIP and manifest, and complete the applicable exact-head checks. Keep diagnostic compatibility v1 inactive and the original 87/96 failure visible. Present its exact authorization for Mitchell’s decision before prospective verification.
 
 ### Implemented scope
 
@@ -25,6 +25,7 @@ Continue rebuilding from the recorded seeds and pinned generator revision, inclu
 - Prepare the inactive PR110 narrow diagnostic compatibility proposal. Keep active gates and reader bytes unchanged.
 - Freeze the full reproducible inventory: 55 registry cohorts, 248 original D% cases via verified original seals, BB, and the overlapping 832 public preservation contracts.
 - Restore the original 444-case fully enumerated primary packet to the Cryptid replay inventory. Freeze the exact reconstitution and keep evaluator keys out of the hosted worker and public artifacts.
+- Prepare the exact-head release through the existing ZIP-first and regression workflows. Preserve the original acceptance gate and keep diagnostic compatibility v1 inactive. The broader registry replay’s 24 diagnostic-only differences grant no exceptions; the proposal remains bounded to its nine pinned transitions.
 
 ### Validation recorded
 
@@ -46,6 +47,7 @@ Continue rebuilding from the recorded seeds and pinned generator revision, inclu
 - The full reproducible replay inventory includes 3,565 memberships per reader with explicit overlapping cohorts and 64 separate software selectors per reader. The 444-case public ZIP and original evaluator fingerprints are indexed independently.
 - Documentation audit passed after materializing one unchanged sparse-checkout dependency. Original native bytes, worker, scorers and active preservation comparator remain identical.
 - All 692 D% normalized contracts matched. The original 444-case primary literal matcher scored 72/78 target answers and 366/366 withholds on each reader. Six unchanged Yes/No prefix mismatches remain under that matcher. The original source/format assessor scored 444/444 source decisions and 12/12 polarity checks on each reader.
+- Confirmed remote main a442c8f0, main ancestry, absence of the incident introduction commit from the branch ancestry, and current-tree absence of both known affected archives and blobs. The three native package trees match tested reader 426791113 byte for byte. The prior full replay remains applicable to this documentation-only checkpoint.
 
 ### Limitations and blocked checks
 
@@ -55,7 +57,8 @@ Continue rebuilding from the recorded seeds and pinned generator revision, inclu
 
 ### Next steps
 
-- Candidate is held. The original 87/96 exact-comparison failure remains. Mitchell must explicitly authorize the nine pinned transitions under diagnostic compatibility manifest SHA-256 22868e9f9604a4c3fee87226eecc7ef2aa5d5bdb1982eaa3c47e176b5d7ae97a before prospectively freezing and verifying that policy. Finish applicable exact-head checks before release.
+- Read the exact-head CI evidence and download or verify the hosted source ZIP, wheel and release manifest before making a release decision. The live PR report binds those artifacts to this push.
+- Await Mitchell’s explicit authorization of proposal SHA-256 22868e9f9604a4c3fee87226eecc7ef2aa5d5bdb1982eaa3c47e176b5d7ae97a solely for the nine pinned transitions on the specified baseline and candidate. After approval, freeze the receipt, prospectively verify the approved policy, complete required gates, then merge and verify deployment.
 
 ## Use this ZIP in your repository
 
