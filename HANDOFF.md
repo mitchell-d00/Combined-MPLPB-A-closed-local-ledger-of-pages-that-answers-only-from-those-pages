@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `84b13f0a3f9e83da04de414488ccd78f73ca9ce3` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `1bdafcfe5294570aedd13844dbbee06856d53976202063b5457953325f813cb8`.
+Base commit: `568b44c5fcba9fa65bb29e045a1e1080cfebb709` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `8847c6656dbd7c509197f563d9812d1f854e225eed0a41a2ee0d1e2fb2e86c7d`.
 
 ## Betty report for Al
 
@@ -50,6 +50,7 @@ Run the Betty implementation step first, then the Al review step in a separate c
 - Remote main matches the verified released commit 39df3d14. Original Round 3 D03-A found both required passages and stopped before native attribution proof. Packet, key seal, runtime and runner verified without a new reader run.
 - Baseline reached proof for bare attribution, bare wrong-reporter and opposed evidence. It missed generic and named positives before proof. The first score flagged two coordinate discrepancies. A separately versioned recheck of the unchanged raw outputs verified one valid complete answer, one cited conflict, four withholds and two misses.
 - All 30 focused reported-content and ordinary-question tests passed on the scoped patch.
+- Frozen native candidate 568b44c5fcba9fa65bb29e045a1e1080cfebb709, scoped ZIP SHA-256 f7aa5541e1114722fac62b09ba0323a1400b0d3af2eb7de61d33f17ae3a283b7.
 
 ### Limitations and blocked checks
 
@@ -58,7 +59,7 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Next steps
 
-- Record the exact candidate native ZIP digest, then run the two fresh arms and all consumed preservation on the pinned candidate.
+- Run the frozen fresh comparison once and preserve first results. Run the 832 public, BB and 96 consumed preservation and exact-head release checks.
 
 ## Use this ZIP in your repository
 
