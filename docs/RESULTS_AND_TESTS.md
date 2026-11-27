@@ -189,6 +189,11 @@ by the no-unverified-promotion audit. It is a static source/prior-art comparison
 not a new evaluation family or new efficacy score; PR #38’s retained cases and
 results remain unchanged.
 
+## Bunyip Round 4
+
+[Attribution results](../evaluation/cryptid/bunyip/round4/RESULTS.md) link the first diagnostic, versioned
+coordinate recheck, fresh paired scores and consumed preservation.
+
 ## Bunyip Round 3
 
 [First results and preservation](../evaluation/cryptid/bunyip/round3/RESULTS.md) link the frozen inputs, four exact reader pins and original scores.

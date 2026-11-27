@@ -4,8 +4,8 @@ Last reviewed: 2026-11-27.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `568b44c5fcba9fa65bb29e045a1e1080cfebb709` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `8847c6656dbd7c509197f563d9812d1f854e225eed0a41a2ee0d1e2fb2e86c7d`.
+Base commit: `0f07ac5a38863146ef92c8281ed52f60e8d72aa7` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `a40011830d733224855ef41f6b4c12dbac47ed5c1bede875121b37a90b7b07cf`.
 
 ## Betty report for Al
 
@@ -44,6 +44,7 @@ Run the Betty implementation step first, then the Al review step in a separate c
 - Verify released main and freeze Round 4 attribution diagnosis under eight new IDs. Keep Round 3 results and the controller lab unchanged.
 - Preserve eight original baseline executions and first score. Freeze the separate fresh arm and the bounded parser proposal before any reader change.
 - Extend only the whole reporting-object pattern with the frozen generic terminal adjunct. Preserve the original authority question and all native proof gates.
+- Publish the first fresh pair, unchanged diagnostic raw responses, versioned coordinate scoring, frozen runtime, and 832/BB/96 preservation.
 
 ### Validation recorded
 
@@ -51,15 +52,18 @@ Run the Betty implementation step first, then the Al review step in a separate c
 - Baseline reached proof for bare attribution, bare wrong-reporter and opposed evidence. It missed generic and named positives before proof. The first score flagged two coordinate discrepancies. A separately versioned recheck of the unchanged raw outputs verified one valid complete answer, one cited conflict, four withholds and two misses.
 - All 30 focused reported-content and ordinary-question tests passed on the scoped patch.
 - Frozen native candidate 568b44c5fcba9fa65bb29e045a1e1080cfebb709, scoped ZIP SHA-256 f7aa5541e1114722fac62b09ba0323a1400b0d3af2eb7de61d33f17ae3a283b7.
+- Eight diagnostic executions and 16 fresh paired executions completed on 14 distinct question strings. Fresh completes 1 to 2, cited conflicts 1 to 1, withholds 4 to 4, misses 2 to 1. Zero unsupported or lost valid outcomes, zero errors. The generic wrong reporter and competing objects withheld at attribution proof.
+- All 832 public contracts match exactly. BB 900/900 positive plus eligible citations and 200/200 controls. All 96 retained cases executed, reproducing the historical 87/96 strict result and all nine pinned normalized diagnostic refusal fingerprints.
 
 ### Limitations and blocked checks
 
 - Same-operator synthetic design and scoring. Independent and human evaluations remain NOT_RUN. Original 17 checks incomplete, 100 transfers NOT_RUN and publication incident open.
 - Named-source requests have no verified named-source selector in this experiment. The correction to evaluator coordinates leaves frozen semantic expectations intact.
+- The true named-source target still misses before proof. Neither the named negative nor the terminal generic gain verifies a named selector. Same-operator fresh authoring and scoring.
 
 ### Next steps
 
-- Run the frozen fresh comparison once and preserve first results. Run the 832 public, BB and 96 consumed preservation and exact-head release checks.
+- Complete the unchanged exact-head CI, verify remote downloads, merge only after applicable checks, then verify Pages at the merged commit. Do not tune the first fresh packet.
 
 ## Use this ZIP in your repository
 

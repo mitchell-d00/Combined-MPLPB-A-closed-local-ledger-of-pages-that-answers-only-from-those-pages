@@ -11,9 +11,13 @@ candidate-only entries link their original checked PR #106 pins. See
 
 ## Bunyip Round 4 attribution interpretation and proof
 
-[Diagnostic freeze](../evaluation/cryptid/bunyip/round4/SCOPE.md) pins eight synthetic cases at released main.
-The baseline, original Round 3 miss, conflict and wrong-reporter controls
-remain separate from any later candidate.
+[First scores and preservation](../evaluation/cryptid/bunyip/round4/RESULTS.md) record eight diagnostic and
+16 paired executions across 14 distinct questions. The candidate recovered
+one generic reporting-object answer and routed two generic negatives to
+native proof-stage withhold. Both fresh arms retained the cited conflict.
+The named-source positive is still open. The original Round 3 miss, the
+first Round 4 coordinate-scoring failure and all preservation receipts
+remain available.
 
 ## Bunyip Round 3 cumulative reader assessment
 

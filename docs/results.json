@@ -61,9 +61,11 @@
         "tools/bunyip_language_assessment_v2.py",
         "tools/cryptid_trial_v5.py",
         "tools/bunyip_round2_preservation.py",
-        "evaluation/cryptid/bunyip/round3/score.py"
+        "evaluation/cryptid/bunyip/round3/score.py",
+        "evaluation/cryptid/bunyip/round4/run.py",
+        "evaluation/cryptid/bunyip/round4/score_v2.py"
       ],
-      "scope": "Sequential shared-operation programme with frozen baselines, consumed and fresh transfer; published review candidate, not a released coverage claim. Bunyip Round 3 adds a bounded four-reader diagnostic and consumed preservation within this family.",
+      "scope": "Sequential shared-operation programme with frozen baselines, consumed and fresh transfer; published review candidate, not a released coverage claim. Bunyip Round 3 adds a bounded four-reader diagnostic and consumed preservation within this family. Bunyip Round 4 freezes attribution interpretation and native proof controls, with independent scoring NOT_RUN.",
       "measurement_status": "Clean cumulative Thoth shipped in PR #109. Later reader gains shipped in PR #110 and the lab-only controller merged in PR #111. Original PR #106 remains unmerged with 17 private preservation cases incomplete and 100 unopened transfers NOT_RUN. The full reproducible replay includes the exact 444-case Round 2 primary rebuild, BB, and public preservation. Historical scores and failed candidates remain at their original pins.",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
