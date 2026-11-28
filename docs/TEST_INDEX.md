@@ -24,6 +24,7 @@ execution retain their original NOT_RUN status.
 [FRUS Response 01](../evaluation/archival-inspection/frus-response-01/RESULTS.md) records the direct documentary
 response repair and stage-specific withdrawals. The original diagnostic and
 77-case baseline remain pinned.
+[Ariadne-01](../evaluation/archival-inspection/ariadne-01/RESULTS.md) recovered DIRECT-02 with seven exact citations. The pinned candidate matched 21/21 original development, 3/3 supplemental and 6/6 first fresh arms. The initial wrapped-name false completion and its correction are retained. The paired 77-case replay preserved the other 76 contracts in seven compared fields. Independent review remains NOT_RUN.
 
 
 

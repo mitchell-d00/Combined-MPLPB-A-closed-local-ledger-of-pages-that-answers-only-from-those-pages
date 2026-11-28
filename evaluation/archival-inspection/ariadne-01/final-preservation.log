@@ -1,0 +1,28 @@
+======================================================================
+ERROR: test_h05_complete_at_original_budget_despite_high_darwin_search_hints (tests.test_witness_admission.WitnessAdmissionTests.test_h05_complete_at_original_budget_despite_high_darwin_search_hints)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/mplpb-product-boundaries/tests/test_witness_admission.py", line 58, in test_h05_complete_at_original_budget_despite_high_darwin_search_hints
+    root=Path(tmp)/'ledger';receipt=import_corpus(corpus,root)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb-product-boundaries/tools/unprepared_sources.py", line 94, in import_corpus
+    directory=Path(directory);manifest=verify(directory);output=Path(output);output.mkdir(exist_ok=False,parents=True)
+                                       ^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb-product-boundaries/tools/unprepared_sources.py", line 41, in verify
+    directory=Path(directory);manifest=load(directory/'corpus-manifest.json')
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/mplpb-product-boundaries/tools/unprepared_sources.py", line 26, in load
+    return json.loads(Path(path).read_text(),object_pairs_hook=pairs,
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/mplpb-product-boundaries/evaluation/unprepared-originals/2026-11-16/corpus-manifest.json'
+
+----------------------------------------------------------------------
+Ran 154 tests in 2.792s
+
+FAILED (errors=1)
