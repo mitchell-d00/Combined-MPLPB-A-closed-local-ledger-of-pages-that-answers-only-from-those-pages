@@ -75,34 +75,3 @@ jobs:
           name: dpercent-75-class-smoke
           path: ${{ runner.temp }}/mplpb-dpercent-smoke/summary.json
           if-no-files-found: ignore
-      - name: Run frozen FRUS correspondence packets in the existing isolator
-        if: github.event_name == 'pull_request' && github.head_ref == 'evaluation/public-correspondence-baseline'
-        run: |
-          set -euo pipefail
-          lab=evaluation/archival-inspection/frus-correspondence-01
-          out="$RUNNER_TEMP/frus-correspondence"
-          mkdir "$out"
-          if test -f "$lab/RESULTS.md"; then
-            printf '%s\n' 'First sandbox run is retained in the evidence checkpoint.' > "$out/retained.log"
-            exit 0
-          fi
-          python_path="$(command -v python)"
-          git rev-parse HEAD > "$out/checked-head"
-          uname -r > "$out/kernel"
-          bwrap --version > "$out/bwrap"
-          sudo env PYTHONPATH="$PWD" MPLPB_REQUIRE_SANDBOX=1 "$python_path" \
-            -m unittest tests.test_study_sandbox -v 2>&1 | tee "$out/preflight.log"
-          for packet in smoke location relation documentary; do
-            mkdir "$out/$packet"
-            cp "$lab/corpus.json" "$lab/packets/$packet/"*.json "$out/$packet/"
-            sudo env PYTHONPATH="$PWD" "$python_path" -m tools.historical_study \
-              run "$out/$packet" --sandboxed 2>&1 | tee "$out/$packet/execution.log"
-            sudo chmod a+r "$out/$packet/"*.json
-          done
-      - name: Retain FRUS sandbox and first-run artifacts
-        if: always() && github.event_name == 'pull_request' && github.head_ref == 'evaluation/public-correspondence-baseline'
-        uses: actions/upload-artifact@v4
-        with:
-          name: frus-correspondence-first-run
-          path: ${{ runner.temp }}/frus-correspondence
-          if-no-files-found: ignore

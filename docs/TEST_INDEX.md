@@ -15,6 +15,14 @@ Mitchell's scoped override. The repository relay benefit remains unmeasured.
 publication. This index retains each result's original checkpoint.
 [HANDOFF](../HANDOFF.md) records the continuation state.
 
+[Dated unfinished-work dispositions](OPEN_WORK.md) route active work and
+retired NOT_RUN stages back to the authoritative results, owners and blockers.
+[FRUS Correspondence 01](../evaluation/archival-inspection/frus-correspondence-01/RESULTS.md) records its own frozen corpus
+and completed hosted baseline. [Current Route 01](../evaluation/onboarding/current-route-01/PROTOCOL.md)
+is a separate prospective participant package. ONBOARD-12 and human
+execution retain their original NOT_RUN status.
+
+
 [Product, project and evidence boundaries](RESPONSIBILITY_BOUNDARIES.md) describe which distributions carry runtime, tools and retained records.
 
 ## Bunyip Round 4 attribution interpretation and proof

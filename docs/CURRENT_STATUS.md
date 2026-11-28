@@ -5,7 +5,17 @@ Last reviewed: 2026-11-28.
 [Use MPLPB](MPLPB.md) · [Develop MPLPB](EXPERIMENTAL_LAB.md) ·
 [Inspect the evidence](TESTING_APPARATUS.md) · [Test Index](TEST_INDEX.md).
 
-## Verified checkpoint · 2026-11-28 12:54 UTC
+## Verified checkpoint · 2026-11-28
+
+[PR #132](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/132)
+merged at `cb7ed70a57d3fab38c458f278a42ffd040108d98`, tested at `88c98a84`.
+Instruction Record 01 passed 8/8 in each draw, with three exact intended
+updates and receipts and five zero-attempt controls per draw. Its reader and
+production dispatch are unchanged. [Disposition register](OPEN_WORK.md)
+distinguishes current scope, blocked custody, reader misses and NOT_RUN
+execution. Gremlin maps supporting components and revisit triggers.
+
+## Earlier verified Ares checkpoint · 2026-11-28 12:54 UTC
 
 Ares-01 merged through [PR #127](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/127)
 at `fe56551c`. All twelve checks passed on `e9d74a61`. The

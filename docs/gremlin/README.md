@@ -1,6 +1,6 @@
 # Gremlin: remember components, boundaries and useful unfinished work
 
-Last reviewed: 2026-11-27.
+Last reviewed: 2026-11-28.
 
 Gremlin is a project-maintenance map for **product, project, data and experiments**.
 It joins the existing department ownership and result/test indexes with explicit
@@ -89,3 +89,10 @@ Git is the first tested laboratory adapter. File and deployment adapters remain
 proposed; Git's old-value check does not establish their behavior. A map edge
 never grants an action, authenticates a role, makes an experiment independent,
 changes a release gate, or promotes a candidate into the product.
+
+
+[Unfinished work and dated dispositions](../OPEN_WORK.md) links stable stage
+IDs, evidence pins, owners, prerequisite access and revisit triggers to the
+[Test Index](../TEST_INDEX.md) and [results inventory](../results.json).
+The registry points to completed Hermes-02, Apollo and Ares evidence and
+retains wider identity, recovery and production questions.

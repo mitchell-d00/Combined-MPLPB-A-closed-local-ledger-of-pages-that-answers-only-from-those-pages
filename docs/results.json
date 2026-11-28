@@ -445,7 +445,8 @@
       "artifacts": "evaluation/onboarding",
       "tests": [
         "tests/test_onboarding_scoring.py",
-        "tests/test_department_navigation.py"
+        "tests/test_department_navigation.py",
+        "evaluation/onboarding/current-route-01/freeze.json"
       ],
       "runners": [
         "tools/build_onboarding_pilot.py",
@@ -4181,7 +4182,8 @@
       "tests": [
         "tests/test_event_date_inventory.py",
         "tests/test_archival_onboarding.py",
-        "evaluation/archival-inspection/frus-correspondence-01/packets/location/runtime-questions.json"
+        "evaluation/archival-inspection/frus-correspondence-01/packets/location/runtime-questions.json",
+        "evaluation/archival-inspection/frus-correspondence-01/first-score.json"
       ],
       "runners": [
         "tools/article_study.py",
@@ -4192,7 +4194,7 @@
         "evaluation/archival-inspection/frus-correspondence-01/project.py"
       ],
       "scope": "Finite source event/date relationships and native completion on unchanged development documents; independent semantic correctness unmeasured.",
-      "measurement_status": "See dated retained before/after study, guards, costs and initial failed controls. Unseen200-question and actual independent review NOT RUN.",
+      "measurement_status": "See dated retained before/after study, guards, costs and initial failed controls. Unseen200-question and actual independent review NOT RUN. A separate same-operator FRUS diagnostic at hosted head 49c2ab85 completed 77 cases on reader cb7ed70a, with 27/42 literal location targets, 15/15 location controls, 0/4 direct and 0/2 two-link positives, and 0/4 interpretation positives. Independent review and held fresh are NOT_RUN.",
       "responsible_department": "testing-evaluation",
       "implementation_departments": [
         "reader"

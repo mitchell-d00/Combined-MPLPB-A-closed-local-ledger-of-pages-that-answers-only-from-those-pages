@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `fdf32d2b6e2b80d63be2128ec7b24dc4cf93ebe3` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `7e4996aa78c062e267edf3a4e9c5514b6071a9c0adf40a10f8e30a4074ea9776`.
+Base commit: `49c2ab856c45b6f826e55ef4495b730b644e8ffe` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `403299227b53134752dffe30dbf071ef32d448951790a419675015ed999fc83e`.
 
 ## Betty report for Al
 
@@ -17,19 +17,20 @@ Finish the FRUS page mappings and freeze the source and extraction records. Veri
 
 ### Implemented scope
 
-- Frozen seven-record FRUS diagnostic and optionally repeated native sandbox study. Runtime and production dispatch unchanged.
+- Audit active and deferred work in a dated register linked through Gremlin to authoritative results. Public seven-record FRUS diagnostic and prepared review/onboarding packages.
 
 ### Validation recorded
 
-- Main verified at cb7ed70a. Seventeen distinct printed pages mapped to publisher XML fragments. Local Bubblewrap preflight failed before reader execution.
+- Verified main cb7ed70a. Frozen 17 printed pages from seven publisher TEI fragments. Hosted isolation passed four preflight tests. Three-case smoke executed, followed by 77 diagnostic cases with zero execution failures.
+- Location 27/42, controls 15/15. Direct 0/4 and two-link 0/2 with five safe controls. Documentary 0/4 with five controls. Exact 27 citations. Recovered public raw archive and verified initial 30 paths. Read back held local seals separately.
 
 ### Limitations and blocked checks
 
-- Baseline NOT_RUN pending hosted isolation and smoke. Same-operator author and scorer; human and independent results NOT_RUN. Gelhaus exact replication externally blocked pending authorized access.
+- Same-operator evaluation. Local Bubblewrap failed prior to reader execution. Older, fresh, independent semantic review and human routes NOT_RUN. External private recovery unverified. Exact Gelhaus externally blocked and low priority. Production dispatch inactive.
 
 ### Next steps
 
-- Check hosted isolation receipts and score public packets after smoke. Reconcile open records and prepare external review and current-route onboarding.
+- Verify final public readback and exact-head checks. Recruit reviewers and first-time participants with exposure and permission records. See dated open work for other triggers.
 
 ## Use this ZIP in your repository
 
