@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `e90226354e509a7f1f3e73ce3845621d11aaf7c4` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `fe1df6d91472a9a21a21d140ca3adea691ff7514f8909acf2fb35b5793945c1e`.
+Base commit: `bb1632d4579d88dab6f9b59363c2cc8fd06fc2a6` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `76da61ccad0bf191fcf1e641c26d17b689edd61484e112913f0dcd1234ed78ee`.
 
 ## Betty report for Al
 
@@ -13,23 +13,24 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Acknowledge note 0011 at 8df0aeeae765fc21eea4bc0020539ab79f20c74c. Recheck main and use 26621affeb487fb096a08acfc5bcdeb335760ad7 as the proposed baseline for a separate reader PR. Keep Git effects disconnected. Freeze independently worded development and fresh packets before changing the reader. Stop at the native result.
+Betty, run the next instruction-to-Git integration study in a separate lab PR. Recheck main and use the verified PR #131 deployment at cabcd140ee438b0a63784faa2c0fc4b2a8c54e66 as the proposed baseline. Follow Al notes 0010 and 0012. Freeze eight development cases and eight separate fresh cases before implementation. Build the record from actual native output. Record where each control stops. Pin the candidate before opening fresh. Push the recoverable checkpoint, verify remote readback and applicable exact-head checks, and merge only qualifying lab work. Keep production dispatch inactive.
 
 ### Implemented scope
 
-- Native source-attributed instruction and explicit same-directive date composition. Frozen 15 development and 15 first-fresh cases.
+- Frozen native-projection, host grant, fixed Git CAS and durable receipt study limited to disposable repositories.
 
 ### Validation recorded
 
-- 5/15 baseline, 15/15 candidate development and first fresh. Each candidate draw yielded three complete answers, six checked partials, six expected withholds, and a successful withdrawal reread. All 114 focused preservation tests passed.
+- Disconnected reader 8/8; candidate development and first fresh 8/8 each. Three durable intended updates and five zero-attempt controls per candidate draw. Independent payload and receipt readback matched all 16 cases. First pipe-spawn failure retained.
+- Original paths replayed Apollo 7/7 and 7/7, Ares 5/5 and 5/5, competing writer 2/2, and restart/interruption 3/3 and 6/6. Two Apollo extraction setup failures retained; complete pinned replay passed.
 
 ### Limitations and blocked checks
 
-- Closed date grammar, same-operator synthetic evaluation, no authenticated event or execution. Original PR #130 fresh and Git effects stay NOT_RUN. External private custody is unverified.
+- One operator; private evaluator custody local. No new reader coverage, production dispatch, or cross-resource atomicity. Original PR #130 grades and NOT_RUN labels stand.
 
 ### Next steps
 
-- Verify exact-head archive/software/browser checks and remote bytes. Verify deployment after a qualifying merge. A future Git-effects study requires its own freeze.
+- Verify exact-head release checks and remote byte readback before merging qualifying lab work. Retain consumed replays under their original scope.
 
 ## Use this ZIP in your repository
 

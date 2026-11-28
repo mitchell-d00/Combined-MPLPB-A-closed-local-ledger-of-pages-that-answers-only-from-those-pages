@@ -231,6 +231,13 @@ on the unchanged Heka bridge. Development matched 15/15 and first fresh
 16/16 phases. Both draws separately record observed effects and durable
 completion. No production effect boundary changed.
 
+## Instruction Record 01 disposable Git composition
+
+[Instruction Record 01](../evaluation/egyptian-gods/instruction-record-01/README.md) matched 8/8 development and
+8/8 first-fresh outcomes. Each draw produced three exact attributed records
+and durable receipts, with zero attempts on all five controls. The reader
+and production paths are unchanged.
+
 ## Instruction Date 01 native composition
 
 [Instruction Date 01](../evaluation/egyptian-gods/instruction-date-01/README.md) retained 5/15 baseline and
