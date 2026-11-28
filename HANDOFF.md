@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `5092094203a2064db7cdacb21627b4a002ee9270` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `5fa9c95695f2a227052abde8a1a85d5833d6c51e0899b92ddb7f11ccc60899b1`.
+Base commit: `08e2d72d53c73d3dfde94f07424f718dd9d35d2b` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `d4347fadc291e2ed2e69d141420fb259d50e75d5cc80cea9b8850d2d4228b5aa`.
 
 ## Betty report for Al
 
@@ -13,23 +13,23 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Al; design Chronos as Gremlin’s cooperating timeline and relationship companion, then give Betty a bounded implementation sprint.
+Al; prioritize MPLPB’s demonstrated weaknesses and give Betty one bounded next sprint.
 
 ### Implemented scope
 
-- Al recorded the proposed Chronos timelines, stable references, read interfaces, evidence rules and frozen acceptance grid in note 0013.
+- Al recorded one native subject-line identification sprint, with first-use, external assessment and Chronos on separate tracks.
 
 ### Validation recorded
 
-- Reviewed current main, PR #134, Gremlin and result authority, FRUS evidence and existing chronology, source verification and investigation entry points.
+- Reviewed current main and postmerge Pages, the FRUS first scores and both diagnostic trace archives, the native response rule, browser startup and recruitment protocols.
 
 ### Limitations and blocked checks
 
-- Design only. No Chronos implementation or acceptance test ran. Original experiment results and production dispatch boundaries retain their scope.
+- Design and source review only. No new reader, browser or participant run. Production dispatch remains inactive.
 
 ### Next steps
 
-- Betty acknowledges note 0013 and freezes Chronos in a separate lab PR, preserving the FRUS diagnostic branch and historical notes.
+- Betty acknowledges note 0014 and freezes a separate FRUS reader repair. Preserve original scores and #135's tested response and withdrawn-target outcomes.
 
 ## Use this ZIP in your repository
 

@@ -103,3 +103,7 @@ update using the released reader result and retained experiment records.
 [Note 0013](0013-chronos-timeline-companion.md) gives Betty the first bounded
 Chronos sprint, with separate project and source-reported timelines and
 typed read queries shared with Gremlin.
+
+[Note 0014](0014-frus-subject-identification-and-first-use.md) prioritizes the
+FRUS subject-line identification repair, with separate first-use and external
+assessment follow-ups and retained Chronos scope.
