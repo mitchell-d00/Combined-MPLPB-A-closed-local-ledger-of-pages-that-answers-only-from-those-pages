@@ -1,0 +1,258 @@
+{
+  "schema": "greek-sprint-packet-v1",
+  "draw": "D",
+  "cases": [
+    {
+      "id": "GREEK-ATHENA-D-01",
+      "set": "ATHENA",
+      "lane": "bridge",
+      "scenario": "positive",
+      "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Neri Vale.</p><p>Iris Salt reported that Arlo Bay wrote the glasshouse log.</p>"
+        },
+        {
+          "id": "NOTE-Q",
+          "body_html": "<p>Written by Ella Snow.</p><p>Iris Salt stated that Arlo Bay wrote the spare inventory.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Neri Vale",
+        "reporter": "Iris Salt",
+        "author": "Arlo Bay",
+        "object": "the glasshouse log",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-ATHENA-D-02",
+      "set": "ATHENA",
+      "lane": "bridge",
+      "scenario": "wrong-reporter",
+      "question": "In the report written by Neri Vale, which document did Tova Dale say Arlo Bay wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Neri Vale.</p><p>Iris Salt reported that Arlo Bay wrote the glasshouse log.</p>"
+        },
+        {
+          "id": "NOTE-Q",
+          "body_html": "<p>Written by Ella Snow.</p><p>Tova Dale reported that Arlo Bay wrote the attic inventory.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Neri Vale",
+        "reporter": "Tova Dale",
+        "author": "Arlo Bay",
+        "object": "the glasshouse log",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-ATHENA-D-03",
+      "set": "ATHENA",
+      "lane": "bridge",
+      "scenario": "withdrawn",
+      "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Neri Vale.</p><p>Iris Salt reported that Arlo Bay wrote the glasshouse log.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Neri Vale",
+        "reporter": "Iris Salt",
+        "author": "Arlo Bay",
+        "object": "the glasshouse log",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-ATHENA-D-04",
+      "set": "ATHENA",
+      "lane": "bridge",
+      "scenario": "withdraw-between",
+      "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Neri Vale.</p><p>Iris Salt reported that Arlo Bay wrote the glasshouse log.</p>"
+        },
+        {
+          "id": "NOTE-Q",
+          "body_html": "<p>Written by Ella Snow.</p><p>Iris Salt stated that Arlo Bay wrote the spare inventory.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Neri Vale",
+        "reporter": "Iris Salt",
+        "author": "Arlo Bay",
+        "object": "the glasshouse log",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HERMES-D-01",
+      "set": "HERMES",
+      "lane": "bridge",
+      "scenario": "advice-only",
+      "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Neri Vale.</p><p>Iris Salt reported that Arlo Bay wrote the glasshouse log.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Neri Vale",
+        "reporter": "Iris Salt",
+        "author": "Arlo Bay",
+        "object": "the glasshouse log",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HERMES-D-02",
+      "set": "HERMES",
+      "lane": "bridge",
+      "scenario": "revoked",
+      "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Neri Vale.</p><p>Iris Salt reported that Arlo Bay wrote the glasshouse log.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Neri Vale",
+        "reporter": "Iris Salt",
+        "author": "Arlo Bay",
+        "object": "the glasshouse log",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HERMES-D-03",
+      "set": "HERMES",
+      "lane": "bridge",
+      "scenario": "wrong-receipt",
+      "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Neri Vale.</p><p>Iris Salt reported that Arlo Bay wrote the glasshouse log.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Neri Vale",
+        "reporter": "Iris Salt",
+        "author": "Arlo Bay",
+        "object": "the glasshouse log",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HERMES-D-04",
+      "set": "HERMES",
+      "lane": "controller",
+      "scenario": "conflicting-grants",
+      "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Neri Vale.</p><p>Iris Salt reported that Arlo Bay wrote the glasshouse log.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Neri Vale",
+        "reporter": "Iris Salt",
+        "author": "Arlo Bay",
+        "object": "the glasshouse log",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HERMES-D-05",
+      "set": "HERMES",
+      "lane": "controller",
+      "scenario": "stale-receipt",
+      "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Neri Vale.</p><p>Iris Salt reported that Arlo Bay wrote the glasshouse log.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Neri Vale",
+        "reporter": "Iris Salt",
+        "author": "Arlo Bay",
+        "object": "the glasshouse log",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HEPHAESTUS-D-01",
+      "set": "HEPHAESTUS",
+      "lane": "bridge",
+      "scenario": "restart-completed",
+      "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Neri Vale.</p><p>Iris Salt reported that Arlo Bay wrote the glasshouse log.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Neri Vale",
+        "reporter": "Iris Salt",
+        "author": "Arlo Bay",
+        "object": "the glasshouse log",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HEPHAESTUS-D-02",
+      "set": "HEPHAESTUS",
+      "lane": "bridge",
+      "scenario": "restart-failed",
+      "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Neri Vale.</p><p>Iris Salt reported that Arlo Bay wrote the glasshouse log.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Neri Vale",
+        "reporter": "Iris Salt",
+        "author": "Arlo Bay",
+        "object": "the glasshouse log",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HEPHAESTUS-D-03",
+      "set": "HEPHAESTUS",
+      "lane": "bridge",
+      "scenario": "restart-interrupted",
+      "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Neri Vale.</p><p>Iris Salt reported that Arlo Bay wrote the glasshouse log.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Neri Vale",
+        "reporter": "Iris Salt",
+        "author": "Arlo Bay",
+        "object": "the glasshouse log",
+        "source_id": "NOTE-A"
+      }
+    }
+  ]
+}
