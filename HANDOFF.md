@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `49c2ab856c45b6f826e55ef4495b730b644e8ffe` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `403299227b53134752dffe30dbf071ef32d448951790a419675015ed999fc83e`.
+Base commit: `bcd689ba54d17a479328bf10a40c75acd12fa0e1` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `cff7171294faa8db4975ca0a83f81854206580982839ee90557231ceaddf9fed`.
 
 ## Betty report for Al
 
@@ -13,24 +13,23 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Finish the FRUS page mappings and freeze the source and extraction records. Verify harmless GitHub sandbox preflight, then run the frozen development smoke on the unchanged released reader. Audit unresolved and NOT_RUN entries against the Test Index and results inventory; reconcile Gremlin and retain earlier study boundaries. Keep evaluator material in private custody.
+Run the next FRUS relationship diagnostic set from merged PR #133 at 6942df4670196405797114cbe25317577c3118e1. Use all 11 relationship cases and a predeclared set of passing location and header controls. Trace interpretation and discovery separately. Run evidence-supplied readback separately and stop at the diagnosis. Verify recoverable public readback and report custody separately.
 
 ### Implemented scope
 
-- Audit active and deferred work in a dated register linked through Gremlin to authoritative results. Public seven-record FRUS diagnostic and prepared review/onboarding packages.
+- Frozen 11 consumed relationships and three known passing location controls. Unchanged public reader and effect code.
 
 ### Validation recorded
 
-- Verified main cb7ed70a. Frozen 17 printed pages from seven publisher TEI fragments. Hosted isolation passed four preflight tests. Three-case smoke executed, followed by 77 diagnostic cases with zero execution failures.
-- Location 27/42, controls 15/15. Direct 0/4 and two-link 0/2 with five safe controls. Documentary 0/4 with five controls. Exact 27 citations. Recovered public raw archive and verified initial 30 paths. Read back held local seals separately.
+- Freeze bcd689ba. Fourteen native and fourteen separate evidence-supplied traces with zero execution failures. All relationship questions stopped at interpretation. 25/25 anchors eligible/indexed, 16/25 BM25 and 19/25 documentary probe, zero native relationship citations or supplied link certificates. Three location controls preserved.
 
 ### Limitations and blocked checks
 
-- Same-operator evaluation. Local Bubblewrap failed prior to reader execution. Older, fresh, independent semantic review and human routes NOT_RUN. External private recovery unverified. Exact Gelhaus externally blocked and low priority. Production dispatch inactive.
+- Same-operator consumed evidence. Phase separation without new OS isolation. Prior 77-case grades kept. Held fresh, older comparison, independent review and human onboarding stay NOT_RUN. Prior private custody unchanged and off-workspace recovery unverified.
 
 ### Next steps
 
-- Verify final public readback and exact-head checks. Recruit reviewers and first-time participants with exposure and permission records. See dated open work for other triggers.
+- Verify remote checkpoint readback. Recommend narrow DIRECT-01 response identification with matched missing-target refusal if a separate repair is authorized. Stop this study at diagnosis.
 
 ## Use this ZIP in your repository
 

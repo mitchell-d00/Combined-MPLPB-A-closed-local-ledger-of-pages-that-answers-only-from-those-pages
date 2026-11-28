@@ -21,6 +21,9 @@ retired NOT_RUN stages back to the authoritative results, owners and blockers.
 and completed hosted baseline. [Current Route 01](../evaluation/onboarding/current-route-01/PROTOCOL.md)
 is a separate prospective participant package. ONBOARD-12 and human
 execution retain their original NOT_RUN status.
+[FRUS Relationship 01](../evaluation/archival-inspection/frus-relationship-01/RESULTS.md) localizes the 11 consumed relationship cases to interpretation
+and the evidence-supplied verifier, with three passing location controls.
+
 
 
 [Product, project and evidence boundaries](RESPONSIBILITY_BOUNDARIES.md) describe which distributions carry runtime, tools and retained records.
