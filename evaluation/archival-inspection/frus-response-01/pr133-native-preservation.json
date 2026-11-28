@@ -1,0 +1,41 @@
+{
+  "compared": 77,
+  "compared_fields": [
+    "kind",
+    "answer_supported",
+    "claims",
+    "missing",
+    "verification",
+    "diagnostic",
+    "documentary_support"
+  ],
+  "changes": [
+    {
+      "id": "FRUS01-DIRECT-01",
+      "fields": [
+        "kind",
+        "answer_supported",
+        "claims",
+        "verification",
+        "diagnostic",
+        "documentary_support"
+      ],
+      "baseline": "abstain",
+      "candidate": "supported_answer",
+      "diagnostic": {
+        "code": "supported_documentary_assertion",
+        "stage": "bounded_records",
+        "message": "See the cited statements and any unresolved parts.",
+        "category": "source_support_established",
+        "corpus_answerability": "not_established",
+        "next_steps": [
+          "Review the diagnostic and source evidence before retrying."
+        ]
+      },
+      "target": [
+        "d157"
+      ]
+    }
+  ],
+  "accepted": true
+}
