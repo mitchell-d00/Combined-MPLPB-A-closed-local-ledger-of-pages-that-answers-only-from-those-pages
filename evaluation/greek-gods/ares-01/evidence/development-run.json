@@ -1,0 +1,603 @@
+{
+  "draw": "D",
+  "inputs_sha256": "fa9f42d63fdbef33334ed9fbe6f0e6e0b40ba792bceef33c3d9d5467c2dabcc8",
+  "cases": [
+    {
+      "id": "ARES-D-01",
+      "pids": {
+        "driver": 12773,
+        "worker": 12807
+      },
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "ref": "intended",
+          "marker": "intended"
+        },
+        "store": "completed",
+        "reservation_files": [
+          "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+          "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json"
+        ]
+      },
+      "outcome": {
+        "code": "allowed",
+        "proof": "complete",
+        "initial": "allow",
+        "final": "allow",
+        "attempts": 1,
+        "writes": 1,
+        "execution": "completed",
+        "marker": "intended",
+        "store": "completed",
+        "authority_epoch": 1
+      },
+      "trace": {
+        "pid": 12807,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/ares-01-custody/development/ARES-D-01/store"
+        },
+        "proof": "complete",
+        "recheck": "complete",
+        "attempts": 1,
+        "writes": 1,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "e2a4d77ff09150639cde1bcea2fe2bcb245ac963",
+          "question": "In the report written by Hana Wren, which document did Eli Dune say Nell Hart wrote?",
+          "obligation": {
+            "writer": "Hana Wren",
+            "reporter": "Eli Dune",
+            "author": "Nell Hart",
+            "object": "the canal ledger",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "36304f379d10de3938ae23ed9203732cbdc6b66a000b34a18fa552a262000a09",
+          "proof": "bdae4892bff6749cfce3e270574157b4d3e5e86b1279fed84fe0c593b926ddfa",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/ares-01-custody/development/ARES-D-01/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-d7e431a39c04c2ca87f5a84481ef75981a164cbfa332e9d7e89cedd82c82dfc5"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "unused",
+        "workerReadback": {
+          "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "ref": "intended",
+          "marker": "intended"
+        },
+        "controller": {
+          "verdict": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-d7e431a39c04c2ca87f5a84481ef75981a164cbfa332e9d7e89cedd82c82dfc5"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "execution": "completed"
+        },
+        "code": "allowed",
+        "execution": "completed"
+      }
+    },
+    {
+      "id": "ARES-D-02",
+      "pids": {
+        "driver": 12773,
+        "worker": 12865,
+        "revoker": 12864
+      },
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "outcome": {
+        "code": "grant_revoked",
+        "proof": "complete",
+        "initial": "allow",
+        "final": "withhold",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused",
+        "authority_epoch": 2
+      },
+      "trace": {
+        "pid": 12865,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/ares-01-custody/development/ARES-D-02/store"
+        },
+        "proof": "complete",
+        "recheck": "complete",
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "e2a4d77ff09150639cde1bcea2fe2bcb245ac963",
+          "question": "In the report written by Hana Wren, which document did Eli Dune say Nell Hart wrote?",
+          "obligation": {
+            "writer": "Hana Wren",
+            "reporter": "Eli Dune",
+            "author": "Nell Hart",
+            "object": "the canal ledger",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "36304f379d10de3938ae23ed9203732cbdc6b66a000b34a18fa552a262000a09",
+          "proof": "bdae4892bff6749cfce3e270574157b4d3e5e86b1279fed84fe0c593b926ddfa",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/ares-01-custody/development/ARES-D-02/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-e91d2d3ff51a31367d05174c32e732e97baee96042c64e03fb5312194a6369f9"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "unused",
+        "controller": {
+          "verdict": {
+            "decision": "withhold",
+            "code": "grant_revoked",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [],
+            "missing": [],
+            "scope": null
+          },
+          "execution": "not_run"
+        },
+        "code": "grant_revoked",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "ARES-D-03",
+      "pids": {
+        "driver": 12773,
+        "worker": 12932,
+        "revoker": 12931
+      },
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "outcome": {
+        "code": "grant_revoked",
+        "proof": "complete",
+        "initial": "allow",
+        "final": "withhold",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused",
+        "authority_epoch": 2
+      },
+      "trace": {
+        "pid": 12932,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/ares-01-custody/development/ARES-D-03/store"
+        },
+        "proof": "complete",
+        "recheck": "complete",
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "e2a4d77ff09150639cde1bcea2fe2bcb245ac963",
+          "question": "In the report written by Hana Wren, which document did Eli Dune say Nell Hart wrote?",
+          "obligation": {
+            "writer": "Hana Wren",
+            "reporter": "Eli Dune",
+            "author": "Nell Hart",
+            "object": "the canal ledger",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "36304f379d10de3938ae23ed9203732cbdc6b66a000b34a18fa552a262000a09",
+          "proof": "bdae4892bff6749cfce3e270574157b4d3e5e86b1279fed84fe0c593b926ddfa",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/ares-01-custody/development/ARES-D-03/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-67640cb8a883be26bbe9bbc1e81ac4adc25210e762ec069b21775cd48703afb0"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "unused",
+        "controller": {
+          "verdict": {
+            "decision": "withhold",
+            "code": "grant_revoked",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [],
+            "missing": [],
+            "scope": null
+          },
+          "execution": "not_run"
+        },
+        "code": "grant_revoked",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "ARES-D-04",
+      "pids": {
+        "driver": 12773,
+        "prime": 12993,
+        "revoker": 12992,
+        "worker": 13006
+      },
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "outcome": {
+        "code": "grant_revoked",
+        "proof": "complete",
+        "initial": "withhold",
+        "final": null,
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused",
+        "authority_epoch": 2
+      },
+      "trace": {
+        "pid": 13006,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/ares-01-custody/development/ARES-D-04/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "e2a4d77ff09150639cde1bcea2fe2bcb245ac963",
+          "question": "In the report written by Hana Wren, which document did Eli Dune say Nell Hart wrote?",
+          "obligation": {
+            "writer": "Hana Wren",
+            "reporter": "Eli Dune",
+            "author": "Nell Hart",
+            "object": "the canal ledger",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "36304f379d10de3938ae23ed9203732cbdc6b66a000b34a18fa552a262000a09",
+          "proof": "bdae4892bff6749cfce3e270574157b4d3e5e86b1279fed84fe0c593b926ddfa",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/ares-01-custody/development/ARES-D-04/store"
+          }
+        },
+        "admission": {
+          "decision": "withhold",
+          "code": "grant_revoked",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [],
+          "missing": [],
+          "scope": null
+        },
+        "code": "grant_revoked",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "ARES-D-05",
+      "pids": {
+        "driver": 12773,
+        "worker": 13058,
+        "revoker": 13057
+      },
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "ref": "intended",
+          "marker": "intended"
+        },
+        "store": "completed",
+        "reservation_files": [
+          "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+          "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json"
+        ]
+      },
+      "outcome": {
+        "code": "allowed",
+        "proof": "complete",
+        "initial": "allow",
+        "final": "allow",
+        "attempts": 1,
+        "writes": 1,
+        "execution": "completed",
+        "marker": "intended",
+        "store": "completed",
+        "authority_epoch": 2
+      },
+      "trace": {
+        "pid": 13058,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/ares-01-custody/development/ARES-D-05/store"
+        },
+        "proof": "complete",
+        "recheck": "complete",
+        "attempts": 1,
+        "writes": 1,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "e2a4d77ff09150639cde1bcea2fe2bcb245ac963",
+          "question": "In the report written by Hana Wren, which document did Eli Dune say Nell Hart wrote?",
+          "obligation": {
+            "writer": "Hana Wren",
+            "reporter": "Eli Dune",
+            "author": "Nell Hart",
+            "object": "the canal ledger",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "36304f379d10de3938ae23ed9203732cbdc6b66a000b34a18fa552a262000a09",
+          "proof": "bdae4892bff6749cfce3e270574157b4d3e5e86b1279fed84fe0c593b926ddfa",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/ares-01-custody/development/ARES-D-05/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-f3e577dccc3856fbb87a7fa79c2b4c5d189c1bfc5479d95f53b31240902b69e2"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "unused",
+        "workerReadback": {
+          "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "ref": "intended",
+          "marker": "intended"
+        },
+        "controller": {
+          "verdict": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-f3e577dccc3856fbb87a7fa79c2b4c5d189c1bfc5479d95f53b31240902b69e2"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "execution": "completed"
+        },
+        "code": "allowed",
+        "execution": "completed"
+      }
+    }
+  ]
+}
