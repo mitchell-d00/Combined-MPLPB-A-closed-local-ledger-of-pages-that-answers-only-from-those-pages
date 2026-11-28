@@ -1,6 +1,6 @@
 # Results and their tests
 
-Last reviewed: 2026-11-27.
+Last reviewed: 2026-11-28.
 
 ## Gremlin system map and Al-note relay
 
@@ -197,6 +197,10 @@ logical, architectural, mechanism, implementation and empirical questions raised
 by the no-unverified-promotion audit. It is a static source/prior-art comparison,
 not a new evaluation family or new efficacy score; PR #38’s retained cases and
 results remain unchanged.
+
+## Ariadne-01 subject-line identification
+
+[Ariadne-01](../evaluation/archival-inspection/ariadne-01/RESULTS.md) recovered DIRECT-02 with seven exact citations. The pinned candidate matched 21/21 original development, 3/3 supplemental and 6/6 first fresh arms. The initial wrapped-name false completion and its correction are retained. The paired 77-case replay preserved the other 76 contracts in seven compared fields. Independent review remains NOT_RUN.
 
 ## Egyptian-series programme
 

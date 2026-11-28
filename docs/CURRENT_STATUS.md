@@ -5,6 +5,10 @@ Last reviewed: 2026-11-28.
 [Use MPLPB](MPLPB.md) · [Develop MPLPB](EXPERIMENTAL_LAB.md) ·
 [Inspect the evidence](TESTING_APPARATUS.md) · [Test Index](TEST_INDEX.md).
 
+## FRUS reader checkpoints · 2026-11-28
+
+#135 shipped the explicit documentary response repair at `241bee0f`. [Ariadne-01](../evaluation/archival-inspection/ariadne-01/RESULTS.md) recovered DIRECT-02 with seven exact citations. The pinned candidate matched 21/21 original development, 3/3 supplemental and 6/6 first fresh arms. The initial wrapped-name false completion and its correction are retained. The paired 77-case replay preserved the other 76 contracts in seven compared fields. Independent review remains NOT_RUN. [PR #136](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/136) carries its release status.
+
 ## Verified checkpoint · 2026-11-28
 
 [PR #132](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/132)
