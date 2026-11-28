@@ -6,11 +6,13 @@ import re
 from .body_text import body_text
 from .documentary_verify import MONTHS, _date_value, citation, context_ranges, source_question
 from .passage_admission import Budget
-from .source_attribution import FULL_NAME, unqualified_span
+from .source_attribution import unqualified_span
 
 
 _DAY = rf'(?:{"|".join(MONTHS)}) [0-9]{{1,2}}(?:,? [0-9]{{4}})?'
-_NAME = rf'(?:{FULL_NAME}|(?-i:[A-Z][a-z]+))'
+_NAME_PART = r'[A-Z][a-z]+(?:[A-Z][a-z]+)?'
+_FULL_NAME = rf'(?-i:{_NAME_PART}(?: (?:{_NAME_PART}|[A-Z]\.)){{0,3}} {_NAME_PART})'
+_NAME = rf'(?:{_FULL_NAME}|(?-i:{_NAME_PART}))'
 _HEADER = re.compile(r'(?:(?P<number>[0-9]{1,5})\. )?Memorandum From (?P<writer>[^\n]{2,180}?) to (?P<recipient>[^\n]{2,120})')
 _DATELINE = re.compile(rf'[A-Za-z][A-Za-z .-]{{1,70}}, (?P<date>{_DAY})\.')
 _REQUESTS = [
@@ -19,12 +21,11 @@ _REQUESTS = [
         rf'Which memorandum dated (?P<target>{_DAY}) did (?P<writer>{_NAME}) respond to in the memorandum dated (?P<response>{_DAY})\?',
     )
 ]
-_DESCRIPTION = rf'memorandum addressed to you by (?P<author>{FULL_NAME}) on (?P<date>{_DAY}) (?:on|concerning) (?P<subject>[A-Za-z][A-Za-z0-9 ,’\'()\-]{{1,150}}?)'
+_DESCRIPTION = rf'memorandum addressed to you by (?P<author>{_FULL_NAME}) on (?P<date>{_DAY}) (?:on|concerning) (?P<subject>[A-Za-z][A-Za-z0-9 ,’\'()\-]{{1,150}}?)'
 _REPLY = re.compile(rf'I am (?:responding|replying) to the {_DESCRIPTION}\.')
 _NOTICE = re.compile(rf'A {_DESCRIPTION} has just come to my attention\.')
 _REACTION = re.compile(r'I (?:must )?take (?:[a-z]+ ){0,3}exception to its (?:premises|conclusions)(?: and (?:premises|conclusions))?\.')
 _EDITORIAL_LINK = re.compile(r'Editorial note: Document (?P<number>[0-9]{1,5})\.')
-_MAX_RECORDS = 32
 _MAX_CHARS = 200000
 _MAX_LINES = 1000
 
@@ -64,7 +65,7 @@ def _document(record, body):
     if len(lines) < 3 or record.kind != 'page' or record.derived_from or record.fields.get('corrects-field'):
         return None
     header = _HEADER.fullmatch(lines[0][0])
-    if header is None:
+    if header is None or any(_HEADER.fullmatch(line[0]) for line in lines[1:]):
         return None
     start = 2 if lines[1][0].startswith('Editorial note: Source: ') else 1
     dateline = _DATELINE.fullmatch(lines[start][0])
@@ -120,7 +121,7 @@ def _target(document, response, reference, stated, number, requested):
     if _name_key(label) != _name_key(author):
         if not label.endswith(' ('+author.split()[-1]+')'):
             return None
-        signature = [line for line in lines[2:] if re.fullmatch(FULL_NAME, line[0])
+        signature = [line for line in lines[2:] if re.fullmatch(_FULL_NAME, line[0])
                      and _name_key(line[0]) == _name_key(author)]
         if len(signature) != 1:
             return None
@@ -143,7 +144,7 @@ def verify(index, max_passages, max_chars):
                'source_support_claims': 0, 'response_stage': 'response_verification'}
     result = {'documentary_support': support}
     bodies = [(record, body_text(record.body_html)) for record in index.records]
-    if (len(bodies) > _MAX_RECORDS or sum(len(body) for _, body in bodies) > _MAX_CHARS
+    if (sum(len(body) for _, body in bodies) > _MAX_CHARS
             or sum(body.count('\n')+1 for _, body in bodies) > _MAX_LINES):
         support['response_stage'] = 'scan_budget'
         return 'abstain', 'reference_scan_budget', result
