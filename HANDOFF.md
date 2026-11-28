@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `f836d0fef98f5093f371e2b1dda7fd323895e7c7` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `8ba2e8e47c4e438ea40d2b35f80c422d75d200a10f20f47de047d961ecf0b675`.
+Base commit: `91822395b0892178dc2c80d4674f851e2b9a09b8` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `2b371df526586ff8aeb20f626acfa7cd130f386bc857846ad9932e3af8f90e91`.
 
 ## Betty report for Al
 
@@ -13,25 +13,23 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Finish Apollo-01 Pages verification. Run Ares-01 only under Al note 0006 from the Apollo merge and publish the recoverable checkpoint. Hestia stays deferred.
+Acknowledge note 0010 at 805f8263f54fa8069f02d48e898705411ccdedf0. Use verified Ares main fe56551c752bd8df3f1728ac8b11e0cb256c5cdc as the proposed baseline. Recheck main and work on a separate lab PR from newcomer PR #129. First verify the required relationship and date shapes on the unchanged native reader with Git disconnected. If a mandatory role or date case lacks native proof, retain the blocker.
 
 ### Implemented scope
 
-- Applied Al note 0006 at 20885e500faf75b88fa80548aabadd1f991fe76b. Ares baseline e2a4d77ff09150639cde1bcea2fe2bcb245ac963. Shared epoch and two-process ordering remain lab-only.
+- Froze two eight-case synthetic draws at 0e71f835f5fc053cfeb6ca97f9682476466d7c8e against unchanged Ares main. Read only development.
 
 ### Validation recorded
 
-- First development and first fresh each 5/5 with two intended writes and two durable completions. Each draw had three blocked fixtures with zero writer attempts.
-- Separate process traces confirm the final shared read as decision point. The post-check revocation preserved the already-admitted effect. Apollo 7/7 and 7/7, controller 42/42 and restart 3/3 plus 6/6 preserved.
-- Regenerated both inputs exactly and read back both held grading keys against their frozen seals.
+- Eight initial native probes and one withdrawal reread. Both compound dates abstained with zero claims. Four standalone claims emitted eight exact spans; frozen scorer rejects the enclosing byline span. Initial preflight and original score retained.
 
 ### Limitations and blocked checks
 
-- Same operator and local workspace custody. Separate authority and Git resources, no production dispatch. Hestia remains deferred.
+- Fresh, effects, independent assessment and native OOCC NOT_RUN. Private keys, scorer and oracle remain in separate verified local custody. External private recovery unverified. Production dispatch inactive.
 
 ### Next steps
 
-- Verify public byte readback and exact-head checks. Keep Apollo and Ares first results available as consumed preservation.
+- Preserve the native blocker. A separate native proof study would need to support instruction dates while retaining the proved claim when the date remains unresolved.
 
 ## Use this ZIP in your repository
 
