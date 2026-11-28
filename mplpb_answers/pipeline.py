@@ -574,6 +574,9 @@ def _answer_query(root, question, profile=None, *, mode, reader, min_confidence,
             if scoped is None:
                 from .documentary_response import verify as verify_response
                 scoped = verify_response(index, max_passages, max_chars)
+            if scoped is None:
+                from .documentary_subject import verify as verify_subject
+                scoped = verify_subject(index, max_passages, max_chars)
             if scoped is not None:
                 kind, code, evidence = scoped
                 if not index.unchanged():

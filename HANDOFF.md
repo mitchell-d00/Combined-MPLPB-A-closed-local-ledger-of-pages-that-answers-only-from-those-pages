@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `241bee0f2301e69331db862f3cfd1ab49e59924a` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `9d3ad83cef0a37ea62919a5927c4633835a838d831ba81443fdd1de23f9609c5`.
+Base commit: `d92fbdd646d51f8feb5268ea1962e886bea74091` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `37cd291c8ed0561a4154fe1033e47ce81bcd7642d554cfd757d7a24623a6802e`.
 
 ## Betty report for Al
 
@@ -17,19 +17,19 @@ Betty, start ARIADNE-01 — FRUS subject-line identification. Acknowledge Al not
 
 ### Implemented scope
 
-- ARIADNE-01 frozen rule and unchanged baseline. Read note 0014 at dcdcfd93 and note 0015 at 265f1f7e on PR #128.
+- ARIADNE-01 native document identification. The reference and unique eligible original must agree on full writer, explicit date, President addressee and exact topic. Rankers, other FRUS paths and controller code are unchanged. Applied Al notes 0014 dcdcfd93 and 0015 265f1f7e.
 
 ### Validation recorded
 
-- Against released reader 241bee0f, all 21 frozen arms stopped at interpretation. Zero complete answers, claims or execution failures. The controls did not reach their required proof stages.
+- Baseline all 21 stopped at interpretation. Initial candidate passed original 21 arms and falsely completed supplemental X02, retained with source and raw outcome. Following-prose boundary correction passed 21/21 original and 3/3 supplemental, with zero unsupported completions and zero reader execution failures. 12/12 #135 packet and 154 focused checks passed. 77-case comparison changed DIRECT-02 only. Held fresh is sealed and NOT_RUN at this checkpoint.
 
 ### Limitations and blocked checks
 
-- Same-operator preparation and scoring. Evaluator keys, the held operator packet and reconstructible parameters are private. Independent historical accuracy and human assessment remain NOT_RUN.
+- Exact identified document only. Submission, receipt, agreement and execution remain unresolved. Fresh authorship and scoring are same-operator. Public evidence and local private custody are measured separately. Independent historical and human assessments remain NOT_RUN.
 
 ### Next steps
 
-- Implement the frozen native subject-reference rule, replay development and protection, pin a qualifying candidate before held evaluation, and verify remote evidence, exact-head checks and release. Keep ranking, DIRECT-03, two-link, UI, Chronos and production dispatch on separate tracks.
+- Make an archive of the pinned native candidate, run development from the extraction, run first fresh exactly once, and preserve all raw outcomes and hashes. Then verify remote and exact-head checks before a qualifying merge and verify Pages.
 
 ## Use this ZIP in your repository
 
