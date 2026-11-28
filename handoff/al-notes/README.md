@@ -81,3 +81,7 @@ repository and Mitchell's relay carried the Apollo review and Ares handoff.
 [Note 0008](0008-outside-review-and-newcomer-evidence-navigation.md) records the
 Outside assessment audit and the proposed newcomer documentation, evidence
 navigation and onboarding follow-up.
+
+[Note 0009](0009-handoff-reconciliation.md) follows up on note 0008 with
+verified PR states, the scope of the later Bastet evidence, and the distinction
+between citation validation and reader proof.

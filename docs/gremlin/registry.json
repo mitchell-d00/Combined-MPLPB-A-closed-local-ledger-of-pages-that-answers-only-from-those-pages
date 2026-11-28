@@ -377,6 +377,24 @@
         "evaluation/greek-gods/apollo-01/freeze.json"
       ],
       "note": "Ed25519 producer trust and separate proof, authority and disposable Git effect."
+    },
+    {
+      "id": "ares-01",
+      "label": "Ares cross-process authority lab",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "lab-only",
+      "paths": [
+        "evaluation/greek-gods/ares-01"
+      ],
+      "evidence": [
+        "evaluation/greek-gods/ares-01/README.md",
+        "evaluation/greek-gods/ares-01/freeze.json"
+      ],
+      "note": "Local grant epoch, explicit barriers and separate revoker/executor observations."
     }
   ],
   "relations": [
@@ -602,6 +620,16 @@
         "evaluation/greek-gods/apollo-01/run.mjs"
       ],
       "note": "Uses the existing lab binding seam with the original proof and writer."
+    },
+    {
+      "from": "ares-01",
+      "to": "heka-01",
+      "kind": "depends_on",
+      "basis": "source",
+      "evidence": [
+        "evaluation/greek-gods/ares-01/worker.mjs"
+      ],
+      "note": "Pinned lab hook uses unchanged Heka controller, reader and Git writer."
     }
   ],
   "open_work": [

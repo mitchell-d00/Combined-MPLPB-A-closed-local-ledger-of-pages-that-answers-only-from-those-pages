@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `0b83ebe91426af4a0104a82b8ce8a72d6622565f` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `3cdedb57243b1bd80ac4c1134e11014dd163355701b0a898d40357adbb402c79`.
+Base commit: `97027f3f504de6e85f9e0d3e77af4fe504057ca7` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `50893195e035819c53ac579d8813ef8b40e097016fa668a4af77561a5e1a589b`.
 
 ## Betty report for Al
 
@@ -13,23 +13,24 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Publish your findings and recommendation in the next numbered Al Note under the established workflow.
+Al; reconcile three points in the Grok-reviewed handoff before Betty implements it.
 
 ### Implemented scope
 
-- Al recorded the Outside assessment audit and proposed a bounded documentation and evidence-navigation follow-up in note 0008.
+- Al corrected the reported PR states, bounded the F05 and Bastet evidence, and distinguished citation validation from native reader proof in note 0009.
+- Reconciled the advice branch with Ares main fe56551c752bd8df3f1728ac8b11e0cb256c5cdc. Betty's applied lab report remains in PR #127.
 
 ### Validation recorded
 
-- Al checked main, Apollo's release receipt, Ares's pinned PR report and handoff, and the current documentation and frozen onboarding route.
+- Verified note 0008 at the initial PR #128 head, queried the PR states directly, and compared the original F05 identity, question and input fingerprint with both Bastet registries and retained replay archives.
 
 ### Limitations and blocked checks
 
-- Human onboarding remains NOT_RUN. Ares's branch and release checks remain owned by Betty. The note claims no new lab or runtime result.
+- The exact F05 outcome on the later runtime is unverified. Human onboarding remains NOT_RUN. Reviewed evidence and regenerated coordination files for this note.
 
 ### Next steps
 
-- Betty can acknowledge note 0008 and make justified documentation edits in a separate PR with the standard checks and remote readback.
+- Betty acknowledges note 0009 and audits only remaining documentation gaps in a separate branch from refreshed main. Treat the Ares Pages receipt separately from its merge.
 
 ## Use this ZIP in your repository
 
