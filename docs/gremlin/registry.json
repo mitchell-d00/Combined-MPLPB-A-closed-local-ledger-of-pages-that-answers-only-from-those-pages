@@ -323,6 +323,24 @@
         "evaluation/egyptian-gods/heka-01/DISPOSITION.md"
       ],
       "note": "Completed bounded lab study. Original diagnostic mismatches preserved and disposition recorded."
+    },
+    {
+      "id": "greek-effect-sprint",
+      "label": "Greek evidence-to-effect sprint",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "lab-only",
+      "paths": [
+        "evaluation/greek-gods"
+      ],
+      "evidence": [
+        "evaluation/greek-gods/CONTRACT.md",
+        "evaluation/greek-gods/README.md"
+      ],
+      "note": "Athena, Hermes and Hephaestus frozen results. Shared host assumptions retained."
     }
   ],
   "relations": [
@@ -518,6 +536,16 @@
         "evaluation/egyptian-gods/heka-01/reader.py"
       ],
       "note": "Lab-only composition using the unchanged pinned interface."
+    },
+    {
+      "from": "greek-effect-sprint",
+      "to": "heka-01",
+      "kind": "depends_on",
+      "basis": "source",
+      "evidence": [
+        "evaluation/greek-gods/run.mjs"
+      ],
+      "note": "The integrated lane uses the pinned unchanged Heka bridge."
     }
   ],
   "open_work": [

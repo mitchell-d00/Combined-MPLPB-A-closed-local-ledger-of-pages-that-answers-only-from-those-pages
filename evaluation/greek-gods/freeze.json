@@ -1,0 +1,37 @@
+{
+  "schema": "greek-sprint-freeze-v1",
+  "source_checkpoint": "f761a82f1dcd786e56ed0b5ad4d744fcc72b687b",
+  "baseline": "9a4d2c09e9e31529867252779a2d15a7d998f985",
+  "reader": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+  "upstream_gate_sha256": "5e71d0b7fc3f64294b726e8108a08d9ff0e79552a8975ee379aaa2546e988291",
+  "dependencies": {
+    "evaluation/egyptian-gods/heka-01/bridge.mjs": "71711af1615a43f12f984331478e62f5eaf181eb68e21e2a310b4c91d5bd453a",
+    "evaluation/egyptian-gods/heka-01/reader.py": "c0efe1d952a9ae5bc4d15bfb767f6b0b64de3d9c71e08b68da60c8b60c1deea4",
+    "evaluation/egyptian-gods/heka-01/study.mjs": "970e8f271f5a473f1f8f9b983ac24fa700e3f40b1c5a479f7e52160364fc8c2a",
+    "evaluation/comparative-tests/workflow-controller/controller.mjs": "602cb56fcd37060f99d0649376c1d5cdc53576ae7581570f5e5b84bec3b8bead",
+    "evaluation/comparative-tests/workflow-controller/canary.json": "d9c80f58501967b53d5ebbb900b3a6de11c9e5256c27791ac2dfcd90cecdbedf",
+    "evaluation/comparative-tests/workflow-controller/restart/fixture.mjs": "eebb2878369f7a3d03c23558b6a372de3412b857db993261666abd53250e2070",
+    "evaluation/comparative-tests/workflow-controller/restart/reservation.mjs": "60f97d1f3315b6f25d0c953ed5a4df1ba4a997446f0922f902d3f98048aa2253"
+  },
+  "apparatus": {
+    "generate.py": "57e10ef92839d7a1ee912290320edd86fc2c4013de8ddb50279dc2594e1a3c22",
+    "run.mjs": "5581de63e49f67bbf8620a30d7e7ddc3b1db79e307cc31e4b08df10269bbb1c7",
+    "score.py": "1832170bafeafb9abfd0477656a979fd252146ec7d234831da7cf00ae2fc7843",
+    "CONTRACT.md": "48d6a9cf4678b28eeb86ce39fdf6e62aeaed2a8657a7509b2f41c5c4bc30ddc1"
+  },
+  "packets": {
+    "D": {
+      "inputs": "af3ebdef74f51f7edbb5c6ce37bee49be7915ad691bb0fb21994632845d0059d",
+      "key": "a002dc2808e1d0253b2124086168bde2a862131840d0d56fba860ac48b31c1cc",
+      "cases": 12,
+      "phases": 15
+    },
+    "F": {
+      "inputs": "6e94b81532bf317a9f0672ee82f47f382255fb829c9b26da73c73d02c4854e5a",
+      "key": "a8134d9a116bc34501cd1ed9ceb725f42eb159c3278be8103dd672f31f9a1aed",
+      "cases": 13,
+      "phases": 16
+    }
+  },
+  "custody": "Same operator. Hold both keys and fresh operator input off-Git through baseline selection."
+}

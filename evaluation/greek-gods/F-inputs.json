@@ -1,0 +1,286 @@
+{
+  "schema": "greek-sprint-packet-v1",
+  "draw": "F",
+  "cases": [
+    {
+      "id": "GREEK-ATHENA-F-01",
+      "set": "ATHENA",
+      "lane": "bridge",
+      "scenario": "positive",
+      "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Nia Harlow</p><p>Sami Finch stated that Jo Pike wrote the observatory chart.</p>"
+        },
+        {
+          "id": "NOTE-Q",
+          "body_html": "<p>Written by Ella Snow.</p><p>Sami Finch stated that Jo Pike wrote the spare inventory.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Nia Harlow",
+        "reporter": "Sami Finch",
+        "author": "Jo Pike",
+        "object": "the observatory chart",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-ATHENA-F-02",
+      "set": "ATHENA",
+      "lane": "bridge",
+      "scenario": "duplicate-writer",
+      "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Nia Harlow</p><p>Sami Finch stated that Jo Pike wrote the observatory chart.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Nia Harlow",
+        "reporter": "Sami Finch",
+        "author": "Jo Pike",
+        "object": "the observatory chart",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-ATHENA-F-03",
+      "set": "ATHENA",
+      "lane": "bridge",
+      "scenario": "withdraw-between",
+      "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Nia Harlow</p><p>Sami Finch stated that Jo Pike wrote the observatory chart.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Nia Harlow",
+        "reporter": "Sami Finch",
+        "author": "Jo Pike",
+        "object": "the observatory chart",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-ATHENA-F-04",
+      "set": "ATHENA",
+      "lane": "bridge",
+      "scenario": "unrelated-change",
+      "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Nia Harlow</p><p>Sami Finch stated that Jo Pike wrote the observatory chart.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Nia Harlow",
+        "reporter": "Sami Finch",
+        "author": "Jo Pike",
+        "object": "the observatory chart",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HERMES-F-01",
+      "set": "HERMES",
+      "lane": "bridge",
+      "scenario": "missing-grant",
+      "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Nia Harlow</p><p>Sami Finch stated that Jo Pike wrote the observatory chart.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Nia Harlow",
+        "reporter": "Sami Finch",
+        "author": "Jo Pike",
+        "object": "the observatory chart",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HERMES-F-02",
+      "set": "HERMES",
+      "lane": "bridge",
+      "scenario": "wrong-target",
+      "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Nia Harlow</p><p>Sami Finch stated that Jo Pike wrote the observatory chart.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Nia Harlow",
+        "reporter": "Sami Finch",
+        "author": "Jo Pike",
+        "object": "the observatory chart",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HERMES-F-03",
+      "set": "HERMES",
+      "lane": "controller",
+      "scenario": "wrong-action",
+      "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Nia Harlow</p><p>Sami Finch stated that Jo Pike wrote the observatory chart.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Nia Harlow",
+        "reporter": "Sami Finch",
+        "author": "Jo Pike",
+        "object": "the observatory chart",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HERMES-F-04",
+      "set": "HERMES",
+      "lane": "controller",
+      "scenario": "conflicting-receipts",
+      "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Nia Harlow</p><p>Sami Finch stated that Jo Pike wrote the observatory chart.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Nia Harlow",
+        "reporter": "Sami Finch",
+        "author": "Jo Pike",
+        "object": "the observatory chart",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HERMES-F-05",
+      "set": "HERMES",
+      "lane": "bridge",
+      "scenario": "wrong-receipt",
+      "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Nia Harlow</p><p>Sami Finch stated that Jo Pike wrote the observatory chart.</p>"
+        },
+        {
+          "id": "NOTE-Q",
+          "body_html": "<p>Written by Ella Snow.</p><p>Sami Finch stated that Jo Pike wrote the spare inventory.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Nia Harlow",
+        "reporter": "Sami Finch",
+        "author": "Jo Pike",
+        "object": "the observatory chart",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HEPHAESTUS-F-01",
+      "set": "HEPHAESTUS",
+      "lane": "bridge",
+      "scenario": "restart-interrupted",
+      "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Nia Harlow</p><p>Sami Finch stated that Jo Pike wrote the observatory chart.</p>"
+        },
+        {
+          "id": "NOTE-Q",
+          "body_html": "<p>Written by Ella Snow.</p><p>Sami Finch stated that Jo Pike wrote the spare inventory.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Nia Harlow",
+        "reporter": "Sami Finch",
+        "author": "Jo Pike",
+        "object": "the observatory chart",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HEPHAESTUS-F-02",
+      "set": "HEPHAESTUS",
+      "lane": "bridge",
+      "scenario": "restart-failed",
+      "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Nia Harlow</p><p>Sami Finch stated that Jo Pike wrote the observatory chart.</p>"
+        },
+        {
+          "id": "NOTE-Q",
+          "body_html": "<p>Written by Ella Snow.</p><p>Sami Finch stated that Jo Pike wrote the spare inventory.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Nia Harlow",
+        "reporter": "Sami Finch",
+        "author": "Jo Pike",
+        "object": "the observatory chart",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HEPHAESTUS-F-03",
+      "set": "HEPHAESTUS",
+      "lane": "bridge",
+      "scenario": "unavailable-store",
+      "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Nia Harlow</p><p>Sami Finch stated that Jo Pike wrote the observatory chart.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Nia Harlow",
+        "reporter": "Sami Finch",
+        "author": "Jo Pike",
+        "object": "the observatory chart",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "GREEK-HEPHAESTUS-F-04",
+      "set": "HEPHAESTUS",
+      "lane": "bridge",
+      "scenario": "restart-completed",
+      "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Nia Harlow</p><p>Sami Finch stated that Jo Pike wrote the observatory chart.</p>"
+        },
+        {
+          "id": "NOTE-Q",
+          "body_html": "<p>Written by Ella Snow.</p><p>Sami Finch stated that Jo Pike wrote the spare inventory.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Nia Harlow",
+        "reporter": "Sami Finch",
+        "author": "Jo Pike",
+        "object": "the observatory chart",
+        "source_id": "NOTE-A"
+      }
+    }
+  ]
+}
