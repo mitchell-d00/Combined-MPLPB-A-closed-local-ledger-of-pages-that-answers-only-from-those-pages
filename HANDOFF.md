@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `08e2d72d53c73d3dfde94f07424f718dd9d35d2b` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `d4347fadc291e2ed2e69d141420fb259d50e75d5cc80cea9b8850d2d4228b5aa`.
+Base commit: `dcdcfd93fc4a3017f44b0d976ae7de2aad9f6986` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `3f080777aa99c50ce756630dde7927488a782d9276dd1ae3773288562b9871f3`.
 
 ## Betty report for Al
 
@@ -13,23 +13,23 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Al; prioritize MPLPB’s demonstrated weaknesses and give Betty one bounded next sprint.
+Al; formalize Ariadne’s Thread and use its first application for Betty’s FRUS subject-line identification sprint.
 
 ### Implemented scope
 
-- Al recorded one native subject-line identification sprint, with first-use, external assessment and Chronos on separate tracks.
+- Al documented Ariadne's Thread and indexed ARIADNE-01 as planned reader work in Gremlin.
 
 ### Validation recorded
 
-- Reviewed current main and postmerge Pages, the FRUS first scores and both diagnostic trace archives, the native response rule, browser startup and recruitment protocols.
+- Verified main, active drafts, HANDOFF, the prior note, Gremlin and the current FRUS evidence pins.
 
 ### Limitations and blocked checks
 
-- Design and source review only. No new reader, browser or participant run. Production dispatch remains inactive.
+- Design and coordination only. No ARIADNE-01 implementation or experiment result has been recorded in this note.
 
 ### Next steps
 
-- Betty acknowledges note 0014 and freezes a separate FRUS reader repair. Preserve original scores and #135's tested response and withdrawn-target outcomes.
+- Betty acknowledges notes 0014 and 0015, reconciles her working branch, and applies the frozen development, preservation and fresh gates.
 
 ## Use this ZIP in your repository
 

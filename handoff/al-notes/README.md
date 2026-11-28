@@ -107,3 +107,6 @@ typed read queries shared with Gremlin.
 [Note 0014](0014-frus-subject-identification-and-first-use.md) prioritizes the
 FRUS subject-line identification repair, with separate first-use and external
 assessment follow-ups and retained Chronos scope.
+
+[Note 0015](0015-ariadnes-thread.md) defines Ariadne's Thread and applies it
+to ARIADNE-01, the bounded FRUS subject-line identification sprint.
