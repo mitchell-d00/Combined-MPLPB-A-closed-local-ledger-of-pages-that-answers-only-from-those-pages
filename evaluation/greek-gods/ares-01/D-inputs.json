@@ -1,0 +1,96 @@
+{
+  "schema": "ares01-packet-v1",
+  "draw": "D",
+  "cases": [
+    {
+      "id": "ARES-D-01",
+      "scenario": "active",
+      "question": "In the report written by Hana Wren, which document did Eli Dune say Nell Hart wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Hana Wren.</p><p>Eli Dune reported that Nell Hart wrote the canal ledger.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Hana Wren",
+        "reporter": "Eli Dune",
+        "author": "Nell Hart",
+        "object": "the canal ledger",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "ARES-D-02",
+      "scenario": "pre-check",
+      "question": "In the report written by Hana Wren, which document did Eli Dune say Nell Hart wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Hana Wren.</p><p>Eli Dune reported that Nell Hart wrote the canal ledger.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Hana Wren",
+        "reporter": "Eli Dune",
+        "author": "Nell Hart",
+        "object": "the canal ledger",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "ARES-D-03",
+      "scenario": "stale-cache",
+      "question": "In the report written by Hana Wren, which document did Eli Dune say Nell Hart wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Hana Wren.</p><p>Eli Dune reported that Nell Hart wrote the canal ledger.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Hana Wren",
+        "reporter": "Eli Dune",
+        "author": "Nell Hart",
+        "object": "the canal ledger",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "ARES-D-04",
+      "scenario": "restart",
+      "question": "In the report written by Hana Wren, which document did Eli Dune say Nell Hart wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Hana Wren.</p><p>Eli Dune reported that Nell Hart wrote the canal ledger.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Hana Wren",
+        "reporter": "Eli Dune",
+        "author": "Nell Hart",
+        "object": "the canal ledger",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "ARES-D-05",
+      "scenario": "post-check",
+      "question": "In the report written by Hana Wren, which document did Eli Dune say Nell Hart wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Hana Wren.</p><p>Eli Dune reported that Nell Hart wrote the canal ledger.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Hana Wren",
+        "reporter": "Eli Dune",
+        "author": "Nell Hart",
+        "object": "the canal ledger",
+        "source_id": "NOTE-A"
+      }
+    }
+  ]
+}
