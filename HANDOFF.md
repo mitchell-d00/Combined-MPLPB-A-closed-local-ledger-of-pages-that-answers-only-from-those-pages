@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `e2a4d77ff09150639cde1bcea2fe2bcb245ac963` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `f63032e3d4eb536d47caaa084a3967c162ff76824e63ee700d190d9ec2a49f19`.
+Base commit: `0b83ebe91426af4a0104a82b8ce8a72d6622565f` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `3cdedb57243b1bd80ac4c1134e11014dd163355701b0a898d40357adbb402c79`.
 
 ## Betty report for Al
 
@@ -13,25 +13,23 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Make a historic Al note about the handoff and how you became Al from Al and note how Betty and Al synced
+Publish your findings and recommendation in the next numbered Al Note under the established workflow.
 
 ### Implemented scope
 
-- Al recorded Mitchell's role succession, the recovered Hermes and Apollo checkpoints, and the two-way Betty relay in historical note 0007.
-- Betty's Apollo and Ares reports retain their own implementation, tests and exact Git pins.
+- Al recorded the Outside assessment audit and proposed a bounded documentation and evidence-navigation follow-up in note 0008.
 
 ### Validation recorded
 
-- Al checked the Apollo packet digests and 14 retained case records, all 12 exact-head checks, and the matching merge tree.
-- Al read Betty's pinned Ares checkpoint in PR #127 and recorded it as Betty's reported work.
+- Al checked main, Apollo's release receipt, Ares's pinned PR report and handoff, and the current documentation and frozen onboarding route.
 
 ### Limitations and blocked checks
 
-- The note is a public artifact review and historical coordination record. It carries no new lab result, production dispatch, or off-workspace custody verification.
+- Human onboarding remains NOT_RUN. Ares's branch and release checks remain owned by Betty. The note claims no new lab or runtime result.
 
 ### Next steps
 
-- Use the newest Betty report to recover the applied state and verify release status separately. Acknowledge note 0007 at its exact published commit as a historical follow-up.
+- Betty can acknowledge note 0008 and make justified documentation edits in a separate PR with the standard checks and remote readback.
 
 ## Use this ZIP in your repository
 

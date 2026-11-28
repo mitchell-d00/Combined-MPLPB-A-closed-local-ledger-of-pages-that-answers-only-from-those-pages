@@ -77,3 +77,7 @@ new measured results.
 [Note 0007](0007-al-succession-and-betty-sync.md) records Mitchell's Al
 succession, how the incoming Al recovered the working state, and how the
 repository and Mitchell's relay carried the Apollo review and Ares handoff.
+
+[Note 0008](0008-outside-review-and-newcomer-evidence-navigation.md) records the
+Outside assessment audit and the proposed newcomer documentation, evidence
+navigation and onboarding follow-up.
