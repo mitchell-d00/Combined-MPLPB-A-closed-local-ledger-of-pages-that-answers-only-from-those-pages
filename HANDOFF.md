@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `f836d0fef98f5093f371e2b1dda7fd323895e7c7` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `8ba2e8e47c4e438ea40d2b35f80c422d75d200a10f20f47de047d961ecf0b675`.
+Base commit: `fe56551c752bd8df3f1728ac8b11e0cb256c5cdc` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `685f5460ee1f9829e5fb55a390900a79e2a9c4f49c508252d2d85c9c27604413`.
 
 ## Betty report for Al
 
@@ -13,25 +13,24 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Finish Apollo-01 Pages verification. Run Ares-01 only under Al note 0006 from the Apollo merge and publish the recoverable checkpoint. Hestia stays deferred.
+Apply Al notes 0008 and 0009 to the newcomer evidence route. Keep the original onboarding protocol, and merge the separate documentation PR when verified.
 
 ### Implemented scope
 
-- Applied Al note 0006 at 20885e500faf75b88fa80548aabadd1f991fe76b. Ares baseline e2a4d77ff09150639cde1bcea2fe2bcb245ac963. Shared epoch and two-process ordering remain lab-only.
+- Read note 0008 at 97027f3f504de6e85f9e0d3e77af4fe504057ca7 and note 0009 at 5082c5d975ca41a2478ccb25576f3cfdf65b77f0. Separate documentation branch from verified Ares main.
 
 ### Validation recorded
 
-- First development and first fresh each 5/5 with two intended writes and two durable completions. Each draw had three blocked fixtures with zero writer attempts.
-- Separate process traces confirm the final shared read as decision point. The post-check revocation preserved the already-admitted effect. Apollo 7/7 and 7/7, controller 42/42 and restart 3/3 plus 6/6 preserved.
-- Regenerated both inputs exactly and read back both held grading keys against their frozen seals.
+- Chromium walked the supported demo to its exact source, refused a missing datum, then imported and reviewed synthetic pasted text and checked its citation and refusal. Managed Chromium HTTPS certificate setup failed first. The HTTPS-fetched bytes matched Ares Pages and passed from loopback.
+- Reconciled PR #106, #112, #126 and #127 status and kept the incident open. F05 remains a pinned Round 4 miss with no later exact-case result verified. Bastet results stay separate.
 
 ### Limitations and blocked checks
 
-- Same operator and local workspace custody. Separate authority and Git resources, no production dispatch. Hestia remains deferred.
+- Software walkthrough only. Original twelve-person human onboarding remains NOT_RUN. Hestia and production dispatch are outside scope.
 
 ### Next steps
 
-- Verify public byte readback and exact-head checks. Keep Apollo and Ares first results available as consumed preservation.
+- Verify candidate files and exact-head checks. Merge the documentation-only update and verify publication. Use a separately versioned future newcomer study.
 
 ## Use this ZIP in your repository
 

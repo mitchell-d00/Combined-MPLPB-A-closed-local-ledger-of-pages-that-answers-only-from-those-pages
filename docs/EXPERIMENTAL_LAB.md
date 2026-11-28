@@ -1,6 +1,6 @@
 # Experimental Lab
 
-Last reviewed: 2026-11-27.
+Last reviewed: 2026-11-28.
 
 [MPLPB](MPLPB.md) · [Testing apparatus and evidence](TESTING_APPARATUS.md)
 · [Component map](COMPONENT_MAP.md) · [Test Index](TEST_INDEX.md)
@@ -20,8 +20,12 @@ revision and [the current handoff](../HANDOFF.md) to continue work; the
 
 - [Cryptid programme and current work](../evaluation/cryptid/README.md): frozen
   mechanisms, candidate repairs, retained failures and transfer limits.
-- [Bunyip ordinary-language work](../evaluation/cryptid/bunyip/README.md): current
-  candidate evidence; publication status belongs in its report and handoff.
+- [Bunyip](../evaluation/cryptid/bunyip/README.md) tests how wording and attribution
+  affect supported answers.
+- [Workflow authority and Git effects](TEST_INDEX.md#workflow-authority-and-git-effects)
+  links the local effect studies. Apollo verifies a receipt producer's signature.
+  Ares checks when a grant revocation takes effect across processes.
+  [What each check establishes](RESPONSIBILITY_BOUNDARIES.md#what-each-check-establishes)
 - [Scoped evidence extensions](SCOPED_EVIDENCE_EXTENSIONS.md): implemented paths
   and their bounded claims.
 - [Intake and Research](departments/intake-research.md): source mapping, sorter
