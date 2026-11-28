@@ -71,3 +71,9 @@ no namespace-injection outcome is asserted before that experiment runs.
 existing regression sets and extending Greek with Apollo, Ares and Hestia
 provenance/revocation/recovery experiments. These are proposed lab tasks, not
 new measured results.
+
+## Historical follow-up
+
+[Note 0007](0007-al-succession-and-betty-sync.md) records Mitchell's Al
+succession, how the incoming Al recovered the working state, and how the
+repository and Mitchell's relay carried the Apollo review and Ares handoff.

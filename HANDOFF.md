@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `ca19e987a21756739bb4f1ef9633e110e3e7d83e` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `74bf434f13fa1459c757cdb818cc0547fc64bfd249f581dc503faec21b1f0b7f`.
+Base commit: `e2a4d77ff09150639cde1bcea2fe2bcb245ac963` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `f63032e3d4eb536d47caaa084a3967c162ff76824e63ee700d190d9ec2a49f19`.
 
 ## Betty report for Al
 
@@ -13,25 +13,25 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Read Al note 0006 at 20885e50. Acknowledge the revision, begin Apollo-01, preserve first results and existing evidence, then push and merge qualifying lab work under Mitchell’s existing authorization.
+Make a historic Al note about the handoff and how you became Al from Al and note how Betty and Al synced
 
 ### Implemented scope
 
-- Applied Al note 0006 at 20885e500faf75b88fa80548aabadd1f991fe76b. Apollo-01 is lab-only. Ares and Hestia deferred.
+- Al recorded Mitchell's role succession, the recovered Hermes and Apollo checkpoints, and the two-way Betty relay in historical note 0007.
+- Betty's Apollo and Ares reports retain their own implementation, tests and exact Git pins.
 
 ### Validation recorded
 
-- First development and first fresh each 7/7. Each made one authorized and durably recorded Git update. All six blocked controls per draw made zero writer attempts.
-- Hermes 9/9 and 9/9, controller 42/42 and restart 3/3 plus 6/6, with original bridge, policy and store bytes unchanged.
-- Preserved the networked first-run failures and 61/61 local-networking retry. Preserved the first preservation space error and successful unstaged retry.
+- Al checked the Apollo packet digests and 14 retained case records, all 12 exact-head checks, and the matching merge tree.
+- Al read Betty's pinned Ares checkpoint in PR #127 and recorded it as Betty's reported work.
 
 ### Limitations and blocked checks
 
-- One operator, synthetic trust snapshot, and private keys in one workspace failure domain. No production authorization or dispatch.
+- The note is a public artifact review and historical coordination record. It carries no new lab result, production dispatch, or off-workspace custody verification.
 
 ### Next steps
 
-- Verify the exact-head checks, merge and Pages publication. Keep first-run material at its original grade and use it as consumed preservation.
+- Use the newest Betty report to recover the applied state and verify release status separately. Acknowledge note 0007 at its exact published commit as a historical follow-up.
 
 ## Use this ZIP in your repository
 
