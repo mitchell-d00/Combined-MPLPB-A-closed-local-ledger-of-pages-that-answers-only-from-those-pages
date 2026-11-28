@@ -1,0 +1,292 @@
+{
+  "FRUS01-DIRECT-01": {
+    "expected": "supported",
+    "obligations": [
+      "d158 responds to d157"
+    ],
+    "spans": [
+      {
+        "source_id": "d158",
+        "start": 1356,
+        "end": 1383,
+        "quote": "by Paul McCracken on June 2"
+      },
+      {
+        "source_id": "d157",
+        "start": 448,
+        "end": 473,
+        "quote": "Washington, June 2, 1971."
+      }
+    ]
+  },
+  "FRUS01-DIRECT-02": {
+    "expected": "supported",
+    "obligations": [
+      "d159 subject identifies d157"
+    ],
+    "spans": [
+      {
+        "source_id": "d159",
+        "start": 370,
+        "end": 441,
+        "quote": "Memorandum submitted to the President June 2, 1971 by Paul W. McCracken"
+      },
+      {
+        "source_id": "d157",
+        "start": 482,
+        "end": 511,
+        "quote": "International Monetary Reform"
+      }
+    ]
+  },
+  "FRUS01-DIRECT-03": {
+    "expected": "supported",
+    "obligations": [
+      "d160 account identifies d158"
+    ],
+    "spans": [
+      {
+        "source_id": "d160",
+        "start": 990,
+        "end": 1061,
+        "quote": "On June 8 Connally commented to the President on McCracken’s memorandum"
+      },
+      {
+        "source_id": "d158",
+        "start": 5,
+        "end": 55,
+        "quote": "Memorandum From Secretary of the Treasury Connally"
+      }
+    ]
+  },
+  "FRUS01-DIRECT-04": {
+    "expected": "supported",
+    "obligations": [
+      "d163 editorial cross-reference identifies d162"
+    ],
+    "spans": [
+      {
+        "source_id": "d163",
+        "start": 2646,
+        "end": 2662,
+        "quote": "see Document 162"
+      },
+      {
+        "source_id": "d162",
+        "start": 363,
+        "end": 388,
+        "quote": "135133. Ref: Paris 12595."
+      }
+    ]
+  },
+  "FRUS01-DIRECT-05": {
+    "expected": "withhold",
+    "obligations": [
+      "d156 cites a missing d154; contents of the absent meeting are unproved"
+    ],
+    "spans": [
+      {
+        "source_id": "d156",
+        "start": 2230,
+        "end": 2246,
+        "quote": "see Document 154"
+      }
+    ]
+  },
+  "FRUS01-DIRECT-06": {
+    "expected": "withhold",
+    "obligations": [
+      "No agreement bridge from Connally’s understanding to Nixon’s acceptance of all proposals"
+    ],
+    "spans": [
+      {
+        "source_id": "d158",
+        "start": 5794,
+        "end": 5819,
+        "quote": "My understanding has been"
+      },
+      {
+        "source_id": "d160",
+        "start": 1416,
+        "end": 1445,
+        "quote": "rejected McCracken’s proposal"
+      }
+    ]
+  },
+  "FRUS01-TWO-01": {
+    "expected": "supported",
+    "obligations": [
+      "d160 identifies d158",
+      "d158 identifies d157",
+      "same June 8 Connally memorandum at both edges"
+    ],
+    "spans": [
+      {
+        "source_id": "d160",
+        "start": 990,
+        "end": 1061,
+        "quote": "On June 8 Connally commented to the President on McCracken’s memorandum"
+      },
+      {
+        "source_id": "d158",
+        "start": 1356,
+        "end": 1383,
+        "quote": "by Paul McCracken on June 2"
+      },
+      {
+        "source_id": "d157",
+        "start": 448,
+        "end": 473,
+        "quote": "Washington, June 2, 1971."
+      }
+    ]
+  },
+  "FRUS01-TWO-02": {
+    "expected": "supported",
+    "obligations": [
+      "d159 identifies d158",
+      "d158 identifies d157",
+      "same June 8 Connally memorandum at both edges"
+    ],
+    "spans": [
+      {
+        "source_id": "d159",
+        "start": 641,
+        "end": 654,
+        "quote": "Document 158."
+      },
+      {
+        "source_id": "d158",
+        "start": 1356,
+        "end": 1383,
+        "quote": "by Paul McCracken on June 2"
+      },
+      {
+        "source_id": "d157",
+        "start": 448,
+        "end": 473,
+        "quote": "Washington, June 2, 1971."
+      }
+    ]
+  },
+  "FRUS01-TWO-03": {
+    "expected": "withhold",
+    "obligations": [
+      "d163 refers to d162",
+      "d162 names absent Paris 12595",
+      "full text of absent cable is unavailable"
+    ],
+    "spans": [
+      {
+        "source_id": "d163",
+        "start": 2646,
+        "end": 2662,
+        "quote": "see Document 162"
+      },
+      {
+        "source_id": "d162",
+        "start": 371,
+        "end": 387,
+        "quote": "Ref: Paris 12595"
+      }
+    ]
+  },
+  "FRUS01-TWO-04": {
+    "expected": "withhold",
+    "obligations": [
+      "May record and June memo require independently joined event identities",
+      "shared Connally name gives no edge",
+      "no identity bridge"
+    ],
+    "spans": [
+      {
+        "source_id": "d156",
+        "start": 308,
+        "end": 326,
+        "quote": "Washington, May 20"
+      },
+      {
+        "source_id": "d158",
+        "start": 1300,
+        "end": 1325,
+        "quote": "Washington, June 8, 1971."
+      },
+      {
+        "source_id": "d160",
+        "start": 310,
+        "end": 329,
+        "quote": "Washington, June 23"
+      }
+    ]
+  },
+  "FRUS01-TWO-05": {
+    "expected": "withhold",
+    "obligations": [
+      "June summary to Connally’s letter",
+      "letter to original advice",
+      "no joined proof of adoption; contrary source language"
+    ],
+    "spans": [
+      {
+        "source_id": "d160",
+        "start": 1416,
+        "end": 1445,
+        "quote": "rejected McCracken’s proposal"
+      },
+      {
+        "source_id": "d158",
+        "start": 1356,
+        "end": 1383,
+        "quote": "by Paul McCracken on June 2"
+      },
+      {
+        "source_id": "d157",
+        "start": 448,
+        "end": 473,
+        "quote": "Washington, June 2, 1971."
+      }
+    ]
+  },
+  "FRUS01-LOC-03": {
+    "expected": "supported",
+    "obligations": [
+      "exact textual occurrence"
+    ],
+    "spans": [
+      {
+        "source_id": "d156",
+        "start": 308,
+        "end": 339,
+        "quote": "Washington, May 20, 1971, 11:30"
+      }
+    ]
+  },
+  "FRUS01-LOC-09": {
+    "expected": "supported",
+    "obligations": [
+      "exact textual occurrence"
+    ],
+    "spans": [
+      {
+        "source_id": "d157",
+        "start": 448,
+        "end": 472,
+        "quote": "Washington, June 2, 1971"
+      }
+    ]
+  },
+  "FRUS01-LOC-14": {
+    "expected": "supported",
+    "obligations": [
+      "exact textual occurrence"
+    ],
+    "spans": [
+      {
+        "source_id": "d158",
+        "start": 135,
+        "end": 170,
+        "quote": "Department of the Treasury, Records"
+      }
+    ]
+  }
+}
