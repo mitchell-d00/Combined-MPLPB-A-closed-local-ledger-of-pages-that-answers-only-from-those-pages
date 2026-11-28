@@ -1,6 +1,6 @@
 # MPLPB
 
-Last reviewed: 2026-11-27.
+Last reviewed: 2026-11-28.
 
 MPLPB keeps a local collection of documents and answers supported questions from
 their text. Each supported claim points back to a source passage. It is useful
@@ -29,20 +29,22 @@ leave unresolved.
 - **Use local tools.** Choose the browser, Python command line or desktop
   application. Optional model assistance has separate labels and requirements.
 
-The reader uses finite rules. A citation check establishes correspondence to
-source text; it does not establish that the source is truthful.
+The reader uses finite rules. Citation validation checks the quoted span
+against eligible source bytes at the cited revision. Native proof checks
+whether the passage supports the claim under the reader’s rules. Outside-world
+truth requires independent evidence.
 [Capabilities and limits](docs/MPLPB.md#answers-and-their-limits)
 
 ## Try it in 30 seconds
 
-1. Open the browser app and choose **Chat logic · synthetic facts**, then **Ask**.
-2. Ask **What is Dungeons and Dragons?** The supplied page calls it a tabletop RPG.
-3. Ask **What time does the museum close?** That collection has no closing time.
+1. [Open the browser app](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/), choose **Chat logic · synthetic facts**, then open **Ask**.
+2. Select **Strict: only supported source statements**. Type **What is Dungeons and Dragons?** and submit it with **Ask**.
+3. Choose **Read source and sealed metadata** under the answer. The passage identifies it as a tabletop RPG. Close the source and ask **What time does the museum close?** to see **No supported answer**.
 
 The app initially needs internet access to load. Its bundled example pages are
 synthetic demonstration material. [Browser and offline options](docs/INSTALLATION.md)
 
-**Your documents.** Paste plain text or load a UTF-8 `.txt` or `.md` file. Give the source a title and review it before asking. A public URL is optional when you supply the text.
+**Your documents.** Select **Use my documents**, then [create a collection and review your own text](docs/MPLPB.md#how-to-add-documents).
 
 ## Try it from the terminal
 

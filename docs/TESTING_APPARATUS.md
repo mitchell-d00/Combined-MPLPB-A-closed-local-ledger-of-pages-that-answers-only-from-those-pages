@@ -2,7 +2,7 @@
 
 <a id="testing-and-training-apparatus"></a>
 
-Last reviewed: 2026-11-27.
+Last reviewed: 2026-11-28.
 
 [MPLPB](MPLPB.md) · [Experimental Lab](EXPERIMENTAL_LAB.md)
 · [Component map](COMPONENT_MAP.md) · **[Authoritative Test Index](TEST_INDEX.md)**
@@ -40,9 +40,12 @@ stop and unscored output are separate outcomes. Preserve original keys and
 failures when a later source-checked assessment or prospective policy differs.
 Repeated executions and overlapping cases are not independent evidence.
 
-Citation checks establish exact correspondence to eligible source bytes.
-Independent historical accuracy and semantic adjudication require their own
-evaluations. Same-operator templates and scoring do not establish independent
+Citation validation checks exact correspondence to eligible source bytes at
+the cited revision. Native support proof checks whether those passages establish
+the claim under the reader's rules. Outside-world truth requires independent
+evidence. [What each check establishes](RESPONSIBILITY_BOUNDARIES.md#what-each-check-establishes)
+
+Same-operator templates and scoring do not establish independent
 preparation, blinding or outside-custodian assessment. Unperformed evaluations
 remain **NOT_RUN**.
 
@@ -52,8 +55,12 @@ Mitchell recruits twelve first-time participants and returns their uncoached
 observations. Both groups use identical engine, collection, tasks and interface;
 only entry documentation differs. Do not substitute simulated participants.
 The frozen arms remain unchanged; the new navigation is not silently substituted
-for either arm. Clean-install command checks verify instructions mechanically,
-not human usability. [New navigation verification](../evaluation/newcomer-navigation/README.md)
+for either arm. Clean-install commands and the browser walkthrough are software verification.
+For today's route, use a separately versioned onboarding study. After the
+documentation is stable, freeze its runtime pin, entry paths, tasks, assignment,
+scoring, custody and success criteria. Collect results from actual uncoached
+first-time users. The original twelve-person protocol remains **NOT_RUN**.
+[Retained software verification](../evaluation/newcomer-navigation/README.md)
 
 Testing and Evaluation owns this area, with Delivery for reproducible packages
 and coordination, Applications for UI checks, and Reader/Ledger for protected

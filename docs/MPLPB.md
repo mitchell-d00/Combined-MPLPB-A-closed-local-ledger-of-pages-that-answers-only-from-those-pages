@@ -1,8 +1,8 @@
 # MPLPB product — the usable artifact
 
-Last reviewed: 2026-11-27.
+Last reviewed: 2026-11-28.
 
-[Try MPLPB](../README.md#try-it-from-the-terminal) · [Installation](INSTALLATION.md)
+[Open browser app](https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/) · [Installation](INSTALLATION.md)
 · [Components](COMPONENT_MAP.md) · [Test Index](TEST_INDEX.md)
 
 MPLPB helps you keep documents, ask bounded questions, and inspect the passages
@@ -18,15 +18,26 @@ Scope: released user operations. Check [current status](CURRENT_STATUS.md) and
 
 ## Start
 
-Follow the [verified terminal quick start](../README.md#try-it-from-the-terminal)
-or open the browser example. The small native download contains the installed
+Follow the [browser walkthrough](../README.md#try-it-in-30-seconds) to ask and
+open a cited passage, or use the [verified terminal quick start](../README.md#try-it-from-the-terminal). The small native download contains the installed
 ledger, answer and work packages. The full source distribution adds the desktop
 launcher, examples, research and evaluation tools. Browser and desktop operation
 have different prerequisites: see [installation](INSTALLATION.md).
 
 ## How to add documents
 
-The quick start passes **plain text** to `--body` and metadata to command options;
+In the browser, select **Use my documents**, name the collection, and choose
+**Create MPLPB**. Give the source a title, paste plain text or load a UTF-8
+`.txt` or `.md` file, then choose **Import into selected MPLPB**. A public URL
+is optional when supplying text. Open **Review imported source** and select
+**Continue to Strict Ask** after checking the source.
+
+For a practice source, paste `Record-ID: WALK-201`, a blank line, and
+`Accession Date: 1895-04-18`. Ask **What is the accession date for record
+WALK-201?** and open the cited source. Asking for its shelf code yields
+**No supported answer**.
+
+The terminal quick start passes **plain text** to `--body` and metadata to command options;
 it requires no input-file header. For example, in an empty ledger directory:
 
 ```sh
@@ -44,13 +55,22 @@ for review. File import has its own preparation and admission rules; a sorter
 candidate is not verified answer evidence. Preserve originals and inspect the
 result before treating an imported page as an eligible source.
 
+The [retained museum walkthrough](../evaluation/newcomer-navigation/README.md)
+records a checked opening-time answer, its citation and the missing closing-time
+refusal. Its native module fingerprints were checked against main `c01021c`.
+The [browser walkthrough receipt](../evaluation/newcomer-navigation/browser-route-2026-11-28.json)
+records the supported, refusal and pasted-text browser checks.
+
 ## Inspect an answer's citations
 
 In the browser, inspect the supporting passage and source record shown with the
 answer. With the CLI, append `--json` and inspect `answer_contract.claims[].citations[]`: source
 identifier, hash, quoted text and coordinates. Check the complete sentence and
-its context, including reporting, conditions and negation. A matching quotation
-establishes correspondence to a source revision, not independent truth.
+its context, including reporting, conditions and negation. Citation validation
+checks that the quotation and coordinates match eligible source bytes at that
+revision. Native proof checks whether those passages support the claim under
+the reader's rules. Outside-world truth requires independent evidence.
+[What each check establishes](RESPONSIBILITY_BOUNDARIES.md#what-each-check-establishes)
 
 Stored records can carry work between sessions, but a session must retrieve the
 relevant records. Storage is not automatic awareness of your entire collection.
