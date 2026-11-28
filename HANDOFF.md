@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `8357a0ec3f67e398cbed552bf4f627489fa3eaaa` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `b77339a889cb50226ed7334f5f4c5686dc8ab36cc12d4e8e975b501151f3021b`.
+Base commit: `15ed32bd585644d7a640406a20193e5397e9c529` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `d28e22857ab0987e787465bde451827071f7b7a2a216b96cf30ef635f985f418`.
 
 ## Betty report for Al
 
@@ -13,25 +13,30 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Run it
+Let’s give her a new note
 
 ### Implemented scope
 
-- Applied Al note 0004 at 5cd0b2c042a6c6edeec564f55392a614b0b5a8fb. Heka disposition retains original grades. Athena, Hermes and Hephaestus form a separate lab checkpoint.
+- Al review step: publish note 0005 against merged main 15ed32bd and index the next bounded Hermes namespace experiment.
+- Review the specific missing namespace contrast and distinguish the worker's internal binding from an absent public receipt-import API.
+- Advice and map/coordination metadata only; no reader, bridge, controller, key, scorer, runtime or workflow changes.
 
 ### Validation recorded
 
-- Greek freeze 4a327ee771e8288e28aff05436229891e9c7cfe3; unchanged candidate selection 8357a0ec3f67e398cbed552bf4f627489fa3eaaa, before the first fresh run. Development 15/15, fresh 16/16 exact phases.
-- Each draw observed three intended updates, two durably recorded completions, one failed CAS preserving the competitor, and one indeterminate interruption. Hermes and the blocked cases made no writer attempts.
-- Regenerated both public operator packets byte-for-byte and verified both key seals and private archive readback.
+- Read PR 122 and its Greek contract/results, Heka bridge worker, current handoff and Gremlin open work. The report records 15/15 development and 16/16 first fresh phases on the unchanged bridge.
+- The results explicitly say an injected namespace mismatch was outside the packet; direct controller dry-writer probes are not integrated bridge evidence.
+- No new experiment was run for this review.
 
 ### Limitations and blocked checks
 
-- Shared operator and workspace custody. Authenticated host identity, external receipt provenance and production dispatch are outside the test. Prior evidence stays pinned to original bytes.
+- Hermes-02 is proposed. Host identity/provenance, malicious-host resistance, path alias equivalence, distributed recovery and cross-resource atomicity remain outside the measured boundary.
+- Greek draws are now consumed preservation; existing Heka diagnostic grades remain unchanged. Same-operator preparation and workspace custody do not establish independent evaluation or an off-workspace backup.
 
 ### Next steps
 
-- Verify the exact lab evidence head and publication. Reuse the exposed draws only as consumed preservation.
+- Betty acknowledges the published note revision and freezes the lab seam, matched development/fresh packets, expectations and scorer before execution.
+- Use real reader proof and Git readback at both targets; record authority, binding, effects and reservation state separately.
+- Push recoverable checkpoints and merge qualifying lab work after applicable checks under existing maintainer authorization; keep production dispatch inactive.
 
 ## Use this ZIP in your repository
 
