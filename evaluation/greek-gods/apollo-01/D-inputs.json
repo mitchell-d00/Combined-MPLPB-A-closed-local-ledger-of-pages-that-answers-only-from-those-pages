@@ -1,0 +1,132 @@
+{
+  "schema": "apollo01-packet-v1",
+  "draw": "D",
+  "cases": [
+    {
+      "id": "APOLLO-D-01",
+      "scenario": "valid",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Tess Rill.</p><p>Sima Nor reported that Del Voss wrote the garden inventory.</p>"
+        }
+      ],
+      "question": "In the report written by Tess Rill, which document did Sima Nor say Del Voss wrote?",
+      "obligation": {
+        "writer": "Tess Rill",
+        "reporter": "Sima Nor",
+        "author": "Del Voss",
+        "object": "the garden inventory",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "APOLLO-D-02",
+      "scenario": "changed-payload",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Tess Rill.</p><p>Sima Nor reported that Del Voss wrote the garden inventory.</p>"
+        }
+      ],
+      "question": "In the report written by Tess Rill, which document did Sima Nor say Del Voss wrote?",
+      "obligation": {
+        "writer": "Tess Rill",
+        "reporter": "Sima Nor",
+        "author": "Del Voss",
+        "object": "the garden inventory",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "APOLLO-D-03",
+      "scenario": "unknown-key",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Tess Rill.</p><p>Sima Nor reported that Del Voss wrote the garden inventory.</p>"
+        }
+      ],
+      "question": "In the report written by Tess Rill, which document did Sima Nor say Del Voss wrote?",
+      "obligation": {
+        "writer": "Tess Rill",
+        "reporter": "Sima Nor",
+        "author": "Del Voss",
+        "object": "the garden inventory",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "APOLLO-D-04",
+      "scenario": "retired-key",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Tess Rill.</p><p>Sima Nor reported that Del Voss wrote the garden inventory.</p>"
+        }
+      ],
+      "question": "In the report written by Tess Rill, which document did Sima Nor say Del Voss wrote?",
+      "obligation": {
+        "writer": "Tess Rill",
+        "reporter": "Sima Nor",
+        "author": "Del Voss",
+        "object": "the garden inventory",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "APOLLO-D-05",
+      "scenario": "wrong-namespace",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Tess Rill.</p><p>Sima Nor reported that Del Voss wrote the garden inventory.</p>"
+        }
+      ],
+      "question": "In the report written by Tess Rill, which document did Sima Nor say Del Voss wrote?",
+      "obligation": {
+        "writer": "Tess Rill",
+        "reporter": "Sima Nor",
+        "author": "Del Voss",
+        "object": "the garden inventory",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "APOLLO-D-06",
+      "scenario": "unsupported",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Tess Rill.</p><p>Sima Nor reported that Del Voss wrote the garden inventory.</p>"
+        }
+      ],
+      "question": "In the report written by Tess Rill, which document did Tara Glen say Del Voss wrote?",
+      "obligation": {
+        "writer": "Tess Rill",
+        "reporter": "Tara Glen",
+        "author": "Del Voss",
+        "object": "the garden inventory",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "APOLLO-D-07",
+      "scenario": "missing-grant",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Tess Rill.</p><p>Sima Nor reported that Del Voss wrote the garden inventory.</p>"
+        }
+      ],
+      "question": "In the report written by Tess Rill, which document did Sima Nor say Del Voss wrote?",
+      "obligation": {
+        "writer": "Tess Rill",
+        "reporter": "Sima Nor",
+        "author": "Del Voss",
+        "object": "the garden inventory",
+        "source_id": "NOTE-A"
+      }
+    }
+  ]
+}
