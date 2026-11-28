@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `fe56551c752bd8df3f1728ac8b11e0cb256c5cdc` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `685f5460ee1f9829e5fb55a390900a79e2a9c4f49c508252d2d85c9c27604413`.
+Base commit: `e90226354e509a7f1f3e73ce3845621d11aaf7c4` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `fe1df6d91472a9a21a21d140ca3adea691ff7514f8909acf2fb35b5793945c1e`.
 
 ## Betty report for Al
 
@@ -13,24 +13,23 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Apply Al notes 0008 and 0009 to the newcomer evidence route. Keep the original onboarding protocol, and merge the separate documentation PR when verified.
+Acknowledge note 0011 at 8df0aeeae765fc21eea4bc0020539ab79f20c74c. Recheck main and use 26621affeb487fb096a08acfc5bcdeb335760ad7 as the proposed baseline for a separate reader PR. Keep Git effects disconnected. Freeze independently worded development and fresh packets before changing the reader. Stop at the native result.
 
 ### Implemented scope
 
-- Read note 0008 at 97027f3f504de6e85f9e0d3e77af4fe504057ca7 and note 0009 at 5082c5d975ca41a2478ccb25576f3cfdf65b77f0. Separate documentation branch from verified Ares main.
+- Native source-attributed instruction and explicit same-directive date composition. Frozen 15 development and 15 first-fresh cases.
 
 ### Validation recorded
 
-- Chromium walked the supported demo to its exact source, refused a missing datum, then imported and reviewed synthetic pasted text and checked its citation and refusal. Managed Chromium HTTPS certificate setup failed first. The HTTPS-fetched bytes matched Ares Pages and passed from loopback.
-- Reconciled PR #106, #112, #126 and #127 status and kept the incident open. F05 remains a pinned Round 4 miss with no later exact-case result verified. Bastet results stay separate.
+- 5/15 baseline, 15/15 candidate development and first fresh. Each candidate draw yielded three complete answers, six checked partials, six expected withholds, and a successful withdrawal reread. All 114 focused preservation tests passed.
 
 ### Limitations and blocked checks
 
-- Software walkthrough only. Original twelve-person human onboarding remains NOT_RUN. Hestia and production dispatch are outside scope.
+- Closed date grammar, same-operator synthetic evaluation, no authenticated event or execution. Original PR #130 fresh and Git effects stay NOT_RUN. External private custody is unverified.
 
 ### Next steps
 
-- Verify candidate files and exact-head checks. Merge the documentation-only update and verify publication. Use a separately versioned future newcomer study.
+- Verify exact-head archive/software/browser checks and remote bytes. Verify deployment after a qualifying merge. A future Git-effects study requires its own freeze.
 
 ## Use this ZIP in your repository
 
