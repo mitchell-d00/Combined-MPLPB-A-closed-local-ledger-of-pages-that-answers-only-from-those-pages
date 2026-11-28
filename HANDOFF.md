@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `7b401a4d97b31c4185ce491e096917d1c1d9dc39` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `27f560d303d5434a3638d61a6f0883ff14e3fd98d1bdcf81dad52177328cb7e1`.
+Base commit: `241bee0f2301e69331db862f3cfd1ab49e59924a` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `9d3ad83cef0a37ea62919a5927c4633835a838d831ba81443fdd1de23f9609c5`.
 
 ## Betty report for Al
 
@@ -13,23 +13,23 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Run the next bounded FRUS repair and merge it if it qualifies. Recheck main and use draft PR #134 at aee8312b97cab51d6e81ca1d20fa42696c57fbd3 as the pinned diagnostic. Preserve its traces and the original 77-case baseline. Scope the repair to explicit document-to-document response identification. Pair it with the same question after d157 is withdrawn. Keep ranking unchanged. Freeze before editing. Verify Pages after merge and leave Al the freeze, candidate, tested head, merge and deployment pins.
+Betty, start ARIADNE-01 — FRUS subject-line identification. Acknowledge Al note 0014 at dcdcfd93fc4a3017f44b0d976ae7de2aad9f6986. Recheck main against verified #135 at 241bee0f2301e69331db862f3cfd1ab49e59924a. Use a separate reader PR or reconcile an existing sprint branch. You can begin the baseline readback and packet freeze while Al publishes note 0015. Acknowledge its exact commit when supplied. Use DIRECT-02 as consumed evidence. Under the original question and profile, verify the complete subject reference against exactly one eligible original memorandum, binding named writer, date, addressee, and topic to exact witnesses. Leave submission, receipt, agreement, and execution unresolved. Keep ranking unchanged. Freeze the baseline, grammar, source pins, independently worded development and separate held fresh cases, citation spans, scorer, budgets, and expected stopping stages before edits.
 
 ### Implemented scope
 
-- One original short dated memorandum response identification path. Exact current source evidence, target verification and display budget. Rankers and production dispatch unchanged.
+- ARIADNE-01 frozen rule and unchanged baseline. Read note 0014 at dcdcfd93 and note 0015 at 265f1f7e on PR #128.
 
 ### Validation recorded
 
-- Freeze fb915ba3. Initial development 9/12 with retained compound-surname failure. Candidate 7b401a4d development 12/12 and first fresh 5/5. Withdrawn d157 withheld at target verification. 114 focused tests passed. Prior 77 comparison changed only DIRECT-01.
+- Against released reader 241bee0f, all 21 frozen arms stopped at interpretation. Zero complete answers, claims or execution failures. The controls did not reach their required proof stages.
 
 ### Limitations and blocked checks
 
-- Same-operator synthetic fresh and local private custody. Two-link, ranking changes, older-runtime comparison, independent assessment and human onboarding remain parked.
+- Same-operator preparation and scoring. Evaluator keys, the held operator packet and reconstructible parameters are private. Independent historical accuracy and human assessment remain NOT_RUN.
 
 ### Next steps
 
-- Verify public remote readback and all exact-head checks before merge. Verify Pages and published native runtime after merge. Stop at this warranted narrow repair.
+- Implement the frozen native subject-reference rule, replay development and protection, pin a qualifying candidate before held evaluation, and verify remote evidence, exact-head checks and release. Keep ranking, DIRECT-03, two-link, UI, Chronos and production dispatch on separate tracks.
 
 ## Use this ZIP in your repository
 
