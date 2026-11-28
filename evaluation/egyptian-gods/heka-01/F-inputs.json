@@ -1,0 +1,186 @@
+{
+  "schema": "heka-packet-v1",
+  "draw": "F",
+  "cases": [
+    {
+      "id": "HEKA-F-01",
+      "scenario": "restart-interrupted",
+      "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Fara Linden</p><p>Uma Brooks stated that Evan Quill wrote the herbarium catalogue.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Fara Linden",
+        "reporter": "Uma Brooks",
+        "author": "Evan Quill",
+        "object": "the herbarium catalogue",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-F-02",
+      "scenario": "missing-grant",
+      "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Fara Linden</p><p>Uma Brooks stated that Evan Quill wrote the herbarium catalogue.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Fara Linden",
+        "reporter": "Uma Brooks",
+        "author": "Evan Quill",
+        "object": "the herbarium catalogue",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-F-03",
+      "scenario": "wrong-target",
+      "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Fara Linden</p><p>Uma Brooks stated that Evan Quill wrote the herbarium catalogue.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Fara Linden",
+        "reporter": "Uma Brooks",
+        "author": "Evan Quill",
+        "object": "the herbarium catalogue",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-F-04",
+      "scenario": "duplicate-writer",
+      "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Fara Linden</p><p>Uma Brooks stated that Evan Quill wrote the herbarium catalogue.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Fara Linden",
+        "reporter": "Uma Brooks",
+        "author": "Evan Quill",
+        "object": "the herbarium catalogue",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-F-05",
+      "scenario": "wrong-reporter",
+      "question": "Which document did Nola West report that Evan Quill wrote, in the document from Fara Linden?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Fara Linden</p><p>Uma Brooks stated that Evan Quill wrote the herbarium catalogue.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Fara Linden",
+        "reporter": "Nola West",
+        "author": "Evan Quill",
+        "object": "the herbarium catalogue",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-F-06",
+      "scenario": "unavailable-store",
+      "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Fara Linden</p><p>Uma Brooks stated that Evan Quill wrote the herbarium catalogue.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Fara Linden",
+        "reporter": "Uma Brooks",
+        "author": "Evan Quill",
+        "object": "the herbarium catalogue",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-F-07",
+      "scenario": "restart-failed",
+      "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Fara Linden</p><p>Uma Brooks stated that Evan Quill wrote the herbarium catalogue.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Fara Linden",
+        "reporter": "Uma Brooks",
+        "author": "Evan Quill",
+        "object": "the herbarium catalogue",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-F-08",
+      "scenario": "positive",
+      "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Fara Linden</p><p>Uma Brooks stated that Evan Quill wrote the herbarium catalogue.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Fara Linden",
+        "reporter": "Uma Brooks",
+        "author": "Evan Quill",
+        "object": "the herbarium catalogue",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-F-09",
+      "scenario": "unrelated-change",
+      "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Fara Linden</p><p>Uma Brooks stated that Evan Quill wrote the herbarium catalogue.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Fara Linden",
+        "reporter": "Uma Brooks",
+        "author": "Evan Quill",
+        "object": "the herbarium catalogue",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-F-10",
+      "scenario": "restart-completed",
+      "question": "Which document did Uma Brooks report that Evan Quill wrote, in the document from Fara Linden?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Fara Linden</p><p>Uma Brooks stated that Evan Quill wrote the herbarium catalogue.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Fara Linden",
+        "reporter": "Uma Brooks",
+        "author": "Evan Quill",
+        "object": "the herbarium catalogue",
+        "source_id": "NOTE-A"
+      }
+    }
+  ]
+}

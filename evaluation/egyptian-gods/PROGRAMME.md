@@ -62,6 +62,12 @@ each batch at its declared boundary. Preserve the first fresh score.
 Report wording, selection, proof and any actual code consolidation
 separately.
 
+## Heka-01
+
+[Heka-01](heka-01/README.md) measures evidence-to-effect composition in a
+disposable Git fixture. It reuses Bastet, the pinned canary and restart
+store. Keep its measured lab results separate from reader coverage.
+
 ## Custody and release
 
 Every packet contains only source records, the original question and

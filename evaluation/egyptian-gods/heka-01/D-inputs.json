@@ -1,0 +1,204 @@
+{
+  "schema": "heka-packet-v1",
+  "draw": "D",
+  "cases": [
+    {
+      "id": "HEKA-D-01",
+      "scenario": "positive",
+      "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Lena Moor.</p><p>Asha Corin reported that Oren Pelt wrote the gatehouse register.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Lena Moor",
+        "reporter": "Asha Corin",
+        "author": "Oren Pelt",
+        "object": "the gatehouse register",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-D-02",
+      "scenario": "wrong-reporter",
+      "question": "In the report written by Lena Moor, which document did Gita Tern say Oren Pelt wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Lena Moor.</p><p>Asha Corin reported that Oren Pelt wrote the gatehouse register.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Lena Moor",
+        "reporter": "Gita Tern",
+        "author": "Oren Pelt",
+        "object": "the gatehouse register",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-D-03",
+      "scenario": "duplicate-writer",
+      "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Lena Moor.</p><p>Asha Corin reported that Oren Pelt wrote the gatehouse register.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Lena Moor",
+        "reporter": "Asha Corin",
+        "author": "Oren Pelt",
+        "object": "the gatehouse register",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-D-04",
+      "scenario": "withdrawn",
+      "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Lena Moor.</p><p>Asha Corin reported that Oren Pelt wrote the gatehouse register.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Lena Moor",
+        "reporter": "Asha Corin",
+        "author": "Oren Pelt",
+        "object": "the gatehouse register",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-D-05",
+      "scenario": "revoked",
+      "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Lena Moor.</p><p>Asha Corin reported that Oren Pelt wrote the gatehouse register.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Lena Moor",
+        "reporter": "Asha Corin",
+        "author": "Oren Pelt",
+        "object": "the gatehouse register",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-D-06",
+      "scenario": "advice-only",
+      "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Lena Moor.</p><p>Asha Corin reported that Oren Pelt wrote the gatehouse register.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Lena Moor",
+        "reporter": "Asha Corin",
+        "author": "Oren Pelt",
+        "object": "the gatehouse register",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-D-07",
+      "scenario": "withdraw-between",
+      "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Lena Moor.</p><p>Asha Corin reported that Oren Pelt wrote the gatehouse register.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Lena Moor",
+        "reporter": "Asha Corin",
+        "author": "Oren Pelt",
+        "object": "the gatehouse register",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-D-08",
+      "scenario": "wrong-receipt",
+      "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Lena Moor.</p><p>Asha Corin reported that Oren Pelt wrote the gatehouse register.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Lena Moor",
+        "reporter": "Asha Corin",
+        "author": "Oren Pelt",
+        "object": "the gatehouse register",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-D-09",
+      "scenario": "restart-completed",
+      "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Lena Moor.</p><p>Asha Corin reported that Oren Pelt wrote the gatehouse register.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Lena Moor",
+        "reporter": "Asha Corin",
+        "author": "Oren Pelt",
+        "object": "the gatehouse register",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-D-10",
+      "scenario": "restart-failed",
+      "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Lena Moor.</p><p>Asha Corin reported that Oren Pelt wrote the gatehouse register.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Lena Moor",
+        "reporter": "Asha Corin",
+        "author": "Oren Pelt",
+        "object": "the gatehouse register",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "HEKA-D-11",
+      "scenario": "restart-interrupted",
+      "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>Written by Lena Moor.</p><p>Asha Corin reported that Oren Pelt wrote the gatehouse register.</p>"
+        }
+      ],
+      "obligation": {
+        "writer": "Lena Moor",
+        "reporter": "Asha Corin",
+        "author": "Oren Pelt",
+        "object": "the gatehouse register",
+        "source_id": "NOTE-A"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1125 @@
+{
+  "mode": "candidate",
+  "draw": "D",
+  "inputs_sha256": "cae7727262b340cd3b0baf7a4b56444f5853eb0a7cb272a8289030262d725230",
+  "cases": [
+    {
+      "id": "HEKA-D-01",
+      "phases": [
+        {
+          "pid": 58980,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/development/HEKA-D-01/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 1,
+          "writes": 1,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+            "obligation": {
+              "writer": "Lena Moor",
+              "reporter": "Asha Corin",
+              "author": "Oren Pelt",
+              "object": "the gatehouse register",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "8ac123fc9d554024c9b0149fe0a5dac05e9f1e3f8fcc886f1c139e8b60a712ec",
+            "proof": "b63907e51b65605dd9bd533b9010cdb6bb5976726a2a3cc31f949384937e5f7a",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/development/HEKA-D-01/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-be234e0ef6dabed6bd8cbcedd73ce91f4066d86406ddf157fb013f0e893d2ff9"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "workerReadback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "controller": {
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "heka-be234e0ef6dabed6bd8cbcedd73ce91f4066d86406ddf157fb013f0e893d2ff9"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "completed"
+          },
+          "code": "allowed",
+          "execution": "completed",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "completed"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-D-02",
+      "phases": [
+        {
+          "pid": 59030,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/development/HEKA-D-02/store"
+          },
+          "proof": "named_report_content_unresolved",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": null,
+          "code": "proof_incomplete",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-D-03",
+      "phases": [
+        {
+          "pid": 59069,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/development/HEKA-D-03/store"
+          },
+          "proof": "named_report_source_unresolved",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": null,
+          "code": "proof_incomplete",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-D-04",
+      "phases": [
+        {
+          "pid": 59108,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/development/HEKA-D-04/store"
+          },
+          "proof": "restricted_or_unavailable",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": null,
+          "code": "proof_incomplete",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-D-05",
+      "phases": [
+        {
+          "pid": 59147,
+          "authority": "revoked",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/development/HEKA-D-05/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+            "obligation": {
+              "writer": "Lena Moor",
+              "reporter": "Asha Corin",
+              "author": "Oren Pelt",
+              "object": "the gatehouse register",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "8ac123fc9d554024c9b0149fe0a5dac05e9f1e3f8fcc886f1c139e8b60a712ec",
+            "proof": "b63907e51b65605dd9bd533b9010cdb6bb5976726a2a3cc31f949384937e5f7a",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/development/HEKA-D-05/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-e84daccc828e984c0cf3fd837be0d891e14deafd91b3d337ee9d7844aaf84dc0"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "controller": {
+            "verdict": {
+              "decision": "withhold",
+              "code": "grant_revoked",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [],
+              "missing": [],
+              "scope": null
+            },
+            "execution": "not_run"
+          },
+          "code": "grant_revoked",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-D-06",
+      "phases": [
+        {
+          "pid": 59194,
+          "authority": "advice",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/development/HEKA-D-06/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+            "obligation": {
+              "writer": "Lena Moor",
+              "reporter": "Asha Corin",
+              "author": "Oren Pelt",
+              "object": "the gatehouse register",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "8ac123fc9d554024c9b0149fe0a5dac05e9f1e3f8fcc886f1c139e8b60a712ec",
+            "proof": "b63907e51b65605dd9bd533b9010cdb6bb5976726a2a3cc31f949384937e5f7a",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/development/HEKA-D-06/store"
+            }
+          },
+          "admission": {
+            "decision": "withhold",
+            "code": "not_authorized",
+            "selected": {
+              "report": "report-1",
+              "grant": null
+            },
+            "receiptIds": [],
+            "missing": [],
+            "scope": null
+          },
+          "code": "grant_missing",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-D-07",
+      "phases": [
+        {
+          "pid": 59238,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/development/HEKA-D-07/store"
+          },
+          "proof": "complete",
+          "recheck": "restricted_or_unavailable",
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+            "obligation": {
+              "writer": "Lena Moor",
+              "reporter": "Asha Corin",
+              "author": "Oren Pelt",
+              "object": "the gatehouse register",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "8ac123fc9d554024c9b0149fe0a5dac05e9f1e3f8fcc886f1c139e8b60a712ec",
+            "proof": "b63907e51b65605dd9bd533b9010cdb6bb5976726a2a3cc31f949384937e5f7a",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/development/HEKA-D-07/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-768ba490e946d0596f51c6cf06aee0d0cf358ee1c41164c03623795b600c125b"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "controller": {
+            "verdict": {
+              "decision": "missing_evidence",
+              "code": "missing_check",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [],
+              "missing": [
+                "canary-ready"
+              ],
+              "scope": null
+            },
+            "execution": "not_run"
+          },
+          "code": "evidence_changed",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-D-08",
+      "phases": [
+        {
+          "pid": 59286,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/development/HEKA-D-08/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+            "obligation": {
+              "writer": "Lena Moor",
+              "reporter": "Asha Corin",
+              "author": "Oren Pelt",
+              "object": "the gatehouse register",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "8ac123fc9d554024c9b0149fe0a5dac05e9f1e3f8fcc886f1c139e8b60a712ec",
+            "proof": "b63907e51b65605dd9bd533b9010cdb6bb5976726a2a3cc31f949384937e5f7a",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/development/HEKA-D-08/store"
+            }
+          },
+          "code": "receipt_binding_mismatch",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-D-09",
+      "phases": [
+        {
+          "pid": 59325,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/development/HEKA-D-09/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 1,
+          "writes": 1,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+            "obligation": {
+              "writer": "Lena Moor",
+              "reporter": "Asha Corin",
+              "author": "Oren Pelt",
+              "object": "the gatehouse register",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "8ac123fc9d554024c9b0149fe0a5dac05e9f1e3f8fcc886f1c139e8b60a712ec",
+            "proof": "b63907e51b65605dd9bd533b9010cdb6bb5976726a2a3cc31f949384937e5f7a",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/development/HEKA-D-09/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-8627121db5a3f34eda806c10ee8bf76fed013fa649e963806907e3ab701dcb2c"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "workerReadback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "controller": {
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "heka-8627121db5a3f34eda806c10ee8bf76fed013fa649e963806907e3ab701dcb2c"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "completed"
+          },
+          "code": "allowed",
+          "execution": "completed",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "completed"
+        },
+        {
+          "pid": 59348,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/development/HEKA-D-09/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+            "obligation": {
+              "writer": "Lena Moor",
+              "reporter": "Asha Corin",
+              "author": "Oren Pelt",
+              "object": "the gatehouse register",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "8ac123fc9d554024c9b0149fe0a5dac05e9f1e3f8fcc886f1c139e8b60a712ec",
+            "proof": "b63907e51b65605dd9bd533b9010cdb6bb5976726a2a3cc31f949384937e5f7a",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/development/HEKA-D-09/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-8627121db5a3f34eda806c10ee8bf76fed013fa649e963806907e3ab701dcb2c"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "completed",
+          "code": "duplicate_request",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "completed"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-D-10",
+      "phases": [
+        {
+          "pid": 59392,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/development/HEKA-D-10/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 1,
+          "writes": 0,
+          "competingWrites": 1,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+            "obligation": {
+              "writer": "Lena Moor",
+              "reporter": "Asha Corin",
+              "author": "Oren Pelt",
+              "object": "the gatehouse register",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "8ac123fc9d554024c9b0149fe0a5dac05e9f1e3f8fcc886f1c139e8b60a712ec",
+            "proof": "b63907e51b65605dd9bd533b9010cdb6bb5976726a2a3cc31f949384937e5f7a",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/development/HEKA-D-10/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-787f84a48b81b6ce712d65b43e38650e11585ea7e212dfefedc6ba2675a6f242"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "workerReadback": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "controller": {
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "heka-787f84a48b81b6ce712d65b43e38650e11585ea7e212dfefedc6ba2675a6f242"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "failed"
+          },
+          "code": "allowed",
+          "execution": "failed",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "ref": "competing",
+          "store": "failed"
+        },
+        {
+          "pid": 59416,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/development/HEKA-D-10/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+            "obligation": {
+              "writer": "Lena Moor",
+              "reporter": "Asha Corin",
+              "author": "Oren Pelt",
+              "object": "the gatehouse register",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "8ac123fc9d554024c9b0149fe0a5dac05e9f1e3f8fcc886f1c139e8b60a712ec",
+            "proof": "b63907e51b65605dd9bd533b9010cdb6bb5976726a2a3cc31f949384937e5f7a",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/development/HEKA-D-10/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-787f84a48b81b6ce712d65b43e38650e11585ea7e212dfefedc6ba2675a6f242"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "failed",
+          "code": "duplicate_request",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "readback": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "ref": "competing",
+          "store": "failed"
+        }
+      ]
+    },
+    {
+      "id": "HEKA-D-11",
+      "phases": [
+        {
+          "pid": 59460,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/development/HEKA-D-11/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 1,
+          "writes": 1,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+            "obligation": {
+              "writer": "Lena Moor",
+              "reporter": "Asha Corin",
+              "author": "Oren Pelt",
+              "object": "the gatehouse register",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "8ac123fc9d554024c9b0149fe0a5dac05e9f1e3f8fcc886f1c139e8b60a712ec",
+            "proof": "b63907e51b65605dd9bd533b9010cdb6bb5976726a2a3cc31f949384937e5f7a",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/development/HEKA-D-11/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-f2ee3ca0532482fd8cf95fba7d379d7693c566fc9c57229942cb2f5f33bdff88"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "workerReadback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "code": "interrupted",
+          "execution": "indeterminate",
+          "process": {
+            "code": 74,
+            "signal": null,
+            "completionReceipt": false
+          },
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "pending"
+        },
+        {
+          "pid": 59483,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/heka-01-custody/development/HEKA-D-11/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Lena Moor, which document did Asha Corin say Oren Pelt wrote?",
+            "obligation": {
+              "writer": "Lena Moor",
+              "reporter": "Asha Corin",
+              "author": "Oren Pelt",
+              "object": "the gatehouse register",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "8ac123fc9d554024c9b0149fe0a5dac05e9f1e3f8fcc886f1c139e8b60a712ec",
+            "proof": "b63907e51b65605dd9bd533b9010cdb6bb5976726a2a3cc31f949384937e5f7a",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/heka-01-custody/development/HEKA-D-11/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-f2ee3ca0532482fd8cf95fba7d379d7693c566fc9c57229942cb2f5f33bdff88"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "pending",
+          "code": "reservation_indeterminate",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "completionReceipt": true
+          },
+          "before": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "pending"
+        }
+      ]
+    }
+  ]
+}
