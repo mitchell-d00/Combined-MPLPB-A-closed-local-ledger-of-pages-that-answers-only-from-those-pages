@@ -1,0 +1,76 @@
+{
+  "schema": "hermes02-packet-v1",
+  "draw": "F",
+  "donor": "B",
+  "peer": "A",
+  "records": [
+    {
+      "id": "NOTE-A",
+      "body_html": "<p>From: Nora Thorne</p><p>Sam Cairn stated that Ada Keel wrote the kiln register.</p>"
+    }
+  ],
+  "question": "Which document did Sam Cairn report that Ada Keel wrote, in the document from Nora Thorne?",
+  "obligation": {
+    "writer": "Nora Thorne",
+    "reporter": "Sam Cairn",
+    "author": "Ada Keel",
+    "object": "the kiln register",
+    "source_id": "NOTE-A"
+  },
+  "phases": [
+    {
+      "id": "HERMES02-F-01",
+      "target": "B",
+      "binding": "local",
+      "authority": "grant"
+    },
+    {
+      "id": "HERMES02-F-02",
+      "target": "A",
+      "binding": "mutated",
+      "authority": "grant"
+    },
+    {
+      "id": "HERMES02-F-03",
+      "target": "A",
+      "binding": "local",
+      "authority": "revoke"
+    },
+    {
+      "id": "HERMES02-F-04",
+      "target": "A",
+      "binding": "foreign",
+      "authority": "grant"
+    },
+    {
+      "id": "HERMES02-F-05",
+      "target": "A",
+      "binding": "foreign",
+      "authority": "absent"
+    },
+    {
+      "id": "HERMES02-F-06",
+      "target": "A",
+      "binding": "local",
+      "authority": "absent"
+    },
+    {
+      "id": "HERMES02-F-07",
+      "target": "A",
+      "binding": "local",
+      "authority": "grant"
+    },
+    {
+      "id": "HERMES02-F-08",
+      "target": "B",
+      "binding": "repeat",
+      "authority": "grant"
+    },
+    {
+      "id": "HERMES02-F-09",
+      "target": "A",
+      "binding": "repeat",
+      "authority": "grant"
+    }
+  ]
+}

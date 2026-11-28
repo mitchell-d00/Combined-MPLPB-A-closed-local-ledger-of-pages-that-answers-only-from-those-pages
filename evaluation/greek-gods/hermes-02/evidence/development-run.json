@@ -1,0 +1,1204 @@
+{
+  "draw": "D",
+  "inputs_sha256": "8d0e3dca8a481ac3244c122bbaabcd47bee794d5ff88fed808e686b0a2827c95",
+  "bridge_sha256": "71711af1615a43f12f984331478e62f5eaf181eb68e21e2a310b4c91d5bd453a",
+  "targets": {
+    "A": {
+      "repo": "/workspace/hermes-02-custody/development/A/repo",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "ref": "refs/heads/canary",
+      "namespace": "/workspace/hermes-02-custody/development/A/store"
+    },
+    "B": {
+      "repo": "/workspace/hermes-02-custody/development/B/repo",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "ref": "refs/heads/canary",
+      "namespace": "/workspace/hermes-02-custody/development/B/store"
+    }
+  },
+  "initial": {
+    "A": {
+      "ref": {
+        "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "ref": "initial",
+        "marker": "initial"
+      },
+      "store": "unused",
+      "storeFiles": []
+    },
+    "B": {
+      "ref": {
+        "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "ref": "initial",
+        "marker": "initial"
+      },
+      "store": "unused",
+      "storeFiles": []
+    }
+  },
+  "phases": [
+    {
+      "id": "HERMES02-D-01",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        },
+        "B": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        }
+      },
+      "child_pid": 1274,
+      "binding_sha256": "afa7c2a96e87ed08f9dc7f28bbfbbebb19480901ef6d7ba034470d57a2655933",
+      "trace": {
+        "pid": 1274,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/development/A/store"
+        },
+        "proof": "complete",
+        "recheck": "complete",
+        "attempts": 1,
+        "writes": 1,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "In the report written by Eda Rill, which document did Pia Vale say Cal Snow wrote?",
+          "obligation": {
+            "writer": "Eda Rill",
+            "reporter": "Pia Vale",
+            "author": "Cal Snow",
+            "object": "the quarry inventory",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "3f31a4bbfb0dab91d3e3560e333c2d36e970df536032a9aff4c7188d178ba781",
+          "proof": "0871ede60e8c1a0563789cdf5538559bfe63cb506c1329890dc07cd4836a8537",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/development/A/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-afa7c2a96e87ed08f9dc7f28bbfbbebb19480901ef6d7ba034470d57a2655933"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "unused",
+        "workerReadback": {
+          "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "ref": "intended",
+          "marker": "intended"
+        },
+        "controller": {
+          "verdict": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-afa7c2a96e87ed08f9dc7f28bbfbbebb19480901ef6d7ba034470d57a2655933"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "execution": "completed"
+        },
+        "code": "allowed",
+        "execution": "completed"
+      }
+    },
+    {
+      "id": "HERMES02-D-02",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        }
+      },
+      "child_pid": 1301,
+      "binding_sha256": "afa7c2a96e87ed08f9dc7f28bbfbbebb19480901ef6d7ba034470d57a2655933",
+      "trace": {
+        "pid": 1301,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/development/B/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "In the report written by Eda Rill, which document did Pia Vale say Cal Snow wrote?",
+          "obligation": {
+            "writer": "Eda Rill",
+            "reporter": "Pia Vale",
+            "author": "Cal Snow",
+            "object": "the quarry inventory",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "3f31a4bbfb0dab91d3e3560e333c2d36e970df536032a9aff4c7188d178ba781",
+          "proof": "0871ede60e8c1a0563789cdf5538559bfe63cb506c1329890dc07cd4836a8537",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/development/A/store"
+          }
+        },
+        "code": "receipt_binding_mismatch",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "HERMES02-D-03",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        }
+      },
+      "child_pid": 1317,
+      "binding_sha256": "3c244de7b21af73d37d3af563e6ad9c00385e79344463f463e4c08d3facc0c53",
+      "trace": {
+        "pid": 1317,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/development/B/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "In the report written by Eda Rill, which document did Pia Vale say Cal Snow wrote?",
+          "obligation": {
+            "writer": "Eda Rill",
+            "reporter": "Pia Vale",
+            "author": "Cal Snow",
+            "object": "the quarry inventory",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "3f31a4bbfb0dab91d3e3560e333c2d36e970df536032a9aff4c7188d178ba781",
+          "proof": "0871ede60e8c1a0563789cdf5538559bfe63cb506c1329890dc07cd4836a8537",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/development/A/store-contrast"
+          }
+        },
+        "code": "receipt_binding_mismatch",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "HERMES02-D-04",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        }
+      },
+      "child_pid": 1333,
+      "binding_sha256": "afa7c2a96e87ed08f9dc7f28bbfbbebb19480901ef6d7ba034470d57a2655933",
+      "trace": {
+        "pid": 1333,
+        "authority": "absent",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/development/B/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "In the report written by Eda Rill, which document did Pia Vale say Cal Snow wrote?",
+          "obligation": {
+            "writer": "Eda Rill",
+            "reporter": "Pia Vale",
+            "author": "Cal Snow",
+            "object": "the quarry inventory",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "3f31a4bbfb0dab91d3e3560e333c2d36e970df536032a9aff4c7188d178ba781",
+          "proof": "0871ede60e8c1a0563789cdf5538559bfe63cb506c1329890dc07cd4836a8537",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/development/A/store"
+          }
+        },
+        "code": "receipt_binding_mismatch",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "HERMES02-D-05",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        }
+      },
+      "child_pid": 1349,
+      "binding_sha256": "276a40e7e75339a89c4edba871b7a5302a132f114c13bcc66851197ec3d038dc",
+      "trace": {
+        "pid": 1349,
+        "authority": "absent",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/development/B/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "In the report written by Eda Rill, which document did Pia Vale say Cal Snow wrote?",
+          "obligation": {
+            "writer": "Eda Rill",
+            "reporter": "Pia Vale",
+            "author": "Cal Snow",
+            "object": "the quarry inventory",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "3f31a4bbfb0dab91d3e3560e333c2d36e970df536032a9aff4c7188d178ba781",
+          "proof": "0871ede60e8c1a0563789cdf5538559bfe63cb506c1329890dc07cd4836a8537",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/development/B/store"
+          }
+        },
+        "admission": {
+          "decision": "withhold",
+          "code": "not_authorized",
+          "selected": {
+            "report": "report-1",
+            "grant": null
+          },
+          "receiptIds": [],
+          "missing": [],
+          "scope": null
+        },
+        "code": "grant_missing",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "HERMES02-D-06",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        }
+      },
+      "child_pid": 1370,
+      "binding_sha256": "276a40e7e75339a89c4edba871b7a5302a132f114c13bcc66851197ec3d038dc",
+      "trace": {
+        "pid": 1370,
+        "authority": "revoked",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/development/B/store"
+        },
+        "proof": "complete",
+        "recheck": "complete",
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "In the report written by Eda Rill, which document did Pia Vale say Cal Snow wrote?",
+          "obligation": {
+            "writer": "Eda Rill",
+            "reporter": "Pia Vale",
+            "author": "Cal Snow",
+            "object": "the quarry inventory",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "3f31a4bbfb0dab91d3e3560e333c2d36e970df536032a9aff4c7188d178ba781",
+          "proof": "0871ede60e8c1a0563789cdf5538559bfe63cb506c1329890dc07cd4836a8537",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/development/B/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-276a40e7e75339a89c4edba871b7a5302a132f114c13bcc66851197ec3d038dc"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "unused",
+        "controller": {
+          "verdict": {
+            "decision": "withhold",
+            "code": "grant_revoked",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [],
+            "missing": [],
+            "scope": null
+          },
+          "execution": "not_run"
+        },
+        "code": "grant_revoked",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "HERMES02-D-07",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "child_pid": 1394,
+      "binding_sha256": "276a40e7e75339a89c4edba871b7a5302a132f114c13bcc66851197ec3d038dc",
+      "trace": {
+        "pid": 1394,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/development/B/store"
+        },
+        "proof": "complete",
+        "recheck": "complete",
+        "attempts": 1,
+        "writes": 1,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "In the report written by Eda Rill, which document did Pia Vale say Cal Snow wrote?",
+          "obligation": {
+            "writer": "Eda Rill",
+            "reporter": "Pia Vale",
+            "author": "Cal Snow",
+            "object": "the quarry inventory",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "3f31a4bbfb0dab91d3e3560e333c2d36e970df536032a9aff4c7188d178ba781",
+          "proof": "0871ede60e8c1a0563789cdf5538559bfe63cb506c1329890dc07cd4836a8537",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/development/B/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-276a40e7e75339a89c4edba871b7a5302a132f114c13bcc66851197ec3d038dc"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "unused",
+        "workerReadback": {
+          "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "ref": "intended",
+          "marker": "intended"
+        },
+        "controller": {
+          "verdict": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-276a40e7e75339a89c4edba871b7a5302a132f114c13bcc66851197ec3d038dc"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "execution": "completed"
+        },
+        "code": "allowed",
+        "execution": "completed"
+      }
+    },
+    {
+      "id": "HERMES02-D-08",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "child_pid": 1421,
+      "binding_sha256": "afa7c2a96e87ed08f9dc7f28bbfbbebb19480901ef6d7ba034470d57a2655933",
+      "trace": {
+        "pid": 1421,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/development/A/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "In the report written by Eda Rill, which document did Pia Vale say Cal Snow wrote?",
+          "obligation": {
+            "writer": "Eda Rill",
+            "reporter": "Pia Vale",
+            "author": "Cal Snow",
+            "object": "the quarry inventory",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "3f31a4bbfb0dab91d3e3560e333c2d36e970df536032a9aff4c7188d178ba781",
+          "proof": "0871ede60e8c1a0563789cdf5538559bfe63cb506c1329890dc07cd4836a8537",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/development/A/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-afa7c2a96e87ed08f9dc7f28bbfbbebb19480901ef6d7ba034470d57a2655933"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "completed",
+        "code": "duplicate_request",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "HERMES02-D-09",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "child_pid": 1442,
+      "binding_sha256": "276a40e7e75339a89c4edba871b7a5302a132f114c13bcc66851197ec3d038dc",
+      "trace": {
+        "pid": 1442,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/development/B/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "In the report written by Eda Rill, which document did Pia Vale say Cal Snow wrote?",
+          "obligation": {
+            "writer": "Eda Rill",
+            "reporter": "Pia Vale",
+            "author": "Cal Snow",
+            "object": "the quarry inventory",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "3f31a4bbfb0dab91d3e3560e333c2d36e970df536032a9aff4c7188d178ba781",
+          "proof": "0871ede60e8c1a0563789cdf5538559bfe63cb506c1329890dc07cd4836a8537",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/development/B/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-276a40e7e75339a89c4edba871b7a5302a132f114c13bcc66851197ec3d038dc"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "completed",
+        "code": "duplicate_request",
+        "execution": "not_run"
+      }
+    }
+  ]
+}

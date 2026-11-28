@@ -205,6 +205,12 @@ family receipts. [Bastet results](../evaluation/egyptian-gods/bastet/SELECTION_R
 measure named-document selection and report attribution separately, with
 the first fresh score and preservation retained.
 
+## Hermes-02 namespace-bound receipt I/O
+
+[Hermes-02](../evaluation/greek-gods/hermes-02/README.md) matched 9/9 development and
+9/9 first-fresh phases. Each draw accepted two authorized local writes
+and blocked every foreign, mutated, denied or consumed request before Git.
+
 ## Greek evidence-to-effect sprint
 
 [Athena, Hermes and Hephaestus](../evaluation/greek-gods/README.md)

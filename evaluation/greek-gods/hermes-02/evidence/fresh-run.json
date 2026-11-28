@@ -1,0 +1,1204 @@
+{
+  "draw": "F",
+  "inputs_sha256": "3f4552328cfd3521aa0ef99868b53b38d2b82ca14da80efd3f53351b73f56f74",
+  "bridge_sha256": "71711af1615a43f12f984331478e62f5eaf181eb68e21e2a310b4c91d5bd453a",
+  "targets": {
+    "A": {
+      "repo": "/workspace/hermes-02-custody/fresh/A/repo",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "ref": "refs/heads/canary",
+      "namespace": "/workspace/hermes-02-custody/fresh/A/store"
+    },
+    "B": {
+      "repo": "/workspace/hermes-02-custody/fresh/B/repo",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "ref": "refs/heads/canary",
+      "namespace": "/workspace/hermes-02-custody/fresh/B/store"
+    }
+  },
+  "initial": {
+    "A": {
+      "ref": {
+        "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "ref": "initial",
+        "marker": "initial"
+      },
+      "store": "unused",
+      "storeFiles": []
+    },
+    "B": {
+      "ref": {
+        "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "ref": "initial",
+        "marker": "initial"
+      },
+      "store": "unused",
+      "storeFiles": []
+    }
+  },
+  "phases": [
+    {
+      "id": "HERMES02-F-01",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        },
+        "B": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "child_pid": 1745,
+      "binding_sha256": "aa1a4ed13d2343e7e2c5815d73625a03ad28f079efab3e7b22ca85b4df8a5cab",
+      "trace": {
+        "pid": 1745,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/fresh/B/store"
+        },
+        "proof": "complete",
+        "recheck": "complete",
+        "attempts": 1,
+        "writes": 1,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "Which document did Sam Cairn report that Ada Keel wrote, in the document from Nora Thorne?",
+          "obligation": {
+            "writer": "Nora Thorne",
+            "reporter": "Sam Cairn",
+            "author": "Ada Keel",
+            "object": "the kiln register",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "bab4165a16e3a1a105681e4f9324f132dd4df10fa9052b81b6f389130cb0d082",
+          "proof": "c2ef70b405fda9da56d1555a766e4804ea8436db1271ded68c53d009d80f8ea0",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/fresh/B/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-aa1a4ed13d2343e7e2c5815d73625a03ad28f079efab3e7b22ca85b4df8a5cab"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "unused",
+        "workerReadback": {
+          "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "ref": "intended",
+          "marker": "intended"
+        },
+        "controller": {
+          "verdict": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-aa1a4ed13d2343e7e2c5815d73625a03ad28f079efab3e7b22ca85b4df8a5cab"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "execution": "completed"
+        },
+        "code": "allowed",
+        "execution": "completed"
+      }
+    },
+    {
+      "id": "HERMES02-F-02",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "child_pid": 1772,
+      "binding_sha256": "c0510a6440048ad7959cb11745fc11d0010e74ff67f88e3cfc2e8283f021cd2f",
+      "trace": {
+        "pid": 1772,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/fresh/A/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "Which document did Sam Cairn report that Ada Keel wrote, in the document from Nora Thorne?",
+          "obligation": {
+            "writer": "Nora Thorne",
+            "reporter": "Sam Cairn",
+            "author": "Ada Keel",
+            "object": "the kiln register",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "bab4165a16e3a1a105681e4f9324f132dd4df10fa9052b81b6f389130cb0d082",
+          "proof": "c2ef70b405fda9da56d1555a766e4804ea8436db1271ded68c53d009d80f8ea0",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/fresh/B/store-contrast"
+          }
+        },
+        "code": "receipt_binding_mismatch",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "HERMES02-F-03",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "child_pid": 1788,
+      "binding_sha256": "4c8073509a22e6ffe173a56022c3990db517674c595f5f2c2ad315789b930da0",
+      "trace": {
+        "pid": 1788,
+        "authority": "revoked",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/fresh/A/store"
+        },
+        "proof": "complete",
+        "recheck": "complete",
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "Which document did Sam Cairn report that Ada Keel wrote, in the document from Nora Thorne?",
+          "obligation": {
+            "writer": "Nora Thorne",
+            "reporter": "Sam Cairn",
+            "author": "Ada Keel",
+            "object": "the kiln register",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "bab4165a16e3a1a105681e4f9324f132dd4df10fa9052b81b6f389130cb0d082",
+          "proof": "c2ef70b405fda9da56d1555a766e4804ea8436db1271ded68c53d009d80f8ea0",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/fresh/A/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-4c8073509a22e6ffe173a56022c3990db517674c595f5f2c2ad315789b930da0"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "unused",
+        "controller": {
+          "verdict": {
+            "decision": "withhold",
+            "code": "grant_revoked",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [],
+            "missing": [],
+            "scope": null
+          },
+          "execution": "not_run"
+        },
+        "code": "grant_revoked",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "HERMES02-F-04",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "child_pid": 1812,
+      "binding_sha256": "aa1a4ed13d2343e7e2c5815d73625a03ad28f079efab3e7b22ca85b4df8a5cab",
+      "trace": {
+        "pid": 1812,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/fresh/A/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "Which document did Sam Cairn report that Ada Keel wrote, in the document from Nora Thorne?",
+          "obligation": {
+            "writer": "Nora Thorne",
+            "reporter": "Sam Cairn",
+            "author": "Ada Keel",
+            "object": "the kiln register",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "bab4165a16e3a1a105681e4f9324f132dd4df10fa9052b81b6f389130cb0d082",
+          "proof": "c2ef70b405fda9da56d1555a766e4804ea8436db1271ded68c53d009d80f8ea0",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/fresh/B/store"
+          }
+        },
+        "code": "receipt_binding_mismatch",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "HERMES02-F-05",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "child_pid": 1828,
+      "binding_sha256": "aa1a4ed13d2343e7e2c5815d73625a03ad28f079efab3e7b22ca85b4df8a5cab",
+      "trace": {
+        "pid": 1828,
+        "authority": "absent",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/fresh/A/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "Which document did Sam Cairn report that Ada Keel wrote, in the document from Nora Thorne?",
+          "obligation": {
+            "writer": "Nora Thorne",
+            "reporter": "Sam Cairn",
+            "author": "Ada Keel",
+            "object": "the kiln register",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "bab4165a16e3a1a105681e4f9324f132dd4df10fa9052b81b6f389130cb0d082",
+          "proof": "c2ef70b405fda9da56d1555a766e4804ea8436db1271ded68c53d009d80f8ea0",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/fresh/B/store"
+          }
+        },
+        "code": "receipt_binding_mismatch",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "HERMES02-F-06",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "child_pid": 1844,
+      "binding_sha256": "4c8073509a22e6ffe173a56022c3990db517674c595f5f2c2ad315789b930da0",
+      "trace": {
+        "pid": 1844,
+        "authority": "absent",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/fresh/A/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "Which document did Sam Cairn report that Ada Keel wrote, in the document from Nora Thorne?",
+          "obligation": {
+            "writer": "Nora Thorne",
+            "reporter": "Sam Cairn",
+            "author": "Ada Keel",
+            "object": "the kiln register",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "bab4165a16e3a1a105681e4f9324f132dd4df10fa9052b81b6f389130cb0d082",
+          "proof": "c2ef70b405fda9da56d1555a766e4804ea8436db1271ded68c53d009d80f8ea0",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/fresh/A/store"
+          }
+        },
+        "admission": {
+          "decision": "withhold",
+          "code": "not_authorized",
+          "selected": {
+            "report": "report-1",
+            "grant": null
+          },
+          "receiptIds": [],
+          "missing": [],
+          "scope": null
+        },
+        "code": "grant_missing",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "HERMES02-F-07",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "store": "unused",
+          "storeFiles": []
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "child_pid": 1865,
+      "binding_sha256": "4c8073509a22e6ffe173a56022c3990db517674c595f5f2c2ad315789b930da0",
+      "trace": {
+        "pid": 1865,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/fresh/A/store"
+        },
+        "proof": "complete",
+        "recheck": "complete",
+        "attempts": 1,
+        "writes": 1,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "Which document did Sam Cairn report that Ada Keel wrote, in the document from Nora Thorne?",
+          "obligation": {
+            "writer": "Nora Thorne",
+            "reporter": "Sam Cairn",
+            "author": "Ada Keel",
+            "object": "the kiln register",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "bab4165a16e3a1a105681e4f9324f132dd4df10fa9052b81b6f389130cb0d082",
+          "proof": "c2ef70b405fda9da56d1555a766e4804ea8436db1271ded68c53d009d80f8ea0",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/fresh/A/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-4c8073509a22e6ffe173a56022c3990db517674c595f5f2c2ad315789b930da0"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "unused",
+        "workerReadback": {
+          "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "ref": "intended",
+          "marker": "intended"
+        },
+        "controller": {
+          "verdict": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-4c8073509a22e6ffe173a56022c3990db517674c595f5f2c2ad315789b930da0"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "execution": "completed"
+        },
+        "code": "allowed",
+        "execution": "completed"
+      }
+    },
+    {
+      "id": "HERMES02-F-08",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "child_pid": 1892,
+      "binding_sha256": "aa1a4ed13d2343e7e2c5815d73625a03ad28f079efab3e7b22ca85b4df8a5cab",
+      "trace": {
+        "pid": 1892,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/fresh/B/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "Which document did Sam Cairn report that Ada Keel wrote, in the document from Nora Thorne?",
+          "obligation": {
+            "writer": "Nora Thorne",
+            "reporter": "Sam Cairn",
+            "author": "Ada Keel",
+            "object": "the kiln register",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "bab4165a16e3a1a105681e4f9324f132dd4df10fa9052b81b6f389130cb0d082",
+          "proof": "c2ef70b405fda9da56d1555a766e4804ea8436db1271ded68c53d009d80f8ea0",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/fresh/B/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-aa1a4ed13d2343e7e2c5815d73625a03ad28f079efab3e7b22ca85b4df8a5cab"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "completed",
+        "code": "duplicate_request",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "HERMES02-F-09",
+      "before": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "after": {
+        "A": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        },
+        "B": {
+          "ref": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "store": "completed",
+          "storeFiles": [
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+              null
+            ],
+            [
+              "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json",
+              "4680477f6faf0ddea3c4820e73edbf00ca499dc8f344378359998e6b23bc502d"
+            ]
+          ]
+        }
+      },
+      "child_pid": 1913,
+      "binding_sha256": "4c8073509a22e6ffe173a56022c3990db517674c595f5f2c2ad315789b930da0",
+      "trace": {
+        "pid": 1913,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/hermes-02-custody/fresh/A/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "15ed32bd585644d7a640406a20193e5397e9c529",
+          "question": "Which document did Sam Cairn report that Ada Keel wrote, in the document from Nora Thorne?",
+          "obligation": {
+            "writer": "Nora Thorne",
+            "reporter": "Sam Cairn",
+            "author": "Ada Keel",
+            "object": "the kiln register",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "bab4165a16e3a1a105681e4f9324f132dd4df10fa9052b81b6f389130cb0d082",
+          "proof": "c2ef70b405fda9da56d1555a766e4804ea8436db1271ded68c53d009d80f8ea0",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/hermes-02-custody/fresh/A/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-4c8073509a22e6ffe173a56022c3990db517674c595f5f2c2ad315789b930da0"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "completed",
+        "code": "duplicate_request",
+        "execution": "not_run"
+      }
+    }
+  ]
+}
