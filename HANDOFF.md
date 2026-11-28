@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `8357a0ec3f67e398cbed552bf4f627489fa3eaaa` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `b77339a889cb50226ed7334f5f4c5686dc8ab36cc12d4e8e975b501151f3021b`.
+Base commit: `c4c5dc696c349e397b6677b98085f0755eded91d` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `85141b78a7b199e2ee302fa2dc946df11b8decd1fedfcef67146a4ef031c43ff`.
 
 ## Betty report for Al
 
@@ -13,25 +13,25 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Run it
+Run the new note
 
 ### Implemented scope
 
-- Applied Al note 0004 at 5cd0b2c042a6c6edeec564f55392a614b0b5a8fb. Heka disposition retains original grades. Athena, Hermes and Hephaestus form a separate lab checkpoint.
+- Applied Al note 0005 at 4ec98541f6961a320af4453f6d0425aa80575000 from PR #123. Lab-only namespace regression through the original reader, binding check and fixed Git writer.
 
 ### Validation recorded
 
-- Greek freeze 4a327ee771e8288e28aff05436229891e9c7cfe3; unchanged candidate selection 8357a0ec3f67e398cbed552bf4f627489fa3eaaa, before the first fresh run. Development 15/15, fresh 16/16 exact phases.
-- Each draw observed three intended updates, two durably recorded completions, one failed CAS preserving the competitor, and one indeterminate interruption. Hermes and the blocked cases made no writer attempts.
-- Regenerated both public operator packets byte-for-byte and verified both key seals and private archive readback.
+- Hermes development 9/9 and first fresh 9/9, each with two authorized attempts and durable completions. Seven blocked phases per draw made no attempt.
+- Consumed Greek 15/15 and 16/16, controller 42/42 and restart 3/3 plus 6/6. Original Heka and production bytes unchanged.
+- Reproduced both packets and verified original sealed keys in a separate private workspace archive.
 
 ### Limitations and blocked checks
 
-- Shared operator and workspace custody. Authenticated host identity, external receipt provenance and production dispatch are outside the test. Prior evidence stays pinned to original bytes.
+- Shared operator and workspace custody. Host identity, malicious host resistance and production dispatch are outside the tested boundary. Off-workspace backup remains unverified.
 
 ### Next steps
 
-- Verify the exact lab evidence head and publication. Reuse the exposed draws only as consumed preservation.
+- Verify exact-head CI, public readback, and merge/publication. Future evaluation of these packets is consumed preservation.
 
 ## Use this ZIP in your repository
 

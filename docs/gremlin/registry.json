@@ -341,6 +341,24 @@
         "evaluation/greek-gods/README.md"
       ],
       "note": "Athena, Hermes and Hephaestus frozen results. Shared host assumptions retained."
+    },
+    {
+      "id": "hermes-02",
+      "label": "Hermes namespace-bound receipt lab",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "lab-only",
+      "paths": [
+        "evaluation/greek-gods/hermes-02"
+      ],
+      "evidence": [
+        "evaluation/greek-gods/hermes-02/README.md",
+        "evaluation/greek-gods/hermes-02/freeze.json"
+      ],
+      "note": "Measured namespace-only contrasts and independent repository/store readback."
     }
   ],
   "relations": [
@@ -546,6 +564,16 @@
         "evaluation/greek-gods/run.mjs"
       ],
       "note": "The integrated lane uses the pinned unchanged Heka bridge."
+    },
+    {
+      "from": "hermes-02",
+      "to": "heka-01",
+      "kind": "depends_on",
+      "basis": "source",
+      "evidence": [
+        "evaluation/greek-gods/hermes-02/seam.mjs"
+      ],
+      "note": "Lab operand seam uses the unchanged Heka comparison and writer."
     }
   ],
   "open_work": [
@@ -602,6 +630,16 @@
       "revisit_when": "A new lease, fencing, signature, graph or image feature is planned.",
       "evidence": [
         "docs/departments/components.json"
+      ]
+    },
+    {
+      "id": "hermes-namespace",
+      "component": "workflow-controller",
+      "question": "Greek Hermes attested the binding namespace but omitted an injected mismatch. The current worker constructs receipts internally; a lab seam must be declared before namespace replay is tested.",
+      "revisit_when": "Hermes-02 freezes or executes a real-reader/real-Git namespace contrast; preserve the distinction from dry-writer probes.",
+      "evidence": [
+        "evaluation/greek-gods/README.md",
+        "handoff/al-notes/0005-hermes-namespace-binding.md"
       ]
     }
   ]

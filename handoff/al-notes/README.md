@@ -1,6 +1,6 @@
 # Al Notes: versioned repository relay
 
-Last reviewed: 2026-11-27.
+Last reviewed: 2026-11-28.
 
 This is the canonical Al-note set for this repository. Mitchell authorized
 repository notes to replace the manual copy-paste relay. The first example is
@@ -62,3 +62,7 @@ and note path for the durable cross-session relay.
 retains its original publication pin. [Note 0004](0004-heka-diagnostic-disposition.md)
 addresses the held Heka-01 diagnostic differences; it records advice rather than
 a new implementation or a changed score.
+
+[Note 0005](0005-hermes-namespace-binding.md) proposes the specific Hermes-02
+namespace-binding contrast omitted from the first Greek packet. It is advice;
+no namespace-injection outcome is asserted before that experiment runs.
