@@ -1,0 +1,520 @@
+{
+  "draw": "F",
+  "inputs_sha256": "7041411872a0612c07acad757ad95790618d2f6f8026376539fde6a98d5da8cc",
+  "trust_sha256": "814b1a4690e866dac347b7647fde3da3baced995d32a2275dd7258f6bc2a4f71",
+  "cases": [
+    {
+      "id": "APOLLO-F-01",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "producer_pid": 8728,
+      "payload_sha256": "bf9b364cda09ddff47d26d23899b2c6551d9006162dfb8509e3ad657e3859c11",
+      "outcome": {
+        "producer": "retired",
+        "signature_valid": true,
+        "proof": "complete",
+        "authority": "grant",
+        "binding": "unreached",
+        "initial_admission": null,
+        "final_admission": null,
+        "code": "producer_not_active",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "trace": null
+    },
+    {
+      "id": "APOLLO-F-02",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "producer_pid": 8768,
+      "payload_sha256": "83f11340bfadf520044967cfd14e4ede8062472cdc347ac376d9ddb4136317a1",
+      "outcome": {
+        "producer": "active",
+        "signature_valid": true,
+        "proof": "complete",
+        "authority": "grant",
+        "binding": "matched",
+        "initial_admission": "allow",
+        "final_admission": "allow",
+        "code": "allowed",
+        "attempts": 1,
+        "writes": 1,
+        "execution": "completed",
+        "marker": "intended",
+        "store": "completed"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "ref": "intended",
+          "marker": "intended"
+        },
+        "store": "completed",
+        "reservation_files": [
+          "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+          "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json"
+        ]
+      },
+      "trace": {
+        "pid": 8777,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/apollo-01-custody/fresh/APOLLO-F-02/store"
+        },
+        "proof": "complete",
+        "recheck": "complete",
+        "attempts": 1,
+        "writes": 1,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "e34d20cca4d5e96ed08e40d785c9a9e8eb707f06",
+          "question": "Which document did Maris Holt report that Emil Senn wrote, in the document from Ona Pike?",
+          "obligation": {
+            "writer": "Ona Pike",
+            "reporter": "Maris Holt",
+            "author": "Emil Senn",
+            "object": "the river catalogue",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "3c180da9e33140190d9e97141ae9689191d49fede1c45b867061725ce0bc8f94",
+          "proof": "2788bba59bbd06080e915d8ad18bcd9ad3d2c1cc5ce9d0fbdceaf8428d0b8c05",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/apollo-01-custody/fresh/APOLLO-F-02/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-ce07558ad3f31e4338d84c58d558d0869a292f49a9c60b1023a96a02acd99917"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "unused",
+        "workerReadback": {
+          "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "ref": "intended",
+          "marker": "intended"
+        },
+        "controller": {
+          "verdict": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-ce07558ad3f31e4338d84c58d558d0869a292f49a9c60b1023a96a02acd99917"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "execution": "completed"
+        },
+        "code": "allowed",
+        "execution": "completed"
+      }
+    },
+    {
+      "id": "APOLLO-F-03",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "producer_pid": 8827,
+      "payload_sha256": "d4e4894db5f31f8b26962721830fda5142881a7c714d23f5e18a6d611eff89b3",
+      "outcome": {
+        "producer": "active",
+        "signature_valid": true,
+        "proof": "named_report_content_unresolved",
+        "authority": "grant",
+        "binding": "unreached",
+        "initial_admission": null,
+        "final_admission": null,
+        "code": "proof_incomplete",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "trace": {
+        "pid": 8836,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/apollo-01-custody/fresh/APOLLO-F-03/store"
+        },
+        "proof": "named_report_content_unresolved",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": null,
+        "code": "proof_incomplete",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "APOLLO-F-04",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "producer_pid": 8875,
+      "payload_sha256": "6b7d4f28c0b2ce694a1a30f5d254f36e71ff527d3ae38c1577b14cdebebb9353",
+      "outcome": {
+        "producer": "active",
+        "signature_valid": true,
+        "proof": "complete",
+        "authority": "grant",
+        "binding": "mismatch",
+        "initial_admission": null,
+        "final_admission": null,
+        "code": "receipt_binding_mismatch",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "trace": {
+        "pid": 8884,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/apollo-01-custody/fresh/APOLLO-F-04/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "e34d20cca4d5e96ed08e40d785c9a9e8eb707f06",
+          "question": "Which document did Maris Holt report that Emil Senn wrote, in the document from Ona Pike?",
+          "obligation": {
+            "writer": "Ona Pike",
+            "reporter": "Maris Holt",
+            "author": "Emil Senn",
+            "object": "the river catalogue",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "3c180da9e33140190d9e97141ae9689191d49fede1c45b867061725ce0bc8f94",
+          "proof": "2788bba59bbd06080e915d8ad18bcd9ad3d2c1cc5ce9d0fbdceaf8428d0b8c05",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/apollo-01-custody/fresh/APOLLO-F-04/store"
+          }
+        },
+        "code": "receipt_binding_mismatch",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "APOLLO-F-05",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "producer_pid": 8923,
+      "payload_sha256": "bbd5f9f93d62619c62a35eb31a92a2f789058f0c16f5dc877f0e87a001e2b9ca",
+      "outcome": {
+        "producer": "active",
+        "signature_valid": true,
+        "proof": "complete",
+        "authority": "absent",
+        "binding": "matched",
+        "initial_admission": "withhold",
+        "final_admission": null,
+        "code": "grant_missing",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "trace": {
+        "pid": 8932,
+        "authority": "absent",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/apollo-01-custody/fresh/APOLLO-F-05/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "e34d20cca4d5e96ed08e40d785c9a9e8eb707f06",
+          "question": "Which document did Maris Holt report that Emil Senn wrote, in the document from Ona Pike?",
+          "obligation": {
+            "writer": "Ona Pike",
+            "reporter": "Maris Holt",
+            "author": "Emil Senn",
+            "object": "the river catalogue",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "3c180da9e33140190d9e97141ae9689191d49fede1c45b867061725ce0bc8f94",
+          "proof": "2788bba59bbd06080e915d8ad18bcd9ad3d2c1cc5ce9d0fbdceaf8428d0b8c05",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/apollo-01-custody/fresh/APOLLO-F-05/store"
+          }
+        },
+        "admission": {
+          "decision": "withhold",
+          "code": "not_authorized",
+          "selected": {
+            "report": "report-1",
+            "grant": null
+          },
+          "receiptIds": [],
+          "missing": [],
+          "scope": null
+        },
+        "code": "grant_missing",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "APOLLO-F-06",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "producer_pid": 8976,
+      "payload_sha256": "cf38a8cdc6e3b923ee2500872892a7919ee2dbf3d4cb4087ba35d0546ec019ce",
+      "outcome": {
+        "producer": "unaccepted",
+        "signature_valid": true,
+        "proof": "complete",
+        "authority": "grant",
+        "binding": "unreached",
+        "initial_admission": null,
+        "final_admission": null,
+        "code": "producer_not_active",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "trace": null
+    },
+    {
+      "id": "APOLLO-F-07",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "producer_pid": 9016,
+      "payload_sha256": "f7e26e52da656533130baccd7d23d2d34accff27611b40b65adf854b56d1c4a8",
+      "outcome": {
+        "producer": "active",
+        "signature_valid": false,
+        "proof": "complete",
+        "authority": "grant",
+        "binding": "unreached",
+        "initial_admission": null,
+        "final_admission": null,
+        "code": "signature_invalid",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "trace": null
+    }
+  ]
+}

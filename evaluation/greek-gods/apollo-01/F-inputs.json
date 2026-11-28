@@ -1,0 +1,132 @@
+{
+  "schema": "apollo01-packet-v1",
+  "draw": "F",
+  "cases": [
+    {
+      "id": "APOLLO-F-01",
+      "scenario": "retired-key",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Ona Pike</p><p>Maris Holt stated that Emil Senn wrote the river catalogue.</p>"
+        }
+      ],
+      "question": "Which document did Maris Holt report that Emil Senn wrote, in the document from Ona Pike?",
+      "obligation": {
+        "writer": "Ona Pike",
+        "reporter": "Maris Holt",
+        "author": "Emil Senn",
+        "object": "the river catalogue",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "APOLLO-F-02",
+      "scenario": "valid",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Ona Pike</p><p>Maris Holt stated that Emil Senn wrote the river catalogue.</p>"
+        }
+      ],
+      "question": "Which document did Maris Holt report that Emil Senn wrote, in the document from Ona Pike?",
+      "obligation": {
+        "writer": "Ona Pike",
+        "reporter": "Maris Holt",
+        "author": "Emil Senn",
+        "object": "the river catalogue",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "APOLLO-F-03",
+      "scenario": "unsupported",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Ona Pike</p><p>Maris Holt stated that Emil Senn wrote the river catalogue.</p>"
+        }
+      ],
+      "question": "Which document did Dena Ward report that Emil Senn wrote, in the document from Ona Pike?",
+      "obligation": {
+        "writer": "Ona Pike",
+        "reporter": "Dena Ward",
+        "author": "Emil Senn",
+        "object": "the river catalogue",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "APOLLO-F-04",
+      "scenario": "wrong-target",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Ona Pike</p><p>Maris Holt stated that Emil Senn wrote the river catalogue.</p>"
+        }
+      ],
+      "question": "Which document did Maris Holt report that Emil Senn wrote, in the document from Ona Pike?",
+      "obligation": {
+        "writer": "Ona Pike",
+        "reporter": "Maris Holt",
+        "author": "Emil Senn",
+        "object": "the river catalogue",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "APOLLO-F-05",
+      "scenario": "missing-grant",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Ona Pike</p><p>Maris Holt stated that Emil Senn wrote the river catalogue.</p>"
+        }
+      ],
+      "question": "Which document did Maris Holt report that Emil Senn wrote, in the document from Ona Pike?",
+      "obligation": {
+        "writer": "Ona Pike",
+        "reporter": "Maris Holt",
+        "author": "Emil Senn",
+        "object": "the river catalogue",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "APOLLO-F-06",
+      "scenario": "unknown-key",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Ona Pike</p><p>Maris Holt stated that Emil Senn wrote the river catalogue.</p>"
+        }
+      ],
+      "question": "Which document did Maris Holt report that Emil Senn wrote, in the document from Ona Pike?",
+      "obligation": {
+        "writer": "Ona Pike",
+        "reporter": "Maris Holt",
+        "author": "Emil Senn",
+        "object": "the river catalogue",
+        "source_id": "NOTE-A"
+      }
+    },
+    {
+      "id": "APOLLO-F-07",
+      "scenario": "changed-payload",
+      "records": [
+        {
+          "id": "NOTE-A",
+          "body_html": "<p>From: Ona Pike</p><p>Maris Holt stated that Emil Senn wrote the river catalogue.</p>"
+        }
+      ],
+      "question": "Which document did Maris Holt report that Emil Senn wrote, in the document from Ona Pike?",
+      "obligation": {
+        "writer": "Ona Pike",
+        "reporter": "Maris Holt",
+        "author": "Emil Senn",
+        "object": "the river catalogue",
+        "source_id": "NOTE-A"
+      }
+    }
+  ]
+}
