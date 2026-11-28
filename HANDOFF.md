@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `bb1632d4579d88dab6f9b59363c2cc8fd06fc2a6` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `76da61ccad0bf191fcf1e641c26d17b689edd61484e112913f0dcd1234ed78ee`.
+Base commit: `49c2ab856c45b6f826e55ef4495b730b644e8ffe` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `403299227b53134752dffe30dbf071ef32d448951790a419675015ed999fc83e`.
 
 ## Betty report for Al
 
@@ -13,24 +13,24 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Betty, run the next instruction-to-Git integration study in a separate lab PR. Recheck main and use the verified PR #131 deployment at cabcd140ee438b0a63784faa2c0fc4b2a8c54e66 as the proposed baseline. Follow Al notes 0010 and 0012. Freeze eight development cases and eight separate fresh cases before implementation. Build the record from actual native output. Record where each control stops. Pin the candidate before opening fresh. Push the recoverable checkpoint, verify remote readback and applicable exact-head checks, and merge only qualifying lab work. Keep production dispatch inactive.
+Finish the FRUS page mappings and freeze the source and extraction records. Verify harmless GitHub sandbox preflight, then run the frozen development smoke on the unchanged released reader. Audit unresolved and NOT_RUN entries against the Test Index and results inventory; reconcile Gremlin and retain earlier study boundaries. Keep evaluator material in private custody.
 
 ### Implemented scope
 
-- Frozen native-projection, host grant, fixed Git CAS and durable receipt study limited to disposable repositories.
+- Audit active and deferred work in a dated register linked through Gremlin to authoritative results. Public seven-record FRUS diagnostic and prepared review/onboarding packages.
 
 ### Validation recorded
 
-- Disconnected reader 8/8; candidate development and first fresh 8/8 each. Three durable intended updates and five zero-attempt controls per candidate draw. Independent payload and receipt readback matched all 16 cases. First pipe-spawn failure retained.
-- Original paths replayed Apollo 7/7 and 7/7, Ares 5/5 and 5/5, competing writer 2/2, and restart/interruption 3/3 and 6/6. Two Apollo extraction setup failures retained; complete pinned replay passed.
+- Verified main cb7ed70a. Frozen 17 printed pages from seven publisher TEI fragments. Hosted isolation passed four preflight tests. Three-case smoke executed, followed by 77 diagnostic cases with zero execution failures.
+- Location 27/42, controls 15/15. Direct 0/4 and two-link 0/2 with five safe controls. Documentary 0/4 with five controls. Exact 27 citations. Recovered public raw archive and verified initial 30 paths. Read back held local seals separately.
 
 ### Limitations and blocked checks
 
-- One operator; private evaluator custody local. No new reader coverage, production dispatch, or cross-resource atomicity. Original PR #130 grades and NOT_RUN labels stand.
+- Same-operator evaluation. Local Bubblewrap failed prior to reader execution. Older, fresh, independent semantic review and human routes NOT_RUN. External private recovery unverified. Exact Gelhaus externally blocked and low priority. Production dispatch inactive.
 
 ### Next steps
 
-- Verify exact-head release checks and remote byte readback before merging qualifying lab work. Retain consumed replays under their original scope.
+- Verify final public readback and exact-head checks. Recruit reviewers and first-time participants with exposure and permission records. See dated open work for other triggers.
 
 ## Use this ZIP in your repository
 
