@@ -231,6 +231,12 @@ on the unchanged Heka bridge. Development matched 15/15 and first fresh
 16/16 phases. Both draws separately record observed effects and durable
 completion. No production effect boundary changed.
 
+## Instruction Evidence 01 native prerequisite
+
+[Instruction Evidence 01](../evaluation/egyptian-gods/instruction-evidence-01/README.md) retained eight unchanged-reader
+development results. Two compound date requests emitted no claims, so the lab
+stopped before an effect adapter. Fresh and effect verification remain NOT_RUN.
+
 ## Heka-01 evidence-to-Git lab
 
 [Heka-01](../evaluation/egyptian-gods/heka-01/README.md) composes Bastet proof with a
