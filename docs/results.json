@@ -421,7 +421,8 @@
       "tests": [
         "tests/test_bunyip_round2.py",
         "tests/test_ordinary_questions.py",
-        "tests/test_compound_fields.py"
+        "tests/test_compound_fields.py",
+        "evaluation/egyptian-gods/instruction-evidence-01/D-inputs.json"
       ],
       "runners": [
         "tools/cryptid_replay_packet_v5.py",
@@ -430,7 +431,8 @@
         "evaluation/egyptian-gods/bastet/prepare.py",
         "evaluation/egyptian-gods/bastet/io_score.py",
         "evaluation/egyptian-gods/heka-01/study.mjs",
-        "evaluation/egyptian-gods/heka-01/grade.py"
+        "evaluation/egyptian-gods/heka-01/grade.py",
+        "evaluation/egyptian-gods/instruction-evidence-01/reader.py"
       ],
       "scope": "Frozen Thoth interpretation and controls, four matched native readers. Original setup failure retained as a receipt with the full artifact in PR #106. Frozen Seshat, Anubis and Horus attribution, polarity and modality sets. The reusable programme preserves the historical families and adds Bastet printed-writer and attribution I/O. Heka-01 measures lab-only composition with the disposable Git canary and restart store.",
       "measurement_status": "Development and same-operator fresh evaluation completed. Independent adjudication and human onboarding NOT_RUN.",
@@ -4542,19 +4544,6 @@
       "responsible_department": "testing-evaluation",
       "scope": "Native source proof, simulated host authorization and disposable Git CAS/recovery through unchanged Heka.",
       "measurement_status": "Lab-only development 15/15 and first fresh 16/16 exact phases. Independent and production capability assessments NOT_RUN."
-    },
-    {
-      "family": "instruction-evidence-01",
-      "artifacts": "evaluation/egyptian-gods/instruction-evidence-01",
-      "tests": [
-        "evaluation/egyptian-gods/instruction-evidence-01/D-inputs.json"
-      ],
-      "runners": [
-        "evaluation/egyptian-gods/instruction-evidence-01/reader.py"
-      ],
-      "responsible_department": "testing-evaluation",
-      "scope": "Unchanged native instruction and date prerequisite with Git disconnected.",
-      "measurement_status": "Eight development questions. Native date and checked partial missing. Fresh and effects NOT_RUN."
     }
   ],
   "experimental_track": {
