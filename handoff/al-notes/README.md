@@ -66,3 +66,8 @@ a new implementation or a changed score.
 [Note 0005](0005-hermes-namespace-binding.md) proposes the specific Hermes-02
 namespace-binding contrast omitted from the first Greek packet. It is advice;
 no namespace-injection outcome is asserted before that experiment runs.
+
+[Note 0006](0006-greek-trust-and-recovery-sprint.md) recommends keeping the
+existing regression sets and extending Greek with Apollo, Ares and Hestia
+provenance/revocation/recovery experiments. These are proposed lab tasks, not
+new measured results.
