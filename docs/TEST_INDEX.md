@@ -84,6 +84,14 @@ answer misses and shows safe withholding separately from selection proof.
 link both candidate draws, raw results, the first public-preservation
 failure and its successful retry.
 
+## Greek evidence-to-effect sprint
+
+[Athena, Hermes and Hephaestus](../evaluation/greek-gods/README.md)
+test eligibility and freshness, host authority, and disposable Git effects
+on the unchanged Heka bridge. Development matched 15/15 and first fresh
+16/16 phases. Both draws separately record observed effects and durable
+completion. No production effect boundary changed.
+
 ## Heka-01 evidence-to-Git lab
 
 [Heka-01](../evaluation/egyptian-gods/heka-01/README.md) composes Bastet proof with a

@@ -1,0 +1,1438 @@
+{
+  "draw": "F",
+  "packet_sha256": "6e94b81532bf317a9f0672ee82f47f382255fb829c9b26da73c73d02c4854e5a",
+  "candidate": "9a4d2c09e9e31529867252779a2d15a7d998f985",
+  "cases": [
+    {
+      "id": "GREEK-ATHENA-F-01",
+      "set": "ATHENA",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 68713,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-ATHENA-F-01/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 1,
+          "writes": 1,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+            "obligation": {
+              "writer": "Nia Harlow",
+              "reporter": "Sami Finch",
+              "author": "Jo Pike",
+              "object": "the observatory chart",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "666413e06c2e77544fd809b0c7866e7912d3fa1d4e414811790e57fdf1d2cba0",
+            "proof": "2375f1e8465bca9b7622eed933318adbf3373c5a367c533b9be13c2eaf0dc5f7",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-ATHENA-F-01/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-6ae7041c2295289455b6af6e01e3973536e852de095888b8105689a0b40ce0c4"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "workerReadback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "controller": {
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "heka-6ae7041c2295289455b6af6e01e3973536e852de095888b8105689a0b40ce0c4"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "completed"
+          },
+          "code": "allowed",
+          "execution": "completed",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "allow",
+          "binding_attested": true,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "completed"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-ATHENA-F-02",
+      "set": "ATHENA",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 68763,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-ATHENA-F-02/store"
+          },
+          "proof": "named_report_source_unresolved",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": null,
+          "code": "proof_incomplete",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "withhold",
+          "binding_attested": null,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-ATHENA-F-03",
+      "set": "ATHENA",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 68802,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-ATHENA-F-03/store"
+          },
+          "proof": "complete",
+          "recheck": "restricted_or_unavailable",
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+            "obligation": {
+              "writer": "Nia Harlow",
+              "reporter": "Sami Finch",
+              "author": "Jo Pike",
+              "object": "the observatory chart",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "f7ffc4aff16cc7d373a5364fa6b48d8b2b67adacde81ff53ed615e2b65e58414",
+            "proof": "746a12e56f7c7042f220104ffa1a85dccafc6708358e983896485654cf82ab38",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-ATHENA-F-03/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-1ed463f38ba8a5c6d9f15470095b86bda2f5c52bc5c17dc8066677dc93e02229"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "controller": {
+            "verdict": {
+              "decision": "missing_evidence",
+              "code": "missing_check",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [],
+              "missing": [
+                "canary-ready"
+              ],
+              "scope": null
+            },
+            "execution": "not_run"
+          },
+          "code": "evidence_changed",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "withhold",
+          "binding_attested": true,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-ATHENA-F-04",
+      "set": "ATHENA",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 68850,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-ATHENA-F-04/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+            "obligation": {
+              "writer": "Nia Harlow",
+              "reporter": "Sami Finch",
+              "author": "Jo Pike",
+              "object": "the observatory chart",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "f7ffc4aff16cc7d373a5364fa6b48d8b2b67adacde81ff53ed615e2b65e58414",
+            "proof": "746a12e56f7c7042f220104ffa1a85dccafc6708358e983896485654cf82ab38",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-ATHENA-F-04/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-a3b62c4ae48128aaf9d81eee80d9f3bc3522755a87c0c8785b9c8764df597be6"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "controller": {
+            "verdict": {
+              "decision": "missing_evidence",
+              "code": "missing_check",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [],
+              "missing": [
+                "canary-ready"
+              ],
+              "scope": null
+            },
+            "execution": "not_run"
+          },
+          "code": "evidence_changed",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "withhold",
+          "binding_attested": true,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HERMES-F-01",
+      "set": "HERMES",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 68898,
+          "authority": "absent",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HERMES-F-01/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+            "obligation": {
+              "writer": "Nia Harlow",
+              "reporter": "Sami Finch",
+              "author": "Jo Pike",
+              "object": "the observatory chart",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "f7ffc4aff16cc7d373a5364fa6b48d8b2b67adacde81ff53ed615e2b65e58414",
+            "proof": "746a12e56f7c7042f220104ffa1a85dccafc6708358e983896485654cf82ab38",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HERMES-F-01/store"
+            }
+          },
+          "admission": {
+            "decision": "withhold",
+            "code": "not_authorized",
+            "selected": {
+              "report": "report-1",
+              "grant": null
+            },
+            "receiptIds": [],
+            "missing": [],
+            "scope": null
+          },
+          "code": "grant_missing",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "withhold",
+          "binding_attested": true,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HERMES-F-02",
+      "set": "HERMES",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 68942,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HERMES-F-02/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+            "obligation": {
+              "writer": "Nia Harlow",
+              "reporter": "Sami Finch",
+              "author": "Jo Pike",
+              "object": "the observatory chart",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "f7ffc4aff16cc7d373a5364fa6b48d8b2b67adacde81ff53ed615e2b65e58414",
+            "proof": "746a12e56f7c7042f220104ffa1a85dccafc6708358e983896485654cf82ab38",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HERMES-F-02/store"
+            }
+          },
+          "admission": {
+            "decision": "withhold",
+            "code": "revision_mismatch",
+            "selected": {
+              "report": null,
+              "grant": null
+            },
+            "receiptIds": [],
+            "missing": [],
+            "scope": null
+          },
+          "code": "revision_mismatch",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "withhold",
+          "binding_attested": true,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HERMES-F-03",
+      "set": "HERMES",
+      "lane": "controller",
+      "phases": [
+        {
+          "proof": "complete",
+          "recheck": null,
+          "authority": "wrong-action",
+          "code": "capability_denied",
+          "decision": "withhold",
+          "execution": "not_run",
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "proposal": {
+            "action": "merge",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "scopedHost": {
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "session": {
+              "id": "session-1",
+              "role": "Betty",
+              "capabilities": [
+                "record-canary"
+              ]
+            },
+            "grants": [
+              {
+                "id": "direction-1",
+                "issuer": "maintainer",
+                "session": "session-1",
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "status": "active"
+              }
+            ],
+            "reports": [
+              {
+                "id": "report-1",
+                "kind": "applied",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+              }
+            ],
+            "receipts": [
+              {
+                "id": "receipt-canary-ready",
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "kind": "canary-ready",
+                "availability": "available",
+                "execution": "completed",
+                "semantic": "passed"
+              }
+            ],
+            "custody": "public",
+            "release": "prepared",
+            "used": []
+          },
+          "controller": {
+            "verdict": {
+              "decision": "withhold",
+              "code": "capability_denied",
+              "selected": {
+                "report": null,
+                "grant": null
+              },
+              "receiptIds": [],
+              "missing": [],
+              "scope": null
+            },
+            "execution": "not_run"
+          },
+          "pid": 68675,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HERMES-F-04",
+      "set": "HERMES",
+      "lane": "controller",
+      "phases": [
+        {
+          "proof": "complete",
+          "recheck": null,
+          "authority": "conflicting-receipts",
+          "code": "ambiguous_check",
+          "decision": "withhold",
+          "execution": "not_run",
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "scopedHost": {
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "session": {
+              "id": "session-1",
+              "role": "Betty",
+              "capabilities": [
+                "record-canary"
+              ]
+            },
+            "grants": [
+              {
+                "id": "direction-1",
+                "issuer": "maintainer",
+                "session": "session-1",
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "status": "active"
+              }
+            ],
+            "reports": [
+              {
+                "id": "report-1",
+                "kind": "applied",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+              }
+            ],
+            "receipts": [
+              {
+                "id": "receipt-canary-ready",
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "kind": "canary-ready",
+                "availability": "available",
+                "execution": "completed",
+                "semantic": "passed"
+              },
+              {
+                "id": "receipt-conflict",
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "kind": "canary-ready",
+                "availability": "available",
+                "execution": "completed",
+                "semantic": "passed"
+              }
+            ],
+            "custody": "public",
+            "release": "prepared",
+            "used": []
+          },
+          "controller": {
+            "verdict": {
+              "decision": "withhold",
+              "code": "ambiguous_check",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "receipt-canary-ready",
+                "receipt-conflict"
+              ],
+              "missing": [],
+              "scope": null
+            },
+            "execution": "not_run"
+          },
+          "pid": 68675,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HERMES-F-05",
+      "set": "HERMES",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 69050,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HERMES-F-05/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+            "obligation": {
+              "writer": "Nia Harlow",
+              "reporter": "Sami Finch",
+              "author": "Jo Pike",
+              "object": "the observatory chart",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "666413e06c2e77544fd809b0c7866e7912d3fa1d4e414811790e57fdf1d2cba0",
+            "proof": "2375f1e8465bca9b7622eed933318adbf3373c5a367c533b9be13c2eaf0dc5f7",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HERMES-F-05/store"
+            }
+          },
+          "code": "receipt_binding_mismatch",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "withhold",
+          "binding_attested": false,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HEPHAESTUS-F-01",
+      "set": "HEPHAESTUS",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 69089,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HEPHAESTUS-F-01/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 1,
+          "writes": 1,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+            "obligation": {
+              "writer": "Nia Harlow",
+              "reporter": "Sami Finch",
+              "author": "Jo Pike",
+              "object": "the observatory chart",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "666413e06c2e77544fd809b0c7866e7912d3fa1d4e414811790e57fdf1d2cba0",
+            "proof": "2375f1e8465bca9b7622eed933318adbf3373c5a367c533b9be13c2eaf0dc5f7",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HEPHAESTUS-F-01/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-d2e338e974ffb41222657deaeedfd2d60e52edbbd8075d9a96a9cbf845c40565"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "workerReadback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "code": "interrupted",
+          "execution": "indeterminate",
+          "process": {
+            "code": 74,
+            "signal": null,
+            "receipt": false
+          },
+          "decision": "allow",
+          "binding_attested": true,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "pending"
+        },
+        {
+          "pid": 69112,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HEPHAESTUS-F-01/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+            "obligation": {
+              "writer": "Nia Harlow",
+              "reporter": "Sami Finch",
+              "author": "Jo Pike",
+              "object": "the observatory chart",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "666413e06c2e77544fd809b0c7866e7912d3fa1d4e414811790e57fdf1d2cba0",
+            "proof": "2375f1e8465bca9b7622eed933318adbf3373c5a367c533b9be13c2eaf0dc5f7",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HEPHAESTUS-F-01/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-d2e338e974ffb41222657deaeedfd2d60e52edbbd8075d9a96a9cbf845c40565"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "pending",
+          "code": "reservation_indeterminate",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "missing_evidence",
+          "binding_attested": true,
+          "before": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "pending"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HEPHAESTUS-F-02",
+      "set": "HEPHAESTUS",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 69156,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HEPHAESTUS-F-02/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 1,
+          "writes": 0,
+          "competingWrites": 1,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+            "obligation": {
+              "writer": "Nia Harlow",
+              "reporter": "Sami Finch",
+              "author": "Jo Pike",
+              "object": "the observatory chart",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "666413e06c2e77544fd809b0c7866e7912d3fa1d4e414811790e57fdf1d2cba0",
+            "proof": "2375f1e8465bca9b7622eed933318adbf3373c5a367c533b9be13c2eaf0dc5f7",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HEPHAESTUS-F-02/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-77908665e86fe3cf62ce9491f59ab7d0dba26a2a84768513c69eab8e5081316c"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "workerReadback": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "controller": {
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "heka-77908665e86fe3cf62ce9491f59ab7d0dba26a2a84768513c69eab8e5081316c"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "failed"
+          },
+          "code": "allowed",
+          "execution": "failed",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "allow",
+          "binding_attested": true,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "ref": "competing",
+          "store": "failed"
+        },
+        {
+          "pid": 69180,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HEPHAESTUS-F-02/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+            "obligation": {
+              "writer": "Nia Harlow",
+              "reporter": "Sami Finch",
+              "author": "Jo Pike",
+              "object": "the observatory chart",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "666413e06c2e77544fd809b0c7866e7912d3fa1d4e414811790e57fdf1d2cba0",
+            "proof": "2375f1e8465bca9b7622eed933318adbf3373c5a367c533b9be13c2eaf0dc5f7",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HEPHAESTUS-F-02/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-77908665e86fe3cf62ce9491f59ab7d0dba26a2a84768513c69eab8e5081316c"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "failed",
+          "code": "duplicate_request",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "withhold",
+          "binding_attested": true,
+          "before": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "readback": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "ref": "competing",
+          "store": "failed"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HEPHAESTUS-F-03",
+      "set": "HEPHAESTUS",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 69224,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HEPHAESTUS-F-03/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+            "obligation": {
+              "writer": "Nia Harlow",
+              "reporter": "Sami Finch",
+              "author": "Jo Pike",
+              "object": "the observatory chart",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "f7ffc4aff16cc7d373a5364fa6b48d8b2b67adacde81ff53ed615e2b65e58414",
+            "proof": "746a12e56f7c7042f220104ffa1a85dccafc6708358e983896485654cf82ab38",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HEPHAESTUS-F-03/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-c05f38bc51ba3aa1e778660341de06eca25e2c188e5599532bdf667cc42af020"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unavailable",
+          "code": "reservation_unavailable",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "missing_evidence",
+          "binding_attested": true,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unavailable"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HEPHAESTUS-F-04",
+      "set": "HEPHAESTUS",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 69268,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HEPHAESTUS-F-04/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 1,
+          "writes": 1,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+            "obligation": {
+              "writer": "Nia Harlow",
+              "reporter": "Sami Finch",
+              "author": "Jo Pike",
+              "object": "the observatory chart",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "666413e06c2e77544fd809b0c7866e7912d3fa1d4e414811790e57fdf1d2cba0",
+            "proof": "2375f1e8465bca9b7622eed933318adbf3373c5a367c533b9be13c2eaf0dc5f7",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HEPHAESTUS-F-04/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-59af2ac6778e3e896bf8622b8ab17f5f7973f135ffb29c6fac1251552bc3026a"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "workerReadback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "controller": {
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "heka-59af2ac6778e3e896bf8622b8ab17f5f7973f135ffb29c6fac1251552bc3026a"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "completed"
+          },
+          "code": "allowed",
+          "execution": "completed",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "allow",
+          "binding_attested": true,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "completed"
+        },
+        {
+          "pid": 69291,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HEPHAESTUS-F-04/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "Which document did Sami Finch report that Jo Pike wrote, in the document from Nia Harlow?",
+            "obligation": {
+              "writer": "Nia Harlow",
+              "reporter": "Sami Finch",
+              "author": "Jo Pike",
+              "object": "the observatory chart",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "666413e06c2e77544fd809b0c7866e7912d3fa1d4e414811790e57fdf1d2cba0",
+            "proof": "2375f1e8465bca9b7622eed933318adbf3373c5a367c533b9be13c2eaf0dc5f7",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/fresh/GREEK-HEPHAESTUS-F-04/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-59af2ac6778e3e896bf8622b8ab17f5f7973f135ffb29c6fac1251552bc3026a"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "completed",
+          "code": "duplicate_request",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "withhold",
+          "binding_attested": true,
+          "before": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "completed"
+        }
+      ]
+    }
+  ]
+}

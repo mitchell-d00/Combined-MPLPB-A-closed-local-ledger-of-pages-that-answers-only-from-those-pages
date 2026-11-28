@@ -1,0 +1,1316 @@
+{
+  "draw": "D",
+  "packet_sha256": "af3ebdef74f51f7edbb5c6ce37bee49be7915ad691bb0fb21994632845d0059d",
+  "candidate": "9a4d2c09e9e31529867252779a2d15a7d998f985",
+  "cases": [
+    {
+      "id": "GREEK-ATHENA-D-01",
+      "set": "ATHENA",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 66501,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/development/GREEK-ATHENA-D-01/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 1,
+          "writes": 1,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+            "obligation": {
+              "writer": "Neri Vale",
+              "reporter": "Iris Salt",
+              "author": "Arlo Bay",
+              "object": "the glasshouse log",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "5794d518c3065aa8d5c5087e0428a21344edf409f5860b74742d8e256dd3f269",
+            "proof": "bd0af3a77025d5a56e70953badb3cdfd95f080974e9259ed16f3301d0e29bc59",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/development/GREEK-ATHENA-D-01/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-48cc2ad7b4fd822b365a5dad517fef4b780eb383d2bcc1835362d1bb1c6284a7"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "workerReadback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "controller": {
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "heka-48cc2ad7b4fd822b365a5dad517fef4b780eb383d2bcc1835362d1bb1c6284a7"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "completed"
+          },
+          "code": "allowed",
+          "execution": "completed",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "allow",
+          "binding_attested": true,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "completed"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-ATHENA-D-02",
+      "set": "ATHENA",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 66551,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/development/GREEK-ATHENA-D-02/store"
+          },
+          "proof": "named_report_content_unresolved",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": null,
+          "code": "proof_incomplete",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "withhold",
+          "binding_attested": null,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-ATHENA-D-03",
+      "set": "ATHENA",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 66590,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/development/GREEK-ATHENA-D-03/store"
+          },
+          "proof": "restricted_or_unavailable",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": null,
+          "code": "proof_incomplete",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "withhold",
+          "binding_attested": null,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-ATHENA-D-04",
+      "set": "ATHENA",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 66629,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/development/GREEK-ATHENA-D-04/store"
+          },
+          "proof": "complete",
+          "recheck": "named_report_source_unresolved",
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+            "obligation": {
+              "writer": "Neri Vale",
+              "reporter": "Iris Salt",
+              "author": "Arlo Bay",
+              "object": "the glasshouse log",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "5794d518c3065aa8d5c5087e0428a21344edf409f5860b74742d8e256dd3f269",
+            "proof": "bd0af3a77025d5a56e70953badb3cdfd95f080974e9259ed16f3301d0e29bc59",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/development/GREEK-ATHENA-D-04/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-887cf541f97293d89e521f852bb474cbb5566a2bc8af6e4c0357777b3b8c0e34"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "controller": {
+            "verdict": {
+              "decision": "missing_evidence",
+              "code": "missing_check",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [],
+              "missing": [
+                "canary-ready"
+              ],
+              "scope": null
+            },
+            "execution": "not_run"
+          },
+          "code": "evidence_changed",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "withhold",
+          "binding_attested": true,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HERMES-D-01",
+      "set": "HERMES",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 66677,
+          "authority": "advice",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/development/GREEK-HERMES-D-01/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+            "obligation": {
+              "writer": "Neri Vale",
+              "reporter": "Iris Salt",
+              "author": "Arlo Bay",
+              "object": "the glasshouse log",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "0184cf1905f466ec5d2877b3c1351dc2d7826957892065d6097d1491d7b4c723",
+            "proof": "7fa38447c39dbaad5cb235a979f70378d01cd57fe90659d1f5996f37f14bf32d",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/development/GREEK-HERMES-D-01/store"
+            }
+          },
+          "admission": {
+            "decision": "withhold",
+            "code": "not_authorized",
+            "selected": {
+              "report": "report-1",
+              "grant": null
+            },
+            "receiptIds": [],
+            "missing": [],
+            "scope": null
+          },
+          "code": "grant_missing",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "withhold",
+          "binding_attested": true,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HERMES-D-02",
+      "set": "HERMES",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 66721,
+          "authority": "revoked",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/development/GREEK-HERMES-D-02/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+            "obligation": {
+              "writer": "Neri Vale",
+              "reporter": "Iris Salt",
+              "author": "Arlo Bay",
+              "object": "the glasshouse log",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "0184cf1905f466ec5d2877b3c1351dc2d7826957892065d6097d1491d7b4c723",
+            "proof": "7fa38447c39dbaad5cb235a979f70378d01cd57fe90659d1f5996f37f14bf32d",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/development/GREEK-HERMES-D-02/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-abffcffa43626a5cd0bb96ebee79f42c213ecec08e87cd2405384bb11524507b"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "controller": {
+            "verdict": {
+              "decision": "withhold",
+              "code": "grant_revoked",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [],
+              "missing": [],
+              "scope": null
+            },
+            "execution": "not_run"
+          },
+          "code": "grant_revoked",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "withhold",
+          "binding_attested": true,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HERMES-D-03",
+      "set": "HERMES",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 66768,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/development/GREEK-HERMES-D-03/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+            "obligation": {
+              "writer": "Neri Vale",
+              "reporter": "Iris Salt",
+              "author": "Arlo Bay",
+              "object": "the glasshouse log",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "0184cf1905f466ec5d2877b3c1351dc2d7826957892065d6097d1491d7b4c723",
+            "proof": "7fa38447c39dbaad5cb235a979f70378d01cd57fe90659d1f5996f37f14bf32d",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/development/GREEK-HERMES-D-03/store"
+            }
+          },
+          "code": "receipt_binding_mismatch",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "withhold",
+          "binding_attested": false,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HERMES-D-04",
+      "set": "HERMES",
+      "lane": "controller",
+      "phases": [
+        {
+          "proof": "complete",
+          "recheck": null,
+          "authority": "conflicting-grants",
+          "code": "ambiguous_authorization",
+          "decision": "withhold",
+          "execution": "not_run",
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "scopedHost": {
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "session": {
+              "id": "session-1",
+              "role": "Betty",
+              "capabilities": [
+                "record-canary"
+              ]
+            },
+            "grants": [
+              {
+                "id": "direction-1",
+                "issuer": "maintainer",
+                "session": "session-1",
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "status": "active"
+              },
+              {
+                "id": "grant-duplicate",
+                "issuer": "maintainer",
+                "session": "session-1",
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "status": "active"
+              }
+            ],
+            "reports": [
+              {
+                "id": "report-1",
+                "kind": "applied",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+              }
+            ],
+            "receipts": [
+              {
+                "id": "receipt-canary-ready",
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "kind": "canary-ready",
+                "availability": "available",
+                "execution": "completed",
+                "semantic": "passed"
+              }
+            ],
+            "custody": "public",
+            "release": "prepared",
+            "used": []
+          },
+          "controller": {
+            "verdict": {
+              "decision": "withhold",
+              "code": "ambiguous_authorization",
+              "selected": {
+                "report": "report-1",
+                "grant": null
+              },
+              "receiptIds": [],
+              "missing": [],
+              "scope": null
+            },
+            "execution": "not_run"
+          },
+          "pid": 66463,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HERMES-D-05",
+      "set": "HERMES",
+      "lane": "controller",
+      "phases": [
+        {
+          "proof": "complete",
+          "recheck": null,
+          "authority": "stale-receipt",
+          "code": "missing_check",
+          "decision": "missing_evidence",
+          "execution": "not_run",
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "scopedHost": {
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "session": {
+              "id": "session-1",
+              "role": "Betty",
+              "capabilities": [
+                "record-canary"
+              ]
+            },
+            "grants": [
+              {
+                "id": "direction-1",
+                "issuer": "maintainer",
+                "session": "session-1",
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "status": "active"
+              }
+            ],
+            "reports": [
+              {
+                "id": "report-1",
+                "kind": "applied",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+              }
+            ],
+            "receipts": [
+              {
+                "id": "receipt-canary-ready",
+                "action": "record-canary",
+                "revision": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+                "kind": "canary-ready",
+                "availability": "available",
+                "execution": "completed",
+                "semantic": "passed"
+              }
+            ],
+            "custody": "public",
+            "release": "prepared",
+            "used": []
+          },
+          "controller": {
+            "verdict": {
+              "decision": "missing_evidence",
+              "code": "missing_check",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [],
+              "missing": [
+                "canary-ready"
+              ],
+              "scope": null
+            },
+            "execution": "not_run"
+          },
+          "pid": 66463,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "ref": "initial",
+          "store": "unused"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HEPHAESTUS-D-01",
+      "set": "HEPHAESTUS",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 66871,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/development/GREEK-HEPHAESTUS-D-01/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 1,
+          "writes": 1,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+            "obligation": {
+              "writer": "Neri Vale",
+              "reporter": "Iris Salt",
+              "author": "Arlo Bay",
+              "object": "the glasshouse log",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "0184cf1905f466ec5d2877b3c1351dc2d7826957892065d6097d1491d7b4c723",
+            "proof": "7fa38447c39dbaad5cb235a979f70378d01cd57fe90659d1f5996f37f14bf32d",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/development/GREEK-HEPHAESTUS-D-01/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-3a46f97fec77c80f87dfdd96ec93acfc6c91f601584dd90411ef1944968e8dc6"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "workerReadback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "controller": {
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "heka-3a46f97fec77c80f87dfdd96ec93acfc6c91f601584dd90411ef1944968e8dc6"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "completed"
+          },
+          "code": "allowed",
+          "execution": "completed",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "allow",
+          "binding_attested": true,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "completed"
+        },
+        {
+          "pid": 66894,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/development/GREEK-HEPHAESTUS-D-01/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+            "obligation": {
+              "writer": "Neri Vale",
+              "reporter": "Iris Salt",
+              "author": "Arlo Bay",
+              "object": "the glasshouse log",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "0184cf1905f466ec5d2877b3c1351dc2d7826957892065d6097d1491d7b4c723",
+            "proof": "7fa38447c39dbaad5cb235a979f70378d01cd57fe90659d1f5996f37f14bf32d",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/development/GREEK-HEPHAESTUS-D-01/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-3a46f97fec77c80f87dfdd96ec93acfc6c91f601584dd90411ef1944968e8dc6"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "completed",
+          "code": "duplicate_request",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "withhold",
+          "binding_attested": true,
+          "before": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "completed"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HEPHAESTUS-D-02",
+      "set": "HEPHAESTUS",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 66938,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/development/GREEK-HEPHAESTUS-D-02/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 1,
+          "writes": 0,
+          "competingWrites": 1,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+            "obligation": {
+              "writer": "Neri Vale",
+              "reporter": "Iris Salt",
+              "author": "Arlo Bay",
+              "object": "the glasshouse log",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "0184cf1905f466ec5d2877b3c1351dc2d7826957892065d6097d1491d7b4c723",
+            "proof": "7fa38447c39dbaad5cb235a979f70378d01cd57fe90659d1f5996f37f14bf32d",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/development/GREEK-HEPHAESTUS-D-02/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-5a0a9cc22a548161911de6010c162ee47a15544c68b69546fe060e9848f8a415"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "workerReadback": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "controller": {
+            "verdict": {
+              "decision": "allow",
+              "code": "allowed",
+              "selected": {
+                "report": "report-1",
+                "grant": "direction-1"
+              },
+              "receiptIds": [
+                "heka-5a0a9cc22a548161911de6010c162ee47a15544c68b69546fe060e9848f8a415"
+              ],
+              "missing": [],
+              "scope": {
+                "action": "record-canary",
+                "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+                "mode": "local-canary"
+              }
+            },
+            "execution": "failed"
+          },
+          "code": "allowed",
+          "execution": "failed",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "allow",
+          "binding_attested": true,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "ref": "competing",
+          "store": "failed"
+        },
+        {
+          "pid": 66962,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/development/GREEK-HEPHAESTUS-D-02/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+            "obligation": {
+              "writer": "Neri Vale",
+              "reporter": "Iris Salt",
+              "author": "Arlo Bay",
+              "object": "the glasshouse log",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "0184cf1905f466ec5d2877b3c1351dc2d7826957892065d6097d1491d7b4c723",
+            "proof": "7fa38447c39dbaad5cb235a979f70378d01cd57fe90659d1f5996f37f14bf32d",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/development/GREEK-HEPHAESTUS-D-02/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-5a0a9cc22a548161911de6010c162ee47a15544c68b69546fe060e9848f8a415"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "failed",
+          "code": "duplicate_request",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "withhold",
+          "binding_attested": true,
+          "before": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "readback": {
+            "oid": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917",
+            "ref": "competing",
+            "marker": "competing"
+          },
+          "ref": "competing",
+          "store": "failed"
+        }
+      ]
+    },
+    {
+      "id": "GREEK-HEPHAESTUS-D-03",
+      "set": "HEPHAESTUS",
+      "lane": "bridge",
+      "phases": [
+        {
+          "pid": 67006,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/development/GREEK-HEPHAESTUS-D-03/store"
+          },
+          "proof": "complete",
+          "recheck": "complete",
+          "attempts": 1,
+          "writes": 1,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+            "obligation": {
+              "writer": "Neri Vale",
+              "reporter": "Iris Salt",
+              "author": "Arlo Bay",
+              "object": "the glasshouse log",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "0184cf1905f466ec5d2877b3c1351dc2d7826957892065d6097d1491d7b4c723",
+            "proof": "7fa38447c39dbaad5cb235a979f70378d01cd57fe90659d1f5996f37f14bf32d",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/development/GREEK-HEPHAESTUS-D-03/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-daab0f029e83e19a72a5cd12df23411584e28c3487eefdb36e89a9682a330c04"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "unused",
+          "workerReadback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "code": "interrupted",
+          "execution": "indeterminate",
+          "process": {
+            "code": 74,
+            "signal": null,
+            "receipt": false
+          },
+          "decision": "allow",
+          "binding_attested": true,
+          "before": {
+            "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "ref": "initial",
+            "marker": "initial"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "pending"
+        },
+        {
+          "pid": 67029,
+          "authority": "grant",
+          "proposal": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+          },
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/greek-sprint-custody/development/GREEK-HEPHAESTUS-D-03/store"
+          },
+          "proof": "complete",
+          "recheck": null,
+          "attempts": 0,
+          "writes": 0,
+          "competingWrites": 0,
+          "binding": {
+            "schema": "heka-proof-binding-v1",
+            "readerPin": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+            "question": "In the report written by Neri Vale, which document did Iris Salt say Arlo Bay wrote?",
+            "obligation": {
+              "writer": "Neri Vale",
+              "reporter": "Iris Salt",
+              "author": "Arlo Bay",
+              "object": "the glasshouse log",
+              "source_id": "NOTE-A"
+            },
+            "snapshot": "0184cf1905f466ec5d2877b3c1351dc2d7826957892065d6097d1491d7b4c723",
+            "proof": "7fa38447c39dbaad5cb235a979f70378d01cd57fe90659d1f5996f37f14bf32d",
+            "target": {
+              "action": "record-canary",
+              "ref": "refs/heads/canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+              "namespace": "/workspace/greek-sprint-custody/development/GREEK-HEPHAESTUS-D-03/store"
+            }
+          },
+          "admission": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-daab0f029e83e19a72a5cd12df23411584e28c3487eefdb36e89a9682a330c04"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "prior": "pending",
+          "code": "reservation_indeterminate",
+          "execution": "not_run",
+          "process": {
+            "code": 0,
+            "signal": null,
+            "receipt": true
+          },
+          "decision": "missing_evidence",
+          "binding_attested": true,
+          "before": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "readback": {
+            "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "ref": "intended",
+            "marker": "intended"
+          },
+          "ref": "intended",
+          "store": "pending"
+        }
+      ]
+    }
+  ]
+}
