@@ -1,0 +1,93 @@
+{
+  "schema": "heka-diagnostic-disposition-v1",
+  "reader": "4ac1e9ac1e1b6ea17a4e40244112242656772ec6",
+  "original_evidence": "4d5f4a4f31ac8161570a4910270b3e2c83b3115e",
+  "note": "5cd0b2c042a6c6edeec564f55392a614b0b5a8fb",
+  "first_grades": {
+    "baseline": "10/11",
+    "development": "12/14",
+    "fresh": "13/13"
+  },
+  "classification": "frozen_expectation_discrepancy",
+  "records": [
+    {
+      "id": "HEKA-D-04",
+      "only_differing_field": "proof",
+      "expected": "named_report_source_unresolved",
+      "reproduced": "restricted_or_unavailable",
+      "reader_snapshot": {
+        "after_withdrawal": {
+          "kind": "abstain",
+          "claim_count": 0,
+          "eligible_pages": 0,
+          "diagnostic": {
+            "code": "restricted_or_unavailable",
+            "stage": "eligibility",
+            "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+            "category": "absent_eligible_source",
+            "corpus_answerability": "not_established",
+            "next_steps": [
+              "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+            ]
+          }
+        }
+      },
+      "effect": {
+        "code": "proof_incomplete",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "readback": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused"
+      }
+    },
+    {
+      "id": "HEKA-D-07",
+      "only_differing_field": "recheck",
+      "expected": "named_report_source_unresolved",
+      "reproduced": "restricted_or_unavailable",
+      "reader_snapshot": {
+        "before_mutation": {
+          "kind": "supported_answer",
+          "diagnostic": "supported"
+        },
+        "after_withdrawal": {
+          "kind": "abstain",
+          "claim_count": 0,
+          "eligible_pages": 0,
+          "diagnostic": {
+            "code": "restricted_or_unavailable",
+            "stage": "eligibility",
+            "message": "No eligible body passages are available under this question and profile; corpus absence is not established.",
+            "category": "absent_eligible_source",
+            "corpus_answerability": "not_established",
+            "next_steps": [
+              "Check source integrity and delivery restrictions; restore or revise the source through the normal workflow, then ask again."
+            ]
+          }
+        }
+      },
+      "effect": {
+        "code": "evidence_changed",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "readback": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused"
+      }
+    }
+  ],
+  "custody": {
+    "verified_local_private_archive_members": 3,
+    "seals_verified": 2,
+    "off_workspace_backup": "unverified"
+  }
+}

@@ -209,7 +209,8 @@ the first fresh score and preservation retained.
 
 [Heka-01](../evaluation/egyptian-gods/heka-01/README.md) composes Bastet proof with a
 separately authorized disposable Git CAS. The first fresh packet matched
-13/13 phases. Two development diagnostic discrepancies remain open.
+13/13 phases. The [disposition](../evaluation/egyptian-gods/heka-01/DISPOSITION.md)
+confirms the two retained development differences arise at eligibility.
 No production dispatcher or release policy changed.
 
 ## Bunyip Round 4

@@ -1,11 +1,11 @@
 # Repository handoff
 
-Last reviewed: 2026-11-27.
+Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `23b77d305f4f696ef64c02f4aad7b0a1711eb643` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `6a3a0988fb6c8ee6cc4b2ab6f72100f9f151850084576731e0b03f38cbd8e06e`.
+Base commit: `5cd0b2c042a6c6edeec564f55392a614b0b5a8fb` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `a42d6943fe1c387a19efc24d6408e6258fa8c52fdb0656e3b6347fadc960b384`.
 
 ## Betty report for Al
 
@@ -13,35 +13,24 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Just give me a Betty prompt this time and note it in Al notes
-
-Have her run a sprint too if we need a newest let’s do Greek gods
-
-When she finishes and it’s all good push and merge
+Run it
 
 ### Implemented scope
 
-- Publish Al note 0004 with a focused Betty prompt reviewing the two Heka-01 withdrawal diagnostic differences.
-- Preserve all native implementation, packet/key/scorer bytes and first scores; advice does not authorize silent acceptance-policy changes.
-- Keep the Heka-01 implementation and its working state on parent PR 120; this advisory branch targets that branch, not an independent release to main.
-- Add the newly authorized Athena/Hermes/Hephaestus sprint to the advice, keeping new packets and scores separate from Heka.
+- Read note 0004 at 5cd0b2c042a6c6edeec564f55392a614b0b5a8fb. Applied Heka withdrawal disposition. Greek sprint remains a separate frozen checkpoint.
 
 ### Validation recorded
 
-- Read PR 120 at 4d5f4a4f, frozen CONTRACT.md, grade.py and the retained development score. The only scored differences are D-04 proof and D-07 recheck codes.
-- No reader or effect experiment was executed. This update does not relabel a failing exact grade or activate production dispatch.
+- Released reader reproduced both eligibility abstentions. Only D-04 proof and D-07 recheck diagnostic differ from key. Both made zero Git attempts. Original 10/11, 12/14 and 13/13 intact.
+- Verified both key seals and byte-checked the authoring script and keys in a separate private local archive. Verified applicable main rules name archive-first and regression and no Heka perfect-score gate.
 
 ### Limitations and blocked checks
 
-- Original baseline 10/11, development 12/14 and first fresh 13/13 remain their recorded exact grades.
-- The report is Al advice. Betty must verify the exact merge requirements, distinguish expectation discrepancy from implementation defect, and record her own disposition.
-- Keys/generator are private workspace material with no remote backup attested in the reviewed report; prompt requires approved private custody and retrieval verification.
+- One local workspace failure domain for private custody. No production dispatch, runtime or controller change.
 
 ### Next steps
 
-- Betty reads note 0004 at its published commit, acknowledges it, and applies/defer/rejects the prompt under the maintainer's existing scope.
-- Publish diagnostic disposition and recoverable evidence; merge lab-only work only under actual applicable gates, preserving all historical failures and production boundaries.
-- Betty freezes and runs the new Greek three-set sprint; push recoverable checkpoints and merge qualifying lab work after applicable checks under Mitchell's explicit authorization without another confirmation.
+- Verify this exact Heka head remotely and merge the lab record once required checks pass. Freeze Athena, Hermes and Hephaestus separately.
 
 ## Use this ZIP in your repository
 
