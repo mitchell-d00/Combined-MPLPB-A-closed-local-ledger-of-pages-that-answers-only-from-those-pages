@@ -1,7 +1,7 @@
 /** Disposable lab only. Inputs are operator fixtures with no evaluator dependencies. */
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
-import { existsSync, mkdirSync, readFileSync, realpathSync, writeFileSync } from 'node:fs'
+import { closeSync, existsSync, mkdirSync, openSync, readFileSync, realpathSync, writeFileSync } from 'node:fs'
 import { basename, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -26,8 +26,14 @@ const policy = {
 function readNative(operation, ledger, input) {
   const args = [join(lab, 'native.py'), operation, ledger, input]
   const env = { PATH: '/nonexistent', PYTHONPATH: root, PYTHONDONTWRITEBYTECODE: '1' }
-  const out = execFileSync('/usr/bin/python3', args, { env, timeout: 6000, maxBuffer: 2 * 1024 * 1024 })
-  return out.length ? JSON.parse(out) : null
+  const capture = join(ledger, '..', operation + '-python.stdout')
+  const fd = openSync(capture, 'w', 0o600)
+  try {
+    execFileSync('/usr/bin/python3', args, { env, timeout: 6000, stdio: ['ignore', fd, 'inherit'] })
+  } finally {
+    closeSync(fd)
+  }
+  return operation === 'probe' ? loadJSON(capture) : null
 }
 
 function fixtureTarget(directory) {
