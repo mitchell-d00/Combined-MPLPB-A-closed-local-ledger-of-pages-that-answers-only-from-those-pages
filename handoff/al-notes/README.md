@@ -71,3 +71,42 @@ no namespace-injection outcome is asserted before that experiment runs.
 existing regression sets and extending Greek with Apollo, Ares and Hestia
 provenance/revocation/recovery experiments. These are proposed lab tasks, not
 new measured results.
+
+## Historical follow-up
+
+[Note 0007](0007-al-succession-and-betty-sync.md) records Mitchell's Al
+succession, how the incoming Al recovered the working state, and how the
+repository and Mitchell's relay carried the Apollo review and Ares handoff.
+
+[Note 0008](0008-outside-review-and-newcomer-evidence-navigation.md) records the
+Outside assessment audit and the proposed newcomer documentation, evidence
+navigation and onboarding follow-up.
+
+[Note 0009](0009-handoff-reconciliation.md) follows up on note 0008 with
+verified PR states, the scope of the later Bastet evidence, and the distinction
+between citation validation and reader proof.
+
+## Lab design
+
+[Note 0010](0010-instruction-evidence-to-git-lab.md) proposes a bounded
+source-attributed instruction recording trial through the existing Heka Git
+boundary, with separate native proof, authorization and synthetic truth checks.
+
+[Note 0011](0011-native-instruction-date-composition.md) traces the native
+instruction/date gap found in PR #130 and proposes a reader-only sprint with
+an explicit date link, checked partial and frozen controls.
+
+[Note 0012](0012-source-and-effect-routes.md) verifies the optional sorter,
+native reading and lab Git routes and proposes a bounded architecture-guide
+update using the released reader result and retained experiment records.
+
+[Note 0013](0013-chronos-timeline-companion.md) gives Betty the first bounded
+Chronos sprint, with separate project and source-reported timelines and
+typed read queries shared with Gremlin.
+
+[Note 0014](0014-frus-subject-identification-and-first-use.md) prioritizes the
+FRUS subject-line identification repair, with separate first-use and external
+assessment follow-ups and retained Chronos scope.
+
+[Note 0015](0015-ariadnes-thread.md) defines Ariadne's Thread and applies it
+to ARIADNE-01, the bounded FRUS subject-line identification sprint.

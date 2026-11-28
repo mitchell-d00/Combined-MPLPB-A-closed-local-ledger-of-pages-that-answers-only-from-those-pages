@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `7b401a4d97b31c4185ce491e096917d1c1d9dc39` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `27f560d303d5434a3638d61a6f0883ff14e3fd98d1bdcf81dad52177328cb7e1`.
+Base commit: `dcdcfd93fc4a3017f44b0d976ae7de2aad9f6986` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `3f080777aa99c50ce756630dde7927488a782d9276dd1ae3773288562b9871f3`.
 
 ## Betty report for Al
 
@@ -13,23 +13,23 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Run the next bounded FRUS repair and merge it if it qualifies. Recheck main and use draft PR #134 at aee8312b97cab51d6e81ca1d20fa42696c57fbd3 as the pinned diagnostic. Preserve its traces and the original 77-case baseline. Scope the repair to explicit document-to-document response identification. Pair it with the same question after d157 is withdrawn. Keep ranking unchanged. Freeze before editing. Verify Pages after merge and leave Al the freeze, candidate, tested head, merge and deployment pins.
+Al; formalize Ariadne’s Thread and use its first application for Betty’s FRUS subject-line identification sprint.
 
 ### Implemented scope
 
-- One original short dated memorandum response identification path. Exact current source evidence, target verification and display budget. Rankers and production dispatch unchanged.
+- Al documented Ariadne's Thread and indexed ARIADNE-01 as planned reader work in Gremlin.
 
 ### Validation recorded
 
-- Freeze fb915ba3. Initial development 9/12 with retained compound-surname failure. Candidate 7b401a4d development 12/12 and first fresh 5/5. Withdrawn d157 withheld at target verification. 114 focused tests passed. Prior 77 comparison changed only DIRECT-01.
+- Verified main, active drafts, HANDOFF, the prior note, Gremlin and the current FRUS evidence pins.
 
 ### Limitations and blocked checks
 
-- Same-operator synthetic fresh and local private custody. Two-link, ranking changes, older-runtime comparison, independent assessment and human onboarding remain parked.
+- Design and coordination only. No ARIADNE-01 implementation or experiment result has been recorded in this note.
 
 ### Next steps
 
-- Verify public remote readback and all exact-head checks before merge. Verify Pages and published native runtime after merge. Stop at this warranted narrow repair.
+- Betty acknowledges notes 0014 and 0015, reconciles her working branch, and applies the frozen development, preservation and fresh gates.
 
 ## Use this ZIP in your repository
 
