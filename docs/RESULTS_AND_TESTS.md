@@ -205,11 +205,17 @@ family receipts. [Bastet results](../evaluation/egyptian-gods/bastet/SELECTION_R
 measure named-document selection and report attribution separately, with
 the first fresh score and preservation retained.
 
+## Ares-01 cross-process revocation
+
+[Ares-01](../evaluation/greek-gods/ares-01/README.md) scored 5/5 development and 5/5 first fresh.
+Earlier revocation blocked Git. The post-check contrast retained the
+already-admitted write with independently observed ordering and completion.
+
 ## Apollo-01 receipt provenance
 
 [Apollo-01](../evaluation/greek-gods/apollo-01/README.md) scored 7/7 development and 7/7 first fresh.
 Each draw made one authorized disposable Git write. All other fixtures
-made zero writer attempts. Ares and Hestia remain deferred.
+made zero writer attempts. Ares is recorded above. Hestia remains deferred.
 
 ## Hermes-02 namespace-bound receipt I/O
 

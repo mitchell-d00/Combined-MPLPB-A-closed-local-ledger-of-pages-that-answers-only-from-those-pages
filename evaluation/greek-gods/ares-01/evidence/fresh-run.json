@@ -1,0 +1,603 @@
+{
+  "draw": "F",
+  "inputs_sha256": "8e8139b1eb34d314b04622d2648d12b84dbd349107c20b61480d683282e96239",
+  "cases": [
+    {
+      "id": "ARES-F-01",
+      "pids": {
+        "driver": 13304,
+        "worker": 13361,
+        "revoker": 13360
+      },
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "outcome": {
+        "code": "grant_revoked",
+        "proof": "complete",
+        "initial": "allow",
+        "final": "withhold",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused",
+        "authority_epoch": 2
+      },
+      "trace": {
+        "pid": 13361,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/ares-01-custody/fresh/ARES-F-01/store"
+        },
+        "proof": "complete",
+        "recheck": "complete",
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "e2a4d77ff09150639cde1bcea2fe2bcb245ac963",
+          "question": "Which document did Ivo Moss report that Bea Hale wrote, in the document from Mina Webb?",
+          "obligation": {
+            "writer": "Mina Webb",
+            "reporter": "Ivo Moss",
+            "author": "Bea Hale",
+            "object": "the school register",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "e81dc5828a59ce85a42b375358b882edbf0a84b0cee68ab6eac700f7e9d55bf3",
+          "proof": "2ea64a5e5dbe3b96522cf7cb56e1fcd26ee89b4913fbcdf9f412ca3ffb5ce16d",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/ares-01-custody/fresh/ARES-F-01/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-40f1331e0f14fdb478c0480c35bed6fbe37955c413f5332d224eec362c345aec"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "unused",
+        "controller": {
+          "verdict": {
+            "decision": "withhold",
+            "code": "grant_revoked",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [],
+            "missing": [],
+            "scope": null
+          },
+          "execution": "not_run"
+        },
+        "code": "grant_revoked",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "ARES-F-02",
+      "pids": {
+        "driver": 13304,
+        "worker": 13464,
+        "revoker": 13463
+      },
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "ref": "intended",
+          "marker": "intended"
+        },
+        "store": "completed",
+        "reservation_files": [
+          "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+          "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json"
+        ]
+      },
+      "outcome": {
+        "code": "allowed",
+        "proof": "complete",
+        "initial": "allow",
+        "final": "allow",
+        "attempts": 1,
+        "writes": 1,
+        "execution": "completed",
+        "marker": "intended",
+        "store": "completed",
+        "authority_epoch": 2
+      },
+      "trace": {
+        "pid": 13464,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/ares-01-custody/fresh/ARES-F-02/store"
+        },
+        "proof": "complete",
+        "recheck": "complete",
+        "attempts": 1,
+        "writes": 1,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "e2a4d77ff09150639cde1bcea2fe2bcb245ac963",
+          "question": "Which document did Ivo Moss report that Bea Hale wrote, in the document from Mina Webb?",
+          "obligation": {
+            "writer": "Mina Webb",
+            "reporter": "Ivo Moss",
+            "author": "Bea Hale",
+            "object": "the school register",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "e81dc5828a59ce85a42b375358b882edbf0a84b0cee68ab6eac700f7e9d55bf3",
+          "proof": "2ea64a5e5dbe3b96522cf7cb56e1fcd26ee89b4913fbcdf9f412ca3ffb5ce16d",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/ares-01-custody/fresh/ARES-F-02/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-c51e3c28b6cd6d00fca35c21d646060d1839752f2356d15412ee8e7c244ea155"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "unused",
+        "workerReadback": {
+          "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "ref": "intended",
+          "marker": "intended"
+        },
+        "controller": {
+          "verdict": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-c51e3c28b6cd6d00fca35c21d646060d1839752f2356d15412ee8e7c244ea155"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "execution": "completed"
+        },
+        "code": "allowed",
+        "execution": "completed"
+      }
+    },
+    {
+      "id": "ARES-F-03",
+      "pids": {
+        "driver": 13304,
+        "worker": 13607
+      },
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "ref": "intended",
+          "marker": "intended"
+        },
+        "store": "completed",
+        "reservation_files": [
+          "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+          "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json"
+        ]
+      },
+      "outcome": {
+        "code": "allowed",
+        "proof": "complete",
+        "initial": "allow",
+        "final": "allow",
+        "attempts": 1,
+        "writes": 1,
+        "execution": "completed",
+        "marker": "intended",
+        "store": "completed",
+        "authority_epoch": 1
+      },
+      "trace": {
+        "pid": 13607,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/ares-01-custody/fresh/ARES-F-03/store"
+        },
+        "proof": "complete",
+        "recheck": "complete",
+        "attempts": 1,
+        "writes": 1,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "e2a4d77ff09150639cde1bcea2fe2bcb245ac963",
+          "question": "Which document did Ivo Moss report that Bea Hale wrote, in the document from Mina Webb?",
+          "obligation": {
+            "writer": "Mina Webb",
+            "reporter": "Ivo Moss",
+            "author": "Bea Hale",
+            "object": "the school register",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "e81dc5828a59ce85a42b375358b882edbf0a84b0cee68ab6eac700f7e9d55bf3",
+          "proof": "2ea64a5e5dbe3b96522cf7cb56e1fcd26ee89b4913fbcdf9f412ca3ffb5ce16d",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/ares-01-custody/fresh/ARES-F-03/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-5d15897c3e4f20df3e4ac967031c2ecbc837e1956baf89e9695267d2e89d1bb8"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "unused",
+        "workerReadback": {
+          "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "ref": "intended",
+          "marker": "intended"
+        },
+        "controller": {
+          "verdict": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-5d15897c3e4f20df3e4ac967031c2ecbc837e1956baf89e9695267d2e89d1bb8"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "execution": "completed"
+        },
+        "code": "allowed",
+        "execution": "completed"
+      }
+    },
+    {
+      "id": "ARES-F-04",
+      "pids": {
+        "driver": 13304,
+        "prime": 13721,
+        "revoker": 13720,
+        "worker": 13735
+      },
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "outcome": {
+        "code": "grant_revoked",
+        "proof": "complete",
+        "initial": "withhold",
+        "final": null,
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused",
+        "authority_epoch": 2
+      },
+      "trace": {
+        "pid": 13735,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/ares-01-custody/fresh/ARES-F-04/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "e2a4d77ff09150639cde1bcea2fe2bcb245ac963",
+          "question": "Which document did Ivo Moss report that Bea Hale wrote, in the document from Mina Webb?",
+          "obligation": {
+            "writer": "Mina Webb",
+            "reporter": "Ivo Moss",
+            "author": "Bea Hale",
+            "object": "the school register",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "e81dc5828a59ce85a42b375358b882edbf0a84b0cee68ab6eac700f7e9d55bf3",
+          "proof": "2ea64a5e5dbe3b96522cf7cb56e1fcd26ee89b4913fbcdf9f412ca3ffb5ce16d",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/ares-01-custody/fresh/ARES-F-04/store"
+          }
+        },
+        "admission": {
+          "decision": "withhold",
+          "code": "grant_revoked",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [],
+          "missing": [],
+          "scope": null
+        },
+        "code": "grant_revoked",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "ARES-F-05",
+      "pids": {
+        "driver": 13304,
+        "worker": 13818,
+        "revoker": 13817
+      },
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "outcome": {
+        "code": "grant_revoked",
+        "proof": "complete",
+        "initial": "allow",
+        "final": "withhold",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused",
+        "authority_epoch": 2
+      },
+      "trace": {
+        "pid": 13818,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/ares-01-custody/fresh/ARES-F-05/store"
+        },
+        "proof": "complete",
+        "recheck": "complete",
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "e2a4d77ff09150639cde1bcea2fe2bcb245ac963",
+          "question": "Which document did Ivo Moss report that Bea Hale wrote, in the document from Mina Webb?",
+          "obligation": {
+            "writer": "Mina Webb",
+            "reporter": "Ivo Moss",
+            "author": "Bea Hale",
+            "object": "the school register",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "e81dc5828a59ce85a42b375358b882edbf0a84b0cee68ab6eac700f7e9d55bf3",
+          "proof": "2ea64a5e5dbe3b96522cf7cb56e1fcd26ee89b4913fbcdf9f412ca3ffb5ce16d",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/ares-01-custody/fresh/ARES-F-05/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-6ce1c2b3c7f5886388508a066a9585e48b8e3025ee9c1f4b32dfc18281658657"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "unused",
+        "controller": {
+          "verdict": {
+            "decision": "withhold",
+            "code": "grant_revoked",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [],
+            "missing": [],
+            "scope": null
+          },
+          "execution": "not_run"
+        },
+        "code": "grant_revoked",
+        "execution": "not_run"
+      }
+    }
+  ]
+}
