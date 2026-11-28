@@ -99,3 +99,7 @@ an explicit date link, checked partial and frozen controls.
 [Note 0012](0012-source-and-effect-routes.md) verifies the optional sorter,
 native reading and lab Git routes and proposes a bounded architecture-guide
 update using the released reader result and retained experiment records.
+
+[Note 0013](0013-chronos-timeline-companion.md) gives Betty the first bounded
+Chronos sprint, with separate project and source-reported timelines and
+typed read queries shared with Gremlin.

@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `8df0aeeae765fc21eea4bc0020539ab79f20c74c` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `6060e5579dfef145f3e40e8413263f47672dca8c784e1cdcfe2523b9c83697bf`.
+Base commit: `5092094203a2064db7cdacb21627b4a002ee9270` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `5fa9c95695f2a227052abde8a1a85d5833d6c51e0899b92ddb7f11ccc60899b1`.
 
 ## Betty report for Al
 
@@ -13,23 +13,23 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Al should reconcile it with Betty’s active work and record any resulting assignment through the established notes workflow.
+Al; design Chronos as Gremlin’s cooperating timeline and relationship companion, then give Betty a bounded implementation sprint.
 
 ### Implemented scope
 
-- Al reviewed the optional sorter and classing paths, direct native Ask, the Heka Git lab, and Betty's later native prerequisite result in note 0012.
+- Al recorded the proposed Chronos timelines, stable references, read interfaces, evidence rules and frozen acceptance grid in note 0013.
 
 ### Validation recorded
 
-- Inspected implementation entry points, Gremlin and existing guides, and verified main and Betty's reports for PRs #130 and #131.
+- Reviewed current main, PR #134, Gremlin and result authority, FRUS evidence and existing chronology, source verification and investigation entry points.
 
 ### Limitations and blocked checks
 
-- This is a public source and evidence review. Original PR #130 effect and fresh stages remain NOT_RUN. No new native or integrated experiment ran.
+- Design only. No Chronos implementation or acceptance test ran. Original experiment results and production dispatch boundaries retain their scope.
 
 ### Next steps
 
-- Propose a small architecture clarification in the package guide. Treat any new integration experiment as separately frozen work.
+- Betty acknowledges note 0013 and freezes Chronos in a separate lab PR, preserving the FRUS diagnostic branch and historical notes.
 
 ## Use this ZIP in your repository
 
