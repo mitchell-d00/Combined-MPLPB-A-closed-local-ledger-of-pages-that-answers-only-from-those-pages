@@ -84,6 +84,12 @@ answer misses and shows safe withholding separately from selection proof.
 link both candidate draws, raw results, the first public-preservation
 failure and its successful retry.
 
+## Apollo-01 receipt provenance
+
+[Apollo-01](../evaluation/greek-gods/apollo-01/README.md) scored 7/7 development and 7/7 first fresh.
+Each draw made one authorized disposable Git write. All other fixtures
+made zero writer attempts. Ares and Hestia remain deferred.
+
 ## Hermes-02 namespace-bound receipt I/O
 
 [Hermes-02](../evaluation/greek-gods/hermes-02/README.md) matched 9/9 development and

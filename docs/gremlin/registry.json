@@ -359,6 +359,24 @@
         "evaluation/greek-gods/hermes-02/freeze.json"
       ],
       "note": "Measured namespace-only contrasts and independent repository/store readback."
+    },
+    {
+      "id": "apollo-01",
+      "label": "Apollo signed receipt lab",
+      "scopes": [
+        "project",
+        "data",
+        "experiment"
+      ],
+      "status": "lab-only",
+      "paths": [
+        "evaluation/greek-gods/apollo-01"
+      ],
+      "evidence": [
+        "evaluation/greek-gods/apollo-01/README.md",
+        "evaluation/greek-gods/apollo-01/freeze.json"
+      ],
+      "note": "Ed25519 producer trust and separate proof, authority and disposable Git effect."
     }
   ],
   "relations": [
@@ -574,6 +592,16 @@
         "evaluation/greek-gods/hermes-02/seam.mjs"
       ],
       "note": "Lab operand seam uses the unchanged Heka comparison and writer."
+    },
+    {
+      "from": "apollo-01",
+      "to": "hermes-02",
+      "kind": "depends_on",
+      "basis": "source",
+      "evidence": [
+        "evaluation/greek-gods/apollo-01/run.mjs"
+      ],
+      "note": "Uses the existing lab binding seam with the original proof and writer."
     }
   ],
   "open_work": [

@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `e34d20cca4d5e96ed08e40d785c9a9e8eb707f06` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `36baecf1b30b699e198a8457e383ae40c355d184f73132c033534a60ebd31199`.
+Base commit: `ca19e987a21756739bb4f1ef9633e110e3e7d83e` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `74bf434f13fa1459c757cdb818cc0547fc64bfd249f581dc503faec21b1f0b7f`.
 
 ## Betty report for Al
 
@@ -13,31 +13,25 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Give her a few experiments what do you think we should push next and would our sets we have now work or should we extend Greek gods
+Read Al note 0006 at 20885e50. Acknowledge the revision, begin Apollo-01, preserve first results and existing evidence, then push and merge qualifying lab work under Mitchell’s existing authorization.
 
 ### Implemented scope
 
-- Al review step: publish note 0006 against main e34d20cc with three bounded proposed Greek experiments.
-- Keep existing sets as consumed regression/preservation; propose Apollo receipt provenance, Ares cross-process revocation and Hestia damaged-record recovery, executed in that order.
-- Advice and map/coordination metadata only. No implementation, key, scorer, runtime, source packet or workflow changes.
+- Applied Al note 0006 at 20885e500faf75b88fa80548aabadd1f991fe76b. Apollo-01 is lab-only. Ares and Hestia deferred.
 
 ### Validation recorded
 
-- Read PR 124, Hermes-02 results, the frozen restart-store contract, Work Coordination guide and preserved networked signature guide.
-- The reviewed report records 9/9 phases in each Hermes-02 draw with two intended writes, two durable completions and seven no-writer phases; host/store limits remain explicit.
-- No new reader, cryptographic, revocation or recovery experiment was executed by Al.
+- First development and first fresh each 7/7. Each made one authorized and durably recorded Git update. All six blocked controls per draw made zero writer attempts.
+- Hermes 9/9 and 9/9, controller 42/42 and restart 3/3 plus 6/6, with original bridge, policy and store bytes unchanged.
+- Preserved the networked first-run failures and 61/61 local-networking retry. Preserved the first preservation space error and successful unstaged retry.
 
 ### Limitations and blocked checks
 
-- New experiment families are proposed. Current evidence does not establish authenticated human identity, cross-resource atomicity, damaged-store recovery or actual power-loss/distributed guarantees.
-- Existing draws are consumed evidence with repeated structures and same-operator scoring; independent evaluation remains unmeasured.
-- Off-workspace custody is still unverified and requires an approved private destination plus retrieval verification.
+- One operator, synthetic trust snapshot, and private keys in one workspace failure domain. No production authorization or dispatch.
 
 ### Next steps
 
-- Betty acknowledges note 0006 and records applied/deferred/rejected scope.
-- Freeze each set's baseline, contract, inputs/key digests and scorer before execution; run Apollo first, then Ares and Hestia.
-- Preserve first results and original grades, push recoverable checkpoints, run affected preservation and applicable exact-head checks, and merge qualifying lab work under existing authorization without activating production dispatch.
+- Verify the exact-head checks, merge and Pages publication. Keep first-run material at its original grade and use it as consumed preservation.
 
 ## Use this ZIP in your repository
 

@@ -1,0 +1,520 @@
+{
+  "draw": "D",
+  "inputs_sha256": "95366405fa4a5ce36609a6f454e3baa94d41ff542e101e0697425ea968f1cb1c",
+  "trust_sha256": "814b1a4690e866dac347b7647fde3da3baced995d32a2275dd7258f6bc2a4f71",
+  "cases": [
+    {
+      "id": "APOLLO-D-01",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "producer_pid": 8276,
+      "payload_sha256": "414c42f85b7e0ef2f3a0688c872e23fb78dea2b4c3a8f7724272925c4d54855a",
+      "outcome": {
+        "producer": "active",
+        "signature_valid": true,
+        "proof": "complete",
+        "authority": "grant",
+        "binding": "matched",
+        "initial_admission": "allow",
+        "final_admission": "allow",
+        "code": "allowed",
+        "attempts": 1,
+        "writes": 1,
+        "execution": "completed",
+        "marker": "intended",
+        "store": "completed"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "ref": "intended",
+          "marker": "intended"
+        },
+        "store": "completed",
+        "reservation_files": [
+          "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334",
+          "74da16f4964cfce20367a0a53fe09ba1a7f194ceac0f6fa8b574b8e3c2406334/outcome.json"
+        ]
+      },
+      "trace": {
+        "pid": 8285,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/apollo-01-custody/development/APOLLO-D-01/store"
+        },
+        "proof": "complete",
+        "recheck": "complete",
+        "attempts": 1,
+        "writes": 1,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "e34d20cca4d5e96ed08e40d785c9a9e8eb707f06",
+          "question": "In the report written by Tess Rill, which document did Sima Nor say Del Voss wrote?",
+          "obligation": {
+            "writer": "Tess Rill",
+            "reporter": "Sima Nor",
+            "author": "Del Voss",
+            "object": "the garden inventory",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "a56090f294dc4361a80363b775687a8ab7939f7e7d40de164c321bc86ab9fc9b",
+          "proof": "c41a9ea6c5628c6a6b65b8e263acafb17031ac1bc58cdc12605917dd46c7250f",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/apollo-01-custody/development/APOLLO-D-01/store"
+          }
+        },
+        "admission": {
+          "decision": "allow",
+          "code": "allowed",
+          "selected": {
+            "report": "report-1",
+            "grant": "direction-1"
+          },
+          "receiptIds": [
+            "heka-b669f41336c5c58e28f5289b72e095915a46a30befd659bbaced06c0aa515503"
+          ],
+          "missing": [],
+          "scope": {
+            "action": "record-canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "mode": "local-canary"
+          }
+        },
+        "prior": "unused",
+        "workerReadback": {
+          "oid": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "ref": "intended",
+          "marker": "intended"
+        },
+        "controller": {
+          "verdict": {
+            "decision": "allow",
+            "code": "allowed",
+            "selected": {
+              "report": "report-1",
+              "grant": "direction-1"
+            },
+            "receiptIds": [
+              "heka-b669f41336c5c58e28f5289b72e095915a46a30befd659bbaced06c0aa515503"
+            ],
+            "missing": [],
+            "scope": {
+              "action": "record-canary",
+              "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+              "mode": "local-canary"
+            }
+          },
+          "execution": "completed"
+        },
+        "code": "allowed",
+        "execution": "completed"
+      }
+    },
+    {
+      "id": "APOLLO-D-02",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "producer_pid": 8335,
+      "payload_sha256": "8afe130274113c1a8563fee7dbe186ed9217bcaeb613d94a181cb3c0355f9f0d",
+      "outcome": {
+        "producer": "active",
+        "signature_valid": false,
+        "proof": "complete",
+        "authority": "grant",
+        "binding": "unreached",
+        "initial_admission": null,
+        "final_admission": null,
+        "code": "signature_invalid",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "trace": null
+    },
+    {
+      "id": "APOLLO-D-03",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "producer_pid": 8375,
+      "payload_sha256": "7b3a928aef54ce16f36017bbbe78dd73a117dce3c9bce7b4fb3e191c114a0700",
+      "outcome": {
+        "producer": "unaccepted",
+        "signature_valid": true,
+        "proof": "complete",
+        "authority": "grant",
+        "binding": "unreached",
+        "initial_admission": null,
+        "final_admission": null,
+        "code": "producer_not_active",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "trace": null
+    },
+    {
+      "id": "APOLLO-D-04",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "producer_pid": 8415,
+      "payload_sha256": "bdc46daffc09558081994af209c4011c283313f83e60bc42c9ca82c93b6bb38e",
+      "outcome": {
+        "producer": "retired",
+        "signature_valid": true,
+        "proof": "complete",
+        "authority": "grant",
+        "binding": "unreached",
+        "initial_admission": null,
+        "final_admission": null,
+        "code": "producer_not_active",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "trace": null
+    },
+    {
+      "id": "APOLLO-D-05",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "producer_pid": 8455,
+      "payload_sha256": "7aecf8c8252a840c33ebced7b79b698c529875492677a3b86de7c0a65aeab191",
+      "outcome": {
+        "producer": "active",
+        "signature_valid": true,
+        "proof": "complete",
+        "authority": "grant",
+        "binding": "mismatch",
+        "initial_admission": null,
+        "final_admission": null,
+        "code": "receipt_binding_mismatch",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "trace": {
+        "pid": 8464,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/apollo-01-custody/development/APOLLO-D-05/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "e34d20cca4d5e96ed08e40d785c9a9e8eb707f06",
+          "question": "In the report written by Tess Rill, which document did Sima Nor say Del Voss wrote?",
+          "obligation": {
+            "writer": "Tess Rill",
+            "reporter": "Sima Nor",
+            "author": "Del Voss",
+            "object": "the garden inventory",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "a56090f294dc4361a80363b775687a8ab7939f7e7d40de164c321bc86ab9fc9b",
+          "proof": "c41a9ea6c5628c6a6b65b8e263acafb17031ac1bc58cdc12605917dd46c7250f",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/apollo-01-custody/development/APOLLO-D-05/store-alternate"
+          }
+        },
+        "code": "receipt_binding_mismatch",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "APOLLO-D-06",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "producer_pid": 8503,
+      "payload_sha256": "2fad58435535577ab6fcb15122ced7736e83cfc2e847d331badb2a16ba6a76bf",
+      "outcome": {
+        "producer": "active",
+        "signature_valid": true,
+        "proof": "named_report_content_unresolved",
+        "authority": "grant",
+        "binding": "unreached",
+        "initial_admission": null,
+        "final_admission": null,
+        "code": "proof_incomplete",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "trace": {
+        "pid": 8512,
+        "authority": "grant",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/apollo-01-custody/development/APOLLO-D-06/store"
+        },
+        "proof": "named_report_content_unresolved",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": null,
+        "code": "proof_incomplete",
+        "execution": "not_run"
+      }
+    },
+    {
+      "id": "APOLLO-D-07",
+      "commits": {
+        "initial": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+        "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+        "competing": "5e3fd790c8abd5dd631a51eb58e0d0a404f2f917"
+      },
+      "producer_pid": 8551,
+      "payload_sha256": "421aea24a73d7535c1e2257078c1fdcae3444705a808747fbdf7bfc48b1c05ca",
+      "outcome": {
+        "producer": "active",
+        "signature_valid": true,
+        "proof": "complete",
+        "authority": "absent",
+        "binding": "matched",
+        "initial_admission": "withhold",
+        "final_admission": null,
+        "code": "grant_missing",
+        "attempts": 0,
+        "writes": 0,
+        "execution": "not_run",
+        "marker": "initial",
+        "store": "unused"
+      },
+      "before": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "after": {
+        "ref": {
+          "oid": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "ref": "initial",
+          "marker": "initial"
+        },
+        "store": "unused",
+        "reservation_files": []
+      },
+      "trace": {
+        "pid": 8560,
+        "authority": "absent",
+        "proposal": {
+          "action": "record-canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712"
+        },
+        "target": {
+          "action": "record-canary",
+          "ref": "refs/heads/canary",
+          "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+          "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+          "namespace": "/workspace/apollo-01-custody/development/APOLLO-D-07/store"
+        },
+        "proof": "complete",
+        "recheck": null,
+        "attempts": 0,
+        "writes": 0,
+        "competingWrites": 0,
+        "binding": {
+          "schema": "heka-proof-binding-v1",
+          "readerPin": "e34d20cca4d5e96ed08e40d785c9a9e8eb707f06",
+          "question": "In the report written by Tess Rill, which document did Sima Nor say Del Voss wrote?",
+          "obligation": {
+            "writer": "Tess Rill",
+            "reporter": "Sima Nor",
+            "author": "Del Voss",
+            "object": "the garden inventory",
+            "source_id": "NOTE-A"
+          },
+          "snapshot": "a56090f294dc4361a80363b775687a8ab7939f7e7d40de164c321bc86ab9fc9b",
+          "proof": "c41a9ea6c5628c6a6b65b8e263acafb17031ac1bc58cdc12605917dd46c7250f",
+          "target": {
+            "action": "record-canary",
+            "ref": "refs/heads/canary",
+            "revision": "f7930173cc24c91a745d08bcb2c8a93377b16712",
+            "intended": "8568a073a0728e8190e65dbe03ca019fa7d24d60",
+            "namespace": "/workspace/apollo-01-custody/development/APOLLO-D-07/store"
+          }
+        },
+        "admission": {
+          "decision": "withhold",
+          "code": "not_authorized",
+          "selected": {
+            "report": "report-1",
+            "grant": null
+          },
+          "receiptIds": [],
+          "missing": [],
+          "scope": null
+        },
+        "code": "grant_missing",
+        "execution": "not_run"
+      }
+    }
+  ]
+}
