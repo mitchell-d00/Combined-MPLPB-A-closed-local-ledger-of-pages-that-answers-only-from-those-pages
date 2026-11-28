@@ -1,6 +1,6 @@
 # Test Index for humans and AI
 
-Last reviewed: 2026-11-27.
+Last reviewed: 2026-11-28.
 
 ## Gremlin system map and Al-note relay
 
@@ -11,10 +11,9 @@ these are maintenance checks, not reader gains or independent evaluation.
 [Al note 0001](../handoff/al-notes/0001-gremlin-and-repository-relay.md) records
 Mitchell's scoped override. The repository relay benefit remains unmeasured.
 
-The release history records clean cumulative Thoth in PR #109, the later
-reader release in PR #110 and the lab-only controller in PR #111. Earlier
-candidate-only entries link their original checked PR #106 pins. See
-[HANDOFF](../HANDOFF.md) and [current status](CURRENT_STATUS.md).
+[Current status](CURRENT_STATUS.md) records current main and verified
+publication. This index retains each result's original checkpoint.
+[HANDOFF](../HANDOFF.md) records the continuation state.
 
 [Product, project and evidence boundaries](RESPONSIBILITY_BOUNDARIES.md) describe which distributions carry runtime, tools and retained records.
 
@@ -24,9 +23,12 @@ candidate-only entries link their original checked PR #106 pins. See
 16 paired executions across 14 distinct questions. The candidate recovered
 one generic reporting-object answer and routed two generic negatives to
 native proof-stage withhold. Both fresh arms retained the cited conflict.
-The named-source positive is still open. The original Round 3 miss, the
-first Round 4 coordinate-scoring failure and all preservation receipts
-remain available.
+F05 missed the name-constrained source selection on the pinned Round 4
+reader `568b44c5` after finding both witnesses. Its outcome on later
+readers remains unverified. [Bastet's separate draws](../evaluation/egyptian-gods/bastet/SELECTION_RESULTS.md)
+verified eight document selections and six reporter attributions per
+candidate draw on their own fixtures. The original Round 3 miss, first
+Round 4 coordinate-scoring failure and preservation receipts remain available.
 
 ## Bunyip Round 3 cumulative reader assessment
 
@@ -55,8 +57,11 @@ The [published paper](../papers/From-Workflow-Decisions-to-Git-Effects.pdf)
 and [dated archive note](../papers/2026-11-27-workflow-git-effects-archive-note.md)
 preserve the earlier competing-writer milestone at PR #111.
 The [lab restart study](../evaluation/comparative-tests/workflow-controller/restart/README.md)
-records the volatile baseline and the separate store candidate with frozen inputs,
-raw effects and explicit interruption states. Production access and authentication
+records the volatile baseline, persistent reservations and interruption states.
+[PR #112](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/112)
+merged the paper archive and study at `9910fec1`. [Apollo](#apollo-01-receipt-provenance)
+tests who signed a receipt. [Ares](#ares-01-cross-process-revocation)
+tests when a separate process's revocation takes effect. Production access and authentication
 remain outside the tested scope.
 
 ## Full reproducible Cryptid replay
@@ -93,8 +98,9 @@ already-admitted write with independently observed ordering and completion.
 ## Apollo-01 receipt provenance
 
 [Apollo-01](../evaluation/greek-gods/apollo-01/README.md) scored 7/7 development and 7/7 first fresh.
-Each draw made one authorized disposable Git write. All other fixtures
-made zero writer attempts. Ares is recorded above. Hestia remains deferred.
+At the Apollo checkpoint, each draw made one authorized disposable Git write.
+All other fixtures made zero attempts. See [Ares's separate result](#ares-01-cross-process-revocation)
+and [current status](CURRENT_STATUS.md) for later work.
 
 ## Hermes-02 namespace-bound receipt I/O
 

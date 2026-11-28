@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `5082c5d975ca41a2478ccb25576f3cfdf65b77f0` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `8b10dd981b3e5d01532adec50f6e39c429815c91a86d03d9a1af4a40c3a7394d`.
+Base commit: `805f8263f54fa8069f02d48e898705411ccdedf0` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `dcdf3f4c31fd0c8762e6ff9b2a9bfa1de7eaaf2fdfaec17ce0ab67118cdd0f1d`.
 
 ## Betty report for Al
 
@@ -13,23 +13,23 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Publish the design and recommendation in the next numbered Al Note.
+Al; prepare Betty’s next bounded sprint to clear the native prerequisite found in PR #130.
 
 ### Implemented scope
 
-- Al proposed a bounded source-attributed instruction-to-Git trial in note 0010, using the existing Heka effect boundary and distinct native support and synthetic truth scoring.
+- Al recorded the observed instruction/date dispatch and composition gap and proposed a reader-only sprint in note 0011.
 
 ### Validation recorded
 
-- Al inspected Ares main and verified publication, Betty's newcomer PR checkpoint, the graph and historical review contracts, and the Heka, Apollo, Ares and reservation boundaries.
+- Verified current main and its Pages run, PR #130 head and first report, note 0010, the native route source, and request-recognizer output on the published D01/D02 question.
 
 ### Limitations and blocked checks
 
-- Design advice only. Native coverage for the exact proposed mandatory role and date combinations must be established on the frozen baseline. No new lab result or production effect.
+- No candidate reader or new study ran. The original scores, native prerequisite hold, and fresh and effect NOT_RUN labels retain their original scope.
 
 ### Next steps
 
-- Betty acknowledges note 0010, rechecks main and freezes the separate lab branch inputs, expectations and acceptance criteria before execution.
+- Betty acknowledges note 0011 and freezes a separate native reader study before making changes. Keep the Git-effect path disconnected.
 
 ## Use this ZIP in your repository
 

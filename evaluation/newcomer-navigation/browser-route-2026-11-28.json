@@ -1,0 +1,44 @@
+{
+  "schema": "mplpb-newcomer-browser-software-verification-v1",
+  "date": "2026-11-28",
+  "published_url": "https://mitchell-d00.github.io/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/",
+  "published_html_sha256": "2cc0ae21431557db60a0b1e301644647296b5b3ae90d021222085953f117aacb",
+  "observations": "Same operator, isolated Chromium 156.0.8078.79. A separate system-trusted HTTPS fetch returned status 200. Its exact bytes were tested from loopback.",
+  "first_attempt": {
+    "outcome": "setup_failed",
+    "error": "net::ERR_CERT_AUTHORITY_INVALID from managed Chromium while opening the public HTTPS site"
+  },
+  "retry": {
+    "outcome": "pass",
+    "javascript_page_errors": 0,
+    "demo": {
+      "collection": "Chat logic · synthetic facts",
+      "navigation": "Ask",
+      "mode": "Strict: only supported source statements",
+      "supported_question": "What is Dungeons and Dragons?",
+      "supported_outcome": "SUPPORTED ANSWER",
+      "opened_with": "Read source and sealed metadata",
+      "witness": "Fact: Dungeons and Dragons | instance_of | tabletop RPG",
+      "refusal_question": "What time does the museum close?",
+      "refusal_outcome": "NO SUPPORTED ANSWER"
+    },
+    "pasted_source": {
+      "route": [
+        "Use my documents",
+        "Create MPLPB",
+        "Import into selected MPLPB",
+        "Review imported source",
+        "Continue to Strict Ask"
+      ],
+      "body": "Record-ID: WALK-201\n\nAccession Date: 1895-04-18",
+      "supported_question": "What is the accession date for record WALK-201?",
+      "supported_outcome": "SUPPORTED ANSWER",
+      "witness": "Accession Date: 1895-04-18",
+      "refusal_question": "What is the shelf code for record WALK-201?",
+      "refusal_outcome": "NO SUPPORTED ANSWER"
+    }
+  },
+  "human_onboarding": "NOT_RUN",
+  "matched_release": "fe56551c752bd8df3f1728ac8b11e0cb256c5cdc",
+  "production_pages_run": 46146033740
+}

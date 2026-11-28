@@ -91,3 +91,7 @@ between citation validation and reader proof.
 [Note 0010](0010-instruction-evidence-to-git-lab.md) proposes a bounded
 source-attributed instruction recording trial through the existing Heka Git
 boundary, with separate native proof, authorization and synthetic truth checks.
+
+[Note 0011](0011-native-instruction-date-composition.md) traces the native
+instruction/date gap found in PR #130 and proposes a reader-only sprint with
+an explicit date link, checked partial and frozen controls.

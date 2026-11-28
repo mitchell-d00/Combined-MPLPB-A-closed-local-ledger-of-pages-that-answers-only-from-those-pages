@@ -1,6 +1,6 @@
 # Product, project and evidence boundaries
 
-Last reviewed: 2026-11-27.
+Last reviewed: 2026-11-28.
 
 [Use MPLPB](MPLPB.md) · [Develop MPLPB](EXPERIMENTAL_LAB.md) ·
 [Inspect the evidence](TESTING_APPARATUS.md)
@@ -22,6 +22,21 @@ the separate test harness, development-only tools and private custody are
 outside the wheel. Browser and desktop share the UI, demo ledgers and several
 `tools/` imports. The archive bundle has both usable demo data and unrelated
 historical material elsewhere in the same repository.
+
+## What each check establishes
+
+| Check | What it records |
+|---|---|
+| Matching hash | Byte identity for the hashed object under the recorded check. |
+| Citation validation | The quoted span and coordinates correspond to eligible source bytes at the cited revision. |
+| Native support proof | Eligible passages support the requested claim under the reader's rules, including scope, attribution and qualifications. |
+| Independent evidence | Separate observations may establish whether the source's claim is true outside the ledger. |
+| Apollo signature | The exact lab receipt verifies under a configured producer key and trust snapshot. |
+| Ares authority decision | A scoped host grant was checked at the recorded decision point. |
+| Git readback and durable completion | Readback shows the observed ref and marker. The reservation record separately shows whether completion was durably recorded. |
+
+Apollo and Ares are local experiments. See their frozen cases and limits in
+[Workflow authority and Git effects](TEST_INDEX.md#workflow-authority-and-git-effects).
 
 ## Build audit against the product manifest
 

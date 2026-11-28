@@ -1,11 +1,31 @@
 # Current implementation and evidence status
 
-Last reviewed: 2026-11-27.
+Last reviewed: 2026-11-28.
 
 [Use MPLPB](MPLPB.md) · [Develop MPLPB](EXPERIMENTAL_LAB.md) ·
 [Inspect the evidence](TESTING_APPARATUS.md) · [Test Index](TEST_INDEX.md).
 
-## Release history and current reader
+## Verified checkpoint · 2026-11-28 12:54 UTC
+
+Ares-01 merged through [PR #127](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/127)
+at `fe56551c`. All twelve checks passed on `e9d74a61`. The
+[Pages run](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/actions/runs/46146033740)
+passed live Chromium. The published HTML matched the checked preview and
+all 98 native modules matched the released reader from Bastet.
+[Ares lab results](../evaluation/greek-gods/ares-01/README.md) record when
+revocation blocked Git and when an already-admitted write completed.
+[Apollo lab results](../evaluation/greek-gods/apollo-01/README.md) record
+who signed a receipt. Production dispatch remains inactive and Hestia is
+deferred.
+
+[PR #112](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/112)
+merged at `9910fec1` and records the paper archive and restart study.
+[PR #106](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/106)
+is closed unmerged as superseded. The historical publication incident
+remains open. Its recovery is interrupted, 17 original private checks
+are incomplete, and 100 original held transfers remain `NOT_RUN`.
+
+## Earlier release milestones
 
 | Milestone | Merge | Verified Pages run |
 |---|---|---|
@@ -82,7 +102,7 @@ claims. The original Thoth reader evidence preserves all 832 public contracts,
 BB's 900 positive contracts and citations and 200 withholds, and 19 protected
 C3/Wampus outcomes. This is bounded software evidence with same-operator
 preparation and scoring. The [original PR #106](https://github.com/mitchell-d00/Combined-MPLPB-A-closed-local-ledger-of-pages-that-answers-only-from-those-pages/pull/106)
-remains unmerged. The PR records its review disposition. Its historical evaluation is pinned at `961be47602c5e3ccb94459c106b3fa28754549bf`.
+is closed unmerged as superseded. Its historical evaluation is pinned at `961be47602c5e3ccb94459c106b3fa28754549bf`.
 
 The original workspace recovery remains **INTERRUPTED / UNRECOVERED**. A
 separate pinned-generator rebuild restored the exact inputs and evaluator key
