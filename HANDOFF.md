@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `49c2ab856c45b6f826e55ef4495b730b644e8ffe` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `403299227b53134752dffe30dbf071ef32d448951790a419675015ed999fc83e`.
+Base commit: `7b401a4d97b31c4185ce491e096917d1c1d9dc39` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `27f560d303d5434a3638d61a6f0883ff14e3fd98d1bdcf81dad52177328cb7e1`.
 
 ## Betty report for Al
 
@@ -13,24 +13,23 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Finish the FRUS page mappings and freeze the source and extraction records. Verify harmless GitHub sandbox preflight, then run the frozen development smoke on the unchanged released reader. Audit unresolved and NOT_RUN entries against the Test Index and results inventory; reconcile Gremlin and retain earlier study boundaries. Keep evaluator material in private custody.
+Run the next bounded FRUS repair and merge it if it qualifies. Recheck main and use draft PR #134 at aee8312b97cab51d6e81ca1d20fa42696c57fbd3 as the pinned diagnostic. Preserve its traces and the original 77-case baseline. Scope the repair to explicit document-to-document response identification. Pair it with the same question after d157 is withdrawn. Keep ranking unchanged. Freeze before editing. Verify Pages after merge and leave Al the freeze, candidate, tested head, merge and deployment pins.
 
 ### Implemented scope
 
-- Audit active and deferred work in a dated register linked through Gremlin to authoritative results. Public seven-record FRUS diagnostic and prepared review/onboarding packages.
+- One original short dated memorandum response identification path. Exact current source evidence, target verification and display budget. Rankers and production dispatch unchanged.
 
 ### Validation recorded
 
-- Verified main cb7ed70a. Frozen 17 printed pages from seven publisher TEI fragments. Hosted isolation passed four preflight tests. Three-case smoke executed, followed by 77 diagnostic cases with zero execution failures.
-- Location 27/42, controls 15/15. Direct 0/4 and two-link 0/2 with five safe controls. Documentary 0/4 with five controls. Exact 27 citations. Recovered public raw archive and verified initial 30 paths. Read back held local seals separately.
+- Freeze fb915ba3. Initial development 9/12 with retained compound-surname failure. Candidate 7b401a4d development 12/12 and first fresh 5/5. Withdrawn d157 withheld at target verification. 114 focused tests passed. Prior 77 comparison changed only DIRECT-01.
 
 ### Limitations and blocked checks
 
-- Same-operator evaluation. Local Bubblewrap failed prior to reader execution. Older, fresh, independent semantic review and human routes NOT_RUN. External private recovery unverified. Exact Gelhaus externally blocked and low priority. Production dispatch inactive.
+- Same-operator synthetic fresh and local private custody. Two-link, ranking changes, older-runtime comparison, independent assessment and human onboarding remain parked.
 
 ### Next steps
 
-- Verify final public readback and exact-head checks. Recruit reviewers and first-time participants with exposure and permission records. See dated open work for other triggers.
+- Verify public remote readback and all exact-head checks before merge. Verify Pages and published native runtime after merge. Stop at this warranted narrow repair.
 
 ## Use this ZIP in your repository
 

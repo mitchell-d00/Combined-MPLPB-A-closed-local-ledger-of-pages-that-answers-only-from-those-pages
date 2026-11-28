@@ -21,6 +21,10 @@ retired NOT_RUN stages back to the authoritative results, owners and blockers.
 and completed hosted baseline. [Current Route 01](../evaluation/onboarding/current-route-01/PROTOCOL.md)
 is a separate prospective participant package. ONBOARD-12 and human
 execution retain their original NOT_RUN status.
+[FRUS Response 01](../evaluation/archival-inspection/frus-response-01/RESULTS.md) records the direct documentary
+response repair and stage-specific withdrawals. The original diagnostic and
+77-case baseline remain pinned.
+
 
 
 [Product, project and evidence boundaries](RESPONSIBILITY_BOUNDARIES.md) describe which distributions carry runtime, tools and retained records.
