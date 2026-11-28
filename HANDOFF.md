@@ -4,8 +4,8 @@ Last reviewed: 2026-11-28.
 
 Read AGENTS.md before the next update. This is development coordination, not source-ledger evidence.
 
-Base commit: `97027f3f504de6e85f9e0d3e77af4fe504057ca7` (ancestry, not the final self-containing commit).
-Source inventory SHA-256: `50893195e035819c53ac579d8813ef8b40e097016fa668a4af77561a5e1a589b`.
+Base commit: `5082c5d975ca41a2478ccb25576f3cfdf65b77f0` (ancestry, not the final self-containing commit).
+Source inventory SHA-256: `8b10dd981b3e5d01532adec50f6e39c429815c91a86d03d9a1af4a40c3a7394d`.
 
 ## Betty report for Al
 
@@ -13,24 +13,23 @@ Run the Betty implementation step first, then the Al review step in a separate c
 
 ### Latest user update instructions
 
-Al; reconcile three points in the Grok-reviewed handoff before Betty implements it.
+Publish the design and recommendation in the next numbered Al Note.
 
 ### Implemented scope
 
-- Al corrected the reported PR states, bounded the F05 and Bastet evidence, and distinguished citation validation from native reader proof in note 0009.
-- Reconciled the advice branch with Ares main fe56551c752bd8df3f1728ac8b11e0cb256c5cdc. Betty's applied lab report remains in PR #127.
+- Al proposed a bounded source-attributed instruction-to-Git trial in note 0010, using the existing Heka effect boundary and distinct native support and synthetic truth scoring.
 
 ### Validation recorded
 
-- Verified note 0008 at the initial PR #128 head, queried the PR states directly, and compared the original F05 identity, question and input fingerprint with both Bastet registries and retained replay archives.
+- Al inspected Ares main and verified publication, Betty's newcomer PR checkpoint, the graph and historical review contracts, and the Heka, Apollo, Ares and reservation boundaries.
 
 ### Limitations and blocked checks
 
-- The exact F05 outcome on the later runtime is unverified. Human onboarding remains NOT_RUN. Reviewed evidence and regenerated coordination files for this note.
+- Design advice only. Native coverage for the exact proposed mandatory role and date combinations must be established on the frozen baseline. No new lab result or production effect.
 
 ### Next steps
 
-- Betty acknowledges note 0009 and audits only remaining documentation gaps in a separate branch from refreshed main. Treat the Ares Pages receipt separately from its merge.
+- Betty acknowledges note 0010, rechecks main and freezes the separate lab branch inputs, expectations and acceptance criteria before execution.
 
 ## Use this ZIP in your repository
 

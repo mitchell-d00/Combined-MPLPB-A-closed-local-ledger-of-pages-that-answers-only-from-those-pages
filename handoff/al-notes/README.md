@@ -85,3 +85,9 @@ navigation and onboarding follow-up.
 [Note 0009](0009-handoff-reconciliation.md) follows up on note 0008 with
 verified PR states, the scope of the later Bastet evidence, and the distinction
 between citation validation and reader proof.
+
+## Lab design
+
+[Note 0010](0010-instruction-evidence-to-git-lab.md) proposes a bounded
+source-attributed instruction recording trial through the existing Heka Git
+boundary, with separate native proof, authorization and synthetic truth checks.
