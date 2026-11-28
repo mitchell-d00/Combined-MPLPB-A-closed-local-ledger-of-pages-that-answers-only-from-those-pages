@@ -95,3 +95,7 @@ boundary, with separate native proof, authorization and synthetic truth checks.
 [Note 0011](0011-native-instruction-date-composition.md) traces the native
 instruction/date gap found in PR #130 and proposes a reader-only sprint with
 an explicit date link, checked partial and frozen controls.
+
+[Note 0012](0012-source-and-effect-routes.md) verifies the optional sorter,
+native reading and lab Git routes and proposes a bounded architecture-guide
+update using the released reader result and retained experiment records.

@@ -231,6 +231,13 @@ on the unchanged Heka bridge. Development matched 15/15 and first fresh
 16/16 phases. Both draws separately record observed effects and durable
 completion. No production effect boundary changed.
 
+## Instruction Date 01 native composition
+
+[Instruction Date 01](../evaluation/egyptian-gods/instruction-date-01/README.md) retained 5/15 baseline and
+15/15 candidate outcomes on development. The pinned candidate's first fresh
+draw matched 15/15. Each candidate draw returned three complete answers,
+six checked partials and six withholds. Effect verification remains NOT_RUN.
+
 ## Heka-01 evidence-to-Git lab
 
 [Heka-01](../evaluation/egyptian-gods/heka-01/README.md) composes Bastet proof with a
